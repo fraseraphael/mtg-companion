@@ -281,7 +281,8 @@
   .curve-meta { margin-top: 9px; font-size: 0.8rem; color: var(--muted); }
   /* ---------- FLIP (face-to-face rotation) ---------- */
   .pinner { position: relative; flex: 1; display: flex; flex-direction: column; min-height: 0; }
-  #lc.flip .ptile.flipped .pinner { transform: rotate(180deg); }
+  /* rotate the WHOLE tile (background art included) so the picture matches the text direction */
+  #lc.flip .ptile.flipped { transform: rotate(180deg); }
   /* ---------- OVERLAYS (dice / first player) ---------- */
   .ov { position: fixed; inset: 0; z-index: 230; background: #000b; display: none; align-items: center; justify-content: center; }
   .ov.open { display: flex; }
