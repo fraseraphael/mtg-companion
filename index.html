@@ -117,9 +117,39 @@
   .gsec li.keep::before { content: "\2713  "; color: #5fae6a; font-weight: 700; }
   .gsec li.ship::before { content: "\2717  "; color: #d6604a; font-weight: 700; }
   .gsec li.tip::before { content: "\2726  "; color: var(--acc); }
-  [data-view="list"] .gallery, [data-view="list"] .guide { display: none; }
-  [data-view="gallery"] .columns, [data-view="gallery"] .guide { display: none; }
-  [data-view="guide"] .columns, [data-view="guide"] .gallery { display: none; }
+  [data-view="list"] .gallery, [data-view="list"] .guide, [data-view="list"] .hand { display: none; }
+  [data-view="gallery"] .columns, [data-view="gallery"] .guide, [data-view="gallery"] .hand { display: none; }
+  [data-view="guide"] .columns, [data-view="guide"] .gallery, [data-view="guide"] .hand { display: none; }
+  [data-view="hand"] .columns, [data-view="hand"] .gallery, [data-view="hand"] .guide { display: none; }
+  /* ---------- MULLIGAN TRAINER ---------- */
+  .hand-controls { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
+  .hand-controls .ctl.primary { color: #101010; background: var(--acc); border-color: var(--acc); font-weight: 600; }
+  .hand-note { color: var(--muted); font-size: 0.85rem; }
+  .hand-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; margin-bottom: 18px; }
+  .hand-grid .gcard img { box-shadow: 0 6px 18px #0009; }
+  .verdict { border-radius: var(--radius); border: 1px solid var(--border); background: var(--panel); padding: 16px 18px; margin-bottom: 20px; }
+  .verdict h3 { font-family: var(--font-display); letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 10px; }
+  .verdict.keep h3 { color: #5fae6a; } .verdict.risky h3 { color: #d9b45c; } .verdict.ship h3 { color: #d6604a; }
+  .verdict li { font-size: 0.9rem; line-height: 1.5; margin: 4px 0 4px 18px; }
+  .hand-empty { text-align: center; color: var(--muted); padding: 60px 20px; font-size: 0.95rem; }
+  /* ---------- RULES OVERLAY ---------- */
+  #rules { position: fixed; inset: 0; z-index: 150; background: var(--ink); display: none; flex-direction: column; }
+  #rules.open { display: flex; }
+  #rules .rbar { display: flex; gap: 10px; align-items: center; padding: 10px 14px; background: var(--panel); border-bottom: 1px solid var(--border); }
+  #rules .rbar input {
+    flex: 1; background: var(--panel2); border: 1px solid var(--border); border-radius: 999px;
+    color: var(--text); font-family: var(--font-body); font-size: 0.9rem; padding: 8px 16px; outline: none;
+  }
+  #rules .rbody { flex: 1; overflow-y: auto; padding: 18px; max-width: 1000px; margin: 0 auto; width: 100%; }
+  .rsec { margin-bottom: 22px; background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; }
+  .rsec h3 { font-family: var(--font-display); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--acc); margin-bottom: 10px; }
+  .phase-row { display: flex; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+  .phase-row:last-child { border-bottom: none; }
+  .phase-row .pn { min-width: 130px; font-weight: 600; color: var(--acc); }
+  .gterm { padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; line-height: 1.5; }
+  .gterm:last-child { border-bottom: none; }
+  .gterm b { color: var(--acc); }
+  .gterm.hidden { display: none; }
   /* ---------- PREVIEW ---------- */
   #preview { position: fixed; z-index: 90; pointer-events: none; display: none; width: 300px; filter: drop-shadow(0 16px 44px #000c); }
   #preview img { width: 100%; border-radius: 4.5%/3.5%; display: block; }
@@ -279,6 +309,8 @@
     <button class="ctl view-btn" data-v="list">&#9776; List</button>
     <button class="ctl view-btn" data-v="gallery">&#9638; Gallery</button>
     <button class="ctl view-btn" data-v="guide">&#128214; Guide</button>
+    <button class="ctl view-btn" data-v="hand">&#127924; Practice</button>
+    <button class="ctl" id="rulesOpen">&#128220; Rules</button>
     <button class="ctl life" id="lcOpen">&#10084; Life Counter</button>
   </div>
 </div>
@@ -292,7 +324,15 @@
   <div class="columns" id="listView"></div>
   <div class="gallery" id="galView"></div>
   <div class="guide guide-cols" id="guideView"></div>
+  <div class="hand" id="handView"></div>
 </main>
+<div id="rules">
+  <div class="rbar">
+    <input id="rulesSearch" type="search" placeholder="&#128269; Search a rule or keyword&hellip;" autocomplete="off">
+    <button class="lc-btn" id="rulesClose">&#10005;</button>
+  </div>
+  <div class="rbody" id="rulesBody"></div>
+</div>
 <div id="backdrop"></div>
 <div id="preview"><img alt=""></div>
 <!-- LIFE COUNTER -->
@@ -433,6 +473,8 @@ function select(i) {
       <h3 style="margin-top:12px">Ship It Back If</h3><ul>${g.ship.map(k => `<li class="ship">${k}</li>`).join('')}</ul></div>
     <div class="gsec"><h3>Protect / Threats</h3><p>${g.protect}</p></div>
     <div class="gsec"><h3>Table Tips</h3><ul>${g.tips.map(t => `<li class="tip">${t}</li>`).join('')}</ul></div>`;
+  if (typeof curDeck !== 'undefined' && curDeck !== i) { curDeck = i; curHand = []; mullCount = 0; renderHand(null); }
+  else if (typeof curDeck !== 'undefined') { curDeck = i; renderHand(null); }
   localStorage.setItem('mtg-deck', i);
 }
 
@@ -652,6 +694,162 @@ document.getElementById('lcReset').onclick = () => {
   LCS.players.forEach(p => { p.life = 40; p.cmd = {}; });
   renderLC();
 };
+
+/* ================= MULLIGAN TRAINER ================= */
+const handView = document.getElementById('handView');
+const RAMP = new Set(['Sol Ring','Arcane Signet','Simic Signet','Gruul Signet','Fellwar Stone','Mind Stone','Thought Vessel',
+  'Talisman of Impulse','Talisman of Creativity','Birds of Paradise','Gilded Goose','Lotus Cobra','Llanowar Loamspeaker',
+  'Sakura-Tribe Elder','Farseek','Rampant Growth','Nature\'s Lore','Cultivate','Kodama\'s Reach','Migration Path',
+  'Skyshroud Claim','Growth Spiral','Explore','Harrow','Prosperous Innkeeper','Gilded Lotus','Explorer\'s Scope',
+  'Sword of the Animist','Commander\'s Sphere','Chromatic Lantern','Pristine Talisman','Burnished Hart','Springbloom Druid',
+  'Dragon\'s Hoard','Dragonlord\'s Servant']);
+let mullCount = 0, curHand = [], curDeck = -1;
+
+function libraryOf(d) {
+  const lib = [];
+  d.sections.forEach(s => {
+    if (s.name.startsWith('Commander')) return; /* commanders start in the command zone */
+    s.cards.forEach(c => { for (let k = 0; k < c.n; k++) lib.push(c.name); });
+  });
+  return lib;
+}
+function landSet(d) {
+  const s = d.sections.find(x => x.name === 'Lands');
+  return new Set(s ? s.cards.map(c => c.name) : []);
+}
+function dealHand(reset) {
+  const d = DECKS[curDeck];
+  if (reset) mullCount = 0; else mullCount++;
+  const lib = libraryOf(d);
+  for (let i = lib.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [lib[i], lib[j]] = [lib[j], lib[i]];
+  }
+  curHand = lib.slice(0, 7).sort((a, b) => manaValue((IMGS[a]||{}).mana||'') - manaValue((IMGS[b]||{}).mana||''));
+  renderHand(null);
+}
+function gradeHand() {
+  const d = DECKS[curDeck];
+  const lands = landSet(d);
+  const nLands = curHand.filter(c => lands.has(c)).length;
+  const rampCards = curHand.filter(c => !lands.has(c) && RAMP.has(c));
+  const early = curHand.filter(c => !lands.has(c) && manaValue((IMGS[c]||{}).mana||'') <= 2);
+  const isLandsDeck = d.name === 'World Shaper';
+  const reasons = [];
+  let verdict = 'keep';
+  const effLands = nLands + rampCards.length * 0.75;
+  if (nLands >= 3 && nLands <= (isLandsDeck ? 5 : 4)) reasons.push(`&#10003; ${nLands} lands is right in the sweet spot${isLandsDeck ? ' (and this deck loves lands)' : ''}.`);
+  else if (nLands === 2 && rampCards.length >= 1) { verdict = 'risky'; reasons.push(`&#9888; Only 2 lands, but ${rampCards.map(c=>c).join(', ')} can bridge the gap &mdash; a defensible keep if the rest is strong.`); }
+  else if (nLands === 2) { verdict = 'ship'; reasons.push('&#10007; 2 lands with no ramp &mdash; you will miss land drops more often than not.'); }
+  else if (nLands <= 1) { verdict = 'ship'; reasons.push(`&#10007; ${nLands} land${nLands===1?'':'s'} &mdash; never keep this, no matter how pretty the spells are.`); }
+  else if (nLands >= 6) { verdict = isLandsDeck && nLands === 6 ? 'risky' : 'ship'; reasons.push(`${isLandsDeck ? '&#9888;' : '&#10007;'} ${nLands} lands leaves almost no action${isLandsDeck ? ' &mdash; though World Shaper can forgive it' : ''}.`); }
+  else if (nLands === 5) { verdict = isLandsDeck ? 'keep' : 'risky'; reasons.push(isLandsDeck ? '&#10003; 5 lands is fine fuel for World Shaper.' : '&#9888; 5 lands is flood-prone &mdash; keep only if the spells are excellent.'); }
+  if (rampCards.length > 0) reasons.push(`&#10003; Ramp: ${rampCards.join(', ')} &mdash; accelerates you toward your commander.`);
+  if (early.length === 0 && verdict !== 'ship') {
+    if (verdict === 'keep') verdict = 'risky';
+    reasons.push('&#9888; Nothing to do before turn 3 &mdash; you may fall behind fast decks.');
+  } else if (early.length >= 2) reasons.push(`&#10003; ${early.length} early plays keep your first turns active.`);
+  if (mullCount > 0) reasons.push(`&#9432; This is mulligan #${mullCount} &mdash; ${mullCount === 1 ? 'your free one (casual rule): no card back.' : `you must put ${mullCount - 1} card${mullCount>2?'s':''} on the bottom after keeping.`} The bar for keeping drops the lower you go.`);
+  reasons.push(`&#9432; Guide rule for ${d.name}: ${GUIDES[d.name] ? GUIDES[d.name].keep[0] : ''}`);
+  renderHand({ verdict, reasons });
+}
+function renderHand(grade) {
+  const d = DECKS[curDeck];
+  if (!curHand.length) {
+    handView.innerHTML = `
+      <div class="hand-controls">
+        <button class="ctl primary" onclick="dealHand(true)">Deal a hand</button>
+        <span class="hand-note">Draws 7 real cards from ${d ? d.name : 'this deck'} (commander stays in the command zone).</span>
+      </div>
+      <div class="hand-empty">&#127924; Practice your keep-or-mulligan instincts.<br>Deal a hand, decide, then let me grade it against your deck's guide.</div>`;
+    return;
+  }
+  const labels = { keep: '&#10003; Keep it', risky: '&#9888; Risky &mdash; judgement call', ship: '&#10007; Ship it back' };
+  handView.innerHTML = `
+    <div class="hand-controls">
+      <button class="ctl primary" onclick="gradeHand()">Grade my hand</button>
+      <button class="ctl" onclick="dealHand(false)">Mulligan &#8635;</button>
+      <button class="ctl" onclick="dealHand(true)">New game</button>
+      <span class="hand-note">${mullCount === 0 ? 'Opening hand' : 'Mulligan #' + mullCount} &bull; decide first, then grade!</span>
+    </div>
+    <div class="hand-grid">${curHand.map(c => {
+      const im = IMGS[c] || {};
+      return `<div class="gcard" data-card="${esc(c)}"><img loading="lazy" src="${im.small||''}" alt="${esc(c)}"></div>`;
+    }).join('')}</div>
+    ${grade ? `<div class="verdict ${grade.verdict}">
+      <h3>${labels[grade.verdict]}</h3>
+      <ul>${grade.reasons.map(r => `<li>${r}</li>`).join('')}</ul>
+    </div>` : ''}`;
+}
+
+/* ================= RULES REFERENCE ================= */
+const PHASES = [
+  ['Untap', 'Untap all your permanents. Nothing can happen here.'],
+  ['Upkeep', '"At the beginning of your upkeep" triggers happen (Gitrog’s land sacrifice!). Players can cast instants.'],
+  ['Draw', 'Draw a card. First player skips this on turn 1 only in 1v1 — in Commander everyone draws.'],
+  ['Main phase 1', 'Play a land (one per turn!), cast creatures/sorceries/anything. Best time to cast before combat: pump effects, haste enablers.'],
+  ['Combat: beginning', 'Last chance for opponents to tap/remove your creatures before attacks. Hakbal’s explore triggers here.'],
+  ['Declare attackers', 'You choose who attacks, and which player (or planeswalker) each attacker hits. "Whenever X attacks" triggers fire now.'],
+  ['Declare blockers', 'Defenders assign blocks. Then ninjutsu can swap in an unblocked attacker.'],
+  ['Combat damage', 'Damage happens simultaneously. First strike creates an extra early damage step.'],
+  ['Main phase 2', 'Second main: cast what you held back, play your land if you saved it. Usually the safest time to develop.'],
+  ['End step', '"At the beginning of your end step" triggers (Gollum drains here). Opponents’ last window to act on your turn.'],
+  ['Cleanup', 'Discard down to 7 (unless Reliquary Tower!), all damage wears off, "until end of turn" effects end.'],
+];
+const GLOSSARY = [
+  ['Attach vs Equip', 'Equip {N} is a cost you pay at sorcery speed to move Equipment onto a creature. "Attach" effects (Cloud, Puresteel Paladin at {0}) do it free. Equipment survives when the creature dies.'],
+  ['Commander damage', '21+ combat damage from ONE commander kills a player, regardless of life total. Tracked per commander, per player.'],
+  ['Commander tax', 'Each re-cast of your commander from the command zone costs {2} more per previous cast. Budget for one death!'],
+  ['Deathtouch', 'Any amount of damage from this source is lethal. A 1/1 deathtouch blocker kills anything.'],
+  ['Destroy vs Exile vs Sacrifice', 'Destroy → graveyard (indestructible stops it). Exile → removed from game (almost nothing stops it). Sacrifice → you choose and it can’t be prevented, even for indestructible creatures.'],
+  ['Dredge', 'From your graveyard: instead of drawing a card, return this card to hand and mill N. (Dakmor Salvage, Dredge 2 — loops with Hearthhull.)'],
+  ['ETB / "enters"', '"When this enters the battlefield" — a trigger that fires when the permanent arrives. Bounce-and-replay it for more value.'],
+  ['Explore', 'Reveal top card: land → hand; nonland → +1/+1 counter and you choose top or graveyard. Deck-sculpting on a body.'],
+  ['First strike / Double strike', 'First strike deals combat damage before normal damage. Double strike deals it in BOTH steps.'],
+  ['Flash', 'You may cast this any time you could cast an instant — including on opponents’ turns.'],
+  ['Flying / Reach', 'Flying is only blockable by flying or reach. Reach can block fliers but gets no evasion itself.'],
+  ['Food token', 'Artifact: "{2}, {T}, Sacrifice: gain 3 life." Sam makes them cheaper; Mirkwood Bats turns them into drains.'],
+  ['Haste', 'Can attack and {T} the turn it arrives. Without it, creatures have "summoning sickness" their first turn.'],
+  ['Hexproof / Ward / Shroud', 'Hexproof: opponents can’t target it (you can). Ward {N}: opponents must pay extra or their spell fizzles. Shroud: NOBODY can target it, including you.'],
+  ['Indestructible', 'Ignores "destroy" and lethal damage. Still dies to sacrifice, exile, -X/-X toughness reduction, and bounce.'],
+  ['Landfall', 'Triggers whenever a land enters under your control — any land, not just your land drop. Extra lands = extra triggers.'],
+  ['Lifelink', 'Damage this deals also gains you that much life. Triggers lifegain payoffs.'],
+  ['London mulligan', 'Redraw 7, then put 1 card on the bottom per mulligan taken (first mull is usually free in casual Commander).'],
+  ['Menace', 'Can’t be blocked except by two or more creatures.'],
+  ['Mill', 'Put cards from the top of a library into the graveyard. An attack for some decks, a resource for others (World Shaper!).'],
+  ['Ninjutsu', 'Return an unblocked attacker to hand → this ninja enters tapped and attacking in its place. Blockers can’t change. (Yuffie.)'],
+  ['Partner', 'Two commanders that share the command zone (Frodo & Sam). Separate taxes, separate commander damage.'],
+  ['Priority & the stack', 'Spells go on the stack and resolve LAST-in FIRST-out. Everyone gets a chance to respond before each resolves.'],
+  ['Protection from X', 'Can’t be blocked, targeted, damaged, or enchanted/equipped by anything with quality X.'],
+  ['Radiation', 'Rad counters (Fallout): at your upkeep, mill 1 per rad counter; lose 1 life per nonland milled, then remove that many rad counters.'],
+  ['Ramp', 'Getting more mana faster than one land per turn — rocks (Sol Ring), dorks (Birds), land-fetch spells (Cultivate).'],
+  ['Sorcery vs Instant speed', 'Sorceries, creatures, artifacts, enchantments, lands, equip: your main phase, empty stack. Instants and flash: any time you have priority.'],
+  ['Station', 'Tap a creature you control (sorcery speed): put charge counters equal to its power on the Spacecraft. Counters persist. (Hearthhull: abilities at 2+, becomes a creature at 8+.)'],
+  ['Summoning sickness', 'Creatures can’t attack or use {T} abilities the turn they arrive (unless haste). They CAN block, station, and use non-tap abilities.'],
+  ['The Ring tempts you', 'Choose a Ring-bearer; each temptation adds a stacking bonus (legendary+skulk, mill on attack, blocker dies, drain on damage). Frodo wants to BE the Ring-bearer.'],
+  ['Trample', 'Excess combat damage past blockers hits the player. Assign lethal to the blocker, rest goes through.'],
+  ['Treasure token', 'Artifact: "{T}, Sacrifice: add one mana of any color." Spend them — hoarding loses value to artifact removal.'],
+  ['Vigilance', 'Attacking doesn’t tap this creature, so it can still block on the way back.'],
+  ['+1/+1 counters', 'Permanent size boosts that stay until the creature leaves. Different from damage (which heals) and "until end of turn" pumps.'],
+];
+const rulesEl = document.getElementById('rules');
+document.getElementById('rulesBody').innerHTML = `
+  <div class="rsec"><h3>Turn Structure</h3>
+    ${PHASES.map(([p, t]) => `<div class="phase-row"><span class="pn">${p}</span><span>${t}</span></div>`).join('')}
+  </div>
+  <div class="rsec"><h3>Commander Quick Facts</h3>
+    <div class="gterm">40 starting life &bull; 21 commander damage from one commander kills &bull; 100-card singleton (max 1 copy of everything except basic lands) &bull; free first mulligan (casual rule) &bull; commander returns to the command zone if it would die or be exiled (your choice, tax applies).</div>
+  </div>
+  <div class="rsec"><h3>Glossary</h3>
+    ${GLOSSARY.map(([t, d]) => `<div class="gterm" data-term="${esc((t + ' ' + d).toLowerCase())}"><b>${t}</b> &mdash; ${d}</div>`).join('')}
+  </div>`;
+document.getElementById('rulesOpen').onclick = () => { rulesEl.classList.add('open'); document.getElementById('rulesSearch').focus(); };
+document.getElementById('rulesClose').onclick = () => rulesEl.classList.remove('open');
+document.getElementById('rulesSearch').addEventListener('input', e => {
+  const q = e.target.value.trim().toLowerCase();
+  document.querySelectorAll('.gterm[data-term]').forEach(el =>
+    el.classList.toggle('hidden', q.length > 0 && !el.dataset.term.includes(q)));
+});
 
 /* ================= SEARCH ================= */
 const searchInput = document.getElementById('search');
