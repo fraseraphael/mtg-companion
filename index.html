@@ -1011,9 +1011,11 @@ function gfCardHtml(entry, zone, idx) {
       <div class="tokface">${name}</div>
       <button class="gfmenu" data-gfm="${zone}:${idx}">&#8943;</button></div>`;
   }
+  /* hand cards get the full-resolution image — they scale up 2x when peeked */
+  const src = zone === 'hand' ? (im.normal || im.small || '') : (im.small || '');
   return `<div class="gfcard ${isObj && entry.tap ? 'tapped' : ''}" data-gfz="${zone}" data-gfi="${idx}" data-card="${esc(name)}">
     ${isObj && entry.c ? `<span class="gfc">+${entry.c}</span>` : ''}
-    <img loading="lazy" src="${im.small || ''}" alt="${esc(name)}">
+    <img loading="lazy" src="${src}" alt="${esc(name)}">
     <button class="gfmenu" data-gfm="${zone}:${idx}">&#8943;</button></div>`;
 }
 function gfRender() {
