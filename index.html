@@ -192,7 +192,7 @@
   .gf-handwrap { border-top: 1px solid var(--border); background: color-mix(in srgb, var(--panel) 70%, var(--ink)); }
   .gf-handlabel { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--muted); padding: 5px 10px 0; font-family: var(--font-display); }
   /* hand as a held fan of cards */
-  .gf-hand { position: relative; height: clamp(170px, 24vh, 250px); padding: 4px 10px; overflow: visible; }
+  .gf-hand { position: relative; height: clamp(170px, 24vh, 250px); padding: 4px 10px; overflow: visible; touch-action: none; }
   .gf-hand .gfcard {
     position: absolute; bottom: 8px; left: 50%; width: clamp(100px, 11vw, 165px); cursor: pointer;
     transform-origin: 50% 100%;
@@ -396,8 +396,9 @@
     #lcgrid[data-n="3"], #lcgrid[data-n="4"] { grid-template: 1fr 1fr / 1fr 1fr; }
     #lcgrid[data-n="3"] .ptile:nth-child(3) { grid-column: 1 / -1; }
     .gfcard { width: 88px; }
-    .gf-hand { height: 150px; }
+    .gf-hand { height: 175px; }
     .gf-hand .gfcard { width: 86px; }
+    .gf-hand .gfcard.peek { transform: translateX(var(--tx, 0px)) translateY(-64%) rotate(0deg) scale(2.1); }
     .gf-bar .lc-btn { padding: 6px 10px; font-size: 0.78rem; }
     .gf-chip { padding: 4px 12px; font-size: 0.75rem; }
     .lc-bar { padding: 6px 8px; }
@@ -1078,10 +1079,33 @@ function gfPeekAt(clientX) {
   });
   cards.forEach(el => el.classList.toggle('peek', el === best));
 }
-if (matchMedia('(hover: hover)').matches) {
-  gfHandEl.addEventListener('pointermove', e => gfPeekAt(e.clientX));
-  gfHandEl.addEventListener('pointerleave', () => gfHandEl.querySelectorAll('.peek').forEach(el => el.classList.remove('peek')));
-}
+function gfClearPeek() { gfHandEl.querySelectorAll('.peek').forEach(el => el.classList.remove('peek')); }
+/* Desktop: hover sweeps. Touch: drag a finger across the fan to browse (cards rise
+   under the fingertip); a quick tap opens the action wheel; releasing after a sweep
+   leaves the card raised so it can be read, then tapped. */
+let fanDrag = false, fanStartX = 0, fanMoved = 0, fanSuppressClick = false;
+gfHandEl.addEventListener('pointermove', e => { if (e.pointerType === 'mouse') gfPeekAt(e.clientX); });
+gfHandEl.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') gfClearPeek(); });
+gfHandEl.addEventListener('pointerdown', e => {
+  if (e.pointerType === 'mouse' || !e.target.closest('.gfcard')) return;
+  fanDrag = true; fanStartX = e.clientX; fanMoved = 0;
+  try { gfHandEl.setPointerCapture(e.pointerId); } catch (_) {}
+  gfPeekAt(e.clientX);
+});
+gfHandEl.addEventListener('pointermove', e => {
+  if (e.pointerType === 'mouse' || !fanDrag) return;
+  fanMoved = Math.max(fanMoved, Math.abs(e.clientX - fanStartX));
+  gfPeekAt(e.clientX);
+});
+['pointerup', 'pointercancel'].forEach(ev => gfHandEl.addEventListener(ev, e => {
+  if (e.pointerType === 'mouse' || !fanDrag) return;
+  fanDrag = false;
+  if (fanMoved > 12) {
+    /* it was a sweep, not a tap: keep the card raised, swallow the tap-click */
+    fanSuppressClick = true;
+    setTimeout(() => { fanSuppressClick = false; }, 400);
+  }
+}));
 function gfSheetOpen(title, opts) {
   document.getElementById('gfsheetTitle').textContent = title;
   document.getElementById('gfsheetBtns').innerHTML = opts.map((o, i) => `<button class="lc-btn" data-gfact="${i}">${o[0]}</button>`).join('');
@@ -1191,6 +1215,7 @@ gfEl.addEventListener('click', e => {
   const card = e.target.closest('[data-gfz]');
   if (card) {
     const z = card.dataset.gfz, i = +card.dataset.gfi;
+    if (z === 'hand' && fanSuppressClick) return; /* end of a sweep, not a tap */
     if (z === 'bf') { const en = GF.bf[i]; en.tap = !en.tap; gfRender(); }
     else gfMenu(z, i);
   }
