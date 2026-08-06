@@ -152,6 +152,22 @@
   #importov .ilabel { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-top: 12px; font-family: var(--font-display); }
   #importStatus { font-size: 0.85rem; color: var(--muted); margin-top: 10px; min-height: 1.2em; }
   #importStatus.err { color: #d6604a; }
+  .ihelp { margin-top: 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--panel2); }
+  .ihelp summary {
+    cursor: pointer; padding: 9px 13px; font-size: 0.82rem; color: var(--acc);
+    font-family: var(--font-display); letter-spacing: 0.06em; list-style: none;
+  }
+  .ihelp summary::before { content: "\25B8  "; }
+  .ihelp[open] summary::before { content: "\25BE  "; }
+  .ihelp .ibody { padding: 2px 14px 12px; font-size: 0.85rem; line-height: 1.55; color: var(--text); }
+  .ihelp ol { margin: 6px 0 10px 18px; }
+  .ihelp li { margin: 5px 0; }
+  .ihelp b { color: var(--acc); }
+  .ihelp .iex {
+    background: var(--ink); border: 1px solid var(--border); border-radius: 8px;
+    font-family: monospace; font-size: 0.75rem; padding: 8px 12px; color: var(--muted); white-space: pre; overflow-x: auto;
+  }
+  .ihelp .inote { color: var(--muted); font-size: 0.78rem; margin-top: 8px; }
   /* ---------- GOLDFISH TABLE ---------- */
   #gf { position: fixed; inset: 0; z-index: 180; background: var(--ink); display: none; flex-direction: column; }
   #gf.open { display: flex; }
@@ -511,6 +527,29 @@
 <div class="ov" id="importov"><div class="ovpanel">
   <h4>Import a Deck</h4>
   <div id="importStep1">
+    <details class="ihelp">
+      <summary>How do I get my decklist as text?</summary>
+      <div class="ibody">
+        <b>From Moxfield</b> (phone or PC):
+        <ol>
+          <li>Open your deck and tap the <b>&#8943; More</b> button</li>
+          <li>Choose <b>Export</b></li>
+          <li>Pick the <b>Text</b> (or "MTG Arena") format and hit <b>Copy</b></li>
+          <li>Come back here and <b>paste</b> it in the box below</li>
+        </ol>
+        The text just looks like a shopping list &mdash; a number and a card name per line:
+        <div class="iex">Commander
+1 Atraxa, Praetors' Voice
+
+Deck
+1 Sol Ring
+1 Cultivate
+10 Forest</div>
+        <div class="inote">Archidekt, TappedOut and most other deck sites have the same Export &rarr; Text option, and their formats work here too.
+        Extra stuff like set codes "(C21) 263" is fine &mdash; I'll clean it up. Sideboards are ignored automatically.
+        If there's no "Commander" line, I'll ask you to pick the commander after reading the list.</div>
+      </div>
+    </details>
     <div class="ilabel">Deck name</div>
     <input type="text" id="importName" placeholder="e.g. Atraxa Superfriends" maxlength="40">
     <div class="ilabel">Decklist (paste Moxfield &rarr; Export &rarr; copy)</div>
