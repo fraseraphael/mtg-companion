@@ -199,7 +199,7 @@
     transform: translateX(var(--tx, 0px)) translateY(var(--ty, 0px)) rotate(var(--rot, 0deg));
     transition: transform 0.18s ease;
   }
-  .gf-hand .gfcard:hover {
+  .gf-hand .gfcard.peek {
     transform: translateX(var(--tx, 0px)) translateY(-92px) rotate(0deg) scale(2);
     z-index: 80 !important;
   }
@@ -1052,9 +1052,30 @@ function gfLayoutFan() {
     el.style.setProperty('--rot', (o * Math.min(5, 44 / n)) + 'deg');
     el.style.setProperty('--ty', (Math.pow(Math.abs(o), 1.6) * 2.4) + 'px');
     el.style.zIndex = i + 1;
+    el.dataset.fanx = o * spread; /* horizontal center offset, used for stable peek */
   });
 }
 window.addEventListener('resize', () => { if (gfEl.classList.contains('open')) gfLayoutFan(); });
+
+/* Peek is driven by cursor X over the fan strip, NOT per-card hover —
+   the popped card moving under the cursor can no longer cancel its own hover. */
+const gfHandEl = document.getElementById('gfHand');
+function gfPeekAt(clientX) {
+  const cards = [...gfHandEl.querySelectorAll('.gfcard')];
+  if (!cards.length) return;
+  const rect = gfHandEl.getBoundingClientRect();
+  const mid = rect.left + rect.width / 2;
+  let best = null, bestDist = Infinity;
+  cards.forEach(el => {
+    const d = Math.abs(clientX - (mid + (+el.dataset.fanx || 0)));
+    if (d < bestDist) { bestDist = d; best = el; }
+  });
+  cards.forEach(el => el.classList.toggle('peek', el === best));
+}
+if (matchMedia('(hover: hover)').matches) {
+  gfHandEl.addEventListener('pointermove', e => gfPeekAt(e.clientX));
+  gfHandEl.addEventListener('pointerleave', () => gfHandEl.querySelectorAll('.peek').forEach(el => el.classList.remove('peek')));
+}
 function gfSheetOpen(title, opts) {
   document.getElementById('gfsheetTitle').textContent = title;
   document.getElementById('gfsheetBtns').innerHTML = opts.map((o, i) => `<button class="lc-btn" data-gfact="${i}">${o[0]}</button>`).join('');
