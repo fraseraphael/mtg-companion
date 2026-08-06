@@ -152,6 +152,62 @@
   #importov .ilabel { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); margin-top: 12px; font-family: var(--font-display); }
   #importStatus { font-size: 0.85rem; color: var(--muted); margin-top: 10px; min-height: 1.2em; }
   #importStatus.err { color: #d6604a; }
+  /* ---------- GOLDFISH TABLE ---------- */
+  #gf { position: fixed; inset: 0; z-index: 180; background: var(--ink); display: none; flex-direction: column; }
+  #gf.open { display: flex; }
+  .gf-bar {
+    display: flex; align-items: center; gap: 6px; padding: 6px 8px; flex-wrap: wrap;
+    background: var(--panel); border-bottom: 1px solid var(--border);
+  }
+  .gf-bar .lc-btn { padding: 6px 10px; font-size: 0.78rem; }
+  .gf-bar .gf-turn { font-family: var(--font-display); color: var(--acc); font-size: 0.8rem; white-space: nowrap; }
+  .gf-bar .gf-life { font-family: var(--font-display); color: var(--text); font-size: 0.85rem; white-space: nowrap; }
+  .gf-zonebar {
+    display: flex; gap: 6px; padding: 6px 8px; align-items: center; flex-wrap: wrap;
+    background: color-mix(in srgb, var(--panel) 60%, var(--ink)); border-bottom: 1px solid var(--border);
+  }
+  .gf-chip {
+    background: var(--panel2); border: 1px solid var(--border); border-radius: 999px; color: var(--muted);
+    padding: 4px 12px; font-size: 0.75rem; cursor: pointer; font-family: var(--font-body);
+  }
+  .gf-chip.on { color: var(--acc); border-color: var(--acc); }
+  .gf-field { flex: 1; overflow-y: auto; padding: 10px; display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start; }
+  .gf-empty { width: 100%; text-align: center; color: var(--muted); padding: 40px 16px; font-size: 0.9rem; }
+  .gfcard { position: relative; width: 88px; transition: transform 0.15s; }
+  .gfcard img { width: 100%; border-radius: 4.5%/3.5%; display: block; box-shadow: 0 3px 10px #0008; background: var(--panel2); aspect-ratio: 488/680; }
+  .gfcard.tapped { transform: rotate(90deg) translateY(-10%); margin: 0 14px; }
+  .gfcard .gfmenu {
+    position: absolute; bottom: 4px; right: 4px; width: 24px; height: 24px; border-radius: 50%;
+    border: 1px solid #ffffff45; background: #000000a8; color: #fff; cursor: pointer; font-size: 0.72rem; line-height: 1; z-index: 2;
+  }
+  .gfcard .gfc {
+    position: absolute; top: -6px; left: -6px; background: var(--acc); color: #101010; font-weight: 700;
+    font-size: 0.7rem; border-radius: 999px; padding: 2px 7px; box-shadow: 0 2px 6px #0008; z-index: 2;
+  }
+  .gfcard.token .tokface {
+    width: 100%; aspect-ratio: 488/680; border-radius: 4.5%/3.5%; background: linear-gradient(160deg, var(--panel2), var(--hover));
+    border: 1px dashed var(--border); display: flex; align-items: center; justify-content: center; text-align: center;
+    font-size: 0.72rem; color: var(--text); padding: 6px; word-break: break-word;
+  }
+  .gf-handwrap { border-top: 1px solid var(--border); background: color-mix(in srgb, var(--panel) 70%, var(--ink)); }
+  .gf-handlabel { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--muted); padding: 5px 10px 0; font-family: var(--font-display); }
+  .gf-hand { display: flex; gap: 6px; overflow-x: auto; padding: 6px 10px 10px; -webkit-overflow-scrolling: touch; }
+  .gf-hand .gfcard { flex: 0 0 76px; width: 76px; }
+  /* action sheet */
+  #gfsheet {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 240; background: var(--panel);
+    border-top: 1px solid var(--border); border-radius: 16px 16px 0 0; padding: 12px; display: none;
+    max-height: 60vh; overflow-y: auto; box-shadow: 0 -10px 40px #000c;
+  }
+  #gfsheet.open { display: block; }
+  #gfsheet h4 { font-family: var(--font-display); font-size: 0.8rem; color: var(--acc); margin-bottom: 10px; text-align: center; }
+  #gfsheet .sheetgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; }
+  #gfsheet .lc-btn { width: 100%; padding: 10px 6px; }
+  /* scry rows */
+  .scryrow { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--border); }
+  .scryrow img { width: 44px; border-radius: 4px; }
+  .scryrow .sname { flex: 1; font-size: 0.85rem; }
+  .scryrow .lc-btn { padding: 5px 9px; font-size: 0.7rem; }
   /* ---------- RULES OVERLAY ---------- */
   #rules { position: fixed; inset: 0; z-index: 150; background: var(--ink); display: none; flex-direction: column; }
   #rules.open { display: flex; }
@@ -347,6 +403,25 @@
   <div class="guide guide-cols" id="guideView"></div>
   <div class="hand" id="handView"></div>
 </main>
+<div id="gf">
+  <div class="gf-bar">
+    <button class="lc-btn" id="gfClose" title="Close (game is saved)">&#10005;</button>
+    <span class="gf-turn" id="gfTurn">Turn 1</span>
+    <button class="lc-btn" id="gfNext" title="Untap all, draw 1, next turn">&#9654; Next turn</button>
+    <button class="lc-btn" id="gfDraw" title="Draw a card">&#127924; Draw</button>
+    <button class="lc-btn" id="gfScry" title="Look at top 3">&#128269; Top 3</button>
+    <button class="lc-btn" id="gfToken" title="Create a token">&#10133; Token</button>
+    <span class="gf-life" id="gfLife"></span>
+    <button class="lc-btn" id="gfRestart" title="New game">&#8635;</button>
+  </div>
+  <div class="gf-zonebar" id="gfZones"></div>
+  <div class="gf-field" id="gfField"></div>
+  <div class="gf-handwrap">
+    <div class="gf-handlabel" id="gfHandLabel">Hand</div>
+    <div class="gf-hand" id="gfHand"></div>
+  </div>
+</div>
+<div id="gfsheet"><h4 id="gfsheetTitle"></h4><div class="sheetgrid" id="gfsheetBtns"></div></div>
 <div id="rules">
   <div class="rbar">
     <input id="rulesSearch" type="search" placeholder="&#128269; Search a rule or keyword&hellip;" autocomplete="off">
@@ -833,6 +908,7 @@ function renderHand(grade) {
     handView.innerHTML = `
       <div class="hand-controls">
         <button class="ctl primary" onclick="dealHand(true)">Deal a hand</button>
+        <button class="ctl" onclick="openGF()">&#128031; Goldfish table</button>
         <span class="hand-note">Draws 7 real cards from ${d ? d.name : 'this deck'} (commander stays in the command zone).</span>
       </div>
       <div class="hand-empty">&#127924; Practice your keep-or-mulligan instincts.<br>Deal a hand, decide, then let me grade it against your deck's guide.</div>`;
@@ -844,6 +920,7 @@ function renderHand(grade) {
       <button class="ctl primary" onclick="gradeHand()">Grade my hand</button>
       <button class="ctl" onclick="dealHand(false)">Mulligan &#8635;</button>
       <button class="ctl" onclick="dealHand(true)">New game</button>
+      <button class="ctl" onclick="openGF()">&#128031; Play it out</button>
       <span class="hand-note">${mullCount === 0 ? 'Opening hand' : 'Mulligan #' + mullCount} &bull; decide first, then grade!</span>
     </div>
     <div class="hand-grid">${curHand.map(c => {
@@ -855,6 +932,214 @@ function renderHand(grade) {
       <ul>${grade.reasons.map(r => `<li>${r}</li>`).join('')}</ul>
     </div>` : ''}`;
 }
+
+/* ================= GOLDFISH TABLE ================= */
+const gfEl = document.getElementById('gf');
+const gfSheet = document.getElementById('gfsheet');
+let GF = null, gfUid = 1, gfView = 'bf';
+
+function gfTypeOf(name, d) {
+  for (const s of d.sections) if (s.cards.some(c => c.name === name)) return s.name;
+  return 'Other';
+}
+function gfIsSpell(name, d) {
+  const t = gfTypeOf(name, d);
+  return t === 'Instants' || t === 'Sorceries';
+}
+function gfSave() { if (GF) localStorage.setItem('mtg-gf', JSON.stringify(GF)); }
+
+function gfNew(deckIdx) {
+  const d = DECKS[deckIdx];
+  const lib = libraryOf(d);
+  for (let i = lib.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [lib[i], lib[j]] = [lib[j], lib[i]]; }
+  const cz = [];
+  d.sections.forEach(s => { if (s.name.startsWith('Commander')) s.cards.forEach(c => cz.push(c.name)); });
+  GF = { deck: deckIdx, deckName: d.name, lib, hand: lib.splice(0, 7), bf: [], gy: [], ex: [], cz, turn: 1, life: 40 };
+  gfView = 'bf';
+  gfRender();
+}
+function openGF() {
+  const saved = JSON.parse(localStorage.getItem('mtg-gf') || 'null');
+  if (saved && saved.deck === (typeof curDeck === 'number' ? curDeck : 0) && saved.deckName === DECKS[saved.deck]?.name) {
+    GF = saved; gfRender();
+  } else gfNew(typeof curDeck === 'number' && curDeck >= 0 ? curDeck : 0);
+  gfEl.classList.add('open');
+}
+function gfCardHtml(entry, zone, idx) {
+  const isObj = typeof entry === 'object';
+  const name = isObj ? entry.name : entry;
+  const im = IMGS[name] || {};
+  if (isObj && entry.tok) {
+    return `<div class="gfcard token ${entry.tap ? 'tapped' : ''}" data-gfz="${zone}" data-gfi="${idx}">
+      ${entry.c ? `<span class="gfc">+${entry.c}</span>` : ''}
+      <div class="tokface">${name}</div>
+      <button class="gfmenu" data-gfm="${zone}:${idx}">&#8943;</button></div>`;
+  }
+  return `<div class="gfcard ${isObj && entry.tap ? 'tapped' : ''}" data-gfz="${zone}" data-gfi="${idx}" data-card="${esc(name)}">
+    ${isObj && entry.c ? `<span class="gfc">+${entry.c}</span>` : ''}
+    <img loading="lazy" src="${im.small || ''}" alt="${esc(name)}">
+    <button class="gfmenu" data-gfm="${zone}:${idx}">&#8943;</button></div>`;
+}
+function gfRender() {
+  if (!GF) return;
+  document.getElementById('gfTurn').textContent = 'Turn ' + GF.turn;
+  document.getElementById('gfLife').innerHTML =
+    `<button class="lc-btn" data-gflife="-1" style="padding:4px 9px">&minus;</button> &#10084; ${GF.life} <button class="lc-btn" data-gflife="1" style="padding:4px 9px">+</button>`;
+  const zones = [
+    ['bf', `Battlefield ${GF.bf.length}`], ['cz', `Command ${GF.cz.length}`],
+    ['gy', `Graveyard ${GF.gy.length}`], ['ex', `Exile ${GF.ex.length}`], ['lib', `Library ${GF.lib.length}`],
+  ];
+  document.getElementById('gfZones').innerHTML = zones.map(([z, l]) =>
+    `<button class="gf-chip ${gfView === z ? 'on' : ''}" data-gfview="${z}">${l}</button>`).join('');
+  const field = document.getElementById('gfField');
+  if (gfView === 'bf') {
+    field.innerHTML = GF.bf.length ? GF.bf.map((e, i) => gfCardHtml(e, 'bf', i)).join('')
+      : '<div class="gf-empty">Battlefield is empty.<br>Tap a card in hand to play it &bull; tap battlefield cards to tap/untap &bull; &#8943; for more.</div>';
+  } else if (gfView === 'lib') {
+    field.innerHTML = `<div class="gf-empty">${GF.lib.length} cards in library (hidden &mdash; that's the point!).<br>Use Draw or &#128269; Top 3.</div>`;
+  } else {
+    const arr = GF[gfView];
+    field.innerHTML = arr.length ? arr.map((e, i) => gfCardHtml(e, gfView, i)).join('')
+      : `<div class="gf-empty">Nothing in ${gfView === 'cz' ? 'the command zone' : gfView === 'gy' ? 'the graveyard' : 'exile'}.</div>`;
+  }
+  document.getElementById('gfHandLabel').textContent = `Hand (${GF.hand.length})`;
+  document.getElementById('gfHand').innerHTML = GF.hand.map((e, i) => gfCardHtml(e, 'hand', i)).join('') ||
+    '<div class="gf-empty" style="padding:10px">Hand is empty.</div>';
+  gfSave();
+}
+function gfSheetOpen(title, opts) {
+  document.getElementById('gfsheetTitle').textContent = title;
+  document.getElementById('gfsheetBtns').innerHTML = opts.map((o, i) => `<button class="lc-btn" data-gfact="${i}">${o[0]}</button>`).join('');
+  gfSheet.dataset.live = '1';
+  gfSheet.classList.add('open');
+  gfSheet._opts = opts;
+}
+function gfSheetClose() { gfSheet.classList.remove('open'); gfSheet._opts = null; }
+
+gfSheet.addEventListener('click', e => {
+  const b = e.target.closest('[data-gfact]');
+  if (!b || !gfSheet._opts) return;
+  const fn = gfSheet._opts[+b.dataset.gfact][1];
+  if (fn === 'close') { gfSheetClose(); return; }
+  fn(); gfSheetClose(); gfRender();
+});
+
+function gfMoveTo(zone, idx, dest) {
+  const src = GF[zone];
+  const entry = src.splice(idx, 1)[0];
+  const name = typeof entry === 'object' ? entry.name : entry;
+  if (typeof entry === 'object' && entry.tok) return; /* tokens cease to exist outside the battlefield */
+  if (dest === 'bf') GF.bf.push({ id: gfUid++, name, tap: false, c: 0 });
+  else if (dest === 'libtop') GF.lib.unshift(name);
+  else if (dest === 'libbottom') GF.lib.push(name);
+  else GF[dest].push(name);
+}
+function gfMenu(zone, idx) {
+  const arr = GF[zone];
+  const entry = arr[idx];
+  const name = typeof entry === 'object' ? entry.name : entry;
+  const opts = [];
+  if (zone === 'bf') {
+    opts.push([entry.tap ? 'Untap' : 'Tap', () => { entry.tap = !entry.tap; }]);
+    opts.push(['+1 counter', () => { entry.c = (entry.c || 0) + 1; }]);
+    if (entry.c > 0) opts.push(['&minus;1 counter', () => { entry.c--; }]);
+    if (!entry.tok) {
+      opts.push(['To graveyard', () => gfMoveTo('bf', idx, 'gy')]);
+      opts.push(['To hand', () => gfMoveTo('bf', idx, 'hand')]);
+      opts.push(['To exile', () => gfMoveTo('bf', idx, 'ex')]);
+      opts.push(['Top of library', () => gfMoveTo('bf', idx, 'libtop')]);
+      opts.push(['Bottom of library', () => gfMoveTo('bf', idx, 'libbottom')]);
+      if (GF.cz !== undefined && gfTypeOf(name, DECKS[GF.deck]).startsWith('Commander'))
+        opts.push(['To command zone', () => gfMoveTo('bf', idx, 'cz')]);
+      opts.push(['Copy (token)', () => { GF.bf.push({ id: gfUid++, name, tap: false, c: 0, tok: false, copy: true }); }]);
+    } else {
+      opts.push(['Remove token', () => { GF.bf.splice(idx, 1); }]);
+    }
+  } else if (zone === 'hand') {
+    const spell = gfIsSpell(name, DECKS[GF.deck]);
+    opts.push([spell ? 'Cast (resolves &rarr; graveyard)' : 'Play', () => gfMoveTo('hand', idx, spell ? 'gy' : 'bf')]);
+    if (spell) opts.push(['Play as permanent', () => gfMoveTo('hand', idx, 'bf')]);
+    opts.push(['Discard', () => gfMoveTo('hand', idx, 'gy')]);
+    opts.push(['Exile', () => gfMoveTo('hand', idx, 'ex')]);
+    opts.push(['Top of library', () => gfMoveTo('hand', idx, 'libtop')]);
+    opts.push(['Bottom of library', () => gfMoveTo('hand', idx, 'libbottom')]);
+  } else if (zone === 'cz') {
+    opts.push(['Cast commander', () => { GF.cz.splice(idx, 1); GF.bf.push({ id: gfUid++, name, tap: false, c: 0 }); }]);
+  } else { /* gy, ex */
+    opts.push(['To hand', () => gfMoveTo(zone, idx, 'hand')]);
+    opts.push(['To battlefield', () => gfMoveTo(zone, idx, 'bf')]);
+    opts.push(['Top of library', () => gfMoveTo(zone, idx, 'libtop')]);
+    opts.push(['Bottom of library', () => gfMoveTo(zone, idx, 'libbottom')]);
+    if (zone === 'gy') opts.push(['Exile', () => gfMoveTo('gy', idx, 'ex')]);
+  }
+  opts.push(['Cancel', 'close']);
+  gfSheetOpen(name, opts);
+}
+
+gfEl.addEventListener('click', e => {
+  const life = e.target.closest('[data-gflife]');
+  if (life) { GF.life += +life.dataset.gflife; gfRender(); return; }
+  const v = e.target.closest('[data-gfview]');
+  if (v) { gfView = v.dataset.gfview; gfRender(); return; }
+  const m = e.target.closest('[data-gfm]');
+  if (m) { const [z, i] = m.dataset.gfm.split(':'); gfMenu(z, +i); return; }
+  const card = e.target.closest('[data-gfz]');
+  if (card) {
+    const z = card.dataset.gfz, i = +card.dataset.gfi;
+    if (z === 'bf') { const en = GF.bf[i]; en.tap = !en.tap; gfRender(); }
+    else gfMenu(z, i);
+  }
+});
+document.getElementById('gfClose').onclick = () => { gfSave(); gfEl.classList.remove('open'); };
+document.getElementById('gfDraw').onclick = () => { if (GF.lib.length) GF.hand.push(GF.lib.shift()); gfRender(); };
+document.getElementById('gfNext').onclick = () => {
+  GF.turn++; GF.bf.forEach(en => en.tap = false);
+  if (GF.lib.length) GF.hand.push(GF.lib.shift());
+  gfRender();
+};
+document.getElementById('gfRestart').onclick = () => { if (confirm('Start a fresh game with ' + GF.deckName + '?')) gfNew(GF.deck); };
+document.getElementById('gfToken').onclick = () => {
+  const t = prompt('Token (e.g. "Treasure", "5/5 Dragon", "Food"):');
+  if (t) { GF.bf.push({ id: gfUid++, name: t.slice(0, 30), tap: false, c: 0, tok: true }); gfRender(); }
+};
+document.getElementById('gfScry').onclick = () => {
+  const top = GF.lib.slice(0, 3);
+  if (!top.length) { alert('Library is empty!'); return; }
+  document.getElementById('gfsheetTitle').textContent = 'Top of library (1 = topmost)';
+  document.getElementById('gfsheetBtns').innerHTML = top.map((n, i) => {
+    const im = IMGS[n] || {};
+    return `<div class="scryrow" style="grid-column:1/-1">
+      <b>${i + 1}</b><img src="${im.small || ''}" alt=""><span class="sname">${n}</span>
+      <button class="lc-btn" data-scry="${i}:draw">Draw</button>
+      <button class="lc-btn" data-scry="${i}:bottom">Bottom</button>
+      <button class="lc-btn" data-scry="${i}:gy">Yard</button>
+    </div>`;
+  }).join('') + `<button class="lc-btn" data-scry="done" style="grid-column:1/-1">Done (rest stays on top)</button>`;
+  gfSheet._opts = null;
+  gfSheet.classList.add('open');
+  const handler = (e) => {
+    const b = e.target.closest('[data-scry]');
+    if (!b) return;
+    e.stopPropagation();
+    if (b.dataset.scry === 'done') { gfSheet.classList.remove('open'); gfSheet.removeEventListener('click', handler); gfRender(); return; }
+    const [iStr, act] = b.dataset.scry.split(':');
+    const name = top[+iStr];
+    const li = GF.lib.indexOf(name);
+    if (li > -1) {
+      GF.lib.splice(li, 1);
+      if (act === 'draw') GF.hand.push(name);
+      else if (act === 'bottom') GF.lib.push(name);
+      else GF.gy.push(name);
+    }
+    b.closest('.scryrow').style.opacity = 0.3;
+    b.closest('.scryrow').querySelectorAll('button').forEach(x => x.disabled = true);
+  };
+  gfSheet.addEventListener('click', handler);
+};
+document.addEventListener('pointerdown', e => {
+  if (gfSheet.classList.contains('open') && !e.target.closest('#gfsheet') && !e.target.closest('[data-gfm]') && !e.target.closest('#gfScry'))
+    gfSheetClose();
+});
 
 /* ================= RULES REFERENCE ================= */
 const PHASES = [
