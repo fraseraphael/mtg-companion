@@ -1010,11 +1010,12 @@ function gfNew(deckIdx) {
   gfRender();
 }
 function openGF() {
+  gfEl.classList.add('open'); /* open FIRST so the fan can measure its real width */
   const saved = JSON.parse(localStorage.getItem('mtg-gf') || 'null');
   if (saved && saved.deck === (typeof curDeck === 'number' ? curDeck : 0) && saved.deckName === DECKS[saved.deck]?.name) {
     GF = saved; gfRender();
   } else gfNew(typeof curDeck === 'number' && curDeck >= 0 ? curDeck : 0);
-  gfEl.classList.add('open');
+  requestAnimationFrame(gfLayoutFan); /* belt and suspenders once layout settles */
 }
 function gfCardHtml(entry, zone, idx) {
   const isObj = typeof entry === 'object';
@@ -1066,10 +1067,14 @@ function gfLayoutFan() {
   const cards = [...wrap.querySelectorAll('.gfcard')];
   const n = cards.length;
   if (!n) return;
-  const W = wrap.clientWidth || 600;
+  const W = wrap.clientWidth || innerWidth || 600;
   const cw = cards[0].offsetWidth || 110;
-  const spread = Math.min(cw * 0.82, (W - cw - 30) / Math.max(n - 1, 1));
+  const ch = cards[0].offsetHeight || cw * 1.4;
   const mid = (n - 1) / 2;
+  /* outer cards are rotated — their swung top corners need extra edge room */
+  const rotF = Math.min(5, 44 / n);
+  const swing = Math.sin(mid * rotF * Math.PI / 180) * ch;
+  const spread = Math.min(cw * 0.82, (W - cw - 16 - 2 * swing) / Math.max(n - 1, 1));
   cards.forEach((el, i) => {
     const o = i - mid;
     el.style.setProperty('--tx', (o * spread - cw / 2) + 'px');
