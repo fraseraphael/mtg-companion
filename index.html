@@ -208,7 +208,7 @@
   /* radial action menu */
   #gfradial { position: fixed; inset: 0; z-index: 245; background: #000000d9; display: none; align-items: center; justify-content: center; }
   #gfradial.open { display: flex; }
-  .radialwrap { position: relative; width: min(94vw, 470px); height: min(94vw, 470px); animation: radspin 0.28s ease-out; }
+  .radialwrap { position: relative; width: min(94vw, 92vh, 470px); height: min(94vw, 92vh, 470px); animation: radspin 0.28s ease-out; }
   @keyframes radspin { from { transform: rotate(-28deg) scale(0.72); opacity: 0; } to { transform: rotate(0deg) scale(1); opacity: 1; } }
   .radialwrap .rcenter {
     position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 45%;
@@ -237,6 +237,21 @@
   .scryrow img { width: 44px; border-radius: 4px; }
   .scryrow .sname { flex: 1; font-size: 0.85rem; }
   .scryrow .lc-btn { padding: 5px 9px; font-size: 0.7rem; }
+  /* short screens (phone landscape): compact goldfish layout so the battlefield keeps room */
+  @media (max-height: 540px) {
+    .gf-bar { padding: 4px 6px; }
+    .gf-bar .lc-btn { padding: 5px 9px; font-size: 0.72rem; }
+    .gf-bar .gf-turn { font-size: 0.75rem; }
+    .gf-bar .gf-life { font-size: 0.8rem; }
+    .gf-zonebar { padding: 4px 8px; }
+    .gf-chip { padding: 3px 10px; font-size: 0.7rem; }
+    .gf-handlabel { display: none; }
+    .gf-hand { height: 116px; }
+    .gf-hand .gfcard { width: 82px; }
+    .gfcard { width: 78px; }
+    .gf-hand .gfcard.peek { transform: translateX(var(--tx, 0px)) translateY(-72%) rotate(0deg) scale(1.6); }
+    .rbtn { padding: 6px 10px; font-size: 0.7rem; }
+  }
   /* ---------- RULES OVERLAY ---------- */
   #rules { position: fixed; inset: 0; z-index: 150; background: var(--ink); display: none; flex-direction: column; }
   #rules.open { display: flex; }
