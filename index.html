@@ -1118,10 +1118,11 @@ gfHandEl.addEventListener('pointermove', e => {
   if (e.pointerType === 'mouse' || !fanDrag) return;
   fanDrag = false;
   if (fanMoved > 12) {
-    /* it was a sweep, not a tap: keep the card raised, swallow the tap-click */
+    /* it was a sweep, not a tap: swallow the tap-click */
     fanSuppressClick = true;
     setTimeout(() => { fanSuppressClick = false; }, 400);
   }
+  gfClearPeek(); /* finger lifted -> cards settle back down */
 }));
 function gfSheetOpen(title, opts) {
   document.getElementById('gfsheetTitle').textContent = title;
