@@ -191,8 +191,37 @@
   }
   .gf-handwrap { border-top: 1px solid var(--border); background: color-mix(in srgb, var(--panel) 70%, var(--ink)); }
   .gf-handlabel { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--muted); padding: 5px 10px 0; font-family: var(--font-display); }
-  .gf-hand { display: flex; gap: 6px; overflow-x: auto; padding: 6px 10px 10px; -webkit-overflow-scrolling: touch; }
-  .gf-hand .gfcard { flex: 0 0 76px; width: 76px; }
+  /* hand as a held fan of cards */
+  .gf-hand { position: relative; height: 150px; padding: 4px 10px; overflow: visible; }
+  .gf-hand .gfcard {
+    position: absolute; bottom: 8px; left: 50%; width: 86px; cursor: pointer;
+    transform-origin: 50% 100%;
+    transform: translateX(var(--tx, 0px)) translateY(var(--ty, 0px)) rotate(var(--rot, 0deg));
+    transition: transform 0.18s ease;
+  }
+  .gf-hand .gfcard:hover {
+    transform: translateX(var(--tx, 0px)) translateY(-92px) rotate(0deg) scale(2);
+    z-index: 80 !important;
+  }
+  .gf-hand .gfmenu { display: none; }
+  .gf-hand .gf-empty { position: static; }
+  /* radial action menu */
+  #gfradial { position: fixed; inset: 0; z-index: 245; background: #000000d9; display: none; align-items: center; justify-content: center; }
+  #gfradial.open { display: flex; }
+  .radialwrap { position: relative; width: min(94vw, 470px); height: min(94vw, 470px); animation: radspin 0.28s ease-out; }
+  @keyframes radspin { from { transform: rotate(-28deg) scale(0.72); opacity: 0; } to { transform: rotate(0deg) scale(1); opacity: 1; } }
+  .radialwrap .rcenter {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 45%;
+    border-radius: 4.5%/3.5%; box-shadow: 0 14px 48px #000e; display: block;
+  }
+  .radialwrap .rcenter.tokface { aspect-ratio: 488/680; background: linear-gradient(160deg, var(--panel2), var(--hover)); border: 1px dashed var(--border); display: flex; align-items: center; justify-content: center; color: var(--text); text-align: center; padding: 8px; font-size: 0.85rem; }
+  .rbtn {
+    position: absolute; transform: translate(-50%, -50%); white-space: nowrap; cursor: pointer;
+    background: var(--panel); border: 1px solid var(--acc); color: var(--text); border-radius: 999px;
+    padding: 9px 15px; font-size: 0.8rem; font-family: var(--font-body); box-shadow: 0 4px 16px #000b; z-index: 2;
+  }
+  .rbtn:hover { background: var(--hover); color: var(--acc); }
+  .rhint { position: absolute; bottom: -34px; left: 0; right: 0; text-align: center; color: var(--muted); font-size: 0.75rem; }
   /* action sheet */
   #gfsheet {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 240; background: var(--panel);
@@ -422,6 +451,7 @@
   </div>
 </div>
 <div id="gfsheet"><h4 id="gfsheetTitle"></h4><div class="sheetgrid" id="gfsheetBtns"></div></div>
+<div id="gfradial"><div class="radialwrap" id="gfradialWrap"></div></div>
 <div id="rules">
   <div class="rbar">
     <input id="rulesSearch" type="search" placeholder="&#128269; Search a rule or keyword&hellip;" autocomplete="off">
@@ -1005,8 +1035,26 @@ function gfRender() {
   document.getElementById('gfHandLabel').textContent = `Hand (${GF.hand.length})`;
   document.getElementById('gfHand').innerHTML = GF.hand.map((e, i) => gfCardHtml(e, 'hand', i)).join('') ||
     '<div class="gf-empty" style="padding:10px">Hand is empty.</div>';
+  gfLayoutFan();
   gfSave();
 }
+function gfLayoutFan() {
+  const wrap = document.getElementById('gfHand');
+  const cards = [...wrap.querySelectorAll('.gfcard')];
+  const n = cards.length;
+  if (!n) return;
+  const W = wrap.clientWidth || 600;
+  const spread = Math.min(72, (W - 116) / Math.max(n - 1, 1));
+  const mid = (n - 1) / 2;
+  cards.forEach((el, i) => {
+    const o = i - mid;
+    el.style.setProperty('--tx', (o * spread - 43) + 'px');
+    el.style.setProperty('--rot', (o * Math.min(5, 44 / n)) + 'deg');
+    el.style.setProperty('--ty', (Math.pow(Math.abs(o), 1.6) * 2.4) + 'px');
+    el.style.zIndex = i + 1;
+  });
+}
+window.addEventListener('resize', () => { if (gfEl.classList.contains('open')) gfLayoutFan(); });
 function gfSheetOpen(title, opts) {
   document.getElementById('gfsheetTitle').textContent = title;
   document.getElementById('gfsheetBtns').innerHTML = opts.map((o, i) => `<button class="lc-btn" data-gfact="${i}">${o[0]}</button>`).join('');
@@ -1072,9 +1120,39 @@ function gfMenu(zone, idx) {
     opts.push(['Bottom of library', () => gfMoveTo(zone, idx, 'libbottom')]);
     if (zone === 'gy') opts.push(['Exile', () => gfMoveTo('gy', idx, 'ex')]);
   }
-  opts.push(['Cancel', 'close']);
-  gfSheetOpen(name, opts);
+  const entryObj = (zone === 'bf') ? arr[idx] : null;
+  gfRadialOpen(name, entryObj, opts);
 }
+
+/* radial action wheel: card enlarged in the center, options in a circle around it */
+const gfRadial = document.getElementById('gfradial');
+const gfRadialWrap = document.getElementById('gfradialWrap');
+function gfRadialOpen(name, entry, opts) {
+  const im = IMGS[name] || {};
+  const isTok = entry && entry.tok;
+  const center = isTok || !im.normal
+    ? `<div class="rcenter tokface">${name}</div>`
+    : `<img class="rcenter" src="${im.normal}" alt="${esc(name)}">`;
+  const R = 44; /* percent radius */
+  const btns = opts.map((o, i) => {
+    const ang = (-90 + i * (360 / opts.length)) * Math.PI / 180;
+    const x = 50 + R * Math.cos(ang), y = 50 + R * Math.sin(ang);
+    return `<button class="rbtn" data-ract="${i}" style="left:${x}%;top:${y}%">${o[0]}</button>`;
+  }).join('');
+  gfRadialWrap.innerHTML = center + btns + '<div class="rhint">tap outside to cancel</div>';
+  gfRadial._opts = opts;
+  gfRadial.classList.add('open');
+}
+gfRadial.addEventListener('click', e => {
+  const b = e.target.closest('[data-ract]');
+  if (b && gfRadial._opts) {
+    const fn = gfRadial._opts[+b.dataset.ract][1];
+    gfRadial.classList.remove('open');
+    if (fn !== 'close') { fn(); gfRender(); }
+    return;
+  }
+  if (!e.target.closest('.rcenter')) gfRadial.classList.remove('open');
+});
 
 gfEl.addEventListener('click', e => {
   const life = e.target.closest('[data-gflife]');
