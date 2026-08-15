@@ -187,7 +187,8 @@
   }
   .lib-bar input { flex: 1; min-width: 140px; }
   .lib-count { color: var(--muted); font-size: 0.8rem; white-space: nowrap; }
-  .lib-grid { flex: 1; overflow-y: auto; padding: 14px; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; align-content: flex-start; }
+  .lib-grid { flex: 1; overflow-y: auto; padding: 14px; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; align-content: flex-start; }
+  .lib-grid .gcard { cursor: pointer; }
   @media (max-width: 720px) { .lib-grid { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: 8px; } }
   .lib-empty { grid-column: 1/-1; text-align: center; color: var(--muted); padding: 50px 20px; }
   .foilbadge { position: absolute; bottom: 6px; left: 6px; background: linear-gradient(90deg,#ffd700,#7df,#f7f); color: #101010; font-size: 0.6rem; font-weight: 700; border-radius: 999px; padding: 1px 7px; }
@@ -317,9 +318,10 @@
   .gterm b { color: var(--acc); }
   .gterm.hidden { display: none; }
   /* ---------- PREVIEW ---------- */
-  #preview { position: fixed; z-index: 90; pointer-events: none; display: none; width: 300px; filter: drop-shadow(0 16px 44px #000c); }
+  /* preview must float above every overlay (Library 160, Goldfish 180, Life 200) */
+  #preview { position: fixed; z-index: 320; pointer-events: none; display: none; width: 300px; filter: drop-shadow(0 16px 44px #000c); }
   #preview img { width: 100%; border-radius: 4.5%/3.5%; display: block; }
-  #backdrop { position: fixed; inset: 0; background: #000a; z-index: 80; display: none; }
+  #backdrop { position: fixed; inset: 0; background: #000a; z-index: 310; display: none; }
   footer { text-align: center; color: var(--muted); font-size: 0.72rem; padding: 24px 16px 34px; }
   /* ---------- LIFE COUNTER ---------- */
   #lc { position: fixed; inset: 0; z-index: 200; background: var(--ink); display: none; flex-direction: column; }
@@ -1780,13 +1782,21 @@ function doSearch() {
   const q = searchInput.value.trim().toLowerCase();
   if (q.length < 2) { searchRes.style.display = 'none'; return; }
   const hits = ALL_NAMES.filter(n => n.toLowerCase().includes(q)).slice(0, 30);
-  searchRes.innerHTML = hits.length ? hits.map(n => `
+  const libHits = LIBRARY.filter(c => c.name.toLowerCase().includes(q)).map(c => c.name);
+  const libOnly = [...new Set(libHits)].filter(n => !hits.includes(n)).slice(0, 15);
+  searchRes.innerHTML = (hits.length || libOnly.length) ? hits.map(n => `
     <div class="sres">
       <span class="sname" data-card="${esc(n)}">${n}</span>
       <span class="smana">${manaHtml((IMGS[n]||{}).mana || '')}</span>
       ${CARD_INDEX[n].map(di => `<span class="schip" data-goto="${di}" style="background:color-mix(in srgb, ${DECKS[di].accent} 45%, #000); border-color:${DECKS[di].accent}">${DECKS[di].name}</span>`).join('')}
+      ${LIBRARY.some(c => c.name === n) ? `<span class="schip" data-golib="${esc(n)}" style="background:#3a2f16; border-color:#c8963e">&#128218; Library</span>` : ''}
+    </div>`).join('') + libOnly.map(n => `
+    <div class="sres">
+      <span class="sname" data-card="${esc(n)}">${n}</span>
+      <span class="smana">${manaHtml((IMGS[n]||{}).mana || '')}</span>
+      <span class="schip" data-golib="${esc(n)}" style="background:#3a2f16; border-color:#c8963e">&#128218; Library</span>
     </div>`).join('')
-    : `<div class="snone">No card matching &ldquo;${searchInput.value.trim()}&rdquo; in your decks.</div>`;
+    : `<div class="snone">No card matching &ldquo;${searchInput.value.trim()}&rdquo; in your decks or library.</div>`;
   searchRes.style.display = 'block';
 }
 searchInput.addEventListener('input', doSearch);
@@ -1798,6 +1808,16 @@ searchRes.addEventListener('click', e => {
     setView('list');
     searchRes.style.display = 'none';
     hide();
+    return;
+  }
+  const gl = e.target.closest('[data-golib]');
+  if (gl) {
+    searchRes.style.display = 'none';
+    hide();
+    libEl.classList.add('open');
+    const ls = document.getElementById('libSearch');
+    ls.value = gl.dataset.golib;
+    ls.dispatchEvent(new Event('input'));
   }
 });
 document.addEventListener('pointerdown', e => {
