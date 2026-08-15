@@ -643,6 +643,8 @@ const pimg = preview.querySelector('img');
 const isTouch = () => matchMedia('(hover: none)').matches;
 
 function esc(s){ return s.replace(/"/g,'&quot;'); }
+/* accent-insensitive matching: fold("Dáin") === fold("dain") */
+function fold(s){ return (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); }
 function manaHtml(cost) {
   if (!cost) return '';
   return cost.replace(/\{[^}]+\}/g, s => MANA[s] ? `<img src="${MANA[s]}" alt="${s}" loading="lazy">` : s);
@@ -1096,11 +1098,11 @@ if (LIBRARY.length) {
   const sets = [...new Set(LIBRARY.map(c => c.setName || c.set))].sort();
   document.getElementById('libSet').innerHTML += sets.map(s => `<option>${s}</option>`).join('');
   const renderLib = () => {
-    const q = document.getElementById('libSearch').value.trim().toLowerCase();
+    const q = fold(document.getElementById('libSearch').value.trim());
     const fs = document.getElementById('libSet').value;
     const fr = document.getElementById('libRarity').value;
     const hits = LIBRARY.filter(c =>
-      (!q || c.name.toLowerCase().includes(q)) &&
+      (!q || fold(c.name).includes(q)) &&
       (!fs || (c.setName || c.set) === fs) &&
       (!fr || (c.rarity || '').toUpperCase().startsWith(fr)));
     document.getElementById('libCount').textContent =
@@ -1614,9 +1616,9 @@ document.getElementById('rulesBody').innerHTML = `
 document.getElementById('rulesOpen').onclick = () => { rulesEl.classList.add('open'); document.getElementById('rulesSearch').focus(); };
 document.getElementById('rulesClose').onclick = () => rulesEl.classList.remove('open');
 document.getElementById('rulesSearch').addEventListener('input', e => {
-  const q = e.target.value.trim().toLowerCase();
+  const q = fold(e.target.value.trim());
   document.querySelectorAll('.gterm[data-term]').forEach(el =>
-    el.classList.toggle('hidden', q.length > 0 && !el.dataset.term.includes(q)));
+    el.classList.toggle('hidden', q.length > 0 && !fold(el.dataset.term).includes(q)));
   /* hide whole categories with no matches */
   document.querySelectorAll('.gcat').forEach(sec => {
     const any = [...sec.querySelectorAll('.gterm[data-term]')].some(el => !el.classList.contains('hidden'));
@@ -1779,10 +1781,10 @@ function buildIndex() {
 buildIndex();
 
 function doSearch() {
-  const q = searchInput.value.trim().toLowerCase();
+  const q = fold(searchInput.value.trim());
   if (q.length < 2) { searchRes.style.display = 'none'; return; }
-  const hits = ALL_NAMES.filter(n => n.toLowerCase().includes(q)).slice(0, 30);
-  const libHits = LIBRARY.filter(c => c.name.toLowerCase().includes(q)).map(c => c.name);
+  const hits = ALL_NAMES.filter(n => fold(n).includes(q)).slice(0, 30);
+  const libHits = LIBRARY.filter(c => fold(c.name).includes(q)).map(c => c.name);
   const libOnly = [...new Set(libHits)].filter(n => !hits.includes(n)).slice(0, 15);
   searchRes.innerHTML = (hits.length || libOnly.length) ? hits.map(n => `
     <div class="sres">
