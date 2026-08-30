@@ -240,6 +240,27 @@
     border-bottom: 1px dashed color-mix(in srgb, var(--border) 60%, transparent); margin-bottom: 6px;
   }
   .gf-empty { width: 100%; text-align: center; color: var(--muted); padding: 40px 16px; font-size: 0.9rem; }
+  #gflib { position: absolute; inset: 0; z-index: 30; background: color-mix(in srgb, var(--ink) 96%, transparent); display: none; flex-direction: column; }
+  #gflib.open { display: flex; }
+  .gflib-bar { display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: var(--panel); border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+  .gflib-bar .ttl { font-family: var(--font-display); font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--acc); }
+  .gflib-bar input { flex: 1; min-width: 150px; background: var(--panel2); border: 1px solid var(--border); border-radius: 999px;
+    color: var(--text); font-family: var(--font-body); font-size: 0.88rem; padding: 8px 15px; outline: none; }
+  .gflib-list { flex: 1; overflow-y: auto; padding: 10px 12px; }
+  .gflib-row { display: flex; align-items: center; gap: 10px; padding: 5px 4px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .gflib-row img { width: 38px; border-radius: 3px; background: var(--panel2); }
+  .gflib-row .n { flex: 1; font-size: 0.88rem; }
+  .gflib-row .mv { color: var(--muted); font-size: 0.76rem; white-space: nowrap; }
+  .gflib-row button { font-size: 0.74rem; padding: 4px 9px; }
+  .gf-warn { color: #e8b04b; font-size: 0.78rem; }
+  #gfkeys { position: absolute; inset: 0; z-index: 40; background: #000000d8; display: none; align-items: center; justify-content: center; padding: 20px; }
+  #gfkeys.open { display: flex; }
+  .gfkeys-card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px; padding: 18px 22px; max-width: 460px; width: 100%; }
+  .gfkeys-card h3 { margin: 0 0 12px; font-family: var(--font-display); color: var(--acc); font-size: 1rem; }
+  .gfkeys-card table { width: 100%; font-size: 0.85rem; border-collapse: collapse; }
+  .gfkeys-card td { padding: 4px 0; }
+  .gfkeys-card kbd { background: var(--panel2); border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 5px;
+    padding: 1px 7px; font-family: var(--font-body); font-size: 0.8rem; color: var(--acc); }
   .gfcard { position: relative; width: clamp(92px, 9.5vw, 150px); transition: transform 0.15s; }
   .gfcard img { width: 100%; border-radius: 4.5%/3.5%; display: block; box-shadow: 0 3px 10px #0008; background: var(--panel2); aspect-ratio: 488/680; }
   .gfcard.tapped { transform: rotate(90deg) translateY(-10%); margin: 0 14px; }
@@ -559,10 +580,36 @@
     <button class="lc-btn" id="gfScry" title="Look at top 3">&#128269; Top 3</button>
     <button class="lc-btn" id="gfToken" title="Create a token">&#10133; Token</button>
     <span class="gf-life" id="gfLife"></span>
+    <button class="lc-btn" id="gfLib" title="Search library / tutor (V)">&#128269; Library</button>
+    <button class="lc-btn" id="gfShuffle" title="Shuffle (S)">&#127922; Shuffle</button>
+    <button class="lc-btn" id="gfMull" title="Mulligan (M)">&#8635; Mulligan</button>
+    <button class="lc-btn" id="gfUndo" title="Undo (U)">&#8630; Undo</button>
+    <button class="lc-btn" id="gfKeys" title="Keyboard shortcuts (?)">?</button>
     <button class="lc-btn" id="gfRestart" title="New game">&#8635;</button>
   </div>
   <div class="gf-zonebar" id="gfZones"></div>
-  <div class="gf-field" id="gfField"></div>
+  <div id="gflib">
+  <div class="gflib-bar">
+    <span class="ttl">Library</span>
+    <input id="gflibSearch" type="search" placeholder="Search your library&hellip;" autocomplete="off">
+    <span class="lib-count" id="gflibCount"></span>
+    <button class="lc-btn" id="gflibDone">Shuffle &amp; close</button>
+  </div>
+  <div class="gflib-list" id="gflibList"></div>
+</div>
+<div id="gfkeys"><div class="gfkeys-card">
+  <h3>Keyboard shortcuts</h3>
+  <table>
+    <tr><td><kbd>D</kbd></td><td>Draw a card</td><td><kbd>T</kbd></td><td>Tap / untap hovered</td></tr>
+    <tr><td><kbd>N</kbd></td><td>Next turn (untap, draw)</td><td><kbd>G</kbd></td><td>Hovered &rarr; graveyard</td></tr>
+    <tr><td><kbd>V</kbd></td><td>Search library (tutor)</td><td><kbd>H</kbd></td><td>Hovered &rarr; hand</td></tr>
+    <tr><td><kbd>S</kbd></td><td>Shuffle</td><td><kbd>E</kbd></td><td>Hovered &rarr; exile</td></tr>
+    <tr><td><kbd>M</kbd></td><td>Mulligan</td><td><kbd>B</kbd></td><td>Hovered &rarr; bottom of library</td></tr>
+    <tr><td><kbd>U</kbd></td><td>Undo</td><td><kbd>Esc</kbd></td><td>Close panel</td></tr>
+  </table>
+  <p style="color:var(--muted);font-size:0.78rem;margin:12px 0 0">Card keys act on whichever card your cursor is over.</p>
+</div></div>
+<div class="gf-field" id="gfField"></div>
   <div class="gf-handwrap">
     <div class="gf-handlabel" id="gfHandLabel">Hand</div>
     <div class="gf-hand" id="gfHand"></div>
@@ -1231,7 +1278,7 @@ function gfNew(deckIdx) {
   for (let i = lib.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [lib[i], lib[j]] = [lib[j], lib[i]]; }
   const cz = [];
   d.sections.forEach(s => { if (s.name.startsWith('Commander')) s.cards.forEach(c => cz.push(c.name)); });
-  GF = { deck: deckIdx, deckName: d.name, lib, hand: lib.splice(0, 7), bf: [], gy: [], ex: [], cz, turn: 1, life: 40, owed: 0 };
+  GF = { deck: deckIdx, deckName: d.name, lib, hand: lib.splice(0, 7), bf: [], gy: [], ex: [], cz, turn: 1, life: 40, owed: 0, mulls: 0, searched: false };
   gfView = 'bf';
   gfRender();
 }
@@ -1246,8 +1293,9 @@ function gfFromHand(deckIdx, hand, owedBottom) {
   const cz = [];
   d.sections.forEach(s => { if (s.name.startsWith('Commander')) s.cards.forEach(c => cz.push(c.name)); });
   GF = { deck: deckIdx, deckName: d.name, lib, hand: hand.slice(), bf: [], gy: [], ex: [], cz,
-         turn: 1, life: 40, owed: owedBottom || 0 };
+         turn: 1, life: 40, owed: owedBottom || 0, mulls: 0, searched: false };
   gfView = 'bf';
+  gfUndoStack = [];
   gfRender();
 }
 function openGF(useHand) {
@@ -1285,7 +1333,8 @@ function gfCardHtml(entry, zone, idx) {
 }
 function gfRender() {
   if (!GF) return;
-  document.getElementById('gfTurn').textContent = 'Turn ' + GF.turn;
+  document.getElementById('gfTurn').textContent = 'Turn ' + GF.turn +
+    ((GF.mulls ? ' \u00b7 mull ' + GF.mulls : '')) + (GF.searched ? ' \u00b7 \u26a0 shuffle' : '');
   document.getElementById('gfLife').innerHTML =
     `<button class="lc-btn" data-gflife="-1" style="padding:4px 9px">&minus;</button> &#10084; ${GF.life} <button class="lc-btn" data-gflife="1" style="padding:4px 9px">+</button>`;
   const zones = [
@@ -1411,7 +1460,7 @@ gfSheet.addEventListener('click', e => {
   if (!b || !gfSheet._opts) return;
   const fn = gfSheet._opts[+b.dataset.gfact][1];
   if (fn === 'close') { gfSheetClose(); return; }
-  fn(); gfSheetClose(); gfRender();
+  gfSnap(); fn(); gfSheetClose(); gfRender();
 });
 
 function gfMoveTo(zone, idx, dest) {
@@ -1496,9 +1545,146 @@ gfRadial.addEventListener('click', e => {
   if (!e.target.closest('.rcenter')) gfRadial.classList.remove('open');
 });
 
+/* ---------- undo ---------- */
+let gfUndoStack = [];
+function gfSnap() {
+  if (!GF) return;
+  gfUndoStack.push(JSON.stringify(GF));
+  if (gfUndoStack.length > 40) gfUndoStack.shift();
+}
+function gfUndoAction() {
+  if (!gfUndoStack.length) return;
+  GF = JSON.parse(gfUndoStack.pop());
+  gfRender();
+}
+
+/* ---------- hovered card (keyboard shortcuts act on it) ---------- */
+let gfHover = null;
+gfEl.addEventListener('mouseover', e => {
+  const c = e.target.closest('[data-gfz]');
+  gfHover = c ? { z: c.dataset.gfz, i: +c.dataset.gfi } : null;
+});
+gfEl.addEventListener('mouseleave', () => { gfHover = null; });
+function gfHoverAct(dest) {
+  if (!gfHover) return;
+  const arr = GF[gfHover.z];
+  if (!arr || !arr[gfHover.i]) return;
+  gfSnap();
+  if (dest === 'tap') {
+    if (gfHover.z === 'bf') GF.bf[gfHover.i].tap = !GF.bf[gfHover.i].tap;
+  } else gfMoveTo(gfHover.z, gfHover.i, dest);
+  gfHover = null;
+  gfRender();
+}
+
+/* ---------- shuffle / mulligan ---------- */
+function gfShuffleLib() {
+  gfSnap();
+  for (let i = GF.lib.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [GF.lib[i], GF.lib[j]] = [GF.lib[j], GF.lib[i]]; }
+  GF.searched = false;
+  gfRender();
+}
+function gfMulligan() {
+  if (GF.turn > 1 || GF.bf.length) { alert('Mulligans are for your opening hand \u2014 restart the game first.'); return; }
+  gfSnap();
+  GF.hand.forEach(n => GF.lib.push(typeof n === 'object' ? n.name : n));
+  GF.hand = [];
+  for (let i = GF.lib.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [GF.lib[i], GF.lib[j]] = [GF.lib[j], GF.lib[i]]; }
+  GF.mulls = (GF.mulls || 0) + 1;
+  GF.hand = GF.lib.splice(0, 7);
+  GF.owed = Math.max(0, GF.mulls - 1); /* casual rule: first mulligan is free, matching the Practice grader */
+  GF.searched = false;
+  gfRender();
+}
+
+/* ---------- library browser / tutor ---------- */
+const gfLibEl = document.getElementById('gflib');
+function gfRenderLib() {
+  const q = (document.getElementById('gflibSearch').value || '').trim().toLowerCase();
+  const rows = GF.lib.map((n, i) => ({ n, i })).filter(r => !q || r.n.toLowerCase().includes(q));
+  rows.sort((a, b) => a.n.localeCompare(b.n));
+  document.getElementById('gflibCount').textContent =
+    `${rows.length} of ${GF.lib.length}` + (GF.searched ? ' \u2014 shuffle when done' : '');
+  document.getElementById('gflibList').innerHTML = rows.length ? rows.map(r => {
+    const im = IMGS[r.n] || {};
+    return `<div class="gflib-row">
+      <img loading="lazy" src="${im.small || ''}" alt="">
+      <span class="n">${esc(r.n)}</span><span class="mv">${(im.mana || '').replace(/[{}]/g, '')}</span>
+      <button class="lc-btn" data-tut="${r.i}:hand">Hand</button>
+      <button class="lc-btn" data-tut="${r.i}:bf">Field</button>
+      <button class="lc-btn" data-tut="${r.i}:libtop">Top</button>
+      <button class="lc-btn" data-tut="${r.i}:gy">Yard</button>
+    </div>`;
+  }).join('') : '<div class="gf-empty">Nothing matches.</div>';
+}
+function gfOpenLib() {
+  if (!GF) return;
+  gfLibEl.classList.add('open');
+  document.getElementById('gflibSearch').value = '';
+  gfRenderLib();
+  document.getElementById('gflibSearch').focus();
+}
+document.getElementById('gflibSearch').oninput = gfRenderLib;
+document.getElementById('gflibDone').onclick = () => { gfLibEl.classList.remove('open'); gfShuffleLib(); };
+document.getElementById('gflibList').addEventListener('click', e => {
+  const b = e.target.closest('[data-tut]');
+  if (!b) return;
+  const [iStr, dest] = b.dataset.tut.split(':');
+  gfSnap();
+  const name = GF.lib.splice(+iStr, 1)[0];
+  if (dest === 'bf') GF.bf.push({ id: gfUid++, name, tap: false, c: 0 });
+  else if (dest === 'libtop') GF.lib.unshift(name);
+  else GF[dest].push(name);
+  GF.searched = true;   /* searching your library means you must shuffle */
+  gfRenderLib(); gfRender();
+});
+
+/* ---------- keyboard ---------- */
+document.addEventListener('keydown', e => {
+  if (!gfEl.classList.contains('open')) return;
+  const t = e.target;
+  if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) {
+    if (e.key === 'Escape') { gfLibEl.classList.remove('open'); }
+    return;
+  }
+  if (e.ctrlKey || e.metaKey) {
+    if (e.key.toLowerCase() === 'z') { e.preventDefault(); gfUndoAction(); }
+    return;
+  }
+  const k = e.key.toLowerCase();
+  const map = {
+    d: () => { if (GF.lib.length) { gfSnap(); GF.hand.push(GF.lib.shift()); gfRender(); } },
+    n: () => { gfSnap(); GF.turn++; GF.bf.forEach(en => en.tap = false); if (GF.lib.length) GF.hand.push(GF.lib.shift()); gfRender(); },
+    s: gfShuffleLib,
+    v: gfOpenLib,
+    f: gfOpenLib,
+    m: gfMulligan,
+    u: gfUndoAction,
+    t: () => gfHoverAct('tap'),
+    g: () => gfHoverAct('gy'),
+    h: () => gfHoverAct('hand'),
+    e: () => gfHoverAct('ex'),
+    b: () => gfHoverAct('libbottom'),
+  };
+  if (k === 'escape') {
+    if (document.getElementById('gfkeys').classList.contains('open')) document.getElementById('gfkeys').classList.remove('open');
+    else if (gfLibEl.classList.contains('open')) gfLibEl.classList.remove('open');
+    else if (gfSheet.classList.contains('open')) gfSheetClose();
+    return;
+  }
+  if (k === '?' || (e.shiftKey && k === '/')) { document.getElementById('gfkeys').classList.toggle('open'); return; }
+  if (map[k]) { e.preventDefault(); map[k](); }
+});
+document.getElementById('gfLib').onclick = gfOpenLib;
+document.getElementById('gfShuffle').onclick = gfShuffleLib;
+document.getElementById('gfMull').onclick = gfMulligan;
+document.getElementById('gfUndo').onclick = gfUndoAction;
+document.getElementById('gfKeys').onclick = () => document.getElementById('gfkeys').classList.toggle('open');
+document.getElementById('gfkeys').onclick = e => { if (e.target.id === 'gfkeys') e.currentTarget.classList.remove('open'); };
+
 gfEl.addEventListener('click', e => {
   const life = e.target.closest('[data-gflife]');
-  if (life) { GF.life += +life.dataset.gflife; gfRender(); return; }
+  if (life) { gfSnap(); GF.life += +life.dataset.gflife; gfRender(); return; }
   const v = e.target.closest('[data-gfview]');
   if (v) { gfView = v.dataset.gfview; gfRender(); return; }
   const m = e.target.closest('[data-gfm]');
@@ -1507,13 +1693,14 @@ gfEl.addEventListener('click', e => {
   if (card) {
     const z = card.dataset.gfz, i = +card.dataset.gfi;
     if (z === 'hand' && fanSuppressClick) return; /* end of a sweep, not a tap */
-    if (z === 'bf') { const en = GF.bf[i]; en.tap = !en.tap; gfRender(); }
+    if (z === 'bf') { gfSnap(); const en = GF.bf[i]; en.tap = !en.tap; gfRender(); }
     else gfMenu(z, i);
   }
 });
 document.getElementById('gfClose').onclick = () => { gfSave(); gfEl.classList.remove('open'); };
-document.getElementById('gfDraw').onclick = () => { if (GF.lib.length) GF.hand.push(GF.lib.shift()); gfRender(); };
+document.getElementById('gfDraw').onclick = () => { if (GF.lib.length) { gfSnap(); GF.hand.push(GF.lib.shift()); gfRender(); } };
 document.getElementById('gfNext').onclick = () => {
+  gfSnap();
   GF.turn++; GF.bf.forEach(en => en.tap = false);
   if (GF.lib.length) GF.hand.push(GF.lib.shift());
   gfRender();
@@ -1521,7 +1708,7 @@ document.getElementById('gfNext').onclick = () => {
 document.getElementById('gfRestart').onclick = () => { if (confirm('Start a fresh game with ' + GF.deckName + '?')) gfNew(GF.deck); };
 document.getElementById('gfToken').onclick = () => {
   const t = prompt('Token (e.g. "Treasure", "5/5 Dragon", "Food"):');
-  if (t) { GF.bf.push({ id: gfUid++, name: t.slice(0, 30), tap: false, c: 0, tok: true }); gfRender(); }
+  if (t) { gfSnap(); GF.bf.push({ id: gfUid++, name: t.slice(0, 30), tap: false, c: 0, tok: true }); gfRender(); }
 };
 document.getElementById('gfScry').onclick = () => {
   const top = GF.lib.slice(0, 3);
@@ -1547,6 +1734,7 @@ document.getElementById('gfScry').onclick = () => {
     const name = top[+iStr];
     const li = GF.lib.indexOf(name);
     if (li > -1) {
+      gfSnap();
       GF.lib.splice(li, 1);
       if (act === 'draw') GF.hand.push(name);
       else if (act === 'bottom') GF.lib.push(name);
