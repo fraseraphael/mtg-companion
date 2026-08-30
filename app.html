@@ -1109,7 +1109,7 @@ function renderHand(grade) {
       <button class="ctl primary" onclick="gradeHand()">Grade my hand</button>
       <button class="ctl" onclick="dealHand(false)">Mulligan &#8635;</button>
       <button class="ctl" onclick="dealHand(true)">New game</button>
-      <button class="ctl" onclick="openGF()">&#128031; Play it out</button>
+      <button class="ctl" onclick="openGF(true)">&#128031; Play it out</button>
       <span class="hand-note">${mullCount === 0 ? 'Opening hand' : 'Mulligan #' + mullCount} &bull; decide first, then grade!</span>
     </div>
     <div class="hand-grid">${curHand.map(c => {
@@ -1231,16 +1231,39 @@ function gfNew(deckIdx) {
   for (let i = lib.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [lib[i], lib[j]] = [lib[j], lib[i]]; }
   const cz = [];
   d.sections.forEach(s => { if (s.name.startsWith('Commander')) s.cards.forEach(c => cz.push(c.name)); });
-  GF = { deck: deckIdx, deckName: d.name, lib, hand: lib.splice(0, 7), bf: [], gy: [], ex: [], cz, turn: 1, life: 40 };
+  GF = { deck: deckIdx, deckName: d.name, lib, hand: lib.splice(0, 7), bf: [], gy: [], ex: [], cz, turn: 1, life: 40, owed: 0 };
   gfView = 'bf';
   gfRender();
 }
-function openGF() {
+/* Start a goldfish game from an EXACT opening hand (the one just graded in Practice),
+   rather than reshuffling. The hand cards are removed from the library first so no card
+   can appear twice. */
+function gfFromHand(deckIdx, hand, owedBottom) {
+  const d = DECKS[deckIdx];
+  const lib = libraryOf(d);
+  hand.forEach(n => { const i = lib.indexOf(n); if (i >= 0) lib.splice(i, 1); });
+  for (let i = lib.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [lib[i], lib[j]] = [lib[j], lib[i]]; }
+  const cz = [];
+  d.sections.forEach(s => { if (s.name.startsWith('Commander')) s.cards.forEach(c => cz.push(c.name)); });
+  GF = { deck: deckIdx, deckName: d.name, lib, hand: hand.slice(), bf: [], gy: [], ex: [], cz,
+         turn: 1, life: 40, owed: owedBottom || 0 };
+  gfView = 'bf';
+  gfRender();
+}
+function openGF(useHand) {
   gfEl.classList.add('open'); /* open FIRST so the fan can measure its real width */
+  const di = typeof curDeck === 'number' && curDeck >= 0 ? curDeck : 0;
   const saved = JSON.parse(localStorage.getItem('mtg-gf') || 'null');
-  if (saved && saved.deck === (typeof curDeck === 'number' ? curDeck : 0) && saved.deckName === DECKS[saved.deck]?.name) {
+  const savedOk = saved && saved.deck === di && saved.deckName === DECKS[saved.deck]?.name;
+  if (useHand && curHand.length) {
+    /* "Play it out" means play THIS hand. Only interrupt if a real game is in progress. */
+    const inProgress = savedOk && (saved.turn > 1 || saved.bf.length || saved.gy.length);
+    if (!inProgress || confirm('Play this hand? Your in-progress ' + DECKS[di].name + ' game will be replaced.'))
+      gfFromHand(di, curHand, Math.max(0, mullCount - 1));
+    else if (savedOk) { GF = saved; gfRender(); }
+  } else if (savedOk) {
     GF = saved; gfRender();
-  } else gfNew(typeof curDeck === 'number' && curDeck >= 0 ? curDeck : 0);
+  } else gfNew(di);
   requestAnimationFrame(gfLayoutFan); /* belt and suspenders once layout settles */
 }
 function gfCardHtml(entry, zone, idx) {
@@ -1300,7 +1323,8 @@ function gfRender() {
     field.innerHTML = arr.length ? arr.map((e, i) => gfCardHtml(e, gfView, i)).join('')
       : `<div class="gf-empty">Nothing in ${gfView === 'cz' ? 'the command zone' : gfView === 'gy' ? 'the graveyard' : 'exile'}.</div>`;
   }
-  document.getElementById('gfHandLabel').textContent = `Hand (${GF.hand.length})`;
+  document.getElementById('gfHandLabel').textContent = `Hand (${GF.hand.length})` +
+    (GF.owed ? ` \u2014 put ${GF.owed} on the bottom` : '');
   document.getElementById('gfHand').innerHTML = GF.hand.map((e, i) => gfCardHtml(e, 'hand', i)).join('') ||
     '<div class="gf-empty" style="padding:10px">Hand is empty.</div>';
   gfLayoutFan();
