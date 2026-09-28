@@ -281,7 +281,13 @@
   }
   .gfcard .gfc {
     position: absolute; top: -6px; left: -6px; background: var(--acc); color: #101010; font-weight: 700;
-    font-size: 0.7rem; border-radius: 999px; padding: 2px 7px; box-shadow: 0 2px 6px #0008; z-index: 2;
+    font-size: 0.7rem; border-radius: 999px; padding: 2px 7px; box-shadow: 0 2px 6px #0008; z-index: 3;
+    border: none; cursor: pointer; font-family: var(--font-body); line-height: 1.3;
+  }
+  .gfcard .gfplus {
+    position: absolute; top: 4px; right: 4px; width: 24px; height: 24px; border-radius: 50%;
+    border: 1px solid #ffffff45; background: #000000a8; color: var(--acc); cursor: pointer; font-size: 0.8rem;
+    font-weight: 700; line-height: 1; z-index: 2; font-family: var(--font-body);
   }
   .gfcard.token .tokface {
     width: 100%; aspect-ratio: 488/680; border-radius: 4.5%/3.5%; background: linear-gradient(160deg, var(--panel2), var(--hover));
@@ -614,7 +620,7 @@
     <tr><td><kbd>D</kbd></td><td>Draw a card</td><td><kbd>T</kbd></td><td>Tap / untap hovered</td></tr>
     <tr><td><kbd>N</kbd></td><td>Next turn (untap, draw)</td><td><kbd>G</kbd></td><td>Hovered &rarr; graveyard</td></tr>
     <tr><td><kbd>V</kbd></td><td>Search library (tutor)</td><td><kbd>H</kbd></td><td>Hovered &rarr; hand</td></tr>
-    <tr><td><kbd>F</kbd></td><td>Transform hovered card</td><td></td><td></td></tr>
+    <tr><td><kbd>F</kbd></td><td>Transform hovered card</td><td><kbd>+</kbd> / <kbd>&minus;</kbd></td><td>Add / remove a +1/+1 counter</td></tr>
     <tr><td><kbd>S</kbd></td><td>Shuffle</td><td><kbd>E</kbd></td><td>Hovered &rarr; exile</td></tr>
     <tr><td><kbd>M</kbd></td><td>Mulligan</td><td><kbd>B</kbd></td><td>Hovered &rarr; bottom of library</td></tr>
     <tr><td><kbd>U</kbd></td><td>Undo</td><td><kbd>Esc</kbd></td><td>Close panel</td></tr>
@@ -1331,9 +1337,12 @@ function gfCardHtml(entry, zone, idx) {
   const isObj = typeof entry === 'object';
   const name = isObj ? entry.name : entry;
   const im = IMGS[name] || {};
+  /* battlefield only: a "+1" button adds a +1/+1 counter, tapping the badge removes one */
+  const ctr = zone === 'bf' ? (entry.c ? `<button class="gfc" data-gfminus="${zone}:${idx}" title="Remove a +1/+1 counter (-)">+${entry.c}/+${entry.c}</button>` : '') +
+    `<button class="gfplus" data-gfplus="${zone}:${idx}" title="Add a +1/+1 counter (+)">+1</button>` : '';
   if (isObj && entry.tok) {
     return `<div class="gfcard token ${entry.tap ? 'tapped' : ''}" data-gfz="${zone}" data-gfi="${idx}">
-      ${entry.c ? `<span class="gfc">+${entry.c}</span>` : ''}
+      ${ctr}
       <div class="tokface">${name}</div>
       <button class="gfmenu" data-gfm="${zone}:${idx}">&#8943;</button></div>`;
   }
@@ -1343,7 +1352,7 @@ function gfCardHtml(entry, zone, idx) {
                       : (zone === 'hand' ? (im.normal || im.small || '') : (im.small || ''));
   const shown = flipped ? (im.backname || name) : name;
   return `<div class="gfcard ${isObj && entry.tap ? 'tapped' : ''}${flipped ? ' flipped' : ''}" data-gfz="${zone}" data-gfi="${idx}" data-card="${esc(name)}">
-    ${isObj && entry.c ? `<span class="gfc">+${entry.c}</span>` : ''}
+    ${ctr}
     ${im.back ? `<button class="gfflip" data-gfflip="${zone}:${idx}" title="Transform (F)">&#8646;</button>` : ''}
     <img loading="lazy" src="${src}" alt="${esc(shown)}">
     <button class="gfmenu" data-gfm="${zone}:${idx}">&#8943;</button></div>`;
@@ -1498,8 +1507,8 @@ function gfMenu(zone, idx) {
   if (zone === 'bf') {
     opts.push([entry.tap ? 'Untap' : 'Tap', () => { entry.tap = !entry.tap; }]);
     if ((IMGS[name] || {}).back) opts.push([entry.flip ? 'Transform back' : 'Transform', () => { entry.flip = !entry.flip; }]);
-    opts.push(['+1 counter', () => { entry.c = (entry.c || 0) + 1; }]);
-    if (entry.c > 0) opts.push(['&minus;1 counter', () => { entry.c--; }]);
+    opts.push(['+1/+1 counter', () => { entry.c = (entry.c || 0) + 1; }]);
+    if (entry.c > 0) opts.push(['Remove a counter', () => { entry.c--; }]);
     if (!entry.tok) {
       opts.push(['To graveyard', () => gfMoveTo('bf', idx, 'gy')]);
       opts.push(['To hand', () => gfMoveTo('bf', idx, 'hand')]);
@@ -1583,6 +1592,14 @@ gfEl.addEventListener('mouseover', e => {
   gfHover = c ? { z: c.dataset.gfz, i: +c.dataset.gfi } : null;
 });
 gfEl.addEventListener('mouseleave', () => { gfHover = null; });
+function gfCounter(zone, idx, delta) {
+  if (zone !== 'bf') return;
+  const e = GF.bf[idx];
+  if (!e) return;
+  gfSnap();
+  e.c = Math.max(0, (e.c || 0) + delta);
+  gfRender();
+}
 function gfFlip(zone, idx) {
   const arr = GF[zone];
   const e = arr && arr[idx];
@@ -1692,6 +1709,9 @@ document.addEventListener('keydown', e => {
     h: () => gfHoverAct('hand'),
     e: () => gfHoverAct('ex'),
     b: () => gfHoverAct('libbottom'),
+    '+': () => { if (gfHover) gfCounter(gfHover.z, gfHover.i, 1); },
+    '=': () => { if (gfHover) gfCounter(gfHover.z, gfHover.i, 1); },
+    '-': () => { if (gfHover) gfCounter(gfHover.z, gfHover.i, -1); },
   };
   if (k === 'escape') {
     if (document.getElementById('gfkeys').classList.contains('open')) document.getElementById('gfkeys').classList.remove('open');
@@ -1716,6 +1736,10 @@ gfEl.addEventListener('click', e => {
   if (v) { gfView = v.dataset.gfview; gfRender(); return; }
   const fl = e.target.closest('[data-gfflip]');
   if (fl) { const [z, i] = fl.dataset.gfflip.split(':'); gfFlip(z, +i); return; }
+  const cp = e.target.closest('[data-gfplus]');
+  if (cp) { const [z, i] = cp.dataset.gfplus.split(':'); gfCounter(z, +i, 1); return; }
+  const cm = e.target.closest('[data-gfminus]');
+  if (cm) { const [z, i] = cm.dataset.gfminus.split(':'); gfCounter(z, +i, -1); return; }
   const m = e.target.closest('[data-gfm]');
   if (m) { const [z, i] = m.dataset.gfm.split(':'); gfMenu(z, +i); return; }
   const card = e.target.closest('[data-gfz]');
