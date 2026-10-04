@@ -442,6 +442,7 @@
   /* preview must float above every overlay (Library 160, Goldfish 180, Life 200) */
   #preview { position: fixed; z-index: 320; pointer-events: none; display: none; width: 300px; filter: drop-shadow(0 16px 44px #000c); }
   #preview img { width: 100%; border-radius: 4.5%/3.5%; display: block; }
+  #preview img[hidden] { display: none; }   /* the rule above would otherwise override the hidden attribute and leave a stale back face showing */
   /* two-sided cards preview both faces side by side */
   #preview .pwrap { display: flex; gap: 8px; }
   #preview .pwrap img { flex: 1 1 0; min-width: 0; }
