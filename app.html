@@ -937,8 +937,9 @@ document.addEventListener('click', e => {
   const card = b.closest('.gcard'), img = card && card.querySelector('img'), im = IMGS[b.dataset.flipcard] || {};
   if (!img || !im.back) return;
   const toBack = card.dataset.face !== 'back';
+  if (toBack && !card.dataset.front) card.dataset.front = img.getAttribute('src');   /* this card's own printing */
   card.dataset.face = toBack ? 'back' : 'front';
-  img.src = toBack ? (im.backsmall || im.back) : (im.small || im.normal);
+  img.src = toBack ? (im.backsmall || im.back) : (card.dataset.front || im.small || im.normal);
   img.alt = toBack ? (im.backname || '') : b.dataset.flipcard;
 }, true);
 /* accent-insensitive matching: fold("Dáin") === fold("dain") */
@@ -1097,17 +1098,20 @@ function setView(v) {
 document.querySelectorAll('.view-btn').forEach(b => b.onclick = () => setView(b.dataset.v));
 
 /* ---------- card preview ---------- */
-function show(name, x, y) {
+function show(name, x, y, el) {
   const im = IMGS[name];
-  if (!im || !im.normal) return;
-  if (pimg.getAttribute('src') !== im.normal) pimg.src = im.normal;
+  /* IMGS holds one image per NAME; a library card carries its own printing in data-pimg so an
+     alternate-art copy previews as itself, not as whichever printing registered the name first */
+  const src = (el && el.dataset.pimg) || (im && im.normal);
+  if (!im || !src) return;
+  if (pimg.getAttribute('src') !== src) pimg.src = src;
   const pback = preview.querySelector('.pback');
   if (im.back) {
     if (pback.getAttribute('src') !== im.back) pback.src = im.back;
     pback.hidden = false; preview.classList.add('dual');
   } else { pback.hidden = true; preview.classList.remove('dual'); }
   preview.style.display = 'block';
-  preview.dataset.card = name;
+  preview.dataset.card = name; preview.dataset.src = src;
   if (isTouch()) { backdrop.style.display = 'block'; preview.style.left = ''; preview.style.top = ''; }
   else move(x, y);
 }
@@ -1123,7 +1127,7 @@ function move(x, y) {
 document.addEventListener('mouseover', e => {
   if (isTouch()) return;
   const el = e.target.closest('[data-card]');
-  if (el) show(el.dataset.card, e.clientX, e.clientY); else hide();
+  if (el) show(el.dataset.card, e.clientX, e.clientY, el); else hide();
 });
 document.addEventListener('mousemove', e => {
   if (isTouch()) return;
@@ -1137,8 +1141,9 @@ document.addEventListener('click', e => {
   if (e.target.closest('#lc') || e.target.closest('#palette')) return;
   const el = e.target.closest('[data-card]');
   if (el) {
-    if (preview.style.display === 'block' && preview.dataset.card === el.dataset.card) hide();
-    else show(el.dataset.card);
+    if (preview.style.display === 'block' && preview.dataset.card === el.dataset.card &&
+        (!el.dataset.pimg || preview.dataset.src === el.dataset.pimg)) hide();
+    else show(el.dataset.card, undefined, undefined, el);
   } else hide();
 });
 backdrop.addEventListener('click', hide);
@@ -1487,7 +1492,7 @@ if (LIBRARY.length) {
     document.getElementById('libCount').textContent =
       `${hits.reduce((a, c) => a + (c.qty || 1), 0)} cards / ${hits.length} unique`;
     document.getElementById('libGrid').innerHTML = hits.length ? hits.map(c => `
-      <div class="gcard" data-card="${esc(c.name)}">
+      <div class="gcard" data-card="${esc(c.name)}" data-pimg="${esc(c.normal || '')}">
         <img loading="lazy" src="${c.small || ''}" alt="${esc(c.name)}">
         ${(c.qty || 1) > 1 ? `<span class="qbadge">&times;${c.qty}</span>` : ''}
         ${c.foil ? '<span class="foilbadge">FOIL</span>' : ''}${flipBtnHtml(c.name)}
