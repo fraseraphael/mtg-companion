@@ -1,0 +1,2743 @@
+{
+ "Aetherize": {
+  "name": "Aetherize",
+  "notes": "Goldfish: only the dummy's attackers are meant (it never attacks), so nothing happens. Never bounces your own attackers.",
+  "source": "Return all attacking creatures to their owner's hand.",
+  "spell": [
+   {
+    "bounce": {
+     "target": "opponent"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Alchemist's Refuge": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{G}{U}",
+     "tap": true
+    },
+    "do": [
+     {
+      "grant": {
+       "kw": [
+        "Spells have flash this turn"
+       ],
+       "target": "self"
+      }
+     }
+    ],
+    "label": "Flash this turn",
+    "text": "{G}{U}, {T}: You may cast spells this turn as though they had flash."
+   }
+  ],
+  "name": "Alchemist's Refuge",
+  "notes": "The activation marks the Refuge until end of turn; while marked, every spell you cast has flash.",
+  "source": "{T}: Add {C}.\n{G}{U}, {T}: You may cast spells this turn as though they had flash.",
+  "statics": [
+   {
+    "flash": {
+     "if": {
+      "youControl": {
+       "keyword": "Spells have flash this turn",
+       "name": "Alchemist's Refuge"
+      }
+     }
+    },
+    "text": "{G}{U}, {T}: You may cast spells this turn as though they had flash."
+   }
+  ],
+  "status": "hand"
+ },
+ "Arcane Signet": {
+  "name": "Arcane Signet",
+  "source": "{T}: Add one mana of any color in your commander's color identity.",
+  "status": "auto"
+ },
+ "Beast Within": {
+  "name": "Beast Within",
+  "notes": "Goldfish: the dummy controls no permanents, so the useful mode is your own permanent (e.g. a Beast at instant speed).",
+  "source": "Destroy target permanent. Its controller creates a 3/3 green Beast creature token.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "any-you-control"
+         }
+        },
+        {
+         "token": {
+          "n": 1,
+          "name": "Beast",
+          "power": 3,
+          "toughness": 3,
+          "types": [
+           "Creature",
+           "Beast"
+          ]
+         }
+        }
+       ],
+       "label": "One of my permanents (I get the 3/3 Beast)"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's permanent (the dummy has none; it would get the Beast)"
+      }
+     ],
+     "text": "Destroy target permanent. Its controller creates a 3/3 green Beast creature token."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Benthic Biomancer": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}{U}"
+    },
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "counters": {
+          "kind": "p1p1",
+          "n": 1,
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "noCounters": {
+         "kind": "p1p1"
+        }
+       }
+      }
+     }
+    ],
+    "label": "Adapt 1",
+    "text": "{1}{U}: Adapt 1."
+   }
+  ],
+  "name": "Benthic Biomancer",
+  "source": "{1}{U}: Adapt 1. (If this creature has no +1/+1 counters on it, put a +1/+1 counter on it.)\nWhenever one or more +1/+1 counters are put on this creature, draw a card, then discard a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     },
+     {
+      "discard": 1
+     }
+    ],
+    "on": "counters",
+    "self": true,
+    "text": "Whenever one or more +1/+1 counters are put on this creature, draw a card, then discard a card."
+   }
+  ]
+ },
+ "Branching Evolution": {
+  "name": "Branching Evolution",
+  "replace": [
+   {
+    "event": "countersPlaced",
+    "filter": {
+     "creature": true
+    },
+    "kind": "p1p1",
+    "multiply": 2
+   }
+  ],
+  "source": "If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on that creature instead.",
+  "status": "hand"
+ },
+ "Cavern of Souls": {
+  "chooseOn": {
+   "enters": {
+    "kind": "creatureType"
+   }
+  },
+  "name": "Cavern of Souls",
+  "source": "As this land enters, choose a creature type.\n{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a creature spell of the chosen type, and that spell can't be countered.",
+  "status": "auto"
+ },
+ "Cold-Eyed Selkie": {
+  "name": "Cold-Eyed Selkie",
+  "source": "Islandwalk (This creature can't be blocked as long as defending player controls an Island.)\nWhenever this creature deals combat damage to a player, you may draw that many cards.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": "count:event-amount"
+     }
+    ],
+    "on": "combatDamage",
+    "optional": true,
+    "self": true,
+    "text": "Whenever this creature deals combat damage to a player, you may draw that many cards."
+   }
+  ]
+ },
+ "Command Tower": {
+  "name": "Command Tower",
+  "source": "{T}: Add one mana of any color in your commander's color identity.",
+  "status": "auto"
+ },
+ "Commander's Sphere": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "Sacrifice this artifact: Draw a card."
+   }
+  ],
+  "name": "Commander's Sphere",
+  "source": "{T}: Add one mana of any color in your commander's color identity.\nSacrifice this artifact: Draw a card.",
+  "status": "auto"
+ },
+ "Commit // Memory": {
+  "faces": {
+   "Memory": {
+    "cost": "{4}{U}{U}",
+    "kind": "aftermath",
+    "spell": [
+     {
+      "putFromHand": {
+       "n": 99,
+       "to": "libbottom"
+      }
+     },
+     {
+      "return": {
+       "from": "gy",
+       "n": 250,
+       "to": "top"
+      }
+     },
+     {
+      "tutor": {
+       "filter": {
+        "name": "(shuffle only)"
+       },
+       "to": "hand"
+      }
+     },
+     {
+      "draw": 7
+     }
+    ],
+    "text": "Each player shuffles their hand and graveyard into their library, then draws seven cards.",
+    "type": "Sorcery"
+   }
+  },
+  "name": "Commit // Memory",
+  "notes": "Commit is silent on purpose: it tucks an opponent's spell or permanent (or saves yours from their removal) — the dummy has neither. Memory is cast from the graveyard through faces.",
+  "source": "Put target spell or nonland permanent into its owner's library second from the top.",
+  "status": "hand"
+ },
+ "Coralhelm Commander": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}"
+    },
+    "do": [
+     {
+      "counters": {
+       "kind": "level",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "label": "Level up",
+    "limit": "sorcery-speed",
+    "text": "Level up {1}"
+   }
+  ],
+  "name": "Coralhelm Commander",
+  "source": "Level up {1} ({1}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 2-3\n3/3\nFlying\nLEVEL 4+\n4/4\nFlying\nOther Merfolk creatures you control get +1/+1.",
+  "statics": [
+   {
+    "if": {
+     "counters": {
+      "ge": 2,
+      "kind": "level"
+     },
+     "not": {
+      "counters": {
+       "ge": 4,
+       "kind": "level"
+      }
+     }
+    },
+    "kw": [
+     "Flying"
+    ],
+    "p": 1,
+    "scope": "self",
+    "t": 1,
+    "text": "LEVEL 2-3: 3/3, Flying"
+   },
+   {
+    "if": {
+     "counters": {
+      "ge": 4,
+      "kind": "level"
+     }
+    },
+    "kw": [
+     "Flying"
+    ],
+    "p": 2,
+    "scope": "self",
+    "t": 2,
+    "text": "LEVEL 4+: 4/4, Flying"
+   },
+   {
+    "filter": {
+     "subtype": "Merfolk"
+    },
+    "if": {
+     "counters": {
+      "ge": 4,
+      "kind": "level"
+     }
+    },
+    "p": 1,
+    "scope": "other-creatures-you-control",
+    "t": 1,
+    "text": "LEVEL 4+: Other Merfolk creatures you control get +1/+1."
+   }
+  ],
+  "status": "hand"
+ },
+ "Craterhoof Behemoth": {
+  "name": "Craterhoof Behemoth",
+  "source": "Haste\nWhen this creature enters, creatures you control gain trample and get +X/+X until end of turn, where X is the number of creatures you control.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "pump": {
+       "kw": [
+        "Trample"
+       ],
+       "p": "count:creatures-you-control",
+       "t": "count:creatures-you-control",
+       "target": "each-creature-you-control"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, creatures you control gain trample and get +X/+X until end of turn, where X is the number of creatures you control."
+   }
+  ]
+ },
+ "Curse of the Swine": {
+  "name": "Curse of the Swine",
+  "notes": "One choice per target; an exiled creature is gone, so it can't be picked twice (one token of a stack per pick).",
+  "source": "Exile X target creatures. For each creature exiled this way, its controller creates a 2/2 green Boar creature token.",
+  "spell": [
+   {
+    "repeat": {
+     "do": [
+      {
+       "choice": {
+        "options": [
+         {
+          "do": [],
+          "label": "An opponent's creature (the dummy has none)"
+         },
+         {
+          "do": [
+           {
+            "exile": {
+             "target": "creature-you-control"
+            }
+           },
+           {
+            "repeat": {
+             "do": [
+              {
+               "token": {
+                "colors": [
+                 "G"
+                ],
+                "n": 1,
+                "name": "Boar",
+                "power": 2,
+                "toughness": 2,
+                "types": [
+                 "Creature",
+                 "Boar"
+                ]
+               }
+              }
+             ],
+             "times": {
+              "of": "lastCount"
+             }
+            }
+           }
+          ],
+          "label": "One of my creatures (I get a 2/2 Boar)"
+         }
+        ],
+        "text": "Exile X target creatures. For each creature exiled this way, its controller creates a 2/2 green Boar creature token."
+       }
+      }
+     ],
+     "times": "X"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Cyclonic Rift": {
+  "name": "Cyclonic Rift",
+  "notes": "Only hits permanents you don't control; the dummy has none (overload likewise).",
+  "source": "Return target nonland permanent you don't control to its owner's hand.\nOverload {6}{U} (You may cast this spell for its overload cost. If you do, change \"target\" in its text to \"each.\")",
+  "spell": [
+   {
+    "bounce": {
+     "target": "opponent"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Deeproot Elite": {
+  "name": "Deeproot Elite",
+  "source": "Whenever another Merfolk you control enters, put a +1/+1 counter on target Merfolk you control.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": {
+        "pick": {
+         "subtype": "Merfolk"
+        }
+       }
+      }
+     }
+    ],
+    "filter": {
+     "other": true,
+     "subtype": "Merfolk"
+    },
+    "on": "enters",
+    "text": "Whenever another Merfolk you control enters, put a +1/+1 counter on target Merfolk you control."
+   }
+  ]
+ },
+ "Deeproot Historian": {
+  "name": "Deeproot Historian",
+  "notes": "Retrace's extra cost — discarding a land card — is not enforced by the engine when you cast from the graveyard.",
+  "source": "Merfolk and Druid cards in your graveyard have retrace. (You may cast cards with retrace from your graveyard by discarding a land card in addition to paying their other costs.)",
+  "statics": [
+   {
+    "castFromGy": {
+     "filter": {
+      "subtype": [
+       "Merfolk",
+       "Druid"
+      ]
+     }
+    },
+    "text": "Merfolk and Druid cards in your graveyard have retrace. (You may cast cards with retrace from your graveyard by discarding a land card in addition to paying their other costs.)"
+   }
+  ],
+  "status": "hand"
+ },
+ "Deeproot Waters": {
+  "name": "Deeproot Waters",
+  "source": "Whenever you cast a Merfolk spell, create a 1/1 blue Merfolk creature token with hexproof. (A creature with hexproof can't be the target of spells or abilities your opponents control.)",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "kw": [
+        "Hexproof"
+       ],
+       "n": 1,
+       "name": "Merfolk",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Merfolk"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "subtype": "Merfolk"
+    },
+    "on": "cast",
+    "text": "Whenever you cast a Merfolk spell, create a 1/1 blue Merfolk creature token with hexproof."
+   }
+  ]
+ },
+ "Doubling Season": {
+  "name": "Doubling Season",
+  "replace": [
+   {
+    "event": "tokenCreated",
+    "multiply": 2
+   },
+   {
+    "event": "countersPlaced",
+    "multiply": 2
+   }
+  ],
+  "source": "If an effect would create one or more tokens under your control, it creates twice that many of those tokens instead.\nIf an effect would put one or more counters on a permanent you control, it puts twice that many of those counters on that permanent instead.",
+  "status": "hand"
+ },
+ "Emperor Mihail II": {
+  "name": "Emperor Mihail II",
+  "notes": "\"You may look at the top card of your library any time\" is information only: the top card is offered for casting whenever it's a Merfolk spell.",
+  "source": "You may look at the top card of your library any time.\nYou may cast Merfolk spells from the top of your library.\nWhenever you cast a Merfolk spell, you may pay {1}. If you do, create a 1/1 blue Merfolk creature token.",
+  "statics": [
+   {
+    "playFromTop": {
+     "filter": {
+      "nonland": true,
+      "subtype": "Merfolk"
+     }
+    },
+    "text": "You may cast Merfolk spells from the top of your library."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "cost": {
+     "mana": "{1}"
+    },
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "U"
+       ],
+       "n": 1,
+       "name": "Merfolk",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Merfolk"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "subtype": "Merfolk"
+    },
+    "on": "cast",
+    "text": "Whenever you cast a Merfolk spell, you may pay {1}. If you do, create a 1/1 blue Merfolk creature token."
+   }
+  ]
+ },
+ "Evolution Sage": {
+  "name": "Evolution Sage",
+  "source": "Landfall — Whenever a land you control enters, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "proliferate": true
+     }
+    ],
+    "filter": {
+     "land": true
+    },
+    "on": "enters",
+    "text": "Landfall — Whenever a land you control enters, proliferate."
+   }
+  ]
+ },
+ "Explore": {
+  "name": "Explore",
+  "source": "You may play an additional land this turn.\nDraw a card.",
+  "spell": [
+   {
+    "extraLand": 1
+   },
+   {
+    "draw": 1
+   }
+  ],
+  "status": "auto"
+ },
+ "Finale of Devastation": {
+  "name": "Finale of Devastation",
+  "source": "Search your library and/or graveyard for a creature card with mana value X or less and put it onto the battlefield. If you search your library this way, shuffle. If X is 10 or more, creatures you control get +X/+X and gain haste until end of turn.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "tutor": {
+          "filter": {
+           "creature": true,
+           "mvLe": "X"
+          },
+          "to": "bf"
+         }
+        }
+       ],
+       "label": "From my library"
+      },
+      {
+       "do": [
+        {
+         "return": {
+          "filter": {
+           "creature": true,
+           "mvLe": "X"
+          },
+          "from": "gy",
+          "optional": true,
+          "to": "bf"
+         }
+        }
+       ],
+       "label": "From my graveyard"
+      }
+     ],
+     "text": "Search your library and/or graveyard for a creature card with mana value X or less and put it onto the battlefield."
+    }
+   },
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [],
+       "label": "X is less than 10"
+      },
+      {
+       "do": [
+        {
+         "pump": {
+          "kw": [
+           "Haste"
+          ],
+          "p": "X",
+          "t": "X",
+          "target": "each-creature-you-control"
+         }
+        }
+       ],
+       "label": "X is 10 or more — +X/+X and haste"
+      }
+     ],
+     "text": "If X is 10 or more, creatures you control get +X/+X and gain haste until end of turn."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Forest": {
+  "name": "Forest",
+  "source": "({T}: Add {G}.)",
+  "status": "auto"
+ },
+ "Growth Spiral": {
+  "name": "Growth Spiral",
+  "source": "Draw a card. You may put a land card from your hand onto the battlefield.",
+  "spell": [
+   {
+    "draw": 1
+   },
+   {
+    "putFromHand": {
+     "filter": {
+      "land": true
+     },
+     "optional": true,
+     "to": "bf"
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Hakbal of the Surging Soul": {
+  "name": "Hakbal of the Surging Soul",
+  "notes": "With Topography Tracker out every Merfolk explores twice (all once, then all again). A token stack explores once (its tokens share counters).",
+  "source": "At the beginning of combat on your turn, each Merfolk creature you control explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on the exploring creature, then put the card back or put it into your graveyard.)\nWhenever Hakbal attacks, you may put a land card from your hand onto the battlefield. If you don't, draw a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "explore": {
+          "target": {
+           "each": {
+            "creature": true,
+            "subtype": "Merfolk"
+           }
+          }
+         }
+        },
+        {
+         "explore": {
+          "target": {
+           "each": {
+            "creature": true,
+            "subtype": "Merfolk"
+           }
+          }
+         }
+        }
+       ],
+       "else": [
+        {
+         "explore": {
+          "target": {
+           "each": {
+            "creature": true,
+            "subtype": "Merfolk"
+           }
+          }
+         }
+        }
+       ],
+       "if": {
+        "youControl": {
+         "name": "Topography Tracker"
+        }
+       }
+      }
+     }
+    ],
+    "on": "beginCombat",
+    "text": "At the beginning of combat on your turn, each Merfolk creature you control explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on the exploring creature, then put the card back or put it into your graveyard.)"
+   },
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "putFromHand": {
+            "filter": {
+             "land": true
+            },
+            "to": "bf"
+           }
+          }
+         ],
+         "label": "Put a land from hand onto the battlefield"
+        },
+        {
+         "do": [
+          {
+           "draw": 1
+          }
+         ],
+         "label": "Draw a card"
+        }
+       ],
+       "text": "You may put a land card from your hand onto the battlefield. If you don't, draw a card."
+      }
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever Hakbal attacks, you may put a land card from your hand onto the battlefield. If you don't, draw a card."
+   }
+  ]
+ },
+ "Hardened Scales": {
+  "name": "Hardened Scales",
+  "replace": [
+   {
+    "add": 1,
+    "event": "countersPlaced",
+    "filter": {
+     "creature": true
+    },
+    "kind": "p1p1"
+   }
+  ],
+  "source": "If one or more +1/+1 counters would be put on a creature you control, that many plus one +1/+1 counters are put on it instead.",
+  "status": "hand"
+ },
+ "Herald of Secret Streams": {
+  "name": "Herald of Secret Streams",
+  "notes": "\"Creatures you control with +1/+1 counters on them can't be blocked.\" never matters: the dummy has no blockers. Silent on purpose.",
+  "source": "Creatures you control with +1/+1 counters on them can't be blocked.",
+  "status": "hand"
+ },
+ "Hinterland Harbor": {
+  "name": "Hinterland Harbor",
+  "source": "This land enters tapped unless you control a Forest or an Island.\n{T}: Add {G} or {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Forest",
+           "Island"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control a Forest or an Island."
+   }
+  ]
+ },
+ "Inspiring Call": {
+  "name": "Inspiring Call",
+  "source": "Draw a card for each creature you control with a +1/+1 counter on it. Those creatures gain indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy them.)",
+  "spell": [
+   {
+    "draw": {
+     "count": {
+      "counters": {
+       "kind": "p1p1"
+      },
+      "creature": true
+     }
+    }
+   },
+   {
+    "grant": {
+     "kw": [
+      "Indestructible"
+     ],
+     "target": {
+      "each": {
+       "counters": {
+        "kind": "p1p1"
+       },
+       "creature": true
+      }
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Island": {
+  "name": "Island",
+  "source": "({T}: Add {U}.)",
+  "status": "auto"
+ },
+ "Karn's Bastion": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{4}",
+     "tap": true
+    },
+    "do": [
+     {
+      "proliferate": true
+     }
+    ],
+    "text": "{4}, {T}: Proliferate."
+   }
+  ],
+  "name": "Karn's Bastion",
+  "source": "{T}: Add {C}.\n{4}, {T}: Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "status": "auto"
+ },
+ "Kindred Discovery": {
+  "chooseOn": {
+   "enters": {
+    "kind": "creatureType"
+   }
+  },
+  "name": "Kindred Discovery",
+  "source": "As this enchantment enters, choose a creature type.\nWhenever a creature you control of the chosen type enters or attacks, draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "subtype": "$chosen"
+    },
+    "on": "enters",
+    "text": "Whenever a creature you control of the chosen type enters or attacks, draw a card."
+   },
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "subtype": "$chosen"
+    },
+    "on": "attacks",
+    "text": "Whenever a creature you control of the chosen type enters or attacks, draw a card."
+   }
+  ]
+ },
+ "Kiora's Follower": {
+  "activated": [
+   {
+    "cost": {
+     "tap": true
+    },
+    "do": [
+     {
+      "untap": {
+       "target": {
+        "pick": {
+         "other": true
+        }
+       }
+      }
+     }
+    ],
+    "label": "Untap",
+    "text": "{T}: Untap another target permanent."
+   }
+  ],
+  "name": "Kiora's Follower",
+  "source": "{T}: Untap another target permanent.",
+  "status": "hand"
+ },
+ "Kodama's Reach": {
+  "name": "Kodama's Reach",
+  "source": "Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.",
+  "spell": [
+   {
+    "ramp": {
+     "filter": "basic",
+     "tapped": true
+    }
+   },
+   {
+    "ramp": {
+     "filter": "basic",
+     "to": "hand"
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Kopala, Warden of Waves": {
+  "name": "Kopala, Warden of Waves",
+  "notes": "Both abilities tax only the opponents' spells and abilities: the dummy has none. Silent on purpose.",
+  "source": "Spells your opponents cast that target a Merfolk you control cost {2} more to cast.\nAbilities your opponents activate that target a Merfolk you control cost {2} more to activate.",
+  "status": "hand"
+ },
+ "Kumena, Tyrant of Orazca": {
+  "activated": [
+   {
+    "cost": {
+     "tapUntapped": {
+      "filter": {
+       "subtype": "Merfolk"
+      },
+      "n": 3
+     }
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "label": "Tap 3: draw",
+    "text": "Tap three untapped Merfolk you control: Draw a card."
+   },
+   {
+    "cost": {
+     "tap": true,
+     "tapUntapped": {
+      "filter": {
+       "subtype": "Merfolk"
+      },
+      "n": 2
+     }
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "label": "Tap Kumena + 2: draw",
+    "text": "Tap three untapped Merfolk you control: Draw a card."
+   },
+   {
+    "cost": {
+     "tapUntapped": {
+      "filter": {
+       "subtype": "Merfolk"
+      },
+      "n": 5
+     }
+    },
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": {
+        "each": {
+         "creature": true,
+         "subtype": "Merfolk"
+        }
+       }
+      }
+     }
+    ],
+    "label": "Tap 5: counters",
+    "text": "Tap five untapped Merfolk you control: Put a +1/+1 counter on each Merfolk you control."
+   },
+   {
+    "cost": {
+     "tap": true,
+     "tapUntapped": {
+      "filter": {
+       "subtype": "Merfolk"
+      },
+      "n": 4
+     }
+    },
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": {
+        "each": {
+         "creature": true,
+         "subtype": "Merfolk"
+        }
+       }
+      }
+     }
+    ],
+    "label": "Tap Kumena + 4: counters",
+    "text": "Tap five untapped Merfolk you control: Put a +1/+1 counter on each Merfolk you control."
+   }
+  ],
+  "name": "Kumena, Tyrant of Orazca",
+  "notes": "\"Tap another untapped Merfolk: Kumena can't be blocked\" is silent (the dummy never blocks). The tap-three / tap-five costs come in two buttons: other Merfolk only, or Kumena plus others.",
+  "source": "Tap another untapped Merfolk you control: Kumena can't be blocked this turn.\nTap three untapped Merfolk you control: Draw a card.\nTap five untapped Merfolk you control: Put a +1/+1 counter on each Merfolk you control.",
+  "status": "hand"
+ },
+ "Llanowar Reborn": {
+  "name": "Llanowar Reborn",
+  "source": "This land enters tapped.\n{T}: Add {G}.\nGraft 1 (This land enters with a +1/+1 counter on it. Whenever a creature enters, you may move a +1/+1 counter from this land onto it.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   },
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Graft 1"
+   },
+   {
+    "do": [
+     {
+      "moveCounters": {
+       "from": "self",
+       "kind": "p1p1",
+       "n": 1,
+       "to": "triggering"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true
+    },
+    "if": {
+     "counters": {
+      "ge": 1,
+      "kind": "p1p1"
+     }
+    },
+    "on": "enters",
+    "optional": true,
+    "text": "Graft 1"
+   }
+  ]
+ },
+ "Master of the Pearl Trident": {
+  "name": "Master of the Pearl Trident",
+  "source": "Other Merfolk creatures you control get +1/+1 and have islandwalk. (They can't be blocked as long as defending player controls an Island.)",
+  "statics": [
+   {
+    "filter": {
+     "subtype": "Merfolk"
+    },
+    "kw": [
+     "Islandwalk"
+    ],
+    "p": 1,
+    "scope": "other-creatures-you-control",
+    "t": 1,
+    "text": "Other Merfolk creatures you control get +1/+1 and have islandwalk."
+   }
+  ],
+  "status": "hand"
+ },
+ "Memory": {
+  "name": "Memory",
+  "notes": "Aftermath half: cast from the graveyard through Commit // Memory's faces (the dummy has no hand or graveyard).",
+  "source": "Aftermath (Cast this spell only from your graveyard. Then exile it.)\nEach player shuffles their hand and graveyard into their library, then draws seven cards.",
+  "spell": [
+   {
+    "putFromHand": {
+     "n": 99,
+     "to": "libbottom"
+    }
+   },
+   {
+    "return": {
+     "from": "gy",
+     "n": 250,
+     "to": "top"
+    }
+   },
+   {
+    "tutor": {
+     "filter": {
+      "name": "(shuffle only)"
+     },
+     "to": "hand"
+    }
+   },
+   {
+    "draw": 7
+   }
+  ],
+  "status": "hand"
+ },
+ "Merfolk Mistbinder": {
+  "name": "Merfolk Mistbinder",
+  "source": "Other Merfolk you control get +1/+1.",
+  "statics": [
+   {
+    "filter": {
+     "other": true,
+     "subtype": "Merfolk"
+    },
+    "p": 1,
+    "scope": "creatures-you-control",
+    "t": 1,
+    "text": "Other Merfolk you control get +1/+1."
+   }
+  ],
+  "status": "auto"
+ },
+ "Merfolk Skydiver": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{3}{G}{U}"
+    },
+    "do": [
+     {
+      "proliferate": true
+     }
+    ],
+    "text": "{3}{G}{U}: Proliferate."
+   }
+  ],
+  "name": "Merfolk Skydiver",
+  "source": "Flying\nWhen this creature enters, put a +1/+1 counter on target creature you control.\n{3}{G}{U}: Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "creature-you-control"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, put a +1/+1 counter on target creature you control."
+   }
+  ]
+ },
+ "Merfolk Sovereign": {
+  "activated": [
+   {
+    "cost": {
+     "tap": true
+    },
+    "do": [
+     {
+      "grant": {
+       "kw": [
+        "Unblockable"
+       ],
+       "target": {
+        "pick": {
+         "creature": true,
+         "subtype": "Merfolk"
+        }
+       }
+      }
+     }
+    ],
+    "label": "Unblockable",
+    "text": "{T}: Target Merfolk creature can't be blocked this turn."
+   }
+  ],
+  "name": "Merfolk Sovereign",
+  "notes": "\"Unblockable\" is a reminder tag; the dummy never blocks.",
+  "source": "Other Merfolk creatures you control get +1/+1.\n{T}: Target Merfolk creature can't be blocked this turn.",
+  "statics": [
+   {
+    "filter": {
+     "subtype": "Merfolk"
+    },
+    "p": 1,
+    "scope": "other-creatures-you-control",
+    "t": 1,
+    "text": "Other Merfolk creatures you control get +1/+1."
+   }
+  ],
+  "status": "hand"
+ },
+ "Merrow Reejerey": {
+  "name": "Merrow Reejerey",
+  "source": "Other Merfolk creatures you control get +1/+1.\nWhenever you cast a Merfolk spell, you may tap or untap target permanent.",
+  "statics": [
+   {
+    "filter": {
+     "subtype": "Merfolk"
+    },
+    "p": 1,
+    "scope": "other-creatures-you-control",
+    "t": 1,
+    "text": "Other Merfolk creatures you control get +1/+1."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "untap": {
+            "target": "any-you-control"
+           }
+          }
+         ],
+         "label": "Untap one of my permanents"
+        },
+        {
+         "do": [
+          {
+           "tap": {
+            "target": "any-you-control"
+           }
+          }
+         ],
+         "label": "Tap one of my permanents"
+        }
+       ],
+       "text": "Tap or untap target permanent."
+      }
+     }
+    ],
+    "filter": {
+     "subtype": "Merfolk"
+    },
+    "on": "cast",
+    "optional": true,
+    "text": "Whenever you cast a Merfolk spell, you may tap or untap target permanent."
+   }
+  ]
+ },
+ "Metallic Mimic": {
+  "chooseOn": {
+   "enters": {
+    "kind": "creatureType"
+   }
+  },
+  "name": "Metallic Mimic",
+  "source": "As this creature enters, choose a creature type.\nThis creature is the chosen type in addition to its other types.\nEach other creature you control of the chosen type enters with an additional +1/+1 counter on it.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "addSubtype": {
+       "subtype": "$chosen",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This creature is the chosen type in addition to its other types."
+   },
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "triggering"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "other": true,
+     "subtype": "$chosen"
+    },
+    "on": "enters",
+    "text": "Each other creature you control of the chosen type enters with an additional +1/+1 counter on it."
+   }
+  ]
+ },
+ "Mosswort Bridge": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{G}",
+     "tap": true
+    },
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "castHidden": {
+          "target": "this"
+         }
+        }
+       ],
+       "if": {
+        "totalPowerGe": 10
+       }
+      }
+     }
+    ],
+    "label": "Hideaway",
+    "text": "{G}, {T}: You may play the exiled card without paying its mana cost if creatures you control have total power 10 or greater."
+   }
+  ],
+  "name": "Mosswort Bridge",
+  "source": "Hideaway 4 (When this land enters, look at the top four cards of your library, exile one face down, then put the rest on the bottom in a random order.)\nThis land enters tapped.\n{T}: Add {G}.\n{G}, {T}: You may play the exiled card without paying its mana cost if creatures you control have total power 10 or greater.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   },
+   {
+    "do": [
+     {
+      "exileTop": {
+       "hideaway": true,
+       "n": 4
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Hideaway 4"
+   }
+  ]
+ },
+ "Myriad Landscape": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}",
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "ramp": {
+            "filter": {
+             "basic": true,
+             "subtype": "Plains"
+            },
+            "n": 2,
+            "tapped": true
+           }
+          }
+         ],
+         "label": "Plains"
+        },
+        {
+         "do": [
+          {
+           "ramp": {
+            "filter": {
+             "basic": true,
+             "subtype": "Island"
+            },
+            "n": 2,
+            "tapped": true
+           }
+          }
+         ],
+         "label": "Island"
+        },
+        {
+         "do": [
+          {
+           "ramp": {
+            "filter": {
+             "basic": true,
+             "subtype": "Swamp"
+            },
+            "n": 2,
+            "tapped": true
+           }
+          }
+         ],
+         "label": "Swamp"
+        },
+        {
+         "do": [
+          {
+           "ramp": {
+            "filter": {
+             "basic": true,
+             "subtype": "Mountain"
+            },
+            "n": 2,
+            "tapped": true
+           }
+          }
+         ],
+         "label": "Mountain"
+        },
+        {
+         "do": [
+          {
+           "ramp": {
+            "filter": {
+             "basic": true,
+             "subtype": "Forest"
+            },
+            "n": 2,
+            "tapped": true
+           }
+          }
+         ],
+         "label": "Forest"
+        }
+       ],
+       "text": "Choose the land type they share."
+      }
+     }
+    ],
+    "label": "Fetch 2",
+    "text": "{2}, {T}, Sacrifice this land: Search your library for up to two basic land cards that share a land type, put them onto the battlefield tapped, then shuffle."
+   }
+  ],
+  "name": "Myriad Landscape",
+  "source": "This land enters tapped.\n{T}: Add {C}.\n{2}, {T}, Sacrifice this land: Search your library for up to two basic land cards that share a land type, put them onto the battlefield tapped, then shuffle.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "Nicanzil, Current Conductor": {
+  "name": "Nicanzil, Current Conductor",
+  "notes": "The explore event doesn't say what was revealed, so the trigger asks (the answer is in the log line just above).",
+  "source": "Whenever a creature you control explores a land card, you may put a land card from your hand onto the battlefield tapped.\nWhenever a creature you control explores a nonland card, put a +1/+1 counter on Nicanzil.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "putFromHand": {
+            "filter": {
+             "land": true
+            },
+            "optional": true,
+            "tapped": true,
+            "to": "bf"
+           }
+          }
+         ],
+         "label": "A land card — you may put a land from hand onto the battlefield tapped"
+        },
+        {
+         "do": [
+          {
+           "counters": {
+            "kind": "p1p1",
+            "n": 1,
+            "target": "self"
+           }
+          }
+         ],
+         "label": "A nonland card — +1/+1 counter on Nicanzil"
+        }
+       ],
+       "text": "The creature explored — what did it reveal? (see the log line)"
+      }
+     }
+    ],
+    "on": "explored",
+    "text": "Whenever a creature you control explores a land card, you may put a land card from your hand onto the battlefield tapped. Whenever a creature you control explores a nonland card, put a +1/+1 counter on Nicanzil."
+   }
+  ]
+ },
+ "Path of Ancestry": {
+  "name": "Path of Ancestry",
+  "source": "This land enters tapped.\n{T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "Prime Speaker Zegana": {
+  "name": "Prime Speaker Zegana",
+  "notes": "Both abilities run in one trigger so the counters land before the draw. Zegana (1/1) only counts toward the greatest power when another creature has power 1 or more, which then equals the other creatures' greatest power.",
+  "source": "Prime Speaker Zegana enters with X +1/+1 counters on it, where X is the greatest power among other creatures you control.\nWhen Prime Speaker Zegana enters, draw cards equal to its power.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "counters": {
+          "kind": "p1p1",
+          "n": "greatest:power-you-control",
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "youControl": {
+         "creature": true,
+         "other": true,
+         "powerGe": 1
+        }
+       }
+      }
+     },
+     {
+      "draw": "count:power-of-self"
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Prime Speaker Zegana enters with X +1/+1 counters on it, where X is the greatest power among other creatures you control. When Prime Speaker Zegana enters, draw cards equal to its power."
+   }
+  ]
+ },
+ "Quandrix Command": {
+  "name": "Quandrix Command",
+  "notes": "The counter mode and an opponent's creature are opponent-only; the choice lists every pair of modes that does something for you.",
+  "source": "Choose two —\n• Return target creature or planeswalker to its owner's hand.\n• Counter target artifact or enchantment spell.\n• Put two +1/+1 counters on target creature.\n• Target player shuffles up to three target cards from their graveyard into their library.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "bounce": {
+          "target": {
+           "pick": {
+            "type": [
+             "Creature",
+             "Planeswalker"
+            ]
+           }
+          }
+         }
+        },
+        {
+         "counters": {
+          "kind": "p1p1",
+          "n": 2,
+          "target": "creature-you-control"
+         }
+        }
+       ],
+       "label": "Bounce one of my creatures/planeswalkers + two +1/+1 counters"
+      },
+      {
+       "do": [
+        {
+         "bounce": {
+          "target": {
+           "pick": {
+            "type": [
+             "Creature",
+             "Planeswalker"
+            ]
+           }
+          }
+         }
+        },
+        {
+         "return": {
+          "from": "gy",
+          "n": 3,
+          "optional": true,
+          "to": "top"
+         }
+        },
+        {
+         "tutor": {
+          "filter": {
+           "name": "(shuffle only)"
+          },
+          "to": "hand"
+         }
+        }
+       ],
+       "label": "Bounce one of mine + shuffle up to three cards from my graveyard into my library"
+      },
+      {
+       "do": [
+        {
+         "counters": {
+          "kind": "p1p1",
+          "n": 2,
+          "target": "creature-you-control"
+         }
+        },
+        {
+         "return": {
+          "from": "gy",
+          "n": 3,
+          "optional": true,
+          "to": "top"
+         }
+        },
+        {
+         "tutor": {
+          "filter": {
+           "name": "(shuffle only)"
+          },
+          "to": "hand"
+         }
+        }
+       ],
+       "label": "Two +1/+1 counters + shuffle up to three graveyard cards"
+      },
+      {
+       "do": [
+        {
+         "counters": {
+          "kind": "p1p1",
+          "n": 2,
+          "target": "creature-you-control"
+         }
+        }
+       ],
+       "label": "Two +1/+1 counters (+ a mode aimed at the dummy)"
+      },
+      {
+       "do": [
+        {
+         "return": {
+          "from": "gy",
+          "n": 3,
+          "optional": true,
+          "to": "top"
+         }
+        },
+        {
+         "tutor": {
+          "filter": {
+           "name": "(shuffle only)"
+          },
+          "to": "hand"
+         }
+        }
+       ],
+       "label": "Shuffle up to three graveyard cards (+ a mode aimed at the dummy)"
+      },
+      {
+       "do": [
+        {
+         "bounce": {
+          "target": {
+           "pick": {
+            "type": [
+             "Creature",
+             "Planeswalker"
+            ]
+           }
+          }
+         }
+        }
+       ],
+       "label": "Bounce one of mine (+ a mode aimed at the dummy)"
+      }
+     ],
+     "text": "Choose two — (the counter mode only hits the dummy's spells: it does nothing)"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Rapid Hybridization": {
+  "name": "Rapid Hybridization",
+  "source": "Destroy target creature. It can't be regenerated. That creature's controller creates a 3/3 green Frog Lizard creature token.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's creature (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "creature-you-control"
+         }
+        },
+        {
+         "token": {
+          "n": 1,
+          "name": "Frog Lizard",
+          "power": 3,
+          "toughness": 3,
+          "types": [
+           "Creature",
+           "Frog",
+           "Lizard"
+          ]
+         }
+        }
+       ],
+       "label": "One of my creatures (I get a 3/3 Frog Lizard)"
+      }
+     ],
+     "text": "Destroy target creature. It can't be regenerated. That creature's controller creates a 3/3 green Frog Lizard creature token."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Realmwalker": {
+  "chooseOn": {
+   "enters": {
+    "kind": "creatureType"
+   }
+  },
+  "name": "Realmwalker",
+  "notes": "\"You may look at the top card of your library any time\" is information only: the top card is offered for casting whenever it's a creature of the chosen type.",
+  "source": "Changeling (This card is every creature type.)\nAs this creature enters, choose a creature type.\nYou may look at the top card of your library any time.\nYou may cast creature spells of the chosen type from the top of your library.",
+  "statics": [
+   {
+    "playFromTop": {
+     "filter": {
+      "creature": true,
+      "subtype": "$chosen"
+     }
+    },
+    "text": "You may cast creature spells of the chosen type from the top of your library."
+   }
+  ],
+  "status": "hand"
+ },
+ "Reflections of Littjara": {
+  "chooseOn": {
+   "enters": {
+    "kind": "creatureType"
+   }
+  },
+  "name": "Reflections of Littjara",
+  "notes": "Only creature spells have creature types in these decks (no Kindred spells); the copy is a token that doesn't run its own enters triggers.",
+  "source": "As this enchantment enters, choose a creature type.\nWhenever you cast a spell of the chosen type, copy that spell. (A copy of a permanent spell becomes a token.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "copyOf": "triggering"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "subtype": "$chosen"
+    },
+    "on": "cast",
+    "text": "Whenever you cast a spell of the chosen type, copy that spell. (A copy of a permanent spell becomes a token.)"
+   }
+  ]
+ },
+ "Reliquary Tower": {
+  "name": "Reliquary Tower",
+  "source": "You have no maximum hand size.\n{T}: Add {C}.",
+  "statics": [
+   {
+    "noMaxHand": true,
+    "text": "You have no maximum hand size."
+   }
+  ],
+  "status": "hand"
+ },
+ "Ripples of Potential": {
+  "name": "Ripples of Potential",
+  "notes": "Phasing out is optional protection and never matters against the dummy.",
+  "source": "Proliferate, then choose any number of permanents you control that had a counter put on them this way. Those permanents phase out. (To proliferate, choose any number of permanents and/or players, then give each another counter of each kind already there. Treat phased-out permanents and anything attached to them as though they don't exist until their controller's next turn.)",
+  "spell": [
+   {
+    "proliferate": true
+   }
+  ],
+  "status": "hand"
+ },
+ "Rogue's Passage": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{4}",
+     "tap": true
+    },
+    "do": [
+     {
+      "grant": {
+       "kw": [
+        "Unblockable"
+       ],
+       "target": "creature-you-control"
+      }
+     }
+    ],
+    "label": "Unblockable",
+    "text": "{4}, {T}: Target creature can't be blocked this turn."
+   }
+  ],
+  "name": "Rogue's Passage",
+  "notes": "Goldfish: the dummy never blocks; the \"Unblockable\" tag is a reminder only.",
+  "source": "{T}: Add {C}.\n{4}, {T}: Target creature can't be blocked this turn.",
+  "status": "hand"
+ },
+ "Ruinous Intrusion": {
+  "name": "Ruinous Intrusion",
+  "notes": "Silent on purpose: removal for an opponent's artifact or enchantment (the dummy has none).",
+  "source": "Exile target artifact or enchantment. Put X +1/+1 counters on target creature you control, where X is the mana value of the permanent exiled this way.",
+  "status": "hand"
+ },
+ "Seafloor Oracle": {
+  "name": "Seafloor Oracle",
+  "source": "Whenever a Merfolk you control deals combat damage to a player, draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "subtype": "Merfolk"
+    },
+    "on": "combatDamage",
+    "text": "Whenever a Merfolk you control deals combat damage to a player, draw a card."
+   }
+  ]
+ },
+ "Secluded Courtyard": {
+  "chooseOn": {
+   "enters": {
+    "kind": "creatureType"
+   }
+  },
+  "name": "Secluded Courtyard",
+  "source": "As this land enters, choose a creature type.\n{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a creature spell of the chosen type or activate an ability of a creature source of the chosen type.",
+  "status": "auto"
+ },
+ "Seedborn Muse": {
+  "name": "Seedborn Muse",
+  "notes": "Untaps only during other players' untap steps: the dummy takes no turns. Silent on purpose.",
+  "source": "Untap all permanents you control during each other player's untap step.",
+  "status": "hand"
+ },
+ "Simic Ascendancy": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}{G}{U}"
+    },
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "creature-you-control"
+      }
+     }
+    ],
+    "label": "+1/+1 counter",
+    "text": "{1}{G}{U}: Put a +1/+1 counter on target creature you control."
+   }
+  ],
+  "name": "Simic Ascendancy",
+  "source": "{1}{G}{U}: Put a +1/+1 counter on target creature you control.\nWhenever one or more +1/+1 counters are put on a creature you control, put that many growth counters on this enchantment.\nAt the beginning of your upkeep, if this enchantment has twenty or more growth counters on it, you win the game.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "growth",
+       "n": "count:event-amount",
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "kind": "p1p1"
+    },
+    "on": "counters",
+    "text": "Whenever one or more +1/+1 counters are put on a creature you control, put that many growth counters on this enchantment."
+   },
+   {
+    "do": [
+     {
+      "win": "Simic Ascendancy has twenty or more growth counters"
+     }
+    ],
+    "if": {
+     "counters": {
+      "ge": 20,
+      "kind": "growth"
+     }
+    },
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, if this enchantment has twenty or more growth counters on it, you win the game."
+   }
+  ]
+ },
+ "Simic Growth Chamber": {
+  "name": "Simic Growth Chamber",
+  "source": "This land enters tapped.\nWhen this land enters, return a land you control to its owner's hand.\n{T}: Add {G}{U}.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   },
+   {
+    "do": [
+     {
+      "bounce": {
+       "target": "land-you-control"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this land enters, return a land you control to its owner's hand."
+   }
+  ]
+ },
+ "Simic Signet": {
+  "name": "Simic Signet",
+  "source": "{1}, {T}: Add {G}{U}.",
+  "status": "auto"
+ },
+ "Sol Ring": {
+  "name": "Sol Ring",
+  "source": "{T}: Add {C}{C}.",
+  "status": "auto"
+ },
+ "Stonybrook Banneret": {
+  "name": "Stonybrook Banneret",
+  "source": "Islandwalk (This creature can't be blocked as long as defending player controls an Island.)\nMerfolk spells and Wizard spells you cast cost {1} less to cast.",
+  "statics": [
+   {
+    "costLess": 1,
+    "filter": {
+     "subtype": [
+      "Merfolk",
+      "Wizard"
+     ]
+    },
+    "scope": "spells-you-cast",
+    "text": "Merfolk spells and Wizard spells you cast cost {1} less to cast."
+   }
+  ],
+  "status": "hand"
+ },
+ "Surgespanner": {
+  "name": "Surgespanner",
+  "source": "Whenever this creature becomes tapped, you may pay {1}{U}. If you do, return target permanent to its owner's hand.",
+  "status": "hand",
+  "triggers": [
+   {
+    "cost": {
+     "mana": "{1}{U}"
+    },
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "bounce": {
+            "target": "any-you-control"
+           }
+          }
+         ],
+         "label": "One of my permanents"
+        },
+        {
+         "do": [
+          {
+           "bounce": {
+            "target": "opponent"
+           }
+          }
+         ],
+         "label": "An opponent's (the dummy has none)"
+        }
+       ],
+       "text": "Return target permanent to its owner's hand."
+      }
+     }
+    ],
+    "on": "tapped",
+    "self": true,
+    "text": "Whenever this creature becomes tapped, you may pay {1}{U}. If you do, return target permanent to its owner's hand."
+   }
+  ]
+ },
+ "Svyelun of Sea and Sky": {
+  "name": "Svyelun of Sea and Sky",
+  "source": "Svyelun has indestructible as long as you control at least two other Merfolk.\nWhenever Svyelun attacks, draw a card.\nOther Merfolk you control have ward {1}. (Whenever another Merfolk you control becomes the target of a spell or ability an opponent controls, counter it unless that player pays {1}.)",
+  "statics": [
+   {
+    "if": {
+     "countGe": 2,
+     "youControl": {
+      "other": true,
+      "subtype": "Merfolk"
+     }
+    },
+    "kw": [
+     "Indestructible"
+    ],
+    "scope": "self",
+    "text": "Svyelun has indestructible as long as you control at least two other Merfolk."
+   },
+   {
+    "filter": {
+     "subtype": "Merfolk"
+    },
+    "kw": [
+     "Ward"
+    ],
+    "scope": "other-creatures-you-control",
+    "text": "Other Merfolk you control have ward {1}."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever Svyelun attacks, draw a card."
+   }
+  ]
+ },
+ "Swiftfoot Boots": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}"
+    },
+    "do": [
+     {
+      "attach": {}
+     }
+    ],
+    "label": "Equip",
+    "limit": "sorcery-speed",
+    "text": "Equip {1}"
+   }
+  ],
+  "name": "Swiftfoot Boots",
+  "notes": "Equip attaches it; the attached creature has hexproof and haste.",
+  "source": "Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T} no matter when it came under your control.)\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+  "statics": [
+   {
+    "kw": [
+     "Hexproof",
+     "Haste"
+    ],
+    "scope": "attached",
+    "text": "Equipped creature has hexproof and haste."
+   }
+  ],
+  "status": "hand"
+ },
+ "Tatyova, Benthic Druid": {
+  "name": "Tatyova, Benthic Druid",
+  "source": "Landfall — Whenever a land you control enters, you gain 1 life and draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "gainLife": 1
+     },
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "land": true
+    },
+    "on": "enters",
+    "text": "Landfall — Whenever a land you control enters, you gain 1 life and draw a card."
+   }
+  ]
+ },
+ "Temple of Mystery": {
+  "name": "Temple of Mystery",
+  "source": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {G} or {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   },
+   {
+    "do": [
+     {
+      "scry": 1
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this land enters, scry 1."
+   }
+  ]
+ },
+ "Thassa, God of the Sea": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}{U}"
+    },
+    "do": [
+     {
+      "grant": {
+       "kw": [
+        "Unblockable"
+       ],
+       "target": "creature-you-control"
+      }
+     }
+    ],
+    "label": "Unblockable",
+    "text": "{1}{U}: Target creature you control can't be blocked this turn."
+   }
+  ],
+  "name": "Thassa, God of the Sea",
+  "notes": "Devotion is not computed: treat Thassa as a non-creature by hand below five devotion. \"Unblockable\" is a reminder tag.",
+  "source": "Indestructible\nAs long as your devotion to blue is less than five, Thassa isn't a creature. (Each {U} in the mana costs of permanents you control counts toward your devotion to blue.)\nAt the beginning of your upkeep, scry 1.\n{1}{U}: Target creature you control can't be blocked this turn.",
+  "statics": [
+   {
+    "prompt": "As long as your devotion to blue is less than five, Thassa isn't a creature."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "scry": 1
+     }
+    ],
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, scry 1."
+   }
+  ]
+ },
+ "Thieving Skydiver": {
+  "name": "Thieving Skydiver",
+  "notes": "The kicker steals an opponent's artifact: the dummy has none. Silent on purpose (Flying is a keyword).",
+  "source": "Kicker {X}. X can't be 0. (You may pay an additional {X} as you cast this spell.)\nFlying\nWhen this creature enters, if it was kicked, gain control of target artifact with mana value X or less. If that artifact is an Equipment, attach it to this creature.",
+  "status": "hand"
+ },
+ "Tishana's Tidebinder": {
+  "name": "Tishana's Tidebinder",
+  "notes": "Counters an activated or triggered ability — the dummy has none. Silent on purpose (Flash is a keyword).",
+  "source": "Flash\nWhen this creature enters, counter up to one target activated or triggered ability. If an ability of an artifact, creature, or planeswalker is countered this way, that permanent loses all abilities for as long as this creature remains on the battlefield. (Mana abilities can't be targeted.)",
+  "status": "hand"
+ },
+ "Tishana, Voice of Thunder": {
+  "name": "Tishana, Voice of Thunder",
+  "source": "Tishana's power and toughness are each equal to the number of cards in your hand.\nYou have no maximum hand size.\nWhen Tishana enters, draw a card for each creature you control.",
+  "statics": [
+   {
+    "p": "count:cards-in-hand",
+    "scope": "self",
+    "t": "count:cards-in-hand",
+    "text": "Tishana's power and toughness are each equal to the number of cards in your hand."
+   },
+   {
+    "noMaxHand": true,
+    "text": "You have no maximum hand size."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": "count:creatures-you-control"
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Tishana enters, draw a card for each creature you control."
+   }
+  ]
+ },
+ "Topography Tracker": {
+  "name": "Topography Tracker",
+  "notes": "\"If a creature you control would explore, instead it explores, then it explores again\" is applied by this deck's explore sources (Hakbal and the Map token check for the Tracker).",
+  "source": "When this creature enters, create a Map token. (It's an artifact with \"{1}, {T}, Sacrifice this token: Target creature you control explores. Activate only as a sorcery.\")\nIf a creature you control would explore, instead it explores, then it explores again.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Map",
+       "script": "Map Token",
+       "types": [
+        "Artifact",
+        "Map"
+       ]
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, create a Map token. (It's an artifact with \"{1}, {T}, Sacrifice this token: Target creature you control explores. Activate only as a sorcery.\")"
+   }
+  ]
+ },
+ "Unclaimed Territory": {
+  "chooseOn": {
+   "enters": {
+    "kind": "creatureType"
+   }
+  },
+  "name": "Unclaimed Territory",
+  "source": "As this land enters, choose a creature type.\n{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a creature spell of the chosen type.",
+  "status": "auto"
+ },
+ "Vanquisher's Banner": {
+  "chooseOn": {
+   "enters": {
+    "kind": "creatureType"
+   }
+  },
+  "name": "Vanquisher's Banner",
+  "source": "As this artifact enters, choose a creature type.\nCreatures you control of the chosen type get +1/+1.\nWhenever you cast a creature spell of the chosen type, draw a card.",
+  "statics": [
+   {
+    "filter": {
+     "subtype": "$chosen"
+    },
+    "p": 1,
+    "scope": "creatures-you-control",
+    "t": 1,
+    "text": "Creatures you control of the chosen type get +1/+1."
+   }
+  ],
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "subtype": "$chosen"
+    },
+    "on": "cast",
+    "text": "Whenever you cast a creature spell of the chosen type, draw a card."
+   }
+  ]
+ },
+ "Vineglimmer Snarl": {
+  "name": "Vineglimmer Snarl",
+  "notes": "\"As this land enters\" modelled as an enters trigger with a reveal choice.",
+  "source": "As this land enters, you may reveal a Forest or Island card from your hand. If you don't, this land enters tapped.\n{T}: Add {G} or {U}.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [],
+         "label": "Reveal a Forest or Island (enters untapped)"
+        },
+        {
+         "do": [
+          {
+           "tap": {
+            "target": "self"
+           }
+          }
+         ],
+         "label": "Don't reveal (enters tapped)"
+        }
+       ],
+       "text": "Vineglimmer Snarl: reveal a Forest or Island card from your hand?"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "As this land enters, you may reveal a Forest or Island card from your hand. If you don't, this land enters tapped."
+   }
+  ]
+ },
+ "Vodalian Hexcatcher": {
+  "name": "Vodalian Hexcatcher",
+  "notes": "Silent on purpose: \"Sacrifice a Merfolk: Counter target noncreature spell unless its controller pays {1}\" needs an opponent's spell.",
+  "source": "Flash\nOther Merfolk you control get +1/+1.\nSacrifice a Merfolk: Counter target noncreature spell unless its controller pays {1}.",
+  "statics": [
+   {
+    "filter": {
+     "other": true,
+     "subtype": "Merfolk"
+    },
+    "p": 1,
+    "scope": "creatures-you-control",
+    "t": 1,
+    "text": "Other Merfolk you control get +1/+1."
+   }
+  ],
+  "status": "hand"
+ },
+ "Vorel of the Hull Clade": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{G}{U}",
+     "tap": true
+    },
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "doubleCounters": {
+            "kind": "p1p1",
+            "target": {
+             "pick": {
+              "not": {
+               "name": "Coralhelm Commander"
+              },
+              "type": [
+               "Artifact",
+               "Creature"
+              ]
+             }
+            }
+           }
+          }
+         ],
+         "label": "A creature or artifact (its +1/+1 counters)"
+        },
+        {
+         "do": [
+          {
+           "doubleCounters": {
+            "kind": "p1p1",
+            "target": {
+             "each": {
+              "name": "Coralhelm Commander"
+             }
+            }
+           }
+          },
+          {
+           "doubleCounters": {
+            "kind": "level",
+            "target": {
+             "each": {
+              "name": "Coralhelm Commander"
+             }
+            }
+           }
+          }
+         ],
+         "label": "Coralhelm Commander (+1/+1 and level counters)"
+        },
+        {
+         "do": [
+          {
+           "doubleCounters": {
+            "kind": "flood",
+            "target": {
+             "pick": {
+              "land": true
+             }
+            }
+           }
+          }
+         ],
+         "label": "A land (its flood counters)"
+        }
+       ],
+       "text": "Double each kind of counter on target artifact, creature, or land — which?"
+      }
+     }
+    ],
+    "label": "Double counters",
+    "text": "{G}{U}, {T}: Double the number of each kind of counter on target artifact, creature, or land."
+   }
+  ],
+  "name": "Vorel of the Hull Clade",
+  "notes": "The options cover every counter kind this deck makes (+1/+1, level on Coralhelm Commander, flood on lands).",
+  "source": "{G}{U}, {T}: Double the number of each kind of counter on target artifact, creature, or land.",
+  "status": "hand"
+ },
+ "Xolatoyac, the Smiling Flood": {
+  "name": "Xolatoyac, the Smiling Flood",
+  "notes": "The flood counter is placed; the land being an Island is by hand.",
+  "source": "Whenever Xolatoyac enters or attacks, put a flood counter on target land. That land is an Island in addition to its other types for as long as it has a flood counter on it.\nAt the beginning of your end step, untap each permanent you control with a counter on it.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "flood",
+       "n": 1,
+       "target": "land-you-control"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Whenever Xolatoyac enters or attacks, put a flood counter on target land. That land is an Island in addition to its other types for as long as it has a flood counter on it."
+   },
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "flood",
+       "n": 1,
+       "target": "land-you-control"
+      }
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever Xolatoyac enters or attacks, put a flood counter on target land. That land is an Island in addition to its other types for as long as it has a flood counter on it."
+   },
+   {
+    "do": [
+     {
+      "untap": {
+       "target": {
+        "each": {
+         "not": {
+          "noCounters": {}
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "endStep",
+    "text": "At the beginning of your end step, untap each permanent you control with a counter on it."
+   }
+  ]
+ },
+ "Zegana, Utopian Speaker": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{4}{G}{U}"
+    },
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "counters": {
+          "kind": "p1p1",
+          "n": 4,
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "noCounters": {
+         "kind": "p1p1"
+        }
+       }
+      }
+     }
+    ],
+    "label": "Adapt 4",
+    "text": "{4}{G}{U}: Adapt 4."
+   }
+  ],
+  "name": "Zegana, Utopian Speaker",
+  "source": "When Zegana enters, if you control another creature with a +1/+1 counter on it, draw a card.\n{4}{G}{U}: Adapt 4. (If this creature has no +1/+1 counters on it, put four +1/+1 counters on it.)\nEach creature you control with a +1/+1 counter on it has trample.",
+  "statics": [
+   {
+    "filter": {
+     "counters": {
+      "kind": "p1p1"
+     }
+    },
+    "kw": [
+     "Trample"
+    ],
+    "scope": "creatures-you-control",
+    "text": "Each creature you control with a +1/+1 counter on it has trample."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "if": {
+     "youControl": {
+      "counters": {
+       "kind": "p1p1"
+      },
+      "creature": true,
+      "other": true
+     }
+    },
+    "on": "enters",
+    "self": true,
+    "text": "When Zegana enters, if you control another creature with a +1/+1 counter on it, draw a card."
+   }
+  ]
+ },
+ "_tokens": {
+  "Map Token": {
+   "activated": [
+    {
+     "cost": {
+      "mana": "{1}",
+      "sacSelf": true,
+      "tap": true
+     },
+     "do": [
+      {
+       "explore": {
+        "target": "creature-you-control"
+       }
+      },
+      {
+       "check": {
+        "do": [
+         {
+          "explore": {
+           "target": "creature-you-control"
+          }
+         }
+        ],
+        "if": {
+         "youControl": {
+          "name": "Topography Tracker"
+         }
+        }
+       }
+      }
+     ],
+     "label": "Explore",
+     "limit": "sorcery-speed",
+     "text": "{1}, {T}, Sacrifice this token: Target creature you control explores. Activate only as a sorcery."
+    }
+   ],
+   "name": "Map Token",
+   "notes": "With Topography Tracker out the creature explores again: pick the same creature for the second explore.",
+   "source": "",
+   "status": "hand"
+  }
+ }
+}

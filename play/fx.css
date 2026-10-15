@@ -1,0 +1,63 @@
+/* fx.css — styles for fx.js (animation layer). Link after style.css / play.css. */
+
+#fx-layer {
+  position: fixed; inset: 0; pointer-events: none; z-index: 9000; overflow: hidden;
+}
+
+/* flying clones (fly / draw) */
+.fx-clone { position: absolute; pointer-events: none; will-change: transform; transform-origin: 50% 50%; z-index: 1; }
+.fx-clone img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.fx-drawcard { backface-visibility: hidden; }
+.fx-drawcard img { border-radius: 4.5% / 3.5%; box-shadow: 0 8px 22px #000a; }
+
+/* floating damage number */
+.fx-damage {
+  position: absolute; z-index: 3; white-space: nowrap; will-change: transform, opacity;
+  font-family: var(--font-display, serif); font-weight: 800; font-size: clamp(1.6rem, 4.5vw, 2.6rem);
+  color: var(--bad, #ef4b3b); line-height: 1;
+  text-shadow: 0 2px 0 #000, 0 0 12px #000c, 0 0 2px #000;
+  transform: translate(-50%, -50%);
+}
+
+/* phase / turn banner */
+.fx-banner {
+  position: absolute; z-index: 2; box-sizing: border-box; padding: 8px 16px 9px; text-align: center;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--panel, #14121b) 92%, transparent) 18%,
+    color-mix(in srgb, var(--panel, #14121b) 92%, transparent) 82%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--acc, #d9b45c) 55%, transparent);
+  will-change: transform, opacity;
+}
+.fx-banner::after {
+  content: ''; position: absolute; left: 15%; right: 15%; bottom: -1px; height: 2px;
+  background: var(--tint-glow, linear-gradient(90deg, transparent, #d9b45c99, transparent));
+}
+.fx-banner-text {
+  font-family: var(--font-display, serif); font-weight: 700; letter-spacing: 0.08em;
+  font-size: clamp(1rem, 2.6vw, 1.35rem); color: var(--tint-text, #d9b45c);
+}
+.fx-banner-sub {
+  font-family: var(--font-body, serif); font-size: 0.8rem; color: var(--muted, #aaa); margin-top: 2px;
+}
+
+/* board dim — sits BELOW #fx-layer and below modals that use z-index > 8000 */
+#fx-dim {
+  position: fixed; inset: 0; z-index: var(--fx-dim-z, 8000); pointer-events: none;
+  background: radial-gradient(ellipse at center, #000a, #000d);
+}
+
+/* affordable rim */
+.card img, .card .tokface { transition: box-shadow 0.2s, filter 0.2s; }
+.card.glow img, .card.glow .tokface {
+  box-shadow: 0 0 0 2px var(--acc, #d9b45c), 0 0 16px color-mix(in srgb, var(--acc, #d9b45c) 55%, transparent), 0 3px 10px #0009;
+}
+.glow:not(.card) {
+  transition: box-shadow 0.2s;
+  box-shadow: 0 0 0 2px var(--acc, #d9b45c), 0 0 16px color-mix(in srgb, var(--acc, #d9b45c) 55%, transparent);
+}
+
+/* lift the lunging card above its row-mates */
+.fx-lunging { position: relative; z-index: 50; }
+
+@media (prefers-reduced-motion: reduce) {
+  .card img, .card .tokface, .glow:not(.card) { transition: none; }
+}

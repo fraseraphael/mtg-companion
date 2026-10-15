@@ -1,0 +1,2655 @@
+{
+ "slug": "explorers-of-the-deep",
+ "name": "Explorers of the Deep",
+ "commander": "Hakbal of the Surging Soul",
+ "colors": "Simic",
+ "arch": "Merfolk / Explore",
+ "accent": "#2fbfa4",
+ "pips": [
+  "G",
+  "U"
+ ],
+ "bracket": "3",
+ "art": "https://cards.scryfall.io/art_crop/front/e/7/e738e675-4fd1-4bc3-97f5-71d0e2fc3f2e.jpg?1783913937",
+ "list": [
+  {
+   "section": "Commander",
+   "n": 1,
+   "name": "Hakbal of the Surging Soul"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Benthic Biomancer"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Cold-Eyed Selkie"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Craterhoof Behemoth"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Seedborn Muse"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Tishana's Tidebinder"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Vodalian Hexcatcher"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Coralhelm Commander"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Deeproot Elite"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Deeproot Historian"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Emperor Mihail II"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Evolution Sage"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Herald of Secret Streams"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Kiora's Follower"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Kopala, Warden of Waves"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Kumena, Tyrant of Orazca"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Master of the Pearl Trident"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Merfolk Mistbinder"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Merfolk Skydiver"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Merfolk Sovereign"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Merrow Reejerey"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Metallic Mimic"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Nicanzil, Current Conductor"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Prime Speaker Zegana"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Realmwalker"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Seafloor Oracle"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Stonybrook Banneret"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Surgespanner"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Svyelun of Sea and Sky"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Tatyova, Benthic Druid"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Thassa, God of the Sea"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Thieving Skydiver"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Tishana, Voice of Thunder"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Topography Tracker"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Vorel of the Hull Clade"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Xolatoyac, the Smiling Flood"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Zegana, Utopian Speaker"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Cyclonic Rift"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Aetherize"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Beast Within"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Commit // Memory"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Growth Spiral"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Inspiring Call"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Quandrix Command"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Rapid Hybridization"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Ripples of Potential"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Ruinous Intrusion"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Finale of Devastation"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Curse of the Swine"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Explore"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Kodama's Reach"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Vanquisher's Banner"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Arcane Signet"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Commander's Sphere"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Simic Signet"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Sol Ring"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Swiftfoot Boots"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Doubling Season"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Branching Evolution"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Deeproot Waters"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Hardened Scales"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Kindred Discovery"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Reflections of Littjara"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Simic Ascendancy"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Cavern of Souls"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Alchemist's Refuge"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Command Tower"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Hinterland Harbor"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Karn's Bastion"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Llanowar Reborn"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Mosswort Bridge"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Myriad Landscape"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Path of Ancestry"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Reliquary Tower"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Rogue's Passage"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Secluded Courtyard"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Simic Growth Chamber"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Temple of Mystery"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Unclaimed Territory"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Vineglimmer Snarl"
+  },
+  {
+   "section": "Lands",
+   "n": 7,
+   "name": "Forest"
+  },
+  {
+   "section": "Lands",
+   "n": 13,
+   "name": "Island"
+  }
+ ],
+ "cards": {
+  "Aetherize": {
+   "name": "Aetherize",
+   "id": "1e5530fc-0291-4a17-b048-c5d24e6f51d8",
+   "set": "fdn",
+   "cn": "151",
+   "mana_cost": "{3}{U}",
+   "cmc": 4.0,
+   "type_line": "Instant",
+   "oracle_text": "Return all attacking creatures to their owner's hand.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/7/6700409d-afda-480c-8a66-b5c782f3e5e4.jpg?1783913891",
+    "normal": "https://cards.scryfall.io/normal/front/6/7/6700409d-afda-480c-8a66-b5c782f3e5e4.jpg?1783913891",
+    "art": "https://cards.scryfall.io/art_crop/front/6/7/6700409d-afda-480c-8a66-b5c782f3e5e4.jpg?1783913891"
+   },
+   "printing": "lcc/142"
+  },
+  "Alchemist's Refuge": {
+   "name": "Alchemist's Refuge",
+   "id": "36a11c11-1ea9-48e2-b1bc-49cba1390620",
+   "set": "soc",
+   "cn": "360",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}: Add {C}.\n{G}{U}, {T}: You may cast spells this turn as though they had flash.",
+   "colors": [],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "C"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/a/9a53e001-04e7-4252-b693-d8f956ae574e.jpg?1783913835",
+    "normal": "https://cards.scryfall.io/normal/front/9/a/9a53e001-04e7-4252-b693-d8f956ae574e.jpg?1783913835",
+    "art": "https://cards.scryfall.io/art_crop/front/9/a/9a53e001-04e7-4252-b693-d8f956ae574e.jpg?1783913835"
+   },
+   "printing": "lcc/318"
+  },
+  "Arcane Signet": {
+   "name": "Arcane Signet",
+   "id": "c6b6117c-faab-4bbb-b851-07bd8061ef03",
+   "set": "frc",
+   "cn": "20",
+   "mana_cost": "{2}",
+   "cmc": 2.0,
+   "type_line": "Artifact",
+   "oracle_text": "{T}: Add one mana of any color in your commander's color identity.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/c/fc6c69a0-ac24-4486-8893-a6303d08fc6e.jpg?1783913841",
+    "normal": "https://cards.scryfall.io/normal/front/f/c/fc6c69a0-ac24-4486-8893-a6303d08fc6e.jpg?1783913841",
+    "art": "https://cards.scryfall.io/art_crop/front/f/c/fc6c69a0-ac24-4486-8893-a6303d08fc6e.jpg?1783913841"
+   },
+   "printing": "lcc/299"
+  },
+  "Beast Within": {
+   "name": "Beast Within",
+   "id": "400b43aa-c1d2-4435-b863-061f43889422",
+   "set": "msc",
+   "cn": "169",
+   "mana_cost": "{2}{G}",
+   "cmc": 3.0,
+   "type_line": "Instant",
+   "oracle_text": "Destroy target permanent. Its controller creates a 3/3 green Beast creature token.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/b/eb40c41c-f5f9-4323-b6ac-e28e405909d0.jpg?1783913861",
+    "normal": "https://cards.scryfall.io/normal/front/e/b/eb40c41c-f5f9-4323-b6ac-e28e405909d0.jpg?1783913861",
+    "art": "https://cards.scryfall.io/art_crop/front/e/b/eb40c41c-f5f9-4323-b6ac-e28e405909d0.jpg?1783913861"
+   },
+   "printing": "lcc/233"
+  },
+  "Benthic Biomancer": {
+   "name": "Benthic Biomancer",
+   "id": "b83dd3a5-d9cc-470d-a9d0-bf9d270e9eb6",
+   "set": "lcc",
+   "cn": "145",
+   "mana_cost": "{U}",
+   "cmc": 1.0,
+   "type_line": "Creature — Merfolk Wizard Mutant",
+   "oracle_text": "{1}{U}: Adapt 1. (If this creature has no +1/+1 counters on it, put a +1/+1 counter on it.)\nWhenever one or more +1/+1 counters are put on this creature, draw a card, then discard a card.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [
+    "Adapt"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/b/8/b83dd3a5-d9cc-470d-a9d0-bf9d270e9eb6.jpg?1783913890",
+    "normal": "https://cards.scryfall.io/normal/front/b/8/b83dd3a5-d9cc-470d-a9d0-bf9d270e9eb6.jpg?1783913890",
+    "art": "https://cards.scryfall.io/art_crop/front/b/8/b83dd3a5-d9cc-470d-a9d0-bf9d270e9eb6.jpg?1783913890"
+   },
+   "power": "1",
+   "toughness": "1",
+   "printing": "lcc/145"
+  },
+  "Branching Evolution": {
+   "name": "Branching Evolution",
+   "id": "c0f1a736-8b12-4f58-a031-bf1733f65c51",
+   "set": "mh3",
+   "cn": "285",
+   "mana_cost": "{2}{G}",
+   "cmc": 3.0,
+   "type_line": "Enchantment",
+   "oracle_text": "If one or more +1/+1 counters would be put on a creature you control, twice that many +1/+1 counters are put on that creature instead.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/9/999b0d67-aec5-495e-91b0-c4b2f31cf17d.jpg?1783913861",
+    "normal": "https://cards.scryfall.io/normal/front/9/9/999b0d67-aec5-495e-91b0-c4b2f31cf17d.jpg?1783913861",
+    "art": "https://cards.scryfall.io/art_crop/front/9/9/999b0d67-aec5-495e-91b0-c4b2f31cf17d.jpg?1783913861"
+   },
+   "printing": "lcc/234"
+  },
+  "Cavern of Souls": {
+   "name": "Cavern of Souls",
+   "id": "3aad15a2-8a1b-4460-9b06-e85863081878",
+   "set": "lci",
+   "cn": "269",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "As this land enters, choose a creature type.\n{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a creature spell of the chosen type, and that spell can't be countered.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "C",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/a/3aad15a2-8a1b-4460-9b06-e85863081878.jpg?1783913719",
+    "normal": "https://cards.scryfall.io/normal/front/3/a/3aad15a2-8a1b-4460-9b06-e85863081878.jpg?1783913719",
+    "art": "https://cards.scryfall.io/art_crop/front/3/a/3aad15a2-8a1b-4460-9b06-e85863081878.jpg?1783913719"
+   }
+  },
+  "Cold-Eyed Selkie": {
+   "name": "Cold-Eyed Selkie",
+   "id": "8c39dc54-611e-48a8-adba-9cc31afa87d0",
+   "set": "otc",
+   "cn": "218",
+   "mana_cost": "{1}{G/U}{G/U}",
+   "cmc": 3.0,
+   "type_line": "Creature — Merfolk Rogue",
+   "oracle_text": "Islandwalk (This creature can't be blocked as long as defending player controls an Island.)\nWhenever this creature deals combat damage to a player, you may draw that many cards.",
+   "colors": [
+    "G",
+    "U"
+   ],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [
+    "Landwalk",
+    "Islandwalk"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/c/6cdb9cd1-01c5-47b7-b716-4ab33eff39d7.jpg?1783913852",
+    "normal": "https://cards.scryfall.io/normal/front/6/c/6cdb9cd1-01c5-47b7-b716-4ab33eff39d7.jpg?1783913852",
+    "art": "https://cards.scryfall.io/art_crop/front/6/c/6cdb9cd1-01c5-47b7-b716-4ab33eff39d7.jpg?1783913852"
+   },
+   "power": "1",
+   "toughness": "1",
+   "printing": "lcc/266"
+  },
+  "Command Tower": {
+   "name": "Command Tower",
+   "id": "1ac6cb62-45da-4e9a-84c6-09e6eacf0664",
+   "set": "frc",
+   "cn": "22",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}: Add one mana of any color in your commander's color identity.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/d/4/d477d733-2360-4f1d-9ecd-cdedc2e8a7ae.jpg?1783913832",
+    "normal": "https://cards.scryfall.io/normal/front/d/4/d477d733-2360-4f1d-9ecd-cdedc2e8a7ae.jpg?1783913832",
+    "art": "https://cards.scryfall.io/art_crop/front/d/4/d477d733-2360-4f1d-9ecd-cdedc2e8a7ae.jpg?1783913832"
+   },
+   "printing": "lcc/325"
+  },
+  "Commander's Sphere": {
+   "name": "Commander's Sphere",
+   "id": "a0d50603-e31f-4cd7-b4b6-49847d99eb2e",
+   "set": "ecc",
+   "cn": "139",
+   "mana_cost": "{3}",
+   "cmc": 3.0,
+   "type_line": "Artifact",
+   "oracle_text": "{T}: Add one mana of any color in your commander's color identity.\nSacrifice this artifact: Draw a card.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/c/6/c643146f-da7b-4cc0-b874-4accad99ccce.jpg?1783913840",
+    "normal": "https://cards.scryfall.io/normal/front/c/6/c643146f-da7b-4cc0-b874-4accad99ccce.jpg?1783913840",
+    "art": "https://cards.scryfall.io/art_crop/front/c/6/c643146f-da7b-4cc0-b874-4accad99ccce.jpg?1783913840"
+   },
+   "printing": "lcc/301"
+  },
+  "Coralhelm Commander": {
+   "name": "Coralhelm Commander",
+   "id": "46246d37-dfce-4977-854e-ee79d47cea05",
+   "set": "lcc",
+   "cn": "148",
+   "mana_cost": "{U}{U}",
+   "cmc": 2.0,
+   "type_line": "Creature — Merfolk Soldier",
+   "oracle_text": "Level up {1} ({1}: Put a level counter on this. Level up only as a sorcery.)\nLEVEL 2-3\n3/3\nFlying\nLEVEL 4+\n4/4\nFlying\nOther Merfolk creatures you control get +1/+1.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [
+    "Flying",
+    "Level Up"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/4/6/46246d37-dfce-4977-854e-ee79d47cea05.jpg?1783913889",
+    "normal": "https://cards.scryfall.io/normal/front/4/6/46246d37-dfce-4977-854e-ee79d47cea05.jpg?1783913889",
+    "art": "https://cards.scryfall.io/art_crop/front/4/6/46246d37-dfce-4977-854e-ee79d47cea05.jpg?1783913889"
+   },
+   "power": "2",
+   "toughness": "2",
+   "printing": "lcc/148"
+  },
+  "Craterhoof Behemoth": {
+   "name": "Craterhoof Behemoth",
+   "id": "276f5cee-a501-4658-bd4d-7a044bf1ccbc",
+   "set": "tdm",
+   "cn": "138",
+   "mana_cost": "{5}{G}{G}{G}",
+   "cmc": 8.0,
+   "type_line": "Creature — Beast",
+   "oracle_text": "Haste\nWhen this creature enters, creatures you control gain trample and get +X/+X until end of turn, where X is the number of creatures you control.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [
+    "Haste"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/2/7/276f5cee-a501-4658-bd4d-7a044bf1ccbc.jpg?1783907345",
+    "normal": "https://cards.scryfall.io/normal/front/2/7/276f5cee-a501-4658-bd4d-7a044bf1ccbc.jpg?1783907345",
+    "art": "https://cards.scryfall.io/art_crop/front/2/7/276f5cee-a501-4658-bd4d-7a044bf1ccbc.jpg?1783907345"
+   },
+   "power": "5",
+   "toughness": "5"
+  },
+  "Curse of the Swine": {
+   "name": "Curse of the Swine",
+   "id": "91eb9067-0bc7-4497-ba9c-c1ea41e5a379",
+   "set": "soc",
+   "cn": "192",
+   "mana_cost": "{X}{U}{U}",
+   "cmc": 2.0,
+   "type_line": "Sorcery",
+   "oracle_text": "Exile X target creatures. For each creature exiled this way, its controller creates a 2/2 green Boar creature token.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/5/5/55482714-7fc2-488f-b9d6-e3ed70dffaab.jpg?1783913889",
+    "normal": "https://cards.scryfall.io/normal/front/5/5/55482714-7fc2-488f-b9d6-e3ed70dffaab.jpg?1783913889",
+    "art": "https://cards.scryfall.io/art_crop/front/5/5/55482714-7fc2-488f-b9d6-e3ed70dffaab.jpg?1783913889"
+   },
+   "printing": "lcc/150"
+  },
+  "Cyclonic Rift": {
+   "name": "Cyclonic Rift",
+   "id": "dfb7c4b9-f2f4-4d4e-baf2-86551c8150fe",
+   "set": "rvr",
+   "cn": "40",
+   "mana_cost": "{1}{U}",
+   "cmc": 2.0,
+   "type_line": "Instant",
+   "oracle_text": "Return target nonland permanent you don't control to its owner's hand.\nOverload {6}{U} (You may cast this spell for its overload cost. If you do, change \"target\" in its text to \"each.\")",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [
+    "Overload"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/d/f/dfb7c4b9-f2f4-4d4e-baf2-86551c8150fe.jpg?1783913339",
+    "normal": "https://cards.scryfall.io/normal/front/d/f/dfb7c4b9-f2f4-4d4e-baf2-86551c8150fe.jpg?1783913339",
+    "art": "https://cards.scryfall.io/art_crop/front/d/f/dfb7c4b9-f2f4-4d4e-baf2-86551c8150fe.jpg?1783913339"
+   }
+  },
+  "Deeproot Elite": {
+   "name": "Deeproot Elite",
+   "id": "991e24e5-8b37-4034-9be7-2fab5983ee7b",
+   "set": "lcc",
+   "cn": "237",
+   "mana_cost": "{1}{G}",
+   "cmc": 2.0,
+   "type_line": "Creature — Merfolk Warrior",
+   "oracle_text": "Whenever another Merfolk you control enters, put a +1/+1 counter on target Merfolk you control.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/9/991e24e5-8b37-4034-9be7-2fab5983ee7b.jpg?1783913861",
+    "normal": "https://cards.scryfall.io/normal/front/9/9/991e24e5-8b37-4034-9be7-2fab5983ee7b.jpg?1783913861",
+    "art": "https://cards.scryfall.io/art_crop/front/9/9/991e24e5-8b37-4034-9be7-2fab5983ee7b.jpg?1783913861"
+   },
+   "power": "1",
+   "toughness": "1",
+   "printing": "lcc/237"
+  },
+  "Deeproot Historian": {
+   "name": "Deeproot Historian",
+   "id": "fffb73ed-5748-4c2a-afe5-e29bf954b578",
+   "set": "lcc",
+   "cn": "91",
+   "mana_cost": "{3}{G}",
+   "cmc": 4.0,
+   "type_line": "Creature — Merfolk Druid",
+   "oracle_text": "Merfolk and Druid cards in your graveyard have retrace. (You may cast cards with retrace from your graveyard by discarding a land card in addition to paying their other costs.)",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/f/fffb73ed-5748-4c2a-afe5-e29bf954b578.jpg?1783913907",
+    "normal": "https://cards.scryfall.io/normal/front/f/f/fffb73ed-5748-4c2a-afe5-e29bf954b578.jpg?1783913907",
+    "art": "https://cards.scryfall.io/art_crop/front/f/f/fffb73ed-5748-4c2a-afe5-e29bf954b578.jpg?1783913907"
+   },
+   "power": "3",
+   "toughness": "3",
+   "printing": "lcc/91"
+  },
+  "Deeproot Waters": {
+   "name": "Deeproot Waters",
+   "id": "a624ef59-69e6-4a41-b41a-3d19e287fe08",
+   "set": "lcc",
+   "cn": "152",
+   "mana_cost": "{2}{U}",
+   "cmc": 3.0,
+   "type_line": "Enchantment",
+   "oracle_text": "Whenever you cast a Merfolk spell, create a 1/1 blue Merfolk creature token with hexproof. (A creature with hexproof can't be the target of spells or abilities your opponents control.)",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/6/a624ef59-69e6-4a41-b41a-3d19e287fe08.jpg?1783913888",
+    "normal": "https://cards.scryfall.io/normal/front/a/6/a624ef59-69e6-4a41-b41a-3d19e287fe08.jpg?1783913888",
+    "art": "https://cards.scryfall.io/art_crop/front/a/6/a624ef59-69e6-4a41-b41a-3d19e287fe08.jpg?1783913888"
+   },
+   "printing": "lcc/152"
+  },
+  "Doubling Season": {
+   "name": "Doubling Season",
+   "id": "f2c4f80e-84a0-463b-82c3-5c6503809351",
+   "set": "fdn",
+   "cn": "216",
+   "mana_cost": "{4}{G}",
+   "cmc": 5.0,
+   "type_line": "Enchantment",
+   "oracle_text": "If an effect would create one or more tokens under your control, it creates twice that many of those tokens instead.\nIf an effect would put one or more counters on a permanent you control, it puts twice that many of those counters on that permanent instead.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/2/f2c4f80e-84a0-463b-82c3-5c6503809351.jpg?1783909062",
+    "normal": "https://cards.scryfall.io/normal/front/f/2/f2c4f80e-84a0-463b-82c3-5c6503809351.jpg?1783909062",
+    "art": "https://cards.scryfall.io/art_crop/front/f/2/f2c4f80e-84a0-463b-82c3-5c6503809351.jpg?1783909062"
+   }
+  },
+  "Emperor Mihail II": {
+   "name": "Emperor Mihail II",
+   "id": "444ccd33-e88f-4d37-8a99-e10096eef5d3",
+   "set": "lcc",
+   "cn": "155",
+   "mana_cost": "{1}{U}{U}",
+   "cmc": 3.0,
+   "type_line": "Legendary Creature — Merfolk Noble",
+   "oracle_text": "You may look at the top card of your library any time.\nYou may cast Merfolk spells from the top of your library.\nWhenever you cast a Merfolk spell, you may pay {1}. If you do, create a 1/1 blue Merfolk creature token.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/4/4/444ccd33-e88f-4d37-8a99-e10096eef5d3.jpg?1783913888",
+    "normal": "https://cards.scryfall.io/normal/front/4/4/444ccd33-e88f-4d37-8a99-e10096eef5d3.jpg?1783913888",
+    "art": "https://cards.scryfall.io/art_crop/front/4/4/444ccd33-e88f-4d37-8a99-e10096eef5d3.jpg?1783913888"
+   },
+   "power": "3",
+   "toughness": "3",
+   "printing": "lcc/155"
+  },
+  "Evolution Sage": {
+   "name": "Evolution Sage",
+   "id": "1d58d08d-cd62-416d-8d8e-7d9c56d5c4da",
+   "set": "ecc",
+   "cn": "105",
+   "mana_cost": "{2}{G}",
+   "cmc": 3.0,
+   "type_line": "Creature — Elf Druid",
+   "oracle_text": "Landfall — Whenever a land you control enters, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [
+    "Proliferate",
+    "Landfall"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/d/0/d089c2c1-e304-4f28-8700-5b9b3029bdbc.jpg?1783913859",
+    "normal": "https://cards.scryfall.io/normal/front/d/0/d089c2c1-e304-4f28-8700-5b9b3029bdbc.jpg?1783913859",
+    "art": "https://cards.scryfall.io/art_crop/front/d/0/d089c2c1-e304-4f28-8700-5b9b3029bdbc.jpg?1783913859"
+   },
+   "power": "3",
+   "toughness": "2",
+   "printing": "lcc/240"
+  },
+  "Explore": {
+   "name": "Explore",
+   "id": "ab9dbf0b-2c1d-463c-b675-ff711c282e56",
+   "set": "tle",
+   "cn": "259",
+   "mana_cost": "{1}{G}",
+   "cmc": 2.0,
+   "type_line": "Sorcery",
+   "oracle_text": "You may play an additional land this turn.\nDraw a card.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/5/e547fc28-970a-4910-94da-dff5acef3285.jpg?1783913859",
+    "normal": "https://cards.scryfall.io/normal/front/e/5/e547fc28-970a-4910-94da-dff5acef3285.jpg?1783913859",
+    "art": "https://cards.scryfall.io/art_crop/front/e/5/e547fc28-970a-4910-94da-dff5acef3285.jpg?1783913859"
+   },
+   "printing": "lcc/241"
+  },
+  "Finale of Devastation": {
+   "name": "Finale of Devastation",
+   "id": "b10d99bf-b2ce-4443-b924-ff0eb8be1033",
+   "set": "cmm",
+   "cn": "289",
+   "mana_cost": "{X}{G}{G}",
+   "cmc": 2.0,
+   "type_line": "Sorcery",
+   "oracle_text": "Search your library and/or graveyard for a creature card with mana value X or less and put it onto the battlefield. If you search your library this way, shuffle. If X is 10 or more, creatures you control get +X/+X and gain haste until end of turn.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/b/1/b10d99bf-b2ce-4443-b924-ff0eb8be1033.jpg?1783915632",
+    "normal": "https://cards.scryfall.io/normal/front/b/1/b10d99bf-b2ce-4443-b924-ff0eb8be1033.jpg?1783915632",
+    "art": "https://cards.scryfall.io/art_crop/front/b/1/b10d99bf-b2ce-4443-b924-ff0eb8be1033.jpg?1783915632"
+   }
+  },
+  "Forest": {
+   "name": "Forest",
+   "id": "2e781bfd-f8cb-4d20-b977-4359f3a21311",
+   "set": "mdd",
+   "cn": "301",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Basic Land — Forest",
+   "oracle_text": "({T}: Add {G}.)",
+   "colors": [],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "G"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/9/f954219a-fd4b-4fb1-945f-7950efc1d975.jpg?1783913671",
+    "normal": "https://cards.scryfall.io/normal/front/f/9/f954219a-fd4b-4fb1-945f-7950efc1d975.jpg?1783913671",
+    "art": "https://cards.scryfall.io/art_crop/front/f/9/f954219a-fd4b-4fb1-945f-7950efc1d975.jpg?1783913671"
+   },
+   "printing": "lci/401"
+  },
+  "Growth Spiral": {
+   "name": "Growth Spiral",
+   "id": "1e10e2b4-9639-41ae-8b8e-253224d3d513",
+   "set": "dsc",
+   "cn": "88",
+   "mana_cost": "{G}{U}",
+   "cmc": 2.0,
+   "type_line": "Instant",
+   "oracle_text": "Draw a card. You may put a land card from your hand onto the battlefield.",
+   "colors": [
+    "G",
+    "U"
+   ],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/2/a275b02c-352a-405e-9a9b-5024506cd67c.jpg?1783913849",
+    "normal": "https://cards.scryfall.io/normal/front/a/2/a275b02c-352a-405e-9a9b-5024506cd67c.jpg?1783913849",
+    "art": "https://cards.scryfall.io/art_crop/front/a/2/a275b02c-352a-405e-9a9b-5024506cd67c.jpg?1783913849"
+   },
+   "printing": "lcc/270"
+  },
+  "Hakbal of the Surging Soul": {
+   "name": "Hakbal of the Surging Soul",
+   "id": "e738e675-4fd1-4bc3-97f5-71d0e2fc3f2e",
+   "set": "lcc",
+   "cn": "3",
+   "mana_cost": "{2}{G}{U}",
+   "cmc": 4.0,
+   "type_line": "Legendary Creature — Merfolk Scout",
+   "oracle_text": "At the beginning of combat on your turn, each Merfolk creature you control explores. (Reveal the top card of your library. Put that card into your hand if it's a land. Otherwise, put a +1/+1 counter on the exploring creature, then put the card back or put it into your graveyard.)\nWhenever Hakbal attacks, you may put a land card from your hand onto the battlefield. If you don't, draw a card.",
+   "colors": [
+    "G",
+    "U"
+   ],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [
+    "Explore"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/7/e738e675-4fd1-4bc3-97f5-71d0e2fc3f2e.jpg?1783913937",
+    "normal": "https://cards.scryfall.io/normal/front/e/7/e738e675-4fd1-4bc3-97f5-71d0e2fc3f2e.jpg?1783913937",
+    "art": "https://cards.scryfall.io/art_crop/front/e/7/e738e675-4fd1-4bc3-97f5-71d0e2fc3f2e.jpg?1783913937"
+   },
+   "power": "3",
+   "toughness": "3",
+   "printing": "lcc/3"
+  },
+  "Hardened Scales": {
+   "name": "Hardened Scales",
+   "id": "99cfd1a8-49fd-4cc0-96f2-f9f159ce5d55",
+   "set": "soc",
+   "cn": "272",
+   "mana_cost": "{G}",
+   "cmc": 1.0,
+   "type_line": "Enchantment",
+   "oracle_text": "If one or more +1/+1 counters would be put on a creature you control, that many plus one +1/+1 counters are put on it instead.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/c/fc69ad56-9ae2-4eb5-b7e2-558524f6cbcc.jpg?1783913857",
+    "normal": "https://cards.scryfall.io/normal/front/f/c/fc69ad56-9ae2-4eb5-b7e2-558524f6cbcc.jpg?1783913857",
+    "art": "https://cards.scryfall.io/art_crop/front/f/c/fc69ad56-9ae2-4eb5-b7e2-558524f6cbcc.jpg?1783913857"
+   },
+   "printing": "lcc/243"
+  },
+  "Herald of Secret Streams": {
+   "name": "Herald of Secret Streams",
+   "id": "e6e1f2ab-e437-444e-9edb-73278d9c7616",
+   "set": "lcc",
+   "cn": "158",
+   "mana_cost": "{3}{U}",
+   "cmc": 4.0,
+   "type_line": "Creature — Merfolk Warrior",
+   "oracle_text": "Creatures you control with +1/+1 counters on them can't be blocked.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/6/e6e1f2ab-e437-444e-9edb-73278d9c7616.jpg?1783913886",
+    "normal": "https://cards.scryfall.io/normal/front/e/6/e6e1f2ab-e437-444e-9edb-73278d9c7616.jpg?1783913886",
+    "art": "https://cards.scryfall.io/art_crop/front/e/6/e6e1f2ab-e437-444e-9edb-73278d9c7616.jpg?1783913886"
+   },
+   "power": "2",
+   "toughness": "3",
+   "printing": "lcc/158"
+  },
+  "Hinterland Harbor": {
+   "name": "Hinterland Harbor",
+   "id": "892451a1-5527-4857-84f8-62028d147489",
+   "set": "msc",
+   "cn": "250",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped unless you control a Forest or an Island.\n{T}: Add {G} or {U}.",
+   "colors": [],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "G",
+    "U"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/2/1/21cab0c4-9091-47f2-ae12-4d9d9eca956e.jpg?1783913829",
+    "normal": "https://cards.scryfall.io/normal/front/2/1/21cab0c4-9091-47f2-ae12-4d9d9eca956e.jpg?1783913829",
+    "art": "https://cards.scryfall.io/art_crop/front/2/1/21cab0c4-9091-47f2-ae12-4d9d9eca956e.jpg?1783913829"
+   },
+   "printing": "lcc/336"
+  },
+  "Inspiring Call": {
+   "name": "Inspiring Call",
+   "id": "2555ec7b-5cc2-4ffd-9344-6368019feff9",
+   "set": "tle",
+   "cn": "168",
+   "mana_cost": "{2}{G}",
+   "cmc": 3.0,
+   "type_line": "Instant",
+   "oracle_text": "Draw a card for each creature you control with a +1/+1 counter on it. Those creatures gain indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy them.)",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/c/6c3dd578-15c9-46c9-9dbd-330e86df8cae.jpg?1783913858",
+    "normal": "https://cards.scryfall.io/normal/front/6/c/6c3dd578-15c9-46c9-9dbd-330e86df8cae.jpg?1783913858",
+    "art": "https://cards.scryfall.io/art_crop/front/6/c/6c3dd578-15c9-46c9-9dbd-330e86df8cae.jpg?1783913858"
+   },
+   "printing": "lcc/244"
+  },
+  "Island": {
+   "name": "Island",
+   "id": "1335d293-3dd2-4f13-bd2c-22181f4528ee",
+   "set": "mdd",
+   "cn": "294",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Basic Land — Island",
+   "oracle_text": "({T}: Add {U}.)",
+   "colors": [],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "U"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/2/3/23e3ed2c-342b-44aa-8e3e-0c53602397c3.jpg?1783913674",
+    "normal": "https://cards.scryfall.io/normal/front/2/3/23e3ed2c-342b-44aa-8e3e-0c53602397c3.jpg?1783913674",
+    "art": "https://cards.scryfall.io/art_crop/front/2/3/23e3ed2c-342b-44aa-8e3e-0c53602397c3.jpg?1783913674"
+   },
+   "printing": "lci/395"
+  },
+  "Karn's Bastion": {
+   "name": "Karn's Bastion",
+   "id": "22017ec2-3552-4865-af76-dba042b141f5",
+   "set": "eoc",
+   "cn": "163",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}: Add {C}.\n{4}, {T}: Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [
+    "Proliferate"
+   ],
+   "produced_mana": [
+    "C"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/1/9134181a-55a0-4c92-b3db-0e21df6719c9.jpg?1783913828",
+    "normal": "https://cards.scryfall.io/normal/front/9/1/9134181a-55a0-4c92-b3db-0e21df6719c9.jpg?1783913828",
+    "art": "https://cards.scryfall.io/art_crop/front/9/1/9134181a-55a0-4c92-b3db-0e21df6719c9.jpg?1783913828"
+   },
+   "printing": "lcc/339"
+  },
+  "Kindred Discovery": {
+   "name": "Kindred Discovery",
+   "id": "19bdedb2-768b-4adf-8193-917a10c8f729",
+   "set": "msc",
+   "cn": "150",
+   "mana_cost": "{3}{U}{U}",
+   "cmc": 5.0,
+   "type_line": "Enchantment",
+   "oracle_text": "As this enchantment enters, choose a creature type.\nWhenever a creature you control of the chosen type enters or attacks, draw a card.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/d/8d264ad1-10a3-41ba-9740-48f2c07a0ec3.jpg?1783913885",
+    "normal": "https://cards.scryfall.io/normal/front/8/d/8d264ad1-10a3-41ba-9740-48f2c07a0ec3.jpg?1783913885",
+    "art": "https://cards.scryfall.io/art_crop/front/8/d/8d264ad1-10a3-41ba-9740-48f2c07a0ec3.jpg?1783913885"
+   },
+   "printing": "lcc/159"
+  },
+  "Kiora's Follower": {
+   "name": "Kiora's Follower",
+   "id": "3666d3eb-fc62-4966-9149-aa3435650c29",
+   "set": "lcc",
+   "cn": "273",
+   "mana_cost": "{G}{U}",
+   "cmc": 2.0,
+   "type_line": "Creature — Merfolk",
+   "oracle_text": "{T}: Untap another target permanent.",
+   "colors": [
+    "G",
+    "U"
+   ],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/6/3666d3eb-fc62-4966-9149-aa3435650c29.jpg?1783913849",
+    "normal": "https://cards.scryfall.io/normal/front/3/6/3666d3eb-fc62-4966-9149-aa3435650c29.jpg?1783913849",
+    "art": "https://cards.scryfall.io/art_crop/front/3/6/3666d3eb-fc62-4966-9149-aa3435650c29.jpg?1783913849"
+   },
+   "power": "2",
+   "toughness": "2",
+   "printing": "lcc/273"
+  },
+  "Kodama's Reach": {
+   "name": "Kodama's Reach",
+   "id": "90c423cc-1264-4067-9c50-e7c88c68ef2d",
+   "set": "ecc",
+   "cn": "113",
+   "mana_cost": "{2}{G}",
+   "cmc": 3.0,
+   "type_line": "Sorcery — Arcane",
+   "oracle_text": "Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/2/9/29fc8594-931f-4cf6-95b8-9b589d6cbcf9.jpg?1783913858",
+    "normal": "https://cards.scryfall.io/normal/front/2/9/29fc8594-931f-4cf6-95b8-9b589d6cbcf9.jpg?1783913858",
+    "art": "https://cards.scryfall.io/art_crop/front/2/9/29fc8594-931f-4cf6-95b8-9b589d6cbcf9.jpg?1783913858"
+   },
+   "printing": "lcc/245"
+  },
+  "Kopala, Warden of Waves": {
+   "name": "Kopala, Warden of Waves",
+   "id": "0b018020-73e0-437c-a130-298b2f738c6f",
+   "set": "lcc",
+   "cn": "160",
+   "mana_cost": "{1}{U}{U}",
+   "cmc": 3.0,
+   "type_line": "Legendary Creature — Merfolk Wizard",
+   "oracle_text": "Spells your opponents cast that target a Merfolk you control cost {2} more to cast.\nAbilities your opponents activate that target a Merfolk you control cost {2} more to activate.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/0/b/0b018020-73e0-437c-a130-298b2f738c6f.jpg?1783913886",
+    "normal": "https://cards.scryfall.io/normal/front/0/b/0b018020-73e0-437c-a130-298b2f738c6f.jpg?1783913886",
+    "art": "https://cards.scryfall.io/art_crop/front/0/b/0b018020-73e0-437c-a130-298b2f738c6f.jpg?1783913886"
+   },
+   "power": "2",
+   "toughness": "2",
+   "printing": "lcc/160"
+  },
+  "Kumena, Tyrant of Orazca": {
+   "name": "Kumena, Tyrant of Orazca",
+   "id": "aebcbb35-2973-41bf-811a-e2413ef45c3e",
+   "set": "lcc",
+   "cn": "274",
+   "mana_cost": "{1}{G}{U}",
+   "cmc": 3.0,
+   "type_line": "Legendary Creature — Merfolk Shaman",
+   "oracle_text": "Tap another untapped Merfolk you control: Kumena can't be blocked this turn.\nTap three untapped Merfolk you control: Draw a card.\nTap five untapped Merfolk you control: Put a +1/+1 counter on each Merfolk you control.",
+   "colors": [
+    "G",
+    "U"
+   ],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/e/aebcbb35-2973-41bf-811a-e2413ef45c3e.jpg?1783913849",
+    "normal": "https://cards.scryfall.io/normal/front/a/e/aebcbb35-2973-41bf-811a-e2413ef45c3e.jpg?1783913849",
+    "art": "https://cards.scryfall.io/art_crop/front/a/e/aebcbb35-2973-41bf-811a-e2413ef45c3e.jpg?1783913849"
+   },
+   "power": "2",
+   "toughness": "4",
+   "printing": "lcc/274"
+  },
+  "Llanowar Reborn": {
+   "name": "Llanowar Reborn",
+   "id": "284e165e-9ab6-47fc-9685-0fb03de237df",
+   "set": "lcc",
+   "cn": "341",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped.\n{T}: Add {G}.\nGraft 1 (This land enters with a +1/+1 counter on it. Whenever a creature enters, you may move a +1/+1 counter from this land onto it.)",
+   "colors": [],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [
+    "Graft"
+   ],
+   "produced_mana": [
+    "G"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/2/8/284e165e-9ab6-47fc-9685-0fb03de237df.jpg?1783913826",
+    "normal": "https://cards.scryfall.io/normal/front/2/8/284e165e-9ab6-47fc-9685-0fb03de237df.jpg?1783913826",
+    "art": "https://cards.scryfall.io/art_crop/front/2/8/284e165e-9ab6-47fc-9685-0fb03de237df.jpg?1783913826"
+   },
+   "printing": "lcc/341"
+  },
+  "Master of the Pearl Trident": {
+   "name": "Master of the Pearl Trident",
+   "id": "6b48dc56-667c-4fde-8175-952463e233cc",
+   "set": "lcc",
+   "cn": "162",
+   "mana_cost": "{U}{U}",
+   "cmc": 2.0,
+   "type_line": "Creature — Merfolk",
+   "oracle_text": "Other Merfolk creatures you control get +1/+1 and have islandwalk. (They can't be blocked as long as defending player controls an Island.)",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/b/6b48dc56-667c-4fde-8175-952463e233cc.jpg?1783913884",
+    "normal": "https://cards.scryfall.io/normal/front/6/b/6b48dc56-667c-4fde-8175-952463e233cc.jpg?1783913884",
+    "art": "https://cards.scryfall.io/art_crop/front/6/b/6b48dc56-667c-4fde-8175-952463e233cc.jpg?1783913884"
+   },
+   "power": "2",
+   "toughness": "2",
+   "printing": "lcc/162"
+  },
+  "Merfolk Mistbinder": {
+   "name": "Merfolk Mistbinder",
+   "id": "f5c2c19b-2cac-4073-8d02-277cf42ae1ce",
+   "set": "lcc",
+   "cn": "276",
+   "mana_cost": "{G}{U}",
+   "cmc": 2.0,
+   "type_line": "Creature — Merfolk Shaman",
+   "oracle_text": "Other Merfolk you control get +1/+1.",
+   "colors": [
+    "G",
+    "U"
+   ],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/5/f5c2c19b-2cac-4073-8d02-277cf42ae1ce.jpg?1783913846",
+    "normal": "https://cards.scryfall.io/normal/front/f/5/f5c2c19b-2cac-4073-8d02-277cf42ae1ce.jpg?1783913846",
+    "art": "https://cards.scryfall.io/art_crop/front/f/5/f5c2c19b-2cac-4073-8d02-277cf42ae1ce.jpg?1783913846"
+   },
+   "power": "2",
+   "toughness": "2",
+   "printing": "lcc/276"
+  },
+  "Merfolk Skydiver": {
+   "name": "Merfolk Skydiver",
+   "id": "bb8fcaa7-3430-4de1-854a-77b7bef59864",
+   "set": "lcc",
+   "cn": "277",
+   "mana_cost": "{G}{U}",
+   "cmc": 2.0,
+   "type_line": "Creature — Merfolk Mutant",
+   "oracle_text": "Flying\nWhen this creature enters, put a +1/+1 counter on target creature you control.\n{3}{G}{U}: Proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+   "colors": [
+    "G",
+    "U"
+   ],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [
+    "Flying",
+    "Proliferate"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/b/b/bb8fcaa7-3430-4de1-854a-77b7bef59864.jpg?1783913848",
+    "normal": "https://cards.scryfall.io/normal/front/b/b/bb8fcaa7-3430-4de1-854a-77b7bef59864.jpg?1783913848",
+    "art": "https://cards.scryfall.io/art_crop/front/b/b/bb8fcaa7-3430-4de1-854a-77b7bef59864.jpg?1783913848"
+   },
+   "power": "1",
+   "toughness": "1",
+   "printing": "lcc/277"
+  },
+  "Merfolk Sovereign": {
+   "name": "Merfolk Sovereign",
+   "id": "ac545978-ad30-4c6b-8add-3edd6c0eb7f3",
+   "set": "lcc",
+   "cn": "164",
+   "mana_cost": "{1}{U}{U}",
+   "cmc": 3.0,
+   "type_line": "Creature — Merfolk Noble",
+   "oracle_text": "Other Merfolk creatures you control get +1/+1.\n{T}: Target Merfolk creature can't be blocked this turn.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/c/ac545978-ad30-4c6b-8add-3edd6c0eb7f3.jpg?1783913884",
+    "normal": "https://cards.scryfall.io/normal/front/a/c/ac545978-ad30-4c6b-8add-3edd6c0eb7f3.jpg?1783913884",
+    "art": "https://cards.scryfall.io/art_crop/front/a/c/ac545978-ad30-4c6b-8add-3edd6c0eb7f3.jpg?1783913884"
+   },
+   "power": "2",
+   "toughness": "2",
+   "printing": "lcc/164"
+  },
+  "Merrow Reejerey": {
+   "name": "Merrow Reejerey",
+   "id": "6ae8ea86-46c3-4855-92e9-7906e554becb",
+   "set": "lcc",
+   "cn": "165",
+   "mana_cost": "{2}{U}",
+   "cmc": 3.0,
+   "type_line": "Creature — Merfolk Soldier",
+   "oracle_text": "Other Merfolk creatures you control get +1/+1.\nWhenever you cast a Merfolk spell, you may tap or untap target permanent.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/a/6ae8ea86-46c3-4855-92e9-7906e554becb.jpg?1783913884",
+    "normal": "https://cards.scryfall.io/normal/front/6/a/6ae8ea86-46c3-4855-92e9-7906e554becb.jpg?1783913884",
+    "art": "https://cards.scryfall.io/art_crop/front/6/a/6ae8ea86-46c3-4855-92e9-7906e554becb.jpg?1783913884"
+   },
+   "power": "2",
+   "toughness": "2",
+   "printing": "lcc/165"
+  },
+  "Metallic Mimic": {
+   "name": "Metallic Mimic",
+   "id": "2623640e-51bb-4aba-a31f-1b6d170f58f6",
+   "set": "msc",
+   "cn": "203",
+   "mana_cost": "{2}",
+   "cmc": 2.0,
+   "type_line": "Artifact Creature — Shapeshifter",
+   "oracle_text": "As this creature enters, choose a creature type.\nThis creature is the chosen type in addition to its other types.\nEach other creature you control of the chosen type enters with an additional +1/+1 counter on it.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/d/adb9937b-7f8e-43b2-a2e3-06ccb7fb737e.jpg?1783913836",
+    "normal": "https://cards.scryfall.io/normal/front/a/d/adb9937b-7f8e-43b2-a2e3-06ccb7fb737e.jpg?1783913836",
+    "art": "https://cards.scryfall.io/art_crop/front/a/d/adb9937b-7f8e-43b2-a2e3-06ccb7fb737e.jpg?1783913836"
+   },
+   "power": "2",
+   "toughness": "1",
+   "printing": "lcc/308"
+  },
+  "Mosswort Bridge": {
+   "name": "Mosswort Bridge",
+   "id": "1490c0dc-06d6-45ee-af3c-2935b0ab1233",
+   "set": "tdc",
+   "cn": "379",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "Hideaway 4 (When this land enters, look at the top four cards of your library, exile one face down, then put the rest on the bottom in a random order.)\nThis land enters tapped.\n{T}: Add {G}.\n{G}, {T}: You may play the exiled card without paying its mana cost if creatures you control have total power 10 or greater.",
+   "colors": [],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [
+    "Hideaway"
+   ],
+   "produced_mana": [
+    "G"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/2/e2f2bd6c-fd3b-4dbd-a710-f004011fd58b.jpg?1783913826",
+    "normal": "https://cards.scryfall.io/normal/front/e/2/e2f2bd6c-fd3b-4dbd-a710-f004011fd58b.jpg?1783913826",
+    "art": "https://cards.scryfall.io/art_crop/front/e/2/e2f2bd6c-fd3b-4dbd-a710-f004011fd58b.jpg?1783913826"
+   },
+   "printing": "lcc/342"
+  },
+  "Myriad Landscape": {
+   "name": "Myriad Landscape",
+   "id": "a0e2098f-1d94-491a-a7e9-a45a9f69e3a8",
+   "set": "eoc",
+   "cn": "169",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped.\n{T}: Add {C}.\n{2}, {T}, Sacrifice this land: Search your library for up to two basic land cards that share a land type, put them onto the battlefield tapped, then shuffle.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "C"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/2/92a45243-2ea9-4da1-984b-287a555a51f4.jpg?1783913826",
+    "normal": "https://cards.scryfall.io/normal/front/9/2/92a45243-2ea9-4da1-984b-287a555a51f4.jpg?1783913826",
+    "art": "https://cards.scryfall.io/art_crop/front/9/2/92a45243-2ea9-4da1-984b-287a555a51f4.jpg?1783913826"
+   },
+   "printing": "lcc/343"
+  },
+  "Nicanzil, Current Conductor": {
+   "name": "Nicanzil, Current Conductor",
+   "id": "5e6f4aba-3500-4fb7-ab78-02f63c03778a",
+   "set": "lci",
+   "cn": "236",
+   "mana_cost": "{G}{U}",
+   "cmc": 2.0,
+   "type_line": "Legendary Creature — Merfolk Scout",
+   "oracle_text": "Whenever a creature you control explores a land card, you may put a land card from your hand onto the battlefield tapped.\nWhenever a creature you control explores a nonland card, put a +1/+1 counter on Nicanzil.",
+   "colors": [
+    "G",
+    "U"
+   ],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [
+    "Explore"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/5/e/5e6f4aba-3500-4fb7-ab78-02f63c03778a.jpg?1783913730",
+    "normal": "https://cards.scryfall.io/normal/front/5/e/5e6f4aba-3500-4fb7-ab78-02f63c03778a.jpg?1783913730",
+    "art": "https://cards.scryfall.io/art_crop/front/5/e/5e6f4aba-3500-4fb7-ab78-02f63c03778a.jpg?1783913730"
+   },
+   "power": "2",
+   "toughness": "3",
+   "printing": "lci/236"
+  },
+  "Path of Ancestry": {
+   "name": "Path of Ancestry",
+   "id": "b1aaa7b0-1cac-4a92-b880-7ef1ac00618f",
+   "set": "mbc",
+   "cn": "80",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped.\n{T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [
+    "Scry"
+   ],
+   "produced_mana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/3/f30552a5-db59-4164-bbd2-44bf7ae1e91e.jpg?1783913825",
+    "normal": "https://cards.scryfall.io/normal/front/f/3/f30552a5-db59-4164-bbd2-44bf7ae1e91e.jpg?1783913825",
+    "art": "https://cards.scryfall.io/art_crop/front/f/3/f30552a5-db59-4164-bbd2-44bf7ae1e91e.jpg?1783913825"
+   },
+   "printing": "lcc/346"
+  },
+  "Prime Speaker Zegana": {
+   "name": "Prime Speaker Zegana",
+   "id": "d2f007b0-b578-44f8-be65-cd9e2ac56e09",
+   "set": "fdn",
+   "cn": "664",
+   "mana_cost": "{2}{G}{G}{U}{U}",
+   "cmc": 6.0,
+   "type_line": "Legendary Creature — Merfolk Wizard",
+   "oracle_text": "Prime Speaker Zegana enters with X +1/+1 counters on it, where X is the greatest power among other creatures you control.\nWhen Prime Speaker Zegana enters, draw cards equal to its power.",
+   "colors": [
+    "G",
+    "U"
+   ],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/4/4/44974a77-5d36-49a8-b298-69d3721cfff9.jpg?1783913847",
+    "normal": "https://cards.scryfall.io/normal/front/4/4/44974a77-5d36-49a8-b298-69d3721cfff9.jpg?1783913847",
+    "art": "https://cards.scryfall.io/art_crop/front/4/4/44974a77-5d36-49a8-b298-69d3721cfff9.jpg?1783913847"
+   },
+   "power": "1",
+   "toughness": "1",
+   "printing": "lcc/278"
+  },
+  "Quandrix Command": {
+   "name": "Quandrix Command",
+   "id": "b673dfb7-e384-4586-8326-ae6f23edfe78",
+   "set": "soc",
+   "cn": "325",
+   "mana_cost": "{1}{G}{U}",
+   "cmc": 3.0,
+   "type_line": "Instant",
+   "oracle_text": "Choose two —\n• Return target creature or planeswalker to its owner's hand.\n• Counter target artifact or enchantment spell.\n• Put two +1/+1 counters on target creature.\n• Target player shuffles up to three target cards from their graveyard into their library.",
+   "colors": [
+    "G",
+    "U"
+   ],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/c/5/c5e2aaec-d52d-4d9d-9c5f-d0bacd00a801.jpg?1783913848",
+    "normal": "https://cards.scryfall.io/normal/front/c/5/c5e2aaec-d52d-4d9d-9c5f-d0bacd00a801.jpg?1783913848",
+    "art": "https://cards.scryfall.io/art_crop/front/c/5/c5e2aaec-d52d-4d9d-9c5f-d0bacd00a801.jpg?1783913848"
+   },
+   "printing": "lcc/280"
+  },
+  "Rapid Hybridization": {
+   "name": "Rapid Hybridization",
+   "id": "ccda5bda-5afd-4548-bd48-12c780bfa68b",
+   "set": "soc",
+   "cn": "198",
+   "mana_cost": "{U}",
+   "cmc": 1.0,
+   "type_line": "Instant",
+   "oracle_text": "Destroy target creature. It can't be regenerated. That creature's controller creates a 3/3 green Frog Lizard creature token.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/d/c/dc3d101f-7ae4-44e3-9e48-6091aca8587f.jpg?1783913886",
+    "normal": "https://cards.scryfall.io/normal/front/d/c/dc3d101f-7ae4-44e3-9e48-6091aca8587f.jpg?1783913886",
+    "art": "https://cards.scryfall.io/art_crop/front/d/c/dc3d101f-7ae4-44e3-9e48-6091aca8587f.jpg?1783913886"
+   },
+   "printing": "lcc/166"
+  },
+  "Realmwalker": {
+   "name": "Realmwalker",
+   "id": "52733829-27b7-40ec-a897-cabab35b3729",
+   "set": "ecc",
+   "cn": "114",
+   "mana_cost": "{2}{G}",
+   "cmc": 3.0,
+   "type_line": "Creature — Shapeshifter",
+   "oracle_text": "Changeling (This card is every creature type.)\nAs this creature enters, choose a creature type.\nYou may look at the top card of your library any time.\nYou may cast creature spells of the chosen type from the top of your library.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [
+    "Changeling"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/7/d/7d0f75c8-4cf7-46b3-af5c-7118453bd7a7.jpg?1783913857",
+    "normal": "https://cards.scryfall.io/normal/front/7/d/7d0f75c8-4cf7-46b3-af5c-7118453bd7a7.jpg?1783913857",
+    "art": "https://cards.scryfall.io/art_crop/front/7/d/7d0f75c8-4cf7-46b3-af5c-7118453bd7a7.jpg?1783913857"
+   },
+   "power": "2",
+   "toughness": "3",
+   "printing": "lcc/250"
+  },
+  "Reflections of Littjara": {
+   "name": "Reflections of Littjara",
+   "id": "578a1846-8c1a-4013-b669-1d3f4ddbbaa3",
+   "set": "tdc",
+   "cn": "164",
+   "mana_cost": "{4}{U}",
+   "cmc": 5.0,
+   "type_line": "Enchantment",
+   "oracle_text": "As this enchantment enters, choose a creature type.\nWhenever you cast a spell of the chosen type, copy that spell. (A copy of a permanent spell becomes a token.)",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/d/7/d7689217-6124-4b2c-ab8b-7067de7f6e22.jpg?1783913884",
+    "normal": "https://cards.scryfall.io/normal/front/d/7/d7689217-6124-4b2c-ab8b-7067de7f6e22.jpg?1783913884",
+    "art": "https://cards.scryfall.io/art_crop/front/d/7/d7689217-6124-4b2c-ab8b-7067de7f6e22.jpg?1783913884"
+   },
+   "printing": "lcc/168"
+  },
+  "Reliquary Tower": {
+   "name": "Reliquary Tower",
+   "id": "e2a27742-08c1-4153-af7f-25a7a98f585e",
+   "set": "soc",
+   "cn": "398",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "You have no maximum hand size.\n{T}: Add {C}.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "C"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/c/a/ca7704cf-0e13-42fa-9e79-41eb94febedd.jpg?1783913825",
+    "normal": "https://cards.scryfall.io/normal/front/c/a/ca7704cf-0e13-42fa-9e79-41eb94febedd.jpg?1783913825",
+    "art": "https://cards.scryfall.io/art_crop/front/c/a/ca7704cf-0e13-42fa-9e79-41eb94febedd.jpg?1783913825"
+   },
+   "printing": "lcc/348"
+  },
+  "Ripples of Potential": {
+   "name": "Ripples of Potential",
+   "id": "8e724c6d-3922-406f-b9e6-e478e1039416",
+   "set": "eoc",
+   "cn": "77",
+   "mana_cost": "{1}{U}",
+   "cmc": 2.0,
+   "type_line": "Instant",
+   "oracle_text": "Proliferate, then choose any number of permanents you control that had a counter put on them this way. Those permanents phase out. (To proliferate, choose any number of permanents and/or players, then give each another counter of each kind already there. Treat phased-out permanents and anything attached to them as though they don't exist until their controller's next turn.)",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [
+    "Proliferate"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/b/7/b70e6ded-2c25-4608-9ae0-a64e13aa1d2a.jpg?1783913911",
+    "normal": "https://cards.scryfall.io/normal/front/b/7/b70e6ded-2c25-4608-9ae0-a64e13aa1d2a.jpg?1783913911",
+    "art": "https://cards.scryfall.io/art_crop/front/b/7/b70e6ded-2c25-4608-9ae0-a64e13aa1d2a.jpg?1783913911"
+   },
+   "printing": "lcc/77"
+  },
+  "Rogue's Passage": {
+   "name": "Rogue's Passage",
+   "id": "4493b62b-f354-47ff-9dcf-cc6e29de77c6",
+   "set": "hoc",
+   "cn": "212",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}: Add {C}.\n{4}, {T}: Target creature can't be blocked this turn.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "C"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/7/a7dc75a8-c500-4b50-aff9-32ce36566104.jpg?1783913824",
+    "normal": "https://cards.scryfall.io/normal/front/a/7/a7dc75a8-c500-4b50-aff9-32ce36566104.jpg?1783913824",
+    "art": "https://cards.scryfall.io/art_crop/front/a/7/a7dc75a8-c500-4b50-aff9-32ce36566104.jpg?1783913824"
+   },
+   "printing": "lcc/349"
+  },
+  "Ruinous Intrusion": {
+   "name": "Ruinous Intrusion",
+   "id": "47f8c11f-8171-416a-a4a3-6530ca3ba7a6",
+   "set": "lcc",
+   "cn": "255",
+   "mana_cost": "{3}{G}",
+   "cmc": 4.0,
+   "type_line": "Instant",
+   "oracle_text": "Exile target artifact or enchantment. Put X +1/+1 counters on target creature you control, where X is the mana value of the permanent exiled this way.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/4/7/47f8c11f-8171-416a-a4a3-6530ca3ba7a6.jpg?1783913853",
+    "normal": "https://cards.scryfall.io/normal/front/4/7/47f8c11f-8171-416a-a4a3-6530ca3ba7a6.jpg?1783913853",
+    "art": "https://cards.scryfall.io/art_crop/front/4/7/47f8c11f-8171-416a-a4a3-6530ca3ba7a6.jpg?1783913853"
+   },
+   "printing": "lcc/255"
+  },
+  "Seafloor Oracle": {
+   "name": "Seafloor Oracle",
+   "id": "a746c2ff-60f3-41c4-853d-e5159d005bea",
+   "set": "lcc",
+   "cn": "170",
+   "mana_cost": "{2}{U}{U}",
+   "cmc": 4.0,
+   "type_line": "Creature — Merfolk Wizard",
+   "oracle_text": "Whenever a Merfolk you control deals combat damage to a player, draw a card.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/7/a746c2ff-60f3-41c4-853d-e5159d005bea.jpg?1783913883",
+    "normal": "https://cards.scryfall.io/normal/front/a/7/a746c2ff-60f3-41c4-853d-e5159d005bea.jpg?1783913883",
+    "art": "https://cards.scryfall.io/art_crop/front/a/7/a746c2ff-60f3-41c4-853d-e5159d005bea.jpg?1783913883"
+   },
+   "power": "2",
+   "toughness": "3",
+   "printing": "lcc/170"
+  },
+  "Secluded Courtyard": {
+   "name": "Secluded Courtyard",
+   "id": "c0d17d04-cf0b-4918-bfec-b34b0d98a602",
+   "set": "msc",
+   "cn": "265",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "As this land enters, choose a creature type.\n{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a creature spell of the chosen type or activate an ability of a creature source of the chosen type.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "C",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/2/6/26c40b2a-cb27-4fad-a9b2-1fb065d44d77.jpg?1783913824",
+    "normal": "https://cards.scryfall.io/normal/front/2/6/26c40b2a-cb27-4fad-a9b2-1fb065d44d77.jpg?1783913824",
+    "art": "https://cards.scryfall.io/art_crop/front/2/6/26c40b2a-cb27-4fad-a9b2-1fb065d44d77.jpg?1783913824"
+   },
+   "printing": "lcc/350"
+  },
+  "Seedborn Muse": {
+   "name": "Seedborn Muse",
+   "id": "76f58441-5674-4f1e-af9b-94e14ab7e619",
+   "set": "tdc",
+   "cn": "268",
+   "mana_cost": "{3}{G}{G}",
+   "cmc": 5.0,
+   "type_line": "Creature — Spirit",
+   "oracle_text": "Untap all permanents you control during each other player's untap step.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/7/6/76f58441-5674-4f1e-af9b-94e14ab7e619.jpg?1783907041",
+    "normal": "https://cards.scryfall.io/normal/front/7/6/76f58441-5674-4f1e-af9b-94e14ab7e619.jpg?1783907041",
+    "art": "https://cards.scryfall.io/art_crop/front/7/6/76f58441-5674-4f1e-af9b-94e14ab7e619.jpg?1783907041"
+   },
+   "power": "2",
+   "toughness": "4"
+  },
+  "Simic Ascendancy": {
+   "name": "Simic Ascendancy",
+   "id": "fec1ffcd-84d3-44b3-b1d5-b33a4fee348a",
+   "set": "lcc",
+   "cn": "288",
+   "mana_cost": "{G}{U}",
+   "cmc": 2.0,
+   "type_line": "Enchantment",
+   "oracle_text": "{1}{G}{U}: Put a +1/+1 counter on target creature you control.\nWhenever one or more +1/+1 counters are put on a creature you control, put that many growth counters on this enchantment.\nAt the beginning of your upkeep, if this enchantment has twenty or more growth counters on it, you win the game.",
+   "colors": [
+    "G",
+    "U"
+   ],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/e/fec1ffcd-84d3-44b3-b1d5-b33a4fee348a.jpg?1783913844",
+    "normal": "https://cards.scryfall.io/normal/front/f/e/fec1ffcd-84d3-44b3-b1d5-b33a4fee348a.jpg?1783913844",
+    "art": "https://cards.scryfall.io/art_crop/front/f/e/fec1ffcd-84d3-44b3-b1d5-b33a4fee348a.jpg?1783913844"
+   },
+   "printing": "lcc/288"
+  },
+  "Simic Growth Chamber": {
+   "name": "Simic Growth Chamber",
+   "id": "212d97c5-c144-483b-b42e-00623477e928",
+   "set": "dsc",
+   "cn": "298",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped.\nWhen this land enters, return a land you control to its owner's hand.\n{T}: Add {G}{U}.",
+   "colors": [],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "G",
+    "U"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/0/e/0e8f3aa0-c557-4cc7-9b5f-1d2288b5b11f.jpg?1783913824",
+    "normal": "https://cards.scryfall.io/normal/front/0/e/0e8f3aa0-c557-4cc7-9b5f-1d2288b5b11f.jpg?1783913824",
+    "art": "https://cards.scryfall.io/art_crop/front/0/e/0e8f3aa0-c557-4cc7-9b5f-1d2288b5b11f.jpg?1783913824"
+   },
+   "printing": "lcc/352"
+  },
+  "Simic Signet": {
+   "name": "Simic Signet",
+   "id": "bf222c78-f12e-4857-93da-fade99c740b8",
+   "set": "dsc",
+   "cn": "252",
+   "mana_cost": "{2}",
+   "cmc": 2.0,
+   "type_line": "Artifact",
+   "oracle_text": "{1}, {T}: Add {G}{U}.",
+   "colors": [],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "G",
+    "U"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/2/92650d2e-64c0-418d-a5e9-2534ad45e426.jpg?1783913836",
+    "normal": "https://cards.scryfall.io/normal/front/9/2/92650d2e-64c0-418d-a5e9-2534ad45e426.jpg?1783913836",
+    "art": "https://cards.scryfall.io/art_crop/front/9/2/92650d2e-64c0-418d-a5e9-2534ad45e426.jpg?1783913836"
+   },
+   "printing": "lcc/312"
+  },
+  "Sol Ring": {
+   "name": "Sol Ring",
+   "id": "8ee443cc-e17a-493b-9c93-1f9e141a30e4",
+   "set": "frc",
+   "cn": "21",
+   "mana_cost": "{1}",
+   "cmc": 1.0,
+   "type_line": "Artifact",
+   "oracle_text": "{T}: Add {C}{C}.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "C"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/2/d/2d47121d-8b90-4d28-9ffa-0a640b9dd611.jpg?1783913836",
+    "normal": "https://cards.scryfall.io/normal/front/2/d/2d47121d-8b90-4d28-9ffa-0a640b9dd611.jpg?1783913836",
+    "art": "https://cards.scryfall.io/art_crop/front/2/d/2d47121d-8b90-4d28-9ffa-0a640b9dd611.jpg?1783913836"
+   },
+   "printing": "lcc/313"
+  },
+  "Stonybrook Banneret": {
+   "name": "Stonybrook Banneret",
+   "id": "1b3bc8fd-97bd-4383-9ce4-8cfe7a6c1e62",
+   "set": "lcc",
+   "cn": "173",
+   "mana_cost": "{1}{U}",
+   "cmc": 2.0,
+   "type_line": "Creature — Merfolk Wizard",
+   "oracle_text": "Islandwalk (This creature can't be blocked as long as defending player controls an Island.)\nMerfolk spells and Wizard spells you cast cost {1} less to cast.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [
+    "Landwalk",
+    "Islandwalk"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/1/b/1b3bc8fd-97bd-4383-9ce4-8cfe7a6c1e62.jpg?1783913881",
+    "normal": "https://cards.scryfall.io/normal/front/1/b/1b3bc8fd-97bd-4383-9ce4-8cfe7a6c1e62.jpg?1783913881",
+    "art": "https://cards.scryfall.io/art_crop/front/1/b/1b3bc8fd-97bd-4383-9ce4-8cfe7a6c1e62.jpg?1783913881"
+   },
+   "power": "1",
+   "toughness": "1",
+   "printing": "lcc/173"
+  },
+  "Surgespanner": {
+   "name": "Surgespanner",
+   "id": "3303c5cb-0064-47c0-bc91-228acd82348e",
+   "set": "lcc",
+   "cn": "174",
+   "mana_cost": "{2}{U}{U}",
+   "cmc": 4.0,
+   "type_line": "Creature — Merfolk Wizard",
+   "oracle_text": "Whenever this creature becomes tapped, you may pay {1}{U}. If you do, return target permanent to its owner's hand.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/3/3303c5cb-0064-47c0-bc91-228acd82348e.jpg?1783913881",
+    "normal": "https://cards.scryfall.io/normal/front/3/3/3303c5cb-0064-47c0-bc91-228acd82348e.jpg?1783913881",
+    "art": "https://cards.scryfall.io/art_crop/front/3/3/3303c5cb-0064-47c0-bc91-228acd82348e.jpg?1783913881"
+   },
+   "power": "2",
+   "toughness": "2",
+   "printing": "lcc/174"
+  },
+  "Svyelun of Sea and Sky": {
+   "name": "Svyelun of Sea and Sky",
+   "id": "01f5ab00-5305-4ac4-915d-feeb591f9389",
+   "set": "lcc",
+   "cn": "175",
+   "mana_cost": "{1}{U}{U}",
+   "cmc": 3.0,
+   "type_line": "Legendary Creature — Merfolk God",
+   "oracle_text": "Svyelun has indestructible as long as you control at least two other Merfolk.\nWhenever Svyelun attacks, draw a card.\nOther Merfolk you control have ward {1}. (Whenever another Merfolk you control becomes the target of a spell or ability an opponent controls, counter it unless that player pays {1}.)",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/0/1/01f5ab00-5305-4ac4-915d-feeb591f9389.jpg?1783913880",
+    "normal": "https://cards.scryfall.io/normal/front/0/1/01f5ab00-5305-4ac4-915d-feeb591f9389.jpg?1783913880",
+    "art": "https://cards.scryfall.io/art_crop/front/0/1/01f5ab00-5305-4ac4-915d-feeb591f9389.jpg?1783913880"
+   },
+   "power": "3",
+   "toughness": "4",
+   "printing": "lcc/175"
+  },
+  "Swiftfoot Boots": {
+   "name": "Swiftfoot Boots",
+   "id": "03f7e9fc-8e59-45c1-90fc-1d04d929b292",
+   "set": "mbc",
+   "cn": "77",
+   "mana_cost": "{2}",
+   "cmc": 2.0,
+   "type_line": "Artifact — Equipment",
+   "oracle_text": "Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T} no matter when it came under your control.)\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [
+    "Equip"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/3/a3b1da84-9c26-4c3c-b90f-43a0b2b20103.jpg?1783913836",
+    "normal": "https://cards.scryfall.io/normal/front/a/3/a3b1da84-9c26-4c3c-b90f-43a0b2b20103.jpg?1783913836",
+    "art": "https://cards.scryfall.io/art_crop/front/a/3/a3b1da84-9c26-4c3c-b90f-43a0b2b20103.jpg?1783913836"
+   },
+   "printing": "lcc/314"
+  },
+  "Tatyova, Benthic Druid": {
+   "name": "Tatyova, Benthic Druid",
+   "id": "eabc978a-0666-472d-bdc6-d4b29d29eca4",
+   "set": "fdn",
+   "cn": "247",
+   "mana_cost": "{3}{G}{U}",
+   "cmc": 5.0,
+   "type_line": "Legendary Creature — Merfolk Druid",
+   "oracle_text": "Landfall — Whenever a land you control enters, you gain 1 life and draw a card.",
+   "colors": [
+    "G",
+    "U"
+   ],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [
+    "Landfall"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/e/fe05dc69-8dde-485e-9e55-da729db50205.jpg?1783913843",
+    "normal": "https://cards.scryfall.io/normal/front/f/e/fe05dc69-8dde-485e-9e55-da729db50205.jpg?1783913843",
+    "art": "https://cards.scryfall.io/art_crop/front/f/e/fe05dc69-8dde-485e-9e55-da729db50205.jpg?1783913843"
+   },
+   "power": "3",
+   "toughness": "3",
+   "printing": "lcc/290"
+  },
+  "Temple of Mystery": {
+   "name": "Temple of Mystery",
+   "id": "258077cf-edef-40fe-ab46-03c965ebe990",
+   "set": "soc",
+   "cn": "414",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {G} or {U}.",
+   "colors": [],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [
+    "Scry"
+   ],
+   "produced_mana": [
+    "G",
+    "U"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/9/698fa422-f2e2-4890-9a32-4c6517372213.jpg?1783913821",
+    "normal": "https://cards.scryfall.io/normal/front/6/9/698fa422-f2e2-4890-9a32-4c6517372213.jpg?1783913821",
+    "art": "https://cards.scryfall.io/art_crop/front/6/9/698fa422-f2e2-4890-9a32-4c6517372213.jpg?1783913821"
+   },
+   "printing": "lcc/357"
+  },
+  "Thassa, God of the Sea": {
+   "name": "Thassa, God of the Sea",
+   "id": "9f9db424-e668-48b4-b275-7b35be4e1bf8",
+   "set": "lcc",
+   "cn": "176",
+   "mana_cost": "{2}{U}",
+   "cmc": 3.0,
+   "type_line": "Legendary Enchantment Creature — God",
+   "oracle_text": "Indestructible\nAs long as your devotion to blue is less than five, Thassa isn't a creature. (Each {U} in the mana costs of permanents you control counts toward your devotion to blue.)\nAt the beginning of your upkeep, scry 1.\n{1}{U}: Target creature you control can't be blocked this turn.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [
+    "Indestructible",
+    "Scry"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/f/9f9db424-e668-48b4-b275-7b35be4e1bf8.jpg?1783913880",
+    "normal": "https://cards.scryfall.io/normal/front/9/f/9f9db424-e668-48b4-b275-7b35be4e1bf8.jpg?1783913880",
+    "art": "https://cards.scryfall.io/art_crop/front/9/f/9f9db424-e668-48b4-b275-7b35be4e1bf8.jpg?1783913880"
+   },
+   "power": "5",
+   "toughness": "5",
+   "printing": "lcc/176"
+  },
+  "Thieving Skydiver": {
+   "name": "Thieving Skydiver",
+   "id": "06996ff1-7f57-4e73-940a-a58c4482cadd",
+   "set": "otc",
+   "cn": "118",
+   "mana_cost": "{1}{U}",
+   "cmc": 2.0,
+   "type_line": "Creature — Merfolk Rogue",
+   "oracle_text": "Kicker {X}. X can't be 0. (You may pay an additional {X} as you cast this spell.)\nFlying\nWhen this creature enters, if it was kicked, gain control of target artifact with mana value X or less. If that artifact is an Equipment, attach it to this creature.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [
+    "Kicker",
+    "Flying"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/b/6bd85a34-c5f8-4d3a-8f12-4bbf42f1f638.jpg?1783913879",
+    "normal": "https://cards.scryfall.io/normal/front/6/b/6bd85a34-c5f8-4d3a-8f12-4bbf42f1f638.jpg?1783913879",
+    "art": "https://cards.scryfall.io/art_crop/front/6/b/6bd85a34-c5f8-4d3a-8f12-4bbf42f1f638.jpg?1783913879"
+   },
+   "power": "2",
+   "toughness": "1",
+   "printing": "lcc/177"
+  },
+  "Tishana's Tidebinder": {
+   "name": "Tishana's Tidebinder",
+   "id": "907b3d1d-8c85-4707-80b5-c4d832df9846",
+   "set": "lci",
+   "cn": "81",
+   "mana_cost": "{2}{U}",
+   "cmc": 3.0,
+   "type_line": "Creature — Merfolk Wizard",
+   "oracle_text": "Flash\nWhen this creature enters, counter up to one target activated or triggered ability. If an ability of an artifact, creature, or planeswalker is countered this way, that permanent loses all abilities for as long as this creature remains on the battlefield. (Mana abilities can't be targeted.)",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [
+    "Flash"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/0/907b3d1d-8c85-4707-80b5-c4d832df9846.jpg?1783913786",
+    "normal": "https://cards.scryfall.io/normal/front/9/0/907b3d1d-8c85-4707-80b5-c4d832df9846.jpg?1783913786",
+    "art": "https://cards.scryfall.io/art_crop/front/9/0/907b3d1d-8c85-4707-80b5-c4d832df9846.jpg?1783913786"
+   },
+   "power": "3",
+   "toughness": "2"
+  },
+  "Tishana, Voice of Thunder": {
+   "name": "Tishana, Voice of Thunder",
+   "id": "e522b695-859e-4fba-bf8c-c415fbce13e3",
+   "set": "lcc",
+   "cn": "291",
+   "mana_cost": "{5}{G}{U}",
+   "cmc": 7.0,
+   "type_line": "Legendary Creature — Merfolk Shaman",
+   "oracle_text": "Tishana's power and toughness are each equal to the number of cards in your hand.\nYou have no maximum hand size.\nWhen Tishana enters, draw a card for each creature you control.",
+   "colors": [
+    "G",
+    "U"
+   ],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/5/e522b695-859e-4fba-bf8c-c415fbce13e3.jpg?1783913842",
+    "normal": "https://cards.scryfall.io/normal/front/e/5/e522b695-859e-4fba-bf8c-c415fbce13e3.jpg?1783913842",
+    "art": "https://cards.scryfall.io/art_crop/front/e/5/e522b695-859e-4fba-bf8c-c415fbce13e3.jpg?1783913842"
+   },
+   "power": "*",
+   "toughness": "*",
+   "printing": "lcc/291"
+  },
+  "Topography Tracker": {
+   "name": "Topography Tracker",
+   "id": "0f1686aa-6b34-4eb7-9811-bc1a8d8b46e9",
+   "set": "lcc",
+   "cn": "95",
+   "mana_cost": "{2}{G}",
+   "cmc": 3.0,
+   "type_line": "Creature — Merfolk Scout",
+   "oracle_text": "When this creature enters, create a Map token. (It's an artifact with \"{1}, {T}, Sacrifice this token: Target creature you control explores. Activate only as a sorcery.\")\nIf a creature you control would explore, instead it explores, then it explores again.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [
+    "Explore"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/0/f/0f1686aa-6b34-4eb7-9811-bc1a8d8b46e9.jpg?1783913907",
+    "normal": "https://cards.scryfall.io/normal/front/0/f/0f1686aa-6b34-4eb7-9811-bc1a8d8b46e9.jpg?1783913907",
+    "art": "https://cards.scryfall.io/art_crop/front/0/f/0f1686aa-6b34-4eb7-9811-bc1a8d8b46e9.jpg?1783913907"
+   },
+   "power": "2",
+   "toughness": "2",
+   "printing": "lcc/95"
+  },
+  "Commit // Memory": {
+   "name": "Commit // Memory",
+   "id": "855af9a8-31fc-4290-8204-04ee026f8853",
+   "set": "lcc",
+   "cn": "147",
+   "mana_cost": "{3}{U}",
+   "cmc": 10.0,
+   "type_line": "Instant // Sorcery",
+   "oracle_text": "Put target spell or nonland permanent into its owner's library second from the top.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [
+    "Aftermath"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/5/855af9a8-31fc-4290-8204-04ee026f8853.jpg?1783913889",
+    "normal": "https://cards.scryfall.io/normal/front/8/5/855af9a8-31fc-4290-8204-04ee026f8853.jpg?1783913889",
+    "art": "https://cards.scryfall.io/art_crop/front/8/5/855af9a8-31fc-4290-8204-04ee026f8853.jpg?1783913889"
+   },
+   "back": {
+    "name": "Memory",
+    "type_line": "Sorcery",
+    "oracle_text": "Aftermath (Cast this spell only from your graveyard. Then exile it.)\nEach player shuffles their hand and graveyard into their library, then draws seven cards.",
+    "mana_cost": "{4}{U}{U}",
+    "power": null,
+    "toughness": null,
+    "img": {
+     "small": "",
+     "normal": "",
+     "art": ""
+    }
+   },
+   "printing": "lcc/147"
+  },
+  "Unclaimed Territory": {
+   "name": "Unclaimed Territory",
+   "id": "d3782952-3839-4a94-95bc-716611d3ece6",
+   "set": "msc",
+   "cn": "275",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "As this land enters, choose a creature type.\n{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a creature spell of the chosen type.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "C",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/7/e7bd3aaa-864c-4cbb-bbab-68d87c824e3d.jpg?1783913819",
+    "normal": "https://cards.scryfall.io/normal/front/e/7/e7bd3aaa-864c-4cbb-bbab-68d87c824e3d.jpg?1783913819",
+    "art": "https://cards.scryfall.io/art_crop/front/e/7/e7bd3aaa-864c-4cbb-bbab-68d87c824e3d.jpg?1783913819"
+   },
+   "printing": "lcc/366"
+  },
+  "Vanquisher's Banner": {
+   "name": "Vanquisher's Banner",
+   "id": "efa6944e-b5e2-4584-ae37-f5b59a8ec75e",
+   "set": "lcc",
+   "cn": "316",
+   "mana_cost": "{5}",
+   "cmc": 5.0,
+   "type_line": "Artifact",
+   "oracle_text": "As this artifact enters, choose a creature type.\nCreatures you control of the chosen type get +1/+1.\nWhenever you cast a creature spell of the chosen type, draw a card.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/f/efa6944e-b5e2-4584-ae37-f5b59a8ec75e.jpg?1783913835",
+    "normal": "https://cards.scryfall.io/normal/front/e/f/efa6944e-b5e2-4584-ae37-f5b59a8ec75e.jpg?1783913835",
+    "art": "https://cards.scryfall.io/art_crop/front/e/f/efa6944e-b5e2-4584-ae37-f5b59a8ec75e.jpg?1783913835"
+   }
+  },
+  "Vineglimmer Snarl": {
+   "name": "Vineglimmer Snarl",
+   "id": "445bd162-b523-45f4-83d0-ffc702fc1fac",
+   "set": "soc",
+   "cn": "420",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "As this land enters, you may reveal a Forest or Island card from your hand. If you don't, this land enters tapped.\n{T}: Add {G} or {U}.",
+   "colors": [],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "G",
+    "U"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/a/aa570015-fe55-4256-9623-1881aa824f7e.jpg?1783913817",
+    "normal": "https://cards.scryfall.io/normal/front/a/a/aa570015-fe55-4256-9623-1881aa824f7e.jpg?1783913817",
+    "art": "https://cards.scryfall.io/art_crop/front/a/a/aa570015-fe55-4256-9623-1881aa824f7e.jpg?1783913817"
+   },
+   "printing": "lcc/368"
+  },
+  "Vodalian Hexcatcher": {
+   "name": "Vodalian Hexcatcher",
+   "id": "4ec464dc-b1dd-4e45-b093-c3ad65a74050",
+   "set": "dmu",
+   "cn": "75",
+   "mana_cost": "{1}{U}",
+   "cmc": 2.0,
+   "type_line": "Creature — Merfolk Wizard",
+   "oracle_text": "Flash\nOther Merfolk you control get +1/+1.\nSacrifice a Merfolk: Counter target noncreature spell unless its controller pays {1}.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [
+    "Flash"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/4/e/4ec464dc-b1dd-4e45-b093-c3ad65a74050.jpg?1783921340",
+    "normal": "https://cards.scryfall.io/normal/front/4/e/4ec464dc-b1dd-4e45-b093-c3ad65a74050.jpg?1783921340",
+    "art": "https://cards.scryfall.io/art_crop/front/4/e/4ec464dc-b1dd-4e45-b093-c3ad65a74050.jpg?1783921340"
+   },
+   "power": "1",
+   "toughness": "1"
+  },
+  "Vorel of the Hull Clade": {
+   "name": "Vorel of the Hull Clade",
+   "id": "82c8cac8-29ce-43cc-bdb4-428c614d8545",
+   "set": "lcc",
+   "cn": "294",
+   "mana_cost": "{1}{G}{U}",
+   "cmc": 3.0,
+   "type_line": "Legendary Creature — Human Merfolk",
+   "oracle_text": "{G}{U}, {T}: Double the number of each kind of counter on target artifact, creature, or land.",
+   "colors": [
+    "G",
+    "U"
+   ],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [
+    "Double"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/2/82c8cac8-29ce-43cc-bdb4-428c614d8545.jpg?1783913841",
+    "normal": "https://cards.scryfall.io/normal/front/8/2/82c8cac8-29ce-43cc-bdb4-428c614d8545.jpg?1783913841",
+    "art": "https://cards.scryfall.io/art_crop/front/8/2/82c8cac8-29ce-43cc-bdb4-428c614d8545.jpg?1783913841"
+   },
+   "power": "1",
+   "toughness": "4",
+   "printing": "lcc/294"
+  },
+  "Xolatoyac, the Smiling Flood": {
+   "name": "Xolatoyac, the Smiling Flood",
+   "id": "1444a798-4e94-4bcc-b16a-0f20334f2550",
+   "set": "lcc",
+   "cn": "8",
+   "mana_cost": "{4}{G}{U}",
+   "cmc": 6.0,
+   "type_line": "Legendary Creature — Salamander Serpent",
+   "oracle_text": "Whenever Xolatoyac enters or attacks, put a flood counter on target land. That land is an Island in addition to its other types for as long as it has a flood counter on it.\nAt the beginning of your end step, untap each permanent you control with a counter on it.",
+   "colors": [
+    "G",
+    "U"
+   ],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/1/4/1444a798-4e94-4bcc-b16a-0f20334f2550.jpg?1783913936",
+    "normal": "https://cards.scryfall.io/normal/front/1/4/1444a798-4e94-4bcc-b16a-0f20334f2550.jpg?1783913936",
+    "art": "https://cards.scryfall.io/art_crop/front/1/4/1444a798-4e94-4bcc-b16a-0f20334f2550.jpg?1783913936"
+   },
+   "power": "6",
+   "toughness": "6",
+   "printing": "lcc/8"
+  },
+  "Zegana, Utopian Speaker": {
+   "name": "Zegana, Utopian Speaker",
+   "id": "93800249-4fcd-47ec-92f9-58f875cb6f00",
+   "set": "lcc",
+   "cn": "298",
+   "mana_cost": "{2}{G}{U}",
+   "cmc": 4.0,
+   "type_line": "Legendary Creature — Merfolk Wizard",
+   "oracle_text": "When Zegana enters, if you control another creature with a +1/+1 counter on it, draw a card.\n{4}{G}{U}: Adapt 4. (If this creature has no +1/+1 counters on it, put four +1/+1 counters on it.)\nEach creature you control with a +1/+1 counter on it has trample.",
+   "colors": [
+    "G",
+    "U"
+   ],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [
+    "Adapt"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/3/93800249-4fcd-47ec-92f9-58f875cb6f00.jpg?1783913842",
+    "normal": "https://cards.scryfall.io/normal/front/9/3/93800249-4fcd-47ec-92f9-58f875cb6f00.jpg?1783913842",
+    "art": "https://cards.scryfall.io/art_crop/front/9/3/93800249-4fcd-47ec-92f9-58f875cb6f00.jpg?1783913842"
+   },
+   "power": "4",
+   "toughness": "4",
+   "printing": "lcc/298"
+  }
+ }
+}

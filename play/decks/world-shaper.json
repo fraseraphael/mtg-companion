@@ -1,0 +1,2787 @@
+{
+ "slug": "world-shaper",
+ "name": "World Shaper",
+ "commander": "Hearthhull, the Worldseed",
+ "colors": "Jund",
+ "arch": "Lands / Sacrifice",
+ "accent": "#b07ad6",
+ "pips": [
+  "B",
+  "R",
+  "G"
+ ],
+ "bracket": "2",
+ "art": "https://cards.scryfall.io/art_crop/front/6/b/6b913e79-a9f6-44d4-bb37-c4f6f66b8151.jpg?1783906067",
+ "list": [
+  {
+   "section": "Commanders",
+   "n": 1,
+   "name": "Hearthhull, the Worldseed"
+  },
+  {
+   "section": "Commanders",
+   "n": 1,
+   "name": "Szarel, Genesis Shepherd"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Aftermath Analyst"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Augur of Autumn"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Baloth Prime"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Braids, Arisen Nightmare"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Centaur Vinecrasher"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Eumidian Wastewaker"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Evendo Brushrazer"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "God-Eternal Bontu"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Groundskeeper"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Horizon Explorer"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Juri, Master of the Revue"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Korvold, Fae-Cursed King"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Loamcrafter Faun"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Mayhem Devil"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Mazirek, Kraul Death Priest"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Moraug, Fury of Akoum"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Multani, Yavimaya's Avatar"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Omnath, Locus of Rage"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Oracle of Mul Daya"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Rampaging Baloths"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Satyr Wayfinder"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Scouring Swarm"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Soul of Windgrace"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Springbloom Druid"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Sprouting Goblin"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "The Gitrog Monster"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Tireless Tracker"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Titania, Protector of Argoth"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Uurg, Spawn of Turg"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "World Breaker"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Beast Within"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Harrow"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Infernal Grasp"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Putrefy"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Rakdos Charm"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Roiling Regrowth"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Tear Asunder"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Windgrace's Judgment"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Blasphemous Act"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Cultivate"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Escape to the Wilds"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Farseek"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Formless Genesis"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Gaze of Granite"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Nature's Lore"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Night's Whisper"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Pest Infestation"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Planetary Annihilation"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Skyshroud Claim"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Splendid Reclamation"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Worldsoul's Rage"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Arcane Signet"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Exploration Broodship"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Hammer of Purphoros"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Sol Ring"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Binding the Old Gods"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Bojuka Bog"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Cabaretti Courtyard"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Canyon Slough"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Cinder Glade"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Command Tower"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Dakmor Salvage"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Escape Tunnel"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Eumidian Hatchery"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Evolving Wilds"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Fabled Passage"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Festering Thicket"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Karplusan Forest"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Llanowar Wastes"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Maestros Theater"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Mountain Valley"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Myriad Landscape"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Riveteers Overlook"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Rocky Tar Pit"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Sheltered Thicket"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Smoldering Marsh"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Sulfurous Springs"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Terramorphic Expanse"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Twilight Mire"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Vernal Fen"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Viridescent Bog"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Wastes"
+  },
+  {
+   "section": "Lands",
+   "n": 8,
+   "name": "Forest"
+  },
+  {
+   "section": "Lands",
+   "n": 3,
+   "name": "Mountain"
+  },
+  {
+   "section": "Lands",
+   "n": 5,
+   "name": "Swamp"
+  }
+ ],
+ "cards": {
+  "Aftermath Analyst": {
+   "name": "Aftermath Analyst",
+   "id": "66f135b4-8cb3-4a4e-86ae-81a3cf4b7259",
+   "set": "eoc",
+   "cn": "91",
+   "mana_cost": "{1}{G}",
+   "cmc": 2.0,
+   "type_line": "Creature — Elf Detective",
+   "oracle_text": "When this creature enters, mill three cards. (Put the top three cards of your library into your graveyard.)\n{3}{G}, Sacrifice this creature: Return all land cards from your graveyard to the battlefield tapped.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [
+    "Mill"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/6/66f135b4-8cb3-4a4e-86ae-81a3cf4b7259.jpg?1783906036",
+    "normal": "https://cards.scryfall.io/normal/front/6/6/66f135b4-8cb3-4a4e-86ae-81a3cf4b7259.jpg?1783906036",
+    "art": "https://cards.scryfall.io/art_crop/front/6/6/66f135b4-8cb3-4a4e-86ae-81a3cf4b7259.jpg?1783906036"
+   },
+   "power": "1",
+   "toughness": "3",
+   "printing": "eoc/91"
+  },
+  "Arcane Signet": {
+   "name": "Arcane Signet",
+   "id": "c6b6117c-faab-4bbb-b851-07bd8061ef03",
+   "set": "frc",
+   "cn": "20",
+   "mana_cost": "{2}",
+   "cmc": 2.0,
+   "type_line": "Artifact",
+   "oracle_text": "{T}: Add one mana of any color in your commander's color identity.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/d/3d994115-378d-4685-a5dc-e448831da434.jpg?1783906051",
+    "normal": "https://cards.scryfall.io/normal/front/3/d/3d994115-378d-4685-a5dc-e448831da434.jpg?1783906051",
+    "art": "https://cards.scryfall.io/art_crop/front/3/d/3d994115-378d-4685-a5dc-e448831da434.jpg?1783906051"
+   },
+   "printing": "eoc/53"
+  },
+  "Augur of Autumn": {
+   "name": "Augur of Autumn",
+   "id": "c09f0e1b-c13b-4e53-ab0e-c8b8a6151d82",
+   "set": "eoc",
+   "cn": "92",
+   "mana_cost": "{1}{G}{G}",
+   "cmc": 3.0,
+   "type_line": "Creature — Human Druid",
+   "oracle_text": "You may look at the top card of your library any time.\nYou may play lands from the top of your library.\nCoven — As long as you control three or more creatures with different powers, you may cast creature spells from the top of your library.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [
+    "Coven"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/c/0/c09f0e1b-c13b-4e53-ab0e-c8b8a6151d82.jpg?1783906036",
+    "normal": "https://cards.scryfall.io/normal/front/c/0/c09f0e1b-c13b-4e53-ab0e-c8b8a6151d82.jpg?1783906036",
+    "art": "https://cards.scryfall.io/art_crop/front/c/0/c09f0e1b-c13b-4e53-ab0e-c8b8a6151d82.jpg?1783906036"
+   },
+   "power": "2",
+   "toughness": "3",
+   "printing": "eoc/92"
+  },
+  "Baloth Prime": {
+   "name": "Baloth Prime",
+   "id": "2c723fc9-d5c9-4126-a9a6-f80c247a4b6b",
+   "set": "eoc",
+   "cn": "13",
+   "mana_cost": "{3}{G}",
+   "cmc": 4.0,
+   "type_line": "Creature — Beast",
+   "oracle_text": "This creature enters tapped with six stun counters on it. (If a permanent with a stun counter would become untapped, remove one from it instead.)\nWhenever you sacrifice a land, create a tapped 4/4 green Beast creature token and untap this creature.\n{4}, Sacrifice a land: You gain 2 life.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/2/c/2c723fc9-d5c9-4126-a9a6-f80c247a4b6b.jpg?1783906064",
+    "normal": "https://cards.scryfall.io/normal/front/2/c/2c723fc9-d5c9-4126-a9a6-f80c247a4b6b.jpg?1783906064",
+    "art": "https://cards.scryfall.io/art_crop/front/2/c/2c723fc9-d5c9-4126-a9a6-f80c247a4b6b.jpg?1783906064"
+   },
+   "power": "10",
+   "toughness": "10",
+   "printing": "eoc/13"
+  },
+  "Beast Within": {
+   "name": "Beast Within",
+   "id": "400b43aa-c1d2-4435-b863-061f43889422",
+   "set": "msc",
+   "cn": "169",
+   "mana_cost": "{2}{G}",
+   "cmc": 3.0,
+   "type_line": "Instant",
+   "oracle_text": "Destroy target permanent. Its controller creates a 3/3 green Beast creature token.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/c/c/ccac70d4-6e04-4802-8bb8-021368a40e14.jpg?1783906036",
+    "normal": "https://cards.scryfall.io/normal/front/c/c/ccac70d4-6e04-4802-8bb8-021368a40e14.jpg?1783906036",
+    "art": "https://cards.scryfall.io/art_crop/front/c/c/ccac70d4-6e04-4802-8bb8-021368a40e14.jpg?1783906036"
+   },
+   "printing": "eoc/93"
+  },
+  "Binding the Old Gods": {
+   "name": "Binding the Old Gods",
+   "id": "41802f18-7d46-431a-acb3-dbcc82eb415a",
+   "set": "ecc",
+   "cn": "120",
+   "mana_cost": "{2}{B}{G}",
+   "cmc": 4.0,
+   "type_line": "Enchantment — Saga",
+   "oracle_text": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\nI — Destroy target nonland permanent an opponent controls.\nII — Search your library for a Forest card, put it onto the battlefield tapped, then shuffle.\nIII — Creatures you control gain deathtouch until end of turn.",
+   "colors": [
+    "B",
+    "G"
+   ],
+   "color_identity": [
+    "B",
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/5/65b3df37-8dea-4486-8904-55372b93c66f.jpg?1783906050",
+    "normal": "https://cards.scryfall.io/normal/front/6/5/65b3df37-8dea-4486-8904-55372b93c66f.jpg?1783906050",
+    "art": "https://cards.scryfall.io/art_crop/front/6/5/65b3df37-8dea-4486-8904-55372b93c66f.jpg?1783906050"
+   },
+   "printing": "eoc/52"
+  },
+  "Blasphemous Act": {
+   "name": "Blasphemous Act",
+   "id": "7d4b1d44-126e-4987-9a9f-f0f9627a09cb",
+   "set": "msc",
+   "cn": "163",
+   "mana_cost": "{8}{R}",
+   "cmc": 9.0,
+   "type_line": "Sorcery",
+   "oracle_text": "This spell costs {1} less to cast for each creature on the battlefield.\nBlasphemous Act deals 13 damage to each creature.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/b/fbeeb7d0-cda8-414b-82d3-a83f1883bdd2.jpg?1783906038",
+    "normal": "https://cards.scryfall.io/normal/front/f/b/fbeeb7d0-cda8-414b-82d3-a83f1883bdd2.jpg?1783906038",
+    "art": "https://cards.scryfall.io/art_crop/front/f/b/fbeeb7d0-cda8-414b-82d3-a83f1883bdd2.jpg?1783906038"
+   },
+   "printing": "eoc/86"
+  },
+  "Bojuka Bog": {
+   "name": "Bojuka Bog",
+   "id": "55b5b094-9d2d-4d96-b90c-78fecdae725a",
+   "set": "soc",
+   "cn": "363",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped.\nWhen this land enters, exile target player's graveyard.\n{T}: Add {B}.",
+   "colors": [],
+   "color_identity": [
+    "B"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "B"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/b/0/b0c6fb5e-07e2-4d22-be19-60592f00584a.jpg?1783906018",
+    "normal": "https://cards.scryfall.io/normal/front/b/0/b0c6fb5e-07e2-4d22-be19-60592f00584a.jpg?1783906018",
+    "art": "https://cards.scryfall.io/art_crop/front/b/0/b0c6fb5e-07e2-4d22-be19-60592f00584a.jpg?1783906018"
+   },
+   "printing": "eoc/149"
+  },
+  "Braids, Arisen Nightmare": {
+   "name": "Braids, Arisen Nightmare",
+   "id": "f96223d0-04c4-40c2-87a9-0c6bc74adddb",
+   "set": "eoc",
+   "cn": "82",
+   "mana_cost": "{1}{B}{B}",
+   "cmc": 3.0,
+   "type_line": "Legendary Creature — Nightmare",
+   "oracle_text": "At the beginning of your end step, you may sacrifice an artifact, creature, enchantment, land, or planeswalker. If you do, each opponent may sacrifice a permanent of their choice that shares a card type with it. For each opponent who doesn't, that player loses 2 life and you draw a card.",
+   "colors": [
+    "B"
+   ],
+   "color_identity": [
+    "B"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/9/f96223d0-04c4-40c2-87a9-0c6bc74adddb.jpg?1783906041",
+    "normal": "https://cards.scryfall.io/normal/front/f/9/f96223d0-04c4-40c2-87a9-0c6bc74adddb.jpg?1783906041",
+    "art": "https://cards.scryfall.io/art_crop/front/f/9/f96223d0-04c4-40c2-87a9-0c6bc74adddb.jpg?1783906041"
+   },
+   "power": "3",
+   "toughness": "3",
+   "printing": "eoc/82"
+  },
+  "Cabaretti Courtyard": {
+   "name": "Cabaretti Courtyard",
+   "id": "c54ddd4e-f668-4ec8-b123-59afa977eba4",
+   "set": "eoc",
+   "cn": "151",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "When this land enters, sacrifice it. When you do, search your library for a basic Mountain, Forest, or Plains card, put it onto the battlefield tapped, then shuffle and you gain 1 life.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/c/5/c54ddd4e-f668-4ec8-b123-59afa977eba4.jpg?1783906015",
+    "normal": "https://cards.scryfall.io/normal/front/c/5/c54ddd4e-f668-4ec8-b123-59afa977eba4.jpg?1783906015",
+    "art": "https://cards.scryfall.io/art_crop/front/c/5/c54ddd4e-f668-4ec8-b123-59afa977eba4.jpg?1783906015"
+   },
+   "printing": "eoc/151"
+  },
+  "Canyon Slough": {
+   "name": "Canyon Slough",
+   "id": "587cc3ba-75c2-46a0-bd44-6f953fe1eb01",
+   "set": "msc",
+   "cn": "228",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land — Swamp Mountain",
+   "oracle_text": "({T}: Add {B} or {R}.)\nThis land enters tapped.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+   "colors": [],
+   "color_identity": [
+    "B",
+    "R"
+   ],
+   "keywords": [
+    "Cycling"
+   ],
+   "produced_mana": [
+    "B",
+    "R"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/5/d/5d89a57c-d982-4d1d-beca-14f156b8c3e7.jpg?1783906016",
+    "normal": "https://cards.scryfall.io/normal/front/5/d/5d89a57c-d982-4d1d-beca-14f156b8c3e7.jpg?1783906016",
+    "art": "https://cards.scryfall.io/art_crop/front/5/d/5d89a57c-d982-4d1d-beca-14f156b8c3e7.jpg?1783906016"
+   },
+   "printing": "eoc/152"
+  },
+  "Centaur Vinecrasher": {
+   "name": "Centaur Vinecrasher",
+   "id": "cf8712ba-574b-4e53-9c7e-0a1465116320",
+   "set": "eoc",
+   "cn": "94",
+   "mana_cost": "{3}{G}",
+   "cmc": 4.0,
+   "type_line": "Creature — Plant Centaur",
+   "oracle_text": "Trample\nThis creature enters with a number of +1/+1 counters on it equal to the number of land cards in all graveyards.\nWhenever a land card is put into a graveyard from anywhere, you may pay {G}{G}. If you do, return this card from your graveyard to your hand.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [
+    "Trample"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/c/f/cf8712ba-574b-4e53-9c7e-0a1465116320.jpg?1783906035",
+    "normal": "https://cards.scryfall.io/normal/front/c/f/cf8712ba-574b-4e53-9c7e-0a1465116320.jpg?1783906035",
+    "art": "https://cards.scryfall.io/art_crop/front/c/f/cf8712ba-574b-4e53-9c7e-0a1465116320.jpg?1783906035"
+   },
+   "power": "1",
+   "toughness": "1",
+   "printing": "eoc/94"
+  },
+  "Cinder Glade": {
+   "name": "Cinder Glade",
+   "id": "ec93087a-5728-40e8-8625-a1d175d5252c",
+   "set": "msc",
+   "cn": "230",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land — Mountain Forest",
+   "oracle_text": "({T}: Add {R} or {G}.)\nThis land enters tapped unless you control two or more basic lands.",
+   "colors": [],
+   "color_identity": [
+    "G",
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "G",
+    "R"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/7/8/7865ae5f-cfd9-4913-bcf5-aadbd6824e65.jpg?1783906016",
+    "normal": "https://cards.scryfall.io/normal/front/7/8/7865ae5f-cfd9-4913-bcf5-aadbd6824e65.jpg?1783906016",
+    "art": "https://cards.scryfall.io/art_crop/front/7/8/7865ae5f-cfd9-4913-bcf5-aadbd6824e65.jpg?1783906016"
+   },
+   "printing": "eoc/154"
+  },
+  "Command Tower": {
+   "name": "Command Tower",
+   "id": "1ac6cb62-45da-4e9a-84c6-09e6eacf0664",
+   "set": "frc",
+   "cn": "22",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}: Add one mana of any color in your commander's color identity.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/5/85eb4b03-305b-45a4-82e5-5fcd586cc744.jpg?1783906048",
+    "normal": "https://cards.scryfall.io/normal/front/8/5/85eb4b03-305b-45a4-82e5-5fcd586cc744.jpg?1783906048",
+    "art": "https://cards.scryfall.io/art_crop/front/8/5/85eb4b03-305b-45a4-82e5-5fcd586cc744.jpg?1783906048"
+   },
+   "printing": "eoc/59"
+  },
+  "Cultivate": {
+   "name": "Cultivate",
+   "id": "e60deb92-f7dd-4f4e-9036-e47dd586f985",
+   "set": "msc",
+   "cn": "172",
+   "mana_cost": "{2}{G}",
+   "cmc": 3.0,
+   "type_line": "Sorcery",
+   "oracle_text": "Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/7/e/7ee610ee-7711-4a6b-b441-d6c73e6ef2b4.jpg?1783906035",
+    "normal": "https://cards.scryfall.io/normal/front/7/e/7ee610ee-7711-4a6b-b441-d6c73e6ef2b4.jpg?1783906035",
+    "art": "https://cards.scryfall.io/art_crop/front/7/e/7ee610ee-7711-4a6b-b441-d6c73e6ef2b4.jpg?1783906035"
+   },
+   "printing": "eoc/95"
+  },
+  "Dakmor Salvage": {
+   "name": "Dakmor Salvage",
+   "id": "72474b66-1dda-409d-8703-b026c1777081",
+   "set": "eoc",
+   "cn": "156",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped.\n{T}: Add {B}.\nDredge 2 (If you would draw a card, you may mill two cards instead. If you do, return this card from your graveyard to your hand.)",
+   "colors": [],
+   "color_identity": [
+    "B"
+   ],
+   "keywords": [
+    "Dredge",
+    "Mill"
+   ],
+   "produced_mana": [
+    "B"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/7/2/72474b66-1dda-409d-8703-b026c1777081.jpg?1783906015",
+    "normal": "https://cards.scryfall.io/normal/front/7/2/72474b66-1dda-409d-8703-b026c1777081.jpg?1783906015",
+    "art": "https://cards.scryfall.io/art_crop/front/7/2/72474b66-1dda-409d-8703-b026c1777081.jpg?1783906015"
+   },
+   "printing": "eoc/156"
+  },
+  "Escape Tunnel": {
+   "name": "Escape Tunnel",
+   "id": "5df90940-15ea-418c-8547-6c75d69ec6d3",
+   "set": "tmt",
+   "cn": "184",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.\n{T}, Sacrifice this land: Target creature with power 2 or less can't be blocked this turn.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/0/a0335da5-d754-480d-89d9-be6b8ca33fda.jpg?1783906014",
+    "normal": "https://cards.scryfall.io/normal/front/a/0/a0335da5-d754-480d-89d9-be6b8ca33fda.jpg?1783906014",
+    "art": "https://cards.scryfall.io/art_crop/front/a/0/a0335da5-d754-480d-89d9-be6b8ca33fda.jpg?1783906014"
+   },
+   "printing": "eoc/157"
+  },
+  "Escape to the Wilds": {
+   "name": "Escape to the Wilds",
+   "id": "889cdc42-fae3-4dda-9cf0-697730ef00e3",
+   "set": "eoc",
+   "cn": "115",
+   "mana_cost": "{3}{R}{G}",
+   "cmc": 5.0,
+   "type_line": "Sorcery",
+   "oracle_text": "Exile the top five cards of your library. You may play cards exiled this way until the end of your next turn.\nYou may play an additional land this turn.",
+   "colors": [
+    "G",
+    "R"
+   ],
+   "color_identity": [
+    "G",
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/8/889cdc42-fae3-4dda-9cf0-697730ef00e3.jpg?1783906028",
+    "normal": "https://cards.scryfall.io/normal/front/8/8/889cdc42-fae3-4dda-9cf0-697730ef00e3.jpg?1783906028",
+    "art": "https://cards.scryfall.io/art_crop/front/8/8/889cdc42-fae3-4dda-9cf0-697730ef00e3.jpg?1783906028"
+   },
+   "printing": "eoc/115"
+  },
+  "Eumidian Hatchery": {
+   "name": "Eumidian Hatchery",
+   "id": "25b57aaf-04fa-463d-8516-40fccd24d6ed",
+   "set": "eoc",
+   "cn": "20",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}, Pay 1 life: Add {B}. Put a hatchling counter on this land.\nWhen this land is put into a graveyard from the battlefield, for each hatchling counter on it, create a 1/1 black Insect creature token with flying.",
+   "colors": [],
+   "color_identity": [
+    "B"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "B"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/2/5/25b57aaf-04fa-463d-8516-40fccd24d6ed.jpg?1783906061",
+    "normal": "https://cards.scryfall.io/normal/front/2/5/25b57aaf-04fa-463d-8516-40fccd24d6ed.jpg?1783906061",
+    "art": "https://cards.scryfall.io/art_crop/front/2/5/25b57aaf-04fa-463d-8516-40fccd24d6ed.jpg?1783906061"
+   },
+   "printing": "eoc/20"
+  },
+  "Eumidian Wastewaker": {
+   "name": "Eumidian Wastewaker",
+   "id": "3ee18d18-0167-4caa-adad-9d4435689c80",
+   "set": "eoc",
+   "cn": "8",
+   "mana_cost": "{2}{B}{B}",
+   "cmc": 4.0,
+   "type_line": "Creature — Insect Cleric",
+   "oracle_text": "Whenever this creature attacks, you and defending player each discard a card or sacrifice a permanent. You draw a card for each land card put into a graveyard this way.\nEncore {6}{B}{B} ({6}{B}{B}, Exile this card from your graveyard: For each opponent, create a token copy that attacks that opponent this turn if able. They gain haste. Sacrifice them at the beginning of the next end step. Activate only as a sorcery.)",
+   "colors": [
+    "B"
+   ],
+   "color_identity": [
+    "B"
+   ],
+   "keywords": [
+    "Encore"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/e/3ee18d18-0167-4caa-adad-9d4435689c80.jpg?1783906065",
+    "normal": "https://cards.scryfall.io/normal/front/3/e/3ee18d18-0167-4caa-adad-9d4435689c80.jpg?1783906065",
+    "art": "https://cards.scryfall.io/art_crop/front/3/e/3ee18d18-0167-4caa-adad-9d4435689c80.jpg?1783906065"
+   },
+   "power": "4",
+   "toughness": "4",
+   "printing": "eoc/8"
+  },
+  "Evendo Brushrazer": {
+   "name": "Evendo Brushrazer",
+   "id": "8b9001a4-953c-4a32-b51a-c6bec7e74f9e",
+   "set": "eoc",
+   "cn": "10",
+   "mana_cost": "{2}{R}",
+   "cmc": 3.0,
+   "type_line": "Creature — Insect Warrior",
+   "oracle_text": "Whenever you sacrifice a nontoken permanent, exile the top card of your library.\nDuring your turn, as long as you've sacrificed a nontoken permanent this turn, you may play cards exiled with this creature.\n{T}, Sacrifice a land: Add {R}{R}.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "R"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/b/8b9001a4-953c-4a32-b51a-c6bec7e74f9e.jpg?1783906065",
+    "normal": "https://cards.scryfall.io/normal/front/8/b/8b9001a4-953c-4a32-b51a-c6bec7e74f9e.jpg?1783906065",
+    "art": "https://cards.scryfall.io/art_crop/front/8/b/8b9001a4-953c-4a32-b51a-c6bec7e74f9e.jpg?1783906065"
+   },
+   "power": "2",
+   "toughness": "2",
+   "printing": "eoc/10"
+  },
+  "Evolving Wilds": {
+   "name": "Evolving Wilds",
+   "id": "c0318a48-30e4-4ef7-be3d-5e561c5ce428",
+   "set": "msc",
+   "cn": "240",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/1/31181bd2-3a1f-4cb9-ba30-637ac479133a.jpg?1783906013",
+    "normal": "https://cards.scryfall.io/normal/front/3/1/31181bd2-3a1f-4cb9-ba30-637ac479133a.jpg?1783906013",
+    "art": "https://cards.scryfall.io/art_crop/front/3/1/31181bd2-3a1f-4cb9-ba30-637ac479133a.jpg?1783906013"
+   },
+   "printing": "eoc/158"
+  },
+  "Exploration Broodship": {
+   "name": "Exploration Broodship",
+   "id": "61596da3-2a0e-47d9-b707-8db4cce2479d",
+   "set": "eoc",
+   "cn": "14",
+   "mana_cost": "{G}",
+   "cmc": 1.0,
+   "type_line": "Artifact — Spacecraft",
+   "oracle_text": "Station (Tap another creature you control: Put charge counters equal to its power on this Spacecraft. Station only as a sorcery. It's an artifact creature at 8+.)\n3+ | You may play an additional land on each of your turns.\n8+ | Flying\nOnce during each of your turns, you may cast a permanent spell from your graveyard by sacrificing a land in addition to paying its other costs.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [
+    "Station"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/1/61596da3-2a0e-47d9-b707-8db4cce2479d.jpg?1783906063",
+    "normal": "https://cards.scryfall.io/normal/front/6/1/61596da3-2a0e-47d9-b707-8db4cce2479d.jpg?1783906063",
+    "art": "https://cards.scryfall.io/art_crop/front/6/1/61596da3-2a0e-47d9-b707-8db4cce2479d.jpg?1783906063"
+   },
+   "power": "4",
+   "toughness": "4",
+   "printing": "eoc/14"
+  },
+  "Fabled Passage": {
+   "name": "Fabled Passage",
+   "id": "76edd22f-808e-4a7c-b941-13c0f5e30418",
+   "set": "frc",
+   "cn": "71",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle. Then if you control four or more lands, untap that land.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/a/6a21ecc8-f6fd-4670-91d8-94b9ce94c2fe.jpg?1783906047",
+    "normal": "https://cards.scryfall.io/normal/front/6/a/6a21ecc8-f6fd-4670-91d8-94b9ce94c2fe.jpg?1783906047",
+    "art": "https://cards.scryfall.io/art_crop/front/6/a/6a21ecc8-f6fd-4670-91d8-94b9ce94c2fe.jpg?1783906047"
+   },
+   "printing": "eoc/60"
+  },
+  "Farseek": {
+   "name": "Farseek",
+   "id": "c1aac0f5-1d01-4673-b8d3-878d9a1d423c",
+   "set": "msc",
+   "cn": "173",
+   "mana_cost": "{1}{G}",
+   "cmc": 2.0,
+   "type_line": "Sorcery",
+   "oracle_text": "Search your library for a Plains, Island, Swamp, or Mountain card, put it onto the battlefield tapped, then shuffle.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/5/95e0760a-d285-493b-88cd-7556d9b10007.jpg?1783906051",
+    "normal": "https://cards.scryfall.io/normal/front/9/5/95e0760a-d285-493b-88cd-7556d9b10007.jpg?1783906051",
+    "art": "https://cards.scryfall.io/art_crop/front/9/5/95e0760a-d285-493b-88cd-7556d9b10007.jpg?1783906051"
+   },
+   "printing": "eoc/50"
+  },
+  "Festering Thicket": {
+   "name": "Festering Thicket",
+   "id": "f71c87db-54ea-4611-8692-096d9714d854",
+   "set": "soc",
+   "cn": "371",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land — Swamp Forest",
+   "oracle_text": "({T}: Add {B} or {G}.)\nThis land enters tapped.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+   "colors": [],
+   "color_identity": [
+    "B",
+    "G"
+   ],
+   "keywords": [
+    "Cycling"
+   ],
+   "produced_mana": [
+    "B",
+    "G"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/d/3/d312f4ca-909a-47df-91dc-dfb63838b5f5.jpg?1783906062",
+    "normal": "https://cards.scryfall.io/normal/front/d/3/d312f4ca-909a-47df-91dc-dfb63838b5f5.jpg?1783906062",
+    "art": "https://cards.scryfall.io/art_crop/front/d/3/d312f4ca-909a-47df-91dc-dfb63838b5f5.jpg?1783906062"
+   },
+   "printing": "eoc/21"
+  },
+  "Forest": {
+   "name": "Forest",
+   "id": "2e781bfd-f8cb-4d20-b977-4359f3a21311",
+   "set": "mdd",
+   "cn": "301",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Basic Land — Forest",
+   "oracle_text": "({T}: Add {G}.)",
+   "colors": [],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "G"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/b/fb62605c-a58e-4e53-8336-b2bee316b5a6.jpg?1783905907",
+    "normal": "https://cards.scryfall.io/normal/front/f/b/fb62605c-a58e-4e53-8336-b2bee316b5a6.jpg?1783905907",
+    "art": "https://cards.scryfall.io/art_crop/front/f/b/fb62605c-a58e-4e53-8336-b2bee316b5a6.jpg?1783905907"
+   },
+   "printing": "eoe/275"
+  },
+  "Formless Genesis": {
+   "name": "Formless Genesis",
+   "id": "b2222cae-2b12-4163-ab1b-7d315877ee8d",
+   "set": "eoc",
+   "cn": "96",
+   "mana_cost": "{2}{G}",
+   "cmc": 3.0,
+   "type_line": "Kindred Sorcery — Shapeshifter",
+   "oracle_text": "Changeling (This card is every creature type.)\nCreate an X/X colorless Shapeshifter creature token with changeling and deathtouch, where X is the number of land cards in your graveyard.\nRetrace (You may cast this card from your graveyard by discarding a land card in addition to paying its other costs.)",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [
+    "Retrace",
+    "Changeling"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/b/2/b2222cae-2b12-4163-ab1b-7d315877ee8d.jpg?1783906034",
+    "normal": "https://cards.scryfall.io/normal/front/b/2/b2222cae-2b12-4163-ab1b-7d315877ee8d.jpg?1783906034",
+    "art": "https://cards.scryfall.io/art_crop/front/b/2/b2222cae-2b12-4163-ab1b-7d315877ee8d.jpg?1783906034"
+   },
+   "printing": "eoc/96"
+  },
+  "Gaze of Granite": {
+   "name": "Gaze of Granite",
+   "id": "97cf4cd8-9cb5-482e-92ca-da657b410e48",
+   "set": "eoc",
+   "cn": "116",
+   "mana_cost": "{X}{B}{B}{G}",
+   "cmc": 3.0,
+   "type_line": "Sorcery",
+   "oracle_text": "Destroy each nonland permanent with mana value X or less.",
+   "colors": [
+    "B",
+    "G"
+   ],
+   "color_identity": [
+    "B",
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/7/97cf4cd8-9cb5-482e-92ca-da657b410e48.jpg?1783906029",
+    "normal": "https://cards.scryfall.io/normal/front/9/7/97cf4cd8-9cb5-482e-92ca-da657b410e48.jpg?1783906029",
+    "art": "https://cards.scryfall.io/art_crop/front/9/7/97cf4cd8-9cb5-482e-92ca-da657b410e48.jpg?1783906029"
+   },
+   "printing": "eoc/116"
+  },
+  "God-Eternal Bontu": {
+   "name": "God-Eternal Bontu",
+   "id": "142b0860-8a82-4830-a4ff-2bbfc102437e",
+   "set": "eoc",
+   "cn": "83",
+   "mana_cost": "{3}{B}{B}",
+   "cmc": 5.0,
+   "type_line": "Legendary Creature — Zombie God",
+   "oracle_text": "Menace\nWhen God-Eternal Bontu enters, sacrifice any number of other permanents, then draw that many cards.\nWhen God-Eternal Bontu dies or is put into exile from the battlefield, you may put her into her owner's library third from the top.",
+   "colors": [
+    "B"
+   ],
+   "color_identity": [
+    "B"
+   ],
+   "keywords": [
+    "Menace"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/1/4/142b0860-8a82-4830-a4ff-2bbfc102437e.jpg?1783906039",
+    "normal": "https://cards.scryfall.io/normal/front/1/4/142b0860-8a82-4830-a4ff-2bbfc102437e.jpg?1783906039",
+    "art": "https://cards.scryfall.io/art_crop/front/1/4/142b0860-8a82-4830-a4ff-2bbfc102437e.jpg?1783906039"
+   },
+   "power": "5",
+   "toughness": "6",
+   "printing": "eoc/83"
+  },
+  "Groundskeeper": {
+   "name": "Groundskeeper",
+   "id": "30444f88-5a7e-46bc-ab0c-17e62fae2457",
+   "set": "eoc",
+   "cn": "97",
+   "mana_cost": "{G}",
+   "cmc": 1.0,
+   "type_line": "Creature — Human Druid",
+   "oracle_text": "{1}{G}: Return target basic land card from your graveyard to your hand.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/0/30444f88-5a7e-46bc-ab0c-17e62fae2457.jpg?1783906035",
+    "normal": "https://cards.scryfall.io/normal/front/3/0/30444f88-5a7e-46bc-ab0c-17e62fae2457.jpg?1783906035",
+    "art": "https://cards.scryfall.io/art_crop/front/3/0/30444f88-5a7e-46bc-ab0c-17e62fae2457.jpg?1783906035"
+   },
+   "power": "1",
+   "toughness": "1",
+   "printing": "eoc/97"
+  },
+  "Hammer of Purphoros": {
+   "name": "Hammer of Purphoros",
+   "id": "900de725-741b-4b25-8e40-78ed7575a83f",
+   "set": "eoc",
+   "cn": "88",
+   "mana_cost": "{1}{R}{R}",
+   "cmc": 3.0,
+   "type_line": "Legendary Enchantment Artifact",
+   "oracle_text": "Creatures you control have haste.\n{2}{R}, {T}, Sacrifice a land: Create a 3/3 colorless Golem enchantment artifact creature token.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/0/900de725-741b-4b25-8e40-78ed7575a83f.jpg?1783906038",
+    "normal": "https://cards.scryfall.io/normal/front/9/0/900de725-741b-4b25-8e40-78ed7575a83f.jpg?1783906038",
+    "art": "https://cards.scryfall.io/art_crop/front/9/0/900de725-741b-4b25-8e40-78ed7575a83f.jpg?1783906038"
+   },
+   "printing": "eoc/88"
+  },
+  "Harrow": {
+   "name": "Harrow",
+   "id": "3e76be46-cf81-4fef-bc5b-f87666cb0413",
+   "set": "eoc",
+   "cn": "98",
+   "mana_cost": "{2}{G}",
+   "cmc": 3.0,
+   "type_line": "Instant",
+   "oracle_text": "As an additional cost to cast this spell, sacrifice a land.\nSearch your library for up to two basic land cards, put them onto the battlefield, then shuffle.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/e/3e76be46-cf81-4fef-bc5b-f87666cb0413.jpg?1783906034",
+    "normal": "https://cards.scryfall.io/normal/front/3/e/3e76be46-cf81-4fef-bc5b-f87666cb0413.jpg?1783906034",
+    "art": "https://cards.scryfall.io/art_crop/front/3/e/3e76be46-cf81-4fef-bc5b-f87666cb0413.jpg?1783906034"
+   },
+   "printing": "eoc/98"
+  },
+  "Hearthhull, the Worldseed": {
+   "name": "Hearthhull, the Worldseed",
+   "id": "6b913e79-a9f6-44d4-bb37-c4f6f66b8151",
+   "set": "eoc",
+   "cn": "1",
+   "mana_cost": "{1}{B}{R}{G}",
+   "cmc": 4.0,
+   "type_line": "Legendary Artifact — Spacecraft",
+   "oracle_text": "Station (Tap another creature you control: Put charge counters equal to its power on this Spacecraft. Station only as a sorcery. It's an artifact creature at 8+.)\n2+ | {1}, {T}, Sacrifice a land: Draw two cards. You may play an additional land this turn.\n8+ | Flying, vigilance, haste\nWhenever you sacrifice a land, each opponent loses 2 life.",
+   "colors": [
+    "B",
+    "G",
+    "R"
+   ],
+   "color_identity": [
+    "B",
+    "G",
+    "R"
+   ],
+   "keywords": [
+    "Station"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/b/6b913e79-a9f6-44d4-bb37-c4f6f66b8151.jpg?1783906067",
+    "normal": "https://cards.scryfall.io/normal/front/6/b/6b913e79-a9f6-44d4-bb37-c4f6f66b8151.jpg?1783906067",
+    "art": "https://cards.scryfall.io/art_crop/front/6/b/6b913e79-a9f6-44d4-bb37-c4f6f66b8151.jpg?1783906067"
+   },
+   "power": "6",
+   "toughness": "7",
+   "printing": "eoc/1"
+  },
+  "Horizon Explorer": {
+   "name": "Horizon Explorer",
+   "id": "a5873a4d-ab6e-4dd2-9380-5eaa367a8396",
+   "set": "eoc",
+   "cn": "15",
+   "mana_cost": "{2}{G}",
+   "cmc": 3.0,
+   "type_line": "Creature — Insect Scout",
+   "oracle_text": "Lands you control enter untapped.\nWhenever you attack a player, create a Lander token. (It's an artifact with \"{2}, {T}, Sacrifice this token: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.\")",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/5/a5873a4d-ab6e-4dd2-9380-5eaa367a8396.jpg?1783906062",
+    "normal": "https://cards.scryfall.io/normal/front/a/5/a5873a4d-ab6e-4dd2-9380-5eaa367a8396.jpg?1783906062",
+    "art": "https://cards.scryfall.io/art_crop/front/a/5/a5873a4d-ab6e-4dd2-9380-5eaa367a8396.jpg?1783906062"
+   },
+   "power": "2",
+   "toughness": "4",
+   "printing": "eoc/15"
+  },
+  "Infernal Grasp": {
+   "name": "Infernal Grasp",
+   "id": "f67b323d-0dda-45f8-84b7-d883ce5045a8",
+   "set": "soc",
+   "cn": "216",
+   "mana_cost": "{1}{B}",
+   "cmc": 2.0,
+   "type_line": "Instant",
+   "oracle_text": "Destroy target creature. You lose 2 life.",
+   "colors": [
+    "B"
+   ],
+   "color_identity": [
+    "B"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/0/6/060b7e5f-5b40-4efc-9fad-4cebf40b654b.jpg?1783906040",
+    "normal": "https://cards.scryfall.io/normal/front/0/6/060b7e5f-5b40-4efc-9fad-4cebf40b654b.jpg?1783906040",
+    "art": "https://cards.scryfall.io/art_crop/front/0/6/060b7e5f-5b40-4efc-9fad-4cebf40b654b.jpg?1783906040"
+   },
+   "printing": "eoc/84"
+  },
+  "Juri, Master of the Revue": {
+   "name": "Juri, Master of the Revue",
+   "id": "5006eae5-3b77-45ab-a907-f5094b2eaf1f",
+   "set": "eoc",
+   "cn": "119",
+   "mana_cost": "{B}{R}",
+   "cmc": 2.0,
+   "type_line": "Legendary Creature — Human Shaman",
+   "oracle_text": "Whenever you sacrifice a permanent, put a +1/+1 counter on Juri.\nWhen Juri dies, it deals damage equal to its power to any target.",
+   "colors": [
+    "B",
+    "R"
+   ],
+   "color_identity": [
+    "B",
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/5/0/5006eae5-3b77-45ab-a907-f5094b2eaf1f.jpg?1783906029",
+    "normal": "https://cards.scryfall.io/normal/front/5/0/5006eae5-3b77-45ab-a907-f5094b2eaf1f.jpg?1783906029",
+    "art": "https://cards.scryfall.io/art_crop/front/5/0/5006eae5-3b77-45ab-a907-f5094b2eaf1f.jpg?1783906029"
+   },
+   "power": "1",
+   "toughness": "1",
+   "printing": "eoc/119"
+  },
+  "Karplusan Forest": {
+   "name": "Karplusan Forest",
+   "id": "67198b97-bac2-480f-aea8-12841e8884de",
+   "set": "eoc",
+   "cn": "164",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}: Add {C}.\n{T}: Add {R} or {G}. This land deals 1 damage to you.",
+   "colors": [],
+   "color_identity": [
+    "G",
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "C",
+    "G",
+    "R"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/7/67198b97-bac2-480f-aea8-12841e8884de.jpg?1783906010",
+    "normal": "https://cards.scryfall.io/normal/front/6/7/67198b97-bac2-480f-aea8-12841e8884de.jpg?1783906010",
+    "art": "https://cards.scryfall.io/art_crop/front/6/7/67198b97-bac2-480f-aea8-12841e8884de.jpg?1783906010"
+   },
+   "printing": "eoc/164"
+  },
+  "Korvold, Fae-Cursed King": {
+   "name": "Korvold, Fae-Cursed King",
+   "id": "607c1793-8e5a-4ebf-87c6-7f9c99bbd29a",
+   "set": "eoc",
+   "cn": "120",
+   "mana_cost": "{2}{B}{R}{G}",
+   "cmc": 5.0,
+   "type_line": "Legendary Creature — Dragon Noble",
+   "oracle_text": "Flying\nWhenever Korvold enters or attacks, sacrifice another permanent.\nWhenever you sacrifice a permanent, put a +1/+1 counter on Korvold and draw a card.",
+   "colors": [
+    "B",
+    "G",
+    "R"
+   ],
+   "color_identity": [
+    "B",
+    "G",
+    "R"
+   ],
+   "keywords": [
+    "Flying"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/0/607c1793-8e5a-4ebf-87c6-7f9c99bbd29a.jpg?1783906027",
+    "normal": "https://cards.scryfall.io/normal/front/6/0/607c1793-8e5a-4ebf-87c6-7f9c99bbd29a.jpg?1783906027",
+    "art": "https://cards.scryfall.io/art_crop/front/6/0/607c1793-8e5a-4ebf-87c6-7f9c99bbd29a.jpg?1783906027"
+   },
+   "power": "4",
+   "toughness": "4",
+   "printing": "eoc/120"
+  },
+  "Llanowar Wastes": {
+   "name": "Llanowar Wastes",
+   "id": "266316d3-3bbc-4283-aab8-69629855909f",
+   "set": "soc",
+   "cn": "383",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}: Add {C}.\n{T}: Add {B} or {G}. This land deals 1 damage to you.",
+   "colors": [],
+   "color_identity": [
+    "B",
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "C",
+    "G"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/d/9/d9f0d724-3b77-4cf6-a745-a04aca743312.jpg?1783906011",
+    "normal": "https://cards.scryfall.io/normal/front/d/9/d9f0d724-3b77-4cf6-a745-a04aca743312.jpg?1783906011",
+    "art": "https://cards.scryfall.io/art_crop/front/d/9/d9f0d724-3b77-4cf6-a745-a04aca743312.jpg?1783906011"
+   },
+   "printing": "eoc/165"
+  },
+  "Loamcrafter Faun": {
+   "name": "Loamcrafter Faun",
+   "id": "066de4d6-3fa4-44e0-ab02-8d97b603015a",
+   "set": "eoc",
+   "cn": "99",
+   "mana_cost": "{2}{G}",
+   "cmc": 3.0,
+   "type_line": "Creature — Satyr Druid",
+   "oracle_text": "When this creature enters, you may discard one or more land cards. When you do, return up to that many target nonland permanent cards from your graveyard to your hand.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/0/6/066de4d6-3fa4-44e0-ab02-8d97b603015a.jpg?1783906034",
+    "normal": "https://cards.scryfall.io/normal/front/0/6/066de4d6-3fa4-44e0-ab02-8d97b603015a.jpg?1783906034",
+    "art": "https://cards.scryfall.io/art_crop/front/0/6/066de4d6-3fa4-44e0-ab02-8d97b603015a.jpg?1783906034"
+   },
+   "power": "3",
+   "toughness": "3",
+   "printing": "eoc/99"
+  },
+  "Maestros Theater": {
+   "name": "Maestros Theater",
+   "id": "d4087ba6-8227-4ec3-a989-0833ad6c8788",
+   "set": "eoc",
+   "cn": "167",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "When this land enters, sacrifice it. When you do, search your library for a basic Island, Swamp, or Mountain card, put it onto the battlefield tapped, then shuffle and you gain 1 life.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/d/4/d4087ba6-8227-4ec3-a989-0833ad6c8788.jpg?1783906010",
+    "normal": "https://cards.scryfall.io/normal/front/d/4/d4087ba6-8227-4ec3-a989-0833ad6c8788.jpg?1783906010",
+    "art": "https://cards.scryfall.io/art_crop/front/d/4/d4087ba6-8227-4ec3-a989-0833ad6c8788.jpg?1783906010"
+   },
+   "printing": "eoc/167"
+  },
+  "Mayhem Devil": {
+   "name": "Mayhem Devil",
+   "id": "674f3a8a-4552-4289-b92a-06ce158f115c",
+   "set": "eoc",
+   "cn": "121",
+   "mana_cost": "{1}{B}{R}",
+   "cmc": 3.0,
+   "type_line": "Creature — Devil",
+   "oracle_text": "Whenever a player sacrifices a permanent, this creature deals 1 damage to any target.",
+   "colors": [
+    "B",
+    "R"
+   ],
+   "color_identity": [
+    "B",
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/7/674f3a8a-4552-4289-b92a-06ce158f115c.jpg?1783906026",
+    "normal": "https://cards.scryfall.io/normal/front/6/7/674f3a8a-4552-4289-b92a-06ce158f115c.jpg?1783906026",
+    "art": "https://cards.scryfall.io/art_crop/front/6/7/674f3a8a-4552-4289-b92a-06ce158f115c.jpg?1783906026"
+   },
+   "power": "3",
+   "toughness": "3",
+   "printing": "eoc/121"
+  },
+  "Mazirek, Kraul Death Priest": {
+   "name": "Mazirek, Kraul Death Priest",
+   "id": "940ae3c2-7ac2-412b-afd0-c8b0099bc3aa",
+   "set": "soc",
+   "cn": "319",
+   "mana_cost": "{3}{B}{G}",
+   "cmc": 5.0,
+   "type_line": "Legendary Creature — Insect Shaman",
+   "oracle_text": "Flying\nWhenever a player sacrifices another permanent, put a +1/+1 counter on each creature you control.",
+   "colors": [
+    "B",
+    "G"
+   ],
+   "color_identity": [
+    "B",
+    "G"
+   ],
+   "keywords": [
+    "Flying"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/1/5/1522122b-e4bf-4dba-b22c-efa18bc6c33b.jpg?1783906025",
+    "normal": "https://cards.scryfall.io/normal/front/1/5/1522122b-e4bf-4dba-b22c-efa18bc6c33b.jpg?1783906025",
+    "art": "https://cards.scryfall.io/art_crop/front/1/5/1522122b-e4bf-4dba-b22c-efa18bc6c33b.jpg?1783906025"
+   },
+   "power": "2",
+   "toughness": "2",
+   "printing": "eoc/122"
+  },
+  "Moraug, Fury of Akoum": {
+   "name": "Moraug, Fury of Akoum",
+   "id": "4481eab8-9e7d-4db8-b1f2-fdf5ee1919a2",
+   "set": "eoc",
+   "cn": "89",
+   "mana_cost": "{4}{R}{R}",
+   "cmc": 6.0,
+   "type_line": "Legendary Creature — Minotaur Warrior",
+   "oracle_text": "Each creature you control gets +1/+0 for each time it has attacked this turn.\nLandfall — Whenever a land you control enters, if it's your main phase, there's an additional combat phase after this phase. At the beginning of that combat, untap all creatures you control.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [
+    "Landfall"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/4/4/4481eab8-9e7d-4db8-b1f2-fdf5ee1919a2.jpg?1783906037",
+    "normal": "https://cards.scryfall.io/normal/front/4/4/4481eab8-9e7d-4db8-b1f2-fdf5ee1919a2.jpg?1783906037",
+    "art": "https://cards.scryfall.io/art_crop/front/4/4/4481eab8-9e7d-4db8-b1f2-fdf5ee1919a2.jpg?1783906037"
+   },
+   "power": "6",
+   "toughness": "6",
+   "printing": "eoc/89"
+  },
+  "Mountain": {
+   "name": "Mountain",
+   "id": "85177bd7-6c50-48da-b692-ae5fe7bd357c",
+   "set": "mdd",
+   "cn": "298",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Basic Land — Mountain",
+   "oracle_text": "({T}: Add {R}.)",
+   "colors": [],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "R"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/5/c/5cd39b01-9a06-4575-9c63-9fb3ba9ef101.jpg?1783905908",
+    "normal": "https://cards.scryfall.io/normal/front/5/c/5cd39b01-9a06-4575-9c63-9fb3ba9ef101.jpg?1783905908",
+    "art": "https://cards.scryfall.io/art_crop/front/5/c/5cd39b01-9a06-4575-9c63-9fb3ba9ef101.jpg?1783905908"
+   },
+   "printing": "eoe/273"
+  },
+  "Mountain Valley": {
+   "name": "Mountain Valley",
+   "id": "3094800e-9994-47c3-9ebc-536bf5de13cd",
+   "set": "eoc",
+   "cn": "61",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped.\n{T}, Sacrifice this land: Search your library for a Mountain or Forest card, put it onto the battlefield, then shuffle.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/0/3094800e-9994-47c3-9ebc-536bf5de13cd.jpg?1783906048",
+    "normal": "https://cards.scryfall.io/normal/front/3/0/3094800e-9994-47c3-9ebc-536bf5de13cd.jpg?1783906048",
+    "art": "https://cards.scryfall.io/art_crop/front/3/0/3094800e-9994-47c3-9ebc-536bf5de13cd.jpg?1783906048"
+   },
+   "printing": "eoc/61"
+  },
+  "Multani, Yavimaya's Avatar": {
+   "name": "Multani, Yavimaya's Avatar",
+   "id": "c37a0136-1c40-4cd1-8787-a25c377c1741",
+   "set": "eoc",
+   "cn": "100",
+   "mana_cost": "{4}{G}{G}",
+   "cmc": 6.0,
+   "type_line": "Legendary Creature — Elemental Avatar",
+   "oracle_text": "Reach, trample\nMultani gets +1/+1 for each land you control and each land card in your graveyard.\n{1}{G}, Return two lands you control to their owner's hand: Return this card from your graveyard to your hand.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [
+    "Reach",
+    "Trample"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/c/3/c37a0136-1c40-4cd1-8787-a25c377c1741.jpg?1783906034",
+    "normal": "https://cards.scryfall.io/normal/front/c/3/c37a0136-1c40-4cd1-8787-a25c377c1741.jpg?1783906034",
+    "art": "https://cards.scryfall.io/art_crop/front/c/3/c37a0136-1c40-4cd1-8787-a25c377c1741.jpg?1783906034"
+   },
+   "power": "0",
+   "toughness": "0",
+   "printing": "eoc/100"
+  },
+  "Myriad Landscape": {
+   "name": "Myriad Landscape",
+   "id": "a0e2098f-1d94-491a-a7e9-a45a9f69e3a8",
+   "set": "eoc",
+   "cn": "169",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped.\n{T}: Add {C}.\n{2}, {T}, Sacrifice this land: Search your library for up to two basic land cards that share a land type, put them onto the battlefield tapped, then shuffle.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "C"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/0/a0e2098f-1d94-491a-a7e9-a45a9f69e3a8.jpg?1783906009",
+    "normal": "https://cards.scryfall.io/normal/front/a/0/a0e2098f-1d94-491a-a7e9-a45a9f69e3a8.jpg?1783906009",
+    "art": "https://cards.scryfall.io/art_crop/front/a/0/a0e2098f-1d94-491a-a7e9-a45a9f69e3a8.jpg?1783906009"
+   },
+   "printing": "eoc/169"
+  },
+  "Nature's Lore": {
+   "name": "Nature's Lore",
+   "id": "7afc4a15-5ff8-457a-aa62-803b2d78d912",
+   "set": "msc",
+   "cn": "177",
+   "mana_cost": "{1}{G}",
+   "cmc": 2.0,
+   "type_line": "Sorcery",
+   "oracle_text": "Search your library for a Forest card, put that card onto the battlefield, then shuffle.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/5/b/5b42a79a-1f08-4e15-b40e-c993307ae066.jpg?1783906033",
+    "normal": "https://cards.scryfall.io/normal/front/5/b/5b42a79a-1f08-4e15-b40e-c993307ae066.jpg?1783906033",
+    "art": "https://cards.scryfall.io/art_crop/front/5/b/5b42a79a-1f08-4e15-b40e-c993307ae066.jpg?1783906033"
+   },
+   "printing": "eoc/101"
+  },
+  "Night's Whisper": {
+   "name": "Night's Whisper",
+   "id": "e8399c2e-ecc8-41c9-a690-a0eeafb27f77",
+   "set": "hoc",
+   "cn": "189",
+   "mana_cost": "{1}{B}",
+   "cmc": 2.0,
+   "type_line": "Sorcery",
+   "oracle_text": "You draw two cards and lose 2 life.",
+   "colors": [
+    "B"
+   ],
+   "color_identity": [
+    "B"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/7/67bdba19-c74a-462d-9e51-4fd7f0a6a2c3.jpg?1783906041",
+    "normal": "https://cards.scryfall.io/normal/front/6/7/67bdba19-c74a-462d-9e51-4fd7f0a6a2c3.jpg?1783906041",
+    "art": "https://cards.scryfall.io/art_crop/front/6/7/67bdba19-c74a-462d-9e51-4fd7f0a6a2c3.jpg?1783906041"
+   },
+   "printing": "eoc/85"
+  },
+  "Omnath, Locus of Rage": {
+   "name": "Omnath, Locus of Rage",
+   "id": "637c5910-f835-496e-b1b9-445bfb71da97",
+   "set": "ecc",
+   "cn": "129",
+   "mana_cost": "{3}{R}{R}{G}{G}",
+   "cmc": 7.0,
+   "type_line": "Legendary Creature — Elemental",
+   "oracle_text": "Landfall — Whenever a land you control enters, create a 5/5 red and green Elemental creature token.\nWhenever Omnath or another Elemental you control dies, Omnath deals 3 damage to any target.",
+   "colors": [
+    "G",
+    "R"
+   ],
+   "color_identity": [
+    "G",
+    "R"
+   ],
+   "keywords": [
+    "Landfall"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/7/7/777552e5-cc2d-460f-b26f-977c6ebcfc6b.jpg?1783906026",
+    "normal": "https://cards.scryfall.io/normal/front/7/7/777552e5-cc2d-460f-b26f-977c6ebcfc6b.jpg?1783906026",
+    "art": "https://cards.scryfall.io/art_crop/front/7/7/777552e5-cc2d-460f-b26f-977c6ebcfc6b.jpg?1783906026"
+   },
+   "power": "5",
+   "toughness": "5",
+   "printing": "eoc/123"
+  },
+  "Oracle of Mul Daya": {
+   "name": "Oracle of Mul Daya",
+   "id": "ab19808f-a5b8-4dfd-800e-2064cd6538c8",
+   "set": "eoc",
+   "cn": "102",
+   "mana_cost": "{3}{G}",
+   "cmc": 4.0,
+   "type_line": "Creature — Elf Shaman",
+   "oracle_text": "You may play an additional land on each of your turns.\nPlay with the top card of your library revealed.\nYou may play lands from the top of your library.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/b/ab19808f-a5b8-4dfd-800e-2064cd6538c8.jpg?1783906033",
+    "normal": "https://cards.scryfall.io/normal/front/a/b/ab19808f-a5b8-4dfd-800e-2064cd6538c8.jpg?1783906033",
+    "art": "https://cards.scryfall.io/art_crop/front/a/b/ab19808f-a5b8-4dfd-800e-2064cd6538c8.jpg?1783906033"
+   },
+   "power": "2",
+   "toughness": "2",
+   "printing": "eoc/102"
+  },
+  "Pest Infestation": {
+   "name": "Pest Infestation",
+   "id": "c9b8626d-d3d8-4460-9adf-112f48f173f6",
+   "set": "soc",
+   "cn": "282",
+   "mana_cost": "{X}{X}{G}",
+   "cmc": 1.0,
+   "type_line": "Sorcery",
+   "oracle_text": "Destroy up to X target artifacts and/or enchantments. Create twice X 1/1 black and green Pest creature tokens with \"When this token dies, you gain 1 life.\"",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/9/99add821-568b-4931-8525-a673e6cc8f65.jpg?1783906034",
+    "normal": "https://cards.scryfall.io/normal/front/9/9/99add821-568b-4931-8525-a673e6cc8f65.jpg?1783906034",
+    "art": "https://cards.scryfall.io/art_crop/front/9/9/99add821-568b-4931-8525-a673e6cc8f65.jpg?1783906034"
+   },
+   "printing": "eoc/103"
+  },
+  "Planetary Annihilation": {
+   "name": "Planetary Annihilation",
+   "id": "8695796f-b6ed-46db-b1b8-07ed0cc5a5e5",
+   "set": "eoc",
+   "cn": "12",
+   "mana_cost": "{3}{R}{R}",
+   "cmc": 5.0,
+   "type_line": "Sorcery",
+   "oracle_text": "Each player chooses six lands they control, then sacrifices the rest. Planetary Annihilation deals 6 damage to each creature.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/6/8695796f-b6ed-46db-b1b8-07ed0cc5a5e5.jpg?1783906064",
+    "normal": "https://cards.scryfall.io/normal/front/8/6/8695796f-b6ed-46db-b1b8-07ed0cc5a5e5.jpg?1783906064",
+    "art": "https://cards.scryfall.io/art_crop/front/8/6/8695796f-b6ed-46db-b1b8-07ed0cc5a5e5.jpg?1783906064"
+   },
+   "printing": "eoc/12"
+  },
+  "Putrefy": {
+   "name": "Putrefy",
+   "id": "ad6ed9f1-2014-49e2-91c6-2b55c8d60cdc",
+   "set": "ecc",
+   "cn": "131",
+   "mana_cost": "{1}{B}{G}",
+   "cmc": 3.0,
+   "type_line": "Instant",
+   "oracle_text": "Destroy target artifact or creature. It can't be regenerated.",
+   "colors": [
+    "B",
+    "G"
+   ],
+   "color_identity": [
+    "B",
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/1/e/1e355b88-a73d-430b-95eb-8ba646f2e406.jpg?1783906026",
+    "normal": "https://cards.scryfall.io/normal/front/1/e/1e355b88-a73d-430b-95eb-8ba646f2e406.jpg?1783906026",
+    "art": "https://cards.scryfall.io/art_crop/front/1/e/1e355b88-a73d-430b-95eb-8ba646f2e406.jpg?1783906026"
+   },
+   "printing": "eoc/124"
+  },
+  "Rakdos Charm": {
+   "name": "Rakdos Charm",
+   "id": "64b67170-1602-4050-80c0-ade2a6cac211",
+   "set": "eoc",
+   "cn": "125",
+   "mana_cost": "{B}{R}",
+   "cmc": 2.0,
+   "type_line": "Instant",
+   "oracle_text": "Choose one —\n• Exile target player's graveyard.\n• Destroy target artifact.\n• Each creature deals 1 damage to its controller.",
+   "colors": [
+    "B",
+    "R"
+   ],
+   "color_identity": [
+    "B",
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/4/64b67170-1602-4050-80c0-ade2a6cac211.jpg?1783906024",
+    "normal": "https://cards.scryfall.io/normal/front/6/4/64b67170-1602-4050-80c0-ade2a6cac211.jpg?1783906024",
+    "art": "https://cards.scryfall.io/art_crop/front/6/4/64b67170-1602-4050-80c0-ade2a6cac211.jpg?1783906024"
+   },
+   "printing": "eoc/125"
+  },
+  "Rampaging Baloths": {
+   "name": "Rampaging Baloths",
+   "id": "84aa18de-6acc-46cc-8e28-3046790a6751",
+   "set": "eoc",
+   "cn": "104",
+   "mana_cost": "{4}{G}{G}",
+   "cmc": 6.0,
+   "type_line": "Creature — Beast",
+   "oracle_text": "Trample\nLandfall — Whenever a land you control enters, create a 4/4 green Beast creature token.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [
+    "Trample",
+    "Landfall"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/4/84aa18de-6acc-46cc-8e28-3046790a6751.jpg?1783906033",
+    "normal": "https://cards.scryfall.io/normal/front/8/4/84aa18de-6acc-46cc-8e28-3046790a6751.jpg?1783906033",
+    "art": "https://cards.scryfall.io/art_crop/front/8/4/84aa18de-6acc-46cc-8e28-3046790a6751.jpg?1783906033"
+   },
+   "power": "6",
+   "toughness": "6",
+   "printing": "eoc/104"
+  },
+  "Riveteers Overlook": {
+   "name": "Riveteers Overlook",
+   "id": "65ce9590-87c0-4057-bddb-fadc0de552f6",
+   "set": "ecc",
+   "cn": "162",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "When this land enters, sacrifice it. When you do, search your library for a basic Swamp, Mountain, or Forest card, put it onto the battlefield tapped, then shuffle and you gain 1 life.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/d/3dc4e8b8-6ee6-49aa-895a-2e35af6d1dbb.jpg?1783906008",
+    "normal": "https://cards.scryfall.io/normal/front/3/d/3dc4e8b8-6ee6-49aa-895a-2e35af6d1dbb.jpg?1783906008",
+    "art": "https://cards.scryfall.io/art_crop/front/3/d/3dc4e8b8-6ee6-49aa-895a-2e35af6d1dbb.jpg?1783906008"
+   },
+   "printing": "eoc/172"
+  },
+  "Rocky Tar Pit": {
+   "name": "Rocky Tar Pit",
+   "id": "2aa1f7c6-f888-4384-9626-f106571e164c",
+   "set": "eoc",
+   "cn": "173",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped.\n{T}, Sacrifice this land: Search your library for a Swamp or Mountain card, put it onto the battlefield, then shuffle.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/2/a/2aa1f7c6-f888-4384-9626-f106571e164c.jpg?1783906008",
+    "normal": "https://cards.scryfall.io/normal/front/2/a/2aa1f7c6-f888-4384-9626-f106571e164c.jpg?1783906008",
+    "art": "https://cards.scryfall.io/art_crop/front/2/a/2aa1f7c6-f888-4384-9626-f106571e164c.jpg?1783906008"
+   },
+   "printing": "eoc/173"
+  },
+  "Roiling Regrowth": {
+   "name": "Roiling Regrowth",
+   "id": "2c446dbb-b883-47e9-aab3-ac921ff218f8",
+   "set": "eoc",
+   "cn": "105",
+   "mana_cost": "{2}{G}",
+   "cmc": 3.0,
+   "type_line": "Instant",
+   "oracle_text": "Sacrifice a land. Search your library for up to two basic land cards, put them onto the battlefield tapped, then shuffle.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/2/c/2c446dbb-b883-47e9-aab3-ac921ff218f8.jpg?1783906032",
+    "normal": "https://cards.scryfall.io/normal/front/2/c/2c446dbb-b883-47e9-aab3-ac921ff218f8.jpg?1783906032",
+    "art": "https://cards.scryfall.io/art_crop/front/2/c/2c446dbb-b883-47e9-aab3-ac921ff218f8.jpg?1783906032"
+   },
+   "printing": "eoc/105"
+  },
+  "Satyr Wayfinder": {
+   "name": "Satyr Wayfinder",
+   "id": "8bbbe65d-7162-42fb-94ee-d835d6c3f02a",
+   "set": "eoc",
+   "cn": "106",
+   "mana_cost": "{1}{G}",
+   "cmc": 2.0,
+   "type_line": "Creature — Satyr",
+   "oracle_text": "When this creature enters, reveal the top four cards of your library. You may put a land card from among them into your hand. Put the rest into your graveyard.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/b/8bbbe65d-7162-42fb-94ee-d835d6c3f02a.jpg?1783906031",
+    "normal": "https://cards.scryfall.io/normal/front/8/b/8bbbe65d-7162-42fb-94ee-d835d6c3f02a.jpg?1783906031",
+    "art": "https://cards.scryfall.io/art_crop/front/8/b/8bbbe65d-7162-42fb-94ee-d835d6c3f02a.jpg?1783906031"
+   },
+   "power": "1",
+   "toughness": "1",
+   "printing": "eoc/106"
+  },
+  "Scouring Swarm": {
+   "name": "Scouring Swarm",
+   "id": "8fc25982-8668-43c4-93db-84e716e8783d",
+   "set": "eoc",
+   "cn": "16",
+   "mana_cost": "{1}{B}{G}",
+   "cmc": 3.0,
+   "type_line": "Creature — Insect",
+   "oracle_text": "Flying\nWhenever you sacrifice a land, create a tapped token that's a copy of this creature if seven or more land cards are in your graveyard. Otherwise, create a tapped 1/1 black Insect creature token with flying.",
+   "colors": [
+    "B",
+    "G"
+   ],
+   "color_identity": [
+    "B",
+    "G"
+   ],
+   "keywords": [
+    "Flying"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/f/8fc25982-8668-43c4-93db-84e716e8783d.jpg?1783906062",
+    "normal": "https://cards.scryfall.io/normal/front/8/f/8fc25982-8668-43c4-93db-84e716e8783d.jpg?1783906062",
+    "art": "https://cards.scryfall.io/art_crop/front/8/f/8fc25982-8668-43c4-93db-84e716e8783d.jpg?1783906062"
+   },
+   "power": "1",
+   "toughness": "1",
+   "printing": "eoc/16"
+  },
+  "Sheltered Thicket": {
+   "name": "Sheltered Thicket",
+   "id": "ad7f87dd-1c43-4b6f-9d68-cc09ef76dbc2",
+   "set": "ecc",
+   "cn": "167",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land — Mountain Forest",
+   "oracle_text": "({T}: Add {R} or {G}.)\nThis land enters tapped.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+   "colors": [],
+   "color_identity": [
+    "G",
+    "R"
+   ],
+   "keywords": [
+    "Cycling"
+   ],
+   "produced_mana": [
+    "G",
+    "R"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/f/af373c1c-aeb8-48d9-9cea-dfd6d6c2ee87.jpg?1783906007",
+    "normal": "https://cards.scryfall.io/normal/front/a/f/af373c1c-aeb8-48d9-9cea-dfd6d6c2ee87.jpg?1783906007",
+    "art": "https://cards.scryfall.io/art_crop/front/a/f/af373c1c-aeb8-48d9-9cea-dfd6d6c2ee87.jpg?1783906007"
+   },
+   "printing": "eoc/178"
+  },
+  "Skyshroud Claim": {
+   "name": "Skyshroud Claim",
+   "id": "860c0808-3ec1-4182-bf83-783720a02780",
+   "set": "eoc",
+   "cn": "107",
+   "mana_cost": "{3}{G}",
+   "cmc": 4.0,
+   "type_line": "Sorcery",
+   "oracle_text": "Search your library for up to two Forest cards, put them onto the battlefield, then shuffle.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/6/860c0808-3ec1-4182-bf83-783720a02780.jpg?1783906031",
+    "normal": "https://cards.scryfall.io/normal/front/8/6/860c0808-3ec1-4182-bf83-783720a02780.jpg?1783906031",
+    "art": "https://cards.scryfall.io/art_crop/front/8/6/860c0808-3ec1-4182-bf83-783720a02780.jpg?1783906031"
+   },
+   "printing": "eoc/107"
+  },
+  "Smoldering Marsh": {
+   "name": "Smoldering Marsh",
+   "id": "d707c477-440f-417c-970a-0e7426a58045",
+   "set": "msc",
+   "cn": "266",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land — Swamp Mountain",
+   "oracle_text": "({T}: Add {B} or {R}.)\nThis land enters tapped unless you control two or more basic lands.",
+   "colors": [],
+   "color_identity": [
+    "B",
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "R"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/a/ea5c3d9e-13e7-492d-80b8-d6dd42895f33.jpg?1783906005",
+    "normal": "https://cards.scryfall.io/normal/front/e/a/ea5c3d9e-13e7-492d-80b8-d6dd42895f33.jpg?1783906005",
+    "art": "https://cards.scryfall.io/art_crop/front/e/a/ea5c3d9e-13e7-492d-80b8-d6dd42895f33.jpg?1783906005"
+   },
+   "printing": "eoc/182"
+  },
+  "Sol Ring": {
+   "name": "Sol Ring",
+   "id": "8ee443cc-e17a-493b-9c93-1f9e141a30e4",
+   "set": "frc",
+   "cn": "21",
+   "mana_cost": "{1}",
+   "cmc": 1.0,
+   "type_line": "Artifact",
+   "oracle_text": "{T}: Add {C}{C}.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "C"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/e/ee6e5a35-fe21-4dee-b0ef-a8f2841511ad.jpg?1783906049",
+    "normal": "https://cards.scryfall.io/normal/front/e/e/ee6e5a35-fe21-4dee-b0ef-a8f2841511ad.jpg?1783906049",
+    "art": "https://cards.scryfall.io/art_crop/front/e/e/ee6e5a35-fe21-4dee-b0ef-a8f2841511ad.jpg?1783906049"
+   },
+   "printing": "eoc/57"
+  },
+  "Soul of Windgrace": {
+   "name": "Soul of Windgrace",
+   "id": "5a80f7e1-1d79-4302-a603-73eb060b97a6",
+   "set": "eoc",
+   "cn": "126",
+   "mana_cost": "{1}{B}{R}{G}",
+   "cmc": 4.0,
+   "type_line": "Legendary Creature — Cat Avatar",
+   "oracle_text": "Whenever Soul of Windgrace enters or attacks, you may put a land card from a graveyard onto the battlefield tapped under your control.\n{G}, Discard a land card: You gain 3 life.\n{1}{R}, Discard a land card: Draw a card.\n{2}{B}, Discard a land card: Soul of Windgrace gains indestructible until end of turn. Tap it.",
+   "colors": [
+    "B",
+    "G",
+    "R"
+   ],
+   "color_identity": [
+    "B",
+    "G",
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/5/a/5a80f7e1-1d79-4302-a603-73eb060b97a6.jpg?1783906025",
+    "normal": "https://cards.scryfall.io/normal/front/5/a/5a80f7e1-1d79-4302-a603-73eb060b97a6.jpg?1783906025",
+    "art": "https://cards.scryfall.io/art_crop/front/5/a/5a80f7e1-1d79-4302-a603-73eb060b97a6.jpg?1783906025"
+   },
+   "power": "5",
+   "toughness": "4",
+   "printing": "eoc/126"
+  },
+  "Splendid Reclamation": {
+   "name": "Splendid Reclamation",
+   "id": "63c7f172-0aec-4629-967c-37253aed0f0d",
+   "set": "eoc",
+   "cn": "108",
+   "mana_cost": "{3}{G}",
+   "cmc": 4.0,
+   "type_line": "Sorcery",
+   "oracle_text": "Return all land cards from your graveyard to the battlefield tapped.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/3/63c7f172-0aec-4629-967c-37253aed0f0d.jpg?1783906030",
+    "normal": "https://cards.scryfall.io/normal/front/6/3/63c7f172-0aec-4629-967c-37253aed0f0d.jpg?1783906030",
+    "art": "https://cards.scryfall.io/art_crop/front/6/3/63c7f172-0aec-4629-967c-37253aed0f0d.jpg?1783906030"
+   },
+   "printing": "eoc/108"
+  },
+  "Springbloom Druid": {
+   "name": "Springbloom Druid",
+   "id": "17d67b88-3f76-401f-b04a-f2bcaab4aa97",
+   "set": "fdn",
+   "cn": "767",
+   "mana_cost": "{2}{G}",
+   "cmc": 3.0,
+   "type_line": "Creature — Elf Druid",
+   "oracle_text": "When this creature enters, you may sacrifice a land. If you do, search your library for up to two basic land cards, put them onto the battlefield tapped, then shuffle.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/5/6520f5dc-ead8-40c5-af1c-411fea2ba268.jpg?1783906051",
+    "normal": "https://cards.scryfall.io/normal/front/6/5/6520f5dc-ead8-40c5-af1c-411fea2ba268.jpg?1783906051",
+    "art": "https://cards.scryfall.io/art_crop/front/6/5/6520f5dc-ead8-40c5-af1c-411fea2ba268.jpg?1783906051"
+   },
+   "power": "1",
+   "toughness": "1",
+   "printing": "eoc/51"
+  },
+  "Sprouting Goblin": {
+   "name": "Sprouting Goblin",
+   "id": "f5555845-0424-4cb6-b373-57a722444a4a",
+   "set": "eoc",
+   "cn": "90",
+   "mana_cost": "{1}{R}",
+   "cmc": 2.0,
+   "type_line": "Creature — Goblin Druid",
+   "oracle_text": "Kicker {G} (You may pay an additional {G} as you cast this spell.)\nWhen this creature enters, if it was kicked, search your library for a land card with a basic land type, reveal it, put it into your hand, then shuffle.\n{R}, {T}, Sacrifice a land: Draw a card.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "G",
+    "R"
+   ],
+   "keywords": [
+    "Kicker"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/5/f5555845-0424-4cb6-b373-57a722444a4a.jpg?1783906037",
+    "normal": "https://cards.scryfall.io/normal/front/f/5/f5555845-0424-4cb6-b373-57a722444a4a.jpg?1783906037",
+    "art": "https://cards.scryfall.io/art_crop/front/f/5/f5555845-0424-4cb6-b373-57a722444a4a.jpg?1783906037"
+   },
+   "power": "2",
+   "toughness": "2",
+   "printing": "eoc/90"
+  },
+  "Sulfurous Springs": {
+   "name": "Sulfurous Springs",
+   "id": "be340a1c-f1e7-446e-ae91-86ecb884479c",
+   "set": "frc",
+   "cn": "85",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}: Add {C}.\n{T}: Add {B} or {R}. This land deals 1 damage to you.",
+   "colors": [],
+   "color_identity": [
+    "B",
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "C",
+    "R"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/e/eedb9df2-20d3-4cfd-8aed-336edc37d5a9.jpg?1783906003",
+    "normal": "https://cards.scryfall.io/normal/front/e/e/eedb9df2-20d3-4cfd-8aed-336edc37d5a9.jpg?1783906003",
+    "art": "https://cards.scryfall.io/art_crop/front/e/e/eedb9df2-20d3-4cfd-8aed-336edc37d5a9.jpg?1783906003"
+   },
+   "printing": "eoc/185"
+  },
+  "Swamp": {
+   "name": "Swamp",
+   "id": "b233b117-9369-45c1-80c5-cc857386b6be",
+   "set": "mdd",
+   "cn": "296",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Basic Land — Swamp",
+   "oracle_text": "({T}: Add {B}.)",
+   "colors": [],
+   "color_identity": [
+    "B"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "B"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/5/8/58496a56-437f-4204-9691-f63795e5cdab.jpg?1783905909",
+    "normal": "https://cards.scryfall.io/normal/front/5/8/58496a56-437f-4204-9691-f63795e5cdab.jpg?1783905909",
+    "art": "https://cards.scryfall.io/art_crop/front/5/8/58496a56-437f-4204-9691-f63795e5cdab.jpg?1783905909"
+   },
+   "printing": "eoe/271"
+  },
+  "Szarel, Genesis Shepherd": {
+   "name": "Szarel, Genesis Shepherd",
+   "id": "89b61123-b10f-4bcf-b5f9-1f302f9b22d1",
+   "set": "eoc",
+   "cn": "4",
+   "mana_cost": "{2}{B}{R}{G}",
+   "cmc": 5.0,
+   "type_line": "Legendary Creature — Insect Druid",
+   "oracle_text": "Flying\nYou may play lands from your graveyard.\nWhenever you sacrifice another nontoken permanent during your turn, put a number of +1/+1 counters equal to Szarel's power on up to one other target creature.",
+   "colors": [
+    "B",
+    "G",
+    "R"
+   ],
+   "color_identity": [
+    "B",
+    "G",
+    "R"
+   ],
+   "keywords": [
+    "Flying"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/9/89b61123-b10f-4bcf-b5f9-1f302f9b22d1.jpg?1783906067",
+    "normal": "https://cards.scryfall.io/normal/front/8/9/89b61123-b10f-4bcf-b5f9-1f302f9b22d1.jpg?1783906067",
+    "art": "https://cards.scryfall.io/art_crop/front/8/9/89b61123-b10f-4bcf-b5f9-1f302f9b22d1.jpg?1783906067"
+   },
+   "power": "2",
+   "toughness": "5",
+   "printing": "eoc/4"
+  },
+  "Tear Asunder": {
+   "name": "Tear Asunder",
+   "id": "e408c673-4a1f-45db-827a-75c501e1b3d6",
+   "set": "eoc",
+   "cn": "109",
+   "mana_cost": "{1}{G}",
+   "cmc": 2.0,
+   "type_line": "Instant",
+   "oracle_text": "Kicker {1}{B} (You may pay an additional {1}{B} as you cast this spell.)\nExile target artifact or enchantment. If this spell was kicked, exile target nonland permanent instead.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "B",
+    "G"
+   ],
+   "keywords": [
+    "Kicker"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/4/e408c673-4a1f-45db-827a-75c501e1b3d6.jpg?1783906030",
+    "normal": "https://cards.scryfall.io/normal/front/e/4/e408c673-4a1f-45db-827a-75c501e1b3d6.jpg?1783906030",
+    "art": "https://cards.scryfall.io/art_crop/front/e/4/e408c673-4a1f-45db-827a-75c501e1b3d6.jpg?1783906030"
+   },
+   "printing": "eoc/109"
+  },
+  "Terramorphic Expanse": {
+   "name": "Terramorphic Expanse",
+   "id": "a81f924b-0527-4311-8120-9bfff71524f6",
+   "set": "msc",
+   "cn": "273",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/7/1/7102269a-e0d1-42a0-aa9d-fdd53b5aaebe.jpg?1783906047",
+    "normal": "https://cards.scryfall.io/normal/front/7/1/7102269a-e0d1-42a0-aa9d-fdd53b5aaebe.jpg?1783906047",
+    "art": "https://cards.scryfall.io/art_crop/front/7/1/7102269a-e0d1-42a0-aa9d-fdd53b5aaebe.jpg?1783906047"
+   },
+   "printing": "eoc/62"
+  },
+  "The Gitrog Monster": {
+   "name": "The Gitrog Monster",
+   "id": "40489e28-878d-44a2-847f-07beef1aa0f8",
+   "set": "eoc",
+   "cn": "117",
+   "mana_cost": "{3}{B}{G}",
+   "cmc": 5.0,
+   "type_line": "Legendary Creature — Frog Horror",
+   "oracle_text": "Deathtouch\nAt the beginning of your upkeep, sacrifice The Gitrog Monster unless you sacrifice a land.\nYou may play an additional land on each of your turns.\nWhenever one or more land cards are put into your graveyard from anywhere, draw a card.",
+   "colors": [
+    "B",
+    "G"
+   ],
+   "color_identity": [
+    "B",
+    "G"
+   ],
+   "keywords": [
+    "Deathtouch"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/4/0/40489e28-878d-44a2-847f-07beef1aa0f8.jpg?1783906028",
+    "normal": "https://cards.scryfall.io/normal/front/4/0/40489e28-878d-44a2-847f-07beef1aa0f8.jpg?1783906028",
+    "art": "https://cards.scryfall.io/art_crop/front/4/0/40489e28-878d-44a2-847f-07beef1aa0f8.jpg?1783906028"
+   },
+   "power": "6",
+   "toughness": "6",
+   "printing": "eoc/117"
+  },
+  "Tireless Tracker": {
+   "name": "Tireless Tracker",
+   "id": "66444549-ad9b-49c6-a7c6-34e977c1085d",
+   "set": "eoc",
+   "cn": "110",
+   "mana_cost": "{2}{G}",
+   "cmc": 3.0,
+   "type_line": "Creature — Human Scout",
+   "oracle_text": "Landfall — Whenever a land you control enters, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")\nWhenever you sacrifice a Clue, put a +1/+1 counter on this creature.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [
+    "Investigate",
+    "Landfall"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/6/66444549-ad9b-49c6-a7c6-34e977c1085d.jpg?1783906030",
+    "normal": "https://cards.scryfall.io/normal/front/6/6/66444549-ad9b-49c6-a7c6-34e977c1085d.jpg?1783906030",
+    "art": "https://cards.scryfall.io/art_crop/front/6/6/66444549-ad9b-49c6-a7c6-34e977c1085d.jpg?1783906030"
+   },
+   "power": "3",
+   "toughness": "2",
+   "printing": "eoc/110"
+  },
+  "Titania, Protector of Argoth": {
+   "name": "Titania, Protector of Argoth",
+   "id": "732c208b-cd9e-48a9-9b9d-aba63066ba53",
+   "set": "eoc",
+   "cn": "111",
+   "mana_cost": "{3}{G}{G}",
+   "cmc": 5.0,
+   "type_line": "Legendary Creature — Elemental",
+   "oracle_text": "When Titania enters, return target land card from your graveyard to the battlefield.\nWhenever a land you control is put into a graveyard from the battlefield, create a 5/3 green Elemental creature token.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/7/3/732c208b-cd9e-48a9-9b9d-aba63066ba53.jpg?1783906029",
+    "normal": "https://cards.scryfall.io/normal/front/7/3/732c208b-cd9e-48a9-9b9d-aba63066ba53.jpg?1783906029",
+    "art": "https://cards.scryfall.io/art_crop/front/7/3/732c208b-cd9e-48a9-9b9d-aba63066ba53.jpg?1783906029"
+   },
+   "power": "5",
+   "toughness": "3",
+   "printing": "eoc/111"
+  },
+  "Twilight Mire": {
+   "name": "Twilight Mire",
+   "id": "3cc8186b-b46f-46c0-8dfb-9e423e430048",
+   "set": "soc",
+   "cn": "418",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}: Add {C}.\n{B/G}, {T}: Add {B}{B}, {B}{G}, or {G}{G}.",
+   "colors": [],
+   "color_identity": [
+    "B",
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "C",
+    "G"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/b/3/b38ba12b-63ab-46ac-8fde-d1c9307c85e2.jpg?1783906003",
+    "normal": "https://cards.scryfall.io/normal/front/b/3/b38ba12b-63ab-46ac-8fde-d1c9307c85e2.jpg?1783906003",
+    "art": "https://cards.scryfall.io/art_crop/front/b/3/b38ba12b-63ab-46ac-8fde-d1c9307c85e2.jpg?1783906003"
+   },
+   "printing": "eoc/189"
+  },
+  "Uurg, Spawn of Turg": {
+   "name": "Uurg, Spawn of Turg",
+   "id": "d1974536-9e4f-4808-9e49-a036ec7bf65c",
+   "set": "eoc",
+   "cn": "127",
+   "mana_cost": "{B}{B}{G}",
+   "cmc": 3.0,
+   "type_line": "Legendary Creature — Frog Beast",
+   "oracle_text": "Uurg's power is equal to the number of land cards in your graveyard.\nAt the beginning of your upkeep, surveil 1. (Look at the top card of your library. You may put that card into your graveyard.)\n{B}{G}, Sacrifice a land: You gain 2 life.",
+   "colors": [
+    "B",
+    "G"
+   ],
+   "color_identity": [
+    "B",
+    "G"
+   ],
+   "keywords": [
+    "Surveil"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/d/1/d1974536-9e4f-4808-9e49-a036ec7bf65c.jpg?1783906023",
+    "normal": "https://cards.scryfall.io/normal/front/d/1/d1974536-9e4f-4808-9e49-a036ec7bf65c.jpg?1783906023",
+    "art": "https://cards.scryfall.io/art_crop/front/d/1/d1974536-9e4f-4808-9e49-a036ec7bf65c.jpg?1783906023"
+   },
+   "power": "*",
+   "toughness": "5",
+   "printing": "eoc/127"
+  },
+  "Vernal Fen": {
+   "name": "Vernal Fen",
+   "id": "0466cf57-bb3e-4359-8fe8-d6cc1288fdc6",
+   "set": "soc",
+   "cn": "419",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land — Swamp Forest",
+   "oracle_text": "({T}: Add {B} or {G}.)\nThis land enters tapped unless you control two or more basic lands.",
+   "colors": [],
+   "color_identity": [
+    "B",
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "G"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/b/a/bac98f27-ef3e-45e0-87cb-0fb4325ae734.jpg?1783906060",
+    "normal": "https://cards.scryfall.io/normal/front/b/a/bac98f27-ef3e-45e0-87cb-0fb4325ae734.jpg?1783906060",
+    "art": "https://cards.scryfall.io/art_crop/front/b/a/bac98f27-ef3e-45e0-87cb-0fb4325ae734.jpg?1783906060"
+   },
+   "printing": "eoc/24"
+  },
+  "Viridescent Bog": {
+   "name": "Viridescent Bog",
+   "id": "54d852fc-0f3a-4791-a147-b21ca6964763",
+   "set": "soc",
+   "cn": "421",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{1}, {T}: Add {B}{G}.",
+   "colors": [],
+   "color_identity": [
+    "B",
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "G"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/6/96fccdf1-9c68-46cd-ba90-668f677bbc44.jpg?1783906004",
+    "normal": "https://cards.scryfall.io/normal/front/9/6/96fccdf1-9c68-46cd-ba90-668f677bbc44.jpg?1783906004",
+    "art": "https://cards.scryfall.io/art_crop/front/9/6/96fccdf1-9c68-46cd-ba90-668f677bbc44.jpg?1783906004"
+   },
+   "printing": "eoc/190"
+  },
+  "Wastes": {
+   "name": "Wastes",
+   "id": "baf8f4f2-9f25-4cd2-8d78-1041e134aeac",
+   "set": "eoc",
+   "cn": "191",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Basic Land",
+   "oracle_text": "{T}: Add {C}.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "C"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/b/a/baf8f4f2-9f25-4cd2-8d78-1041e134aeac.jpg?1783906001",
+    "normal": "https://cards.scryfall.io/normal/front/b/a/baf8f4f2-9f25-4cd2-8d78-1041e134aeac.jpg?1783906001",
+    "art": "https://cards.scryfall.io/art_crop/front/b/a/baf8f4f2-9f25-4cd2-8d78-1041e134aeac.jpg?1783906001"
+   },
+   "printing": "eoc/191"
+  },
+  "Windgrace's Judgment": {
+   "name": "Windgrace's Judgment",
+   "id": "f1f6efcf-6ac3-4bf9-9bd2-d5c78a5defb3",
+   "set": "eoc",
+   "cn": "129",
+   "mana_cost": "{3}{B}{G}",
+   "cmc": 5.0,
+   "type_line": "Instant",
+   "oracle_text": "For any number of opponents, destroy target nonland permanent that player controls.",
+   "colors": [
+    "B",
+    "G"
+   ],
+   "color_identity": [
+    "B",
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/1/f1f6efcf-6ac3-4bf9-9bd2-d5c78a5defb3.jpg?1783906023",
+    "normal": "https://cards.scryfall.io/normal/front/f/1/f1f6efcf-6ac3-4bf9-9bd2-d5c78a5defb3.jpg?1783906023",
+    "art": "https://cards.scryfall.io/art_crop/front/f/1/f1f6efcf-6ac3-4bf9-9bd2-d5c78a5defb3.jpg?1783906023"
+   },
+   "printing": "eoc/129"
+  },
+  "World Breaker": {
+   "name": "World Breaker",
+   "id": "d25856c9-cb3d-44d9-905e-007f1af65c06",
+   "set": "eoc",
+   "cn": "112",
+   "mana_cost": "{6}{G}",
+   "cmc": 7.0,
+   "type_line": "Creature — Eldrazi",
+   "oracle_text": "Devoid (This card has no color.)\nWhen you cast this spell, exile target artifact, enchantment, or land.\nReach\n{2}{C}, Sacrifice a land: Return this card from your graveyard to your hand. ({C} represents colorless mana.)",
+   "colors": [],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [
+    "Reach",
+    "Devoid"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/d/2/d25856c9-cb3d-44d9-905e-007f1af65c06.jpg?1783906029",
+    "normal": "https://cards.scryfall.io/normal/front/d/2/d25856c9-cb3d-44d9-905e-007f1af65c06.jpg?1783906029",
+    "art": "https://cards.scryfall.io/art_crop/front/d/2/d25856c9-cb3d-44d9-905e-007f1af65c06.jpg?1783906029"
+   },
+   "power": "5",
+   "toughness": "7",
+   "printing": "eoc/112"
+  },
+  "Worldsoul's Rage": {
+   "name": "Worldsoul's Rage",
+   "id": "1a54246e-1e22-4660-b2c8-fdfa2110b4fe",
+   "set": "eoc",
+   "cn": "130",
+   "mana_cost": "{X}{R}{G}",
+   "cmc": 2.0,
+   "type_line": "Sorcery",
+   "oracle_text": "Worldsoul's Rage deals X damage to any target. Put up to X land cards from your hand and/or graveyard onto the battlefield tapped.",
+   "colors": [
+    "G",
+    "R"
+   ],
+   "color_identity": [
+    "G",
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/1/a/1a54246e-1e22-4660-b2c8-fdfa2110b4fe.jpg?1783906023",
+    "normal": "https://cards.scryfall.io/normal/front/1/a/1a54246e-1e22-4660-b2c8-fdfa2110b4fe.jpg?1783906023",
+    "art": "https://cards.scryfall.io/art_crop/front/1/a/1a54246e-1e22-4660-b2c8-fdfa2110b4fe.jpg?1783906023"
+   },
+   "printing": "eoc/130"
+  }
+ }
+}

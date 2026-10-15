@@ -1,0 +1,2683 @@
+{
+ "slug": "riders-of-rohan",
+ "name": "Riders of Rohan",
+ "commander": "Éowyn, Shieldmaiden",
+ "colors": "Jeskai",
+ "arch": "Humans / The Monarch",
+ "accent": "#5e8c46",
+ "pips": [
+  "W",
+  "U",
+  "R"
+ ],
+ "bracket": "2",
+ "art": "https://cards.scryfall.io/art_crop/front/d/d/dd4a00ff-2206-4e12-a0ab-61ed82c9e6c5.jpg?1783916039",
+ "list": [
+  {
+   "section": "Commander",
+   "n": 1,
+   "name": "Éowyn, Shieldmaiden"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Aragorn, King of Gondor"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Archivist of Gondor"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Bastion Protector"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Beregond of the Guard"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Boromir, Gondor's Hope"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Champions of Minas Tirith"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Combat Celebrant"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Dearly Departed"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Denethor, Stone Seer"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Éomer, King of Rohan"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Erkenbrand, Lord of Westfold"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Faramir, Steward of Gondor"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Fiend Hunter"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Flamerush Rider"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Frontier Warmonger"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Frontline Medic"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Gilraen, Dúnedain Protector"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Gimli of the Glittering Caves"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Grey Host Reinforcements"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Harsh Mentor"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Humble Defector"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Lossarnach Captain"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Palace Jailer"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Prince Imrahil the Fair"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Riders of Rohan"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Selfless Squire"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Théoden, King of Rohan"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Verge Rangers"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Village Bell-Ringer"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Weathered Wayfarer"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Zealous Conscripts"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Lost to Legend"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Path to Exile"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Swords to Plowshares"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Unbreakable Formation"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Call for Aid"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Earthquake"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Forth Eorlingas!"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Increasing Devotion"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Sunset Revelry"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Supreme Verdict"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Taunt from the Rampart"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Visions of Glory"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Arcane Signet"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Commander's Sphere"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Crown of Gondor"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Door of Destinies"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Heirloom Blade"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Herald's Horn"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Sol Ring"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Talisman of Conviction"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Talisman of Progress"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Thought Vessel"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Vanquisher's Banner"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Wayfarer's Bauble"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Banishing Light"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Court of Ire"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Fealty to the Realm"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Marshal's Anthem"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Oath of Eorl"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Shared Animosity"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Battlefield Forge"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Clifftop Retreat"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Command Tower"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Evolving Wilds"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Exotic Orchard"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Field of Ruin"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Furycalm Snarl"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Glacial Fortress"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Path of Ancestry"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Port Town"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Prairie Stream"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Rogue's Passage"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Secluded Courtyard"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Sulfur Falls"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Terramorphic Expanse"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Throne of the High City"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Tranquil Cove"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Wind-Scarred Crag"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Windbrisk Heights"
+  },
+  {
+   "section": "Lands",
+   "n": 9,
+   "name": "Plains"
+  },
+  {
+   "section": "Lands",
+   "n": 5,
+   "name": "Island"
+  },
+  {
+   "section": "Lands",
+   "n": 5,
+   "name": "Mountain"
+  }
+ ],
+ "cards": {
+  "Aragorn, King of Gondor": {
+   "name": "Aragorn, King of Gondor",
+   "id": "1c7ac04c-8510-468b-aa6f-f249bde9ff87",
+   "set": "ltc",
+   "cn": "5",
+   "mana_cost": "{1}{U}{R}{W}",
+   "cmc": 4.0,
+   "type_line": "Legendary Creature — Human Noble",
+   "oracle_text": "Vigilance, lifelink\nWhen Aragorn enters, you become the monarch.\nWhenever Aragorn attacks, up to one target creature can't block this turn. If you're the monarch, creatures can't block this turn.",
+   "colors": [
+    "R",
+    "U",
+    "W"
+   ],
+   "color_identity": [
+    "R",
+    "U",
+    "W"
+   ],
+   "keywords": [
+    "Lifelink",
+    "Vigilance"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/1/c/1c7ac04c-8510-468b-aa6f-f249bde9ff87.jpg?1783916037",
+    "normal": "https://cards.scryfall.io/normal/front/1/c/1c7ac04c-8510-468b-aa6f-f249bde9ff87.jpg?1783916037",
+    "art": "https://cards.scryfall.io/art_crop/front/1/c/1c7ac04c-8510-468b-aa6f-f249bde9ff87.jpg?1783916037"
+   },
+   "power": "4",
+   "toughness": "4",
+   "printing": "ltc/5"
+  },
+  "Arcane Signet": {
+   "name": "Arcane Signet",
+   "id": "c6b6117c-faab-4bbb-b851-07bd8061ef03",
+   "set": "frc",
+   "cn": "20",
+   "mana_cost": "{2}",
+   "cmc": 2.0,
+   "type_line": "Artifact",
+   "oracle_text": "{T}: Add one mana of any color in your commander's color identity.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/4/e/4e92354d-c203-41e1-822d-8263fadd9eb3.jpg?1783915904",
+    "normal": "https://cards.scryfall.io/normal/front/4/e/4e92354d-c203-41e1-822d-8263fadd9eb3.jpg?1783915904",
+    "art": "https://cards.scryfall.io/art_crop/front/4/e/4e92354d-c203-41e1-822d-8263fadd9eb3.jpg?1783915904"
+   },
+   "printing": "ltc/273"
+  },
+  "Archivist of Gondor": {
+   "name": "Archivist of Gondor",
+   "id": "ec691418-1075-477f-b0df-f0d064588baf",
+   "set": "ltc",
+   "cn": "18",
+   "mana_cost": "{2}{U}",
+   "cmc": 3.0,
+   "type_line": "Creature — Human Advisor",
+   "oracle_text": "When your commander deals combat damage to a player, if there is no monarch, you become the monarch.\nAt the beginning of the monarch's end step, that player draws a card.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/c/ec691418-1075-477f-b0df-f0d064588baf.jpg?1783916032",
+    "normal": "https://cards.scryfall.io/normal/front/e/c/ec691418-1075-477f-b0df-f0d064588baf.jpg?1783916032",
+    "art": "https://cards.scryfall.io/art_crop/front/e/c/ec691418-1075-477f-b0df-f0d064588baf.jpg?1783916032"
+   },
+   "power": "2",
+   "toughness": "3",
+   "printing": "ltc/18"
+  },
+  "Banishing Light": {
+   "name": "Banishing Light",
+   "id": "d53c7e49-745d-48ba-bc50-240472a4f039",
+   "set": "hoc",
+   "cn": "161",
+   "mana_cost": "{2}{W}",
+   "cmc": 3.0,
+   "type_line": "Enchantment",
+   "oracle_text": "When this enchantment enters, exile target nonland permanent an opponent controls until this enchantment leaves the battlefield.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/6/961b1464-928e-41b9-bc73-c47df94e0e8e.jpg?1783915967",
+    "normal": "https://cards.scryfall.io/normal/front/9/6/961b1464-928e-41b9-bc73-c47df94e0e8e.jpg?1783915967",
+    "art": "https://cards.scryfall.io/art_crop/front/9/6/961b1464-928e-41b9-bc73-c47df94e0e8e.jpg?1783915967"
+   },
+   "printing": "ltc/161"
+  },
+  "Bastion Protector": {
+   "name": "Bastion Protector",
+   "id": "1582488a-ad15-487e-9271-6d9330b46fb4",
+   "set": "msc",
+   "cn": "122",
+   "mana_cost": "{2}{W}",
+   "cmc": 3.0,
+   "type_line": "Creature — Human Soldier",
+   "oracle_text": "Commander creatures you control get +2/+2 and have indestructible.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/6/f6859dfd-64aa-41e4-9b6b-e560af265e44.jpg?1783915967",
+    "normal": "https://cards.scryfall.io/normal/front/f/6/f6859dfd-64aa-41e4-9b6b-e560af265e44.jpg?1783915967",
+    "art": "https://cards.scryfall.io/art_crop/front/f/6/f6859dfd-64aa-41e4-9b6b-e560af265e44.jpg?1783915967"
+   },
+   "power": "3",
+   "toughness": "3",
+   "printing": "ltc/162"
+  },
+  "Battlefield Forge": {
+   "name": "Battlefield Forge",
+   "id": "ef7d3676-b1db-4329-9201-18f8a6c54ea6",
+   "set": "frc",
+   "cn": "65",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}: Add {C}.\n{T}: Add {R} or {W}. This land deals 1 damage to you.",
+   "colors": [],
+   "color_identity": [
+    "R",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "C",
+    "R",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/1/3/13cac289-319c-49a7-ab7c-961e147026ea.jpg?1783915886",
+    "normal": "https://cards.scryfall.io/normal/front/1/3/13cac289-319c-49a7-ab7c-961e147026ea.jpg?1783915886",
+    "art": "https://cards.scryfall.io/art_crop/front/1/3/13cac289-319c-49a7-ab7c-961e147026ea.jpg?1783915886"
+   },
+   "printing": "ltc/296"
+  },
+  "Beregond of the Guard": {
+   "name": "Beregond of the Guard",
+   "id": "6aad41a6-e894-43f8-a4b5-abc206836306",
+   "set": "ltc",
+   "cn": "9",
+   "mana_cost": "{3}{W}",
+   "cmc": 4.0,
+   "type_line": "Legendary Creature — Human Soldier",
+   "oracle_text": "Whenever Beregond or another Human you control enters, creatures you control get +1/+1 and gain vigilance until end of turn.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/a/6aad41a6-e894-43f8-a4b5-abc206836306.jpg?1783916037",
+    "normal": "https://cards.scryfall.io/normal/front/6/a/6aad41a6-e894-43f8-a4b5-abc206836306.jpg?1783916037",
+    "art": "https://cards.scryfall.io/art_crop/front/6/a/6aad41a6-e894-43f8-a4b5-abc206836306.jpg?1783916037"
+   },
+   "power": "3",
+   "toughness": "3",
+   "printing": "ltc/9"
+  },
+  "Boromir, Gondor's Hope": {
+   "name": "Boromir, Gondor's Hope",
+   "id": "3c9b154f-808f-4338-ad95-a0a478460ad8",
+   "set": "ltc",
+   "cn": "49",
+   "mana_cost": "{2}{W}{U}",
+   "cmc": 4.0,
+   "type_line": "Legendary Creature — Human Warrior",
+   "oracle_text": "Whenever Boromir enters or attacks, look at the top six cards of your library. You may reveal a Human or artifact card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+   "colors": [
+    "U",
+    "W"
+   ],
+   "color_identity": [
+    "U",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/c/3c9b154f-808f-4338-ad95-a0a478460ad8.jpg?1783916022",
+    "normal": "https://cards.scryfall.io/normal/front/3/c/3c9b154f-808f-4338-ad95-a0a478460ad8.jpg?1783916022",
+    "art": "https://cards.scryfall.io/art_crop/front/3/c/3c9b154f-808f-4338-ad95-a0a478460ad8.jpg?1783916022"
+   },
+   "power": "3",
+   "toughness": "4",
+   "printing": "ltc/49"
+  },
+  "Call for Aid": {
+   "name": "Call for Aid",
+   "id": "7072b75a-64ab-4894-943e-fc0b779ca60e",
+   "set": "ltc",
+   "cn": "30",
+   "mana_cost": "{4}{R}",
+   "cmc": 5.0,
+   "type_line": "Sorcery",
+   "oracle_text": "Gain control of all creatures target opponent controls until end of turn. Untap those creatures. They gain haste until end of turn. You can't attack that player this turn. You can't sacrifice those creatures this turn.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/7/0/7072b75a-64ab-4894-943e-fc0b779ca60e.jpg?1783916029",
+    "normal": "https://cards.scryfall.io/normal/front/7/0/7072b75a-64ab-4894-943e-fc0b779ca60e.jpg?1783916029",
+    "art": "https://cards.scryfall.io/art_crop/front/7/0/7072b75a-64ab-4894-943e-fc0b779ca60e.jpg?1783916029"
+   },
+   "printing": "ltc/30"
+  },
+  "Champions of Minas Tirith": {
+   "name": "Champions of Minas Tirith",
+   "id": "34301efe-7085-476b-90e6-7ecd778b2970",
+   "set": "ltc",
+   "cn": "10",
+   "mana_cost": "{5}{W}",
+   "cmc": 6.0,
+   "type_line": "Creature — Human Soldier",
+   "oracle_text": "When this creature enters, you become the monarch.\nAt the beginning of combat on each opponent's turn, if you're the monarch, that opponent may pay {X}, where X is the number of cards in their hand. If they don't, they can't attack you this combat.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/4/34301efe-7085-476b-90e6-7ecd778b2970.jpg?1783916037",
+    "normal": "https://cards.scryfall.io/normal/front/3/4/34301efe-7085-476b-90e6-7ecd778b2970.jpg?1783916037",
+    "art": "https://cards.scryfall.io/art_crop/front/3/4/34301efe-7085-476b-90e6-7ecd778b2970.jpg?1783916037"
+   },
+   "power": "4",
+   "toughness": "6",
+   "printing": "ltc/10"
+  },
+  "Clifftop Retreat": {
+   "name": "Clifftop Retreat",
+   "id": "cd112d5c-102f-45a6-b26c-f80cc97d4df2",
+   "set": "frc",
+   "cn": "67",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped unless you control a Mountain or a Plains.\n{T}: Add {R} or {W}.",
+   "colors": [],
+   "color_identity": [
+    "R",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "R",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/b/3bf1e2f8-426c-4e24-b943-6fb9d5567d70.jpg?1783915885",
+    "normal": "https://cards.scryfall.io/normal/front/3/b/3bf1e2f8-426c-4e24-b943-6fb9d5567d70.jpg?1783915885",
+    "art": "https://cards.scryfall.io/art_crop/front/3/b/3bf1e2f8-426c-4e24-b943-6fb9d5567d70.jpg?1783915885"
+   },
+   "printing": "ltc/300"
+  },
+  "Combat Celebrant": {
+   "name": "Combat Celebrant",
+   "id": "28b63c3d-2e55-4343-b49a-11fa602ec473",
+   "set": "akh",
+   "cn": "125",
+   "mana_cost": "{2}{R}",
+   "cmc": 3.0,
+   "type_line": "Creature — Human Warrior",
+   "oracle_text": "If this creature hasn't been exerted this turn, you may exert it as it attacks. When you do, untap all other creatures you control and after this phase, there is an additional combat phase. (An exerted creature won't untap during your next untap step.)",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [
+    "Exert"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/0/b/0be1c60b-511b-4d88-93d3-7910c082245a.jpg?1783915939",
+    "normal": "https://cards.scryfall.io/normal/front/0/b/0be1c60b-511b-4d88-93d3-7910c082245a.jpg?1783915939",
+    "art": "https://cards.scryfall.io/art_crop/front/0/b/0be1c60b-511b-4d88-93d3-7910c082245a.jpg?1783915939"
+   },
+   "power": "4",
+   "toughness": "1",
+   "printing": "ltc/212"
+  },
+  "Command Tower": {
+   "name": "Command Tower",
+   "id": "1ac6cb62-45da-4e9a-84c6-09e6eacf0664",
+   "set": "frc",
+   "cn": "22",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}: Add one mana of any color in your commander's color identity.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/5/3/5306a95e-fb18-463d-81a9-3c3b8121fc94.jpg?1783915885",
+    "normal": "https://cards.scryfall.io/normal/front/5/3/5306a95e-fb18-463d-81a9-3c3b8121fc94.jpg?1783915885",
+    "art": "https://cards.scryfall.io/art_crop/front/5/3/5306a95e-fb18-463d-81a9-3c3b8121fc94.jpg?1783915885"
+   },
+   "printing": "ltc/301"
+  },
+  "Commander's Sphere": {
+   "name": "Commander's Sphere",
+   "id": "a0d50603-e31f-4cd7-b4b6-49847d99eb2e",
+   "set": "ecc",
+   "cn": "139",
+   "mana_cost": "{3}",
+   "cmc": 3.0,
+   "type_line": "Artifact",
+   "oracle_text": "{T}: Add one mana of any color in your commander's color identity.\nSacrifice this artifact: Draw a card.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/6/6620b4a3-fa33-4bd7-9180-314919d8ea2a.jpg?1783915899",
+    "normal": "https://cards.scryfall.io/normal/front/6/6/6620b4a3-fa33-4bd7-9180-314919d8ea2a.jpg?1783915899",
+    "art": "https://cards.scryfall.io/art_crop/front/6/6/6620b4a3-fa33-4bd7-9180-314919d8ea2a.jpg?1783915899"
+   },
+   "printing": "ltc/276"
+  },
+  "Court of Ire": {
+   "name": "Court of Ire",
+   "id": "73ca0dcc-7a87-49da-8011-8c11a8835df2",
+   "set": "cmr",
+   "cn": "170",
+   "mana_cost": "{3}{R}{R}",
+   "cmc": 5.0,
+   "type_line": "Enchantment",
+   "oracle_text": "When this enchantment enters, you become the monarch.\nAt the beginning of your upkeep, this enchantment deals 2 damage to any target. If you're the monarch, it deals 7 damage instead.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/1/4/14efb04a-67d0-4d48-b292-b211f9cf967c.jpg?1783915938",
+    "normal": "https://cards.scryfall.io/normal/front/1/4/14efb04a-67d0-4d48-b292-b211f9cf967c.jpg?1783915938",
+    "art": "https://cards.scryfall.io/art_crop/front/1/4/14efb04a-67d0-4d48-b292-b211f9cf967c.jpg?1783915938"
+   },
+   "printing": "ltc/213"
+  },
+  "Crown of Gondor": {
+   "name": "Crown of Gondor",
+   "id": "00127acd-a284-4bc8-bdfa-895914e3cd49",
+   "set": "ltc",
+   "cn": "75",
+   "mana_cost": "{3}",
+   "cmc": 3.0,
+   "type_line": "Legendary Artifact — Equipment",
+   "oracle_text": "Equipped creature gets +1/+1 for each creature you control.\nWhen a legendary creature you control enters, if there is no monarch, you become the monarch.\nEquip {4}. This ability costs {3} less to activate if you're the monarch.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [
+    "Equip"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/0/0/00127acd-a284-4bc8-bdfa-895914e3cd49.jpg?1783916012",
+    "normal": "https://cards.scryfall.io/normal/front/0/0/00127acd-a284-4bc8-bdfa-895914e3cd49.jpg?1783916012",
+    "art": "https://cards.scryfall.io/art_crop/front/0/0/00127acd-a284-4bc8-bdfa-895914e3cd49.jpg?1783916012"
+   },
+   "printing": "ltc/75"
+  },
+  "Dearly Departed": {
+   "name": "Dearly Departed",
+   "id": "27c38500-1eb5-4ea5-8dcd-53bf4e1ee09c",
+   "set": "mic",
+   "cn": "84",
+   "mana_cost": "{4}{W}{W}",
+   "cmc": 6.0,
+   "type_line": "Creature — Spirit",
+   "oracle_text": "Flying\nAs long as this creature is in your graveyard, each Human creature you control enters with an additional +1/+1 counter on it.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Flying"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/0/900a6221-9222-4645-94e7-1a0fcaf73aae.jpg?1783915966",
+    "normal": "https://cards.scryfall.io/normal/front/9/0/900a6221-9222-4645-94e7-1a0fcaf73aae.jpg?1783915966",
+    "art": "https://cards.scryfall.io/art_crop/front/9/0/900a6221-9222-4645-94e7-1a0fcaf73aae.jpg?1783915966"
+   },
+   "power": "5",
+   "toughness": "5",
+   "printing": "ltc/165"
+  },
+  "Denethor, Stone Seer": {
+   "name": "Denethor, Stone Seer",
+   "id": "d32d3d8a-7450-4a29-abc7-f472426f0c28",
+   "set": "ltc",
+   "cn": "20",
+   "mana_cost": "{1}{U}",
+   "cmc": 2.0,
+   "type_line": "Legendary Creature — Human Noble",
+   "oracle_text": "When Denethor enters, scry 2.\n{3}{R}, {T}, Sacrifice Denethor: Target player becomes the monarch. Denethor deals 3 damage to any target.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "R",
+    "U"
+   ],
+   "keywords": [
+    "Scry"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/d/3/d32d3d8a-7450-4a29-abc7-f472426f0c28.jpg?1783916033",
+    "normal": "https://cards.scryfall.io/normal/front/d/3/d32d3d8a-7450-4a29-abc7-f472426f0c28.jpg?1783916033",
+    "art": "https://cards.scryfall.io/art_crop/front/d/3/d32d3d8a-7450-4a29-abc7-f472426f0c28.jpg?1783916033"
+   },
+   "power": "1",
+   "toughness": "3",
+   "printing": "ltc/20"
+  },
+  "Door of Destinies": {
+   "name": "Door of Destinies",
+   "id": "1d0d80c7-87b5-47cc-b2fd-7defd281e1a2",
+   "set": "msc",
+   "cn": "198",
+   "mana_cost": "{4}",
+   "cmc": 4.0,
+   "type_line": "Artifact",
+   "oracle_text": "As this artifact enters, choose a creature type.\nWhenever you cast a spell of the chosen type, put a charge counter on this artifact.\nCreatures you control of the chosen type get +1/+1 for each charge counter on this artifact.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/f/ef038cae-d00b-42f4-81ae-09929b05d881.jpg?1783915899",
+    "normal": "https://cards.scryfall.io/normal/front/e/f/ef038cae-d00b-42f4-81ae-09929b05d881.jpg?1783915899",
+    "art": "https://cards.scryfall.io/art_crop/front/e/f/ef038cae-d00b-42f4-81ae-09929b05d881.jpg?1783915899"
+   },
+   "printing": "ltc/277"
+  },
+  "Earthquake": {
+   "name": "Earthquake",
+   "id": "7cf2f3c7-66b2-48f6-97ef-09150903df7e",
+   "set": "cm2",
+   "cn": "95",
+   "mana_cost": "{X}{R}",
+   "cmc": 1.0,
+   "type_line": "Sorcery",
+   "oracle_text": "Earthquake deals X damage to each creature without flying and each player.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/1/f1030c6d-e6f4-42e0-84d3-d3916d7f397c.jpg?1783915937",
+    "normal": "https://cards.scryfall.io/normal/front/f/1/f1030c6d-e6f4-42e0-84d3-d3916d7f397c.jpg?1783915937",
+    "art": "https://cards.scryfall.io/art_crop/front/f/1/f1030c6d-e6f4-42e0-84d3-d3916d7f397c.jpg?1783915937"
+   },
+   "printing": "ltc/214"
+  },
+  "Erkenbrand, Lord of Westfold": {
+   "name": "Erkenbrand, Lord of Westfold",
+   "id": "38f81e68-cddd-47f4-b1d1-a297c3298c25",
+   "set": "ltr",
+   "cn": "123",
+   "mana_cost": "{3}{R}",
+   "cmc": 4.0,
+   "type_line": "Legendary Creature — Human Soldier",
+   "oracle_text": "Whenever Erkenbrand or another Human you control enters, creatures you control get +1/+0 until end of turn.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/8/38f81e68-cddd-47f4-b1d1-a297c3298c25.jpg?1783916288",
+    "normal": "https://cards.scryfall.io/normal/front/3/8/38f81e68-cddd-47f4-b1d1-a297c3298c25.jpg?1783916288",
+    "art": "https://cards.scryfall.io/art_crop/front/3/8/38f81e68-cddd-47f4-b1d1-a297c3298c25.jpg?1783916288"
+   },
+   "power": "3",
+   "toughness": "3",
+   "printing": "ltr/123"
+  },
+  "Evolving Wilds": {
+   "name": "Evolving Wilds",
+   "id": "c0318a48-30e4-4ef7-be3d-5e561c5ce428",
+   "set": "msc",
+   "cn": "240",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/2/e24ec4c1-5a28-450d-8e37-62a154749ee6.jpg?1783915880",
+    "normal": "https://cards.scryfall.io/normal/front/e/2/e24ec4c1-5a28-450d-8e37-62a154749ee6.jpg?1783915880",
+    "art": "https://cards.scryfall.io/art_crop/front/e/2/e24ec4c1-5a28-450d-8e37-62a154749ee6.jpg?1783915880"
+   },
+   "printing": "ltc/306"
+  },
+  "Exotic Orchard": {
+   "name": "Exotic Orchard",
+   "id": "d11c5fe0-1528-4c94-a8cc-42bcab9d7487",
+   "set": "mbc",
+   "cn": "79",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}: Add one mana of any color that a land an opponent controls could produce.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/3/a3120b65-f021-467e-bd9f-27329134a743.jpg?1783915879",
+    "normal": "https://cards.scryfall.io/normal/front/a/3/a3120b65-f021-467e-bd9f-27329134a743.jpg?1783915879",
+    "art": "https://cards.scryfall.io/art_crop/front/a/3/a3120b65-f021-467e-bd9f-27329134a743.jpg?1783915879"
+   },
+   "printing": "ltc/307"
+  },
+  "Faramir, Steward of Gondor": {
+   "name": "Faramir, Steward of Gondor",
+   "id": "5c3e8a30-de2a-4d8f-a929-5abeaea2e65a",
+   "set": "ltc",
+   "cn": "54",
+   "mana_cost": "{1}{W}{U}",
+   "cmc": 3.0,
+   "type_line": "Legendary Creature — Human Noble",
+   "oracle_text": "Whenever a legendary creature you control with mana value 4 or greater enters, you become the monarch.\nAt the beginning of your end step, if you're the monarch, create two 1/1 white Human Soldier creature tokens.",
+   "colors": [
+    "U",
+    "W"
+   ],
+   "color_identity": [
+    "U",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/5/c/5c3e8a30-de2a-4d8f-a929-5abeaea2e65a.jpg?1783916020",
+    "normal": "https://cards.scryfall.io/normal/front/5/c/5c3e8a30-de2a-4d8f-a929-5abeaea2e65a.jpg?1783916020",
+    "art": "https://cards.scryfall.io/art_crop/front/5/c/5c3e8a30-de2a-4d8f-a929-5abeaea2e65a.jpg?1783916020"
+   },
+   "power": "2",
+   "toughness": "2",
+   "printing": "ltc/54"
+  },
+  "Fealty to the Realm": {
+   "name": "Fealty to the Realm",
+   "id": "017a5dbf-5773-448d-abf3-9a3d42bde9e5",
+   "set": "ltc",
+   "cn": "21",
+   "mana_cost": "{4}{U}",
+   "cmc": 5.0,
+   "type_line": "Enchantment — Aura",
+   "oracle_text": "Enchant creature\nWhen this Aura enters, you become the monarch.\nThe monarch controls enchanted creature.\nEnchanted creature attacks each combat if able and can't attack you.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [
+    "Enchant"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/0/1/017a5dbf-5773-448d-abf3-9a3d42bde9e5.jpg?1783916032",
+    "normal": "https://cards.scryfall.io/normal/front/0/1/017a5dbf-5773-448d-abf3-9a3d42bde9e5.jpg?1783916032",
+    "art": "https://cards.scryfall.io/art_crop/front/0/1/017a5dbf-5773-448d-abf3-9a3d42bde9e5.jpg?1783916032"
+   },
+   "printing": "ltc/21"
+  },
+  "Field of Ruin": {
+   "name": "Field of Ruin",
+   "id": "143147d2-2eec-41e7-b78a-592288b38630",
+   "set": "moc",
+   "cn": "400",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}: Add {C}.\n{2}, {T}, Sacrifice this land: Destroy target nonbasic land an opponent controls. Each player searches their library for a basic land card, puts it onto the battlefield, then shuffles.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "C"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/d/8d9d6a9d-18a3-4cc8-8276-29fb826ed1fa.jpg?1783915879",
+    "normal": "https://cards.scryfall.io/normal/front/8/d/8d9d6a9d-18a3-4cc8-8276-29fb826ed1fa.jpg?1783915879",
+    "art": "https://cards.scryfall.io/art_crop/front/8/d/8d9d6a9d-18a3-4cc8-8276-29fb826ed1fa.jpg?1783915879"
+   },
+   "printing": "ltc/308"
+  },
+  "Fiend Hunter": {
+   "name": "Fiend Hunter",
+   "id": "2b497736-e502-4e0c-b5dc-6ce5e9e8d4ab",
+   "set": "hoc",
+   "cn": "167",
+   "mana_cost": "{1}{W}{W}",
+   "cmc": 3.0,
+   "type_line": "Creature — Human Cleric",
+   "oracle_text": "When this creature enters, you may exile another target creature.\nWhen this creature leaves the battlefield, return the exiled card to the battlefield under its owner's control.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/7/0/703c52d2-9e9d-4a54-82af-800fa1456d36.jpg?1783915963",
+    "normal": "https://cards.scryfall.io/normal/front/7/0/703c52d2-9e9d-4a54-82af-800fa1456d36.jpg?1783915963",
+    "art": "https://cards.scryfall.io/art_crop/front/7/0/703c52d2-9e9d-4a54-82af-800fa1456d36.jpg?1783915963"
+   },
+   "power": "1",
+   "toughness": "3",
+   "printing": "ltc/168"
+  },
+  "Flamerush Rider": {
+   "name": "Flamerush Rider",
+   "id": "0de4181f-652e-4eab-8de0-57a346c51994",
+   "set": "moc",
+   "cn": "279",
+   "mana_cost": "{4}{R}",
+   "cmc": 5.0,
+   "type_line": "Creature — Human Warrior",
+   "oracle_text": "Whenever this creature attacks, create a token that's a copy of another target attacking creature and that's tapped and attacking. Exile the token at end of combat.\nDash {2}{R}{R} (You may cast this spell for its dash cost. If you do, it gains haste, and it's returned from the battlefield to its owner's hand at the beginning of the next end step.)",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [
+    "Dash"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/b/0/b0c33673-7fc8-40d2-9718-af234047df7f.jpg?1783915939",
+    "normal": "https://cards.scryfall.io/normal/front/b/0/b0c33673-7fc8-40d2-9718-af234047df7f.jpg?1783915939",
+    "art": "https://cards.scryfall.io/art_crop/front/b/0/b0c33673-7fc8-40d2-9718-af234047df7f.jpg?1783915939"
+   },
+   "power": "3",
+   "toughness": "3",
+   "printing": "ltc/216"
+  },
+  "Forth Eorlingas!": {
+   "name": "Forth Eorlingas!",
+   "id": "06c053d3-028e-4961-93a5-5b7bb5a8601c",
+   "set": "ltc",
+   "cn": "56",
+   "mana_cost": "{X}{R}{W}",
+   "cmc": 2.0,
+   "type_line": "Sorcery",
+   "oracle_text": "Create X 2/2 red Human Knight creature tokens with trample and haste.\nWhenever one or more creatures you control deal combat damage to one or more players this turn, you become the monarch.",
+   "colors": [
+    "R",
+    "W"
+   ],
+   "color_identity": [
+    "R",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/0/6/06c053d3-028e-4961-93a5-5b7bb5a8601c.jpg?1783916020",
+    "normal": "https://cards.scryfall.io/normal/front/0/6/06c053d3-028e-4961-93a5-5b7bb5a8601c.jpg?1783916020",
+    "art": "https://cards.scryfall.io/art_crop/front/0/6/06c053d3-028e-4961-93a5-5b7bb5a8601c.jpg?1783916020"
+   },
+   "printing": "ltc/56"
+  },
+  "Frontier Warmonger": {
+   "name": "Frontier Warmonger",
+   "id": "824aa845-0523-4434-8992-bce42f5b2bcb",
+   "set": "mkc",
+   "cn": "154",
+   "mana_cost": "{3}{R}",
+   "cmc": 4.0,
+   "type_line": "Creature — Human Warrior",
+   "oracle_text": "Whenever one or more creatures attack one of your opponents or a planeswalker they control, those creatures gain menace until end of turn.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/1/d/1ded4ab9-3068-4b7a-99f7-bb51bde5dbee.jpg?1783915936",
+    "normal": "https://cards.scryfall.io/normal/front/1/d/1ded4ab9-3068-4b7a-99f7-bb51bde5dbee.jpg?1783915936",
+    "art": "https://cards.scryfall.io/art_crop/front/1/d/1ded4ab9-3068-4b7a-99f7-bb51bde5dbee.jpg?1783915936"
+   },
+   "power": "4",
+   "toughness": "4",
+   "printing": "ltc/217"
+  },
+  "Frontline Medic": {
+   "name": "Frontline Medic",
+   "id": "3e9ad9ce-f862-4663-9a36-caf0844eb416",
+   "set": "clb",
+   "cn": "693",
+   "mana_cost": "{2}{W}",
+   "cmc": 3.0,
+   "type_line": "Creature — Human Cleric",
+   "oracle_text": "Battalion — Whenever this creature and at least two other creatures attack, creatures you control gain indestructible until end of turn.\nSacrifice this creature: Counter target spell with {X} in its mana cost unless its controller pays {3}.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Battalion"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/c/3c7cfb4a-f4b5-4cb4-b0ed-13d29cf966a5.jpg?1783915963",
+    "normal": "https://cards.scryfall.io/normal/front/3/c/3c7cfb4a-f4b5-4cb4-b0ed-13d29cf966a5.jpg?1783915963",
+    "art": "https://cards.scryfall.io/art_crop/front/3/c/3c7cfb4a-f4b5-4cb4-b0ed-13d29cf966a5.jpg?1783915963"
+   },
+   "power": "3",
+   "toughness": "3",
+   "printing": "ltc/169"
+  },
+  "Furycalm Snarl": {
+   "name": "Furycalm Snarl",
+   "id": "afc12892-4978-4442-ace5-c4dea5c0ee00",
+   "set": "msc",
+   "cn": "247",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "As this land enters, you may reveal a Mountain or Plains card from your hand. If you don't, this land enters tapped.\n{T}: Add {R} or {W}.",
+   "colors": [],
+   "color_identity": [
+    "R",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "R",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/4/94e25653-b347-4ff3-a914-a00bea46be14.jpg?1783915875",
+    "normal": "https://cards.scryfall.io/normal/front/9/4/94e25653-b347-4ff3-a914-a00bea46be14.jpg?1783915875",
+    "art": "https://cards.scryfall.io/art_crop/front/9/4/94e25653-b347-4ff3-a914-a00bea46be14.jpg?1783915875"
+   },
+   "printing": "ltc/313"
+  },
+  "Gilraen, Dúnedain Protector": {
+   "name": "Gilraen, Dúnedain Protector",
+   "id": "07efe592-5851-4577-b73f-0bb232feb68b",
+   "set": "ltc",
+   "cn": "13",
+   "mana_cost": "{2}{W}",
+   "cmc": 3.0,
+   "type_line": "Legendary Creature — Human Noble",
+   "oracle_text": "{2}, {T}: Exile another target creature you control. You may return that card to the battlefield under its owner's control. If you don't, at the beginning of the next end step, return that card to the battlefield under its owner's control with a vigilance counter and a lifelink counter on it.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/0/7/07efe592-5851-4577-b73f-0bb232feb68b.jpg?1783916036",
+    "normal": "https://cards.scryfall.io/normal/front/0/7/07efe592-5851-4577-b73f-0bb232feb68b.jpg?1783916036",
+    "art": "https://cards.scryfall.io/art_crop/front/0/7/07efe592-5851-4577-b73f-0bb232feb68b.jpg?1783916036"
+   },
+   "power": "2",
+   "toughness": "3",
+   "printing": "ltc/13"
+  },
+  "Gimli of the Glittering Caves": {
+   "name": "Gimli of the Glittering Caves",
+   "id": "5afc0319-9e17-4e81-a0b6-e76645bacb04",
+   "set": "ltc",
+   "cn": "32",
+   "mana_cost": "{2}{R}",
+   "cmc": 3.0,
+   "type_line": "Legendary Creature — Dwarf Warrior",
+   "oracle_text": "Double strike\nWhenever another legendary creature you control enters, put a +1/+1 counter on Gimli.\nWhenever Gimli deals combat damage to a player, create a Treasure token.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [
+    "Treasure",
+    "Double strike"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/5/a/5afc0319-9e17-4e81-a0b6-e76645bacb04.jpg?1783916028",
+    "normal": "https://cards.scryfall.io/normal/front/5/a/5afc0319-9e17-4e81-a0b6-e76645bacb04.jpg?1783916028",
+    "art": "https://cards.scryfall.io/art_crop/front/5/a/5afc0319-9e17-4e81-a0b6-e76645bacb04.jpg?1783916028"
+   },
+   "power": "1",
+   "toughness": "1",
+   "printing": "ltc/32"
+  },
+  "Glacial Fortress": {
+   "name": "Glacial Fortress",
+   "id": "3c726a60-8de7-4d5e-8ad5-8405e6ac36b5",
+   "set": "frc",
+   "cn": "73",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped unless you control a Plains or an Island.\n{T}: Add {W} or {U}.",
+   "colors": [],
+   "color_identity": [
+    "U",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/8/381dee46-94c0-4b56-a752-fc0a1e651143.jpg?1783915876",
+    "normal": "https://cards.scryfall.io/normal/front/3/8/381dee46-94c0-4b56-a752-fc0a1e651143.jpg?1783915876",
+    "art": "https://cards.scryfall.io/art_crop/front/3/8/381dee46-94c0-4b56-a752-fc0a1e651143.jpg?1783915876"
+   },
+   "printing": "ltc/315"
+  },
+  "Grey Host Reinforcements": {
+   "name": "Grey Host Reinforcements",
+   "id": "7d72498c-7ac0-41f7-8f8a-47fda31d99e5",
+   "set": "ltc",
+   "cn": "14",
+   "mana_cost": "{3}{W}",
+   "cmc": 4.0,
+   "type_line": "Creature — Spirit Soldier",
+   "oracle_text": "Flying, ward {3}\nWhen this creature enters, exile target player's graveyard. Put a number of +1/+1 counters on this creature equal to the number of creature cards exiled this way.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Flying",
+    "Ward"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/7/d/7d72498c-7ac0-41f7-8f8a-47fda31d99e5.jpg?1783916033",
+    "normal": "https://cards.scryfall.io/normal/front/7/d/7d72498c-7ac0-41f7-8f8a-47fda31d99e5.jpg?1783916033",
+    "art": "https://cards.scryfall.io/art_crop/front/7/d/7d72498c-7ac0-41f7-8f8a-47fda31d99e5.jpg?1783916033"
+   },
+   "power": "1",
+   "toughness": "1",
+   "printing": "ltc/14"
+  },
+  "Harsh Mentor": {
+   "name": "Harsh Mentor",
+   "id": "3d440fb1-3e19-4615-a988-558b9d3db179",
+   "set": "dsc",
+   "cn": "165",
+   "mana_cost": "{1}{R}",
+   "cmc": 2.0,
+   "type_line": "Creature — Human Cleric",
+   "oracle_text": "Whenever an opponent activates an ability of an artifact, creature, or land on the battlefield, if it isn't a mana ability, this creature deals 2 damage to that player.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/8/e885d925-13d8-4615-aefa-b2629ffa83b6.jpg?1783915933",
+    "normal": "https://cards.scryfall.io/normal/front/e/8/e885d925-13d8-4615-aefa-b2629ffa83b6.jpg?1783915933",
+    "art": "https://cards.scryfall.io/art_crop/front/e/8/e885d925-13d8-4615-aefa-b2629ffa83b6.jpg?1783915933"
+   },
+   "power": "2",
+   "toughness": "2",
+   "printing": "ltc/221"
+  },
+  "Heirloom Blade": {
+   "name": "Heirloom Blade",
+   "id": "49fe8b13-3f83-4a35-aa2d-2292b96f3d3e",
+   "set": "lcc",
+   "cn": "303",
+   "mana_cost": "{3}",
+   "cmc": 3.0,
+   "type_line": "Artifact — Equipment",
+   "oracle_text": "Equipped creature gets +3/+1.\nWhenever equipped creature dies, you may reveal cards from the top of your library until you reveal a creature card that shares a creature type with it. Put that card into your hand and the rest on the bottom of your library in a random order.\nEquip {1}",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [
+    "Equip"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/6/a6463bdd-f9b3-46a6-9cb7-e1ba7e800b3c.jpg?1783915896",
+    "normal": "https://cards.scryfall.io/normal/front/a/6/a6463bdd-f9b3-46a6-9cb7-e1ba7e800b3c.jpg?1783915896",
+    "art": "https://cards.scryfall.io/art_crop/front/a/6/a6463bdd-f9b3-46a6-9cb7-e1ba7e800b3c.jpg?1783915896"
+   },
+   "printing": "ltc/279"
+  },
+  "Herald's Horn": {
+   "name": "Herald's Horn",
+   "id": "4bfa71d4-4125-4404-9c24-979401bae592",
+   "set": "lcc",
+   "cn": "304",
+   "mana_cost": "{3}",
+   "cmc": 3.0,
+   "type_line": "Artifact",
+   "oracle_text": "As this artifact enters, choose a creature type.\nCreature spells you cast of the chosen type cost {1} less to cast.\nAt the beginning of your upkeep, look at the top card of your library. If it's a creature card of the chosen type, you may reveal it and put it into your hand.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/4/c/4c0d09ac-ef6e-4b66-9e47-59cc97dd7d6b.jpg?1783915899",
+    "normal": "https://cards.scryfall.io/normal/front/4/c/4c0d09ac-ef6e-4b66-9e47-59cc97dd7d6b.jpg?1783915899",
+    "art": "https://cards.scryfall.io/art_crop/front/4/c/4c0d09ac-ef6e-4b66-9e47-59cc97dd7d6b.jpg?1783915899"
+   },
+   "printing": "ltc/280"
+  },
+  "Humble Defector": {
+   "name": "Humble Defector",
+   "id": "d17c10a1-12fe-4a58-81ed-03a8bdd06686",
+   "set": "otc",
+   "cn": "170",
+   "mana_cost": "{1}{R}",
+   "cmc": 2.0,
+   "type_line": "Creature — Human Rogue",
+   "oracle_text": "{T}: Draw two cards. Target opponent gains control of this creature. Activate only during your turn.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/b/2/b2317866-35b3-4348-a5d1-888ef8f9e2ac.jpg?1783915931",
+    "normal": "https://cards.scryfall.io/normal/front/b/2/b2317866-35b3-4348-a5d1-888ef8f9e2ac.jpg?1783915931",
+    "art": "https://cards.scryfall.io/art_crop/front/b/2/b2317866-35b3-4348-a5d1-888ef8f9e2ac.jpg?1783915931"
+   },
+   "power": "2",
+   "toughness": "1",
+   "printing": "ltc/222"
+  },
+  "Increasing Devotion": {
+   "name": "Increasing Devotion",
+   "id": "0c786c28-1085-4b3e-9164-5fa3adfa5010",
+   "set": "c20",
+   "cn": "91",
+   "mana_cost": "{3}{W}{W}",
+   "cmc": 5.0,
+   "type_line": "Sorcery",
+   "oracle_text": "Create five 1/1 white Human creature tokens. If this spell was cast from a graveyard, create ten of those tokens instead.\nFlashback {7}{W}{W} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Flashback"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/c/a/ca0aaf39-0f4d-47c8-834e-f7974e316079.jpg?1783915961",
+    "normal": "https://cards.scryfall.io/normal/front/c/a/ca0aaf39-0f4d-47c8-834e-f7974e316079.jpg?1783915961",
+    "art": "https://cards.scryfall.io/art_crop/front/c/a/ca0aaf39-0f4d-47c8-834e-f7974e316079.jpg?1783915961"
+   },
+   "printing": "ltc/171"
+  },
+  "Island": {
+   "name": "Island",
+   "id": "1335d293-3dd2-4f13-bd2c-22181f4528ee",
+   "set": "mdd",
+   "cn": "294",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Basic Land — Island",
+   "oracle_text": "({T}: Add {U}.)",
+   "colors": [],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "U"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/b/b/bbeca27a-6c5b-40b9-83a4-a3a2096ff6f8.jpg?1783916230",
+    "normal": "https://cards.scryfall.io/normal/front/b/b/bbeca27a-6c5b-40b9-83a4-a3a2096ff6f8.jpg?1783916230",
+    "art": "https://cards.scryfall.io/art_crop/front/b/b/bbeca27a-6c5b-40b9-83a4-a3a2096ff6f8.jpg?1783916230"
+   },
+   "printing": "ltr/264"
+  },
+  "Lossarnach Captain": {
+   "name": "Lossarnach Captain",
+   "id": "08b78cd2-7c52-4dcd-b063-1ac5e96420d4",
+   "set": "ltc",
+   "cn": "16",
+   "mana_cost": "{3}{W}",
+   "cmc": 4.0,
+   "type_line": "Creature — Human Soldier",
+   "oracle_text": "First strike\nWhenever this creature or another Human you control enters, tap target creature an opponent controls.\nAt the beginning of your upkeep, create a 1/1 white Human Soldier creature token.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "First strike"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/0/8/08b78cd2-7c52-4dcd-b063-1ac5e96420d4.jpg?1783916034",
+    "normal": "https://cards.scryfall.io/normal/front/0/8/08b78cd2-7c52-4dcd-b063-1ac5e96420d4.jpg?1783916034",
+    "art": "https://cards.scryfall.io/art_crop/front/0/8/08b78cd2-7c52-4dcd-b063-1ac5e96420d4.jpg?1783916034"
+   },
+   "power": "3",
+   "toughness": "1",
+   "printing": "ltc/16"
+  },
+  "Lost to Legend": {
+   "name": "Lost to Legend",
+   "id": "c4e40481-aeaa-4b3d-a020-e9b6d7c11992",
+   "set": "ltr",
+   "cn": "22",
+   "mana_cost": "{W}{W}",
+   "cmc": 2.0,
+   "type_line": "Instant",
+   "oracle_text": "Put target nonland historic permanent into its owner's library fourth from the top. (Artifacts, legendaries, and Sagas are historic.)",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/c/4/c4e40481-aeaa-4b3d-a020-e9b6d7c11992.jpg?1783916328",
+    "normal": "https://cards.scryfall.io/normal/front/c/4/c4e40481-aeaa-4b3d-a020-e9b6d7c11992.jpg?1783916328",
+    "art": "https://cards.scryfall.io/art_crop/front/c/4/c4e40481-aeaa-4b3d-a020-e9b6d7c11992.jpg?1783916328"
+   },
+   "printing": "ltr/22"
+  },
+  "Marshal's Anthem": {
+   "name": "Marshal's Anthem",
+   "id": "7c84cbf6-cab0-4b53-ab60-470ade5c3654",
+   "set": "otc",
+   "cn": "82",
+   "mana_cost": "{2}{W}{W}",
+   "cmc": 4.0,
+   "type_line": "Enchantment",
+   "oracle_text": "Multikicker {1}{W} (You may pay an additional {1}{W} any number of times as you cast this spell.)\nCreatures you control get +1/+1.\nWhen this enchantment enters, return up to X target creature cards from your graveyard to the battlefield, where X is the number of times this enchantment was kicked.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Multikicker"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/c/5/c524688d-ec43-4665-a22b-c8efacb4be61.jpg?1783915959",
+    "normal": "https://cards.scryfall.io/normal/front/c/5/c524688d-ec43-4665-a22b-c8efacb4be61.jpg?1783915959",
+    "art": "https://cards.scryfall.io/art_crop/front/c/5/c524688d-ec43-4665-a22b-c8efacb4be61.jpg?1783915959"
+   },
+   "printing": "ltc/172"
+  },
+  "Mountain": {
+   "name": "Mountain",
+   "id": "85177bd7-6c50-48da-b692-ae5fe7bd357c",
+   "set": "mdd",
+   "cn": "298",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Basic Land — Mountain",
+   "oracle_text": "({T}: Add {R}.)",
+   "colors": [],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "R"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/3/e3731001-4e6a-4a91-9e7d-fc2ea039a60b.jpg?1783916226",
+    "normal": "https://cards.scryfall.io/normal/front/e/3/e3731001-4e6a-4a91-9e7d-fc2ea039a60b.jpg?1783916226",
+    "art": "https://cards.scryfall.io/art_crop/front/e/3/e3731001-4e6a-4a91-9e7d-fc2ea039a60b.jpg?1783916226"
+   },
+   "printing": "ltr/268"
+  },
+  "Oath of Eorl": {
+   "name": "Oath of Eorl",
+   "id": "1ffc7f95-daed-452e-a114-859b8798055b",
+   "set": "ltc",
+   "cn": "64",
+   "mana_cost": "{3}{R}{W}",
+   "cmc": 5.0,
+   "type_line": "Enchantment — Saga",
+   "oracle_text": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\nI — Create two 1/1 white Human Soldier creature tokens.\nII — Create two 2/2 red Human Knight creature tokens with trample and haste.\nIII — Put an indestructible counter on up to one target Human. You become the monarch.",
+   "colors": [
+    "R",
+    "W"
+   ],
+   "color_identity": [
+    "R",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/1/f/1ffc7f95-daed-452e-a114-859b8798055b.jpg?1783916016",
+    "normal": "https://cards.scryfall.io/normal/front/1/f/1ffc7f95-daed-452e-a114-859b8798055b.jpg?1783916016",
+    "art": "https://cards.scryfall.io/art_crop/front/1/f/1ffc7f95-daed-452e-a114-859b8798055b.jpg?1783916016"
+   },
+   "printing": "ltc/64"
+  },
+  "Palace Jailer": {
+   "name": "Palace Jailer",
+   "id": "3a8c2a84-e0f2-4611-af3d-42f4578ad4e3",
+   "set": "msc",
+   "cn": "140",
+   "mana_cost": "{2}{W}{W}",
+   "cmc": 4.0,
+   "type_line": "Creature — Human Soldier",
+   "oracle_text": "When this creature enters, you become the monarch.\nWhen this creature enters, exile target creature an opponent controls until an opponent becomes the monarch.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/2/b/2bcaec9f-fab6-48a2-96d0-0eea7165c061.jpg?1783915958",
+    "normal": "https://cards.scryfall.io/normal/front/2/b/2bcaec9f-fab6-48a2-96d0-0eea7165c061.jpg?1783915958",
+    "art": "https://cards.scryfall.io/art_crop/front/2/b/2bcaec9f-fab6-48a2-96d0-0eea7165c061.jpg?1783915958"
+   },
+   "power": "2",
+   "toughness": "2",
+   "printing": "ltc/174"
+  },
+  "Path of Ancestry": {
+   "name": "Path of Ancestry",
+   "id": "b1aaa7b0-1cac-4a92-b880-7ef1ac00618f",
+   "set": "mbc",
+   "cn": "80",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped.\n{T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [
+    "Scry"
+   ],
+   "produced_mana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/d/7/d79e2780-94ae-41bb-af48-c63abc726fb5.jpg?1783915866",
+    "normal": "https://cards.scryfall.io/normal/front/d/7/d79e2780-94ae-41bb-af48-c63abc726fb5.jpg?1783915866",
+    "art": "https://cards.scryfall.io/art_crop/front/d/7/d79e2780-94ae-41bb-af48-c63abc726fb5.jpg?1783915866"
+   },
+   "printing": "ltc/322"
+  },
+  "Path to Exile": {
+   "name": "Path to Exile",
+   "id": "22e08a78-55b7-46b0-bd1a-a51548fc1861",
+   "set": "frc",
+   "cn": "30",
+   "mana_cost": "{W}",
+   "cmc": 1.0,
+   "type_line": "Instant",
+   "oracle_text": "Exile target creature. Its controller may search their library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/5/8/58237803-5afc-445f-ba95-2233935fdac1.jpg?1783915959",
+    "normal": "https://cards.scryfall.io/normal/front/5/8/58237803-5afc-445f-ba95-2233935fdac1.jpg?1783915959",
+    "art": "https://cards.scryfall.io/art_crop/front/5/8/58237803-5afc-445f-ba95-2233935fdac1.jpg?1783915959"
+   },
+   "printing": "ltc/175"
+  },
+  "Plains": {
+   "name": "Plains",
+   "id": "09ac862f-0a51-44dd-b86f-9412b8218b13",
+   "set": "mdd",
+   "cn": "292",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Basic Land — Plains",
+   "oracle_text": "({T}: Add {W}.)",
+   "colors": [],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/7/f724ae86-b968-4f49-8267-c2c34c22f1b6.jpg?1783916231",
+    "normal": "https://cards.scryfall.io/normal/front/f/7/f724ae86-b968-4f49-8267-c2c34c22f1b6.jpg?1783916231",
+    "art": "https://cards.scryfall.io/art_crop/front/f/7/f724ae86-b968-4f49-8267-c2c34c22f1b6.jpg?1783916231"
+   },
+   "printing": "ltr/262"
+  },
+  "Port Town": {
+   "name": "Port Town",
+   "id": "3f962cab-c058-41f5-b7e1-5b063f374eb0",
+   "set": "msc",
+   "cn": "256",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "As this land enters, you may reveal a Plains or Island card from your hand. If you don't, this land enters tapped.\n{T}: Add {W} or {U}.",
+   "colors": [],
+   "color_identity": [
+    "U",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/d/adce6d6b-9d68-4289-b5af-41a41f140d62.jpg?1783915870",
+    "normal": "https://cards.scryfall.io/normal/front/a/d/adce6d6b-9d68-4289-b5af-41a41f140d62.jpg?1783915870",
+    "art": "https://cards.scryfall.io/art_crop/front/a/d/adce6d6b-9d68-4289-b5af-41a41f140d62.jpg?1783915870"
+   },
+   "printing": "ltc/323"
+  },
+  "Prairie Stream": {
+   "name": "Prairie Stream",
+   "id": "a93c2e0b-3fca-476e-ae5b-a331ccacae19",
+   "set": "frc",
+   "cn": "79",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land — Plains Island",
+   "oracle_text": "({T}: Add {W} or {U}.)\nThis land enters tapped unless you control two or more basic lands.",
+   "colors": [],
+   "color_identity": [
+    "U",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/9/9985b168-5c20-41ba-9ada-2b5e4710d48c.jpg?1783915868",
+    "normal": "https://cards.scryfall.io/normal/front/9/9/9985b168-5c20-41ba-9ada-2b5e4710d48c.jpg?1783915868",
+    "art": "https://cards.scryfall.io/art_crop/front/9/9/9985b168-5c20-41ba-9ada-2b5e4710d48c.jpg?1783915868"
+   },
+   "printing": "ltc/324"
+  },
+  "Prince Imrahil the Fair": {
+   "name": "Prince Imrahil the Fair",
+   "id": "7d486def-7c3f-41e9-bb28-4582450a7b9e",
+   "set": "ltr",
+   "cn": "219",
+   "mana_cost": "{W}{U}",
+   "cmc": 2.0,
+   "type_line": "Legendary Creature — Human Noble",
+   "oracle_text": "Whenever you draw your second card each turn, create a 1/1 white Human Soldier creature token.",
+   "colors": [
+    "U",
+    "W"
+   ],
+   "color_identity": [
+    "U",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/7/d/7d486def-7c3f-41e9-bb28-4582450a7b9e.jpg?1783916250",
+    "normal": "https://cards.scryfall.io/normal/front/7/d/7d486def-7c3f-41e9-bb28-4582450a7b9e.jpg?1783916250",
+    "art": "https://cards.scryfall.io/art_crop/front/7/d/7d486def-7c3f-41e9-bb28-4582450a7b9e.jpg?1783916250"
+   },
+   "power": "2",
+   "toughness": "2",
+   "printing": "ltr/219"
+  },
+  "Riders of Rohan": {
+   "name": "Riders of Rohan",
+   "id": "e76a2b11-a087-42cf-8356-ef9edbac244a",
+   "set": "ltc",
+   "cn": "67",
+   "mana_cost": "{3}{R}{W}",
+   "cmc": 5.0,
+   "type_line": "Creature — Human Knight",
+   "oracle_text": "When this creature enters, create two 2/2 red Human Knight creature tokens with trample and haste.\nDash {4}{R}{W} (You may cast this spell for its dash cost. If you do, it gains haste, and it's returned from the battlefield to its owner's hand at the beginning of the next end step.)",
+   "colors": [
+    "R",
+    "W"
+   ],
+   "color_identity": [
+    "R",
+    "W"
+   ],
+   "keywords": [
+    "Dash"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/7/e76a2b11-a087-42cf-8356-ef9edbac244a.jpg?1783916016",
+    "normal": "https://cards.scryfall.io/normal/front/e/7/e76a2b11-a087-42cf-8356-ef9edbac244a.jpg?1783916016",
+    "art": "https://cards.scryfall.io/art_crop/front/e/7/e76a2b11-a087-42cf-8356-ef9edbac244a.jpg?1783916016"
+   },
+   "power": "4",
+   "toughness": "4",
+   "printing": "ltc/67"
+  },
+  "Rogue's Passage": {
+   "name": "Rogue's Passage",
+   "id": "4493b62b-f354-47ff-9dcf-cc6e29de77c6",
+   "set": "hoc",
+   "cn": "212",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}: Add {C}.\n{4}, {T}: Target creature can't be blocked this turn.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "C"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/6/86438671-fdb8-4a82-b1e8-ef51fa4078df.jpg?1783915864",
+    "normal": "https://cards.scryfall.io/normal/front/8/6/86438671-fdb8-4a82-b1e8-ef51fa4078df.jpg?1783915864",
+    "art": "https://cards.scryfall.io/art_crop/front/8/6/86438671-fdb8-4a82-b1e8-ef51fa4078df.jpg?1783915864"
+   },
+   "printing": "ltc/326"
+  },
+  "Secluded Courtyard": {
+   "name": "Secluded Courtyard",
+   "id": "c0d17d04-cf0b-4918-bfec-b34b0d98a602",
+   "set": "msc",
+   "cn": "265",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "As this land enters, choose a creature type.\n{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a creature spell of the chosen type or activate an ability of a creature source of the chosen type.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "C",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/4/a49a20ea-dcd7-435b-9bb5-abc9dee58fb0.jpg?1783915861",
+    "normal": "https://cards.scryfall.io/normal/front/a/4/a49a20ea-dcd7-435b-9bb5-abc9dee58fb0.jpg?1783915861",
+    "art": "https://cards.scryfall.io/art_crop/front/a/4/a49a20ea-dcd7-435b-9bb5-abc9dee58fb0.jpg?1783915861"
+   },
+   "printing": "ltc/330"
+  },
+  "Selfless Squire": {
+   "name": "Selfless Squire",
+   "id": "8b8f4489-3d07-4e57-9b94-afa52fa984f8",
+   "set": "mkc",
+   "cn": "82",
+   "mana_cost": "{3}{W}",
+   "cmc": 4.0,
+   "type_line": "Creature — Human Soldier",
+   "oracle_text": "Flash\nWhen this creature enters, prevent all damage that would be dealt to you this turn.\nWhenever damage that would be dealt to you is prevented, put that many +1/+1 counters on this creature.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Flash"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/5/f5f2bffc-4a56-4558-91b4-d2d6a98b8d05.jpg?1783915959",
+    "normal": "https://cards.scryfall.io/normal/front/f/5/f5f2bffc-4a56-4558-91b4-d2d6a98b8d05.jpg?1783915959",
+    "art": "https://cards.scryfall.io/art_crop/front/f/5/f5f2bffc-4a56-4558-91b4-d2d6a98b8d05.jpg?1783915959"
+   },
+   "power": "1",
+   "toughness": "1",
+   "printing": "ltc/176"
+  },
+  "Shared Animosity": {
+   "name": "Shared Animosity",
+   "id": "1bd77ae9-c5ba-44af-80e9-7c852722ef6c",
+   "set": "lcc",
+   "cn": "231",
+   "mana_cost": "{2}{R}",
+   "cmc": 3.0,
+   "type_line": "Enchantment",
+   "oracle_text": "Whenever a creature you control attacks, it gets +1/+0 until end of turn for each other attacking creature that shares a creature type with it.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/7/e/7e735f1a-3925-43f8-bc95-2cadcd44d5e0.jpg?1783915930",
+    "normal": "https://cards.scryfall.io/normal/front/7/e/7e735f1a-3925-43f8-bc95-2cadcd44d5e0.jpg?1783915930",
+    "art": "https://cards.scryfall.io/art_crop/front/7/e/7e735f1a-3925-43f8-bc95-2cadcd44d5e0.jpg?1783915930"
+   },
+   "printing": "ltc/226"
+  },
+  "Sol Ring": {
+   "name": "Sol Ring",
+   "id": "8ee443cc-e17a-493b-9c93-1f9e141a30e4",
+   "set": "frc",
+   "cn": "21",
+   "mana_cost": "{1}",
+   "cmc": 1.0,
+   "type_line": "Artifact",
+   "oracle_text": "{T}: Add {C}{C}.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "C"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/5/8/5805f64c-dd88-4e94-8f0a-a01dae67e3ba.jpg?1783915895",
+    "normal": "https://cards.scryfall.io/normal/front/5/8/5805f64c-dd88-4e94-8f0a-a01dae67e3ba.jpg?1783915895",
+    "art": "https://cards.scryfall.io/art_crop/front/5/8/5805f64c-dd88-4e94-8f0a-a01dae67e3ba.jpg?1783915895"
+   },
+   "printing": "ltc/284"
+  },
+  "Sulfur Falls": {
+   "name": "Sulfur Falls",
+   "id": "2b20fa73-c6de-49c1-b3d0-6ebd543a00d0",
+   "set": "frc",
+   "cn": "84",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped unless you control an Island or a Mountain.\n{T}: Add {U} or {R}.",
+   "colors": [],
+   "color_identity": [
+    "R",
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "R",
+    "U"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/a/9ac747b1-db9a-463f-b222-cb46bb0a43f8.jpg?1783915861",
+    "normal": "https://cards.scryfall.io/normal/front/9/a/9ac747b1-db9a-463f-b222-cb46bb0a43f8.jpg?1783915861",
+    "art": "https://cards.scryfall.io/art_crop/front/9/a/9ac747b1-db9a-463f-b222-cb46bb0a43f8.jpg?1783915861"
+   },
+   "printing": "ltc/333"
+  },
+  "Sunset Revelry": {
+   "name": "Sunset Revelry",
+   "id": "61b39ef1-29d4-4c8d-aece-a3f1ce008e2d",
+   "set": "mid",
+   "cn": "38",
+   "mana_cost": "{1}{W}",
+   "cmc": 2.0,
+   "type_line": "Sorcery",
+   "oracle_text": "If an opponent has more life than you, you gain 4 life.\nIf an opponent controls more creatures than you, create two 1/1 white Human creature tokens.\nIf an opponent has more cards in hand than you, draw a card.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/9/a9601594-1efb-4cf7-ad94-76fe6ebfe8ad.jpg?1783915958",
+    "normal": "https://cards.scryfall.io/normal/front/a/9/a9601594-1efb-4cf7-ad94-76fe6ebfe8ad.jpg?1783915958",
+    "art": "https://cards.scryfall.io/art_crop/front/a/9/a9601594-1efb-4cf7-ad94-76fe6ebfe8ad.jpg?1783915958"
+   },
+   "printing": "ltc/177"
+  },
+  "Supreme Verdict": {
+   "name": "Supreme Verdict",
+   "id": "3892f1c5-937e-4ef4-b6f9-e0c0ded070d0",
+   "set": "clu",
+   "cn": "211",
+   "mana_cost": "{1}{W}{W}{U}",
+   "cmc": 4.0,
+   "type_line": "Sorcery",
+   "oracle_text": "This spell can't be countered.\nDestroy all creatures.",
+   "colors": [
+    "U",
+    "W"
+   ],
+   "color_identity": [
+    "U",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/1/a1cc1333-7eb3-48c4-99e7-0c138f2e088e.jpg?1783915902",
+    "normal": "https://cards.scryfall.io/normal/front/a/1/a1cc1333-7eb3-48c4-99e7-0c138f2e088e.jpg?1783915902",
+    "art": "https://cards.scryfall.io/art_crop/front/a/1/a1cc1333-7eb3-48c4-99e7-0c138f2e088e.jpg?1783915902"
+   },
+   "printing": "ltc/272"
+  },
+  "Swords to Plowshares": {
+   "name": "Swords to Plowshares",
+   "id": "f7e12477-d59f-442b-a678-1be746d0b7be",
+   "set": "frc",
+   "cn": "37",
+   "mana_cost": "{W}",
+   "cmc": 1.0,
+   "type_line": "Instant",
+   "oracle_text": "Exile target creature. Its controller gains life equal to its power.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/c/6/c6563536-2751-4b09-8e28-23438eb32533.jpg?1783915958",
+    "normal": "https://cards.scryfall.io/normal/front/c/6/c6563536-2751-4b09-8e28-23438eb32533.jpg?1783915958",
+    "art": "https://cards.scryfall.io/art_crop/front/c/6/c6563536-2751-4b09-8e28-23438eb32533.jpg?1783915958"
+   },
+   "printing": "ltc/178"
+  },
+  "Talisman of Conviction": {
+   "name": "Talisman of Conviction",
+   "id": "a365885c-f7d9-4ea1-9125-5265055e5570",
+   "set": "msc",
+   "cn": "217",
+   "mana_cost": "{2}",
+   "cmc": 2.0,
+   "type_line": "Artifact",
+   "oracle_text": "{T}: Add {C}.\n{T}: Add {R} or {W}. This artifact deals 1 damage to you.",
+   "colors": [],
+   "color_identity": [
+    "R",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "C",
+    "R",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/c/5/c542cc26-f61a-416b-866e-8c500ff24783.jpg?1783915894",
+    "normal": "https://cards.scryfall.io/normal/front/c/5/c542cc26-f61a-416b-866e-8c500ff24783.jpg?1783915894",
+    "art": "https://cards.scryfall.io/art_crop/front/c/5/c542cc26-f61a-416b-866e-8c500ff24783.jpg?1783915894"
+   },
+   "printing": "ltc/285"
+  },
+  "Talisman of Progress": {
+   "name": "Talisman of Progress",
+   "id": "454ed9c8-3ec1-4b65-bf3f-29a186742aed",
+   "set": "frc",
+   "cn": "64",
+   "mana_cost": "{2}",
+   "cmc": 2.0,
+   "type_line": "Artifact",
+   "oracle_text": "{T}: Add {C}.\n{T}: Add {W} or {U}. This artifact deals 1 damage to you.",
+   "colors": [],
+   "color_identity": [
+    "U",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "C",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/4/c/4c060c49-7bee-4f66-b053-df7db7cefaa7.jpg?1783915895",
+    "normal": "https://cards.scryfall.io/normal/front/4/c/4c060c49-7bee-4f66-b053-df7db7cefaa7.jpg?1783915895",
+    "art": "https://cards.scryfall.io/art_crop/front/4/c/4c060c49-7bee-4f66-b053-df7db7cefaa7.jpg?1783915895"
+   },
+   "printing": "ltc/286"
+  },
+  "Taunt from the Rampart": {
+   "name": "Taunt from the Rampart",
+   "id": "ad79ee29-dd86-484f-bd70-8ecd9d90ef75",
+   "set": "msc",
+   "cn": "188",
+   "mana_cost": "{3}{R}{W}",
+   "cmc": 5.0,
+   "type_line": "Sorcery",
+   "oracle_text": "Goad all creatures your opponents control. Until your next turn, those creatures can't block. (Until your next turn, those creatures attack each combat if able and attack a player other than you if able.)",
+   "colors": [
+    "R",
+    "W"
+   ],
+   "color_identity": [
+    "R",
+    "W"
+   ],
+   "keywords": [
+    "Goad"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/d/d/dd1eaa0e-060d-40f1-84c5-f7e8df2f824c.jpg?1783916016",
+    "normal": "https://cards.scryfall.io/normal/front/d/d/dd1eaa0e-060d-40f1-84c5-f7e8df2f824c.jpg?1783916016",
+    "art": "https://cards.scryfall.io/art_crop/front/d/d/dd1eaa0e-060d-40f1-84c5-f7e8df2f824c.jpg?1783916016"
+   },
+   "printing": "ltc/71"
+  },
+  "Terramorphic Expanse": {
+   "name": "Terramorphic Expanse",
+   "id": "a81f924b-0527-4311-8120-9bfff71524f6",
+   "set": "msc",
+   "cn": "273",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/4/84a12498-9c44-4178-a8fc-54d20014ba7a.jpg?1783915866",
+    "normal": "https://cards.scryfall.io/normal/front/8/4/84a12498-9c44-4178-a8fc-54d20014ba7a.jpg?1783915866",
+    "art": "https://cards.scryfall.io/art_crop/front/8/4/84a12498-9c44-4178-a8fc-54d20014ba7a.jpg?1783915866"
+   },
+   "printing": "ltc/337"
+  },
+  "Thought Vessel": {
+   "name": "Thought Vessel",
+   "id": "ad077996-6b5e-4eb8-bb6e-93d43c5efa8f",
+   "set": "mbc",
+   "cn": "78",
+   "mana_cost": "{2}",
+   "cmc": 2.0,
+   "type_line": "Artifact",
+   "oracle_text": "You have no maximum hand size.\n{T}: Add {C}.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "C"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/2/62d4f5fe-d83d-4508-819b-57784ea44fa4.jpg?1783915893",
+    "normal": "https://cards.scryfall.io/normal/front/6/2/62d4f5fe-d83d-4508-819b-57784ea44fa4.jpg?1783915893",
+    "art": "https://cards.scryfall.io/art_crop/front/6/2/62d4f5fe-d83d-4508-819b-57784ea44fa4.jpg?1783915893"
+   },
+   "printing": "ltc/287"
+  },
+  "Throne of the High City": {
+   "name": "Throne of the High City",
+   "id": "6aac7a6d-90c7-4fe7-b6d3-f63a7170ee96",
+   "set": "msc",
+   "cn": "274",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}: Add {C}.\n{4}, {T}, Sacrifice this land: You become the monarch.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "C"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/b/f/bf43967f-756c-4e01-9fdc-7d4abdf4e9dd.jpg?1783915857",
+    "normal": "https://cards.scryfall.io/normal/front/b/f/bf43967f-756c-4e01-9fdc-7d4abdf4e9dd.jpg?1783915857",
+    "art": "https://cards.scryfall.io/art_crop/front/b/f/bf43967f-756c-4e01-9fdc-7d4abdf4e9dd.jpg?1783915857"
+   },
+   "printing": "ltc/339"
+  },
+  "Théoden, King of Rohan": {
+   "name": "Théoden, King of Rohan",
+   "id": "f6dcd1ca-4943-46e4-bb5d-c14949e21e23",
+   "set": "ltr",
+   "cn": "233",
+   "mana_cost": "{1}{R}{W}",
+   "cmc": 3.0,
+   "type_line": "Legendary Creature — Human Noble",
+   "oracle_text": "Whenever Théoden or another Human you control enters, target creature gains double strike until end of turn.",
+   "colors": [
+    "R",
+    "W"
+   ],
+   "color_identity": [
+    "R",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/6/f6dcd1ca-4943-46e4-bb5d-c14949e21e23.jpg?1783916242",
+    "normal": "https://cards.scryfall.io/normal/front/f/6/f6dcd1ca-4943-46e4-bb5d-c14949e21e23.jpg?1783916242",
+    "art": "https://cards.scryfall.io/art_crop/front/f/6/f6dcd1ca-4943-46e4-bb5d-c14949e21e23.jpg?1783916242"
+   },
+   "power": "2",
+   "toughness": "3",
+   "printing": "ltr/233"
+  },
+  "Tranquil Cove": {
+   "name": "Tranquil Cove",
+   "id": "1c4efa6c-4f29-41cd-a728-bf0e479ace05",
+   "set": "tdm",
+   "cn": "270",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {W} or {U}.",
+   "colors": [],
+   "color_identity": [
+    "U",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/d/f/dff36b80-84e8-439d-bd42-5f4b31dae17a.jpg?1783915857",
+    "normal": "https://cards.scryfall.io/normal/front/d/f/dff36b80-84e8-439d-bd42-5f4b31dae17a.jpg?1783915857",
+    "art": "https://cards.scryfall.io/art_crop/front/d/f/dff36b80-84e8-439d-bd42-5f4b31dae17a.jpg?1783915857"
+   },
+   "printing": "ltc/340"
+  },
+  "Unbreakable Formation": {
+   "name": "Unbreakable Formation",
+   "id": "06e1cc7b-9319-4f6f-88ee-2e6b6d2efbc6",
+   "set": "rvr",
+   "cn": "32",
+   "mana_cost": "{2}{W}",
+   "cmc": 3.0,
+   "type_line": "Instant",
+   "oracle_text": "Creatures you control gain indestructible until end of turn.\nAddendum — If you cast this spell during your main phase, put a +1/+1 counter on each of those creatures and they gain vigilance until end of turn.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Addendum"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/d/5/d5da52b2-cc09-49ac-8091-737f23a77165.jpg?1783915958",
+    "normal": "https://cards.scryfall.io/normal/front/d/5/d5da52b2-cc09-49ac-8091-737f23a77165.jpg?1783915958",
+    "art": "https://cards.scryfall.io/art_crop/front/d/5/d5da52b2-cc09-49ac-8091-737f23a77165.jpg?1783915958"
+   },
+   "printing": "ltc/179"
+  },
+  "Vanquisher's Banner": {
+   "name": "Vanquisher's Banner",
+   "id": "efa6944e-b5e2-4584-ae37-f5b59a8ec75e",
+   "set": "lcc",
+   "cn": "316",
+   "mana_cost": "{5}",
+   "cmc": 5.0,
+   "type_line": "Artifact",
+   "oracle_text": "As this artifact enters, choose a creature type.\nCreatures you control of the chosen type get +1/+1.\nWhenever you cast a creature spell of the chosen type, draw a card.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/7/e715f4e0-6ef4-40da-bc6c-84709e910cad.jpg?1783915890",
+    "normal": "https://cards.scryfall.io/normal/front/e/7/e715f4e0-6ef4-40da-bc6c-84709e910cad.jpg?1783915890",
+    "art": "https://cards.scryfall.io/art_crop/front/e/7/e715f4e0-6ef4-40da-bc6c-84709e910cad.jpg?1783915890"
+   },
+   "printing": "ltc/289"
+  },
+  "Verge Rangers": {
+   "name": "Verge Rangers",
+   "id": "c63a5253-b3b7-48d0-8c2c-700fbd0e4c3f",
+   "set": "dsc",
+   "cn": "108",
+   "mana_cost": "{2}{W}",
+   "cmc": 3.0,
+   "type_line": "Creature — Human Scout Ranger",
+   "oracle_text": "First strike\nYou may look at the top card of your library any time.\nAs long as an opponent controls more lands than you, you may play lands from the top of your library. (You can play a land this way only if you have an available land play remaining.)",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "First strike"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/f/8f00f2a0-33a6-475b-9f50-2c4e26efadd8.jpg?1783915957",
+    "normal": "https://cards.scryfall.io/normal/front/8/f/8f00f2a0-33a6-475b-9f50-2c4e26efadd8.jpg?1783915957",
+    "art": "https://cards.scryfall.io/art_crop/front/8/f/8f00f2a0-33a6-475b-9f50-2c4e26efadd8.jpg?1783915957"
+   },
+   "power": "3",
+   "toughness": "3",
+   "printing": "ltc/180"
+  },
+  "Village Bell-Ringer": {
+   "name": "Village Bell-Ringer",
+   "id": "b72b39fd-507d-432b-b5b0-5657e5ed0a47",
+   "set": "moc",
+   "cn": "216",
+   "mana_cost": "{2}{W}",
+   "cmc": 3.0,
+   "type_line": "Creature — Human Scout",
+   "oracle_text": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, untap all creatures you control.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Flash"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/6/e62563c6-a7cd-40a9-afb8-14e49d4edb4a.jpg?1783915957",
+    "normal": "https://cards.scryfall.io/normal/front/e/6/e62563c6-a7cd-40a9-afb8-14e49d4edb4a.jpg?1783915957",
+    "art": "https://cards.scryfall.io/art_crop/front/e/6/e62563c6-a7cd-40a9-afb8-14e49d4edb4a.jpg?1783915957"
+   },
+   "power": "1",
+   "toughness": "4",
+   "printing": "ltc/181"
+  },
+  "Visions of Glory": {
+   "name": "Visions of Glory",
+   "id": "11675d8a-cd81-4055-bdbd-2e709e12ba66",
+   "set": "mic",
+   "cn": "32",
+   "mana_cost": "{4}{W}",
+   "cmc": 5.0,
+   "type_line": "Sorcery",
+   "oracle_text": "Create a 1/1 white Human creature token for each creature you control.\nFlashback {8}{W}{W}. This spell costs {X} less to cast this way, where X is the greatest mana value of a commander you own on the battlefield or in the command zone. (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Flashback"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/5/35b97bc8-f61d-4a3e-b6f0-361962fc2152.jpg?1783915956",
+    "normal": "https://cards.scryfall.io/normal/front/3/5/35b97bc8-f61d-4a3e-b6f0-361962fc2152.jpg?1783915956",
+    "art": "https://cards.scryfall.io/art_crop/front/3/5/35b97bc8-f61d-4a3e-b6f0-361962fc2152.jpg?1783915956"
+   },
+   "printing": "ltc/182"
+  },
+  "Wayfarer's Bauble": {
+   "name": "Wayfarer's Bauble",
+   "id": "b279f268-c37e-4a2d-8195-74f4881226fc",
+   "set": "hoc",
+   "cn": "211",
+   "mana_cost": "{1}",
+   "cmc": 1.0,
+   "type_line": "Artifact",
+   "oracle_text": "{2}, {T}, Sacrifice this artifact: Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/7/2/7219d07d-56b3-4522-9552-7f290f2c2176.jpg?1783915889",
+    "normal": "https://cards.scryfall.io/normal/front/7/2/7219d07d-56b3-4522-9552-7f290f2c2176.jpg?1783915889",
+    "art": "https://cards.scryfall.io/art_crop/front/7/2/7219d07d-56b3-4522-9552-7f290f2c2176.jpg?1783915889"
+   },
+   "printing": "ltc/290"
+  },
+  "Weathered Wayfarer": {
+   "name": "Weathered Wayfarer",
+   "id": "09656d96-c366-49ec-b687-cad903de1385",
+   "set": "2x2",
+   "cn": "34",
+   "mana_cost": "{W}",
+   "cmc": 1.0,
+   "type_line": "Creature — Human Nomad Cleric",
+   "oracle_text": "{W}, {T}: Search your library for a land card, reveal it, put it into your hand, then shuffle. Activate only if an opponent controls more lands than you.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/7/2/72277d98-f443-4a27-9804-f391b1fa71d7.jpg?1783915957",
+    "normal": "https://cards.scryfall.io/normal/front/7/2/72277d98-f443-4a27-9804-f391b1fa71d7.jpg?1783915957",
+    "art": "https://cards.scryfall.io/art_crop/front/7/2/72277d98-f443-4a27-9804-f391b1fa71d7.jpg?1783915957"
+   },
+   "power": "1",
+   "toughness": "1",
+   "printing": "ltc/183"
+  },
+  "Wind-Scarred Crag": {
+   "name": "Wind-Scarred Crag",
+   "id": "4912e4d0-b16a-4aa6-a583-3430d26bd591",
+   "set": "tdm",
+   "cn": "271",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {R} or {W}.",
+   "colors": [],
+   "color_identity": [
+    "R",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "R",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/b/5/b58b5cb6-828d-4d3c-a8d7-8947e87c4ff1.jpg?1783915851",
+    "normal": "https://cards.scryfall.io/normal/front/b/5/b58b5cb6-828d-4d3c-a8d7-8947e87c4ff1.jpg?1783915851",
+    "art": "https://cards.scryfall.io/art_crop/front/b/5/b58b5cb6-828d-4d3c-a8d7-8947e87c4ff1.jpg?1783915851"
+   },
+   "printing": "ltc/344"
+  },
+  "Windbrisk Heights": {
+   "name": "Windbrisk Heights",
+   "id": "df441bae-3b9c-46a9-8287-870c00d58a64",
+   "set": "tdc",
+   "cn": "411",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "Hideaway 4 (When this land enters, look at the top four cards of your library, exile one face down, then put the rest on the bottom in a random order.)\nThis land enters tapped.\n{T}: Add {W}.\n{W}, {T}: You may play the exiled card without paying its mana cost if you attacked with three or more creatures this turn.",
+   "colors": [],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Hideaway"
+   ],
+   "produced_mana": [
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/e/aed27090-0cb2-45cf-8db1-d4c8ada2543a.jpg?1783915852",
+    "normal": "https://cards.scryfall.io/normal/front/a/e/aed27090-0cb2-45cf-8db1-d4c8ada2543a.jpg?1783915852",
+    "art": "https://cards.scryfall.io/art_crop/front/a/e/aed27090-0cb2-45cf-8db1-d4c8ada2543a.jpg?1783915852"
+   },
+   "printing": "ltc/345"
+  },
+  "Zealous Conscripts": {
+   "name": "Zealous Conscripts",
+   "id": "b5ca6c08-bfe0-4021-b6ad-e235c8905661",
+   "set": "inr",
+   "cn": "183",
+   "mana_cost": "{4}{R}",
+   "cmc": 5.0,
+   "type_line": "Creature — Human Warrior",
+   "oracle_text": "Haste\nWhen this creature enters, gain control of target permanent until end of turn. Untap that permanent. It gains haste until end of turn.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [
+    "Haste"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/c/1/c1205f74-ffe3-401f-96ef-96f855b9ae67.jpg?1783915926",
+    "normal": "https://cards.scryfall.io/normal/front/c/1/c1205f74-ffe3-401f-96ef-96f855b9ae67.jpg?1783915926",
+    "art": "https://cards.scryfall.io/art_crop/front/c/1/c1205f74-ffe3-401f-96ef-96f855b9ae67.jpg?1783915926"
+   },
+   "power": "3",
+   "toughness": "3",
+   "printing": "ltc/231"
+  },
+  "Éomer, King of Rohan": {
+   "name": "Éomer, King of Rohan",
+   "id": "5f48930a-d7bd-410b-995a-4e2837aabb25",
+   "set": "ltc",
+   "cn": "52",
+   "mana_cost": "{3}{R}{W}",
+   "cmc": 5.0,
+   "type_line": "Legendary Creature — Human Noble",
+   "oracle_text": "Double strike\nÉomer enters with a +1/+1 counter on it for each other Human you control.\nWhen Éomer enters, target player becomes the monarch. Éomer deals damage equal to its power to any target.",
+   "colors": [
+    "R",
+    "W"
+   ],
+   "color_identity": [
+    "R",
+    "W"
+   ],
+   "keywords": [
+    "Double strike"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/5/f/5f48930a-d7bd-410b-995a-4e2837aabb25.jpg?1783916021",
+    "normal": "https://cards.scryfall.io/normal/front/5/f/5f48930a-d7bd-410b-995a-4e2837aabb25.jpg?1783916021",
+    "art": "https://cards.scryfall.io/art_crop/front/5/f/5f48930a-d7bd-410b-995a-4e2837aabb25.jpg?1783916021"
+   },
+   "power": "2",
+   "toughness": "2",
+   "printing": "ltc/52"
+  },
+  "Éowyn, Shieldmaiden": {
+   "name": "Éowyn, Shieldmaiden",
+   "id": "dd4a00ff-2206-4e12-a0ab-61ed82c9e6c5",
+   "set": "ltc",
+   "cn": "1",
+   "mana_cost": "{2}{U}{R}{W}",
+   "cmc": 5.0,
+   "type_line": "Legendary Creature — Human Knight",
+   "oracle_text": "First strike\nAt the beginning of combat on your turn, if another Human entered the battlefield under your control this turn, create two 2/2 red Human Knight creature tokens with trample and haste. Then if you control six or more Humans, draw a card.",
+   "colors": [
+    "R",
+    "U",
+    "W"
+   ],
+   "color_identity": [
+    "R",
+    "U",
+    "W"
+   ],
+   "keywords": [
+    "First strike"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/d/d/dd4a00ff-2206-4e12-a0ab-61ed82c9e6c5.jpg?1783916039",
+    "normal": "https://cards.scryfall.io/normal/front/d/d/dd4a00ff-2206-4e12-a0ab-61ed82c9e6c5.jpg?1783916039",
+    "art": "https://cards.scryfall.io/art_crop/front/d/d/dd4a00ff-2206-4e12-a0ab-61ed82c9e6c5.jpg?1783916039"
+   },
+   "power": "5",
+   "toughness": "4",
+   "printing": "ltc/1"
+  }
+ }
+}

@@ -1,0 +1,3266 @@
+{
+ "Ambition's Cost": {
+  "name": "Ambition's Cost",
+  "source": "You draw three cards and lose 3 life.",
+  "spell": [
+   {
+    "draw": 3
+   },
+   {
+    "loseLife": 3
+   }
+  ],
+  "status": "auto"
+ },
+ "Arcane Signet": {
+  "name": "Arcane Signet",
+  "source": "{T}: Add one mana of any color in your commander's color identity.",
+  "status": "auto"
+ },
+ "Army of the Damned": {
+  "flashback": "{7}{B}{B}{B}",
+  "name": "Army of the Damned",
+  "source": "Create thirteen tapped 2/2 black Zombie creature tokens.\nFlashback {7}{B}{B}{B} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "spell": [
+   {
+    "token": {
+     "colors": [
+      "B"
+     ],
+     "n": 13,
+     "name": "Zombie",
+     "power": 2,
+     "tapped": true,
+     "toughness": 2,
+     "types": [
+      "Creature",
+      "Zombie"
+     ]
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Ayara, First of Locthwain": {
+  "activated": [
+   {
+    "cost": {
+     "sac": {
+      "filter": {
+       "colors": [
+        "B"
+       ],
+       "creature": true,
+       "other": true
+      }
+     },
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "label": "Sac black creature: draw",
+    "text": "{T}, Sacrifice another black creature: Draw a card."
+   }
+  ],
+  "name": "Ayara, First of Locthwain",
+  "source": "Whenever Ayara or another black creature you control enters, each opponent loses 1 life and you gain 1 life.\n{T}, Sacrifice another black creature: Draw a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "oppLoseLife": 1
+     },
+     {
+      "gainLife": 1
+     }
+    ],
+    "filter": {
+     "colors": [
+      "B"
+     ],
+     "creature": true
+    },
+    "on": "enters",
+    "text": "Whenever Ayara or another black creature you control enters, each opponent loses 1 life and you gain 1 life."
+   }
+  ]
+ },
+ "Bad Moon": {
+  "name": "Bad Moon",
+  "source": "Black creatures get +1/+1.",
+  "statics": [
+   {
+    "filter": {
+     "colors": [
+      "B"
+     ]
+    },
+    "p": 1,
+    "scope": "creatures-you-control",
+    "t": 1,
+    "text": "Black creatures get +1/+1."
+   }
+  ],
+  "status": "hand"
+ },
+ "Barren Moor": {
+  "name": "Barren Moor",
+  "source": "This land enters tapped.\n{T}: Add {B}.\nCycling {B} ({B}, Discard this card: Draw a card.)",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "Bojuka Bog": {
+  "name": "Bojuka Bog",
+  "source": "This land enters tapped.\nWhen this land enters, exile target player's graveyard.\n{T}: Add {B}.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   },
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [],
+         "label": "Opponent's graveyard (goldfish: empty)"
+        },
+        {
+         "do": [
+          {
+           "exileFromGy": {
+            "n": "count:cards-in-graveyard"
+           }
+          }
+         ],
+         "label": "My graveyard"
+        }
+       ],
+       "text": "Exile target player's graveyard."
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this land enters, exile target player's graveyard."
+   }
+  ]
+ },
+ "Bontu's Monument": {
+  "name": "Bontu's Monument",
+  "source": "Black creature spells you cast cost {1} less to cast.\nWhenever you cast a creature spell, each opponent loses 1 life and you gain 1 life.",
+  "statics": [
+   {
+    "costLess": 1,
+    "filter": {
+     "colors": [
+      "B"
+     ],
+     "creature": true
+    },
+    "scope": "spells-you-cast",
+    "text": "Black creature spells you cast cost {1} less to cast."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "oppLoseLife": 1
+     },
+     {
+      "gainLife": 1
+     }
+    ],
+    "filter": {
+     "creature": true
+    },
+    "on": "cast",
+    "text": "Whenever you cast a creature spell, each opponent loses 1 life and you gain 1 life."
+   }
+  ]
+ },
+ "Carrion Feeder": {
+  "activated": [
+   {
+    "cost": {
+     "sac": {
+      "filter": {
+       "creature": true
+      }
+     }
+    },
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "label": "Sac: +1/+1",
+    "text": "Sacrifice a creature: Put a +1/+1 counter on this creature."
+   }
+  ],
+  "name": "Carrion Feeder",
+  "notes": "\"Can't block\" is irrelevant in goldfish.",
+  "source": "This creature can't block.\nSacrifice a creature: Put a +1/+1 counter on this creature.",
+  "status": "hand"
+ },
+ "Castle Locthwain": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}{B}{B}",
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     },
+     {
+      "loseLife": "count:cards-in-hand"
+     }
+    ],
+    "label": "Draw",
+    "text": "{1}{B}{B}, {T}: Draw a card, then you lose life equal to the number of cards in your hand."
+   }
+  ],
+  "name": "Castle Locthwain",
+  "source": "This land enters tapped unless you control a Swamp.\n{T}: Add {B}.\n{1}{B}{B}, {T}: Draw a card, then you lose life equal to the number of cards in your hand.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "if": {
+     "not": {
+      "youControl": {
+       "subtype": "Swamp"
+      }
+     }
+    },
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control a Swamp."
+   }
+  ]
+ },
+ "Cemetery Reaper": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}{B}",
+     "tap": true
+    },
+    "do": [
+     {
+      "exileFromGy": {
+       "filter": {
+        "creature": true
+       },
+       "optional": true
+      }
+     },
+     {
+      "token": {
+       "colors": [
+        "B"
+       ],
+       "n": 1,
+       "name": "Zombie",
+       "power": 2,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Zombie"
+       ]
+      }
+     }
+    ],
+    "text": "{2}{B}, {T}: Exile target creature card from a graveyard. Create a 2/2 black Zombie creature token."
+   }
+  ],
+  "name": "Cemetery Reaper",
+  "source": "Other Zombie creatures you control get +1/+1.\n{2}{B}, {T}: Exile target creature card from a graveyard. Create a 2/2 black Zombie creature token.",
+  "statics": [
+   {
+    "filter": {
+     "other": true,
+     "subtype": "Zombie"
+    },
+    "p": 1,
+    "scope": "creatures-you-control",
+    "t": 1,
+    "text": "Other Zombie creatures you control get +1/+1."
+   }
+  ],
+  "status": "hand"
+ },
+ "Cemetery Recruitment": {
+  "name": "Cemetery Recruitment",
+  "source": "Return target creature card from your graveyard to your hand. If it's a Zombie card, draw a card.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "return": {
+          "filter": {
+           "creature": true,
+           "subtype": "Zombie"
+          },
+          "from": "gy",
+          "to": "hand"
+         }
+        },
+        {
+         "draw": 1
+        }
+       ],
+       "label": "Return a Zombie card (and draw a card)"
+      },
+      {
+       "do": [
+        {
+         "return": {
+          "filter": {
+           "creature": true
+          },
+          "from": "gy",
+          "to": "hand"
+         }
+        }
+       ],
+       "label": "Return a non-Zombie creature card"
+      }
+     ],
+     "text": "Return target creature card from your graveyard to your hand. If it's a Zombie card, draw a card."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Champion of the Perished": {
+  "name": "Champion of the Perished",
+  "source": "Whenever another Zombie you control enters, put a +1/+1 counter on this creature.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "other": true,
+     "subtype": "Zombie"
+    },
+    "on": "enters",
+    "text": "Whenever another Zombie you control enters, put a +1/+1 counter on this creature."
+   }
+  ]
+ },
+ "Charcoal Diamond": {
+  "name": "Charcoal Diamond",
+  "source": "This artifact enters tapped.\n{T}: Add {B}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This artifact enters tapped."
+   }
+  ]
+ },
+ "Commander's Sphere": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "Sacrifice this artifact: Draw a card."
+   }
+  ],
+  "name": "Commander's Sphere",
+  "source": "{T}: Add one mana of any color in your commander's color identity.\nSacrifice this artifact: Draw a card.",
+  "status": "auto"
+ },
+ "Consumed by Greed": {
+  "name": "Consumed by Greed",
+  "notes": "The dummy controls no creatures (nothing to sacrifice) and its gift draw is irrelevant.",
+  "source": "Gift a card (You may promise an opponent a gift as you cast this spell. If you do, they draw a card before its other effects.)\nTarget opponent sacrifices a creature with the greatest power among creatures they control. If the gift was promised, return target creature card from your graveyard to your hand.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "return": {
+          "filter": {
+           "creature": true
+          },
+          "from": "gy",
+          "to": "hand"
+         }
+        }
+       ],
+       "label": "Promise the gift: return a creature card from my graveyard to hand"
+      },
+      {
+       "do": [],
+       "label": "No gift"
+      }
+     ],
+     "text": "Gift a card"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Consuming Corruption": {
+  "name": "Consuming Corruption",
+  "notes": "X = Swamps you control. The dummy has no creatures: pick the opponent's (nothing happens) or one of yours; the life gain happens either way.",
+  "source": "Consuming Corruption deals X damage to target creature or planeswalker and you gain X life, where X is the number of Swamps you control.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [],
+       "label": "An opponent's creature or planeswalker (the dummy has none: nothing happens)"
+      },
+      {
+       "do": [
+        {
+         "damage": {
+          "n": "count:Swamp",
+          "target": "creature-you-control"
+         }
+        }
+       ],
+       "label": "One of my creatures"
+      }
+     ],
+     "text": "Consuming Corruption deals X damage to target creature or planeswalker."
+    }
+   },
+   {
+    "gainLife": "count:Swamp"
+   }
+  ],
+  "status": "hand"
+ },
+ "Cryptbreaker": {
+  "activated": [
+   {
+    "cost": {
+     "discard": {
+      "n": 1
+     },
+     "mana": "{1}{B}",
+     "tap": true
+    },
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "B"
+       ],
+       "n": 1,
+       "name": "Zombie",
+       "power": 2,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Zombie"
+       ]
+      }
+     }
+    ],
+    "label": "Zombie",
+    "text": "{1}{B}, {T}, Discard a card: Create a 2/2 black Zombie creature token."
+   },
+   {
+    "cost": {
+     "tapUntapped": {
+      "filter": {
+       "subtype": "Zombie"
+      },
+      "n": 3
+     }
+    },
+    "do": [
+     {
+      "draw": 1
+     },
+     {
+      "loseLife": 1
+     }
+    ],
+    "label": "Tap 3 other Zombies: draw",
+    "text": "Tap three untapped Zombies you control: You draw a card and lose 1 life."
+   },
+   {
+    "cost": {
+     "tap": true,
+     "tapUntapped": {
+      "filter": {
+       "subtype": "Zombie"
+      },
+      "n": 2
+     }
+    },
+    "do": [
+     {
+      "draw": 1
+     },
+     {
+      "loseLife": 1
+     }
+    ],
+    "label": "Tap it + 2 Zombies: draw",
+    "text": "Tap three untapped Zombies you control: You draw a card and lose 1 life."
+   }
+  ],
+  "name": "Cryptbreaker",
+  "notes": "Cryptbreaker is a Zombie itself: the third ability taps it as one of the three (as a {T} cost it needs to have been under your control since the turn began).",
+  "source": "{1}{B}, {T}, Discard a card: Create a 2/2 black Zombie creature token.\nTap three untapped Zombies you control: You draw a card and lose 1 life.",
+  "status": "hand"
+ },
+ "Death Baron": {
+  "name": "Death Baron",
+  "source": "Skeletons you control and other Zombies you control get +1/+1 and have deathtouch. (Any amount of damage they deal to a creature is enough to destroy it.)",
+  "statics": [
+   {
+    "filter": {
+     "subtype": "Skeleton"
+    },
+    "kw": [
+     "Deathtouch"
+    ],
+    "p": 1,
+    "scope": "creatures-you-control",
+    "t": 1,
+    "text": "Skeletons you control and other Zombies you control get +1/+1 and have deathtouch."
+   },
+   {
+    "filter": {
+     "not": {
+      "subtype": "Skeleton"
+     },
+     "subtype": "Zombie"
+    },
+    "kw": [
+     "Deathtouch"
+    ],
+    "p": 1,
+    "scope": "other-creatures-you-control",
+    "t": 1,
+    "text": "Skeletons you control and other Zombies you control get +1/+1 and have deathtouch."
+   }
+  ],
+  "status": "hand"
+ },
+ "Diregraf Colossus": {
+  "name": "Diregraf Colossus",
+  "source": "This creature enters with a +1/+1 counter on it for each Zombie card in your graveyard.\nWhenever you cast a Zombie spell, create a tapped 2/2 black Zombie creature token.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": "count:gy:Zombie",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This creature enters with a +1/+1 counter on it for each Zombie card in your graveyard."
+   },
+   {
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "B"
+       ],
+       "n": 1,
+       "name": "Zombie",
+       "power": 2,
+       "tapped": true,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Zombie"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "subtype": "Zombie"
+    },
+    "on": "cast",
+    "text": "Whenever you cast a Zombie spell, create a tapped 2/2 black Zombie creature token."
+   }
+  ]
+ },
+ "Endless Ranks of the Dead": {
+  "name": "Endless Ranks of the Dead",
+  "notes": "\"Half, rounded down\" is a ladder on the Zombie count, capped at 30 tokens (60 Zombies).",
+  "source": "At the beginning of your upkeep, create X 2/2 black Zombie creature tokens, where X is half the number of Zombies you control, rounded down.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "token": {
+          "colors": [
+           "B"
+          ],
+          "n": 30,
+          "name": "Zombie",
+          "power": 2,
+          "toughness": 2,
+          "types": [
+           "Creature",
+           "Zombie"
+          ]
+         }
+        }
+       ],
+       "else": [
+        {
+         "check": {
+          "do": [
+           {
+            "token": {
+             "colors": [
+              "B"
+             ],
+             "n": 29,
+             "name": "Zombie",
+             "power": 2,
+             "toughness": 2,
+             "types": [
+              "Creature",
+              "Zombie"
+             ]
+            }
+           }
+          ],
+          "else": [
+           {
+            "check": {
+             "do": [
+              {
+               "token": {
+                "colors": [
+                 "B"
+                ],
+                "n": 28,
+                "name": "Zombie",
+                "power": 2,
+                "toughness": 2,
+                "types": [
+                 "Creature",
+                 "Zombie"
+                ]
+               }
+              }
+             ],
+             "else": [
+              {
+               "check": {
+                "do": [
+                 {
+                  "token": {
+                   "colors": [
+                    "B"
+                   ],
+                   "n": 27,
+                   "name": "Zombie",
+                   "power": 2,
+                   "toughness": 2,
+                   "types": [
+                    "Creature",
+                    "Zombie"
+                   ]
+                  }
+                 }
+                ],
+                "else": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "token": {
+                      "colors": [
+                       "B"
+                      ],
+                      "n": 26,
+                      "name": "Zombie",
+                      "power": 2,
+                      "toughness": 2,
+                      "types": [
+                       "Creature",
+                       "Zombie"
+                      ]
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "token": {
+                         "colors": [
+                          "B"
+                         ],
+                         "n": 25,
+                         "name": "Zombie",
+                         "power": 2,
+                         "toughness": 2,
+                         "types": [
+                          "Creature",
+                          "Zombie"
+                         ]
+                        }
+                       }
+                      ],
+                      "else": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "token": {
+                            "colors": [
+                             "B"
+                            ],
+                            "n": 24,
+                            "name": "Zombie",
+                            "power": 2,
+                            "toughness": 2,
+                            "types": [
+                             "Creature",
+                             "Zombie"
+                            ]
+                           }
+                          }
+                         ],
+                         "else": [
+                          {
+                           "check": {
+                            "do": [
+                             {
+                              "token": {
+                               "colors": [
+                                "B"
+                               ],
+                               "n": 23,
+                               "name": "Zombie",
+                               "power": 2,
+                               "toughness": 2,
+                               "types": [
+                                "Creature",
+                                "Zombie"
+                               ]
+                              }
+                             }
+                            ],
+                            "else": [
+                             {
+                              "check": {
+                               "do": [
+                                {
+                                 "token": {
+                                  "colors": [
+                                   "B"
+                                  ],
+                                  "n": 22,
+                                  "name": "Zombie",
+                                  "power": 2,
+                                  "toughness": 2,
+                                  "types": [
+                                   "Creature",
+                                   "Zombie"
+                                  ]
+                                 }
+                                }
+                               ],
+                               "else": [
+                                {
+                                 "check": {
+                                  "do": [
+                                   {
+                                    "token": {
+                                     "colors": [
+                                      "B"
+                                     ],
+                                     "n": 21,
+                                     "name": "Zombie",
+                                     "power": 2,
+                                     "toughness": 2,
+                                     "types": [
+                                      "Creature",
+                                      "Zombie"
+                                     ]
+                                    }
+                                   }
+                                  ],
+                                  "else": [
+                                   {
+                                    "check": {
+                                     "do": [
+                                      {
+                                       "token": {
+                                        "colors": [
+                                         "B"
+                                        ],
+                                        "n": 20,
+                                        "name": "Zombie",
+                                        "power": 2,
+                                        "toughness": 2,
+                                        "types": [
+                                         "Creature",
+                                         "Zombie"
+                                        ]
+                                       }
+                                      }
+                                     ],
+                                     "else": [
+                                      {
+                                       "check": {
+                                        "do": [
+                                         {
+                                          "token": {
+                                           "colors": [
+                                            "B"
+                                           ],
+                                           "n": 19,
+                                           "name": "Zombie",
+                                           "power": 2,
+                                           "toughness": 2,
+                                           "types": [
+                                            "Creature",
+                                            "Zombie"
+                                           ]
+                                          }
+                                         }
+                                        ],
+                                        "else": [
+                                         {
+                                          "check": {
+                                           "do": [
+                                            {
+                                             "token": {
+                                              "colors": [
+                                               "B"
+                                              ],
+                                              "n": 18,
+                                              "name": "Zombie",
+                                              "power": 2,
+                                              "toughness": 2,
+                                              "types": [
+                                               "Creature",
+                                               "Zombie"
+                                              ]
+                                             }
+                                            }
+                                           ],
+                                           "else": [
+                                            {
+                                             "check": {
+                                              "do": [
+                                               {
+                                                "token": {
+                                                 "colors": [
+                                                  "B"
+                                                 ],
+                                                 "n": 17,
+                                                 "name": "Zombie",
+                                                 "power": 2,
+                                                 "toughness": 2,
+                                                 "types": [
+                                                  "Creature",
+                                                  "Zombie"
+                                                 ]
+                                                }
+                                               }
+                                              ],
+                                              "else": [
+                                               {
+                                                "check": {
+                                                 "do": [
+                                                  {
+                                                   "token": {
+                                                    "colors": [
+                                                     "B"
+                                                    ],
+                                                    "n": 16,
+                                                    "name": "Zombie",
+                                                    "power": 2,
+                                                    "toughness": 2,
+                                                    "types": [
+                                                     "Creature",
+                                                     "Zombie"
+                                                    ]
+                                                   }
+                                                  }
+                                                 ],
+                                                 "else": [
+                                                  {
+                                                   "check": {
+                                                    "do": [
+                                                     {
+                                                      "token": {
+                                                       "colors": [
+                                                        "B"
+                                                       ],
+                                                       "n": 15,
+                                                       "name": "Zombie",
+                                                       "power": 2,
+                                                       "toughness": 2,
+                                                       "types": [
+                                                        "Creature",
+                                                        "Zombie"
+                                                       ]
+                                                      }
+                                                     }
+                                                    ],
+                                                    "else": [
+                                                     {
+                                                      "check": {
+                                                       "do": [
+                                                        {
+                                                         "token": {
+                                                          "colors": [
+                                                           "B"
+                                                          ],
+                                                          "n": 14,
+                                                          "name": "Zombie",
+                                                          "power": 2,
+                                                          "toughness": 2,
+                                                          "types": [
+                                                           "Creature",
+                                                           "Zombie"
+                                                          ]
+                                                         }
+                                                        }
+                                                       ],
+                                                       "else": [
+                                                        {
+                                                         "check": {
+                                                          "do": [
+                                                           {
+                                                            "token": {
+                                                             "colors": [
+                                                              "B"
+                                                             ],
+                                                             "n": 13,
+                                                             "name": "Zombie",
+                                                             "power": 2,
+                                                             "toughness": 2,
+                                                             "types": [
+                                                              "Creature",
+                                                              "Zombie"
+                                                             ]
+                                                            }
+                                                           }
+                                                          ],
+                                                          "else": [
+                                                           {
+                                                            "check": {
+                                                             "do": [
+                                                              {
+                                                               "token": {
+                                                                "colors": [
+                                                                 "B"
+                                                                ],
+                                                                "n": 12,
+                                                                "name": "Zombie",
+                                                                "power": 2,
+                                                                "toughness": 2,
+                                                                "types": [
+                                                                 "Creature",
+                                                                 "Zombie"
+                                                                ]
+                                                               }
+                                                              }
+                                                             ],
+                                                             "else": [
+                                                              {
+                                                               "check": {
+                                                                "do": [
+                                                                 {
+                                                                  "token": {
+                                                                   "colors": [
+                                                                    "B"
+                                                                   ],
+                                                                   "n": 11,
+                                                                   "name": "Zombie",
+                                                                   "power": 2,
+                                                                   "toughness": 2,
+                                                                   "types": [
+                                                                    "Creature",
+                                                                    "Zombie"
+                                                                   ]
+                                                                  }
+                                                                 }
+                                                                ],
+                                                                "else": [
+                                                                 {
+                                                                  "check": {
+                                                                   "do": [
+                                                                    {
+                                                                     "token": {
+                                                                      "colors": [
+                                                                       "B"
+                                                                      ],
+                                                                      "n": 10,
+                                                                      "name": "Zombie",
+                                                                      "power": 2,
+                                                                      "toughness": 2,
+                                                                      "types": [
+                                                                       "Creature",
+                                                                       "Zombie"
+                                                                      ]
+                                                                     }
+                                                                    }
+                                                                   ],
+                                                                   "else": [
+                                                                    {
+                                                                     "check": {
+                                                                      "do": [
+                                                                       {
+                                                                        "token": {
+                                                                         "colors": [
+                                                                          "B"
+                                                                         ],
+                                                                         "n": 9,
+                                                                         "name": "Zombie",
+                                                                         "power": 2,
+                                                                         "toughness": 2,
+                                                                         "types": [
+                                                                          "Creature",
+                                                                          "Zombie"
+                                                                         ]
+                                                                        }
+                                                                       }
+                                                                      ],
+                                                                      "else": [
+                                                                       {
+                                                                        "check": {
+                                                                         "do": [
+                                                                          {
+                                                                           "token": {
+                                                                            "colors": [
+                                                                             "B"
+                                                                            ],
+                                                                            "n": 8,
+                                                                            "name": "Zombie",
+                                                                            "power": 2,
+                                                                            "toughness": 2,
+                                                                            "types": [
+                                                                             "Creature",
+                                                                             "Zombie"
+                                                                            ]
+                                                                           }
+                                                                          }
+                                                                         ],
+                                                                         "else": [
+                                                                          {
+                                                                           "check": {
+                                                                            "do": [
+                                                                             {
+                                                                              "token": {
+                                                                               "colors": [
+                                                                                "B"
+                                                                               ],
+                                                                               "n": 7,
+                                                                               "name": "Zombie",
+                                                                               "power": 2,
+                                                                               "toughness": 2,
+                                                                               "types": [
+                                                                                "Creature",
+                                                                                "Zombie"
+                                                                               ]
+                                                                              }
+                                                                             }
+                                                                            ],
+                                                                            "else": [
+                                                                             {
+                                                                              "check": {
+                                                                               "do": [
+                                                                                {
+                                                                                 "token": {
+                                                                                  "colors": [
+                                                                                   "B"
+                                                                                  ],
+                                                                                  "n": 6,
+                                                                                  "name": "Zombie",
+                                                                                  "power": 2,
+                                                                                  "toughness": 2,
+                                                                                  "types": [
+                                                                                   "Creature",
+                                                                                   "Zombie"
+                                                                                  ]
+                                                                                 }
+                                                                                }
+                                                                               ],
+                                                                               "else": [
+                                                                                {
+                                                                                 "check": {
+                                                                                  "do": [
+                                                                                   {
+                                                                                    "token": {
+                                                                                     "colors": [
+                                                                                      "B"
+                                                                                     ],
+                                                                                     "n": 5,
+                                                                                     "name": "Zombie",
+                                                                                     "power": 2,
+                                                                                     "toughness": 2,
+                                                                                     "types": [
+                                                                                      "Creature",
+                                                                                      "Zombie"
+                                                                                     ]
+                                                                                    }
+                                                                                   }
+                                                                                  ],
+                                                                                  "else": [
+                                                                                   {
+                                                                                    "check": {
+                                                                                     "do": [
+                                                                                      {
+                                                                                       "token": {
+                                                                                        "colors": [
+                                                                                         "B"
+                                                                                        ],
+                                                                                        "n": 4,
+                                                                                        "name": "Zombie",
+                                                                                        "power": 2,
+                                                                                        "toughness": 2,
+                                                                                        "types": [
+                                                                                         "Creature",
+                                                                                         "Zombie"
+                                                                                        ]
+                                                                                       }
+                                                                                      }
+                                                                                     ],
+                                                                                     "else": [
+                                                                                      {
+                                                                                       "check": {
+                                                                                        "do": [
+                                                                                         {
+                                                                                          "token": {
+                                                                                           "colors": [
+                                                                                            "B"
+                                                                                           ],
+                                                                                           "n": 3,
+                                                                                           "name": "Zombie",
+                                                                                           "power": 2,
+                                                                                           "toughness": 2,
+                                                                                           "types": [
+                                                                                            "Creature",
+                                                                                            "Zombie"
+                                                                                           ]
+                                                                                          }
+                                                                                         }
+                                                                                        ],
+                                                                                        "else": [
+                                                                                         {
+                                                                                          "check": {
+                                                                                           "do": [
+                                                                                            {
+                                                                                             "token": {
+                                                                                              "colors": [
+                                                                                               "B"
+                                                                                              ],
+                                                                                              "n": 2,
+                                                                                              "name": "Zombie",
+                                                                                              "power": 2,
+                                                                                              "toughness": 2,
+                                                                                              "types": [
+                                                                                               "Creature",
+                                                                                               "Zombie"
+                                                                                              ]
+                                                                                             }
+                                                                                            }
+                                                                                           ],
+                                                                                           "else": [
+                                                                                            {
+                                                                                             "check": {
+                                                                                              "do": [
+                                                                                               {
+                                                                                                "token": {
+                                                                                                 "colors": [
+                                                                                                  "B"
+                                                                                                 ],
+                                                                                                 "n": 1,
+                                                                                                 "name": "Zombie",
+                                                                                                 "power": 2,
+                                                                                                 "toughness": 2,
+                                                                                                 "types": [
+                                                                                                  "Creature",
+                                                                                                  "Zombie"
+                                                                                                 ]
+                                                                                                }
+                                                                                               }
+                                                                                              ],
+                                                                                              "else": [],
+                                                                                              "if": {
+                                                                                               "countGe": 2,
+                                                                                               "youControl": {
+                                                                                                "subtype": "Zombie"
+                                                                                               }
+                                                                                              }
+                                                                                             }
+                                                                                            }
+                                                                                           ],
+                                                                                           "if": {
+                                                                                            "countGe": 4,
+                                                                                            "youControl": {
+                                                                                             "subtype": "Zombie"
+                                                                                            }
+                                                                                           }
+                                                                                          }
+                                                                                         }
+                                                                                        ],
+                                                                                        "if": {
+                                                                                         "countGe": 6,
+                                                                                         "youControl": {
+                                                                                          "subtype": "Zombie"
+                                                                                         }
+                                                                                        }
+                                                                                       }
+                                                                                      }
+                                                                                     ],
+                                                                                     "if": {
+                                                                                      "countGe": 8,
+                                                                                      "youControl": {
+                                                                                       "subtype": "Zombie"
+                                                                                      }
+                                                                                     }
+                                                                                    }
+                                                                                   }
+                                                                                  ],
+                                                                                  "if": {
+                                                                                   "countGe": 10,
+                                                                                   "youControl": {
+                                                                                    "subtype": "Zombie"
+                                                                                   }
+                                                                                  }
+                                                                                 }
+                                                                                }
+                                                                               ],
+                                                                               "if": {
+                                                                                "countGe": 12,
+                                                                                "youControl": {
+                                                                                 "subtype": "Zombie"
+                                                                                }
+                                                                               }
+                                                                              }
+                                                                             }
+                                                                            ],
+                                                                            "if": {
+                                                                             "countGe": 14,
+                                                                             "youControl": {
+                                                                              "subtype": "Zombie"
+                                                                             }
+                                                                            }
+                                                                           }
+                                                                          }
+                                                                         ],
+                                                                         "if": {
+                                                                          "countGe": 16,
+                                                                          "youControl": {
+                                                                           "subtype": "Zombie"
+                                                                          }
+                                                                         }
+                                                                        }
+                                                                       }
+                                                                      ],
+                                                                      "if": {
+                                                                       "countGe": 18,
+                                                                       "youControl": {
+                                                                        "subtype": "Zombie"
+                                                                       }
+                                                                      }
+                                                                     }
+                                                                    }
+                                                                   ],
+                                                                   "if": {
+                                                                    "countGe": 20,
+                                                                    "youControl": {
+                                                                     "subtype": "Zombie"
+                                                                    }
+                                                                   }
+                                                                  }
+                                                                 }
+                                                                ],
+                                                                "if": {
+                                                                 "countGe": 22,
+                                                                 "youControl": {
+                                                                  "subtype": "Zombie"
+                                                                 }
+                                                                }
+                                                               }
+                                                              }
+                                                             ],
+                                                             "if": {
+                                                              "countGe": 24,
+                                                              "youControl": {
+                                                               "subtype": "Zombie"
+                                                              }
+                                                             }
+                                                            }
+                                                           }
+                                                          ],
+                                                          "if": {
+                                                           "countGe": 26,
+                                                           "youControl": {
+                                                            "subtype": "Zombie"
+                                                           }
+                                                          }
+                                                         }
+                                                        }
+                                                       ],
+                                                       "if": {
+                                                        "countGe": 28,
+                                                        "youControl": {
+                                                         "subtype": "Zombie"
+                                                        }
+                                                       }
+                                                      }
+                                                     }
+                                                    ],
+                                                    "if": {
+                                                     "countGe": 30,
+                                                     "youControl": {
+                                                      "subtype": "Zombie"
+                                                     }
+                                                    }
+                                                   }
+                                                  }
+                                                 ],
+                                                 "if": {
+                                                  "countGe": 32,
+                                                  "youControl": {
+                                                   "subtype": "Zombie"
+                                                  }
+                                                 }
+                                                }
+                                               }
+                                              ],
+                                              "if": {
+                                               "countGe": 34,
+                                               "youControl": {
+                                                "subtype": "Zombie"
+                                               }
+                                              }
+                                             }
+                                            }
+                                           ],
+                                           "if": {
+                                            "countGe": 36,
+                                            "youControl": {
+                                             "subtype": "Zombie"
+                                            }
+                                           }
+                                          }
+                                         }
+                                        ],
+                                        "if": {
+                                         "countGe": 38,
+                                         "youControl": {
+                                          "subtype": "Zombie"
+                                         }
+                                        }
+                                       }
+                                      }
+                                     ],
+                                     "if": {
+                                      "countGe": 40,
+                                      "youControl": {
+                                       "subtype": "Zombie"
+                                      }
+                                     }
+                                    }
+                                   }
+                                  ],
+                                  "if": {
+                                   "countGe": 42,
+                                   "youControl": {
+                                    "subtype": "Zombie"
+                                   }
+                                  }
+                                 }
+                                }
+                               ],
+                               "if": {
+                                "countGe": 44,
+                                "youControl": {
+                                 "subtype": "Zombie"
+                                }
+                               }
+                              }
+                             }
+                            ],
+                            "if": {
+                             "countGe": 46,
+                             "youControl": {
+                              "subtype": "Zombie"
+                             }
+                            }
+                           }
+                          }
+                         ],
+                         "if": {
+                          "countGe": 48,
+                          "youControl": {
+                           "subtype": "Zombie"
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "if": {
+                       "countGe": 50,
+                       "youControl": {
+                        "subtype": "Zombie"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "countGe": 52,
+                    "youControl": {
+                     "subtype": "Zombie"
+                    }
+                   }
+                  }
+                 }
+                ],
+                "if": {
+                 "countGe": 54,
+                 "youControl": {
+                  "subtype": "Zombie"
+                 }
+                }
+               }
+              }
+             ],
+             "if": {
+              "countGe": 56,
+              "youControl": {
+               "subtype": "Zombie"
+              }
+             }
+            }
+           }
+          ],
+          "if": {
+           "countGe": 58,
+           "youControl": {
+            "subtype": "Zombie"
+           }
+          }
+         }
+        }
+       ],
+       "if": {
+        "countGe": 60,
+        "youControl": {
+         "subtype": "Zombie"
+        }
+       }
+      }
+     }
+    ],
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, create X 2/2 black Zombie creature tokens, where X is half the number of Zombies you control, rounded down."
+   }
+  ]
+ },
+ "Eternal Taskmaster": {
+  "name": "Eternal Taskmaster",
+  "source": "This creature enters tapped.\nWhenever this creature attacks, you may pay {2}{B}. If you do, return target creature card from your graveyard to your hand.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This creature enters tapped."
+   },
+   {
+    "cost": {
+     "mana": "{2}{B}"
+    },
+    "do": [
+     {
+      "return": {
+       "filter": {
+        "creature": true
+       },
+       "from": "gy",
+       "to": "hand"
+      }
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever this creature attacks, you may pay {2}{B}. If you do, return target creature card from your graveyard to your hand."
+   }
+  ]
+ },
+ "Fleshbag Marauder": {
+  "name": "Fleshbag Marauder",
+  "notes": "The dummy has no creatures; you sacrifice one of yours (it may be the Marauder).",
+  "source": "When this creature enters, each player sacrifices a creature of their choice.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "sacrifice": {
+       "target": {
+        "pick": {
+         "creature": true
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, each player sacrifices a creature of their choice."
+   }
+  ]
+ },
+ "Geier Reach Sanitarium": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}",
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     },
+     {
+      "discard": 1
+     }
+    ],
+    "label": "Loot",
+    "text": "{2}, {T}: Each player draws a card, then discards a card."
+   }
+  ],
+  "name": "Geier Reach Sanitarium",
+  "notes": "The dummy's draw and discard are irrelevant.",
+  "source": "{T}: Add {C}.\n{2}, {T}: Each player draws a card, then discards a card.",
+  "status": "hand"
+ },
+ "Ghoulcaller Gisa": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{B}",
+     "sac": {
+      "filter": {
+       "creature": true,
+       "other": true
+      }
+     },
+     "tap": true
+    },
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "B"
+       ],
+       "n": {
+        "of": "lastDied",
+        "stat": "power"
+       },
+       "name": "Zombie",
+       "power": 2,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Zombie"
+       ]
+      }
+     }
+    ],
+    "label": "Sac: Zombies",
+    "text": "{B}, {T}, Sacrifice another creature: Create X 2/2 black Zombie creature tokens, where X is the sacrificed creature's power."
+   }
+  ],
+  "name": "Ghoulcaller Gisa",
+  "source": "{B}, {T}, Sacrifice another creature: Create X 2/2 black Zombie creature tokens, where X is the sacrificed creature's power.",
+  "status": "hand"
+ },
+ "Go for the Throat": {
+  "name": "Go for the Throat",
+  "source": "Destroy target nonartifact creature.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's creature (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "pick": {
+            "creature": true,
+            "not": {
+             "type": "Artifact"
+            }
+           }
+          }
+         }
+        }
+       ],
+       "label": "One of my creatures"
+      }
+     ],
+     "text": "Destroy target nonartifact creature."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "God-Eternal Bontu": {
+  "name": "God-Eternal Bontu",
+  "notes": "Third from the top stays by hand: putFromLib to 'top' leaves the card where it is (rules.js libTo), so the cards above her can't be reordered.",
+  "source": "Menace\nWhen God-Eternal Bontu enters, sacrifice any number of other permanents, then draw that many cards.\nWhen God-Eternal Bontu dies or is put into exile from the battlefield, you may put her into her owner's library third from the top.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "sacrifice": {
+       "target": {
+        "n": 20,
+        "optional": true,
+        "pick": {
+         "other": true
+        }
+       }
+      }
+     },
+     {
+      "draw": {
+       "of": "lastCount"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When God-Eternal Bontu enters, sacrifice any number of other permanents, then draw that many cards."
+   },
+   {
+    "do": [
+     {
+      "prompt": "Put God-Eternal Bontu into your library third from the top."
+     }
+    ],
+    "on": "dies",
+    "optional": true,
+    "self": true,
+    "text": "When God-Eternal Bontu dies or is put into exile from the battlefield, you may put her into her owner's library third from the top."
+   }
+  ]
+ },
+ "Grave Titan": {
+  "name": "Grave Titan",
+  "source": "Deathtouch\nWhenever this creature enters or attacks, create two 2/2 black Zombie creature tokens.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "B"
+       ],
+       "n": 2,
+       "name": "Zombie",
+       "power": 2,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Zombie"
+       ]
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Whenever this creature enters or attacks, create two 2/2 black Zombie creature tokens."
+   },
+   {
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "B"
+       ],
+       "n": 2,
+       "name": "Zombie",
+       "power": 2,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Zombie"
+       ]
+      }
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever this creature enters or attacks, create two 2/2 black Zombie creature tokens."
+   }
+  ]
+ },
+ "Graveborn Muse": {
+  "name": "Graveborn Muse",
+  "source": "At the beginning of your upkeep, you draw X cards and lose X life, where X is the number of Zombies you control.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": {
+       "count": {
+        "subtype": "Zombie"
+       }
+      }
+     },
+     {
+      "loseLife": {
+       "count": {
+        "subtype": "Zombie"
+       }
+      }
+     }
+    ],
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, you draw X cards and lose X life, where X is the number of Zombies you control."
+   }
+  ]
+ },
+ "Gravecrawler": {
+  "name": "Gravecrawler",
+  "notes": "'Can't block' never matters: the dummy never attacks.",
+  "source": "This creature can't block.\nYou may cast this card from your graveyard as long as you control a Zombie.",
+  "statics": [
+   {
+    "castFromGy": {
+     "if": {
+      "youControl": {
+       "subtype": "Zombie"
+      }
+     },
+     "self": true
+    },
+    "text": "You may cast this card from your graveyard as long as you control a Zombie."
+   }
+  ],
+  "status": "hand"
+ },
+ "Gray Merchant of Asphodel": {
+  "name": "Gray Merchant of Asphodel",
+  "notes": "Devotion to black is counted from the mana costs of the deck cards (every {B}, hybrid and Phyrexian black symbol): one drain step per pip level, so a {B}{B}{B} permanent counts 3. Tokens without a mana cost count 0.",
+  "source": "When this creature enters, each opponent loses X life, where X is your devotion to black. You gain life equal to the life lost this way. (Each {B} in the mana costs of permanents you control counts toward your devotion to black.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "oppLoseLife": {
+       "count": {
+        "name": [
+         "Animate Dead",
+         "Archfiend of Despair",
+         "Archon of Cruelty",
+         "Avacyn, Angel of Horror",
+         "Ayara, First of Locthwain",
+         "Bad Moon",
+         "Bilbo, Birthday Celebrant",
+         "Binding the Old Gods",
+         "Braids, Arisen Nightmare",
+         "Breena, the Demagogue",
+         "Call of the Ring",
+         "Carrion Feeder",
+         "Cemetery Reaper",
+         "Champion of the Perished",
+         "Changeling Outcast",
+         "Changing Loyalty",
+         "Coercive Impetus",
+         "Cryptbreaker",
+         "Death Baron",
+         "Defacing Duskmage // Vandal's Edit",
+         "Diregraf Colossus",
+         "Doomwake Giant",
+         "Endless Ranks of the Dead",
+         "Eriette of the Charmed Apple",
+         "Eternal Taskmaster",
+         "Eumidian Wastewaker",
+         "Fallen Ideal",
+         "Fleshbag Marauder",
+         "Frodo, Adventurous Hobbit",
+         "Ghoulcaller Gisa",
+         "Ghoulish Impetus",
+         "God-Eternal Bontu",
+         "Gollum the Abandoned",
+         "Gollum, Obsessed Stalker",
+         "Gothmog, Morgul Lieutenant",
+         "Grave Titan",
+         "Graveborn Muse",
+         "Gravecrawler",
+         "Gray Merchant of Asphodel",
+         "Hateful Eidolon",
+         "Headless Rider",
+         "Hearthhull, the Worldseed",
+         "Intermediate Chirography",
+         "Jace, Multiverse Architect",
+         "Jhoira, Weatherlight Corsair",
+         "Josu Vess, Lich Knight",
+         "Juri, Master of the Revue",
+         "Kalitas, Traitor of Ghet",
+         "Keen Duelist",
+         "Killian, Decisive Mentor",
+         "Killian, Ink Duelist",
+         "Koh, the Face Stealer",
+         "Korvold, Fae-Cursed King",
+         "Liliana's Mastery",
+         "Liliana's Reaver",
+         "Lobelia, Defender of Bag End",
+         "Lord of the Accursed",
+         "Lord of the Nazgûl",
+         "Lord of the Undead",
+         "Marchesa's Decree",
+         "Mauhúr, Uruk-hai Captain",
+         "Mayhem Devil",
+         "Mazirek, Kraul Death Priest",
+         "Midnight Reaper",
+         "Mire Triton",
+         "Mirkwood Bats",
+         "Moria Scavenger",
+         "Nazgûl",
+         "Nissa, Leyline Tamer",
+         "Niv-Mizzet, Ghost Counsel",
+         "Noxious Ghoul",
+         "Open the Graves",
+         "Orcish Bowmasters",
+         "Oversold Cemetery",
+         "Parasitic Impetus",
+         "Phyrexian Arena",
+         "Pippin, Warden of Isengard",
+         "Rapacious Guest",
+         "Sanguine Bond",
+         "Saruman, the White Hand",
+         "Sauron, Lord of the Rings",
+         "Sauron, the Dark Lord",
+         "Sauron, the Lidless Eye",
+         "Savvy Hunter",
+         "Scouring Swarm",
+         "Screams from Within",
+         "Scriv, the Obligator",
+         "Shadrix Silverquill",
+         "Soul of Windgrace",
+         "Soulless One",
+         "Szarel, Genesis Shepherd",
+         "The Balrog of Moria",
+         "The Balrog, Durin's Bane",
+         "The Gitrog Monster",
+         "The Sackville-Bagginses",
+         "Tomik, Wielder of Law",
+         "Undead Augur",
+         "Undead Butler",
+         "Undead Warchief",
+         "Uurg, Spawn of Turg",
+         "Vengeful Dead",
+         "Warren Soultrader",
+         "Wight of Precinct Six",
+         "Witch-king of Angmar",
+         "Zul Ashur, Lich Lord"
+        ]
+       }
+      }
+     },
+     {
+      "oppLoseLife": {
+       "count": {
+        "name": [
+         "Archfiend of Despair",
+         "Archon of Cruelty",
+         "Avacyn, Angel of Horror",
+         "Ayara, First of Locthwain",
+         "Braids, Arisen Nightmare",
+         "Cemetery Reaper",
+         "Death Baron",
+         "Endless Ranks of the Dead",
+         "Eumidian Wastewaker",
+         "Ghoulcaller Gisa",
+         "God-Eternal Bontu",
+         "Grave Titan",
+         "Graveborn Muse",
+         "Gray Merchant of Asphodel",
+         "Jhoira, Weatherlight Corsair",
+         "Josu Vess, Lich Knight",
+         "Kalitas, Traitor of Ghet",
+         "Koh, the Face Stealer",
+         "Liliana's Mastery",
+         "Liliana's Reaver",
+         "Lord of the Undead",
+         "Niv-Mizzet, Ghost Counsel",
+         "Noxious Ghoul",
+         "Open the Graves",
+         "Phyrexian Arena",
+         "Sanguine Bond",
+         "Screams from Within",
+         "The Balrog of Moria",
+         "Undead Augur",
+         "Undead Warchief",
+         "Uurg, Spawn of Turg",
+         "Witch-king of Angmar"
+        ]
+       }
+      }
+     },
+     {
+      "oppLoseLife": {
+       "count": {
+        "name": [
+         "Avacyn, Angel of Horror",
+         "Ayara, First of Locthwain"
+        ]
+       }
+      }
+     },
+     {
+      "gainLife": {
+       "count": {
+        "name": [
+         "Animate Dead",
+         "Archfiend of Despair",
+         "Archon of Cruelty",
+         "Avacyn, Angel of Horror",
+         "Ayara, First of Locthwain",
+         "Bad Moon",
+         "Bilbo, Birthday Celebrant",
+         "Binding the Old Gods",
+         "Braids, Arisen Nightmare",
+         "Breena, the Demagogue",
+         "Call of the Ring",
+         "Carrion Feeder",
+         "Cemetery Reaper",
+         "Champion of the Perished",
+         "Changeling Outcast",
+         "Changing Loyalty",
+         "Coercive Impetus",
+         "Cryptbreaker",
+         "Death Baron",
+         "Defacing Duskmage // Vandal's Edit",
+         "Diregraf Colossus",
+         "Doomwake Giant",
+         "Endless Ranks of the Dead",
+         "Eriette of the Charmed Apple",
+         "Eternal Taskmaster",
+         "Eumidian Wastewaker",
+         "Fallen Ideal",
+         "Fleshbag Marauder",
+         "Frodo, Adventurous Hobbit",
+         "Ghoulcaller Gisa",
+         "Ghoulish Impetus",
+         "God-Eternal Bontu",
+         "Gollum the Abandoned",
+         "Gollum, Obsessed Stalker",
+         "Gothmog, Morgul Lieutenant",
+         "Grave Titan",
+         "Graveborn Muse",
+         "Gravecrawler",
+         "Gray Merchant of Asphodel",
+         "Hateful Eidolon",
+         "Headless Rider",
+         "Hearthhull, the Worldseed",
+         "Intermediate Chirography",
+         "Jace, Multiverse Architect",
+         "Jhoira, Weatherlight Corsair",
+         "Josu Vess, Lich Knight",
+         "Juri, Master of the Revue",
+         "Kalitas, Traitor of Ghet",
+         "Keen Duelist",
+         "Killian, Decisive Mentor",
+         "Killian, Ink Duelist",
+         "Koh, the Face Stealer",
+         "Korvold, Fae-Cursed King",
+         "Liliana's Mastery",
+         "Liliana's Reaver",
+         "Lobelia, Defender of Bag End",
+         "Lord of the Accursed",
+         "Lord of the Nazgûl",
+         "Lord of the Undead",
+         "Marchesa's Decree",
+         "Mauhúr, Uruk-hai Captain",
+         "Mayhem Devil",
+         "Mazirek, Kraul Death Priest",
+         "Midnight Reaper",
+         "Mire Triton",
+         "Mirkwood Bats",
+         "Moria Scavenger",
+         "Nazgûl",
+         "Nissa, Leyline Tamer",
+         "Niv-Mizzet, Ghost Counsel",
+         "Noxious Ghoul",
+         "Open the Graves",
+         "Orcish Bowmasters",
+         "Oversold Cemetery",
+         "Parasitic Impetus",
+         "Phyrexian Arena",
+         "Pippin, Warden of Isengard",
+         "Rapacious Guest",
+         "Sanguine Bond",
+         "Saruman, the White Hand",
+         "Sauron, Lord of the Rings",
+         "Sauron, the Dark Lord",
+         "Sauron, the Lidless Eye",
+         "Savvy Hunter",
+         "Scouring Swarm",
+         "Screams from Within",
+         "Scriv, the Obligator",
+         "Shadrix Silverquill",
+         "Soul of Windgrace",
+         "Soulless One",
+         "Szarel, Genesis Shepherd",
+         "The Balrog of Moria",
+         "The Balrog, Durin's Bane",
+         "The Gitrog Monster",
+         "The Sackville-Bagginses",
+         "Tomik, Wielder of Law",
+         "Undead Augur",
+         "Undead Butler",
+         "Undead Warchief",
+         "Uurg, Spawn of Turg",
+         "Vengeful Dead",
+         "Warren Soultrader",
+         "Wight of Precinct Six",
+         "Witch-king of Angmar",
+         "Zul Ashur, Lich Lord"
+        ]
+       }
+      }
+     },
+     {
+      "gainLife": {
+       "count": {
+        "name": [
+         "Archfiend of Despair",
+         "Archon of Cruelty",
+         "Avacyn, Angel of Horror",
+         "Ayara, First of Locthwain",
+         "Braids, Arisen Nightmare",
+         "Cemetery Reaper",
+         "Death Baron",
+         "Endless Ranks of the Dead",
+         "Eumidian Wastewaker",
+         "Ghoulcaller Gisa",
+         "God-Eternal Bontu",
+         "Grave Titan",
+         "Graveborn Muse",
+         "Gray Merchant of Asphodel",
+         "Jhoira, Weatherlight Corsair",
+         "Josu Vess, Lich Knight",
+         "Kalitas, Traitor of Ghet",
+         "Koh, the Face Stealer",
+         "Liliana's Mastery",
+         "Liliana's Reaver",
+         "Lord of the Undead",
+         "Niv-Mizzet, Ghost Counsel",
+         "Noxious Ghoul",
+         "Open the Graves",
+         "Phyrexian Arena",
+         "Sanguine Bond",
+         "Screams from Within",
+         "The Balrog of Moria",
+         "Undead Augur",
+         "Undead Warchief",
+         "Uurg, Spawn of Turg",
+         "Witch-king of Angmar"
+        ]
+       }
+      }
+     },
+     {
+      "gainLife": {
+       "count": {
+        "name": [
+         "Avacyn, Angel of Horror",
+         "Ayara, First of Locthwain"
+        ]
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, each opponent loses X life, where X is your devotion to black. You gain life equal to the life lost this way."
+   }
+  ]
+ },
+ "Headless Rider": {
+  "name": "Headless Rider",
+  "source": "Whenever this creature or another nontoken Zombie you control dies, create a 2/2 black Zombie creature token.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "B"
+       ],
+       "n": 1,
+       "name": "Zombie",
+       "power": 2,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Zombie"
+       ]
+      }
+     }
+    ],
+    "on": "dies",
+    "selfOr": {
+     "nontoken": true,
+     "other": true,
+     "subtype": "Zombie"
+    },
+    "text": "Whenever this creature or another nontoken Zombie you control dies, create a 2/2 black Zombie creature token."
+   }
+  ]
+ },
+ "Infernal Idol": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}{B}{B}",
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 2
+     },
+     {
+      "loseLife": 2
+     }
+    ],
+    "text": "{1}{B}{B}, {T}, Sacrifice this artifact: You draw two cards and lose 2 life."
+   }
+  ],
+  "name": "Infernal Idol",
+  "source": "{T}: Add {B}.\n{1}{B}{B}, {T}, Sacrifice this artifact: You draw two cards and lose 2 life.",
+  "status": "auto"
+ },
+ "Josu Vess, Lich Knight": {
+  "name": "Josu Vess, Lich Knight",
+  "notes": "Kicker is offered when you cast Josu (not when he is put onto the battlefield another way); the eight tokens arrive as the kicker is paid, just before he resolves.",
+  "source": "Kicker {5}{B} (You may pay an additional {5}{B} as you cast this spell.)\nMenace\nWhen Josu Vess enters, if he was kicked, create eight 2/2 black Zombie Knight creature tokens with menace.",
+  "status": "hand",
+  "triggers": [
+   {
+    "cost": {
+     "mana": "{5}{B}"
+    },
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "B"
+       ],
+       "kw": [
+        "Menace"
+       ],
+       "n": 8,
+       "name": "Zombie Knight",
+       "power": 2,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Zombie",
+        "Knight"
+       ]
+      }
+     }
+    ],
+    "on": "cast",
+    "self": true,
+    "text": "When Josu Vess enters, if he was kicked, create eight 2/2 black Zombie Knight creature tokens with menace."
+   }
+  ]
+ },
+ "Kalitas, Traitor of Ghet": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}{B}",
+     "sac": {
+      "filter": {
+       "creature": true,
+       "other": true,
+       "subtype": [
+        "Vampire",
+        "Zombie"
+       ]
+      }
+     }
+    },
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 2,
+       "target": "self"
+      }
+     }
+    ],
+    "label": "Sac: +2",
+    "text": "{2}{B}, Sacrifice another Vampire or Zombie: Put two +1/+1 counters on Kalitas."
+   }
+  ],
+  "name": "Kalitas, Traitor of Ghet",
+  "notes": "The replacement only affects opponents' creatures (none).",
+  "source": "Lifelink\nIf a nontoken creature an opponent controls would die, instead exile that card and create a 2/2 black Zombie creature token.\n{2}{B}, Sacrifice another Vampire or Zombie: Put two +1/+1 counters on Kalitas.",
+  "status": "hand"
+ },
+ "Liliana's Mastery": {
+  "name": "Liliana's Mastery",
+  "source": "Zombies you control get +1/+1.\nWhen this enchantment enters, create two 2/2 black Zombie creature tokens.",
+  "statics": [
+   {
+    "filter": {
+     "subtype": "Zombie"
+    },
+    "p": 1,
+    "scope": "creatures-you-control",
+    "t": 1,
+    "text": "Zombies you control get +1/+1."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "B"
+       ],
+       "n": 2,
+       "name": "Zombie",
+       "power": 2,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Zombie"
+       ]
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this enchantment enters, create two 2/2 black Zombie creature tokens."
+   }
+  ]
+ },
+ "Liliana's Reaver": {
+  "name": "Liliana's Reaver",
+  "notes": "The dummy has no hand to discard from.",
+  "source": "Deathtouch\nWhenever this creature deals combat damage to a player, that player discards a card and you create a tapped 2/2 black Zombie creature token.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "B"
+       ],
+       "n": 1,
+       "name": "Zombie",
+       "power": 2,
+       "tapped": true,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Zombie"
+       ]
+      }
+     }
+    ],
+    "on": "combatDamage",
+    "self": true,
+    "text": "Whenever this creature deals combat damage to a player, that player discards a card and you create a tapped 2/2 black Zombie creature token."
+   }
+  ]
+ },
+ "Lord of the Accursed": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}{B}",
+     "tap": true
+    },
+    "do": [
+     {
+      "grant": {
+       "kw": [
+        "Menace"
+       ],
+       "target": {
+        "each": {
+         "creature": true,
+         "subtype": "Zombie"
+        }
+       }
+      }
+     }
+    ],
+    "label": "Menace",
+    "text": "{1}{B}, {T}: All Zombies gain menace until end of turn."
+   }
+  ],
+  "name": "Lord of the Accursed",
+  "source": "Other Zombies you control get +1/+1.\n{1}{B}, {T}: All Zombies gain menace until end of turn.",
+  "statics": [
+   {
+    "filter": {
+     "subtype": "Zombie"
+    },
+    "p": 1,
+    "scope": "other-creatures-you-control",
+    "t": 1,
+    "text": "Other Zombies you control get +1/+1."
+   }
+  ],
+  "status": "hand"
+ },
+ "Lord of the Undead": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}{B}",
+     "tap": true
+    },
+    "do": [
+     {
+      "return": {
+       "filter": {
+        "subtype": "Zombie"
+       },
+       "from": "gy",
+       "to": "hand"
+      }
+     }
+    ],
+    "label": "Return",
+    "text": "{1}{B}, {T}: Return target Zombie card from your graveyard to your hand."
+   }
+  ],
+  "name": "Lord of the Undead",
+  "source": "Other Zombie creatures get +1/+1.\n{1}{B}, {T}: Return target Zombie card from your graveyard to your hand.",
+  "statics": [
+   {
+    "filter": {
+     "subtype": "Zombie"
+    },
+    "p": 1,
+    "scope": "other-creatures-you-control",
+    "t": 1,
+    "text": "Other Zombie creatures get +1/+1."
+   }
+  ],
+  "status": "hand"
+ },
+ "Marchesa's Decree": {
+  "name": "Marchesa's Decree",
+  "notes": "Opponent-only: the goldfish never attacks.",
+  "source": "When this enchantment enters, you become the monarch.\nWhenever a creature attacks you or a planeswalker you control, that creature's controller loses 1 life.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "monarch": true
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this enchantment enters, you become the monarch."
+   },
+   {
+    "do": [
+     {
+      "oppLoseLife": 1
+     }
+    ],
+    "filter": {
+     "controller": "opp"
+    },
+    "on": "attacks",
+    "text": "Whenever a creature attacks you or a planeswalker you control, that creature's controller loses 1 life."
+   }
+  ]
+ },
+ "Memorial to Folly": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}{B}",
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "return": {
+       "filter": {
+        "creature": true
+       },
+       "from": "gy",
+       "to": "hand"
+      }
+     }
+    ],
+    "text": "{2}{B}, {T}, Sacrifice this land: Return target creature card from your graveyard to your hand."
+   }
+  ],
+  "name": "Memorial to Folly",
+  "source": "This land enters tapped.\n{T}: Add {B}.\n{2}{B}, {T}, Sacrifice this land: Return target creature card from your graveyard to your hand.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "Midnight Reaper": {
+  "name": "Midnight Reaper",
+  "source": "Whenever a nontoken creature you control dies, this creature deals 1 damage to you and you draw a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "loseLife": 1
+     },
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "nontoken": true
+    },
+    "on": "dies",
+    "text": "Whenever a nontoken creature you control dies, this creature deals 1 damage to you and you draw a card."
+   }
+  ]
+ },
+ "Mind Stone": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}",
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "{1}, {T}, Sacrifice this artifact: Draw a card."
+   }
+  ],
+  "name": "Mind Stone",
+  "source": "{T}: Add {C}.\n{1}, {T}, Sacrifice this artifact: Draw a card.",
+  "status": "auto"
+ },
+ "Mire Triton": {
+  "name": "Mire Triton",
+  "source": "Deathtouch\nWhen this creature enters, mill two cards and you gain 2 life. (To mill two cards, put the top two cards of your library into your graveyard.)",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "mill": 2
+     },
+     {
+      "gainLife": 2
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, mill two cards and you gain 2 life."
+   }
+  ]
+ },
+ "Moan of the Unhallowed": {
+  "name": "Moan of the Unhallowed",
+  "source": "Create two 2/2 black Zombie creature tokens.\nFlashback {5}{B}{B} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "spell": [
+   {
+    "token": {
+     "colors": [
+      "B"
+     ],
+     "n": 2,
+     "name": "Zombie",
+     "power": 2,
+     "toughness": 2,
+     "types": [
+      "Creature",
+      "Zombie"
+     ]
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Mutilate": {
+  "name": "Mutilate",
+  "source": "All creatures get -1/-1 until end of turn for each Swamp you control.",
+  "spell": [
+   {
+    "repeat": {
+     "do": [
+      {
+       "pump": {
+        "p": -1,
+        "t": -1,
+        "target": "each-creature-you-control"
+       }
+      }
+     ],
+     "times": "count:Swamp"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Necrotic Hex": {
+  "name": "Necrotic Hex",
+  "notes": "The dummy has no creatures; you sacrifice six of yours (fewer if you have fewer).",
+  "source": "Each player sacrifices six creatures of their choice. You create six tapped 2/2 black Zombie creature tokens.",
+  "spell": [
+   {
+    "repeat": {
+     "do": [
+      {
+       "sacrifice": {
+        "target": {
+         "pick": {
+          "creature": true
+         }
+        }
+       }
+      }
+     ],
+     "times": 6
+    }
+   },
+   {
+    "token": {
+     "colors": [
+      "B"
+     ],
+     "n": 6,
+     "name": "Zombie",
+     "power": 2,
+     "tapped": true,
+     "toughness": 2,
+     "types": [
+      "Creature",
+      "Zombie"
+     ]
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Night's Whisper": {
+  "name": "Night's Whisper",
+  "source": "You draw two cards and lose 2 life.",
+  "spell": [
+   {
+    "draw": 2
+   },
+   {
+    "loseLife": 2
+   }
+  ],
+  "status": "auto"
+ },
+ "Noxious Ghoul": {
+  "name": "Noxious Ghoul",
+  "source": "Whenever this creature or another Zombie enters, all non-Zombie creatures get -1/-1 until end of turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "pump": {
+       "p": -1,
+       "t": -1,
+       "target": {
+        "each": {
+         "creature": true,
+         "not": {
+          "subtype": "Zombie"
+         }
+        }
+       }
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "subtype": "Zombie"
+    },
+    "on": "enters",
+    "text": "Whenever this creature or another Zombie enters, all non-Zombie creatures get -1/-1 until end of turn."
+   }
+  ]
+ },
+ "Open the Graves": {
+  "name": "Open the Graves",
+  "source": "Whenever a nontoken creature you control dies, create a 2/2 black Zombie creature token.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "B"
+       ],
+       "n": 1,
+       "name": "Zombie",
+       "power": 2,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Zombie"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "nontoken": true
+    },
+    "on": "dies",
+    "text": "Whenever a nontoken creature you control dies, create a 2/2 black Zombie creature token."
+   }
+  ]
+ },
+ "Oversold Cemetery": {
+  "name": "Oversold Cemetery",
+  "notes": "The creature-card count is read by putting that many 'graveyard-check' counters on the Cemetery for a moment (removed at once).",
+  "source": "At the beginning of your upkeep, if you have four or more creature cards in your graveyard, you may return target creature card from your graveyard to your hand.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "graveyard-check",
+       "n": "count:creature-cards-in-graveyard",
+       "target": "self"
+      }
+     },
+     {
+      "check": {
+       "do": [
+        {
+         "return": {
+          "filter": {
+           "creature": true
+          },
+          "from": "gy",
+          "optional": true,
+          "to": "hand"
+         }
+        }
+       ],
+       "else": [],
+       "if": {
+        "counters": {
+         "ge": 4,
+         "kind": "graveyard-check"
+        }
+       }
+      }
+     },
+     {
+      "removeCounters": {
+       "kind": "graveyard-check",
+       "n": "all",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, if you have four or more creature cards in your graveyard, you may return target creature card from your graveyard to your hand."
+   }
+  ]
+ },
+ "Patchwork Banner": {
+  "chooseOn": {
+   "enters": {
+    "kind": "creatureType"
+   }
+  },
+  "name": "Patchwork Banner",
+  "source": "As this artifact enters, choose a creature type.\nCreatures you control of the chosen type get +1/+1.\n{T}: Add one mana of any color.",
+  "statics": [
+   {
+    "filter": {
+     "subtype": "$chosen"
+    },
+    "p": 1,
+    "scope": "creatures-you-control",
+    "t": 1,
+    "text": "Creatures you control of the chosen type get +1/+1."
+   }
+  ],
+  "status": "auto"
+ },
+ "Phyrexian Arena": {
+  "name": "Phyrexian Arena",
+  "source": "At the beginning of your upkeep, you draw a card and lose 1 life.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     },
+     {
+      "loseLife": 1
+     }
+    ],
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, you draw a card and lose 1 life."
+   }
+  ]
+ },
+ "Razorlash Transmogrant": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{4}{B}{B}"
+    },
+    "do": [
+     {
+      "moveSelf": {
+       "to": "bf"
+      }
+     },
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": {
+        "each": {
+         "name": "Razorlash Transmogrant",
+         "nontoken": true
+        }
+       }
+      }
+     }
+    ],
+    "label": "Return",
+    "text": "{4}{B}{B}: Return this card from your graveyard to the battlefield with a +1/+1 counter on it. This ability costs {4} less to activate if an opponent controls four or more nonbasic lands.",
+    "zone": "gy"
+   }
+  ],
+  "name": "Razorlash Transmogrant",
+  "notes": "The counter goes on the nontoken Razorlash (the deck holds one, the card just returned). The cost reduction needs an opponent's nonbasic lands (the dummy has none) and 'can't block' never matters: both silent.",
+  "source": "This creature can't block.\n{4}{B}{B}: Return this card from your graveyard to the battlefield with a +1/+1 counter on it. This ability costs {4} less to activate if an opponent controls four or more nonbasic lands.",
+  "status": "hand"
+ },
+ "Sign in Blood": {
+  "name": "Sign in Blood",
+  "source": "Target player draws two cards and loses 2 life.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "draw": 2
+        },
+        {
+         "loseLife": 2
+        }
+       ],
+       "label": "Me: draw two, lose 2 life"
+      },
+      {
+       "do": [
+        {
+         "oppLoseLife": 2
+        }
+       ],
+       "label": "The opponent: it loses 2 life"
+      }
+     ],
+     "text": "Target player draws two cards and loses 2 life."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Sol Ring": {
+  "name": "Sol Ring",
+  "source": "{T}: Add {C}{C}.",
+  "status": "auto"
+ },
+ "Soulless One": {
+  "name": "Soulless One",
+  "notes": "The dummy has no graveyard: only yours counts.",
+  "source": "Soulless One's power and toughness are each equal to the number of Zombies on the battlefield plus the number of Zombie cards in all graveyards.",
+  "statics": [
+   {
+    "p": {
+     "count": {
+      "subtype": "Zombie"
+     }
+    },
+    "scope": "self",
+    "t": {
+     "count": {
+      "subtype": "Zombie"
+     }
+    },
+    "text": "Soulless One's power and toughness are each equal to the number of Zombies on the battlefield plus the number of Zombie cards in all graveyards."
+   },
+   {
+    "p": "count:gy:Zombie",
+    "scope": "self",
+    "t": "count:gy:Zombie",
+    "text": "Soulless One's power and toughness are each equal to the number of Zombies on the battlefield plus the number of Zombie cards in all graveyards."
+   }
+  ],
+  "status": "hand"
+ },
+ "Swamp": {
+  "name": "Swamp",
+  "source": "({T}: Add {B}.)",
+  "status": "auto"
+ },
+ "Syphon Flesh": {
+  "name": "Syphon Flesh",
+  "notes": "The dummy has no creatures to sacrifice, so no Zombies are created.",
+  "source": "Each other player sacrifices a creature of their choice. You create a 2/2 black Zombie creature token for each creature sacrificed this way.",
+  "spell": [
+   {
+    "token": {
+     "colors": [
+      "B"
+     ],
+     "n": {
+      "count": {
+       "controller": "opp",
+       "creature": true
+      }
+     },
+     "name": "Zombie",
+     "power": 2,
+     "toughness": 2,
+     "types": [
+      "Creature",
+      "Zombie"
+     ]
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Tendrils of Corruption": {
+  "name": "Tendrils of Corruption",
+  "notes": "X = Swamps you control. The dummy has no creatures: pick the opponent's (nothing happens) or one of yours; the life gain happens either way.",
+  "source": "Tendrils of Corruption deals X damage to target creature and you gain X life, where X is the number of Swamps you control.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [],
+       "label": "An opponent's creature (the dummy has none: nothing happens)"
+      },
+      {
+       "do": [
+        {
+         "damage": {
+          "n": "count:Swamp",
+          "target": "creature-you-control"
+         }
+        }
+       ],
+       "label": "One of my creatures"
+      }
+     ],
+     "text": "Tendrils of Corruption deals X damage to target creature."
+    }
+   },
+   {
+    "gainLife": "count:Swamp"
+   }
+  ],
+  "status": "hand"
+ },
+ "Undead Augur": {
+  "name": "Undead Augur",
+  "source": "Whenever this creature or another Zombie you control dies, you draw a card and lose 1 life.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     },
+     {
+      "loseLife": 1
+     }
+    ],
+    "on": "dies",
+    "selfOr": {
+     "other": true,
+     "subtype": "Zombie"
+    },
+    "text": "Whenever this creature or another Zombie you control dies, you draw a card and lose 1 life."
+   }
+  ]
+ },
+ "Undead Butler": {
+  "name": "Undead Butler",
+  "source": "When this creature enters, mill three cards. (Put the top three cards of your library into your graveyard.)\nWhen this creature dies, you may exile it. When you do, return target creature card from your graveyard to your hand.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "mill": 3
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, mill three cards."
+   },
+   {
+    "do": [
+     {
+      "exileFromGy": {
+       "filter": {
+        "name": "Undead Butler"
+       },
+       "n": 1
+      }
+     },
+     {
+      "repeat": {
+       "do": [
+        {
+         "return": {
+          "filter": {
+           "creature": true
+          },
+          "from": "gy",
+          "to": "hand"
+         }
+        }
+       ],
+       "times": {
+        "of": "lastCount"
+       }
+      }
+     }
+    ],
+    "on": "dies",
+    "optional": true,
+    "self": true,
+    "text": "When this creature dies, you may exile it. When you do, return target creature card from your graveyard to your hand."
+   }
+  ]
+ },
+ "Undead Warchief": {
+  "name": "Undead Warchief",
+  "source": "Zombie spells you cast cost {1} less to cast.\nZombie creatures you control get +2/+1.",
+  "statics": [
+   {
+    "costLess": 1,
+    "filter": {
+     "subtype": "Zombie"
+    },
+    "scope": "spells-you-cast",
+    "text": "Zombie spells you cast cost {1} less to cast."
+   },
+   {
+    "filter": {
+     "subtype": "Zombie"
+    },
+    "p": 2,
+    "scope": "creatures-you-control",
+    "t": 1,
+    "text": "Zombie creatures you control get +2/+1."
+   }
+  ],
+  "status": "auto"
+ },
+ "Vengeful Dead": {
+  "name": "Vengeful Dead",
+  "source": "Whenever this creature or another Zombie dies, each opponent loses 1 life.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "oppLoseLife": 1
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "subtype": "Zombie"
+    },
+    "on": "dies",
+    "text": "Whenever this creature or another Zombie dies, each opponent loses 1 life."
+   }
+  ]
+ },
+ "Wight of Precinct Six": {
+  "name": "Wight of Precinct Six",
+  "notes": "The dummy has no graveyard, so the bonus is always 0. Silent on purpose.",
+  "source": "This creature gets +1/+1 for each creature card in your opponents' graveyards.",
+  "status": "hand"
+ },
+ "Witch's Cottage": {
+  "name": "Witch's Cottage",
+  "source": "({T}: Add {B}.)\nThis land enters tapped unless you control three or more other Swamps.\nWhen this land enters untapped, you may put target creature card from your graveyard on top of your library.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "if": {
+     "not": {
+      "countGe": 3,
+      "youControl": {
+       "other": true,
+       "subtype": "Swamp"
+      }
+     }
+    },
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control three or more other Swamps."
+   },
+   {
+    "do": [
+     {
+      "return": {
+       "filter": {
+        "creature": true
+       },
+       "from": "gy",
+       "optional": true,
+       "to": "top"
+      }
+     }
+    ],
+    "if": {
+     "countGe": 3,
+     "youControl": {
+      "other": true,
+      "subtype": "Swamp"
+     }
+    },
+    "on": "enters",
+    "optional": true,
+    "self": true,
+    "text": "When this land enters untapped, you may put target creature card from your graveyard on top of your library."
+   }
+  ]
+ },
+ "Withering Torment": {
+  "name": "Withering Torment",
+  "source": "Destroy target creature or enchantment. You lose 2 life.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's permanent (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "pick": {
+            "type": [
+             "Creature",
+             "Enchantment"
+            ]
+           }
+          }
+         }
+        }
+       ],
+       "label": "One of my permanents"
+      }
+     ],
+     "text": "Destroy target creature or enchantment."
+    }
+   },
+   {
+    "loseLife": 2
+   }
+  ],
+  "status": "hand"
+ },
+ "Zul Ashur, Lich Lord": {
+  "activated": [
+   {
+    "cost": {
+     "tap": true
+    },
+    "do": [
+     {
+      "castFromGy": {
+       "filter": {
+        "creature": true,
+        "subtype": "Zombie"
+       },
+       "until": "thisTurn"
+      }
+     }
+    ],
+    "text": "{T}: You may cast target Zombie creature card from your graveyard this turn."
+   }
+  ],
+  "name": "Zul Ashur, Lich Lord",
+  "source": "Ward—Pay 2 life. (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays 2 life.)\n{T}: You may cast target Zombie creature card from your graveyard this turn.",
+  "status": "auto"
+ }
+}

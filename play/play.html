@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0a10">
+<title>Goldfish</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22%3E%3Ccircle cx=%228%22 cy=%228%22 r=%227%22 fill=%22%23d9b45c%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="play.css">
+<link rel="stylesheet" href="fx.css">
+</head>
+<body class="play">
+<div id="app">
+  <!-- the opponent: complementary tint, no board -->
+  <section id="opp" class="p-opp" aria-label="Training Dummy">
+    <div id="oppAvatar" class="opp-avatar"></div>
+    <div class="opp-id">
+      <div class="opp-name">Training Dummy</div>
+      <div id="oppSub" class="opp-sub">never attacks &middot; never blocks</div>
+    </div>
+    <div id="oppCmd" class="opp-cmd"></div>
+    <div id="oppLib" class="opp-pile" title="The dummy's library"></div>
+    <button id="oppLife" class="opp-lifebtn" data-act="opplife" title="Dummy life (tap to adjust)">
+      <span id="oppLifeNum" class="lifenum">40</span><span class="lifelbl">life</span>
+    </button>
+  </section>
+
+  <div id="table">
+    <main id="board" aria-label="Your battlefield">
+      <div id="atkbar" class="atkbar" hidden></div>
+      <div id="rowCre" class="bf-row creatures" aria-label="Creatures"></div>
+      <div id="rowOth" class="bf-row others" aria-label="Artifacts, enchantments, planeswalkers"></div>
+      <div class="bf-spacer"></div>
+      <div class="bf-base">
+        <div id="czSlot" class="cz-slot" title="Command zone">
+          <div id="czCards" class="cz-cards"></div>
+          <span class="cz-label">Command</span>
+        </div>
+        <div id="rowLand" class="bf-row lands" aria-label="Lands"></div>
+      </div>
+      <div id="bfEmpty" class="bf-empty">Drag a card from your hand onto the table, or tap it to play it.</div>
+      <div id="stage" class="stage" aria-hidden="true"></div>
+    </main>
+
+    <aside id="rail" aria-label="Your piles">
+      <button id="pileLib" class="pile" data-act="libpile" title="Library">
+        <span class="pile-stack"><img alt="" draggable="false"></span>
+        <span class="pile-meta"><b class="pile-n">0</b><span class="pile-l">Library</span></span>
+      </button>
+      <button id="pileGy" class="pile top" data-act="gy" title="Graveyard (tap to browse)">
+        <span class="pile-stack"><img alt="" draggable="false"></span>
+        <span class="pile-meta"><b class="pile-n">0</b><span class="pile-l">Graveyard</span></span>
+      </button>
+      <button id="pileEx" class="pile top" data-act="ex" title="Exile (tap to browse)">
+        <span class="pile-stack"><img alt="" draggable="false"></span>
+        <span class="pile-meta"><b class="pile-n">0</b><span class="pile-l">Exile</span></span>
+      </button>
+    </aside>
+
+    <!-- rules layer (empty unless rules.js + scripts/decks/<slug>.json load): trigger ribbon, pending panel -->
+    <div id="ribbon" class="trig-ribbon" aria-live="polite"></div>
+    <div id="pend" class="pend"></div>
+  </div>
+
+  <section id="status" aria-label="You">
+    <div class="me-life">
+      <button class="btn sm" data-act="life" data-arg="-1" title="Lose 1 life" aria-label="Lose 1 life">&minus;</button>
+      <span id="lifeNum" class="lifenum">40</span>
+      <button class="btn sm" data-act="life" data-arg="1" title="Gain 1 life" aria-label="Gain 1 life">+</button>
+    </div>
+    <button id="orbs" class="orbs" data-act="pool" title="Mana pool (tap to adjust by hand)"></button>
+    <div id="turnLbl" class="turnlbl"></div>
+    <div class="status-right">
+      <button id="moreBtn" class="btn more" data-act="more" title="More" aria-haspopup="menu" aria-expanded="false">&hellip;</button>
+      <button id="primary" class="btn primary big" data-act="primary" title="Space / Enter">Go to combat</button>
+    </div>
+    <div id="moreMenu" class="more-menu" role="menu"></div>
+  </section>
+
+  <footer class="handwrap">
+    <div class="handhead"><span id="handLabel" class="handlabel">Hand</span><span id="hint" class="hint" role="status" aria-live="polite"></span></div>
+    <div id="hand" class="hand"></div>
+    <div id="handEmpty" class="hand-empty" hidden>Your hand is empty.</div>
+  </footer>
+
+  <!-- overlays (panels.js / radial.js expect these ids) -->
+  <div id="libview" class="overlay-full">
+    <div class="libbar">
+      <span class="ttl">Library</span>
+      <input id="libSearch" type="search" placeholder="Search name or type" autocomplete="off">
+      <span id="libCount" class="dim"></span>
+      <button class="btn primary" id="libDone">Done &amp; shuffle</button>
+      <button class="btn" id="libClose">Close</button>
+    </div>
+    <div id="libList" class="liblist"></div>
+  </div>
+  <aside id="log" class="drawer" aria-label="Game log">
+    <div class="drawer-head"><span class="ttl">Log</span><button class="btn sm" data-lclose="1">&times;</button></div>
+    <ol id="logList"></ol>
+  </aside>
+  <div id="keys" class="modal">
+    <div class="keys-card">
+      <h3>How to play</h3>
+      <p>Play your turn, press the big button, the table does the rest: the dummy takes its turn, you untap and draw.</p>
+      <ul class="howto">
+        <li><b>Tap or drag</b> a card from your hand onto the table to play it. Lit cards are ones you can pay for now; mana is tapped for you.</li>
+        <li><b>Tap a land</b> on the table to float its mana by hand.</li>
+        <li><b>Long-press / right-click</b> any card for more: cast anyway, card text, move it.</li>
+        <li><b>Combat</b>: tap creatures to choose attackers, then press the button.</li>
+      </ul>
+      <table>
+        <tr><td><kbd>Space</kbd> <kbd>Enter</kbd></td><td>The big button</td><td><kbd>A</kbd></td><td>Attack with all</td></tr>
+        <tr><td><kbd>U</kbd> <kbd>Ctrl-Z</kbd></td><td>Undo</td><td><kbd>?</kbd></td><td>This help</td></tr>
+        <tr><td><kbd>K</kbd></td><td>Tokens</td><td><kbd>V</kbd></td><td>Search library</td></tr>
+        <tr><td><kbd>L</kbd></td><td>Log</td><td><kbd>Esc</kbd></td><td>Close</td></tr>
+      </table>
+      <button class="btn" data-kclose="1">Close</button>
+    </div>
+  </div>
+  <div id="oracle" class="modal"></div>
+  <div id="radial" class="modal radial"><div id="radialWrap" class="radialwrap"></div></div>
+  <div id="sheet"></div>
+  <div id="win" class="win" aria-live="polite"></div>
+</div>
+<div id="fx-layer" aria-hidden="true"></div>
+<div id="bootmsg" class="bootmsg">Shuffling up&hellip;</div>
+
+<script type="module">
+  const msg = document.getElementById('bootmsg');
+  const slug = (new URLSearchParams(location.search).get('deck') || 'tramplesaurus-rex').replace(/[^a-z0-9_-]/gi, '');
+  try {
+    const res = await fetch(`decks/${encodeURIComponent(slug)}.json`);
+    if (!res.ok) throw new Error(`No deck "${slug}" (HTTP ${res.status})`);
+    const deck = await res.json();
+    if (!deck.slug) deck.slug = slug;
+    const { applyTheme } = await import('./theme.js');
+    applyTheme(deck);
+    if (deck.name) document.title = `${deck.name} · Play — Manaforge`;
+    const { boot } = await import('./play.js');
+    boot(deck);
+    msg.remove();
+  } catch (err) {
+    console.error(err);
+    msg.classList.add('err');
+    msg.textContent = 'Could not start the table: ' + (err && err.message ? err.message : err);
+  }
+</script>
+</body>
+</html>

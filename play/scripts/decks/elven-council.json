@@ -1,0 +1,2668 @@
+{
+ "Arbor Elf": {
+  "activated": [
+   {
+    "cost": {
+     "tap": true
+    },
+    "do": [
+     {
+      "untap": {
+       "target": {
+        "pick": {
+         "land": true,
+         "subtype": "Forest"
+        }
+       }
+      }
+     }
+    ],
+    "label": "Untap Forest",
+    "text": "{T}: Untap target Forest."
+   }
+  ],
+  "name": "Arbor Elf",
+  "source": "{T}: Untap target Forest.",
+  "status": "hand"
+ },
+ "Arcane Signet": {
+  "name": "Arcane Signet",
+  "source": "{T}: Add one mana of any color in your commander's color identity.",
+  "status": "auto"
+ },
+ "Arwen, Weaver of Hope": {
+  "name": "Arwen, Weaver of Hope",
+  "notes": "\"Enters with\" is modelled as an enters trigger (the counters arrive a moment later).",
+  "source": "Each other creature you control enters with a number of additional +1/+1 counters on it equal to Arwen's toughness.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": "count:toughness-of-self",
+       "target": "triggering"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "other": true
+    },
+    "on": "enters",
+    "text": "Each other creature you control enters with a number of additional +1/+1 counters on it equal to Arwen's toughness."
+   }
+  ]
+ },
+ "Asceticism": {
+  "name": "Asceticism",
+  "notes": "\"{1}{G}: Regenerate target creature\" is silent on purpose: regeneration only answers destruction, which in goldfish would come from the opponent (the dummy casts nothing).",
+  "source": "Creatures you control have hexproof.\n{1}{G}: Regenerate target creature. (The next time it would be destroyed this turn, instead tap it, remove it from combat, and heal all damage on it.)",
+  "statics": [
+   {
+    "kw": [
+     "Hexproof"
+    ],
+    "scope": "creatures-you-control",
+    "text": "Creatures you control have hexproof."
+   }
+  ],
+  "status": "hand"
+ },
+ "Ash Barrens": {
+  "name": "Ash Barrens",
+  "source": "{T}: Add {C}.\nBasic landcycling {1} ({1}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)",
+  "status": "auto"
+ },
+ "Beast Within": {
+  "name": "Beast Within",
+  "notes": "Goldfish: the dummy controls no permanents, so the useful mode is your own permanent (e.g. a Beast at instant speed).",
+  "source": "Destroy target permanent. Its controller creates a 3/3 green Beast creature token.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "any-you-control"
+         }
+        },
+        {
+         "token": {
+          "n": 1,
+          "name": "Beast",
+          "power": 3,
+          "toughness": 3,
+          "types": [
+           "Creature",
+           "Beast"
+          ]
+         }
+        }
+       ],
+       "label": "One of my permanents (I get the 3/3 Beast)"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's permanent (the dummy has none; it would get the Beast)"
+      }
+     ],
+     "text": "Destroy target permanent. Its controller creates a 3/3 green Beast creature token."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Celeborn the Wise": {
+  "name": "Celeborn the Wise",
+  "source": "Whenever you attack with one or more Elves, scry 1.\nWhenever you scry, Celeborn gets +1/+1 until end of turn for each card looked at while scrying this way.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "scry": 1
+     }
+    ],
+    "filter": {
+     "subtype": "Elf"
+    },
+    "limit": "once-per-turn",
+    "on": "attacks",
+    "text": "Whenever you attack with one or more Elves, scry 1."
+   },
+   {
+    "do": [
+     {
+      "pump": {
+       "p": "count:event-amount",
+       "t": "count:event-amount",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "scryed",
+    "text": "Whenever you scry, Celeborn gets +1/+1 until end of turn for each card looked at while scrying this way."
+   }
+  ]
+ },
+ "Command Tower": {
+  "name": "Command Tower",
+  "source": "{T}: Add one mana of any color in your commander's color identity.",
+  "status": "auto"
+ },
+ "Cultivate": {
+  "name": "Cultivate",
+  "source": "Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.",
+  "spell": [
+   {
+    "ramp": {
+     "filter": "basic",
+     "tapped": true
+    }
+   },
+   {
+    "ramp": {
+     "filter": "basic",
+     "to": "hand"
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Círdan the Shipwright": {
+  "name": "Círdan the Shipwright",
+  "notes": "The dummy's vote is yours to decide; its draws are not modelled.",
+  "source": "Vigilance\nSecret council — Whenever Círdan enters or attacks, each player secretly votes for a player, then those votes are revealed. Each player draws a card for each vote they received. Each player who received no votes may put a permanent card from their hand onto the battlefield.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "draw": 2
+          }
+         ],
+         "label": "Both votes for me — I draw 2"
+        },
+        {
+         "do": [
+          {
+           "draw": 1
+          }
+         ],
+         "label": "One vote each — I draw 1"
+        },
+        {
+         "do": [
+          {
+           "putFromHand": {
+            "filter": {
+             "not": {
+              "type": [
+               "Instant",
+               "Sorcery"
+              ]
+             }
+            },
+            "optional": true,
+            "to": "bf"
+           }
+          }
+         ],
+         "label": "Both votes for the opponent — I may put a permanent card from hand onto the battlefield"
+        }
+       ],
+       "text": "Secret council — how did the votes fall? (you vote; decide the dummy's vote)"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Secret council — Whenever Círdan enters or attacks, each player secretly votes for a player, then those votes are revealed. Each player draws a card for each vote they received. Each player who received no votes may put a permanent card from their hand onto the battlefield."
+   },
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "draw": 2
+          }
+         ],
+         "label": "Both votes for me — I draw 2"
+        },
+        {
+         "do": [
+          {
+           "draw": 1
+          }
+         ],
+         "label": "One vote each — I draw 1"
+        },
+        {
+         "do": [
+          {
+           "putFromHand": {
+            "filter": {
+             "not": {
+              "type": [
+               "Instant",
+               "Sorcery"
+              ]
+             }
+            },
+            "optional": true,
+            "to": "bf"
+           }
+          }
+         ],
+         "label": "Both votes for the opponent — I may put a permanent card from hand onto the battlefield"
+        }
+       ],
+       "text": "Secret council — how did the votes fall? (you vote; decide the dummy's vote)"
+      }
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Secret council — Whenever Círdan enters or attacks, each player secretly votes for a player, then those votes are revealed. Each player draws a card for each vote they received. Each player who received no votes may put a permanent card from their hand onto the battlefield."
+   }
+  ]
+ },
+ "Dancing from Dark to Dawn": {
+  "name": "Dancing from Dark to Dawn",
+  "source": "Whenever you cast a creature spell, put X +1/+1 counters on target creature you control, where X is that spell's mana value.\nLandfall — Whenever a land you control enters, create a 2/2 green Bear creature token.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": {
+        "of": "triggering",
+        "stat": "mv"
+       },
+       "target": "creature-you-control"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true
+    },
+    "on": "cast",
+    "text": "Whenever you cast a creature spell, put X +1/+1 counters on target creature you control, where X is that spell's mana value."
+   },
+   {
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Bear",
+       "power": 2,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Bear"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "land": true
+    },
+    "on": "enters",
+    "text": "Landfall — Whenever a land you control enters, create a 2/2 green Bear creature token."
+   }
+  ]
+ },
+ "Delighted Halfling": {
+  "name": "Delighted Halfling",
+  "source": "{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a legendary spell, and that spell can't be countered.",
+  "status": "auto"
+ },
+ "Down in the Valley": {
+  "name": "Down in the Valley",
+  "notes": "Chapter II's landfall ability is live from the second lore counter until the Saga is sacrificed after IV.",
+  "source": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after IV.)\nI — Search your library for a basic land card, reveal it, put it into your hand, then shuffle.\nII — This Saga gains \"Landfall — Whenever a land you control enters, create a 1/1 green Elf creature token.\"\nIII, IV — Elves you control get +1/+0 and gain vigilance until end of turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "ramp": {
+       "filter": "basic",
+       "to": "hand"
+      }
+     }
+    ],
+    "n": 1,
+    "on": "chapter",
+    "text": "I — Search your library for a basic land card, reveal it, put it into your hand, then shuffle."
+   },
+   {
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "G"
+       ],
+       "n": 1,
+       "name": "Elf",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Elf"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "land": true
+    },
+    "if": {
+     "counters": {
+      "ge": 2,
+      "kind": "lore"
+     }
+    },
+    "on": "enters",
+    "text": "II — This Saga gains \"Landfall — Whenever a land you control enters, create a 1/1 green Elf creature token.\""
+   },
+   {
+    "do": [
+     {
+      "pump": {
+       "kw": [
+        "Vigilance"
+       ],
+       "p": 1,
+       "target": {
+        "each": {
+         "creature": true,
+         "subtype": "Elf"
+        }
+       }
+      }
+     }
+    ],
+    "n": [
+     3,
+     4
+    ],
+    "on": "chapter",
+    "text": "III, IV — Elves you control get +1/+0 and gain vigilance until end of turn."
+   }
+  ]
+ },
+ "Elrond of the White Council": {
+  "name": "Elrond of the White Council",
+  "notes": "Fellowship votes change nothing in goldfish (your own creature stays yours; the dummy has none).",
+  "source": "Secret council — When Elrond enters, each player secretly votes for fellowship or aid, then those votes are revealed. For each fellowship vote, the voter chooses a creature they control. You gain control of each creature chosen this way, and they gain \"This creature can't attack its owner.\" Then for each aid vote, put a +1/+1 counter on each creature you control.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "repeat": {
+            "do": [
+             {
+              "counters": {
+               "kind": "p1p1",
+               "n": 1,
+               "target": "each-creature-you-control"
+              }
+             }
+            ],
+            "times": 2
+           }
+          }
+         ],
+         "label": "Two aid votes"
+        },
+        {
+         "do": [
+          {
+           "counters": {
+            "kind": "p1p1",
+            "n": 1,
+            "target": "each-creature-you-control"
+           }
+          }
+         ],
+         "label": "One aid vote"
+        },
+        {
+         "do": [],
+         "label": "No aid votes"
+        }
+       ],
+       "text": "Secret council — how many aid votes? (you vote; decide the dummy's vote)"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Secret council — When Elrond enters, each player secretly votes for fellowship or aid, then those votes are revealed. For each fellowship vote, the voter chooses a creature they control. You gain control of each creature chosen this way, and they gain \"This creature can't attack its owner.\" Then for each aid vote, put a +1/+1 counter on each creature you control."
+   }
+  ]
+ },
+ "Elrond, Lord of Rivendell": {
+  "name": "Elrond, Lord of Rivendell",
+  "notes": "How many times the ability resolved this turn is kept as an until-end-of-turn marker keyword on Elrond (\"Rivendell: resolved once/twice\").",
+  "source": "Whenever Elrond or another creature you control enters, scry 1. If this is the second time this ability has resolved this turn, the Ring tempts you.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "scry": 1
+     },
+     {
+      "check": {
+       "do": [
+        {
+         "check": {
+          "do": [
+           {
+            "grant": {
+             "kw": [
+              "Rivendell: resolved twice"
+             ],
+             "target": "self"
+            }
+           },
+           {
+            "ringTempt": true
+           }
+          ],
+          "else": [
+           {
+            "grant": {
+             "kw": [
+              "Rivendell: resolved once"
+             ],
+             "target": "self"
+            }
+           }
+          ],
+          "if": {
+           "youControl": {
+            "keyword": "Rivendell: resolved once",
+            "name": "Elrond, Lord of Rivendell"
+           }
+          }
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "keyword": "Rivendell: resolved twice",
+          "name": "Elrond, Lord of Rivendell"
+         }
+        }
+       }
+      }
+     }
+    ],
+    "filter": {
+     "creature": true
+    },
+    "on": "enters",
+    "text": "Whenever Elrond or another creature you control enters, scry 1. If this is the second time this ability has resolved this turn, the Ring tempts you."
+   }
+  ]
+ },
+ "Elrond, Master of Healing": {
+  "name": "Elrond, Master of Healing",
+  "notes": "Pick a different creature each time. The second ability never fires in goldfish (the dummy targets nothing).",
+  "source": "Whenever you scry, put a +1/+1 counter on each of up to X target creatures, where X is the number of cards looked at while scrying this way.\nWhenever a creature you control with a +1/+1 counter on it becomes the target of a spell or ability an opponent controls, you may draw a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "repeat": {
+       "do": [
+        {
+         "counters": {
+          "kind": "p1p1",
+          "n": 1,
+          "target": {
+           "optional": true,
+           "pick": {
+            "creature": true
+           }
+          }
+         }
+        }
+       ],
+       "times": "count:event-amount"
+      }
+     }
+    ],
+    "on": "scryed",
+    "text": "Whenever you scry, put a +1/+1 counter on each of up to X target creatures, where X is the number of cards looked at while scrying this way."
+   },
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "controller": "opp"
+    },
+    "on": "cast",
+    "optional": true,
+    "text": "Whenever a creature you control with a +1/+1 counter on it becomes the target of a spell or ability an opponent controls, you may draw a card."
+   }
+  ]
+ },
+ "Elven Farsight": {
+  "name": "Elven Farsight",
+  "notes": "\"You may reveal the top card\": choosing the top card (only offered when it's a creature) reveals it, and then you draw it.",
+  "source": "Scry 3, then you may reveal the top card of your library. If a creature card is revealed this way, draw a card.",
+  "spell": [
+   {
+    "scry": 3
+   },
+   {
+    "lookTop": {
+     "n": 1,
+     "pick": {
+      "filter": {
+       "creature": true
+      },
+      "n": 1,
+      "to": "top"
+     },
+     "rest": "top"
+    }
+   },
+   {
+    "repeat": {
+     "do": [
+      {
+       "draw": 1
+      }
+     ],
+     "times": {
+      "of": "lastCount"
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Elven Passage": {
+  "activated": [
+   {
+    "cost": {
+     "life": 1,
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "ramp": {
+            "filter": "basic",
+            "tapped": false
+           }
+          }
+         ],
+         "label": "Behold an Elf — the land ends up untapped"
+        },
+        {
+         "do": [
+          {
+           "ramp": {
+            "filter": "basic",
+            "tapped": true
+           }
+          }
+         ],
+         "label": "Don't behold — it stays tapped"
+        }
+       ],
+       "text": "You may behold an Elf (choose an Elf you control or reveal one from hand). If you do, the land is untapped."
+      }
+     }
+    ],
+    "label": "Fetch",
+    "text": "{T}, Pay 1 life, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle. You may behold an Elf. If you do, untap that land. (To behold an Elf, choose an Elf you control or reveal an Elf card from your hand.)"
+   }
+  ],
+  "name": "Elven Passage",
+  "notes": "Beholding is decided first, so the fetched land simply arrives untapped (same result as entering tapped and untapping).",
+  "source": "{T}, Pay 1 life, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle. You may behold an Elf. If you do, untap that land. (To behold an Elf, choose an Elf you control or reveal an Elf card from your hand.)",
+  "status": "hand"
+ },
+ "Elvish Archdruid": {
+  "name": "Elvish Archdruid",
+  "source": "Other Elf creatures you control get +1/+1.\n{T}: Add {G} for each Elf you control.",
+  "statics": [
+   {
+    "filter": {
+     "other": true,
+     "subtype": "Elf"
+    },
+    "p": 1,
+    "scope": "creatures-you-control",
+    "t": 1,
+    "text": "Other Elf creatures you control get +1/+1."
+   }
+  ],
+  "status": "auto"
+ },
+ "Elvish Mystic": {
+  "name": "Elvish Mystic",
+  "source": "{T}: Add {G}.",
+  "status": "auto"
+ },
+ "Elvish Piper": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{G}",
+     "tap": true
+    },
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "putFromHand": {
+            "filter": {
+             "creature": true
+            },
+            "to": "bf"
+           }
+          }
+         ],
+         "label": "Yes"
+        },
+        {
+         "do": [],
+         "label": "No"
+        }
+       ],
+       "text": "You may put a creature card from your hand onto the battlefield."
+      }
+     }
+    ],
+    "text": "{G}, {T}: You may put a creature card from your hand onto the battlefield."
+   }
+  ],
+  "name": "Elvish Piper",
+  "source": "{G}, {T}: You may put a creature card from your hand onto the battlefield.",
+  "status": "auto"
+ },
+ "Elvish Visionary": {
+  "name": "Elvish Visionary",
+  "source": "When this creature enters, draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, draw a card."
+   }
+  ]
+ },
+ "Elvish Warmaster": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{5}{G}{G}"
+    },
+    "do": [
+     {
+      "pump": {
+       "kw": [
+        "Deathtouch"
+       ],
+       "p": 2,
+       "t": 2,
+       "target": {
+        "each": {
+         "creature": true,
+         "subtype": "Elf"
+        }
+       }
+      }
+     }
+    ],
+    "label": "Elves +2/+2",
+    "text": "{5}{G}{G}: Elves you control get +2/+2 and gain deathtouch until end of turn."
+   }
+  ],
+  "name": "Elvish Warmaster",
+  "source": "Whenever one or more other Elves you control enter, create a 1/1 green Elf Warrior creature token. This ability triggers only once each turn.\n{5}{G}{G}: Elves you control get +2/+2 and gain deathtouch until end of turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Elf Warrior",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Elf",
+        "Warrior"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "other": true,
+     "subtype": "Elf"
+    },
+    "limit": "once-per-turn",
+    "on": "enters",
+    "text": "Whenever one or more other Elves you control enter, create a 1/1 green Elf Warrior creature token. This ability triggers only once each turn."
+   }
+  ]
+ },
+ "Erestor of the Council": {
+  "name": "Erestor of the Council",
+  "notes": "Silent on purpose: \"whenever players finish voting\" rewards opponents who voted with you — the dummy's votes are politics you decide, and its Treasure/your scry X depend only on them.",
+  "source": "Whenever players finish voting, each opponent who voted for a choice you voted for creates a Treasure token. You scry X, where X is the number of opponents who voted for a choice you didn't vote for. Draw a card.",
+  "status": "hand"
+ },
+ "Exotic Orchard": {
+  "name": "Exotic Orchard",
+  "source": "{T}: Add one mana of any color that a land an opponent controls could produce.",
+  "status": "auto"
+ },
+ "Farhaven Elf": {
+  "name": "Farhaven Elf",
+  "source": "When this creature enters, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "ramp": {
+       "filter": "basic",
+       "tapped": true
+      }
+     }
+    ],
+    "on": "enters",
+    "optional": true,
+    "self": true,
+    "text": "When this creature enters, you may search your library for a basic land card, put it onto the battlefield tapped, then shuffle."
+   }
+  ]
+ },
+ "Field of Ruin": {
+  "name": "Field of Ruin",
+  "notes": "Silent on purpose: its sacrifice ability needs a target nonbasic land an opponent controls, and the dummy has none, so it can't be activated in goldfish.",
+  "source": "{T}: Add {C}.\n{2}, {T}, Sacrifice this land: Destroy target nonbasic land an opponent controls. Each player searches their library for a basic land card, puts it onto the battlefield, then shuffles.",
+  "status": "hand"
+ },
+ "Flooded Grove": {
+  "name": "Flooded Grove",
+  "source": "{T}: Add {C}.\n{G/U}, {T}: Add {G}{G}, {G}{U}, or {U}{U}.",
+  "status": "auto"
+ },
+ "Forest": {
+  "name": "Forest",
+  "source": "({T}: Add {G}.)",
+  "status": "auto"
+ },
+ "Galadhrim Ambush": {
+  "name": "Galadhrim Ambush",
+  "notes": "Damage prevention is by hand (the dummy has no attackers; it matters only for your own non-Elf attackers).",
+  "source": "Create X 1/1 green Elf Warrior creature tokens, where X is the number of attacking creatures.\nPrevent all combat damage that would be dealt this turn by non-Elf creatures.",
+  "spell": [
+   {
+    "token": {
+     "n": "count:attacking-creatures",
+     "name": "Elf Warrior",
+     "power": 1,
+     "toughness": 1,
+     "types": [
+      "Creature",
+      "Elf",
+      "Warrior"
+     ]
+    }
+   },
+   {
+    "prompt": "Prevent all combat damage that would be dealt this turn by non-Elf creatures."
+   }
+  ],
+  "status": "hand"
+ },
+ "Galadriel of Lothlórien": {
+  "name": "Galadriel of Lothlórien",
+  "source": "Whenever the Ring tempts you, if you chose a creature other than Galadriel as your Ring-bearer, scry 3.\nWhenever you scry, you may reveal the top card of your library. If a land card is revealed this way, put it onto the battlefield tapped.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "scry": 3
+     }
+    ],
+    "if": {
+     "youControl": {
+      "isRingBearer": true,
+      "not": {
+       "name": "Galadriel of Lothlórien"
+      }
+     }
+    },
+    "on": "tempted",
+    "text": "Whenever the Ring tempts you, if you chose a creature other than Galadriel as your Ring-bearer, scry 3."
+   },
+   {
+    "do": [
+     {
+      "revealTop": {
+       "filter": {
+        "land": true
+       },
+       "n": 1,
+       "rest": "top",
+       "tapped": true,
+       "to": "bf"
+      }
+     }
+    ],
+    "on": "scryed",
+    "optional": true,
+    "text": "Whenever you scry, you may reveal the top card of your library. If a land card is revealed this way, put it onto the battlefield tapped."
+   }
+  ]
+ },
+ "Galadriel, Elven-Queen": {
+  "name": "Galadriel, Elven-Queen",
+  "notes": "The dummy's vote is yours to decide.",
+  "source": "Will of the council — At the beginning of combat on your turn, if another Elf entered the battlefield under your control this turn, starting with you, each player votes for dominion or guidance. If dominion gets more votes, the Ring tempts you, then you put a +1/+1 counter on your Ring-bearer. If guidance gets more votes or the vote is tied, draw a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "ringTempt": true
+          },
+          {
+           "counters": {
+            "kind": "p1p1",
+            "n": 1,
+            "target": {
+             "each": {
+              "isRingBearer": true
+             }
+            }
+           }
+          }
+         ],
+         "label": "Dominion wins — the Ring tempts you, +1/+1 counter on the Ring-bearer"
+        },
+        {
+         "do": [
+          {
+           "draw": 1
+          }
+         ],
+         "label": "Guidance wins or tie — draw a card"
+        }
+       ],
+       "text": "Will of the council — how did the vote go? (decide the dummy's vote)"
+      }
+     }
+    ],
+    "if": {
+     "thisTurn": {
+      "fact": "entered",
+      "filter": {
+       "other": true,
+       "subtype": "Elf"
+      }
+     }
+    },
+    "on": "beginCombat",
+    "text": "Will of the council — At the beginning of combat on your turn, if another Elf entered the battlefield under your control this turn, starting with you, each player votes for dominion or guidance. If dominion gets more votes, the Ring tempts you, then you put a +1/+1 counter on your Ring-bearer. If guidance gets more votes or the vote is tied, draw a card."
+   }
+  ]
+ },
+ "Genesis Wave": {
+  "name": "Genesis Wave",
+  "source": "Reveal the top X cards of your library. You may put any number of permanent cards with mana value X or less from among them onto the battlefield. Then put all cards revealed this way that weren't put onto the battlefield into your graveyard.",
+  "spell": [
+   {
+    "lookTop": {
+     "n": "X",
+     "pick": {
+      "filter": {
+       "mvLe": "X",
+       "type": [
+        "Artifact",
+        "Creature",
+        "Enchantment",
+        "Land",
+        "Planeswalker",
+        "Battle"
+       ]
+      },
+      "n": "X",
+      "to": "bf"
+     },
+     "rest": "gy"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Growth Spiral": {
+  "name": "Growth Spiral",
+  "source": "Draw a card. You may put a land card from your hand onto the battlefield.",
+  "spell": [
+   {
+    "draw": 1
+   },
+   {
+    "putFromHand": {
+     "filter": {
+      "land": true
+     },
+     "optional": true,
+     "to": "bf"
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Haldir, Lórien Lieutenant": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{5}{G}"
+    },
+    "do": [
+     {
+      "pump": {
+       "kw": [
+        "Vigilance"
+       ],
+       "p": "count:counters-on-self",
+       "t": "count:counters-on-self",
+       "target": {
+        "each": {
+         "creature": true,
+         "other": true,
+         "subtype": "Elf"
+        }
+       }
+      }
+     }
+    ],
+    "label": "Elves pump",
+    "text": "{5}{G}: Until end of turn, other Elves you control gain vigilance and get +1/+1 for each +1/+1 counter on Haldir."
+   }
+  ],
+  "name": "Haldir, Lórien Lieutenant",
+  "source": "Haldir enters with X +1/+1 counters on it.\nVigilance\n{5}{G}: Until end of turn, other Elves you control gain vigilance and get +1/+1 for each +1/+1 counter on Haldir.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": "X",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Haldir enters with X +1/+1 counters on it."
+   }
+  ]
+ },
+ "Heroic Intervention": {
+  "name": "Heroic Intervention",
+  "source": "Permanents you control gain hexproof and indestructible until end of turn.",
+  "spell": [
+   {
+    "grant": {
+     "kw": [
+      "Hexproof",
+      "Indestructible"
+     ],
+     "target": {
+      "each": {}
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Hinterland Harbor": {
+  "name": "Hinterland Harbor",
+  "source": "This land enters tapped unless you control a Forest or an Island.\n{T}: Add {G} or {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Forest",
+           "Island"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control a Forest or an Island."
+   }
+  ]
+ },
+ "Hornet Queen": {
+  "name": "Hornet Queen",
+  "source": "Flying, deathtouch\nWhen this creature enters, create four 1/1 green Insect creature tokens with flying and deathtouch.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "kw": [
+        "Flying",
+        "Deathtouch"
+       ],
+       "n": 4,
+       "name": "Insect",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Insect"
+       ]
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, create four 1/1 green Insect creature tokens with flying and deathtouch."
+   }
+  ]
+ },
+ "Island": {
+  "name": "Island",
+  "source": "({T}: Add {U}.)",
+  "status": "auto"
+ },
+ "Legolas Greenleaf": {
+  "name": "Legolas Greenleaf",
+  "notes": "\"Legolas can't be blocked by creatures with power 2 or less\" never matters: the dummy has no blockers.",
+  "source": "Reach\nLegolas can't be blocked by creatures with power 2 or less.\nWhenever another legendary creature you control enters, put a +1/+1 counter on Legolas.\nWhenever Legolas deals combat damage to a player, draw a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "legendary": true,
+     "other": true
+    },
+    "on": "enters",
+    "text": "Whenever another legendary creature you control enters, put a +1/+1 counter on Legolas."
+   },
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "on": "combatDamage",
+    "self": true,
+    "text": "Whenever Legolas deals combat damage to a player, draw a card."
+   }
+  ]
+ },
+ "Lightning Greaves": {
+  "activated": [
+   {
+    "cost": {},
+    "do": [
+     {
+      "attach": {}
+     }
+    ],
+    "label": "Equip",
+    "limit": "sorcery-speed",
+    "text": "Equip {0}"
+   }
+  ],
+  "name": "Lightning Greaves",
+  "notes": "Equip attaches it; the attached creature has haste and shroud.",
+  "source": "Equipped creature has haste and shroud. (It can't be the target of spells or abilities.)\nEquip {0}",
+  "statics": [
+   {
+    "kw": [
+     "Haste",
+     "Shroud"
+    ],
+    "scope": "attached",
+    "text": "Equipped creature has haste and shroud."
+   },
+   {
+    "p": {
+     "of": "this",
+     "stat": "counters.hone"
+    },
+    "scope": "attached",
+    "text": "Each hone counter on an Equipment grants +1/+0 to equipped creature."
+   }
+  ],
+  "status": "hand"
+ },
+ "Lignify": {
+  "name": "Lignify",
+  "notes": "Silent on purpose: an Aura that shrinks an opponent's creature (the dummy has none).",
+  "source": "Enchant creature\nEnchanted creature is a Treefolk with base power and toughness 0/4 and loses all abilities.",
+  "status": "hand"
+ },
+ "Lothlórien Blade": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}"
+    },
+    "do": [
+     {
+      "attach": {
+       "target": {
+        "pick": {
+         "creature": true,
+         "subtype": "Elf"
+        }
+       }
+      }
+     }
+    ],
+    "label": "Equip Elf",
+    "limit": "sorcery-speed",
+    "text": "Equip Elf {2}"
+   },
+   {
+    "cost": {
+     "mana": "{5}"
+    },
+    "do": [
+     {
+      "attach": {}
+     }
+    ],
+    "label": "Equip",
+    "limit": "sorcery-speed",
+    "text": "Equip {5}"
+   }
+  ],
+  "name": "Lothlórien Blade",
+  "notes": "\"Whenever equipped creature attacks, it deals damage equal to its power to target creature defending player controls.\" — the dummy has no creatures, so it never does anything in goldfish.",
+  "source": "Whenever equipped creature attacks, it deals damage equal to its power to target creature defending player controls.\nEquip Elf {2}\nEquip {5}",
+  "status": "hand"
+ },
+ "Lórien Revealed": {
+  "name": "Lórien Revealed",
+  "source": "Draw three cards.\nIslandcycling {1} ({1}, Discard this card: Search your library for an Island card, reveal it, put it into your hand, then shuffle.)",
+  "spell": [
+   {
+    "draw": 3
+   }
+  ],
+  "status": "auto"
+ },
+ "Mirkwood Elk": {
+  "name": "Mirkwood Elk",
+  "notes": "The returned card's power is chosen first so the life gain is exact (the deck's Elves have power 0–4); if no Elf of that power is there, nothing is returned and no life is gained.",
+  "source": "Trample\nWhenever this creature enters or attacks, return target Elf card from your graveyard to your hand. You gain life equal to that card's power.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "return": {
+            "filter": {
+             "powerGe": 0,
+             "powerLe": 0,
+             "subtype": "Elf"
+            },
+            "from": "gy",
+            "to": "hand"
+           }
+          }
+         ],
+         "label": "An Elf card with power 0 (gain nothing)"
+        },
+        {
+         "do": [
+          {
+           "return": {
+            "filter": {
+             "powerGe": 1,
+             "powerLe": 1,
+             "subtype": "Elf"
+            },
+            "from": "gy",
+            "to": "hand"
+           }
+          },
+          {
+           "repeat": {
+            "do": [
+             {
+              "gainLife": 1
+             }
+            ],
+            "times": {
+             "of": "lastCount"
+            }
+           }
+          }
+         ],
+         "label": "An Elf card with power 1 (gain 1)"
+        },
+        {
+         "do": [
+          {
+           "return": {
+            "filter": {
+             "powerGe": 2,
+             "powerLe": 2,
+             "subtype": "Elf"
+            },
+            "from": "gy",
+            "to": "hand"
+           }
+          },
+          {
+           "repeat": {
+            "do": [
+             {
+              "gainLife": 2
+             }
+            ],
+            "times": {
+             "of": "lastCount"
+            }
+           }
+          }
+         ],
+         "label": "An Elf card with power 2 (gain 2)"
+        },
+        {
+         "do": [
+          {
+           "return": {
+            "filter": {
+             "powerGe": 3,
+             "powerLe": 3,
+             "subtype": "Elf"
+            },
+            "from": "gy",
+            "to": "hand"
+           }
+          },
+          {
+           "repeat": {
+            "do": [
+             {
+              "gainLife": 3
+             }
+            ],
+            "times": {
+             "of": "lastCount"
+            }
+           }
+          }
+         ],
+         "label": "An Elf card with power 3 (gain 3)"
+        },
+        {
+         "do": [
+          {
+           "return": {
+            "filter": {
+             "powerGe": 4,
+             "powerLe": 4,
+             "subtype": "Elf"
+            },
+            "from": "gy",
+            "to": "hand"
+           }
+          },
+          {
+           "repeat": {
+            "do": [
+             {
+              "gainLife": 4
+             }
+            ],
+            "times": {
+             "of": "lastCount"
+            }
+           }
+          }
+         ],
+         "label": "An Elf card with power 4 (gain 4)"
+        }
+       ],
+       "text": "Return target Elf card from your graveyard to your hand — choose its power (you gain that much life)."
+      }
+     }
+    ],
+    "if": {
+     "gyGe": 1
+    },
+    "on": "enters",
+    "self": true,
+    "text": "Whenever this creature enters or attacks, return target Elf card from your graveyard to your hand. You gain life equal to that card's power."
+   },
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "return": {
+            "filter": {
+             "powerGe": 0,
+             "powerLe": 0,
+             "subtype": "Elf"
+            },
+            "from": "gy",
+            "to": "hand"
+           }
+          }
+         ],
+         "label": "An Elf card with power 0 (gain nothing)"
+        },
+        {
+         "do": [
+          {
+           "return": {
+            "filter": {
+             "powerGe": 1,
+             "powerLe": 1,
+             "subtype": "Elf"
+            },
+            "from": "gy",
+            "to": "hand"
+           }
+          },
+          {
+           "repeat": {
+            "do": [
+             {
+              "gainLife": 1
+             }
+            ],
+            "times": {
+             "of": "lastCount"
+            }
+           }
+          }
+         ],
+         "label": "An Elf card with power 1 (gain 1)"
+        },
+        {
+         "do": [
+          {
+           "return": {
+            "filter": {
+             "powerGe": 2,
+             "powerLe": 2,
+             "subtype": "Elf"
+            },
+            "from": "gy",
+            "to": "hand"
+           }
+          },
+          {
+           "repeat": {
+            "do": [
+             {
+              "gainLife": 2
+             }
+            ],
+            "times": {
+             "of": "lastCount"
+            }
+           }
+          }
+         ],
+         "label": "An Elf card with power 2 (gain 2)"
+        },
+        {
+         "do": [
+          {
+           "return": {
+            "filter": {
+             "powerGe": 3,
+             "powerLe": 3,
+             "subtype": "Elf"
+            },
+            "from": "gy",
+            "to": "hand"
+           }
+          },
+          {
+           "repeat": {
+            "do": [
+             {
+              "gainLife": 3
+             }
+            ],
+            "times": {
+             "of": "lastCount"
+            }
+           }
+          }
+         ],
+         "label": "An Elf card with power 3 (gain 3)"
+        },
+        {
+         "do": [
+          {
+           "return": {
+            "filter": {
+             "powerGe": 4,
+             "powerLe": 4,
+             "subtype": "Elf"
+            },
+            "from": "gy",
+            "to": "hand"
+           }
+          },
+          {
+           "repeat": {
+            "do": [
+             {
+              "gainLife": 4
+             }
+            ],
+            "times": {
+             "of": "lastCount"
+            }
+           }
+          }
+         ],
+         "label": "An Elf card with power 4 (gain 4)"
+        }
+       ],
+       "text": "Return target Elf card from your graveyard to your hand — choose its power (you gain that much life)."
+      }
+     }
+    ],
+    "if": {
+     "gyGe": 1
+    },
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever this creature enters or attacks, return target Elf card from your graveyard to your hand. You gain life equal to that card's power."
+   }
+  ]
+ },
+ "Mirkwood Trapper": {
+  "name": "Mirkwood Trapper",
+  "notes": "Silent on purpose: both triggers react to other players attacking, and the dummy never attacks.",
+  "source": "Whenever a player attacks you, target attacking creature gets -2/-0 until end of turn.\nWhenever a player attacks, if they aren't attacking you, that player chooses an attacking creature. It gets +2/+0 until end of turn.",
+  "status": "hand"
+ },
+ "Mirror of Galadriel": {
+  "activated": [
+   {
+    "cost": {},
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "pay": {
+          "tap": true
+         }
+        },
+        {
+         "scry": 1
+        },
+        {
+         "draw": 1
+        }
+       ],
+       "else": [
+        {
+         "check": {
+          "do": [
+           {
+            "pay": {
+             "mana": "{1}",
+             "tap": true
+            }
+           },
+           {
+            "scry": 1
+           },
+           {
+            "draw": 1
+           }
+          ],
+          "else": [
+           {
+            "check": {
+             "do": [
+              {
+               "pay": {
+                "mana": "{2}",
+                "tap": true
+               }
+              },
+              {
+               "scry": 1
+              },
+              {
+               "draw": 1
+              }
+             ],
+             "else": [
+              {
+               "check": {
+                "do": [
+                 {
+                  "pay": {
+                   "mana": "{3}",
+                   "tap": true
+                  }
+                 },
+                 {
+                  "scry": 1
+                 },
+                 {
+                  "draw": 1
+                 }
+                ],
+                "else": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "pay": {
+                      "mana": "{4}",
+                      "tap": true
+                     }
+                    },
+                    {
+                     "scry": 1
+                    },
+                    {
+                     "draw": 1
+                    }
+                   ],
+                   "else": [
+                    {
+                     "pay": {
+                      "mana": "{5}",
+                      "tap": true
+                     }
+                    },
+                    {
+                     "scry": 1
+                    },
+                    {
+                     "draw": 1
+                    }
+                   ],
+                   "if": {
+                    "countGe": 1,
+                    "youControl": {
+                     "creature": true,
+                     "legendary": true
+                    }
+                   }
+                  }
+                 }
+                ],
+                "if": {
+                 "countGe": 2,
+                 "youControl": {
+                  "creature": true,
+                  "legendary": true
+                 }
+                }
+               }
+              }
+             ],
+             "if": {
+              "countGe": 3,
+              "youControl": {
+               "creature": true,
+               "legendary": true
+              }
+             }
+            }
+           }
+          ],
+          "if": {
+           "countGe": 4,
+           "youControl": {
+            "creature": true,
+            "legendary": true
+           }
+          }
+         }
+        }
+       ],
+       "if": {
+        "countGe": 5,
+        "youControl": {
+         "creature": true,
+         "legendary": true
+        }
+       }
+      }
+     }
+    ],
+    "label": "Scry 1, draw",
+    "text": "{5}, {T}: Scry 1, then draw a card. This ability costs {1} less to activate for each legendary creature you control."
+   }
+  ],
+  "name": "Mirror of Galadriel",
+  "notes": "The cost ({5} minus one per legendary creature you control, and {T}) is paid when the ability resolves.",
+  "source": "{5}, {T}: Scry 1, then draw a card. This ability costs {1} less to activate for each legendary creature you control.",
+  "status": "hand"
+ },
+ "Model of Unity": {
+  "name": "Model of Unity",
+  "notes": "Silent on purpose: \"whenever players finish voting\" scry 2 depends on the dummy's votes, which are politics you decide. Its mana ability is the engine's.",
+  "source": "Whenever players finish voting, you and each opponent who voted for a choice you voted for may scry 2.\n{T}: Add one mana of any color.",
+  "status": "hand"
+ },
+ "Mystic Confluence": {
+  "name": "Mystic Confluence",
+  "notes": "The counter mode and an opponent's creature are opponent-only; they're offered as a no-op so the three choices stay honest.",
+  "source": "Choose three. You may choose the same mode more than once.\n• Counter target spell unless its controller pays {3}.\n• Return target creature to its owner's hand.\n• Draw a card.",
+  "spell": [
+   {
+    "repeat": {
+     "do": [
+      {
+       "choice": {
+        "options": [
+         {
+          "do": [
+           {
+            "bounce": {
+             "target": "creature-you-control"
+            }
+           }
+          ],
+          "label": "Return target creature to its owner's hand (one of mine)"
+         },
+         {
+          "do": [
+           {
+            "draw": 1
+           }
+          ],
+          "label": "Draw a card"
+         },
+         {
+          "do": [],
+          "label": "Counter target spell / bounce an opponent's creature (the dummy has neither: nothing)"
+         }
+        ],
+        "text": "Choose three. You may choose the same mode more than once."
+       }
+      }
+     ],
+     "times": 3
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Opt": {
+  "name": "Opt",
+  "source": "Scry 1. (Look at the top card of your library. You may put that card on the bottom.)\nDraw a card.",
+  "spell": [
+   {
+    "scry": 1
+   },
+   {
+    "draw": 1
+   }
+  ],
+  "status": "auto"
+ },
+ "Orcrist, Goblin-cleaver": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{3}"
+    },
+    "do": [
+     {
+      "attach": {}
+     }
+    ],
+    "label": "Equip",
+    "limit": "sorcery-speed",
+    "text": "Equip {3}"
+   }
+  ],
+  "name": "Orcrist, Goblin-cleaver",
+  "source": "Equipped creature gets +2/+2 and has trample.\nWhenever equipped creature deals combat damage to a player, choose a creature type. Create a Treasure token for each creature you control of that type.\nEquip {3}",
+  "statics": [
+   {
+    "kw": [
+     "Trample"
+    ],
+    "p": 2,
+    "scope": "attached",
+    "t": 2,
+    "text": "Equipped creature gets +2/+2 and has trample."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choose": {
+       "kind": "creatureType"
+      }
+     },
+     {
+      "token": {
+       "n": {
+        "count": {
+         "creature": true,
+         "subtype": "$chosen"
+        }
+       },
+       "name": "Treasure",
+       "types": [
+        "Artifact",
+        "Treasure"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "attachedToThis": true
+    },
+    "on": "combatDamage",
+    "text": "Whenever equipped creature deals combat damage to a player, choose a creature type. Create a Treasure token for each creature you control of that type."
+   }
+  ]
+ },
+ "Overwhelming Stampede": {
+  "name": "Overwhelming Stampede",
+  "source": "Until end of turn, creatures you control gain trample and get +X/+X, where X is the greatest power among creatures you control.",
+  "spell": [
+   {
+    "pump": {
+     "kw": [
+      "Trample"
+     ],
+     "p": "greatest:power-you-control",
+     "t": "greatest:power-you-control",
+     "target": "each-creature-you-control"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Paradise Druid": {
+  "name": "Paradise Druid",
+  "source": "This creature has hexproof as long as it's untapped. (It can't be the target of spells or abilities your opponents control.)\n{T}: Add one mana of any color.",
+  "statics": [
+   {
+    "if": {
+     "youControl": {
+      "name": "Paradise Druid",
+      "untapped": true
+     }
+    },
+    "kw": [
+     "Hexproof"
+    ],
+    "scope": "self",
+    "text": "This creature has hexproof as long as it's untapped."
+   }
+  ],
+  "status": "hand"
+ },
+ "Plea for Power": {
+  "name": "Plea for Power",
+  "notes": "The dummy's vote is yours to decide.",
+  "source": "Will of the council — Starting with you, each player votes for time or knowledge. If time gets more votes, take an extra turn after this one. If knowledge gets more votes or the vote is tied, draw three cards.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "extraTurn": true
+        }
+       ],
+       "label": "Time gets more votes — take an extra turn"
+      },
+      {
+       "do": [
+        {
+         "draw": 3
+        }
+       ],
+       "label": "Knowledge gets more votes or tie — draw three"
+      }
+     ],
+     "text": "Will of the council — time or knowledge? (decide the dummy's vote)"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Preordain": {
+  "name": "Preordain",
+  "source": "Scry 2, then draw a card. (To scry 2, look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+  "spell": [
+   {
+    "scry": 2
+   },
+   {
+    "draw": 1
+   }
+  ],
+  "status": "auto"
+ },
+ "Raise the Palisade": {
+  "name": "Raise the Palisade",
+  "source": "Choose a creature type. Return all creatures that aren't of the chosen type to their owners' hands.",
+  "spell": [
+   {
+    "choose": {
+     "kind": "creatureType"
+    }
+   },
+   {
+    "bounce": {
+     "target": {
+      "each": {
+       "creature": true,
+       "not": {
+        "subtype": "$chosen"
+       }
+      }
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Rampant Growth": {
+  "name": "Rampant Growth",
+  "source": "Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+  "spell": [
+   {
+    "ramp": {
+     "filter": "basic",
+     "tapped": true
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Realm Seekers": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}{G}",
+     "removeCounters": {
+      "kind": "p1p1",
+      "n": 1
+     }
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": "land",
+       "to": "hand"
+      }
+     }
+    ],
+    "label": "Fetch land",
+    "text": "{2}{G}, Remove a +1/+1 counter from this creature: Search your library for a land card, reveal it, put it into your hand, then shuffle."
+   }
+  ],
+  "name": "Realm Seekers",
+  "notes": "The dummy holds no cards, so X = your hand.",
+  "source": "This creature enters with X +1/+1 counters on it, where X is the total number of cards in all players' hands.\n{2}{G}, Remove a +1/+1 counter from this creature: Search your library for a land card, reveal it, put it into your hand, then shuffle.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": "count:cards-in-hand",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This creature enters with X +1/+1 counters on it, where X is the total number of cards in all players' hands."
+   }
+  ]
+ },
+ "Reclamation Sage": {
+  "name": "Reclamation Sage",
+  "source": "When this creature enters, you may destroy target artifact or enchantment.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "destroy": {
+            "target": "opponent"
+           }
+          }
+         ],
+         "label": "An opponent's (the dummy has none: nothing happens)"
+        },
+        {
+         "do": [
+          {
+           "destroy": {
+            "target": {
+             "pick": {
+              "type": [
+               "Artifact",
+               "Enchantment"
+              ]
+             }
+            }
+           }
+          }
+         ],
+         "label": "One of my artifacts or enchantments"
+        }
+       ],
+       "text": "Destroy target artifact or enchantment."
+      }
+     }
+    ],
+    "on": "enters",
+    "optional": true,
+    "self": true,
+    "text": "When this creature enters, you may destroy target artifact or enchantment."
+   }
+  ]
+ },
+ "Rejuvenating Springs": {
+  "name": "Rejuvenating Springs",
+  "source": "This land enters tapped unless you have two or more opponents.\n{T}: Add {G} or {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you have two or more opponents."
+   }
+  ]
+ },
+ "Sail into the West": {
+  "name": "Sail into the West",
+  "notes": "The dummy's vote is yours to decide. Sail into the West is exiled before the return so it can't pick itself.",
+  "source": "Will of the council — Starting with you, each player votes for return or embark. If return gets more votes, each player returns up to two cards from their graveyard to their hand, then you exile Sail into the West. If embark gets more votes or the vote is tied, each player may discard their hand and draw seven cards.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "exileFromGy": {
+          "filter": {
+           "name": "Sail into the West"
+          },
+          "n": 1
+         }
+        },
+        {
+         "return": {
+          "from": "gy",
+          "n": 2,
+          "optional": true,
+          "to": "hand"
+         }
+        }
+       ],
+       "label": "Return gets more votes — up to two cards back, exile Sail into the West"
+      },
+      {
+       "do": [
+        {
+         "choice": {
+          "options": [
+           {
+            "do": [
+             {
+              "discard": "count:cards-in-hand"
+             },
+             {
+              "draw": 7
+             }
+            ],
+            "label": "Discard hand, draw seven"
+           },
+           {
+            "do": [],
+            "label": "Keep my hand"
+           }
+          ],
+          "text": "You may discard your hand and draw seven cards."
+         }
+        }
+       ],
+       "label": "Embark gets more votes or tie — you may discard your hand and draw seven"
+      }
+     ],
+     "text": "Will of the council — return or embark? (decide the dummy's vote)"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Seeds of Renewal": {
+  "name": "Seeds of Renewal",
+  "notes": "Undaunted: one opponent = {1} less. Seeds is exiled first (it was on the stack, so it can't be one of its own targets).",
+  "source": "Undaunted (This spell costs {1} less to cast for each opponent.)\nReturn up to two target cards from your graveyard to your hand. Exile Seeds of Renewal.",
+  "spell": [
+   {
+    "exileFromGy": {
+     "filter": {
+      "name": "Seeds of Renewal"
+     },
+     "n": 1
+    }
+   },
+   {
+    "return": {
+     "from": "gy",
+     "n": 2,
+     "optional": true,
+     "to": "hand"
+    }
+   }
+  ],
+  "statics": [
+   {
+    "costLess": 1,
+    "scope": "this-spell",
+    "text": "Undaunted"
+   }
+  ],
+  "status": "hand"
+ },
+ "Silvan Rally": {
+  "name": "Silvan Rally",
+  "notes": "Adventure half: cast through Thranduil's faces (then the creature is castable from exile).",
+  "source": "Mill four cards, then put up to two land cards from among them into your hand. (Then exile this card. You may cast the creature later from exile.)",
+  "spell": [
+   {
+    "lookTop": {
+     "n": 4,
+     "pick": {
+      "filter": {
+       "land": true
+      },
+      "n": 2,
+      "to": "hand"
+     },
+     "rest": "gy"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Simulacrum Shaper": {
+  "name": "Simulacrum Shaper",
+  "source": "When this creature enters, you may search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.\nWhen this creature dies, draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "ramp": {
+       "filter": "basic",
+       "tapped": true
+      }
+     }
+    ],
+    "on": "enters",
+    "optional": true,
+    "self": true,
+    "text": "When this creature enters, you may search your library for a basic land card, put that card onto the battlefield tapped, then shuffle."
+   },
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "on": "dies",
+    "self": true,
+    "text": "When this creature dies, draw a card."
+   }
+  ]
+ },
+ "Sol Ring": {
+  "name": "Sol Ring",
+  "source": "{T}: Add {C}{C}.",
+  "status": "auto"
+ },
+ "Song of Eärendil": {
+  "name": "Song of Eärendil",
+  "notes": "Chapter III puts flying counters; whether the engine reads a flying counter as the keyword never matters against the dummy (it has no blockers).",
+  "source": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\nI — Scry 2, then draw two cards.\nII — Create a Treasure token and a 2/2 blue Bird creature token with flying.\nIII — Put a flying counter on each creature you control without flying.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "scry": 2
+     },
+     {
+      "draw": 2
+     }
+    ],
+    "n": 1,
+    "on": "chapter",
+    "text": "I — Scry 2, then draw two cards."
+   },
+   {
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Treasure",
+       "types": [
+        "Artifact",
+        "Treasure"
+       ]
+      }
+     },
+     {
+      "token": {
+       "colors": [
+        "U"
+       ],
+       "kw": [
+        "Flying"
+       ],
+       "n": 1,
+       "name": "Bird",
+       "power": 2,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Bird"
+       ]
+      }
+     }
+    ],
+    "n": 2,
+    "on": "chapter",
+    "text": "II — Create a Treasure token and a 2/2 blue Bird creature token with flying."
+   },
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "flying",
+       "n": 1,
+       "target": {
+        "each": {
+         "creature": true,
+         "withoutKw": "Flying"
+        }
+       }
+      }
+     }
+    ],
+    "n": 3,
+    "on": "chapter",
+    "text": "III — Put a flying counter on each creature you control without flying."
+   }
+  ]
+ },
+ "Swan Song": {
+  "name": "Swan Song",
+  "notes": "Silent on purpose: a counterspell, and the dummy casts no spells.",
+  "source": "Counter target enchantment, instant, or sorcery spell. Its controller creates a 2/2 blue Bird creature token with flying.",
+  "status": "hand"
+ },
+ "Thornwood Falls": {
+  "name": "Thornwood Falls",
+  "source": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {G} or {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   },
+   {
+    "do": [
+     {
+      "gainLife": 1
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this land enters, you gain 1 life."
+   }
+  ]
+ },
+ "Thranduil's Company": {
+  "name": "Thranduil's Company",
+  "notes": "The extra land drop is granted at upkeep (and on entering) while you control another Elf. For the vigilance, pick the same creature again.",
+  "source": "As long as you control another Elf, you may play an additional land on each of your turns.\nLandfall — Whenever a land you control enters, put two +1/+1 counters on target creature you control. It gains vigilance until end of turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "extraLand": 1
+     }
+    ],
+    "if": {
+     "youControl": {
+      "other": true,
+      "subtype": "Elf"
+     }
+    },
+    "on": "upkeep",
+    "text": "As long as you control another Elf, you may play an additional land on each of your turns."
+   },
+   {
+    "do": [
+     {
+      "extraLand": 1
+     }
+    ],
+    "if": {
+     "youControl": {
+      "other": true,
+      "subtype": "Elf"
+     }
+    },
+    "on": "enters",
+    "self": true,
+    "text": "As long as you control another Elf, you may play an additional land on each of your turns."
+   },
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 2,
+       "target": "creature-you-control"
+      }
+     },
+     {
+      "grant": {
+       "kw": [
+        "Vigilance"
+       ],
+       "target": "creature-you-control"
+      }
+     }
+    ],
+    "filter": {
+     "land": true
+    },
+    "on": "enters",
+    "text": "Landfall — Whenever a land you control enters, put two +1/+1 counters on target creature you control. It gains vigilance until end of turn."
+   }
+  ]
+ },
+ "Thranduil, Sindarin Liege // Silvan Rally": {
+  "faces": {
+   "Silvan Rally": {
+    "cost": "{1}{G/U}{G/U}",
+    "kind": "adventure",
+    "spell": [
+     {
+      "lookTop": {
+       "n": 4,
+       "pick": {
+        "filter": {
+         "land": true
+        },
+        "n": 2,
+        "to": "hand"
+       },
+       "rest": "gy"
+      }
+     }
+    ],
+    "text": "Mill four cards, then put up to two land cards from among them into your hand. (Then exile this card. You may cast the creature later from exile.)",
+    "type": "Sorcery"
+   }
+  },
+  "name": "Thranduil, Sindarin Liege // Silvan Rally",
+  "source": "Other Elves you control get +1/+1.\nLandfall — Whenever a land you control enters, create a 1/1 green Elf creature token.",
+  "statics": [
+   {
+    "filter": {
+     "other": true,
+     "subtype": "Elf"
+    },
+    "p": 1,
+    "scope": "creatures-you-control",
+    "t": 1,
+    "text": "Other Elves you control get +1/+1."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Elf",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Elf"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "land": true
+    },
+    "on": "enters",
+    "text": "Landfall — Whenever a land you control enters, create a 1/1 green Elf creature token."
+   }
+  ]
+ },
+ "Tranquil Thicket": {
+  "name": "Tranquil Thicket",
+  "source": "This land enters tapped.\n{T}: Add {G}.\nCycling {G} ({G}, Discard this card: Draw a card.)",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "Trap the Trespassers": {
+  "name": "Trap the Trespassers",
+  "notes": "Silent on purpose: it stuns creatures you don't control, and the dummy has none.",
+  "source": "Secret council — Each player secretly votes for a creature you don't control, then those votes are revealed. For each creature with one or more votes, put that many stun counters on it, then tap it. (If a permanent with a stun counter would become untapped, remove one from it instead.)",
+  "status": "hand"
+ },
+ "Travel Through Caradhras": {
+  "name": "Travel Through Caradhras",
+  "notes": "The dummy's vote is yours to decide. The spell exiles itself first, so it is never one of the cards returned.",
+  "source": "Council's dilemma — Starting with you, each player votes for Redhorn Pass or Mines of Moria. For each Redhorn Pass vote, search your library for a basic land card and put it onto the battlefield tapped. If you search your library this way, shuffle. For each Mines of Moria vote, return a card from your graveyard to your hand.\nExile Travel Through Caradhras.",
+  "spell": [
+   {
+    "exileFromGy": {
+     "filter": {
+      "name": "Travel Through Caradhras"
+     },
+     "n": 1
+    }
+   },
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "ramp": {
+          "filter": "basic",
+          "n": 2,
+          "tapped": true
+         }
+        }
+       ],
+       "label": "Two Redhorn Pass — two basics tapped"
+      },
+      {
+       "do": [
+        {
+         "ramp": {
+          "filter": "basic",
+          "tapped": true
+         }
+        },
+        {
+         "return": {
+          "from": "gy",
+          "to": "hand"
+         }
+        }
+       ],
+       "label": "One of each — a basic tapped and a card back"
+      },
+      {
+       "do": [
+        {
+         "return": {
+          "from": "gy",
+          "n": 2,
+          "to": "hand"
+         }
+        }
+       ],
+       "label": "Two Mines of Moria — two cards back"
+      }
+     ],
+     "text": "Council's dilemma — how did the two votes fall? (decide the dummy's vote)"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Vineglimmer Snarl": {
+  "name": "Vineglimmer Snarl",
+  "notes": "\"As this land enters\" modelled as an enters trigger with a reveal choice.",
+  "source": "As this land enters, you may reveal a Forest or Island card from your hand. If you don't, this land enters tapped.\n{T}: Add {G} or {U}.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [],
+         "label": "Reveal a Forest or Island (enters untapped)"
+        },
+        {
+         "do": [
+          {
+           "tap": {
+            "target": "self"
+           }
+          }
+         ],
+         "label": "Don't reveal (enters tapped)"
+        }
+       ],
+       "text": "Vineglimmer Snarl: reveal a Forest or Island card from your hand?"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "As this land enters, you may reveal a Forest or Island card from your hand. If you don't, this land enters tapped."
+   }
+  ]
+ },
+ "Windswift Slice": {
+  "name": "Windswift Slice",
+  "notes": "Silent on purpose: your creature must deal damage to a creature you don't control, and the dummy has none.",
+  "source": "Target creature you control deals damage equal to its power to target creature you don't control. Create a number of 1/1 green Elf Warrior creature tokens equal to the amount of excess damage dealt this way.",
+  "status": "hand"
+ },
+ "Wood Elves": {
+  "name": "Wood Elves",
+  "source": "When this creature enters, search your library for a Forest card, put that card onto the battlefield, then shuffle.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "ramp": {
+       "filter": {
+        "land": true,
+        "subtype": "Forest"
+       },
+       "tapped": false
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, search your library for a Forest card, put that card onto the battlefield, then shuffle."
+   }
+  ]
+ },
+ "Woodland Stream": {
+  "name": "Woodland Stream",
+  "source": "This land enters tapped.\n{T}: Add {G} or {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ }
+}

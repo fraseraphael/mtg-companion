@@ -1,0 +1,2501 @@
+{
+ "An Offer You Can't Refuse": {
+  "name": "An Offer You Can't Refuse",
+  "notes": "Silent: countering only matters against an opponent's spell (the dummy casts nothing).",
+  "source": "Counter target noncreature spell. Its controller creates two Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "status": "hand"
+ },
+ "Arcane Signet": {
+  "name": "Arcane Signet",
+  "source": "{T}: Add one mana of any color in your commander's color identity.",
+  "status": "auto"
+ },
+ "Archmage Emeritus": {
+  "name": "Archmage Emeritus",
+  "source": "Magecraft — Whenever you cast or copy an instant or sorcery spell, draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "type": [
+      "Instant",
+      "Sorcery"
+     ]
+    },
+    "on": "cast",
+    "text": "Magecraft — Whenever you cast or copy an instant or sorcery spell, draw a card."
+   }
+  ]
+ },
+ "Arid Mesa": {
+  "activated": [
+   {
+    "cost": {
+     "life": 1,
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": {
+        "land": true,
+        "subtype": [
+         "Mountain",
+         "Plains"
+        ]
+       },
+       "tapped": false
+      }
+     }
+    ],
+    "label": "Fetch",
+    "text": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Mountain or Plains card, put it onto the battlefield, then shuffle."
+   }
+  ],
+  "name": "Arid Mesa",
+  "notes": "Finds any land with the Mountain or Plains type (basics and duals); it enters untapped.",
+  "source": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Mountain or Plains card, put it onto the battlefield, then shuffle.",
+  "status": "hand"
+ },
+ "Banishing Knack": {
+  "name": "Banishing Knack",
+  "notes": "Silent: the granted bounce ability is meant for an opponent's permanents (granting an activated ability isn't modelled).",
+  "source": "Until end of turn, target creature gains \"{T}: Return target nonland permanent to its owner's hand.\"",
+  "status": "hand"
+ },
+ "Birgi, God of Storytelling // Harnfel, Horn of Bounty": {
+  "name": "Birgi, God of Storytelling // Harnfel, Horn of Bounty",
+  "notes": "Not modelled: keeping the {R} through phase changes (the pool empties at each phase end), and boast (no boast creatures here).",
+  "source": "Whenever you cast a spell, add {R}. Until end of turn, you don't lose this mana as steps and phases end.\nCreatures you control can boast twice during each of your turns rather than once.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "addMana": "{R}"
+     }
+    ],
+    "on": "cast",
+    "text": "Whenever you cast a spell, add {R}. Until end of turn, you don't lose this mana as steps and phases end."
+   }
+  ]
+ },
+ "Blazing Shoal": {
+  "name": "Blazing Shoal",
+  "notes": "Not modelled: the alternative cost (exile a red card with mana value X from your hand); cast it for its mana cost.",
+  "source": "You may exile a red card with mana value X from your hand rather than pay this spell's mana cost.\nTarget creature gets +X/+0 until end of turn.",
+  "spell": [
+   {
+    "pump": {
+     "p": "X",
+     "t": 0,
+     "target": {
+      "n": 1,
+      "pick": {
+       "creature": true
+      }
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Bloodstained Mire": {
+  "activated": [
+   {
+    "cost": {
+     "life": 1,
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": {
+        "land": true,
+        "subtype": [
+         "Swamp",
+         "Mountain"
+        ]
+       },
+       "tapped": false
+      }
+     }
+    ],
+    "label": "Fetch",
+    "text": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Swamp or Mountain card, put it onto the battlefield, then shuffle."
+   }
+  ],
+  "name": "Bloodstained Mire",
+  "notes": "Finds any land with the Swamp or Mountain type (basics and duals); it enters untapped.",
+  "source": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Swamp or Mountain card, put it onto the battlefield, then shuffle.",
+  "status": "hand"
+ },
+ "Borne Upon a Wind": {
+  "name": "Borne Upon a Wind",
+  "notes": "Not modelled: \"You may cast spells this turn as though they had flash\" (no timing permission for a turn); force-cast a spell at instant speed if needed.",
+  "source": "You may cast spells this turn as though they had flash.\nDraw a card.",
+  "spell": [
+   {
+    "draw": 1
+   }
+  ],
+  "status": "hand"
+ },
+ "Brain Freeze": {
+  "name": "Brain Freeze",
+  "notes": "Storm: Brain Freeze plus one copy per spell cast before it = the spells cast this turn; every copy targets the same player.",
+  "source": "Target player mills three cards.\nStorm (When you cast this spell, copy it for each spell cast before it this turn. You may choose new targets for the copies.)",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "repeat": {
+          "do": [
+           {
+            "mill": 3
+           }
+          ],
+          "times": {
+           "thisTurn": "spellsCast"
+          }
+         }
+        }
+       ],
+       "label": "Target myself (mill three per copy)"
+      },
+      {
+       "do": [],
+       "label": "Target the opponent (the dummy has no library)"
+      }
+     ],
+     "text": "Target player mills three cards. Storm (one copy for each spell cast before it this turn)."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Chrome Mox": {
+  "name": "Chrome Mox",
+  "source": "Imprint — When this artifact enters, you may exile a nonartifact, nonland card from your hand.\n{T}: Add one mana of any of the exiled card's colors.",
+  "status": "prompt",
+  "triggers": [
+   {
+    "do": [
+     {
+      "prompt": "You may exile a nonartifact, nonland card from your hand."
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Imprint — When this artifact enters, you may exile a nonartifact, nonland card from your hand."
+   }
+  ]
+ },
+ "City of Brass": {
+  "name": "City of Brass",
+  "source": "Whenever this land becomes tapped, it deals 1 damage to you.\n{T}: Add one mana of any color.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "loseLife": 1
+     }
+    ],
+    "on": "tapped",
+    "self": true,
+    "text": "Whenever this land becomes tapped, it deals 1 damage to you."
+   }
+  ]
+ },
+ "Command Tower": {
+  "name": "Command Tower",
+  "source": "{T}: Add one mana of any color in your commander's color identity.",
+  "status": "auto"
+ },
+ "Curiosity": {
+  "name": "Curiosity",
+  "notes": "Only combat damage to the dummy is seen (a `damage` effect from the creature is by hand).",
+  "source": "Enchant creature\nWhenever enchanted creature deals damage to an opponent, you may draw a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "attach": {
+       "target": "creature-you-control"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Enchant creature"
+   },
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "attachedToThis": true
+    },
+    "on": "combatDamage",
+    "optional": true,
+    "text": "Whenever enchanted creature deals damage to an opponent, you may draw a card."
+   }
+  ]
+ },
+ "Cyclonic Rift": {
+  "name": "Cyclonic Rift",
+  "notes": "Only hits permanents you don't control; the dummy has none (overload likewise).",
+  "source": "Return target nonland permanent you don't control to its owner's hand.\nOverload {6}{U} (You may cast this spell for its overload cost. If you do, change \"target\" in its text to \"each.\")",
+  "spell": [
+   {
+    "bounce": {
+     "target": "opponent"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Daze": {
+  "name": "Daze",
+  "notes": "Silent: countering/exiling only matters against an opponent's spell (the dummy casts nothing).",
+  "source": "You may return an Island you control to its owner's hand rather than pay this spell's mana cost.\nCounter target spell unless its controller pays {1}.",
+  "status": "hand"
+ },
+ "Deflecting Swat": {
+  "altCost": {
+   "free": true,
+   "if": {
+    "commanderOnBf": true
+   }
+  },
+  "name": "Deflecting Swat",
+  "notes": "Silent: redirecting a spell or ability only matters against an opponent's (the dummy casts nothing). Free with your commander out.",
+  "source": "If you control a commander, you may cast this spell without paying its mana cost.\nYou may choose new targets for target spell or ability.",
+  "status": "hand"
+ },
+ "Dizzy Spell": {
+  "activated": [
+   {
+    "cost": {
+     "discardSelf": true,
+     "mana": "{1}{U}{U}"
+    },
+    "do": [
+     {
+      "tutor": {
+       "filter": {
+        "mvGe": 1,
+        "mvLe": 1
+       },
+       "to": "hand"
+      }
+     }
+    ],
+    "label": "Transmute",
+    "limit": "sorcery-speed",
+    "text": "Transmute {1}{U}{U}",
+    "zone": "hand"
+   }
+  ],
+  "name": "Dizzy Spell",
+  "source": "Target creature gets -3/-0 until end of turn.\nTransmute {1}{U}{U} ({1}{U}{U}, Discard this card: Search your library for a card with the same mana value as this card, reveal it, put it into your hand, then shuffle. Transmute only as a sorcery.)",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [],
+       "label": "An opponent's creature (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "pump": {
+          "p": -3,
+          "t": 0,
+          "target": "creature-you-control"
+         }
+        }
+       ],
+       "label": "One of my creatures"
+      }
+     ],
+     "text": "Target creature gets -3/-0 until end of turn."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Dragon's Rage Channeler": {
+  "name": "Dragon's Rage Channeler",
+  "notes": "Card types in the graveyard are mirrored as 'cardtypes' counters (refreshed like Gran-Gran's). Not modelled: \"attacks each combat if able\".",
+  "source": "Whenever you cast a noncreature spell, surveil 1. (Look at the top card of your library. You may put that card into your graveyard.)\nDelirium — As long as there are four or more card types among cards in your graveyard, this creature gets +2/+2, has flying, and attacks each combat if able.",
+  "statics": [
+   {
+    "if": {
+     "counters": {
+      "ge": 4,
+      "kind": "cardtypes"
+     }
+    },
+    "kw": [
+     "Flying"
+    ],
+    "p": 2,
+    "scope": "self",
+    "t": 2,
+    "text": "Delirium — As long as there are four or more card types among cards in your graveyard, this creature gets +2/+2, has flying, and attacks each combat if able."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "surveil": 1
+     }
+    ],
+    "filter": {
+     "noncreature": true
+    },
+    "on": "cast",
+    "text": "Whenever you cast a noncreature spell, surveil 1."
+   },
+   {
+    "do": [
+     {
+      "removeCounters": {
+       "kind": "cardtypes",
+       "n": "all",
+       "target": "self"
+      }
+     },
+     {
+      "counters": {
+       "kind": "cardtypes",
+       "n": "count:types-in-gy",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Delirium — As long as there are four or more card types among cards in your graveyard, this creature gets +2/+2, has flying, and attacks each combat if able."
+   },
+   {
+    "do": [
+     {
+      "removeCounters": {
+       "kind": "cardtypes",
+       "n": "all",
+       "target": "self"
+      }
+     },
+     {
+      "counters": {
+       "kind": "cardtypes",
+       "n": "count:types-in-gy",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "upkeep",
+    "text": "Delirium — As long as there are four or more card types among cards in your graveyard, this creature gets +2/+2, has flying, and attacks each combat if able."
+   },
+   {
+    "do": [
+     {
+      "removeCounters": {
+       "kind": "cardtypes",
+       "n": "all",
+       "target": "self"
+      }
+     },
+     {
+      "counters": {
+       "kind": "cardtypes",
+       "n": "count:types-in-gy",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "beginMain",
+    "text": "Delirium — As long as there are four or more card types among cards in your graveyard, this creature gets +2/+2, has flying, and attacks each combat if able."
+   },
+   {
+    "do": [
+     {
+      "removeCounters": {
+       "kind": "cardtypes",
+       "n": "all",
+       "target": "self"
+      }
+     },
+     {
+      "counters": {
+       "kind": "cardtypes",
+       "n": "count:types-in-gy",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "cast",
+    "text": "Delirium — As long as there are four or more card types among cards in your graveyard, this creature gets +2/+2, has flying, and attacks each combat if able."
+   },
+   {
+    "do": [
+     {
+      "removeCounters": {
+       "kind": "cardtypes",
+       "n": "all",
+       "target": "self"
+      }
+     },
+     {
+      "counters": {
+       "kind": "cardtypes",
+       "n": "count:types-in-gy",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "resolved",
+    "text": "Delirium — As long as there are four or more card types among cards in your graveyard, this creature gets +2/+2, has flying, and attacks each combat if able."
+   },
+   {
+    "do": [
+     {
+      "removeCounters": {
+       "kind": "cardtypes",
+       "n": "all",
+       "target": "self"
+      }
+     },
+     {
+      "counters": {
+       "kind": "cardtypes",
+       "n": "count:types-in-gy",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "discarded",
+    "text": "Delirium — As long as there are four or more card types among cards in your graveyard, this creature gets +2/+2, has flying, and attacks each combat if able."
+   },
+   {
+    "do": [
+     {
+      "removeCounters": {
+       "kind": "cardtypes",
+       "n": "all",
+       "target": "self"
+      }
+     },
+     {
+      "counters": {
+       "kind": "cardtypes",
+       "n": "count:types-in-gy",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "surveiled",
+    "text": "Delirium — As long as there are four or more card types among cards in your graveyard, this creature gets +2/+2, has flying, and attacks each combat if able."
+   }
+  ]
+ },
+ "Dragonstorm": {
+  "name": "Dragonstorm",
+  "notes": "Storm: one Dragon for Dragonstorm plus one per spell cast before it this turn = the number of spells cast this turn (Dragonstorm included), counted on resolution.",
+  "source": "Search your library for a Dragon permanent card, put it onto the battlefield, then shuffle.\nStorm (When you cast this spell, copy it for each spell cast before it this turn.)",
+  "spell": [
+   {
+    "repeat": {
+     "do": [
+      {
+       "tutor": {
+        "filter": {
+         "nonland": true,
+         "subtype": "Dragon"
+        },
+        "to": "bf"
+       }
+      }
+     ],
+     "times": {
+      "thisTurn": "spellsCast"
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Dramatic Reversal": {
+  "name": "Dramatic Reversal",
+  "source": "Untap all nonland permanents you control.",
+  "spell": [
+   {
+    "untap": {
+     "target": {
+      "each": {
+       "nonland": true
+      }
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Emergence Zone": {
+  "name": "Emergence Zone",
+  "notes": "Not modelled: \"{1}, {T}, Sacrifice this land: You may cast spells this turn as though they had flash\" (no timing permission for a turn). Its {T}: Add {C} is the engine's.",
+  "source": "{T}: Add {C}.\n{1}, {T}, Sacrifice this land: You may cast spells this turn as though they had flash.",
+  "status": "hand"
+ },
+ "Faerie Mastermind": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{3}{U}"
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "label": "Draw",
+    "text": "{3}{U}: Each player draws a card."
+   }
+  ],
+  "name": "Faerie Mastermind",
+  "notes": "The dummy never draws, so the second-card trigger never fires and its own draw is irrelevant.",
+  "source": "Flash\nFlying\nWhenever an opponent draws their second card each turn, you draw a card.\n{3}{U}: Each player draws a card.",
+  "status": "hand"
+ },
+ "Fellwar Stone": {
+  "name": "Fellwar Stone",
+  "source": "{T}: Add one mana of any color that a land an opponent controls could produce.",
+  "status": "auto"
+ },
+ "Fierce Guardianship": {
+  "altCost": {
+   "free": true,
+   "if": {
+    "commanderOnBf": true
+   }
+  },
+  "name": "Fierce Guardianship",
+  "notes": "Silent: countering only matters against an opponent's spell (the dummy casts nothing). Free with your commander out.",
+  "source": "If you control a commander, you may cast this spell without paying its mana cost.\nCounter target noncreature spell.",
+  "status": "hand"
+ },
+ "Fiery Islet": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}",
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "{1}, {T}, Sacrifice this land: Draw a card."
+   }
+  ],
+  "name": "Fiery Islet",
+  "source": "{T}, Pay 1 life: Add {U} or {R}.\n{1}, {T}, Sacrifice this land: Draw a card.",
+  "status": "auto"
+ },
+ "Final Fortune": {
+  "name": "Final Fortune",
+  "source": "Take an extra turn after this one. At the beginning of that turn's end step, you lose the game.",
+  "spell": [
+   {
+    "extraTurn": true
+   },
+   {
+    "delay": {
+     "at": "nextEndStep",
+     "do": [
+      {
+       "lose": "Final Fortune's extra turn reached its end step"
+      }
+     ]
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Flooded Strand": {
+  "activated": [
+   {
+    "cost": {
+     "life": 1,
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": {
+        "land": true,
+        "subtype": [
+         "Plains",
+         "Island"
+        ]
+       },
+       "tapped": false
+      }
+     }
+    ],
+    "label": "Fetch",
+    "text": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Plains or Island card, put it onto the battlefield, then shuffle."
+   }
+  ],
+  "name": "Flooded Strand",
+  "notes": "Finds any land with the Plains or Island type (basics and duals); it enters untapped.",
+  "source": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Plains or Island card, put it onto the battlefield, then shuffle.",
+  "status": "hand"
+ },
+ "Flusterstorm": {
+  "name": "Flusterstorm",
+  "notes": "Silent: countering/exiling only matters against an opponent's spell (the dummy casts nothing).",
+  "source": "Counter target instant or sorcery spell unless its controller pays {1}.\nStorm (When you cast this spell, copy it for each spell cast before it this turn. You may choose new targets for the copies.)",
+  "status": "hand"
+ },
+ "Force of Negation": {
+  "name": "Force of Negation",
+  "notes": "Silent: countering only matters against an opponent's spell (the dummy casts nothing).",
+  "source": "If it's not your turn, you may exile a blue card from your hand rather than pay this spell's mana cost.\nCounter target noncreature spell. If that spell is countered this way, exile it instead of putting it into its owner's graveyard.",
+  "status": "hand"
+ },
+ "Force of Will": {
+  "name": "Force of Will",
+  "notes": "Silent: countering/exiling only matters against an opponent's spell (the dummy casts nothing).",
+  "source": "You may pay 1 life and exile a blue card from your hand rather than pay this spell's mana cost.\nCounter target spell.",
+  "status": "hand"
+ },
+ "Gamble": {
+  "name": "Gamble",
+  "notes": "The search shuffles before the random discard (same result).",
+  "source": "Search your library for a card, put that card into your hand, discard a card at random, then shuffle.",
+  "spell": [
+   {
+    "tutor": {
+     "to": "hand"
+    }
+   },
+   {
+    "discard": {
+     "n": 1,
+     "random": true
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Gitaxian Probe": {
+  "name": "Gitaxian Probe",
+  "notes": "The dummy has no hand to look at.",
+  "source": "({U/P} can be paid with either {U} or 2 life.)\nLook at target player's hand.\nDraw a card.",
+  "spell": [
+   {
+    "draw": 1
+   }
+  ],
+  "status": "hand"
+ },
+ "Grim Monolith": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{4}"
+    },
+    "do": [
+     {
+      "untap": {
+       "target": "self"
+      }
+     }
+    ],
+    "text": "{4}: Untap this artifact."
+   }
+  ],
+  "name": "Grim Monolith",
+  "source": "This artifact doesn't untap during your untap step.\n{T}: Add {C}{C}{C}.\n{4}: Untap this artifact.",
+  "statics": [
+   {
+    "noUntap": true,
+    "scope": "self",
+    "text": "This artifact doesn't untap during your untap step."
+   }
+  ],
+  "status": "auto"
+ },
+ "Gut Shot": {
+  "name": "Gut Shot",
+  "source": "({R/P} can be paid with either {R} or 2 life.)\nGut Shot deals 1 damage to any target.",
+  "spell": [
+   {
+    "damage": {
+     "n": 1,
+     "target": "any"
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Harmonic Prodigy": {
+  "name": "Harmonic Prodigy",
+  "notes": "Not modelled: trigger doubling (\"triggers an additional time\") for Shamans and Wizards; resolve those triggers twice yourself.",
+  "source": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nIf a triggered ability of a Shaman or another Wizard you control triggers, that ability triggers an additional time.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "pump": {
+       "p": 1,
+       "t": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "noncreature": true
+    },
+    "on": "cast",
+    "text": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)"
+   }
+  ]
+ },
+ "Harnfel, Horn of Bounty": {
+  "activated": [
+   {
+    "cost": {
+     "discard": {
+      "n": 1
+     }
+    },
+    "do": [
+     {
+      "exileTop": {
+       "n": 2,
+       "play": "thisTurn"
+      }
+     }
+    ],
+    "label": "Impulse",
+    "text": "Discard a card: Exile the top two cards of your library. You may play those cards this turn."
+   }
+  ],
+  "name": "Harnfel, Horn of Bounty",
+  "source": "Discard a card: Exile the top two cards of your library. You may play those cards this turn.",
+  "status": "hand"
+ },
+ "Island": {
+  "name": "Island",
+  "source": "({T}: Add {U}.)",
+  "status": "auto"
+ },
+ "Isochron Scepter": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}",
+     "tap": true
+    },
+    "do": [
+     {
+      "prompt": "You may copy the exiled card."
+     },
+     {
+      "prompt": "If you do, you may cast the copy without paying its mana cost."
+     }
+    ],
+    "text": "{2}, {T}: You may copy the exiled card. If you do, you may cast the copy without paying its mana cost."
+   }
+  ],
+  "name": "Isochron Scepter",
+  "source": "Imprint — When this artifact enters, you may exile an instant card with mana value 2 or less from your hand.\n{2}, {T}: You may copy the exiled card. If you do, you may cast the copy without paying its mana cost.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "prompt": "You may exile an instant card with mana value 2 or less from your hand."
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Imprint — When this artifact enters, you may exile an instant card with mana value 2 or less from your hand."
+   }
+  ]
+ },
+ "Jeska's Will": {
+  "name": "Jeska's Will",
+  "notes": "The dummy has no hand, so the mana mode adds nothing.",
+  "source": "Choose one. If you control a commander as you cast this spell, you may choose both instead.\n• Add {R} for each card in target opponent's hand.\n• Exile the top three cards of your library. You may play them this turn.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "exileTop": {
+          "n": 3,
+          "play": "thisTurn"
+         }
+        }
+       ],
+       "label": "Exile the top three cards (play them this turn)"
+      },
+      {
+       "do": [],
+       "label": "Add {R} per card in the opponent's hand (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "exileTop": {
+          "n": 3,
+          "play": "thisTurn"
+         }
+        }
+       ],
+       "label": "Both (only if you control a commander)"
+      }
+     ],
+     "text": "Choose one. If you control a commander as you cast this spell, you may choose both instead."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Light Up the Stage": {
+  "name": "Light Up the Stage",
+  "source": "Spectacle {R} (You may cast this spell for its spectacle cost rather than its mana cost if an opponent lost life this turn.)\nExile the top two cards of your library. Until the end of your next turn, you may play those cards.",
+  "spell": [
+   {
+    "exileTop": {
+     "n": 2,
+     "play": "nextTurn"
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Lotus Petal": {
+  "name": "Lotus Petal",
+  "source": "{T}, Sacrifice this artifact: Add one mana of any color.",
+  "status": "auto"
+ },
+ "Mana Confluence": {
+  "name": "Mana Confluence",
+  "source": "{T}, Pay 1 life: Add one mana of any color.",
+  "status": "auto"
+ },
+ "Mana Vault": {
+  "name": "Mana Vault",
+  "source": "This artifact doesn't untap during your untap step.\nAt the beginning of your upkeep, you may pay {4}. If you do, untap this artifact.\nAt the beginning of your draw step, if this artifact is tapped, it deals 1 damage to you.\n{T}: Add {C}{C}{C}.",
+  "statics": [
+   {
+    "noUntap": true,
+    "scope": "self",
+    "text": "This artifact doesn't untap during your untap step."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "cost": {
+     "mana": "{4}"
+    },
+    "do": [
+     {
+      "untap": {
+       "target": "self"
+      }
+     }
+    ],
+    "if": {
+     "youControl": {
+      "name": "Mana Vault",
+      "tapped": true
+     }
+    },
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, you may pay {4}. If you do, untap this artifact."
+   },
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "loseLife": 1
+        }
+       ],
+       "if": {
+        "youControl": {
+         "name": "Mana Vault",
+         "tapped": true
+        }
+       }
+      }
+     }
+    ],
+    "on": "drawStep",
+    "text": "At the beginning of your draw step, if this artifact is tapped, it deals 1 damage to you."
+   }
+  ]
+ },
+ "Merchant Scroll": {
+  "name": "Merchant Scroll",
+  "source": "Search your library for a blue instant card, reveal that card, put it into your hand, then shuffle.",
+  "spell": [
+   {
+    "tutor": {
+     "filter": {
+      "colors": [
+       "U"
+      ],
+      "type": "Instant"
+     },
+     "to": "hand"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Minamo, School at Water's Edge": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{U}",
+     "tap": true
+    },
+    "do": [
+     {
+      "untap": {
+       "target": {
+        "pick": {
+         "legendary": true
+        }
+       }
+      }
+     }
+    ],
+    "label": "Untap",
+    "text": "{U}, {T}: Untap target legendary permanent."
+   }
+  ],
+  "name": "Minamo, School at Water's Edge",
+  "source": "{T}: Add {U}.\n{U}, {T}: Untap target legendary permanent.",
+  "status": "hand"
+ },
+ "Mindbreak Trap": {
+  "name": "Mindbreak Trap",
+  "notes": "Silent: countering/exiling only matters against an opponent's spell (the dummy casts nothing).",
+  "source": "If an opponent cast three or more spells this turn, you may pay {0} rather than pay this spell's mana cost.\nExile any number of target spells.",
+  "status": "hand"
+ },
+ "Mishra's Bauble": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "delay": {
+       "at": "nextUpkeep",
+       "do": [
+        {
+         "draw": 1
+        }
+       ]
+      }
+     }
+    ],
+    "label": "Crack",
+    "text": "{T}, Sacrifice this artifact: Look at the top card of target player's library. Draw a card at the beginning of the next turn's upkeep."
+   }
+  ],
+  "name": "Mishra's Bauble",
+  "notes": "Looking at the dummy's library/hand is moot; the draw is scheduled for your next upkeep.",
+  "source": "{T}, Sacrifice this artifact: Look at the top card of target player's library. Draw a card at the beginning of the next turn's upkeep.",
+  "status": "hand"
+ },
+ "Mistrise Village": {
+  "name": "Mistrise Village",
+  "notes": "The 'can't be countered' ability is omitted: the dummy never counters.",
+  "source": "This land enters tapped unless you control a Mountain or a Forest.\n{T}: Add {U}.\n{U}, {T}: The next spell you cast this turn can't be countered.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Mountain",
+           "Forest"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control a Mountain or a Forest."
+   }
+  ]
+ },
+ "Misty Rainforest": {
+  "activated": [
+   {
+    "cost": {
+     "life": 1,
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": {
+        "land": true,
+        "subtype": [
+         "Forest",
+         "Island"
+        ]
+       },
+       "tapped": false
+      }
+     }
+    ],
+    "label": "Fetch",
+    "text": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Forest or Island card, put it onto the battlefield, then shuffle."
+   }
+  ],
+  "name": "Misty Rainforest",
+  "notes": "Finds any land with the Forest or Island type (basics and duals); it enters untapped.",
+  "source": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Forest or Island card, put it onto the battlefield, then shuffle.",
+  "status": "hand"
+ },
+ "Mogg Salvage": {
+  "name": "Mogg Salvage",
+  "notes": "The free-cast clause needs an opponent's Island; the dummy has none.",
+  "source": "If an opponent controls an Island and you control a Mountain, you may cast this spell without paying its mana cost.\nDestroy target artifact.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's permanent (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "pick": {
+            "type": "Artifact"
+           }
+          }
+         }
+        }
+       ],
+       "label": "One of my permanents"
+      }
+     ],
+     "text": "Destroy target artifact."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Mountain": {
+  "name": "Mountain",
+  "source": "({T}: Add {R}.)",
+  "status": "auto"
+ },
+ "Mox Amber": {
+  "name": "Mox Amber",
+  "source": "{T}: Add one mana of any color among legendary creatures and planeswalkers you control.",
+  "status": "auto"
+ },
+ "Mox Diamond": {
+  "name": "Mox Diamond",
+  "notes": "The replacement is resolved right after it enters.",
+  "source": "If this artifact would enter, you may discard a land card instead. If you do, put this artifact onto the battlefield. If you don't, put it into its owner's graveyard.\n{T}: Add one mana of any color.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "pay": {
+            "discard": {
+             "filter": {
+              "land": true
+             }
+            }
+           }
+          }
+         ],
+         "label": "Discard a land card"
+        },
+        {
+         "do": [
+          {
+           "sacrifice": {
+            "target": "self"
+           }
+          }
+         ],
+         "label": "Don't (it goes to the graveyard)"
+        }
+       ],
+       "text": "Discard a land card, or put Mox Diamond into the graveyard?"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "If this artifact would enter, you may discard a land card instead. If you do, put this artifact onto the battlefield. If you don't, put it into its owner's graveyard."
+   }
+  ]
+ },
+ "Mox Opal": {
+  "name": "Mox Opal",
+  "source": "Metalcraft — {T}: Add one mana of any color. Activate only if you control three or more artifacts.",
+  "status": "auto"
+ },
+ "Mystic Remora": {
+  "name": "Mystic Remora",
+  "notes": "The dummy never casts spells, so the draw trigger never fires.",
+  "source": "Cumulative upkeep {1} (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)\nWhenever an opponent casts a noncreature spell, you may draw a card unless that player pays {4}.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "age",
+       "n": 1,
+       "target": "self"
+      }
+     },
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [],
+         "label": "Pay {1} per age counter (tap the mana yourself)"
+        },
+        {
+         "do": [
+          {
+           "sacrifice": {
+            "target": "self"
+           }
+          }
+         ],
+         "label": "Sacrifice it"
+        }
+       ],
+       "text": "Cumulative upkeep {1}: pay {1} for each age counter or sacrifice it."
+      }
+     }
+    ],
+    "on": "upkeep",
+    "text": "Cumulative upkeep {1} (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)"
+   }
+  ]
+ },
+ "Mystical Tutor": {
+  "name": "Mystical Tutor",
+  "source": "Search your library for an instant or sorcery card, reveal it, then shuffle and put that card on top.",
+  "spell": [
+   {
+    "tutor": {
+     "filter": {
+      "type": [
+       "Instant",
+       "Sorcery"
+      ]
+     },
+     "to": "top"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Niv-Mizzet, Parun": {
+  "name": "Niv-Mizzet, Parun",
+  "notes": "Only you cast spells in goldfish. 'Can't be countered' is moot.",
+  "source": "This spell can't be countered.\nFlying\nWhenever you draw a card, Niv-Mizzet deals 1 damage to any target.\nWhenever a player casts an instant or sorcery spell, you draw a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "repeat": {
+       "do": [
+        {
+         "damage": {
+          "n": 1,
+          "target": "any"
+         }
+        }
+       ],
+       "times": "count:event-amount"
+      }
+     }
+    ],
+    "on": "drew",
+    "text": "Whenever you draw a card, Niv-Mizzet deals 1 damage to any target."
+   },
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "type": [
+      "Instant",
+      "Sorcery"
+     ]
+    },
+    "on": "cast",
+    "text": "Whenever a player casts an instant or sorcery spell, you draw a card."
+   }
+  ]
+ },
+ "Niv-Mizzet, Visionary": {
+  "name": "Niv-Mizzet, Visionary",
+  "notes": "Not modelled: \"a source you control deals noncombat damage to an opponent\" — the engine reports only life changes, which also include combat damage and life loss.",
+  "source": "Flying\nYou have no maximum hand size.\nWhenever a source you control deals noncombat damage to an opponent, you draw that many cards.",
+  "statics": [
+   {
+    "noMaxHand": true,
+    "text": "You have no maximum hand size."
+   }
+  ],
+  "status": "hand"
+ },
+ "Ophidian Eye": {
+  "name": "Ophidian Eye",
+  "notes": "Only combat damage to the dummy is seen (a `damage` effect from the creature is by hand).",
+  "source": "Flash (You may cast this spell any time you could cast an instant.)\nEnchant creature\nWhenever enchanted creature deals damage to an opponent, you may draw a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "attach": {
+       "target": "creature-you-control"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Enchant creature"
+   },
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "attachedToThis": true
+    },
+    "on": "combatDamage",
+    "optional": true,
+    "text": "Whenever enchanted creature deals damage to an opponent, you may draw a card."
+   }
+  ]
+ },
+ "Otawara, Soaring City": {
+  "activated": [
+   {
+    "cost": {},
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "pay": {
+          "mana": "{U}"
+         }
+        }
+       ],
+       "else": [
+        {
+         "check": {
+          "do": [
+           {
+            "pay": {
+             "mana": "{1}{U}"
+            }
+           }
+          ],
+          "else": [
+           {
+            "check": {
+             "do": [
+              {
+               "pay": {
+                "mana": "{2}{U}"
+               }
+              }
+             ],
+             "else": [
+              {
+               "pay": {
+                "mana": "{3}{U}"
+               }
+              }
+             ],
+             "if": {
+              "youControl": {
+               "creature": true,
+               "legendary": true
+              }
+             }
+            }
+           }
+          ],
+          "if": {
+           "countGe": 2,
+           "youControl": {
+            "creature": true,
+            "legendary": true
+           }
+          }
+         }
+        }
+       ],
+       "if": {
+        "countGe": 3,
+        "youControl": {
+         "creature": true,
+         "legendary": true
+        }
+       }
+      }
+     },
+     {
+      "moveSelf": {
+       "to": "gy"
+      }
+     },
+     {
+      "bounce": {
+       "target": {
+        "pick": {
+         "type": [
+          "Artifact",
+          "Creature",
+          "Enchantment",
+          "Planeswalker"
+         ]
+        }
+       }
+      }
+     }
+    ],
+    "label": "Channel",
+    "text": "Channel — {3}{U}, Discard this card: Return target artifact, creature, enchantment, or planeswalker to its owner's hand. This ability costs {1} less to activate for each legendary creature you control.",
+    "zone": "hand"
+   }
+  ],
+  "name": "Otawara, Soaring City",
+  "notes": "Channel: the cost ({3}{U} minus legendary creatures) is asked first, then the card goes to the graveyard. Only your permanents can be returned (the dummy has none).",
+  "source": "{T}: Add {U}.\nChannel — {3}{U}, Discard this card: Return target artifact, creature, enchantment, or planeswalker to its owner's hand. This ability costs {1} less to activate for each legendary creature you control.",
+  "status": "hand"
+ },
+ "Pact of Negation": {
+  "name": "Pact of Negation",
+  "notes": "Countering is silent (the dummy casts nothing).",
+  "source": "Counter target spell.\nAt the beginning of your next upkeep, pay {3}{U}{U}. If you don't, you lose the game.",
+  "spell": [
+   {
+    "delay": {
+     "at": "nextUpkeep",
+     "do": [
+      {
+       "choice": {
+        "options": [
+         {
+          "do": [
+           {
+            "pay": {
+             "mana": "{3}{U}{U}"
+            }
+           }
+          ],
+          "label": "Pay {3}{U}{U}"
+         },
+         {
+          "do": [
+           {
+            "lose": "Pact of Negation was not paid"
+           }
+          ],
+          "label": "Don't pay: you lose the game"
+         }
+        ],
+        "text": "Pact of Negation: pay {3}{U}{U}. If you don't, you lose the game."
+       }
+      }
+     ]
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Polluted Delta": {
+  "activated": [
+   {
+    "cost": {
+     "life": 1,
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": {
+        "land": true,
+        "subtype": [
+         "Island",
+         "Swamp"
+        ]
+       },
+       "tapped": false
+      }
+     }
+    ],
+    "label": "Fetch",
+    "text": "{T}, Pay 1 life, Sacrifice this land: Search your library for an Island or Swamp card, put it onto the battlefield, then shuffle."
+   }
+  ],
+  "name": "Polluted Delta",
+  "notes": "Finds any land with the Island or Swamp type (basics and duals); it enters untapped.",
+  "source": "{T}, Pay 1 life, Sacrifice this land: Search your library for an Island or Swamp card, put it onto the battlefield, then shuffle.",
+  "status": "hand"
+ },
+ "Ponder": {
+  "name": "Ponder",
+  "notes": "The three cards are shown in the log; reordering them is not modelled. \"Shuffle\" is an empty search (which shuffles).",
+  "source": "Look at the top three cards of your library, then put them back in any order. You may shuffle.\nDraw a card.",
+  "spell": [
+   {
+    "lookTop": {
+     "n": 3,
+     "pick": {
+      "n": 0,
+      "to": "top"
+     },
+     "rest": "top"
+    }
+   },
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [],
+       "label": "Keep them on top"
+      },
+      {
+       "do": [
+        {
+         "tutor": {
+          "filter": {
+           "land": true,
+           "nonland": true
+          },
+          "to": "hand"
+         }
+        }
+       ],
+       "label": "Shuffle"
+      }
+     ],
+     "text": "You may shuffle."
+    }
+   },
+   {
+    "draw": 1
+   }
+  ],
+  "status": "hand"
+ },
+ "Preordain": {
+  "name": "Preordain",
+  "source": "Scry 2, then draw a card. (To scry 2, look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+  "spell": [
+   {
+    "scry": 2
+   },
+   {
+    "draw": 1
+   }
+  ],
+  "status": "auto"
+ },
+ "Ragavan, Nimble Pilferer": {
+  "name": "Ragavan, Nimble Pilferer",
+  "notes": "The dummy has no library to exile from. Dash is by hand (cast normally, return it at end step yourself).",
+  "source": "Whenever Ragavan deals combat damage to a player, create a Treasure token and exile the top card of that player's library. Until end of turn, you may cast that card.\nDash {1}{R} (You may cast this spell for its dash cost. If you do, it gains haste, and it's returned from the battlefield to its owner's hand at the beginning of the next end step.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Treasure",
+       "types": [
+        "Artifact",
+        "Treasure"
+       ]
+      }
+     }
+    ],
+    "on": "combatDamage",
+    "self": true,
+    "text": "Whenever Ragavan deals combat damage to a player, create a Treasure token and exile the top card of that player's library. Until end of turn, you may cast that card."
+   }
+  ]
+ },
+ "Rhystic Study": {
+  "name": "Rhystic Study",
+  "notes": "The dummy never casts spells, so it never triggers.",
+  "source": "Whenever an opponent casts a spell, you may draw a card unless that player pays {1}.",
+  "status": "hand"
+ },
+ "Rite of Flame": {
+  "name": "Rite of Flame",
+  "notes": "Singleton: no other Rite of Flame in any graveyard.",
+  "source": "Add {R}{R}, then add {R} for each card named Rite of Flame in each graveyard.",
+  "spell": [
+   {
+    "addMana": "{R}{R}"
+   }
+  ],
+  "status": "hand"
+ },
+ "Riverpyre Verge": {
+  "name": "Riverpyre Verge",
+  "source": "{T}: Add {R}.\n{T}: Add {U}. Activate only if you control an Island or a Mountain.",
+  "status": "auto"
+ },
+ "Savor the Moment": {
+  "name": "Savor the Moment",
+  "notes": "Skipping the untap step: every permanent you control now stays tapped through your next untap step.",
+  "source": "Take an extra turn after this one. Skip the untap step of that turn.",
+  "spell": [
+   {
+    "extraTurn": true
+   },
+   {
+    "noUntap": {
+     "next": true,
+     "target": {
+      "each": {}
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Scalding Tarn": {
+  "activated": [
+   {
+    "cost": {
+     "life": 1,
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": {
+        "land": true,
+        "subtype": [
+         "Island",
+         "Mountain"
+        ]
+       },
+       "tapped": false
+      }
+     }
+    ],
+    "label": "Fetch",
+    "text": "{T}, Pay 1 life, Sacrifice this land: Search your library for an Island or Mountain card, put it onto the battlefield, then shuffle."
+   }
+  ],
+  "name": "Scalding Tarn",
+  "notes": "Finds any land with the Island or Mountain type (basics and duals); it enters untapped.",
+  "source": "{T}, Pay 1 life, Sacrifice this land: Search your library for an Island or Mountain card, put it onto the battlefield, then shuffle.",
+  "status": "hand"
+ },
+ "Shivan Reef": {
+  "name": "Shivan Reef",
+  "source": "{T}: Add {C}.\n{T}: Add {U} or {R}. This land deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Sink into Stupor // Soporific Springs": {
+  "name": "Sink into Stupor // Soporific Springs",
+  "notes": "Only hits an opponent's spell or permanent; the dummy has none. Play the back as a land.",
+  "source": "Return target spell or nonland permanent an opponent controls to its owner's hand.",
+  "spell": [
+   {
+    "bounce": {
+     "target": "opponent"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Snap": {
+  "name": "Snap",
+  "source": "Return target creature to its owner's hand. Untap up to two lands.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "bounce": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's creature (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "bounce": {
+          "target": "creature-you-control"
+         }
+        }
+       ],
+       "label": "One of my creatures"
+      }
+     ],
+     "text": "Return target creature to its owner's hand."
+    }
+   },
+   {
+    "untap": {
+     "target": {
+      "n": 2,
+      "optional": true,
+      "pick": {
+       "land": true,
+       "tapped": true
+      }
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Sol Ring": {
+  "name": "Sol Ring",
+  "source": "{T}: Add {C}{C}.",
+  "status": "auto"
+ },
+ "Soporific Springs": {
+  "name": "Soporific Springs",
+  "source": "As this land enters, you may pay 3 life. If you don't, it enters tapped.\n{T}: Add {U}.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "loseLife": 3
+          }
+         ],
+         "label": "Pay 3 life (untapped)"
+        },
+        {
+         "do": [
+          {
+           "tap": {
+            "target": "self"
+           }
+          }
+         ],
+         "label": "Don't pay (enters tapped)"
+        }
+       ],
+       "text": "As this land enters, you may pay 3 life. If you don't, it enters tapped."
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "As this land enters, you may pay 3 life. If you don't, it enters tapped."
+   }
+  ]
+ },
+ "Spellseeker": {
+  "name": "Spellseeker",
+  "source": "When this creature enters, you may search your library for an instant or sorcery card with mana value 2 or less, reveal it, put it into your hand, then shuffle.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tutor": {
+       "filter": {
+        "mvLe": 2,
+        "type": [
+         "Instant",
+         "Sorcery"
+        ]
+       },
+       "to": "hand"
+      }
+     }
+    ],
+    "on": "enters",
+    "optional": true,
+    "self": true,
+    "text": "When this creature enters, you may search your library for an instant or sorcery card with mana value 2 or less, reveal it, put it into your hand, then shuffle."
+   }
+  ]
+ },
+ "Spellskite": {
+  "name": "Spellskite",
+  "notes": "Redirecting only matters against an opponent's spells; omitted.",
+  "source": "{U/P}: Change a target of target spell or ability to this creature. ({U/P} can be paid with either {U} or 2 life.)",
+  "status": "hand"
+ },
+ "Springleaf Drum": {
+  "name": "Springleaf Drum",
+  "source": "{T}, Tap an untapped creature you control: Add one mana of any color.",
+  "status": "auto"
+ },
+ "Steam Vents": {
+  "name": "Steam Vents",
+  "source": "({T}: Add {U} or {R}.)\nAs this land enters, you may pay 2 life. If you don't, it enters tapped.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "loseLife": 2
+          }
+         ],
+         "label": "Pay 2 life (untapped)"
+        },
+        {
+         "do": [
+          {
+           "tap": {
+            "target": "self"
+           }
+          }
+         ],
+         "label": "Don't pay (enters tapped)"
+        }
+       ],
+       "text": "As this land enters, you may pay 2 life. If you don't, it enters tapped."
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "As this land enters, you may pay 2 life. If you don't, it enters tapped."
+   }
+  ]
+ },
+ "Stock Up": {
+  "name": "Stock Up",
+  "source": "Look at the top five cards of your library. Put two of them into your hand and the rest on the bottom of your library in any order.",
+  "spell": [
+   {
+    "lookTop": {
+     "n": 5,
+     "pick": {
+      "n": 2,
+      "to": "hand"
+     },
+     "rest": "bottom"
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Storm-Kiln Artist": {
+  "name": "Storm-Kiln Artist",
+  "notes": "Copies don't trigger it automatically; add a Treasure by hand for each copy.",
+  "source": "This creature gets +1/+0 for each artifact you control.\nMagecraft — Whenever you cast or copy an instant or sorcery spell, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "statics": [
+   {
+    "p": "count:artifacts-you-control",
+    "scope": "self",
+    "text": "This creature gets +1/+0 for each artifact you control."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Treasure",
+       "types": [
+        "Artifact",
+        "Treasure"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "type": [
+      "Instant",
+      "Sorcery"
+     ]
+    },
+    "on": "cast",
+    "text": "Magecraft — Whenever you cast or copy an instant or sorcery spell, create a Treasure token."
+   }
+  ]
+ },
+ "Swiftfoot Boots": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}"
+    },
+    "do": [
+     {
+      "attach": {}
+     }
+    ],
+    "label": "Equip",
+    "limit": "sorcery-speed",
+    "text": "Equip {1}"
+   }
+  ],
+  "name": "Swiftfoot Boots",
+  "notes": "Equip attaches it; the attached creature has hexproof and haste.",
+  "source": "Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T} no matter when it came under your control.)\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+  "statics": [
+   {
+    "kw": [
+     "Hexproof",
+     "Haste"
+    ],
+    "scope": "attached",
+    "text": "Equipped creature has hexproof and haste."
+   }
+  ],
+  "status": "hand"
+ },
+ "Talisman of Creativity": {
+  "name": "Talisman of Creativity",
+  "source": "{T}: Add {C}.\n{T}: Add {U} or {R}. This artifact deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Tandem Lookout": {
+  "name": "Tandem Lookout",
+  "notes": "The partner is marked with a 'paired' counter. Only combat damage to the dummy is seen.",
+  "source": "Soulbond (You may pair this creature with another unpaired creature when either enters. They remain paired for as long as you control both of them.)\nAs long as Tandem Lookout is paired with another creature, each of those creatures has \"Whenever this creature deals damage to an opponent, draw a card.\"",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "paired",
+       "n": 1,
+       "target": {
+        "optional": true,
+        "pick": {
+         "creature": true,
+         "other": true
+        }
+       }
+      }
+     }
+    ],
+    "if": {
+     "not": {
+      "youControl": {
+       "counters": {
+        "kind": "paired"
+       }
+      }
+     }
+    },
+    "on": "enters",
+    "self": true,
+    "text": "Soulbond (You may pair this creature with another unpaired creature when either enters. They remain paired for as long as you control both of them.)"
+   },
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "paired",
+       "n": 1,
+       "target": "triggering"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "other": true
+    },
+    "if": {
+     "not": {
+      "youControl": {
+       "counters": {
+        "kind": "paired"
+       }
+      }
+     }
+    },
+    "on": "enters",
+    "optional": true,
+    "text": "Soulbond (You may pair this creature with another unpaired creature when either enters. They remain paired for as long as you control both of them.)"
+   },
+   {
+    "do": [
+     {
+      "removeCounters": {
+       "kind": "paired",
+       "n": "all",
+       "target": {
+        "each": {
+         "counters": {
+          "kind": "paired"
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "leaves",
+    "self": true,
+    "text": "They remain paired for as long as you control both of them."
+   },
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "counters": {
+      "kind": "paired"
+     }
+    },
+    "on": "combatDamage",
+    "text": "As long as Tandem Lookout is paired with another creature, each of those creatures has \"Whenever this creature deals damage to an opponent, draw a card.\""
+   },
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "if": {
+     "youControl": {
+      "counters": {
+       "kind": "paired"
+      }
+     }
+    },
+    "on": "combatDamage",
+    "self": true,
+    "text": "As long as Tandem Lookout is paired with another creature, each of those creatures has \"Whenever this creature deals damage to an opponent, draw a card.\""
+   }
+  ]
+ },
+ "The One Ring": {
+  "activated": [
+   {
+    "cost": {
+     "tap": true
+    },
+    "do": [
+     {
+      "counters": {
+       "kind": "burden",
+       "n": 1,
+       "target": "self"
+      }
+     },
+     {
+      "draw": {
+       "of": "this",
+       "stat": "counters.burden"
+      }
+     }
+    ],
+    "label": "Burden",
+    "text": "{T}: Put a burden counter on The One Ring, then draw a card for each burden counter on The One Ring."
+   }
+  ],
+  "name": "The One Ring",
+  "notes": "Protection from everything only matters against an opponent.",
+  "source": "Indestructible\nWhen The One Ring enters, if you cast it, you gain protection from everything until your next turn.\nAt the beginning of your upkeep, you lose 1 life for each burden counter on The One Ring.\n{T}: Put a burden counter on The One Ring, then draw a card for each burden counter on The One Ring.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "loseLife": {
+       "of": "this",
+       "stat": "counters.burden"
+      }
+     }
+    ],
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, you lose 1 life for each burden counter on The One Ring."
+   }
+  ]
+ },
+ "Thundering Falls": {
+  "name": "Thundering Falls",
+  "source": "({T}: Add {U} or {R}.)\nThis land enters tapped.\nWhen this land enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   },
+   {
+    "do": [
+     {
+      "surveil": 1
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this land enters, surveil 1."
+   }
+  ]
+ },
+ "Training Center": {
+  "name": "Training Center",
+  "source": "This land enters tapped unless you have two or more opponents.\n{T}: Add {U} or {R}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you have two or more opponents."
+   }
+  ]
+ },
+ "Twisted Image": {
+  "name": "Twisted Image",
+  "notes": "Silent part: switching power and toughness is aimed at an opponent's creature (the dummy has none); it isn't modelled for yours.",
+  "source": "Switch target creature's power and toughness until end of turn.\nDraw a card.",
+  "spell": [
+   {
+    "draw": 1
+   }
+  ],
+  "status": "hand"
+ },
+ "Underworld Breach": {
+  "activated": [
+   {
+    "cost": {
+     "exileFromGy": {
+      "n": 3
+     }
+    },
+    "do": [
+     {
+      "castFromGy": {
+       "filter": {
+        "nonland": true
+       },
+       "n": 1,
+       "until": "thisTurn"
+      }
+     }
+    ],
+    "label": "Escape",
+    "text": "Each nonland card in your graveyard has escape. The escape cost is equal to the card's mana cost plus exile three other cards from your graveyard."
+   }
+  ],
+  "name": "Underworld Breach",
+  "notes": "Escape is offered here: exile three cards from your graveyard, then choose the card that may be cast from it this turn (for its mana cost).",
+  "source": "Each nonland card in your graveyard has escape. The escape cost is equal to the card's mana cost plus exile three other cards from your graveyard. (You may cast cards from your graveyard for their escape cost.)\nAt the beginning of the end step, sacrifice this enchantment.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "sacrifice": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "endStep",
+    "text": "At the beginning of the end step, sacrifice this enchantment."
+   }
+  ]
+ },
+ "Urza's Bauble": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "delay": {
+       "at": "nextUpkeep",
+       "do": [
+        {
+         "draw": 1
+        }
+       ]
+      }
+     }
+    ],
+    "label": "Crack",
+    "text": "{T}, Sacrifice this artifact: Look at a card at random in target player's hand. You draw a card at the beginning of the next turn's upkeep."
+   }
+  ],
+  "name": "Urza's Bauble",
+  "notes": "Looking at the dummy's library/hand is moot; the draw is scheduled for your next upkeep.",
+  "source": "{T}, Sacrifice this artifact: Look at a card at random in target player's hand. You draw a card at the beginning of the next turn's upkeep.",
+  "status": "hand"
+ },
+ "Veyran, Voice of Duality": {
+  "name": "Veyran, Voice of Duality",
+  "notes": "Not modelled: trigger doubling (\"triggers an additional time\"); resolve those triggers twice yourself. Copies are not events.",
+  "source": "Magecraft — Whenever you cast or copy an instant or sorcery spell, Veyran gets +1/+1 until end of turn.\nIf you casting or copying an instant or sorcery spell causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "pump": {
+       "p": 1,
+       "t": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "type": [
+      "Instant",
+      "Sorcery"
+     ]
+    },
+    "on": "cast",
+    "text": "Magecraft — Whenever you cast or copy an instant or sorcery spell, Veyran gets +1/+1 until end of turn."
+   }
+  ]
+ },
+ "Vivi Ornitier": {
+  "activated": [
+   {
+    "cost": {},
+    "do": [
+     {
+      "repeat": {
+       "do": [
+        {
+         "choice": {
+          "options": [
+           {
+            "do": [
+             {
+              "addMana": "{U}"
+             }
+            ],
+            "label": "{U}"
+           },
+           {
+            "do": [
+             {
+              "addMana": "{R}"
+             }
+            ],
+            "label": "{R}"
+           }
+          ],
+          "text": "Add {U} or {R}."
+         }
+        }
+       ],
+       "times": "count:power-of-self"
+      }
+     }
+    ],
+    "label": "Mana",
+    "limit": "once-per-turn",
+    "text": "{0}: Add X mana in any combination of {U} and/or {R}, where X is Vivi Ornitier's power. Activate only during your turn and only once each turn."
+   }
+  ],
+  "name": "Vivi Ornitier",
+  "notes": "The {0} mana ability isn't a {T} ability, so the engine can't tap it: it is offered here (once per turn, your turn only).",
+  "source": "{0}: Add X mana in any combination of {U} and/or {R}, where X is Vivi Ornitier's power. Activate only during your turn and only once each turn.\nWhenever you cast a noncreature spell, put a +1/+1 counter on Vivi Ornitier and it deals 1 damage to each opponent.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "self"
+      }
+     },
+     {
+      "damageOpp": 1
+     }
+    ],
+    "filter": {
+     "noncreature": true
+    },
+    "on": "cast",
+    "text": "Whenever you cast a noncreature spell, put a +1/+1 counter on Vivi Ornitier and it deals 1 damage to each opponent."
+   }
+  ]
+ },
+ "Volcanic Island": {
+  "name": "Volcanic Island",
+  "source": "({T}: Add {U} or {R}.)",
+  "status": "auto"
+ },
+ "Wheel of Fortune": {
+  "name": "Wheel of Fortune",
+  "notes": "The dummy has no hand.",
+  "source": "Each player discards their hand, then draws seven cards.",
+  "spell": [
+   {
+    "discard": "count:cards-in-hand"
+   },
+   {
+    "draw": 7
+   }
+  ],
+  "status": "hand"
+ },
+ "Wild Ride": {
+  "name": "Wild Ride",
+  "source": "Target creature gets +3/+0 and gains haste until end of turn.\nHarmonize {4}{R} (You may cast this card from your graveyard for its harmonize cost. You may tap a creature you control to reduce that cost by {X}, where X is its power. Then exile this spell.)",
+  "spell": [
+   {
+    "pump": {
+     "kw": [
+      "Haste"
+     ],
+     "p": 3,
+     "t": 0,
+     "target": {
+      "n": 1,
+      "pick": {
+       "creature": true
+      }
+     }
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Will of the Jeskai": {
+  "name": "Will of the Jeskai",
+  "notes": "'Each player may discard': the dummy has no hand; the 'may' is the option choice. Flashback is granted to the instants and sorceries in your graveyard when it resolves, at their normal mana cost, exiled after.",
+  "source": "Choose one. If you control a commander as you cast this spell, you may choose both instead.\n• Each player may discard their hand and draw five cards.\n• Each instant and sorcery card in your graveyard gains flashback until end of turn. The flashback cost is equal to its mana cost.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "discard": "count:cards-in-hand"
+        },
+        {
+         "draw": 5
+        },
+        {
+         "castFromGy": {
+          "all": true,
+          "exileAfter": true,
+          "filter": {
+           "type": [
+            "Instant",
+            "Sorcery"
+           ]
+          },
+          "until": "thisTurn"
+         }
+        }
+       ],
+       "label": "Both (I control a commander)"
+      },
+      {
+       "do": [
+        {
+         "discard": "count:cards-in-hand"
+        },
+        {
+         "draw": 5
+        }
+       ],
+       "label": "Discard hand, draw five"
+      },
+      {
+       "do": [
+        {
+         "castFromGy": {
+          "all": true,
+          "exileAfter": true,
+          "filter": {
+           "type": [
+            "Instant",
+            "Sorcery"
+           ]
+          },
+          "until": "thisTurn"
+         }
+        }
+       ],
+       "label": "Flashback for instants and sorceries"
+      }
+     ],
+     "text": "Choose one. If you control a commander as you cast this spell, you may choose both instead."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Windfall": {
+  "name": "Windfall",
+  "notes": "The dummy has no hand, so you draw as many as you discarded.",
+  "source": "Each player discards their hand, then draws cards equal to the greatest number of cards a player discarded this way.",
+  "spell": [
+   {
+    "discard": "count:cards-in-hand"
+   },
+   {
+    "draw": {
+     "of": "lastCount"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Wooded Foothills": {
+  "activated": [
+   {
+    "cost": {
+     "life": 1,
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": {
+        "land": true,
+        "subtype": [
+         "Mountain",
+         "Forest"
+        ]
+       },
+       "tapped": false
+      }
+     }
+    ],
+    "label": "Fetch",
+    "text": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Mountain or Forest card, put it onto the battlefield, then shuffle."
+   }
+  ],
+  "name": "Wooded Foothills",
+  "notes": "Finds any land with the Mountain or Forest type (basics and duals); it enters untapped.",
+  "source": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Mountain or Forest card, put it onto the battlefield, then shuffle.",
+  "status": "hand"
+ }
+}

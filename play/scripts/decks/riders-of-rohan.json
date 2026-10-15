@@ -1,0 +1,2253 @@
+{
+ "Aragorn, King of Gondor": {
+  "name": "Aragorn, King of Gondor",
+  "notes": "The can't-block clauses do nothing in goldfish: the dummy never blocks.",
+  "source": "Vigilance, lifelink\nWhen Aragorn enters, you become the monarch.\nWhenever Aragorn attacks, up to one target creature can't block this turn. If you're the monarch, creatures can't block this turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "monarch": true
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Aragorn enters, you become the monarch."
+   }
+  ]
+ },
+ "Arcane Signet": {
+  "name": "Arcane Signet",
+  "source": "{T}: Add one mana of any color in your commander's color identity.",
+  "status": "auto"
+ },
+ "Archivist of Gondor": {
+  "name": "Archivist of Gondor",
+  "notes": "No commander filter on combat damage: the monarch part is a prompt. The extra monarch draw is automatic (on top of the monarch's own draw).",
+  "source": "When your commander deals combat damage to a player, if there is no monarch, you become the monarch.\nAt the beginning of the monarch's end step, that player draws a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "prompt": "If your commander dealt combat damage (and there is no monarch), you become the monarch."
+     }
+    ],
+    "if": {
+     "isMonarch": false
+    },
+    "on": "combatDamage",
+    "text": "When your commander deals combat damage to a player, if there is no monarch, you become the monarch."
+   },
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "if": {
+     "isMonarch": true
+    },
+    "on": "endStep",
+    "text": "At the beginning of the monarch's end step, that player draws a card."
+   }
+  ]
+ },
+ "Banishing Light": {
+  "name": "Banishing Light",
+  "source": "When this enchantment enters, exile target nonland permanent an opponent controls until this enchantment leaves the battlefield.",
+  "status": "prompt",
+  "triggers": [
+   {
+    "do": [
+     {
+      "prompt": "Exile target nonland permanent an opponent controls until Banishing Light leaves the battlefield."
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this enchantment enters, exile target nonland permanent an opponent controls until this enchantment leaves the battlefield."
+   }
+  ]
+ },
+ "Bastion Protector": {
+  "name": "Bastion Protector",
+  "source": "Commander creatures you control get +2/+2 and have indestructible.",
+  "statics": [
+   {
+    "kw": [
+     "Indestructible"
+    ],
+    "p": 2,
+    "scope": "commander",
+    "t": 2,
+    "text": "Commander creatures you control get +2/+2 and have indestructible."
+   }
+  ],
+  "status": "hand"
+ },
+ "Battlefield Forge": {
+  "name": "Battlefield Forge",
+  "source": "{T}: Add {C}.\n{T}: Add {R} or {W}. This land deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Beregond of the Guard": {
+  "name": "Beregond of the Guard",
+  "source": "Whenever Beregond or another Human you control enters, creatures you control get +1/+1 and gain vigilance until end of turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "pump": {
+       "kw": [
+        "Vigilance"
+       ],
+       "p": 1,
+       "t": 1,
+       "target": "each-creature-you-control"
+      }
+     }
+    ],
+    "on": "enters",
+    "selfOr": {
+     "creature": true,
+     "other": true,
+     "subtype": "Human"
+    },
+    "text": "Whenever Beregond or another Human you control enters, creatures you control get +1/+1 and gain vigilance until end of turn."
+   }
+  ]
+ },
+ "Boromir, Gondor's Hope": {
+  "name": "Boromir, Gondor's Hope",
+  "notes": "The filter can't say 'Human or artifact': pick only a Human or an artifact card.",
+  "source": "Whenever Boromir enters or attacks, look at the top six cards of your library. You may reveal a Human or artifact card from among them and put it into your hand. Put the rest on the bottom of your library in a random order.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "lookTop": {
+       "n": 6,
+       "pick": {
+        "n": 1,
+        "to": "hand"
+       },
+       "rest": "bottom"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Whenever Boromir enters or attacks, look at the top six cards of your library. You may reveal a Human or artifact card from among them and put it into your hand. Put the rest on the bottom of your library in a random order."
+   },
+   {
+    "do": [
+     {
+      "lookTop": {
+       "n": 6,
+       "pick": {
+        "n": 1,
+        "to": "hand"
+       },
+       "rest": "bottom"
+      }
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever Boromir enters or attacks, look at the top six cards of your library. You may reveal a Human or artifact card from among them and put it into your hand. Put the rest on the bottom of your library in a random order."
+   }
+  ]
+ },
+ "Call for Aid": {
+  "name": "Call for Aid",
+  "source": "Gain control of all creatures target opponent controls until end of turn. Untap those creatures. They gain haste until end of turn. You can't attack that player this turn. You can't sacrifice those creatures this turn.",
+  "spell": [
+   {
+    "prompt": "Gain control of all creatures target opponent controls until end of turn."
+   },
+   {
+    "prompt": "Untap those creatures."
+   },
+   {
+    "prompt": "They gain haste until end of turn."
+   },
+   {
+    "prompt": "You can't attack that player this turn."
+   },
+   {
+    "prompt": "You can't sacrifice those creatures this turn."
+   }
+  ],
+  "status": "prompt"
+ },
+ "Champions of Minas Tirith": {
+  "name": "Champions of Minas Tirith",
+  "notes": "The second ability happens on opponents' turns: never in goldfish.",
+  "source": "When this creature enters, you become the monarch.\nAt the beginning of combat on each opponent's turn, if you're the monarch, that opponent may pay {X}, where X is the number of cards in their hand. If they don't, they can't attack you this combat.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "monarch": true
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, you become the monarch."
+   }
+  ]
+ },
+ "Clifftop Retreat": {
+  "name": "Clifftop Retreat",
+  "source": "This land enters tapped unless you control a Mountain or a Plains.\n{T}: Add {R} or {W}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Mountain",
+           "Plains"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control a Mountain or a Plains."
+   }
+  ]
+ },
+ "Combat Celebrant": {
+  "name": "Combat Celebrant",
+  "notes": "Resolve = exert (it won't untap during your next untap step). Skip if it was already exerted this turn. The extra combat is by hand.",
+  "source": "If this creature hasn't been exerted this turn, you may exert it as it attacks. When you do, untap all other creatures you control and after this phase, there is an additional combat phase. (An exerted creature won't untap during your next untap step.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "noUntap": {
+       "next": true,
+       "target": "self"
+      }
+     },
+     {
+      "untap": {
+       "target": "each-other-creature-you-control"
+      }
+     },
+     {
+      "prompt": "After this phase, there is an additional combat phase."
+     }
+    ],
+    "on": "attacks",
+    "optional": true,
+    "self": true,
+    "text": "If this creature hasn't been exerted this turn, you may exert it as it attacks. When you do, untap all other creatures you control and after this phase, there is an additional combat phase."
+   }
+  ]
+ },
+ "Command Tower": {
+  "name": "Command Tower",
+  "source": "{T}: Add one mana of any color in your commander's color identity.",
+  "status": "auto"
+ },
+ "Commander's Sphere": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "Sacrifice this artifact: Draw a card."
+   }
+  ],
+  "name": "Commander's Sphere",
+  "source": "{T}: Add one mana of any color in your commander's color identity.\nSacrifice this artifact: Draw a card.",
+  "status": "auto"
+ },
+ "Court of Ire": {
+  "name": "Court of Ire",
+  "source": "When this enchantment enters, you become the monarch.\nAt the beginning of your upkeep, this enchantment deals 2 damage to any target. If you're the monarch, it deals 7 damage instead.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "monarch": true
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this enchantment enters, you become the monarch."
+   },
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "damage": {
+          "n": 7,
+          "target": "any"
+         }
+        }
+       ],
+       "else": [
+        {
+         "damage": {
+          "n": 2,
+          "target": "any"
+         }
+        }
+       ],
+       "if": {
+        "isMonarch": true
+       }
+      }
+     }
+    ],
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, this enchantment deals 2 damage to any target. If you're the monarch, it deals 7 damage instead."
+   }
+  ]
+ },
+ "Crown of Gondor": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}"
+    },
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "pay": {
+          "mana": "{3}"
+         }
+        }
+       ],
+       "if": {
+        "isMonarch": false
+       }
+      }
+     },
+     {
+      "attach": {}
+     }
+    ],
+    "label": "Equip",
+    "limit": "sorcery-speed",
+    "text": "Equip {4}. This ability costs {3} less to activate if you're the monarch."
+   }
+  ],
+  "name": "Crown of Gondor",
+  "notes": "'No monarch' is read as 'you are not the monarch' (the dummy only becomes monarch if you make it). Equip charges {1}, then asks for the other {3} unless you're the monarch.",
+  "source": "Equipped creature gets +1/+1 for each creature you control.\nWhen a legendary creature you control enters, if there is no monarch, you become the monarch.\nEquip {4}. This ability costs {3} less to activate if you're the monarch.",
+  "statics": [
+   {
+    "p": "count:creatures-you-control",
+    "scope": "attached",
+    "t": "count:creatures-you-control",
+    "text": "Equipped creature gets +1/+1 for each creature you control."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "monarch": true
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "legendary": true
+    },
+    "if": {
+     "isMonarch": false
+    },
+    "on": "enters",
+    "text": "When a legendary creature you control enters, if there is no monarch, you become the monarch."
+   }
+  ]
+ },
+ "Dearly Departed": {
+  "name": "Dearly Departed",
+  "source": "Flying\nAs long as this creature is in your graveyard, each Human creature you control enters with an additional +1/+1 counter on it.",
+  "statics": [
+   {
+    "prompt": "As long as Dearly Departed is in your graveyard, each Human creature you control enters with an additional +1/+1 counter on it."
+   }
+  ],
+  "status": "prompt"
+ },
+ "Denethor, Stone Seer": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{3}{R}",
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "monarch": true
+          }
+         ],
+         "label": "I become the monarch"
+        },
+        {
+         "do": [
+          {
+           "prompt": "The opponent becomes the monarch (you stop being the monarch)."
+          }
+         ],
+         "label": "The opponent becomes the monarch"
+        }
+       ],
+       "text": "Target player becomes the monarch."
+      }
+     },
+     {
+      "damage": {
+       "n": 3,
+       "target": "any"
+      }
+     }
+    ],
+    "label": "Sacrifice",
+    "text": "{3}{R}, {T}, Sacrifice Denethor: Target player becomes the monarch. Denethor deals 3 damage to any target."
+   }
+  ],
+  "name": "Denethor, Stone Seer",
+  "source": "When Denethor enters, scry 2.\n{3}{R}, {T}, Sacrifice Denethor: Target player becomes the monarch. Denethor deals 3 damage to any target.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "scry": 2
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Denethor enters, scry 2."
+   }
+  ]
+ },
+ "Door of Destinies": {
+  "chooseOn": {
+   "enters": {
+    "kind": "creatureType"
+   }
+  },
+  "name": "Door of Destinies",
+  "source": "As this artifact enters, choose a creature type.\nWhenever you cast a spell of the chosen type, put a charge counter on this artifact.\nCreatures you control of the chosen type get +1/+1 for each charge counter on this artifact.",
+  "statics": [
+   {
+    "filter": {
+     "subtype": "$chosen"
+    },
+    "p": {
+     "of": "this",
+     "stat": "counters.charge"
+    },
+    "scope": "creatures-you-control",
+    "t": {
+     "of": "this",
+     "stat": "counters.charge"
+    },
+    "text": "Creatures you control of the chosen type get +1/+1 for each charge counter on this artifact."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "charge",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "subtype": "$chosen"
+    },
+    "on": "cast",
+    "text": "Whenever you cast a spell of the chosen type, put a charge counter on this artifact."
+   }
+  ]
+ },
+ "Earthquake": {
+  "name": "Earthquake",
+  "source": "Earthquake deals X damage to each creature without flying and each player.",
+  "spell": [
+   {
+    "damage": {
+     "n": "X",
+     "target": {
+      "each": {
+       "creature": true,
+       "withoutKw": "Flying"
+      }
+     }
+    }
+   },
+   {
+    "damageOpp": "X"
+   },
+   {
+    "loseLife": "X"
+   }
+  ],
+  "status": "hand"
+ },
+ "Erkenbrand, Lord of Westfold": {
+  "name": "Erkenbrand, Lord of Westfold",
+  "source": "Whenever Erkenbrand or another Human you control enters, creatures you control get +1/+0 until end of turn.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "pump": {
+       "p": 1,
+       "t": 0,
+       "target": "each-creature-you-control"
+      }
+     }
+    ],
+    "on": "enters",
+    "selfOr": {
+     "other": true,
+     "subtype": "Human"
+    },
+    "text": "Whenever Erkenbrand or another Human you control enters, creatures you control get +1/+0 until end of turn."
+   }
+  ]
+ },
+ "Evolving Wilds": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": "basic",
+       "tapped": true
+      }
+     }
+    ],
+    "text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle."
+   }
+  ],
+  "name": "Evolving Wilds",
+  "source": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+  "status": "auto"
+ },
+ "Exotic Orchard": {
+  "name": "Exotic Orchard",
+  "source": "{T}: Add one mana of any color that a land an opponent controls could produce.",
+  "status": "auto"
+ },
+ "Faramir, Steward of Gondor": {
+  "name": "Faramir, Steward of Gondor",
+  "source": "Whenever a legendary creature you control with mana value 4 or greater enters, you become the monarch.\nAt the beginning of your end step, if you're the monarch, create two 1/1 white Human Soldier creature tokens.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "monarch": true
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "legendary": true,
+     "mvGe": 4
+    },
+    "on": "enters",
+    "text": "Whenever a legendary creature you control with mana value 4 or greater enters, you become the monarch."
+   },
+   {
+    "do": [
+     {
+      "token": {
+       "n": 2,
+       "name": "Human Soldier",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Human",
+        "Soldier"
+       ]
+      }
+     }
+    ],
+    "if": {
+     "isMonarch": true
+    },
+    "on": "endStep",
+    "text": "At the beginning of your end step, if you're the monarch, create two 1/1 white Human Soldier creature tokens."
+   }
+  ]
+ },
+ "Fealty to the Realm": {
+  "name": "Fealty to the Realm",
+  "source": "Enchant creature\nWhen this Aura enters, you become the monarch.\nThe monarch controls enchanted creature.\nEnchanted creature attacks each combat if able and can't attack you.",
+  "statics": [
+   {
+    "prompt": "The monarch controls enchanted creature."
+   },
+   {
+    "prompt": "Enchanted creature attacks each combat if able and can't attack you."
+   }
+  ],
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "monarch": true
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this Aura enters, you become the monarch."
+   }
+  ]
+ },
+ "Field of Ruin": {
+  "name": "Field of Ruin",
+  "notes": "Silent on purpose: its sacrifice ability needs a target nonbasic land an opponent controls, and the dummy has none, so it can't be activated in goldfish.",
+  "source": "{T}: Add {C}.\n{2}, {T}, Sacrifice this land: Destroy target nonbasic land an opponent controls. Each player searches their library for a basic land card, puts it onto the battlefield, then shuffles.",
+  "status": "hand"
+ },
+ "Fiend Hunter": {
+  "name": "Fiend Hunter",
+  "source": "When this creature enters, you may exile another target creature.\nWhen this creature leaves the battlefield, return the exiled card to the battlefield under its owner's control.",
+  "status": "prompt",
+  "triggers": [
+   {
+    "do": [
+     {
+      "prompt": "You may exile another target creature."
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, you may exile another target creature."
+   },
+   {
+    "do": [
+     {
+      "prompt": "Return the exiled card to the battlefield under its owner's control."
+     }
+    ],
+    "on": "leaves",
+    "self": true,
+    "text": "When this creature leaves the battlefield, return the exiled card to the battlefield under its owner's control."
+   }
+  ]
+ },
+ "Flamerush Rider": {
+  "name": "Flamerush Rider",
+  "source": "Whenever this creature attacks, create a token that's a copy of another target attacking creature and that's tapped and attacking. Exile the token at end of combat.\nDash {2}{R}{R} (You may cast this spell for its dash cost. If you do, it gains haste, and it's returned from the battlefield to its owner's hand at the beginning of the next end step.)",
+  "status": "prompt",
+  "triggers": [
+   {
+    "do": [
+     {
+      "prompt": "Create a token that's a copy of another target attacking creature and that's tapped and attacking."
+     },
+     {
+      "prompt": "Exile the token at end of combat."
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever this creature attacks, create a token that's a copy of another target attacking creature and that's tapped and attacking. Exile the token at end of combat."
+   }
+  ]
+ },
+ "Forth Eorlingas!": {
+  "name": "Forth Eorlingas!",
+  "notes": "A spell can't leave a delayed trigger: the reminder shows on resolution; become the monarch by hand once combat damage lands.",
+  "source": "Create X 2/2 red Human Knight creature tokens with trample and haste.\nWhenever one or more creatures you control deal combat damage to one or more players this turn, you become the monarch.",
+  "spell": [
+   {
+    "token": {
+     "kw": [
+      "Trample",
+      "Haste"
+     ],
+     "n": "X",
+     "name": "Human Knight",
+     "power": 2,
+     "toughness": 2,
+     "types": [
+      "Creature",
+      "Human",
+      "Knight"
+     ]
+    }
+   },
+   {
+    "prompt": "Whenever one or more creatures you control deal combat damage to one or more players this turn, you become the monarch."
+   }
+  ],
+  "status": "hand"
+ },
+ "Frontier Warmonger": {
+  "name": "Frontier Warmonger",
+  "source": "Whenever one or more creatures attack one of your opponents or a planeswalker they control, those creatures gain menace until end of turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "grant": {
+       "kw": [
+        "Menace"
+       ],
+       "target": {
+        "each": {
+         "attacking": true
+        }
+       }
+      }
+     }
+    ],
+    "on": "attacks",
+    "text": "Whenever one or more creatures attack one of your opponents or a planeswalker they control, those creatures gain menace until end of turn."
+   }
+  ]
+ },
+ "Frontline Medic": {
+  "name": "Frontline Medic",
+  "notes": "The sacrifice ability counters an opponent's X spell: the dummy casts none, so it is not offered.",
+  "source": "Battalion — Whenever this creature and at least two other creatures attack, creatures you control gain indestructible until end of turn.\nSacrifice this creature: Counter target spell with {X} in its mana cost unless its controller pays {3}.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "grant": {
+       "kw": [
+        "Indestructible"
+       ],
+       "target": "each-creature-you-control"
+      }
+     }
+    ],
+    "if": {
+     "countGe": 3,
+     "youControl": {
+      "attacking": true,
+      "creature": true
+     }
+    },
+    "on": "attacks",
+    "self": true,
+    "text": "Battalion — Whenever this creature and at least two other creatures attack, creatures you control gain indestructible until end of turn."
+   }
+  ]
+ },
+ "Furycalm Snarl": {
+  "name": "Furycalm Snarl",
+  "notes": "The player answers whether they revealed; the land taps itself if not.",
+  "source": "As this land enters, you may reveal a Mountain or Plains card from your hand. If you don't, this land enters tapped.\n{T}: Add {R} or {W}.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [],
+         "label": "Reveal a Mountain or Plains (enters untapped)"
+        },
+        {
+         "do": [
+          {
+           "tap": {
+            "target": "self"
+           }
+          }
+         ],
+         "label": "Don't reveal (enters tapped)"
+        }
+       ],
+       "text": "Reveal a Mountain or Plains card from your hand?"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "As this land enters, you may reveal a Mountain or Plains card from your hand. If you don't, this land enters tapped."
+   }
+  ]
+ },
+ "Gilraen, Dúnedain Protector": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}",
+     "tap": true
+    },
+    "do": [
+     {
+      "prompt": "Exile another target creature you control."
+     },
+     {
+      "prompt": "You may return that card to the battlefield under its owner's control."
+     },
+     {
+      "prompt": "If you don't, at the beginning of the next end step, return that card to the battlefield under its owner's control with a vigilance counter and a lifelink counter on it."
+     }
+    ],
+    "text": "{2}, {T}: Exile another target creature you control. You may return that card to the battlefield under its owner's control. If you don't, at the beginning of the next end step, return that card to the battlefield under its owner's control with a vigilance counter and a lifelink counter on it."
+   }
+  ],
+  "name": "Gilraen, Dúnedain Protector",
+  "source": "{2}, {T}: Exile another target creature you control. You may return that card to the battlefield under its owner's control. If you don't, at the beginning of the next end step, return that card to the battlefield under its owner's control with a vigilance counter and a lifelink counter on it.",
+  "status": "auto"
+ },
+ "Gimli of the Glittering Caves": {
+  "name": "Gimli of the Glittering Caves",
+  "source": "Double strike\nWhenever another legendary creature you control enters, put a +1/+1 counter on Gimli.\nWhenever Gimli deals combat damage to a player, create a Treasure token.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "legendary": true,
+     "other": true
+    },
+    "on": "enters",
+    "text": "Whenever another legendary creature you control enters, put a +1/+1 counter on Gimli."
+   },
+   {
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Treasure",
+       "types": [
+        "Artifact",
+        "Treasure"
+       ]
+      }
+     }
+    ],
+    "on": "combatDamage",
+    "self": true,
+    "text": "Whenever Gimli deals combat damage to a player, create a Treasure token."
+   }
+  ]
+ },
+ "Glacial Fortress": {
+  "name": "Glacial Fortress",
+  "source": "This land enters tapped unless you control a Plains or an Island.\n{T}: Add {W} or {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Plains",
+           "Island"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control a Plains or an Island."
+   }
+  ]
+ },
+ "Grey Host Reinforcements": {
+  "name": "Grey Host Reinforcements",
+  "notes": "The dummy's graveyard is empty.",
+  "source": "Flying, ward {3}\nWhen this creature enters, exile target player's graveyard. Put a number of +1/+1 counters on this creature equal to the number of creature cards exiled this way.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [],
+         "label": "The opponent's (empty: no counters)"
+        },
+        {
+         "do": [
+          {
+           "counters": {
+            "kind": "p1p1",
+            "n": "count:creature-cards-in-graveyard",
+            "target": "self"
+           }
+          },
+          {
+           "exileFromGy": {
+            "n": "count:cards-in-graveyard"
+           }
+          }
+         ],
+         "label": "Mine"
+        }
+       ],
+       "text": "Exile whose graveyard?"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, exile target player's graveyard. Put a number of +1/+1 counters on this creature equal to the number of creature cards exiled this way."
+   }
+  ]
+ },
+ "Harsh Mentor": {
+  "name": "Harsh Mentor",
+  "notes": "Opponent-activated abilities never happen in goldfish: silent on purpose.",
+  "source": "Whenever an opponent activates an ability of an artifact, creature, or land on the battlefield, if it isn't a mana ability, this creature deals 2 damage to that player.",
+  "status": "hand"
+ },
+ "Heirloom Blade": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}"
+    },
+    "do": [
+     {
+      "attach": {}
+     }
+    ],
+    "label": "Equip",
+    "limit": "sorcery-speed",
+    "text": "Equip {1}"
+   }
+  ],
+  "name": "Heirloom Blade",
+  "source": "Equipped creature gets +3/+1.\nWhenever equipped creature dies, you may reveal cards from the top of your library until you reveal a creature card that shares a creature type with it. Put that card into your hand and the rest on the bottom of your library in a random order.\nEquip {1}",
+  "statics": [
+   {
+    "p": 3,
+    "scope": "attached",
+    "t": 1,
+    "text": "Equipped creature gets +3/+1."
+   }
+  ],
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "prompt": "You may reveal cards from the top of your library until you reveal a creature card that shares a creature type with it."
+     },
+     {
+      "prompt": "Put that card into your hand and the rest on the bottom of your library in a random order."
+     }
+    ],
+    "filter": {
+     "attachedToThis": true
+    },
+    "on": "dies",
+    "text": "Whenever equipped creature dies, you may reveal cards from the top of your library until you reveal a creature card that shares a creature type with it. Put that card into your hand and the rest on the bottom of your library in a random order."
+   }
+  ]
+ },
+ "Herald's Horn": {
+  "chooseOn": {
+   "enters": {
+    "kind": "creatureType"
+   }
+  },
+  "name": "Herald's Horn",
+  "source": "As this artifact enters, choose a creature type.\nCreature spells you cast of the chosen type cost {1} less to cast.\nAt the beginning of your upkeep, look at the top card of your library. If it's a creature card of the chosen type, you may reveal it and put it into your hand.",
+  "statics": [
+   {
+    "costLess": 1,
+    "filter": {
+     "creature": true,
+     "subtype": "$chosen"
+    },
+    "scope": "spells-you-cast",
+    "text": "Creature spells you cast of the chosen type cost {1} less to cast."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "lookTop": {
+       "n": 1,
+       "pick": {
+        "filter": {
+         "creature": true,
+         "subtype": "$chosen"
+        },
+        "n": 1,
+        "to": "hand"
+       },
+       "rest": "top"
+      }
+     }
+    ],
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, look at the top card of your library. If it's a creature card of the chosen type, you may reveal it and put it into your hand."
+   }
+  ]
+ },
+ "Humble Defector": {
+  "activated": [
+   {
+    "cost": {
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 2
+     },
+     {
+      "prompt": "Target opponent gains control of Humble Defector."
+     }
+    ],
+    "text": "{T}: Draw two cards. Target opponent gains control of this creature. Activate only during your turn."
+   }
+  ],
+  "name": "Humble Defector",
+  "notes": "{T}: Activate only during your turn.",
+  "source": "{T}: Draw two cards. Target opponent gains control of this creature. Activate only during your turn.",
+  "status": "auto"
+ },
+ "Increasing Devotion": {
+  "name": "Increasing Devotion",
+  "notes": "Flashback casting itself is by hand; the player says where it was cast from.",
+  "source": "Create five 1/1 white Human creature tokens. If this spell was cast from a graveyard, create ten of those tokens instead.\nFlashback {7}{W}{W} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "token": {
+          "n": 5,
+          "name": "Human",
+          "power": 1,
+          "toughness": 1,
+          "types": [
+           "Creature",
+           "Human"
+          ]
+         }
+        }
+       ],
+       "label": "From hand: five Humans"
+      },
+      {
+       "do": [
+        {
+         "token": {
+          "n": 10,
+          "name": "Human",
+          "power": 1,
+          "toughness": 1,
+          "types": [
+           "Creature",
+           "Human"
+          ]
+         }
+        }
+       ],
+       "label": "Flashback (from graveyard): ten Humans"
+      }
+     ],
+     "text": "How was it cast?"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Island": {
+  "name": "Island",
+  "source": "({T}: Add {U}.)",
+  "status": "auto"
+ },
+ "Lossarnach Captain": {
+  "name": "Lossarnach Captain",
+  "notes": "The Human-enters trigger taps an opponent's creature: the dummy has none, so it is silent.",
+  "source": "First strike\nWhenever this creature or another Human you control enters, tap target creature an opponent controls.\nAt the beginning of your upkeep, create a 1/1 white Human Soldier creature token.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Human Soldier",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Human",
+        "Soldier"
+       ]
+      }
+     }
+    ],
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, create a 1/1 white Human Soldier creature token."
+   }
+  ]
+ },
+ "Lost to Legend": {
+  "name": "Lost to Legend",
+  "source": "Put target nonland historic permanent into its owner's library fourth from the top. (Artifacts, legendaries, and Sagas are historic.)",
+  "spell": [
+   {
+    "prompt": "Put target nonland historic permanent into its owner's library fourth from the top."
+   }
+  ],
+  "status": "prompt"
+ },
+ "Marshal's Anthem": {
+  "name": "Marshal's Anthem",
+  "notes": "X = times kicked (the game asks); multikicker mana is paid by hand.",
+  "source": "Multikicker {1}{W} (You may pay an additional {1}{W} any number of times as you cast this spell.)\nCreatures you control get +1/+1.\nWhen this enchantment enters, return up to X target creature cards from your graveyard to the battlefield, where X is the number of times this enchantment was kicked.",
+  "statics": [
+   {
+    "p": 1,
+    "scope": "creatures-you-control",
+    "t": 1,
+    "text": "Creatures you control get +1/+1."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "return": {
+       "filter": {
+        "creature": true
+       },
+       "from": "gy",
+       "n": "X",
+       "optional": true,
+       "to": "bf"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this enchantment enters, return up to X target creature cards from your graveyard to the battlefield, where X is the number of times this enchantment was kicked."
+   }
+  ]
+ },
+ "Mountain": {
+  "name": "Mountain",
+  "source": "({T}: Add {R}.)",
+  "status": "auto"
+ },
+ "Oath of Eorl": {
+  "name": "Oath of Eorl",
+  "source": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\nI — Create two 1/1 white Human Soldier creature tokens.\nII — Create two 2/2 red Human Knight creature tokens with trample and haste.\nIII — Put an indestructible counter on up to one target Human. You become the monarch.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "W"
+       ],
+       "n": 2,
+       "name": "Human Soldier",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Human",
+        "Soldier"
+       ]
+      }
+     }
+    ],
+    "n": 1,
+    "on": "chapter",
+    "text": "I — Create two 1/1 white Human Soldier creature tokens."
+   },
+   {
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "R"
+       ],
+       "kw": [
+        "Trample",
+        "Haste"
+       ],
+       "n": 2,
+       "name": "Human Knight",
+       "power": 2,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Human",
+        "Knight"
+       ]
+      }
+     }
+    ],
+    "n": 2,
+    "on": "chapter",
+    "text": "II — Create two 2/2 red Human Knight creature tokens with trample and haste."
+   },
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "indestructible",
+       "n": 1,
+       "target": {
+        "optional": true,
+        "pick": {
+         "creature": true,
+         "subtype": "Human"
+        }
+       }
+      }
+     },
+     {
+      "monarch": true
+     }
+    ],
+    "n": 3,
+    "on": "chapter",
+    "text": "III — Put an indestructible counter on up to one target Human. You become the monarch."
+   }
+  ]
+ },
+ "Palace Jailer": {
+  "name": "Palace Jailer",
+  "notes": "The exile trigger targets an opponent's creature: the dummy has none, so it is silent.",
+  "source": "When this creature enters, you become the monarch.\nWhen this creature enters, exile target creature an opponent controls until an opponent becomes the monarch.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "monarch": true
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, you become the monarch."
+   }
+  ]
+ },
+ "Path of Ancestry": {
+  "name": "Path of Ancestry",
+  "source": "This land enters tapped.\n{T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "Path to Exile": {
+  "name": "Path to Exile",
+  "notes": "Goldfish: the dummy has no creatures; the useful mode is your own creature for a land. The search may find nothing.",
+  "source": "Exile target creature. Its controller may search their library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "exile": {
+          "target": "creature-you-control"
+         }
+        },
+        {
+         "ramp": {
+          "filter": "basic",
+          "n": 1,
+          "tapped": true
+         }
+        }
+       ],
+       "label": "One of my creatures (I may search for a basic land)"
+      },
+      {
+       "do": [
+        {
+         "exile": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's creature (the dummy has none)"
+      }
+     ],
+     "text": "Exile target creature. Its controller may search their library for a basic land card, put that card onto the battlefield tapped, then shuffle."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Plains": {
+  "name": "Plains",
+  "source": "({T}: Add {W}.)",
+  "status": "auto"
+ },
+ "Port Town": {
+  "name": "Port Town",
+  "notes": "The player answers whether they revealed; the land taps itself if not.",
+  "source": "As this land enters, you may reveal a Plains or Island card from your hand. If you don't, this land enters tapped.\n{T}: Add {W} or {U}.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [],
+         "label": "Reveal a Plains or Island (enters untapped)"
+        },
+        {
+         "do": [
+          {
+           "tap": {
+            "target": "self"
+           }
+          }
+         ],
+         "label": "Don't reveal (enters tapped)"
+        }
+       ],
+       "text": "Reveal a Plains or Island card from your hand?"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "As this land enters, you may reveal a Plains or Island card from your hand. If you don't, this land enters tapped."
+   }
+  ]
+ },
+ "Prairie Stream": {
+  "name": "Prairie Stream",
+  "source": "({T}: Add {W} or {U}.)\nThis land enters tapped unless you control two or more basic lands.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "basic": true,
+          "countGe": 2,
+          "land": true
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control two or more basic lands."
+   }
+  ]
+ },
+ "Prince Imrahil the Fair": {
+  "name": "Prince Imrahil the Fair",
+  "source": "Whenever you draw your second card each turn, create a 1/1 white Human Soldier creature token.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Human Soldier",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Human",
+        "Soldier"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "index": 2
+    },
+    "on": "nthDraw",
+    "text": "Whenever you draw your second card each turn, create a 1/1 white Human Soldier creature token."
+   }
+  ]
+ },
+ "Riders of Rohan": {
+  "name": "Riders of Rohan",
+  "source": "When this creature enters, create two 2/2 red Human Knight creature tokens with trample and haste.\nDash {4}{R}{W} (You may cast this spell for its dash cost. If you do, it gains haste, and it's returned from the battlefield to its owner's hand at the beginning of the next end step.)",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "kw": [
+        "Trample",
+        "Haste"
+       ],
+       "n": 2,
+       "name": "Human Knight",
+       "power": 2,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Human",
+        "Knight"
+       ]
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, create two 2/2 red Human Knight creature tokens with trample and haste."
+   }
+  ]
+ },
+ "Rogue's Passage": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{4}",
+     "tap": true
+    },
+    "do": [
+     {
+      "grant": {
+       "kw": [
+        "Unblockable"
+       ],
+       "target": "creature-you-control"
+      }
+     }
+    ],
+    "label": "Unblockable",
+    "text": "{4}, {T}: Target creature can't be blocked this turn."
+   }
+  ],
+  "name": "Rogue's Passage",
+  "notes": "Goldfish: the dummy never blocks; the \"Unblockable\" tag is a reminder only.",
+  "source": "{T}: Add {C}.\n{4}, {T}: Target creature can't be blocked this turn.",
+  "status": "hand"
+ },
+ "Secluded Courtyard": {
+  "chooseOn": {
+   "enters": {
+    "kind": "creatureType"
+   }
+  },
+  "name": "Secluded Courtyard",
+  "source": "As this land enters, choose a creature type.\n{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a creature spell of the chosen type or activate an ability of a creature source of the chosen type.",
+  "status": "auto"
+ },
+ "Selfless Squire": {
+  "name": "Selfless Squire",
+  "source": "Flash\nWhen this creature enters, prevent all damage that would be dealt to you this turn.\nWhenever damage that would be dealt to you is prevented, put that many +1/+1 counters on this creature.",
+  "status": "prompt",
+  "triggers": [
+   {
+    "do": [
+     {
+      "prompt": "Prevent all damage that would be dealt to you this turn."
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, prevent all damage that would be dealt to you this turn."
+   },
+   {
+    "do": [
+     {
+      "prompt": "Whenever damage that would be dealt to you is prevented, put that many +1/+1 counters on this creature."
+     }
+    ],
+    "filter": {
+     "controller": "opp"
+    },
+    "on": "cast",
+    "text": "Whenever damage that would be dealt to you is prevented, put that many +1/+1 counters on this creature."
+   }
+  ]
+ },
+ "Shared Animosity": {
+  "name": "Shared Animosity",
+  "notes": "Modelled as a live bonus on each attacking creature (+1/+0 per other attacking creature sharing a type); it ends when combat ends instead of at end of turn.",
+  "source": "Whenever a creature you control attacks, it gets +1/+0 until end of turn for each other attacking creature that shares a creature type with it.",
+  "statics": [
+   {
+    "anthemPer": {
+     "filter": {
+      "attacking": true
+     },
+     "p": {
+      "count": {
+       "attacking": true,
+       "creature": true,
+       "sharesTypeWithThis": true
+      }
+     },
+     "scope": "creatures-you-control"
+    },
+    "text": "Whenever a creature you control attacks, it gets +1/+0 until end of turn for each other attacking creature that shares a creature type with it."
+   }
+  ],
+  "status": "hand"
+ },
+ "Sol Ring": {
+  "name": "Sol Ring",
+  "source": "{T}: Add {C}{C}.",
+  "status": "auto"
+ },
+ "Sulfur Falls": {
+  "name": "Sulfur Falls",
+  "source": "This land enters tapped unless you control an Island or a Mountain.\n{T}: Add {U} or {R}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Island",
+           "Mountain"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control an Island or a Mountain."
+   }
+  ]
+ },
+ "Sunset Revelry": {
+  "name": "Sunset Revelry",
+  "notes": "The dummy controls no creatures and has no hand, so the other two clauses never apply.",
+  "source": "If an opponent has more life than you, you gain 4 life.\nIf an opponent controls more creatures than you, create two 1/1 white Human creature tokens.\nIf an opponent has more cards in hand than you, draw a card.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "gainLife": 4
+        }
+       ],
+       "label": "The opponent has more life: gain 4"
+      },
+      {
+       "do": [],
+       "label": "It doesn't"
+      }
+     ],
+     "text": "If an opponent has more life than you, you gain 4 life."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Supreme Verdict": {
+  "name": "Supreme Verdict",
+  "notes": "'Can't be countered' never matters against the dummy.",
+  "source": "This spell can't be countered.\nDestroy all creatures.",
+  "spell": [
+   {
+    "destroy": {
+     "target": {
+      "each": {
+       "creature": true
+      }
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Swords to Plowshares": {
+  "name": "Swords to Plowshares",
+  "source": "Exile target creature. Its controller gains life equal to its power.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "exile": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's creature (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "exile": {
+          "target": "creature-you-control"
+         }
+        },
+        {
+         "gainLife": {
+          "of": "target",
+          "stat": "power"
+         }
+        }
+       ],
+       "label": "One of my creatures"
+      }
+     ],
+     "text": "Exile target creature. Its controller gains life equal to its power."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Talisman of Conviction": {
+  "name": "Talisman of Conviction",
+  "source": "{T}: Add {C}.\n{T}: Add {R} or {W}. This artifact deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Talisman of Progress": {
+  "name": "Talisman of Progress",
+  "source": "{T}: Add {C}.\n{T}: Add {W} or {U}. This artifact deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Taunt from the Rampart": {
+  "name": "Taunt from the Rampart",
+  "source": "Goad all creatures your opponents control. Until your next turn, those creatures can't block. (Until your next turn, those creatures attack each combat if able and attack a player other than you if able.)",
+  "spell": [
+   {
+    "prompt": "Goad all creatures your opponents control."
+   },
+   {
+    "prompt": "Until your next turn, those creatures can't block."
+   }
+  ],
+  "status": "prompt"
+ },
+ "Terramorphic Expanse": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": "basic",
+       "tapped": true
+      }
+     }
+    ],
+    "text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle."
+   }
+  ],
+  "name": "Terramorphic Expanse",
+  "source": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+  "status": "auto"
+ },
+ "Thought Vessel": {
+  "name": "Thought Vessel",
+  "source": "You have no maximum hand size.\n{T}: Add {C}.",
+  "statics": [
+   {
+    "noMaxHand": true,
+    "text": "You have no maximum hand size."
+   }
+  ],
+  "status": "hand"
+ },
+ "Throne of the High City": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{4}",
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "monarch": true
+     }
+    ],
+    "text": "{4}, {T}, Sacrifice this land: You become the monarch."
+   }
+  ],
+  "name": "Throne of the High City",
+  "source": "{T}: Add {C}.\n{4}, {T}, Sacrifice this land: You become the monarch.",
+  "status": "auto"
+ },
+ "Théoden, King of Rohan": {
+  "name": "Théoden, King of Rohan",
+  "source": "Whenever Théoden or another Human you control enters, target creature gains double strike until end of turn.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "grant": {
+       "kw": [
+        "Double strike"
+       ],
+       "target": {
+        "n": 1,
+        "pick": {
+         "creature": true
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "selfOr": {
+     "other": true,
+     "subtype": "Human"
+    },
+    "text": "Whenever Théoden or another Human you control enters, target creature gains double strike until end of turn."
+   }
+  ]
+ },
+ "Tranquil Cove": {
+  "name": "Tranquil Cove",
+  "source": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {W} or {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   },
+   {
+    "do": [
+     {
+      "gainLife": 1
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this land enters, you gain 1 life."
+   }
+  ]
+ },
+ "Unbreakable Formation": {
+  "name": "Unbreakable Formation",
+  "source": "Creatures you control gain indestructible until end of turn.\nAddendum — If you cast this spell during your main phase, put a +1/+1 counter on each of those creatures and they gain vigilance until end of turn.",
+  "spell": [
+   {
+    "grant": {
+     "kw": [
+      "Indestructible"
+     ],
+     "target": "each-creature-you-control"
+    }
+   },
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "counters": {
+          "kind": "p1p1",
+          "n": 1,
+          "target": "each-creature-you-control"
+         }
+        },
+        {
+         "grant": {
+          "kw": [
+           "Vigilance"
+          ],
+          "target": "each-creature-you-control"
+         }
+        }
+       ],
+       "label": "Cast in my main phase"
+      },
+      {
+       "do": [],
+       "label": "Not in a main phase"
+      }
+     ],
+     "text": "Addendum — If you cast this spell during your main phase, put a +1/+1 counter on each of those creatures and they gain vigilance until end of turn."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Vanquisher's Banner": {
+  "chooseOn": {
+   "enters": {
+    "kind": "creatureType"
+   }
+  },
+  "name": "Vanquisher's Banner",
+  "source": "As this artifact enters, choose a creature type.\nCreatures you control of the chosen type get +1/+1.\nWhenever you cast a creature spell of the chosen type, draw a card.",
+  "statics": [
+   {
+    "filter": {
+     "subtype": "$chosen"
+    },
+    "p": 1,
+    "scope": "creatures-you-control",
+    "t": 1,
+    "text": "Creatures you control of the chosen type get +1/+1."
+   }
+  ],
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "subtype": "$chosen"
+    },
+    "on": "cast",
+    "text": "Whenever you cast a creature spell of the chosen type, draw a card."
+   }
+  ]
+ },
+ "Verge Rangers": {
+  "name": "Verge Rangers",
+  "source": "First strike\nYou may look at the top card of your library any time.\nAs long as an opponent controls more lands than you, you may play lands from the top of your library. (You can play a land this way only if you have an available land play remaining.)",
+  "statics": [
+   {
+    "prompt": "You may look at the top card of your library any time."
+   },
+   {
+    "prompt": "As long as an opponent controls more lands than you, you may play lands from the top of your library."
+   }
+  ],
+  "status": "prompt"
+ },
+ "Village Bell-Ringer": {
+  "name": "Village Bell-Ringer",
+  "source": "Flash (You may cast this spell any time you could cast an instant.)\nWhen this creature enters, untap all creatures you control.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "untap": {
+       "target": "each-creature-you-control"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, untap all creatures you control."
+   }
+  ]
+ },
+ "Visions of Glory": {
+  "name": "Visions of Glory",
+  "notes": "Flashback (and its commander-based cost reduction) is cast by hand.",
+  "source": "Create a 1/1 white Human creature token for each creature you control.\nFlashback {8}{W}{W}. This spell costs {X} less to cast this way, where X is the greatest mana value of a commander you own on the battlefield or in the command zone. (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "spell": [
+   {
+    "token": {
+     "n": "count:creatures-you-control",
+     "name": "Human",
+     "power": 1,
+     "toughness": 1,
+     "types": [
+      "Creature",
+      "Human"
+     ]
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Wayfarer's Bauble": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}",
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": "basic",
+       "tapped": true
+      }
+     }
+    ],
+    "text": "{2}, {T}, Sacrifice this artifact: Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle."
+   }
+  ],
+  "name": "Wayfarer's Bauble",
+  "source": "{2}, {T}, Sacrifice this artifact: Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+  "status": "auto"
+ },
+ "Weathered Wayfarer": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{W}",
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": "land",
+       "to": "hand"
+      }
+     }
+    ],
+    "text": "{W}, {T}: Search your library for a land card, reveal it, put it into your hand, then shuffle. Activate only if an opponent controls more lands than you."
+   }
+  ],
+  "name": "Weathered Wayfarer",
+  "notes": "{W}, {T}: Activate only if an opponent controls more lands than you.",
+  "source": "{W}, {T}: Search your library for a land card, reveal it, put it into your hand, then shuffle. Activate only if an opponent controls more lands than you.",
+  "status": "auto"
+ },
+ "Wind-Scarred Crag": {
+  "name": "Wind-Scarred Crag",
+  "source": "This land enters tapped.\nWhen this land enters, you gain 1 life.\n{T}: Add {R} or {W}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   },
+   {
+    "do": [
+     {
+      "gainLife": 1
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this land enters, you gain 1 life."
+   }
+  ]
+ },
+ "Windbrisk Heights": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{W}",
+     "tap": true
+    },
+    "do": [
+     {
+      "prompt": "You may play the exiled card without paying its mana cost if you attacked with three or more creatures this turn."
+     }
+    ],
+    "text": "{W}, {T}: You may play the exiled card without paying its mana cost if you attacked with three or more creatures this turn."
+   }
+  ],
+  "name": "Windbrisk Heights",
+  "source": "Hideaway 4 (When this land enters, look at the top four cards of your library, exile one face down, then put the rest on the bottom in a random order.)\nThis land enters tapped.\n{T}: Add {W}.\n{W}, {T}: You may play the exiled card without paying its mana cost if you attacked with three or more creatures this turn.",
+  "statics": [
+   {
+    "prompt": "Hideaway 4"
+   }
+  ],
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "Zealous Conscripts": {
+  "name": "Zealous Conscripts",
+  "source": "Haste\nWhen this creature enters, gain control of target permanent until end of turn. Untap that permanent. It gains haste until end of turn.",
+  "status": "prompt",
+  "triggers": [
+   {
+    "do": [
+     {
+      "prompt": "Gain control of target permanent until end of turn."
+     },
+     {
+      "prompt": "Untap that permanent."
+     },
+     {
+      "prompt": "It gains haste until end of turn."
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, gain control of target permanent until end of turn. Untap that permanent. It gains haste until end of turn."
+   }
+  ]
+ },
+ "Éomer, King of Rohan": {
+  "name": "Éomer, King of Rohan",
+  "source": "Double strike\nÉomer enters with a +1/+1 counter on it for each other Human you control.\nWhen Éomer enters, target player becomes the monarch. Éomer deals damage equal to its power to any target.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": {
+        "count": {
+         "creature": true,
+         "other": true,
+         "subtype": "Human"
+        }
+       },
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Éomer enters with a +1/+1 counter on it for each other Human you control."
+   },
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "monarch": true
+          }
+         ],
+         "label": "I become the monarch"
+        },
+        {
+         "do": [
+          {
+           "prompt": "The opponent becomes the monarch (you stop being the monarch)."
+          }
+         ],
+         "label": "The opponent becomes the monarch"
+        }
+       ],
+       "text": "Target player becomes the monarch."
+      }
+     },
+     {
+      "damage": {
+       "n": {
+        "of": "this",
+        "stat": "power"
+       },
+       "target": "any"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Éomer enters, target player becomes the monarch. Éomer deals damage equal to its power to any target."
+   }
+  ]
+ },
+ "Éowyn, Shieldmaiden": {
+  "name": "Éowyn, Shieldmaiden",
+  "source": "First strike\nAt the beginning of combat on your turn, if another Human entered the battlefield under your control this turn, create two 2/2 red Human Knight creature tokens with trample and haste. Then if you control six or more Humans, draw a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "kw": [
+        "Trample",
+        "Haste"
+       ],
+       "n": 2,
+       "name": "Human Knight",
+       "power": 2,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Human",
+        "Knight"
+       ]
+      }
+     },
+     {
+      "check": {
+       "do": [
+        {
+         "draw": 1
+        }
+       ],
+       "if": {
+        "countGe": 6,
+        "youControl": {
+         "creature": true,
+         "subtype": "Human"
+        }
+       }
+      }
+     }
+    ],
+    "if": {
+     "thisTurn": {
+      "fact": "entered",
+      "filter": {
+       "other": true,
+       "subtype": "Human"
+      }
+     }
+    },
+    "on": "beginCombat",
+    "text": "At the beginning of combat on your turn, if another Human entered the battlefield under your control this turn, create two 2/2 red Human Knight creature tokens with trample and haste. Then if you control six or more Humans, draw a card."
+   }
+  ]
+ }
+}

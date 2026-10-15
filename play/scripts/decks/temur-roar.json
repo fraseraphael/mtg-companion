@@ -1,0 +1,8254 @@
+{
+ "Arcane Signet": {
+  "name": "Arcane Signet",
+  "source": "{T}: Add one mana of any color in your commander's color identity.",
+  "status": "auto"
+ },
+ "Atarka, World Render": {
+  "name": "Atarka, World Render",
+  "source": "Flying, trample\nWhenever a Dragon you control attacks, it gains double strike until end of turn.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "grant": {
+       "kw": [
+        "Double strike"
+       ],
+       "target": "triggering"
+      }
+     }
+    ],
+    "filter": {
+     "subtype": "Dragon"
+    },
+    "on": "attacks",
+    "text": "Whenever a Dragon you control attacks, it gains double strike until end of turn."
+   }
+  ]
+ },
+ "Atsushi, the Blazing Sky": {
+  "name": "Atsushi, the Blazing Sky",
+  "source": "Flying, trample\nWhen Atsushi dies, choose one —\n• Exile the top two cards of your library. Until the end of your next turn, you may play those cards.\n• Create three Treasure tokens.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "exileTop": {
+            "n": 2,
+            "play": "nextTurn"
+           }
+          }
+         ],
+         "label": "Exile the top two cards of your library. Until the end of your next turn, you may play those cards."
+        },
+        {
+         "do": [
+          {
+           "token": {
+            "n": 3,
+            "name": "Treasure",
+            "types": [
+             "Artifact",
+             "Treasure"
+            ]
+           }
+          }
+         ],
+         "label": "Create three Treasure tokens."
+        }
+       ],
+       "text": "Choose one —"
+      }
+     }
+    ],
+    "on": "dies",
+    "self": true,
+    "text": "When Atsushi dies, choose one —\n• Exile the top two cards of your library. Until the end of your next turn, you may play those cards.\n• Create three Treasure tokens."
+   }
+  ]
+ },
+ "Beast Within": {
+  "name": "Beast Within",
+  "notes": "Goldfish: the dummy controls no permanents, so the useful mode is your own permanent (e.g. a Beast at instant speed).",
+  "source": "Destroy target permanent. Its controller creates a 3/3 green Beast creature token.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "any-you-control"
+         }
+        },
+        {
+         "token": {
+          "n": 1,
+          "name": "Beast",
+          "power": 3,
+          "toughness": 3,
+          "types": [
+           "Creature",
+           "Beast"
+          ]
+         }
+        }
+       ],
+       "label": "One of my permanents (I get the 3/3 Beast)"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's permanent (the dummy has none; it would get the Beast)"
+      }
+     ],
+     "text": "Destroy target permanent. Its controller creates a 3/3 green Beast creature token."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Become the Avalanche": {
+  "name": "Become the Avalanche",
+  "source": "Draw a card for each creature you control with power 4 or greater. Then creatures you control get +X/+X until end of turn, where X is the number of cards in your hand.",
+  "spell": [
+   {
+    "draw": {
+     "count": {
+      "creature": true,
+      "powerGe": 4
+     }
+    }
+   },
+   {
+    "pump": {
+     "p": "count:cards-in-hand",
+     "t": "count:cards-in-hand",
+     "target": "each-creature-you-control"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Blasphemous Act": {
+  "name": "Blasphemous Act",
+  "notes": "Goldfish: only your creatures are on the battlefield (cost reduction and damage).",
+  "source": "This spell costs {1} less to cast for each creature on the battlefield.\nBlasphemous Act deals 13 damage to each creature.",
+  "spell": [
+   {
+    "damage": {
+     "n": 13,
+     "target": "each-creature-you-control"
+    }
+   }
+  ],
+  "statics": [
+   {
+    "costLess": "count:creatures-you-control",
+    "scope": "this-spell",
+    "text": "This spell costs {1} less to cast for each creature on the battlefield."
+   }
+  ],
+  "status": "hand"
+ },
+ "Bountiful Landscape": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": {
+        "basic": true,
+        "subtype": [
+         "Forest",
+         "Island",
+         "Mountain"
+        ]
+       },
+       "tapped": true
+      }
+     }
+    ],
+    "label": "Fetch",
+    "text": "{T}, Sacrifice this land: Search your library for a basic Forest, Island, or Mountain card, put it onto the battlefield tapped, then shuffle."
+   }
+  ],
+  "cycling": "{G}{U}{R}",
+  "name": "Bountiful Landscape",
+  "source": "{T}: Add {C}.\n{T}, Sacrifice this land: Search your library for a basic Forest, Island, or Mountain card, put it onto the battlefield tapped, then shuffle.\nCycling {G}{U}{R} ({G}{U}{R}, Discard this card: Draw a card.)",
+  "status": "hand"
+ },
+ "Breaching Dragonstorm": {
+  "name": "Breaching Dragonstorm",
+  "notes": "The nonland card goes to your hand, then you may cast a card with mana value 8 or less from your hand for free: pick the card just exiled (or none).",
+  "source": "When this enchantment enters, exile cards from the top of your library until you exile a nonland card. You may cast it without paying its mana cost if that spell's mana value is 8 or less. If you don't, put that card into your hand.\nWhen a Dragon you control enters, return this enchantment to its owner's hand.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "revealUntil": {
+       "filter": {
+        "nonland": true
+       },
+       "rest": "exile",
+       "to": "hand"
+      }
+     },
+     {
+      "castFree": {
+       "filter": {
+        "mvLe": 8
+       },
+       "target": "hand"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this enchantment enters, exile cards from the top of your library until you exile a nonland card. You may cast it without paying its mana cost if that spell's mana value is 8 or less. If you don't, put that card into your hand."
+   },
+   {
+    "do": [
+     {
+      "bounce": {
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "subtype": "Dragon"
+    },
+    "on": "enters",
+    "text": "When a Dragon you control enters, return this enchantment to its owner's hand."
+   }
+  ]
+ },
+ "Broodcaller Scourge": {
+  "name": "Broodcaller Scourge",
+  "notes": "Each Dragon's combat damage is tallied as 'broodcaller' counters, then one put from hand with mana value up to the total (9+ = any), and the tally is cleared.",
+  "source": "Flying\nWhenever one or more Dragons you control deal combat damage to a player, you may put a permanent card with mana value less than or equal to that damage from your hand onto the battlefield.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "broodcaller",
+       "n": "count:event-amount",
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "subtype": "Dragon"
+    },
+    "on": "combatDamage",
+    "text": "Whenever one or more Dragons you control deal combat damage to a player, you may put a permanent card with mana value less than or equal to that damage from your hand onto the battlefield."
+   },
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "putFromHand": {
+          "filter": {
+           "type": [
+            "Artifact",
+            "Creature",
+            "Enchantment",
+            "Land",
+            "Planeswalker",
+            "Battle"
+           ]
+          },
+          "optional": true,
+          "to": "bf"
+         }
+        }
+       ],
+       "else": [
+        {
+         "check": {
+          "do": [
+           {
+            "putFromHand": {
+             "filter": {
+              "mvLe": 8,
+              "type": [
+               "Artifact",
+               "Creature",
+               "Enchantment",
+               "Land",
+               "Planeswalker",
+               "Battle"
+              ]
+             },
+             "optional": true,
+             "to": "bf"
+            }
+           }
+          ],
+          "else": [
+           {
+            "check": {
+             "do": [
+              {
+               "putFromHand": {
+                "filter": {
+                 "mvLe": 7,
+                 "type": [
+                  "Artifact",
+                  "Creature",
+                  "Enchantment",
+                  "Land",
+                  "Planeswalker",
+                  "Battle"
+                 ]
+                },
+                "optional": true,
+                "to": "bf"
+               }
+              }
+             ],
+             "else": [
+              {
+               "check": {
+                "do": [
+                 {
+                  "putFromHand": {
+                   "filter": {
+                    "mvLe": 6,
+                    "type": [
+                     "Artifact",
+                     "Creature",
+                     "Enchantment",
+                     "Land",
+                     "Planeswalker",
+                     "Battle"
+                    ]
+                   },
+                   "optional": true,
+                   "to": "bf"
+                  }
+                 }
+                ],
+                "else": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "putFromHand": {
+                      "filter": {
+                       "mvLe": 5,
+                       "type": [
+                        "Artifact",
+                        "Creature",
+                        "Enchantment",
+                        "Land",
+                        "Planeswalker",
+                        "Battle"
+                       ]
+                      },
+                      "optional": true,
+                      "to": "bf"
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "putFromHand": {
+                         "filter": {
+                          "mvLe": 4,
+                          "type": [
+                           "Artifact",
+                           "Creature",
+                           "Enchantment",
+                           "Land",
+                           "Planeswalker",
+                           "Battle"
+                          ]
+                         },
+                         "optional": true,
+                         "to": "bf"
+                        }
+                       }
+                      ],
+                      "else": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "putFromHand": {
+                            "filter": {
+                             "mvLe": 3,
+                             "type": [
+                              "Artifact",
+                              "Creature",
+                              "Enchantment",
+                              "Land",
+                              "Planeswalker",
+                              "Battle"
+                             ]
+                            },
+                            "optional": true,
+                            "to": "bf"
+                           }
+                          }
+                         ],
+                         "else": [
+                          {
+                           "check": {
+                            "do": [
+                             {
+                              "putFromHand": {
+                               "filter": {
+                                "mvLe": 2,
+                                "type": [
+                                 "Artifact",
+                                 "Creature",
+                                 "Enchantment",
+                                 "Land",
+                                 "Planeswalker",
+                                 "Battle"
+                                ]
+                               },
+                               "optional": true,
+                               "to": "bf"
+                              }
+                             }
+                            ],
+                            "else": [
+                             {
+                              "check": {
+                               "do": [
+                                {
+                                 "putFromHand": {
+                                  "filter": {
+                                   "mvLe": 1,
+                                   "type": [
+                                    "Artifact",
+                                    "Creature",
+                                    "Enchantment",
+                                    "Land",
+                                    "Planeswalker",
+                                    "Battle"
+                                   ]
+                                  },
+                                  "optional": true,
+                                  "to": "bf"
+                                 }
+                                }
+                               ],
+                               "else": [],
+                               "if": {
+                                "counters": {
+                                 "ge": 1,
+                                 "kind": "broodcaller"
+                                }
+                               }
+                              }
+                             }
+                            ],
+                            "if": {
+                             "counters": {
+                              "ge": 2,
+                              "kind": "broodcaller"
+                             }
+                            }
+                           }
+                          }
+                         ],
+                         "if": {
+                          "counters": {
+                           "ge": 3,
+                           "kind": "broodcaller"
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 4,
+                        "kind": "broodcaller"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "counters": {
+                     "ge": 5,
+                     "kind": "broodcaller"
+                    }
+                   }
+                  }
+                 }
+                ],
+                "if": {
+                 "counters": {
+                  "ge": 6,
+                  "kind": "broodcaller"
+                 }
+                }
+               }
+              }
+             ],
+             "if": {
+              "counters": {
+               "ge": 7,
+               "kind": "broodcaller"
+              }
+             }
+            }
+           }
+          ],
+          "if": {
+           "counters": {
+            "ge": 8,
+            "kind": "broodcaller"
+           }
+          }
+         }
+        }
+       ],
+       "if": {
+        "counters": {
+         "ge": 9,
+         "kind": "broodcaller"
+        }
+       }
+      }
+     },
+     {
+      "removeCounters": {
+       "kind": "broodcaller",
+       "n": "all",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "combatDamage",
+    "text": "Whenever one or more Dragons you control deal combat damage to a player, you may put a permanent card with mana value less than or equal to that damage from your hand onto the battlefield."
+   }
+  ]
+ },
+ "Chaos Warp": {
+  "name": "Chaos Warp",
+  "notes": "Your permanent goes to your hand and then into the library (put that same card when asked), the library is shuffled (logged as an empty search), then the top card is revealed. A token simply ceases to exist.",
+  "source": "The owner of target permanent shuffles it into their library, then reveals the top card of their library. If it's a permanent card, they put it onto the battlefield.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [],
+       "label": "An opponent's permanent (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "bounce": {
+          "target": {
+           "pick": {
+            "nontoken": true
+           }
+          }
+         }
+        },
+        {
+         "putFromHand": {
+          "to": "libtop"
+         }
+        },
+        {
+         "tutor": {
+          "filter": {
+           "controller": "opp"
+          }
+         }
+        },
+        {
+         "revealTop": {
+          "filter": {
+           "type": [
+            "Artifact",
+            "Creature",
+            "Enchantment",
+            "Land",
+            "Planeswalker",
+            "Battle"
+           ]
+          },
+          "n": 1,
+          "rest": "top",
+          "to": "bf"
+         }
+        }
+       ],
+       "label": "A nontoken permanent I control"
+      },
+      {
+       "do": [
+        {
+         "exile": {
+          "target": {
+           "pick": {
+            "token": true
+           }
+          }
+         }
+        },
+        {
+         "tutor": {
+          "filter": {
+           "controller": "opp"
+          }
+         }
+        },
+        {
+         "revealTop": {
+          "filter": {
+           "type": [
+            "Artifact",
+            "Creature",
+            "Enchantment",
+            "Land",
+            "Planeswalker",
+            "Battle"
+           ]
+          },
+          "n": 1,
+          "rest": "top",
+          "to": "bf"
+         }
+        }
+       ],
+       "label": "A token I control"
+      }
+     ],
+     "text": "The owner of target permanent shuffles it into their library, then reveals the top card of their library. If it's a permanent card, they put it onto the battlefield."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Cinder Glade": {
+  "name": "Cinder Glade",
+  "source": "({T}: Add {R} or {G}.)\nThis land enters tapped unless you control two or more basic lands.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "basic": true,
+          "countGe": 2,
+          "land": true
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control two or more basic lands."
+   }
+  ]
+ },
+ "Command Tower": {
+  "name": "Command Tower",
+  "source": "{T}: Add one mana of any color in your commander's color identity.",
+  "status": "auto"
+ },
+ "Draconic Lore": {
+  "name": "Draconic Lore",
+  "source": "This spell costs {2} less to cast if you control a Dragon.\nDraw three cards.",
+  "spell": [
+   {
+    "draw": 3
+   }
+  ],
+  "statics": [
+   {
+    "costLess": 2,
+    "if": {
+     "youControl": {
+      "subtype": "Dragon"
+     }
+    },
+    "scope": "this-spell",
+    "text": "This spell costs {2} less to cast if you control a Dragon."
+   }
+  ],
+  "status": "hand"
+ },
+ "Dragon Tempest": {
+  "name": "Dragon Tempest",
+  "source": "Whenever a creature you control with flying enters, it gains haste until end of turn.\nWhenever a Dragon you control enters, it deals X damage to any target, where X is the number of Dragons you control.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "grant": {
+       "kw": [
+        "Haste"
+       ],
+       "target": "triggering"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "keyword": "Flying"
+    },
+    "on": "enters",
+    "text": "Whenever a creature you control with flying enters, it gains haste until end of turn."
+   },
+   {
+    "do": [
+     {
+      "damage": {
+       "n": {
+        "count": {
+         "subtype": "Dragon"
+        }
+       },
+       "target": "any"
+      }
+     }
+    ],
+    "filter": {
+     "subtype": "Dragon"
+    },
+    "on": "enters",
+    "text": "Whenever a Dragon you control enters, it deals X damage to any target, where X is the number of Dragons you control."
+   }
+  ]
+ },
+ "Dragon's Hoard": {
+  "activated": [
+   {
+    "cost": {
+     "removeCounters": {
+      "kind": "gold",
+      "n": 1
+     },
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "label": "Draw (gold)",
+    "text": "{T}, Remove a gold counter from this artifact: Draw a card."
+   }
+  ],
+  "name": "Dragon's Hoard",
+  "source": "Whenever a Dragon you control enters, put a gold counter on this artifact.\n{T}, Remove a gold counter from this artifact: Draw a card.\n{T}: Add one mana of any color.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "gold",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "subtype": "Dragon"
+    },
+    "on": "enters",
+    "text": "Whenever a Dragon you control enters, put a gold counter on this artifact."
+   }
+  ]
+ },
+ "Dragonlord Atarka": {
+  "name": "Dragonlord Atarka",
+  "notes": "Its enters damage can only hit creatures and planeswalkers your opponents control: the dummy has none. Silent on purpose.",
+  "source": "Flying, trample\nWhen Dragonlord Atarka enters, it deals 5 damage divided as you choose among any number of target creatures and/or planeswalkers your opponents control.",
+  "status": "hand"
+ },
+ "Dragonmaster Outcast": {
+  "name": "Dragonmaster Outcast",
+  "source": "At the beginning of your upkeep, if you control six or more lands, create a 5/5 red Dragon creature token with flying.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "kw": [
+        "Flying"
+       ],
+       "n": 1,
+       "name": "Dragon",
+       "power": 5,
+       "toughness": 5,
+       "types": [
+        "Creature",
+        "Dragon"
+       ]
+      }
+     }
+    ],
+    "if": {
+     "youControl": {
+      "countGe": 6,
+      "land": true
+     }
+    },
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, if you control six or more lands, create a 5/5 red Dragon creature token with flying."
+   }
+  ]
+ },
+ "Dynamic Soar": {
+  "name": "Dynamic Soar",
+  "source": "Put three +1/+1 counters on target creature you control. (Then shuffle this card into its owner's library.)",
+  "spell": [
+   {
+    "counters": {
+     "kind": "p1p1",
+     "n": 3,
+     "target": "creature-you-control"
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Elemental Bond": {
+  "name": "Elemental Bond",
+  "source": "Whenever a creature you control with power 3 or greater enters, draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "powerGe": 3
+    },
+    "on": "enters",
+    "text": "Whenever a creature you control with power 3 or greater enters, draw a card."
+   }
+  ]
+ },
+ "Encroaching Dragonstorm": {
+  "name": "Encroaching Dragonstorm",
+  "source": "When this enchantment enters, search your library for up to two basic land cards, put them onto the battlefield tapped, then shuffle.\nWhen a Dragon you control enters, return this enchantment to its owner's hand.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "ramp": {
+       "filter": "basic",
+       "n": 2,
+       "tapped": true
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this enchantment enters, search your library for up to two basic land cards, put them onto the battlefield tapped, then shuffle."
+   },
+   {
+    "do": [
+     {
+      "bounce": {
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "subtype": "Dragon"
+    },
+    "on": "enters",
+    "text": "When a Dragon you control enters, return this enchantment to its owner's hand."
+   }
+  ]
+ },
+ "Eshki, Temur's Roar": {
+  "name": "Eshki, Temur's Roar",
+  "notes": "One cast fires up to three triggers in order: counter, then the power-4 draw, then the power-6 damage (with the counter already on Eshki).",
+  "source": "Whenever you cast a creature spell, put a +1/+1 counter on Eshki. If that spell's power is 4 or greater, draw a card. If that spell's power is 6 or greater, Eshki deals damage equal to Eshki's power to each opponent.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true
+    },
+    "on": "cast",
+    "text": "Whenever you cast a creature spell, put a +1/+1 counter on Eshki."
+   },
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "powerGe": 4
+    },
+    "on": "cast",
+    "text": "If that spell's power is 4 or greater, draw a card."
+   },
+   {
+    "do": [
+     {
+      "damageOpp": "count:power-of-self"
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "powerGe": 6
+    },
+    "on": "cast",
+    "text": "If that spell's power is 6 or greater, Eshki deals damage equal to Eshki's power to each opponent."
+   }
+  ]
+ },
+ "Evolving Wilds": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": "basic",
+       "tapped": true
+      }
+     }
+    ],
+    "text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle."
+   }
+  ],
+  "name": "Evolving Wilds",
+  "source": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+  "status": "auto"
+ },
+ "Exotic Orchard": {
+  "name": "Exotic Orchard",
+  "source": "{T}: Add one mana of any color that a land an opponent controls could produce.",
+  "status": "auto"
+ },
+ "Farseek": {
+  "name": "Farseek",
+  "notes": "Any land with one of those types (shocks, duals) qualifies; Forest does not.",
+  "source": "Search your library for a Plains, Island, Swamp, or Mountain card, put it onto the battlefield tapped, then shuffle.",
+  "spell": [
+   {
+    "ramp": {
+     "filter": {
+      "land": true,
+      "subtype": [
+       "Plains",
+       "Island",
+       "Swamp",
+       "Mountain"
+      ]
+     },
+     "tapped": true
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Fellwar Stone": {
+  "name": "Fellwar Stone",
+  "source": "{T}: Add one mana of any color that a land an opponent controls could produce.",
+  "status": "auto"
+ },
+ "Flooded Grove": {
+  "name": "Flooded Grove",
+  "source": "{T}: Add {C}.\n{G/U}, {T}: Add {G}{G}, {G}{U}, or {U}{U}.",
+  "status": "auto"
+ },
+ "Flush Out": {
+  "name": "Flush Out",
+  "source": "Discard a card. If you do, draw two cards. (Then shuffle this card into its owner's library.)",
+  "spell": [
+   {
+    "check": {
+     "do": [
+      {
+       "discard": 1
+      },
+      {
+       "draw": 2
+      }
+     ],
+     "if": {
+      "handGe": 1
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Forest": {
+  "name": "Forest",
+  "source": "({T}: Add {G}.)",
+  "status": "auto"
+ },
+ "Frontier Bivouac": {
+  "name": "Frontier Bivouac",
+  "source": "This land enters tapped.\n{T}: Add {G}, {U}, or {R}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "Frontier Siege": {
+  "name": "Frontier Siege",
+  "notes": "The chosen mode is remembered as a 'khans' or 'dragons' marker counter. Dragons mode fights an opponent's creature: nothing to fight in goldfish, not scripted. Turn 1's first main phase has no phase change, so no Khans mana then.",
+  "source": "As this enchantment enters, choose Khans or Dragons.\n• Khans — At the beginning of each of your main phases, add {G}{G}.\n• Dragons — Whenever a creature you control with flying enters, you may have it fight target creature you don't control.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "counters": {
+            "kind": "khans",
+            "n": 1,
+            "target": "self"
+           }
+          }
+         ],
+         "label": "Khans"
+        },
+        {
+         "do": [
+          {
+           "counters": {
+            "kind": "dragons",
+            "n": 1,
+            "target": "self"
+           }
+          }
+         ],
+         "label": "Dragons"
+        }
+       ],
+       "text": "As this enchantment enters, choose Khans or Dragons."
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "As this enchantment enters, choose Khans or Dragons."
+   },
+   {
+    "do": [
+     {
+      "addMana": "{G}{G}"
+     }
+    ],
+    "if": {
+     "counters": {
+      "kind": "khans"
+     }
+    },
+    "on": "beginMain",
+    "text": "• Khans — At the beginning of each of your main phases, add {G}{G}."
+   }
+  ]
+ },
+ "Gadrak, the Crown-Scourge": {
+  "name": "Gadrak, the Crown-Scourge",
+  "source": "Flying\nGadrak can't attack unless you control four or more artifacts.\nAt the beginning of your end step, create a Treasure token for each nontoken creature that died this turn. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "statics": [
+   {
+    "cantAttack": true,
+    "if": {
+     "not": {
+      "countGe": 4,
+      "youControl": {
+       "type": "Artifact"
+      }
+     }
+    },
+    "text": "Gadrak can't attack unless you control four or more artifacts."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "n": {
+        "filter": {
+         "creature": true,
+         "nontoken": true
+        },
+        "thisTurn": "died"
+       },
+       "name": "Treasure",
+       "types": [
+        "Artifact",
+        "Treasure"
+       ]
+      }
+     }
+    ],
+    "on": "endStep",
+    "text": "At the beginning of your end step, create a Treasure token for each nontoken creature that died this turn."
+   }
+  ]
+ },
+ "Glorybringer": {
+  "name": "Glorybringer",
+  "notes": "Exerting only lets it damage a non-Dragon creature an opponent controls: the dummy has none, so it is never exerted. Silent on purpose.",
+  "source": "Flying, haste\nYou may exert this creature as it attacks. When you do, it deals 4 damage to target non-Dragon creature an opponent controls. (An exerted creature won't untap during your next untap step.)",
+  "status": "hand"
+ },
+ "Goldspan Dragon": {
+  "activated": [
+   {
+    "cost": {
+     "sac": {
+      "filter": {
+       "name": "Treasure",
+       "untapped": true
+      }
+     }
+    },
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "addMana": "{W}{W}"
+          }
+         ],
+         "label": "{W}{W}"
+        },
+        {
+         "do": [
+          {
+           "addMana": "{U}{U}"
+          }
+         ],
+         "label": "{U}{U}"
+        },
+        {
+         "do": [
+          {
+           "addMana": "{B}{B}"
+          }
+         ],
+         "label": "{B}{B}"
+        },
+        {
+         "do": [
+          {
+           "addMana": "{R}{R}"
+          }
+         ],
+         "label": "{R}{R}"
+        },
+        {
+         "do": [
+          {
+           "addMana": "{G}{G}"
+          }
+         ],
+         "label": "{G}{G}"
+        }
+       ],
+       "text": "Add two mana of any one color."
+      }
+     }
+    ],
+    "label": "Treasure: two mana",
+    "text": "Treasures you control have \"{T}, Sacrifice this artifact: Add two mana of any one color.\""
+   }
+  ],
+  "name": "Goldspan Dragon",
+  "notes": "Sacrifice Treasures through 'Treasure: two mana' to get the doubled mana. Becoming the target of a spell is not an event: that Treasure is not created.",
+  "source": "Flying, haste\nWhenever this creature attacks or becomes the target of a spell, create a Treasure token.\nTreasures you control have \"{T}, Sacrifice this artifact: Add two mana of any one color.\"",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Treasure",
+       "types": [
+        "Artifact",
+        "Treasure"
+       ]
+      }
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever this creature attacks or becomes the target of a spell, create a Treasure token."
+   }
+  ]
+ },
+ "Greater Good": {
+  "activated": [
+   {
+    "cost": {
+     "sac": {
+      "filter": {
+       "creature": true
+      }
+     }
+    },
+    "do": [
+     {
+      "draw": {
+       "of": "lastDied",
+       "stat": "power"
+      }
+     },
+     {
+      "discard": 3
+     }
+    ],
+    "label": "Sacrifice a creature",
+    "text": "Sacrifice a creature: Draw cards equal to the sacrificed creature's power, then discard three cards."
+   }
+  ],
+  "name": "Greater Good",
+  "source": "Sacrifice a creature: Draw cards equal to the sacrificed creature's power, then discard three cards.",
+  "status": "hand"
+ },
+ "Harbinger of the Hunt": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}{R}"
+    },
+    "do": [
+     {
+      "damage": {
+       "n": 1,
+       "target": {
+        "each": {
+         "creature": true,
+         "withoutKw": "Flying"
+        }
+       }
+      }
+     }
+    ],
+    "label": "1 to non-flyers",
+    "text": "{2}{R}: This creature deals 1 damage to each creature without flying."
+   },
+   {
+    "cost": {
+     "mana": "{2}{G}"
+    },
+    "do": [
+     {
+      "damage": {
+       "n": 1,
+       "target": {
+        "each": {
+         "creature": true,
+         "keyword": "Flying",
+         "other": true
+        }
+       }
+      }
+     }
+    ],
+    "label": "1 to other flyers",
+    "text": "{2}{G}: This creature deals 1 damage to each other creature with flying."
+   }
+  ],
+  "name": "Harbinger of the Hunt",
+  "notes": "Only your creatures exist in goldfish.",
+  "source": "Flying\n{2}{R}: This creature deals 1 damage to each creature without flying.\n{2}{G}: This creature deals 1 damage to each other creature with flying.",
+  "status": "hand"
+ },
+ "Haven of the Spirit Dragon": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}",
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "return": {
+       "filter": {
+        "subtype": [
+         "Dragon",
+         "Ugin"
+        ]
+       },
+       "from": "gy",
+       "to": "hand"
+      }
+     }
+    ],
+    "label": "Regrow Dragon",
+    "text": "{2}, {T}, Sacrifice this land: Return target Dragon creature card or Ugin planeswalker card from your graveyard to your hand."
+   }
+  ],
+  "name": "Haven of the Spirit Dragon",
+  "source": "{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a Dragon creature spell.\n{2}, {T}, Sacrifice this land: Return target Dragon creature card or Ugin planeswalker card from your graveyard to your hand.",
+  "status": "hand"
+ },
+ "Hellkite Courser": {
+  "name": "Hellkite Courser",
+  "source": "Flying\nWhen this creature enters, you may put a commander you own from the command zone onto the battlefield. It gains haste. Return it to the command zone at the beginning of the next end step.",
+  "status": "prompt",
+  "triggers": [
+   {
+    "do": [
+     {
+      "prompt": "You may put a commander you own from the command zone onto the battlefield."
+     },
+     {
+      "prompt": "It gains haste."
+     },
+     {
+      "prompt": "Return it to the command zone at the beginning of the next end step."
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, you may put a commander you own from the command zone onto the battlefield. It gains haste. Return it to the command zone at the beginning of the next end step."
+   }
+  ]
+ },
+ "Heroic Intervention": {
+  "name": "Heroic Intervention",
+  "source": "Permanents you control gain hexproof and indestructible until end of turn.",
+  "spell": [
+   {
+    "grant": {
+     "kw": [
+      "Hexproof",
+      "Indestructible"
+     ],
+     "target": {
+      "each": {}
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Hinterland Harbor": {
+  "name": "Hinterland Harbor",
+  "source": "This land enters tapped unless you control a Forest or an Island.\n{T}: Add {G} or {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Forest",
+           "Island"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control a Forest or an Island."
+   }
+  ]
+ },
+ "Island": {
+  "name": "Island",
+  "source": "({T}: Add {U}.)",
+  "status": "auto"
+ },
+ "Karplusan Forest": {
+  "name": "Karplusan Forest",
+  "source": "{T}: Add {C}.\n{T}: Add {R} or {G}. This land deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Keiga, the Tide Star": {
+  "name": "Keiga, the Tide Star",
+  "notes": "Gaining control of a creature only matters for an opponent's creature: the dummy has none. Silent on purpose.",
+  "source": "Flying\nWhen Keiga dies, gain control of target creature.",
+  "status": "hand"
+ },
+ "Kessig Wolf Run": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{R}{G}",
+     "tap": true
+    },
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "pump": {
+            "kw": [
+             "Trample"
+            ],
+            "p": 0,
+            "t": 0,
+            "target": "creature-you-control"
+           }
+          }
+         ],
+         "label": "X = 0",
+         "value": 0
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "mana": "{1}"
+           }
+          },
+          {
+           "pump": {
+            "kw": [
+             "Trample"
+            ],
+            "p": 1,
+            "t": 0,
+            "target": "creature-you-control"
+           }
+          }
+         ],
+         "label": "X = 1",
+         "value": 1
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "mana": "{2}"
+           }
+          },
+          {
+           "pump": {
+            "kw": [
+             "Trample"
+            ],
+            "p": 2,
+            "t": 0,
+            "target": "creature-you-control"
+           }
+          }
+         ],
+         "label": "X = 2",
+         "value": 2
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "mana": "{3}"
+           }
+          },
+          {
+           "pump": {
+            "kw": [
+             "Trample"
+            ],
+            "p": 3,
+            "t": 0,
+            "target": "creature-you-control"
+           }
+          }
+         ],
+         "label": "X = 3",
+         "value": 3
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "mana": "{4}"
+           }
+          },
+          {
+           "pump": {
+            "kw": [
+             "Trample"
+            ],
+            "p": 4,
+            "t": 0,
+            "target": "creature-you-control"
+           }
+          }
+         ],
+         "label": "X = 4",
+         "value": 4
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "mana": "{5}"
+           }
+          },
+          {
+           "pump": {
+            "kw": [
+             "Trample"
+            ],
+            "p": 5,
+            "t": 0,
+            "target": "creature-you-control"
+           }
+          }
+         ],
+         "label": "X = 5",
+         "value": 5
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "mana": "{6}"
+           }
+          },
+          {
+           "pump": {
+            "kw": [
+             "Trample"
+            ],
+            "p": 6,
+            "t": 0,
+            "target": "creature-you-control"
+           }
+          }
+         ],
+         "label": "X = 6",
+         "value": 6
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "mana": "{7}"
+           }
+          },
+          {
+           "pump": {
+            "kw": [
+             "Trample"
+            ],
+            "p": 7,
+            "t": 0,
+            "target": "creature-you-control"
+           }
+          }
+         ],
+         "label": "X = 7",
+         "value": 7
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "mana": "{8}"
+           }
+          },
+          {
+           "pump": {
+            "kw": [
+             "Trample"
+            ],
+            "p": 8,
+            "t": 0,
+            "target": "creature-you-control"
+           }
+          }
+         ],
+         "label": "X = 8",
+         "value": 8
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "mana": "{9}"
+           }
+          },
+          {
+           "pump": {
+            "kw": [
+             "Trample"
+            ],
+            "p": 9,
+            "t": 0,
+            "target": "creature-you-control"
+           }
+          }
+         ],
+         "label": "X = 9",
+         "value": 9
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "mana": "{10}"
+           }
+          },
+          {
+           "pump": {
+            "kw": [
+             "Trample"
+            ],
+            "p": 10,
+            "t": 0,
+            "target": "creature-you-control"
+           }
+          }
+         ],
+         "label": "X = 10",
+         "value": 10
+        }
+       ],
+       "text": "Choose X (pay {X})."
+      }
+     }
+    ],
+    "label": "+X/+0 trample",
+    "text": "{X}{R}{G}, {T}: Target creature gets +X/+0 and gains trample until end of turn."
+   }
+  ],
+  "name": "Kessig Wolf Run",
+  "source": "{T}: Add {C}.\n{X}{R}{G}, {T}: Target creature gets +X/+0 and gains trample until end of turn.",
+  "status": "hand"
+ },
+ "Kindred Discovery": {
+  "chooseOn": {
+   "enters": {
+    "kind": "creatureType"
+   }
+  },
+  "name": "Kindred Discovery",
+  "source": "As this enchantment enters, choose a creature type.\nWhenever a creature you control of the chosen type enters or attacks, draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "subtype": "$chosen"
+    },
+    "on": "enters",
+    "text": "Whenever a creature you control of the chosen type enters or attacks, draw a card."
+   },
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "subtype": "$chosen"
+    },
+    "on": "attacks",
+    "text": "Whenever a creature you control of the chosen type enters or attacks, draw a card."
+   }
+  ]
+ },
+ "Kodama's Reach": {
+  "name": "Kodama's Reach",
+  "source": "Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.",
+  "spell": [
+   {
+    "ramp": {
+     "filter": "basic",
+     "tapped": true
+    }
+   },
+   {
+    "ramp": {
+     "filter": "basic",
+     "to": "hand"
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Lathliss, Dragon Queen": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}{R}"
+    },
+    "do": [
+     {
+      "pump": {
+       "p": 1,
+       "t": 0,
+       "target": {
+        "each": {
+         "creature": true,
+         "subtype": "Dragon"
+        }
+       }
+      }
+     }
+    ],
+    "label": "Dragons +1/+0",
+    "text": "{1}{R}: Dragons you control get +1/+0 until end of turn."
+   }
+  ],
+  "name": "Lathliss, Dragon Queen",
+  "source": "Flying\nWhenever another nontoken Dragon you control enters, create a 5/5 red Dragon creature token with flying.\n{1}{R}: Dragons you control get +1/+0 until end of turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "kw": [
+        "Flying"
+       ],
+       "n": 1,
+       "name": "Dragon",
+       "power": 5,
+       "toughness": 5,
+       "types": [
+        "Creature",
+        "Dragon"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "nontoken": true,
+     "other": true,
+     "subtype": "Dragon"
+    },
+    "on": "enters",
+    "text": "Whenever another nontoken Dragon you control enters, create a 5/5 red Dragon creature token with flying."
+   }
+  ]
+ },
+ "Leyline Tyrant": {
+  "name": "Leyline Tyrant",
+  "notes": "\"You don't lose unspent red mana as steps and phases end.\" is not modelled (the pool empties between steps).",
+  "source": "Flying\nYou don't lose unspent red mana as steps and phases end.\nWhen this creature dies, you may pay any amount of {R}. When you do, it deals that much damage to any target.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [],
+         "label": "Pay nothing",
+         "value": 0
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "mana": "{R}"
+           }
+          },
+          {
+           "damage": {
+            "n": 1,
+            "target": "any"
+           }
+          }
+         ],
+         "label": "Pay {R}",
+         "value": 1
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "mana": "{R}{R}"
+           }
+          },
+          {
+           "damage": {
+            "n": 2,
+            "target": "any"
+           }
+          }
+         ],
+         "label": "Pay {R}{R}",
+         "value": 2
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "mana": "{R}{R}{R}"
+           }
+          },
+          {
+           "damage": {
+            "n": 3,
+            "target": "any"
+           }
+          }
+         ],
+         "label": "Pay {R}{R}{R}",
+         "value": 3
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "mana": "{R}{R}{R}{R}"
+           }
+          },
+          {
+           "damage": {
+            "n": 4,
+            "target": "any"
+           }
+          }
+         ],
+         "label": "Pay {R}{R}{R}{R}",
+         "value": 4
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "mana": "{R}{R}{R}{R}{R}"
+           }
+          },
+          {
+           "damage": {
+            "n": 5,
+            "target": "any"
+           }
+          }
+         ],
+         "label": "Pay {R}{R}{R}{R}{R}",
+         "value": 5
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "mana": "{R}{R}{R}{R}{R}{R}"
+           }
+          },
+          {
+           "damage": {
+            "n": 6,
+            "target": "any"
+           }
+          }
+         ],
+         "label": "Pay {R}{R}{R}{R}{R}{R}",
+         "value": 6
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "mana": "{R}{R}{R}{R}{R}{R}{R}"
+           }
+          },
+          {
+           "damage": {
+            "n": 7,
+            "target": "any"
+           }
+          }
+         ],
+         "label": "Pay {R}{R}{R}{R}{R}{R}{R}",
+         "value": 7
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "mana": "{R}{R}{R}{R}{R}{R}{R}{R}"
+           }
+          },
+          {
+           "damage": {
+            "n": 8,
+            "target": "any"
+           }
+          }
+         ],
+         "label": "Pay {R}{R}{R}{R}{R}{R}{R}{R}",
+         "value": 8
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "mana": "{R}{R}{R}{R}{R}{R}{R}{R}{R}"
+           }
+          },
+          {
+           "damage": {
+            "n": 9,
+            "target": "any"
+           }
+          }
+         ],
+         "label": "Pay {R}{R}{R}{R}{R}{R}{R}{R}{R}",
+         "value": 9
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "mana": "{R}{R}{R}{R}{R}{R}{R}{R}{R}{R}"
+           }
+          },
+          {
+           "damage": {
+            "n": 10,
+            "target": "any"
+           }
+          }
+         ],
+         "label": "Pay {R}{R}{R}{R}{R}{R}{R}{R}{R}{R}",
+         "value": 10
+        }
+       ],
+       "text": "Pay any amount of {R}."
+      }
+     }
+    ],
+    "on": "dies",
+    "self": true,
+    "text": "When this creature dies, you may pay any amount of {R}. When you do, it deals that much damage to any target."
+   }
+  ]
+ },
+ "Migration Path": {
+  "name": "Migration Path",
+  "source": "Search your library for up to two basic land cards, put them onto the battlefield tapped, then shuffle.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+  "spell": [
+   {
+    "ramp": {
+     "filter": "basic",
+     "n": 2,
+     "tapped": true
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Miirym, Sentinel Wyrm": {
+  "name": "Miirym, Sentinel Wyrm",
+  "notes": "The legend rule is not enforced, so the copy's legendary status never matters; copies don't run their own enters triggers.",
+  "source": "Flying, ward {2}\nWhenever another nontoken Dragon you control enters, create a token that's a copy of it, except the token isn't legendary.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "copyOf": "triggering"
+      }
+     }
+    ],
+    "filter": {
+     "nontoken": true,
+     "other": true,
+     "subtype": "Dragon"
+    },
+    "on": "enters",
+    "text": "Whenever another nontoken Dragon you control enters, create a token that's a copy of it, except the token isn't legendary."
+   }
+  ]
+ },
+ "Mossfire Valley": {
+  "name": "Mossfire Valley",
+  "source": "{1}, {T}: Add {R}{G}.",
+  "status": "auto"
+ },
+ "Mosswort Bridge": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{G}",
+     "tap": true
+    },
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "castHidden": {
+          "target": "this"
+         }
+        }
+       ],
+       "if": {
+        "totalPowerGe": 10
+       }
+      }
+     }
+    ],
+    "label": "Hideaway",
+    "text": "{G}, {T}: You may play the exiled card without paying its mana cost if creatures you control have total power 10 or greater."
+   }
+  ],
+  "name": "Mosswort Bridge",
+  "source": "Hideaway 4 (When this land enters, look at the top four cards of your library, exile one face down, then put the rest on the bottom in a random order.)\nThis land enters tapped.\n{T}: Add {G}.\n{G}, {T}: You may play the exiled card without paying its mana cost if creatures you control have total power 10 or greater.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   },
+   {
+    "do": [
+     {
+      "exileTop": {
+       "hideaway": true,
+       "n": 4
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Hideaway 4"
+   }
+  ]
+ },
+ "Mountain": {
+  "name": "Mountain",
+  "source": "({T}: Add {R}.)",
+  "status": "auto"
+ },
+ "Nesting Dragon": {
+  "name": "Nesting Dragon",
+  "source": "Flying\nLandfall — Whenever a land you control enters, create a 0/2 red Dragon Egg creature token with defender and \"When this token dies, create a 2/2 red Dragon creature token with flying and '{R}: This token gets +1/+0 until end of turn.'\"",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "R"
+       ],
+       "kw": [
+        "Defender"
+       ],
+       "n": 1,
+       "name": "Dragon Egg",
+       "power": 0,
+       "script": "Dragon Egg Token",
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Dragon",
+        "Egg"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "land": true
+    },
+    "on": "enters",
+    "text": "Landfall — Whenever a land you control enters, create a 0/2 red Dragon Egg creature token with defender and \"When this token dies, create a 2/2 red Dragon creature token with flying and '{R}: This token gets +1/+0 until end of turn.'\""
+   }
+  ]
+ },
+ "Nogi, Draco-Zealot": {
+  "name": "Nogi, Draco-Zealot",
+  "source": "Dragon spells you cast cost {1} less to cast.\nWhenever Nogi attacks, if you control three or more Dragons, until end of turn, Nogi becomes a Dragon with base power and toughness 5/5 and gains flying.",
+  "statics": [
+   {
+    "costLess": 1,
+    "filter": {
+     "subtype": "Dragon"
+    },
+    "scope": "spells-you-cast",
+    "text": "Dragon spells you cast cost {1} less to cast."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "animate": {
+       "kw": [
+        "Flying"
+       ],
+       "p": 5,
+       "subtypes": [
+        "Dragon"
+       ],
+       "t": 5,
+       "target": "self"
+      }
+     }
+    ],
+    "if": {
+     "countGe": 3,
+     "youControl": {
+      "subtype": "Dragon"
+     }
+    },
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever Nogi attacks, if you control three or more Dragons, until end of turn, Nogi becomes a Dragon with base power and toughness 5/5 and gains flying."
+   }
+  ]
+ },
+ "Old Gnawbone": {
+  "name": "Old Gnawbone",
+  "source": "Flying\nWhenever a creature you control deals combat damage to a player, create that many Treasure tokens.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "n": "count:event-amount",
+       "name": "Treasure",
+       "types": [
+        "Artifact",
+        "Treasure"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "creature": true
+    },
+    "on": "combatDamage",
+    "text": "Whenever a creature you control deals combat damage to a player, create that many Treasure tokens."
+   }
+  ]
+ },
+ "Opportunistic Dragon": {
+  "name": "Opportunistic Dragon",
+  "notes": "Its enters trigger can only take a Human or artifact an opponent controls: the dummy has none. Silent on purpose.",
+  "source": "Flying\nWhen this creature enters, choose target Human or artifact an opponent controls. For as long as this creature remains on the battlefield, gain control of that permanent, it loses all abilities, and it can't attack or block.",
+  "status": "hand"
+ },
+ "Parapet Thrasher": {
+  "name": "Parapet Thrasher",
+  "notes": "Fires once per combat-damage step while a Dragon of yours is attacking. Against the single dummy only the third mode does anything; 'hasn't been chosen this turn' is on you.",
+  "source": "Flying\nWhenever one or more Dragons you control deal combat damage to an opponent, choose one that hasn't been chosen this turn —\n• Destroy target artifact that opponent controls.\n• This creature deals 4 damage to each other opponent.\n• Exile the top card of your library. You may play it this turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "destroy": {
+            "target": "opponent"
+           }
+          }
+         ],
+         "label": "Destroy target artifact that opponent controls."
+        },
+        {
+         "do": [],
+         "label": "This creature deals 4 damage to each other opponent."
+        },
+        {
+         "do": [
+          {
+           "exileTop": {
+            "n": 1,
+            "play": "thisTurn"
+           }
+          }
+         ],
+         "label": "Exile the top card of your library. You may play it this turn."
+        }
+       ],
+       "text": "Choose one that hasn't been chosen this turn —"
+      }
+     }
+    ],
+    "if": {
+     "youControl": {
+      "attacking": true,
+      "subtype": "Dragon"
+     }
+    },
+    "on": "combatDamage",
+    "text": "Whenever one or more Dragons you control deal combat damage to an opponent, choose one that hasn't been chosen this turn —\n• Destroy target artifact that opponent controls.\n• This creature deals 4 damage to each other opponent.\n• Exile the top card of your library. You may play it this turn."
+   }
+  ]
+ },
+ "Path of Ancestry": {
+  "name": "Path of Ancestry",
+  "source": "This land enters tapped.\n{T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1. (Look at the top card of your library. You may put that card on the bottom.)",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "Rapid Hybridization": {
+  "name": "Rapid Hybridization",
+  "source": "Destroy target creature. It can't be regenerated. That creature's controller creates a 3/3 green Frog Lizard creature token.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's creature (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "creature-you-control"
+         }
+        },
+        {
+         "token": {
+          "n": 1,
+          "name": "Frog Lizard",
+          "power": 3,
+          "toughness": 3,
+          "types": [
+           "Creature",
+           "Frog",
+           "Lizard"
+          ]
+         }
+        }
+       ],
+       "label": "One of my creatures (I get a 3/3 Frog Lizard)"
+      }
+     ],
+     "text": "Destroy target creature. It can't be regenerated. That creature's controller creates a 3/3 green Frog Lizard creature token."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Reality Shift": {
+  "name": "Reality Shift",
+  "notes": "Manifest = the top card is exiled and a 2/2 face-down creature token stands for it; turning it face up is not modelled.",
+  "source": "Exile target creature. Its controller manifests the top card of their library. (That player puts the top card of their library onto the battlefield face down as a 2/2 creature. If it's a creature card, it can be turned face up any time for its mana cost.)",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [],
+       "label": "An opponent's creature (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "exile": {
+          "target": "creature-you-control"
+         }
+        },
+        {
+         "exileTop": 1
+        },
+        {
+         "token": {
+          "name": "Manifest",
+          "power": 2,
+          "toughness": 2,
+          "types": [
+           "Creature"
+          ]
+         }
+        }
+       ],
+       "label": "One of my creatures (I manifest)"
+      }
+     ],
+     "text": "Exile target creature. Its controller manifests the top card of their library."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Reflections of Littjara": {
+  "chooseOn": {
+   "enters": {
+    "kind": "creatureType"
+   }
+  },
+  "name": "Reflections of Littjara",
+  "notes": "Only creature spells have creature types in these decks (no Kindred spells); the copy is a token that doesn't run its own enters triggers.",
+  "source": "As this enchantment enters, choose a creature type.\nWhenever you cast a spell of the chosen type, copy that spell. (A copy of a permanent spell becomes a token.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "copyOf": "triggering"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "subtype": "$chosen"
+    },
+    "on": "cast",
+    "text": "Whenever you cast a spell of the chosen type, copy that spell. (A copy of a permanent spell becomes a token.)"
+   }
+  ]
+ },
+ "Rhythm of the Wild": {
+  "name": "Rhythm of the Wild",
+  "notes": "'Can't be countered' is moot against the dummy. Riot haste is granted until end of turn (it only matters the turn the creature enters).",
+  "source": "Creature spells you control can't be countered.\nNontoken creatures you control have riot. (They enter with your choice of a +1/+1 counter or haste.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "counters": {
+            "kind": "p1p1",
+            "n": 1,
+            "target": "triggering"
+           }
+          }
+         ],
+         "label": "+1/+1 counter"
+        },
+        {
+         "do": [
+          {
+           "grant": {
+            "kw": [
+             "Haste"
+            ],
+            "target": "triggering"
+           }
+          }
+         ],
+         "label": "Haste"
+        }
+       ],
+       "text": "Riot: choose a +1/+1 counter or haste."
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "nontoken": true
+    },
+    "on": "enters",
+    "text": "Nontoken creatures you control have riot."
+   }
+  ]
+ },
+ "Rockfall Vale": {
+  "name": "Rockfall Vale",
+  "source": "This land enters tapped unless you control two or more other lands.\n{T}: Add {R} or {G}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "landsGe": 3
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control two or more other lands."
+   }
+  ]
+ },
+ "Rootbound Crag": {
+  "name": "Rootbound Crag",
+  "source": "This land enters tapped unless you control a Mountain or a Forest.\n{T}: Add {R} or {G}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Mountain",
+           "Forest"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control a Mountain or a Forest."
+   }
+  ]
+ },
+ "Sarkhan, Soul Aflame": {
+  "name": "Sarkhan, Soul Aflame",
+  "notes": "The kept name and legendary supertype don't matter here (no legend rule).",
+  "source": "Dragon spells you cast cost {1} less to cast.\nWhenever a Dragon you control enters, you may have Sarkhan become a copy of it until end of turn, except its name is Sarkhan, Soul Aflame and it's legendary in addition to its other types.",
+  "statics": [
+   {
+    "costLess": 1,
+    "filter": {
+     "subtype": "Dragon"
+    },
+    "scope": "spells-you-cast",
+    "text": "Dragon spells you cast cost {1} less to cast."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "becomeCopy": {
+       "of": "triggering",
+       "target": "self",
+       "until": "eot"
+      }
+     }
+    ],
+    "filter": {
+     "subtype": "Dragon"
+    },
+    "on": "enters",
+    "optional": true,
+    "text": "Whenever a Dragon you control enters, you may have Sarkhan become a copy of it until end of turn, except its name is Sarkhan, Soul Aflame and it's legendary in addition to its other types."
+   }
+  ]
+ },
+ "Scourge of the Throne": {
+  "name": "Scourge of the Throne",
+  "notes": "'The dummy has the most life or is tied' = some k from 1 to 200 with your life ≤ k ≤ the dummy's life.",
+  "source": "Flying\nDethrone (Whenever this creature attacks the player with the most life or tied for most life, put a +1/+1 counter on it.)\nWhenever this creature attacks for the first time each turn, if it's attacking the player with the most life or tied for most life, untap all attacking creatures. After this phase, there is an additional combat phase.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "if": {
+     "any": [
+      {
+       "all": [
+        {
+         "lifeLe": 1
+        },
+        {
+         "not": {
+          "oppLifeLe": 0
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 2
+        },
+        {
+         "not": {
+          "oppLifeLe": 1
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 3
+        },
+        {
+         "not": {
+          "oppLifeLe": 2
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 4
+        },
+        {
+         "not": {
+          "oppLifeLe": 3
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 5
+        },
+        {
+         "not": {
+          "oppLifeLe": 4
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 6
+        },
+        {
+         "not": {
+          "oppLifeLe": 5
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 7
+        },
+        {
+         "not": {
+          "oppLifeLe": 6
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 8
+        },
+        {
+         "not": {
+          "oppLifeLe": 7
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 9
+        },
+        {
+         "not": {
+          "oppLifeLe": 8
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 10
+        },
+        {
+         "not": {
+          "oppLifeLe": 9
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 11
+        },
+        {
+         "not": {
+          "oppLifeLe": 10
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 12
+        },
+        {
+         "not": {
+          "oppLifeLe": 11
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 13
+        },
+        {
+         "not": {
+          "oppLifeLe": 12
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 14
+        },
+        {
+         "not": {
+          "oppLifeLe": 13
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 15
+        },
+        {
+         "not": {
+          "oppLifeLe": 14
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 16
+        },
+        {
+         "not": {
+          "oppLifeLe": 15
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 17
+        },
+        {
+         "not": {
+          "oppLifeLe": 16
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 18
+        },
+        {
+         "not": {
+          "oppLifeLe": 17
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 19
+        },
+        {
+         "not": {
+          "oppLifeLe": 18
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 20
+        },
+        {
+         "not": {
+          "oppLifeLe": 19
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 21
+        },
+        {
+         "not": {
+          "oppLifeLe": 20
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 22
+        },
+        {
+         "not": {
+          "oppLifeLe": 21
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 23
+        },
+        {
+         "not": {
+          "oppLifeLe": 22
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 24
+        },
+        {
+         "not": {
+          "oppLifeLe": 23
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 25
+        },
+        {
+         "not": {
+          "oppLifeLe": 24
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 26
+        },
+        {
+         "not": {
+          "oppLifeLe": 25
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 27
+        },
+        {
+         "not": {
+          "oppLifeLe": 26
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 28
+        },
+        {
+         "not": {
+          "oppLifeLe": 27
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 29
+        },
+        {
+         "not": {
+          "oppLifeLe": 28
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 30
+        },
+        {
+         "not": {
+          "oppLifeLe": 29
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 31
+        },
+        {
+         "not": {
+          "oppLifeLe": 30
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 32
+        },
+        {
+         "not": {
+          "oppLifeLe": 31
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 33
+        },
+        {
+         "not": {
+          "oppLifeLe": 32
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 34
+        },
+        {
+         "not": {
+          "oppLifeLe": 33
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 35
+        },
+        {
+         "not": {
+          "oppLifeLe": 34
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 36
+        },
+        {
+         "not": {
+          "oppLifeLe": 35
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 37
+        },
+        {
+         "not": {
+          "oppLifeLe": 36
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 38
+        },
+        {
+         "not": {
+          "oppLifeLe": 37
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 39
+        },
+        {
+         "not": {
+          "oppLifeLe": 38
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 40
+        },
+        {
+         "not": {
+          "oppLifeLe": 39
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 41
+        },
+        {
+         "not": {
+          "oppLifeLe": 40
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 42
+        },
+        {
+         "not": {
+          "oppLifeLe": 41
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 43
+        },
+        {
+         "not": {
+          "oppLifeLe": 42
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 44
+        },
+        {
+         "not": {
+          "oppLifeLe": 43
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 45
+        },
+        {
+         "not": {
+          "oppLifeLe": 44
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 46
+        },
+        {
+         "not": {
+          "oppLifeLe": 45
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 47
+        },
+        {
+         "not": {
+          "oppLifeLe": 46
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 48
+        },
+        {
+         "not": {
+          "oppLifeLe": 47
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 49
+        },
+        {
+         "not": {
+          "oppLifeLe": 48
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 50
+        },
+        {
+         "not": {
+          "oppLifeLe": 49
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 51
+        },
+        {
+         "not": {
+          "oppLifeLe": 50
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 52
+        },
+        {
+         "not": {
+          "oppLifeLe": 51
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 53
+        },
+        {
+         "not": {
+          "oppLifeLe": 52
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 54
+        },
+        {
+         "not": {
+          "oppLifeLe": 53
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 55
+        },
+        {
+         "not": {
+          "oppLifeLe": 54
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 56
+        },
+        {
+         "not": {
+          "oppLifeLe": 55
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 57
+        },
+        {
+         "not": {
+          "oppLifeLe": 56
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 58
+        },
+        {
+         "not": {
+          "oppLifeLe": 57
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 59
+        },
+        {
+         "not": {
+          "oppLifeLe": 58
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 60
+        },
+        {
+         "not": {
+          "oppLifeLe": 59
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 61
+        },
+        {
+         "not": {
+          "oppLifeLe": 60
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 62
+        },
+        {
+         "not": {
+          "oppLifeLe": 61
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 63
+        },
+        {
+         "not": {
+          "oppLifeLe": 62
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 64
+        },
+        {
+         "not": {
+          "oppLifeLe": 63
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 65
+        },
+        {
+         "not": {
+          "oppLifeLe": 64
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 66
+        },
+        {
+         "not": {
+          "oppLifeLe": 65
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 67
+        },
+        {
+         "not": {
+          "oppLifeLe": 66
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 68
+        },
+        {
+         "not": {
+          "oppLifeLe": 67
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 69
+        },
+        {
+         "not": {
+          "oppLifeLe": 68
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 70
+        },
+        {
+         "not": {
+          "oppLifeLe": 69
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 71
+        },
+        {
+         "not": {
+          "oppLifeLe": 70
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 72
+        },
+        {
+         "not": {
+          "oppLifeLe": 71
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 73
+        },
+        {
+         "not": {
+          "oppLifeLe": 72
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 74
+        },
+        {
+         "not": {
+          "oppLifeLe": 73
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 75
+        },
+        {
+         "not": {
+          "oppLifeLe": 74
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 76
+        },
+        {
+         "not": {
+          "oppLifeLe": 75
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 77
+        },
+        {
+         "not": {
+          "oppLifeLe": 76
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 78
+        },
+        {
+         "not": {
+          "oppLifeLe": 77
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 79
+        },
+        {
+         "not": {
+          "oppLifeLe": 78
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 80
+        },
+        {
+         "not": {
+          "oppLifeLe": 79
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 81
+        },
+        {
+         "not": {
+          "oppLifeLe": 80
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 82
+        },
+        {
+         "not": {
+          "oppLifeLe": 81
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 83
+        },
+        {
+         "not": {
+          "oppLifeLe": 82
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 84
+        },
+        {
+         "not": {
+          "oppLifeLe": 83
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 85
+        },
+        {
+         "not": {
+          "oppLifeLe": 84
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 86
+        },
+        {
+         "not": {
+          "oppLifeLe": 85
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 87
+        },
+        {
+         "not": {
+          "oppLifeLe": 86
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 88
+        },
+        {
+         "not": {
+          "oppLifeLe": 87
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 89
+        },
+        {
+         "not": {
+          "oppLifeLe": 88
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 90
+        },
+        {
+         "not": {
+          "oppLifeLe": 89
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 91
+        },
+        {
+         "not": {
+          "oppLifeLe": 90
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 92
+        },
+        {
+         "not": {
+          "oppLifeLe": 91
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 93
+        },
+        {
+         "not": {
+          "oppLifeLe": 92
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 94
+        },
+        {
+         "not": {
+          "oppLifeLe": 93
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 95
+        },
+        {
+         "not": {
+          "oppLifeLe": 94
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 96
+        },
+        {
+         "not": {
+          "oppLifeLe": 95
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 97
+        },
+        {
+         "not": {
+          "oppLifeLe": 96
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 98
+        },
+        {
+         "not": {
+          "oppLifeLe": 97
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 99
+        },
+        {
+         "not": {
+          "oppLifeLe": 98
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 100
+        },
+        {
+         "not": {
+          "oppLifeLe": 99
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 101
+        },
+        {
+         "not": {
+          "oppLifeLe": 100
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 102
+        },
+        {
+         "not": {
+          "oppLifeLe": 101
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 103
+        },
+        {
+         "not": {
+          "oppLifeLe": 102
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 104
+        },
+        {
+         "not": {
+          "oppLifeLe": 103
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 105
+        },
+        {
+         "not": {
+          "oppLifeLe": 104
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 106
+        },
+        {
+         "not": {
+          "oppLifeLe": 105
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 107
+        },
+        {
+         "not": {
+          "oppLifeLe": 106
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 108
+        },
+        {
+         "not": {
+          "oppLifeLe": 107
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 109
+        },
+        {
+         "not": {
+          "oppLifeLe": 108
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 110
+        },
+        {
+         "not": {
+          "oppLifeLe": 109
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 111
+        },
+        {
+         "not": {
+          "oppLifeLe": 110
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 112
+        },
+        {
+         "not": {
+          "oppLifeLe": 111
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 113
+        },
+        {
+         "not": {
+          "oppLifeLe": 112
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 114
+        },
+        {
+         "not": {
+          "oppLifeLe": 113
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 115
+        },
+        {
+         "not": {
+          "oppLifeLe": 114
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 116
+        },
+        {
+         "not": {
+          "oppLifeLe": 115
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 117
+        },
+        {
+         "not": {
+          "oppLifeLe": 116
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 118
+        },
+        {
+         "not": {
+          "oppLifeLe": 117
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 119
+        },
+        {
+         "not": {
+          "oppLifeLe": 118
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 120
+        },
+        {
+         "not": {
+          "oppLifeLe": 119
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 121
+        },
+        {
+         "not": {
+          "oppLifeLe": 120
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 122
+        },
+        {
+         "not": {
+          "oppLifeLe": 121
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 123
+        },
+        {
+         "not": {
+          "oppLifeLe": 122
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 124
+        },
+        {
+         "not": {
+          "oppLifeLe": 123
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 125
+        },
+        {
+         "not": {
+          "oppLifeLe": 124
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 126
+        },
+        {
+         "not": {
+          "oppLifeLe": 125
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 127
+        },
+        {
+         "not": {
+          "oppLifeLe": 126
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 128
+        },
+        {
+         "not": {
+          "oppLifeLe": 127
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 129
+        },
+        {
+         "not": {
+          "oppLifeLe": 128
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 130
+        },
+        {
+         "not": {
+          "oppLifeLe": 129
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 131
+        },
+        {
+         "not": {
+          "oppLifeLe": 130
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 132
+        },
+        {
+         "not": {
+          "oppLifeLe": 131
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 133
+        },
+        {
+         "not": {
+          "oppLifeLe": 132
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 134
+        },
+        {
+         "not": {
+          "oppLifeLe": 133
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 135
+        },
+        {
+         "not": {
+          "oppLifeLe": 134
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 136
+        },
+        {
+         "not": {
+          "oppLifeLe": 135
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 137
+        },
+        {
+         "not": {
+          "oppLifeLe": 136
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 138
+        },
+        {
+         "not": {
+          "oppLifeLe": 137
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 139
+        },
+        {
+         "not": {
+          "oppLifeLe": 138
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 140
+        },
+        {
+         "not": {
+          "oppLifeLe": 139
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 141
+        },
+        {
+         "not": {
+          "oppLifeLe": 140
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 142
+        },
+        {
+         "not": {
+          "oppLifeLe": 141
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 143
+        },
+        {
+         "not": {
+          "oppLifeLe": 142
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 144
+        },
+        {
+         "not": {
+          "oppLifeLe": 143
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 145
+        },
+        {
+         "not": {
+          "oppLifeLe": 144
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 146
+        },
+        {
+         "not": {
+          "oppLifeLe": 145
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 147
+        },
+        {
+         "not": {
+          "oppLifeLe": 146
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 148
+        },
+        {
+         "not": {
+          "oppLifeLe": 147
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 149
+        },
+        {
+         "not": {
+          "oppLifeLe": 148
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 150
+        },
+        {
+         "not": {
+          "oppLifeLe": 149
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 151
+        },
+        {
+         "not": {
+          "oppLifeLe": 150
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 152
+        },
+        {
+         "not": {
+          "oppLifeLe": 151
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 153
+        },
+        {
+         "not": {
+          "oppLifeLe": 152
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 154
+        },
+        {
+         "not": {
+          "oppLifeLe": 153
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 155
+        },
+        {
+         "not": {
+          "oppLifeLe": 154
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 156
+        },
+        {
+         "not": {
+          "oppLifeLe": 155
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 157
+        },
+        {
+         "not": {
+          "oppLifeLe": 156
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 158
+        },
+        {
+         "not": {
+          "oppLifeLe": 157
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 159
+        },
+        {
+         "not": {
+          "oppLifeLe": 158
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 160
+        },
+        {
+         "not": {
+          "oppLifeLe": 159
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 161
+        },
+        {
+         "not": {
+          "oppLifeLe": 160
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 162
+        },
+        {
+         "not": {
+          "oppLifeLe": 161
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 163
+        },
+        {
+         "not": {
+          "oppLifeLe": 162
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 164
+        },
+        {
+         "not": {
+          "oppLifeLe": 163
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 165
+        },
+        {
+         "not": {
+          "oppLifeLe": 164
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 166
+        },
+        {
+         "not": {
+          "oppLifeLe": 165
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 167
+        },
+        {
+         "not": {
+          "oppLifeLe": 166
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 168
+        },
+        {
+         "not": {
+          "oppLifeLe": 167
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 169
+        },
+        {
+         "not": {
+          "oppLifeLe": 168
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 170
+        },
+        {
+         "not": {
+          "oppLifeLe": 169
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 171
+        },
+        {
+         "not": {
+          "oppLifeLe": 170
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 172
+        },
+        {
+         "not": {
+          "oppLifeLe": 171
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 173
+        },
+        {
+         "not": {
+          "oppLifeLe": 172
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 174
+        },
+        {
+         "not": {
+          "oppLifeLe": 173
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 175
+        },
+        {
+         "not": {
+          "oppLifeLe": 174
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 176
+        },
+        {
+         "not": {
+          "oppLifeLe": 175
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 177
+        },
+        {
+         "not": {
+          "oppLifeLe": 176
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 178
+        },
+        {
+         "not": {
+          "oppLifeLe": 177
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 179
+        },
+        {
+         "not": {
+          "oppLifeLe": 178
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 180
+        },
+        {
+         "not": {
+          "oppLifeLe": 179
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 181
+        },
+        {
+         "not": {
+          "oppLifeLe": 180
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 182
+        },
+        {
+         "not": {
+          "oppLifeLe": 181
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 183
+        },
+        {
+         "not": {
+          "oppLifeLe": 182
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 184
+        },
+        {
+         "not": {
+          "oppLifeLe": 183
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 185
+        },
+        {
+         "not": {
+          "oppLifeLe": 184
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 186
+        },
+        {
+         "not": {
+          "oppLifeLe": 185
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 187
+        },
+        {
+         "not": {
+          "oppLifeLe": 186
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 188
+        },
+        {
+         "not": {
+          "oppLifeLe": 187
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 189
+        },
+        {
+         "not": {
+          "oppLifeLe": 188
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 190
+        },
+        {
+         "not": {
+          "oppLifeLe": 189
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 191
+        },
+        {
+         "not": {
+          "oppLifeLe": 190
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 192
+        },
+        {
+         "not": {
+          "oppLifeLe": 191
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 193
+        },
+        {
+         "not": {
+          "oppLifeLe": 192
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 194
+        },
+        {
+         "not": {
+          "oppLifeLe": 193
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 195
+        },
+        {
+         "not": {
+          "oppLifeLe": 194
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 196
+        },
+        {
+         "not": {
+          "oppLifeLe": 195
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 197
+        },
+        {
+         "not": {
+          "oppLifeLe": 196
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 198
+        },
+        {
+         "not": {
+          "oppLifeLe": 197
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 199
+        },
+        {
+         "not": {
+          "oppLifeLe": 198
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 200
+        },
+        {
+         "not": {
+          "oppLifeLe": 199
+         }
+        }
+       ]
+      }
+     ]
+    },
+    "on": "attacks",
+    "self": true,
+    "text": "Dethrone (Whenever this creature attacks the player with the most life or tied for most life, put a +1/+1 counter on it.)"
+   },
+   {
+    "do": [
+     {
+      "untap": {
+       "target": {
+        "each": {
+         "attacking": true
+        }
+       }
+      }
+     },
+     {
+      "extraCombat": true
+     }
+    ],
+    "if": {
+     "any": [
+      {
+       "all": [
+        {
+         "lifeLe": 1
+        },
+        {
+         "not": {
+          "oppLifeLe": 0
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 2
+        },
+        {
+         "not": {
+          "oppLifeLe": 1
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 3
+        },
+        {
+         "not": {
+          "oppLifeLe": 2
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 4
+        },
+        {
+         "not": {
+          "oppLifeLe": 3
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 5
+        },
+        {
+         "not": {
+          "oppLifeLe": 4
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 6
+        },
+        {
+         "not": {
+          "oppLifeLe": 5
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 7
+        },
+        {
+         "not": {
+          "oppLifeLe": 6
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 8
+        },
+        {
+         "not": {
+          "oppLifeLe": 7
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 9
+        },
+        {
+         "not": {
+          "oppLifeLe": 8
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 10
+        },
+        {
+         "not": {
+          "oppLifeLe": 9
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 11
+        },
+        {
+         "not": {
+          "oppLifeLe": 10
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 12
+        },
+        {
+         "not": {
+          "oppLifeLe": 11
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 13
+        },
+        {
+         "not": {
+          "oppLifeLe": 12
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 14
+        },
+        {
+         "not": {
+          "oppLifeLe": 13
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 15
+        },
+        {
+         "not": {
+          "oppLifeLe": 14
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 16
+        },
+        {
+         "not": {
+          "oppLifeLe": 15
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 17
+        },
+        {
+         "not": {
+          "oppLifeLe": 16
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 18
+        },
+        {
+         "not": {
+          "oppLifeLe": 17
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 19
+        },
+        {
+         "not": {
+          "oppLifeLe": 18
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 20
+        },
+        {
+         "not": {
+          "oppLifeLe": 19
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 21
+        },
+        {
+         "not": {
+          "oppLifeLe": 20
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 22
+        },
+        {
+         "not": {
+          "oppLifeLe": 21
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 23
+        },
+        {
+         "not": {
+          "oppLifeLe": 22
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 24
+        },
+        {
+         "not": {
+          "oppLifeLe": 23
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 25
+        },
+        {
+         "not": {
+          "oppLifeLe": 24
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 26
+        },
+        {
+         "not": {
+          "oppLifeLe": 25
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 27
+        },
+        {
+         "not": {
+          "oppLifeLe": 26
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 28
+        },
+        {
+         "not": {
+          "oppLifeLe": 27
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 29
+        },
+        {
+         "not": {
+          "oppLifeLe": 28
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 30
+        },
+        {
+         "not": {
+          "oppLifeLe": 29
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 31
+        },
+        {
+         "not": {
+          "oppLifeLe": 30
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 32
+        },
+        {
+         "not": {
+          "oppLifeLe": 31
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 33
+        },
+        {
+         "not": {
+          "oppLifeLe": 32
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 34
+        },
+        {
+         "not": {
+          "oppLifeLe": 33
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 35
+        },
+        {
+         "not": {
+          "oppLifeLe": 34
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 36
+        },
+        {
+         "not": {
+          "oppLifeLe": 35
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 37
+        },
+        {
+         "not": {
+          "oppLifeLe": 36
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 38
+        },
+        {
+         "not": {
+          "oppLifeLe": 37
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 39
+        },
+        {
+         "not": {
+          "oppLifeLe": 38
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 40
+        },
+        {
+         "not": {
+          "oppLifeLe": 39
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 41
+        },
+        {
+         "not": {
+          "oppLifeLe": 40
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 42
+        },
+        {
+         "not": {
+          "oppLifeLe": 41
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 43
+        },
+        {
+         "not": {
+          "oppLifeLe": 42
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 44
+        },
+        {
+         "not": {
+          "oppLifeLe": 43
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 45
+        },
+        {
+         "not": {
+          "oppLifeLe": 44
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 46
+        },
+        {
+         "not": {
+          "oppLifeLe": 45
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 47
+        },
+        {
+         "not": {
+          "oppLifeLe": 46
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 48
+        },
+        {
+         "not": {
+          "oppLifeLe": 47
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 49
+        },
+        {
+         "not": {
+          "oppLifeLe": 48
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 50
+        },
+        {
+         "not": {
+          "oppLifeLe": 49
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 51
+        },
+        {
+         "not": {
+          "oppLifeLe": 50
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 52
+        },
+        {
+         "not": {
+          "oppLifeLe": 51
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 53
+        },
+        {
+         "not": {
+          "oppLifeLe": 52
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 54
+        },
+        {
+         "not": {
+          "oppLifeLe": 53
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 55
+        },
+        {
+         "not": {
+          "oppLifeLe": 54
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 56
+        },
+        {
+         "not": {
+          "oppLifeLe": 55
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 57
+        },
+        {
+         "not": {
+          "oppLifeLe": 56
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 58
+        },
+        {
+         "not": {
+          "oppLifeLe": 57
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 59
+        },
+        {
+         "not": {
+          "oppLifeLe": 58
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 60
+        },
+        {
+         "not": {
+          "oppLifeLe": 59
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 61
+        },
+        {
+         "not": {
+          "oppLifeLe": 60
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 62
+        },
+        {
+         "not": {
+          "oppLifeLe": 61
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 63
+        },
+        {
+         "not": {
+          "oppLifeLe": 62
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 64
+        },
+        {
+         "not": {
+          "oppLifeLe": 63
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 65
+        },
+        {
+         "not": {
+          "oppLifeLe": 64
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 66
+        },
+        {
+         "not": {
+          "oppLifeLe": 65
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 67
+        },
+        {
+         "not": {
+          "oppLifeLe": 66
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 68
+        },
+        {
+         "not": {
+          "oppLifeLe": 67
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 69
+        },
+        {
+         "not": {
+          "oppLifeLe": 68
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 70
+        },
+        {
+         "not": {
+          "oppLifeLe": 69
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 71
+        },
+        {
+         "not": {
+          "oppLifeLe": 70
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 72
+        },
+        {
+         "not": {
+          "oppLifeLe": 71
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 73
+        },
+        {
+         "not": {
+          "oppLifeLe": 72
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 74
+        },
+        {
+         "not": {
+          "oppLifeLe": 73
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 75
+        },
+        {
+         "not": {
+          "oppLifeLe": 74
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 76
+        },
+        {
+         "not": {
+          "oppLifeLe": 75
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 77
+        },
+        {
+         "not": {
+          "oppLifeLe": 76
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 78
+        },
+        {
+         "not": {
+          "oppLifeLe": 77
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 79
+        },
+        {
+         "not": {
+          "oppLifeLe": 78
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 80
+        },
+        {
+         "not": {
+          "oppLifeLe": 79
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 81
+        },
+        {
+         "not": {
+          "oppLifeLe": 80
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 82
+        },
+        {
+         "not": {
+          "oppLifeLe": 81
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 83
+        },
+        {
+         "not": {
+          "oppLifeLe": 82
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 84
+        },
+        {
+         "not": {
+          "oppLifeLe": 83
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 85
+        },
+        {
+         "not": {
+          "oppLifeLe": 84
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 86
+        },
+        {
+         "not": {
+          "oppLifeLe": 85
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 87
+        },
+        {
+         "not": {
+          "oppLifeLe": 86
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 88
+        },
+        {
+         "not": {
+          "oppLifeLe": 87
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 89
+        },
+        {
+         "not": {
+          "oppLifeLe": 88
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 90
+        },
+        {
+         "not": {
+          "oppLifeLe": 89
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 91
+        },
+        {
+         "not": {
+          "oppLifeLe": 90
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 92
+        },
+        {
+         "not": {
+          "oppLifeLe": 91
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 93
+        },
+        {
+         "not": {
+          "oppLifeLe": 92
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 94
+        },
+        {
+         "not": {
+          "oppLifeLe": 93
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 95
+        },
+        {
+         "not": {
+          "oppLifeLe": 94
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 96
+        },
+        {
+         "not": {
+          "oppLifeLe": 95
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 97
+        },
+        {
+         "not": {
+          "oppLifeLe": 96
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 98
+        },
+        {
+         "not": {
+          "oppLifeLe": 97
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 99
+        },
+        {
+         "not": {
+          "oppLifeLe": 98
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 100
+        },
+        {
+         "not": {
+          "oppLifeLe": 99
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 101
+        },
+        {
+         "not": {
+          "oppLifeLe": 100
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 102
+        },
+        {
+         "not": {
+          "oppLifeLe": 101
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 103
+        },
+        {
+         "not": {
+          "oppLifeLe": 102
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 104
+        },
+        {
+         "not": {
+          "oppLifeLe": 103
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 105
+        },
+        {
+         "not": {
+          "oppLifeLe": 104
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 106
+        },
+        {
+         "not": {
+          "oppLifeLe": 105
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 107
+        },
+        {
+         "not": {
+          "oppLifeLe": 106
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 108
+        },
+        {
+         "not": {
+          "oppLifeLe": 107
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 109
+        },
+        {
+         "not": {
+          "oppLifeLe": 108
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 110
+        },
+        {
+         "not": {
+          "oppLifeLe": 109
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 111
+        },
+        {
+         "not": {
+          "oppLifeLe": 110
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 112
+        },
+        {
+         "not": {
+          "oppLifeLe": 111
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 113
+        },
+        {
+         "not": {
+          "oppLifeLe": 112
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 114
+        },
+        {
+         "not": {
+          "oppLifeLe": 113
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 115
+        },
+        {
+         "not": {
+          "oppLifeLe": 114
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 116
+        },
+        {
+         "not": {
+          "oppLifeLe": 115
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 117
+        },
+        {
+         "not": {
+          "oppLifeLe": 116
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 118
+        },
+        {
+         "not": {
+          "oppLifeLe": 117
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 119
+        },
+        {
+         "not": {
+          "oppLifeLe": 118
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 120
+        },
+        {
+         "not": {
+          "oppLifeLe": 119
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 121
+        },
+        {
+         "not": {
+          "oppLifeLe": 120
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 122
+        },
+        {
+         "not": {
+          "oppLifeLe": 121
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 123
+        },
+        {
+         "not": {
+          "oppLifeLe": 122
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 124
+        },
+        {
+         "not": {
+          "oppLifeLe": 123
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 125
+        },
+        {
+         "not": {
+          "oppLifeLe": 124
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 126
+        },
+        {
+         "not": {
+          "oppLifeLe": 125
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 127
+        },
+        {
+         "not": {
+          "oppLifeLe": 126
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 128
+        },
+        {
+         "not": {
+          "oppLifeLe": 127
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 129
+        },
+        {
+         "not": {
+          "oppLifeLe": 128
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 130
+        },
+        {
+         "not": {
+          "oppLifeLe": 129
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 131
+        },
+        {
+         "not": {
+          "oppLifeLe": 130
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 132
+        },
+        {
+         "not": {
+          "oppLifeLe": 131
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 133
+        },
+        {
+         "not": {
+          "oppLifeLe": 132
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 134
+        },
+        {
+         "not": {
+          "oppLifeLe": 133
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 135
+        },
+        {
+         "not": {
+          "oppLifeLe": 134
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 136
+        },
+        {
+         "not": {
+          "oppLifeLe": 135
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 137
+        },
+        {
+         "not": {
+          "oppLifeLe": 136
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 138
+        },
+        {
+         "not": {
+          "oppLifeLe": 137
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 139
+        },
+        {
+         "not": {
+          "oppLifeLe": 138
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 140
+        },
+        {
+         "not": {
+          "oppLifeLe": 139
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 141
+        },
+        {
+         "not": {
+          "oppLifeLe": 140
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 142
+        },
+        {
+         "not": {
+          "oppLifeLe": 141
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 143
+        },
+        {
+         "not": {
+          "oppLifeLe": 142
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 144
+        },
+        {
+         "not": {
+          "oppLifeLe": 143
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 145
+        },
+        {
+         "not": {
+          "oppLifeLe": 144
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 146
+        },
+        {
+         "not": {
+          "oppLifeLe": 145
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 147
+        },
+        {
+         "not": {
+          "oppLifeLe": 146
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 148
+        },
+        {
+         "not": {
+          "oppLifeLe": 147
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 149
+        },
+        {
+         "not": {
+          "oppLifeLe": 148
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 150
+        },
+        {
+         "not": {
+          "oppLifeLe": 149
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 151
+        },
+        {
+         "not": {
+          "oppLifeLe": 150
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 152
+        },
+        {
+         "not": {
+          "oppLifeLe": 151
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 153
+        },
+        {
+         "not": {
+          "oppLifeLe": 152
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 154
+        },
+        {
+         "not": {
+          "oppLifeLe": 153
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 155
+        },
+        {
+         "not": {
+          "oppLifeLe": 154
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 156
+        },
+        {
+         "not": {
+          "oppLifeLe": 155
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 157
+        },
+        {
+         "not": {
+          "oppLifeLe": 156
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 158
+        },
+        {
+         "not": {
+          "oppLifeLe": 157
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 159
+        },
+        {
+         "not": {
+          "oppLifeLe": 158
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 160
+        },
+        {
+         "not": {
+          "oppLifeLe": 159
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 161
+        },
+        {
+         "not": {
+          "oppLifeLe": 160
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 162
+        },
+        {
+         "not": {
+          "oppLifeLe": 161
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 163
+        },
+        {
+         "not": {
+          "oppLifeLe": 162
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 164
+        },
+        {
+         "not": {
+          "oppLifeLe": 163
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 165
+        },
+        {
+         "not": {
+          "oppLifeLe": 164
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 166
+        },
+        {
+         "not": {
+          "oppLifeLe": 165
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 167
+        },
+        {
+         "not": {
+          "oppLifeLe": 166
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 168
+        },
+        {
+         "not": {
+          "oppLifeLe": 167
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 169
+        },
+        {
+         "not": {
+          "oppLifeLe": 168
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 170
+        },
+        {
+         "not": {
+          "oppLifeLe": 169
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 171
+        },
+        {
+         "not": {
+          "oppLifeLe": 170
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 172
+        },
+        {
+         "not": {
+          "oppLifeLe": 171
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 173
+        },
+        {
+         "not": {
+          "oppLifeLe": 172
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 174
+        },
+        {
+         "not": {
+          "oppLifeLe": 173
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 175
+        },
+        {
+         "not": {
+          "oppLifeLe": 174
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 176
+        },
+        {
+         "not": {
+          "oppLifeLe": 175
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 177
+        },
+        {
+         "not": {
+          "oppLifeLe": 176
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 178
+        },
+        {
+         "not": {
+          "oppLifeLe": 177
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 179
+        },
+        {
+         "not": {
+          "oppLifeLe": 178
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 180
+        },
+        {
+         "not": {
+          "oppLifeLe": 179
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 181
+        },
+        {
+         "not": {
+          "oppLifeLe": 180
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 182
+        },
+        {
+         "not": {
+          "oppLifeLe": 181
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 183
+        },
+        {
+         "not": {
+          "oppLifeLe": 182
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 184
+        },
+        {
+         "not": {
+          "oppLifeLe": 183
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 185
+        },
+        {
+         "not": {
+          "oppLifeLe": 184
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 186
+        },
+        {
+         "not": {
+          "oppLifeLe": 185
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 187
+        },
+        {
+         "not": {
+          "oppLifeLe": 186
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 188
+        },
+        {
+         "not": {
+          "oppLifeLe": 187
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 189
+        },
+        {
+         "not": {
+          "oppLifeLe": 188
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 190
+        },
+        {
+         "not": {
+          "oppLifeLe": 189
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 191
+        },
+        {
+         "not": {
+          "oppLifeLe": 190
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 192
+        },
+        {
+         "not": {
+          "oppLifeLe": 191
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 193
+        },
+        {
+         "not": {
+          "oppLifeLe": 192
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 194
+        },
+        {
+         "not": {
+          "oppLifeLe": 193
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 195
+        },
+        {
+         "not": {
+          "oppLifeLe": 194
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 196
+        },
+        {
+         "not": {
+          "oppLifeLe": 195
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 197
+        },
+        {
+         "not": {
+          "oppLifeLe": 196
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 198
+        },
+        {
+         "not": {
+          "oppLifeLe": 197
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 199
+        },
+        {
+         "not": {
+          "oppLifeLe": 198
+         }
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "lifeLe": 200
+        },
+        {
+         "not": {
+          "oppLifeLe": 199
+         }
+        }
+       ]
+      }
+     ]
+    },
+    "limit": "once-per-turn",
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever this creature attacks for the first time each turn, if it's attacking the player with the most life or tied for most life, untap all attacking creatures. After this phase, there is an additional combat phase."
+   }
+  ]
+ },
+ "Selvala's Stampede": {
+  "name": "Selvala's Stampede",
+  "notes": "The dummy's vote is yours to call. Revealed non-creature cards are shuffled back (the shuffle is logged as an empty search).",
+  "source": "Council's dilemma — Starting with you, each player votes for wild or free. Reveal cards from the top of your library until you reveal a creature card for each wild vote. Put those creature cards onto the battlefield, then shuffle the rest into your library. You may put a permanent card from your hand onto the battlefield for each free vote.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "revealUntil": {
+          "filter": {
+           "creature": true
+          },
+          "rest": "bottom",
+          "to": "bf"
+         }
+        },
+        {
+         "revealUntil": {
+          "filter": {
+           "creature": true
+          },
+          "rest": "bottom",
+          "to": "bf"
+         }
+        },
+        {
+         "tutor": {
+          "filter": {
+           "controller": "opp"
+          }
+         }
+        }
+       ],
+       "label": "Both votes wild"
+      },
+      {
+       "do": [
+        {
+         "revealUntil": {
+          "filter": {
+           "creature": true
+          },
+          "rest": "bottom",
+          "to": "bf"
+         }
+        },
+        {
+         "tutor": {
+          "filter": {
+           "controller": "opp"
+          }
+         }
+        },
+        {
+         "putFromHand": {
+          "filter": {
+           "type": [
+            "Artifact",
+            "Creature",
+            "Enchantment",
+            "Land",
+            "Planeswalker",
+            "Battle"
+           ]
+          },
+          "optional": true,
+          "to": "bf"
+         }
+        }
+       ],
+       "label": "One wild, one free"
+      },
+      {
+       "do": [
+        {
+         "putFromHand": {
+          "filter": {
+           "type": [
+            "Artifact",
+            "Creature",
+            "Enchantment",
+            "Land",
+            "Planeswalker",
+            "Battle"
+           ]
+          },
+          "optional": true,
+          "to": "bf"
+         }
+        },
+        {
+         "putFromHand": {
+          "filter": {
+           "type": [
+            "Artifact",
+            "Creature",
+            "Enchantment",
+            "Land",
+            "Planeswalker",
+            "Battle"
+           ]
+          },
+          "optional": true,
+          "to": "bf"
+         }
+        }
+       ],
+       "label": "Both votes free"
+      }
+     ],
+     "text": "Council's dilemma — Starting with you, each player votes for wild or free."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Sheltered Thicket": {
+  "name": "Sheltered Thicket",
+  "source": "({T}: Add {R} or {G}.)\nThis land enters tapped.\nCycling {2} ({2}, Discard this card: Draw a card.)",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "Shivan Reef": {
+  "name": "Shivan Reef",
+  "source": "{T}: Add {C}.\n{T}: Add {U} or {R}. This land deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Skarrgan Hellkite": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{3}{R}"
+    },
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "choice": {
+          "options": [
+           {
+            "do": [
+             {
+              "damage": {
+               "n": 2,
+               "target": "any"
+              }
+             }
+            ],
+            "label": "2 damage to one target"
+           },
+           {
+            "do": [
+             {
+              "damage": {
+               "n": 1,
+               "target": "any"
+              }
+             },
+             {
+              "damage": {
+               "n": 1,
+               "target": "any"
+              }
+             }
+            ],
+            "label": "1 damage to each of two targets"
+           }
+          ],
+          "text": "Deal 2 damage divided as you choose among one or two targets."
+         }
+        }
+       ],
+       "if": {
+        "counters": {
+         "kind": "p1p1"
+        }
+       }
+      }
+     }
+    ],
+    "label": "2 damage divided",
+    "text": "{3}{R}: This creature deals 2 damage divided as you choose among one or two targets. Activate only if this creature has a +1/+1 counter on it."
+   }
+  ],
+  "name": "Skarrgan Hellkite",
+  "notes": "Without a +1/+1 counter the ability may not be activated: if it is, it does nothing.",
+  "source": "Riot (This creature enters with your choice of a +1/+1 counter or haste.)\nFlying\n{3}{R}: This creature deals 2 damage divided as you choose among one or two targets. Activate only if this creature has a +1/+1 counter on it.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "counters": {
+            "kind": "p1p1",
+            "n": 1,
+            "target": "self"
+           }
+          }
+         ],
+         "label": "+1/+1 counter"
+        },
+        {
+         "do": [
+          {
+           "grant": {
+            "kw": [
+             "Haste"
+            ],
+            "target": "self"
+           }
+          }
+         ],
+         "label": "Haste"
+        }
+       ],
+       "text": "Riot: choose a +1/+1 counter or haste."
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Riot"
+   }
+  ]
+ },
+ "Sol Ring": {
+  "name": "Sol Ring",
+  "source": "{T}: Add {C}{C}.",
+  "status": "auto"
+ },
+ "Spit Flame": {
+  "name": "Spit Flame",
+  "source": "Spit Flame deals 4 damage to target creature.\nWhenever a Dragon you control enters, you may pay {R}. If you do, return this card from your graveyard to your hand.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [],
+       "label": "An opponent's creature (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "damage": {
+          "n": 4,
+          "target": "creature-you-control"
+         }
+        }
+       ],
+       "label": "A creature I control"
+      }
+     ],
+     "text": "Spit Flame deals 4 damage to target creature."
+    }
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "cost": {
+     "mana": "{R}"
+    },
+    "do": [
+     {
+      "moveSelf": {
+       "to": "hand"
+      }
+     }
+    ],
+    "filter": {
+     "subtype": "Dragon"
+    },
+    "on": "enters",
+    "text": "Whenever a Dragon you control enters, you may pay {R}. If you do, return this card from your graveyard to your hand.",
+    "zone": "gy"
+   }
+  ]
+ },
+ "Steel Hellkite": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}"
+    },
+    "do": [
+     {
+      "pump": {
+       "p": 1,
+       "t": 0,
+       "target": "self"
+      }
+     }
+    ],
+    "label": "+1/+0",
+    "text": "{2}: This creature gets +1/+0 until end of turn."
+   }
+  ],
+  "name": "Steel Hellkite",
+  "notes": "The {X} ability only destroys permanents of a player it dealt combat damage to: the dummy has none. Silent on purpose.",
+  "source": "Flying\n{2}: This creature gets +1/+0 until end of turn.\n{X}: Destroy each nonland permanent with mana value X whose controller was dealt combat damage by this creature this turn. Activate only once each turn.",
+  "status": "hand"
+ },
+ "Storm's Wrath": {
+  "name": "Storm's Wrath",
+  "notes": "Only your permanents exist in goldfish; damage to a planeswalker removes loyalty.",
+  "source": "Storm's Wrath deals 4 damage to each creature and each planeswalker.",
+  "spell": [
+   {
+    "damage": {
+     "n": 4,
+     "target": "each-creature-you-control"
+    }
+   },
+   {
+    "removeCounters": {
+     "kind": "loyalty",
+     "n": 4,
+     "target": {
+      "each": {
+       "type": "Planeswalker"
+      }
+     }
+    }
+   },
+   {
+    "destroy": {
+     "target": {
+      "each": {
+       "noCounters": {
+        "kind": "loyalty"
+       },
+       "type": "Planeswalker"
+      }
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Stormbreath Dragon": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{5}{R}{R}"
+    },
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "counters": {
+          "kind": "p1p1",
+          "n": 3,
+          "target": "self"
+         }
+        },
+        {
+         "counters": {
+          "kind": "monstrous",
+          "n": 1,
+          "target": "self"
+         }
+        }
+       ],
+       "else": [],
+       "if": {
+        "noCounters": {
+         "kind": "monstrous"
+        }
+       }
+      }
+     }
+    ],
+    "label": "Monstrosity 3",
+    "text": "{5}{R}{R}: Monstrosity 3."
+   }
+  ],
+  "name": "Stormbreath Dragon",
+  "notes": "Monstrous is a 'monstrous' marker counter (a second activation does nothing). The monstrous trigger deals damage equal to the opponent's hand size: the dummy has no hand, so it is not scripted.",
+  "source": "Flying, haste, protection from white\n{5}{R}{R}: Monstrosity 3. (If this creature isn't monstrous, put three +1/+1 counters on it and it becomes monstrous.)\nWhen this creature becomes monstrous, it deals damage to each opponent equal to the number of cards in that player's hand.",
+  "status": "hand"
+ },
+ "Stormshriek Feral // Flush Out": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}{R}"
+    },
+    "do": [
+     {
+      "pump": {
+       "p": 1,
+       "t": 0,
+       "target": "self"
+      }
+     }
+    ],
+    "text": "{1}{R}: This creature gets +1/+0 until end of turn."
+   }
+  ],
+  "name": "Stormshriek Feral // Flush Out",
+  "source": "Flying, haste\n{1}{R}: This creature gets +1/+0 until end of turn.",
+  "status": "auto"
+ },
+ "Sulfur Falls": {
+  "name": "Sulfur Falls",
+  "source": "This land enters tapped unless you control an Island or a Mountain.\n{T}: Add {U} or {R}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Island",
+           "Mountain"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control an Island or a Mountain."
+   }
+  ]
+ },
+ "Talisman of Creativity": {
+  "name": "Talisman of Creativity",
+  "source": "{T}: Add {C}.\n{T}: Add {U} or {R}. This artifact deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Talisman of Impulse": {
+  "name": "Talisman of Impulse",
+  "source": "{T}: Add {C}.\n{T}: Add {R} or {G}. This artifact deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Taurean Mauler": {
+  "name": "Taurean Mauler",
+  "notes": "Triggers only when an opponent casts a spell: the dummy never does. Silent on purpose.",
+  "source": "Changeling (This card is every creature type.)\nWhenever an opponent casts a spell, you may put a +1/+1 counter on this creature.",
+  "status": "hand"
+ },
+ "Temple of Abandon": {
+  "name": "Temple of Abandon",
+  "source": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {R} or {G}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   },
+   {
+    "do": [
+     {
+      "scry": 1
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this land enters, scry 1."
+   }
+  ]
+ },
+ "Temple of Mystery": {
+  "name": "Temple of Mystery",
+  "source": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {G} or {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   },
+   {
+    "do": [
+     {
+      "scry": 1
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this land enters, scry 1."
+   }
+  ]
+ },
+ "Temple of the Dragon Queen": {
+  "chooseOn": {
+   "enters": {
+    "kind": "color"
+   }
+  },
+  "name": "Temple of the Dragon Queen",
+  "source": "As this land enters, you may reveal a Dragon card from your hand. This land enters tapped unless you revealed a Dragon card this way or you control a Dragon.\nAs this land enters, choose a color.\n{T}: Add one mana of the chosen color.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "choice": {
+          "options": [
+           {
+            "do": [],
+            "label": "Reveal a Dragon card (enters untapped)"
+           },
+           {
+            "do": [
+             {
+              "tap": {
+               "target": "self"
+              }
+             }
+            ],
+            "label": "Don't reveal (enters tapped)"
+           }
+          ],
+          "text": "Reveal a Dragon card from your hand? If you don't, this land enters tapped."
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": "Dragon"
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "As this land enters, you may reveal a Dragon card from your hand. This land enters tapped unless you revealed a Dragon card this way or you control a Dragon."
+   }
+  ]
+ },
+ "Temur Ascendancy": {
+  "name": "Temur Ascendancy",
+  "source": "Creatures you control have haste.\nWhenever a creature you control with power 4 or greater enters, you may draw a card.",
+  "statics": [
+   {
+    "kw": [
+     "Haste"
+    ],
+    "scope": "creatures-you-control",
+    "text": "Creatures you control have haste."
+   }
+  ],
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "powerGe": 4
+    },
+    "on": "enters",
+    "optional": true,
+    "text": "Whenever a creature you control with power 4 or greater enters, you may draw a card."
+   }
+  ]
+ },
+ "Terror of the Peaks": {
+  "name": "Terror of the Peaks",
+  "notes": "The opponent tax on targeting it is moot against the dummy.",
+  "source": "Flying\nSpells your opponents cast that target this creature cost an additional 3 life to cast.\nWhenever another creature you control enters, this creature deals damage equal to that creature's power to any target.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "damage": {
+       "n": {
+        "of": "triggering",
+        "stat": "power"
+       },
+       "target": "any"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "other": true
+    },
+    "on": "enters",
+    "text": "Whenever another creature you control enters, this creature deals damage equal to that creature's power to any target."
+   }
+  ]
+ },
+ "Thunderbreak Regent": {
+  "name": "Thunderbreak Regent",
+  "notes": "Triggers only when an opponent targets your Dragon: the dummy never does. Silent on purpose.",
+  "source": "Flying\nWhenever a Dragon you control becomes the target of a spell or ability an opponent controls, this creature deals 3 damage to that player.",
+  "status": "hand"
+ },
+ "Ureni of the Unwritten": {
+  "name": "Ureni of the Unwritten",
+  "source": "Flying, trample\nWhenever Ureni enters or attacks, look at the top eight cards of your library. You may put a Dragon creature card from among them onto the battlefield. Put the rest on the bottom of your library in a random order.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "lookTop": {
+       "n": 8,
+       "pick": {
+        "filter": {
+         "creature": true,
+         "subtype": "Dragon"
+        },
+        "n": 1,
+        "to": "bf"
+       },
+       "rest": "bottom"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Whenever Ureni enters or attacks, look at the top eight cards of your library. You may put a Dragon creature card from among them onto the battlefield. Put the rest on the bottom of your library in a random order."
+   },
+   {
+    "do": [
+     {
+      "lookTop": {
+       "n": 8,
+       "pick": {
+        "filter": {
+         "creature": true,
+         "subtype": "Dragon"
+        },
+        "n": 1,
+        "to": "bf"
+       },
+       "rest": "bottom"
+      }
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever Ureni enters or attacks, look at the top eight cards of your library. You may put a Dragon creature card from among them onto the battlefield. Put the rest on the bottom of your library in a random order."
+   }
+  ]
+ },
+ "Utvara Hellkite": {
+  "name": "Utvara Hellkite",
+  "source": "Flying\nWhenever a Dragon you control attacks, create a 6/6 red Dragon creature token with flying.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "kw": [
+        "Flying"
+       ],
+       "n": 1,
+       "name": "Dragon",
+       "power": 6,
+       "toughness": 6,
+       "types": [
+        "Creature",
+        "Dragon"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "subtype": "Dragon"
+    },
+    "on": "attacks",
+    "text": "Whenever a Dragon you control attacks, create a 6/6 red Dragon creature token with flying."
+   }
+  ]
+ },
+ "Vengeful Ancestor": {
+  "name": "Vengeful Ancestor",
+  "notes": "Goad and the goaded-creature damage only matter for an opponent's creatures: the dummy has none. Silent on purpose.",
+  "source": "Flying\nWhenever this creature enters or attacks, goad target creature. (Until your next turn, that creature attacks each combat if able and attacks a player other than you if able.)\nWhenever a goaded creature attacks, it deals 1 damage to its controller.",
+  "status": "hand"
+ },
+ "Whirlwing Stormbrood // Dynamic Soar": {
+  "name": "Whirlwing Stormbrood // Dynamic Soar",
+  "source": "Flash\nFlying\nYou may cast sorcery spells and Dragon spells as though they had flash.",
+  "statics": [
+   {
+    "flash": {
+     "filter": {
+      "type": "Sorcery"
+     }
+    },
+    "text": "You may cast sorcery spells and Dragon spells as though they had flash."
+   },
+   {
+    "flash": {
+     "filter": {
+      "subtype": "Dragon"
+     }
+    },
+    "text": "You may cast sorcery spells and Dragon spells as though they had flash."
+   }
+  ],
+  "status": "hand"
+ },
+ "Yavimaya Coast": {
+  "name": "Yavimaya Coast",
+  "source": "{T}: Add {C}.\n{T}: Add {G} or {U}. This land deals 1 damage to you.",
+  "status": "auto"
+ },
+ "_tokens": {
+  "Dragon Egg Token": {
+   "name": "Dragon Egg Token",
+   "status": "hand",
+   "triggers": [
+    {
+     "do": [
+      {
+       "token": {
+        "colors": [
+         "R"
+        ],
+        "kw": [
+         "Flying"
+        ],
+        "n": 1,
+        "name": "Dragon",
+        "power": 2,
+        "script": "Nesting Dragon Hatchling Token",
+        "toughness": 2,
+        "types": [
+         "Creature",
+         "Dragon"
+        ]
+       }
+      }
+     ],
+     "on": "dies",
+     "self": true,
+     "text": "When this token dies, create a 2/2 red Dragon creature token with flying and '{R}: This token gets +1/+0 until end of turn.'"
+    }
+   ]
+  },
+  "Nesting Dragon Hatchling Token": {
+   "activated": [
+    {
+     "cost": {
+      "mana": "{R}"
+     },
+     "do": [
+      {
+       "pump": {
+        "p": 1,
+        "t": 0,
+        "target": "self"
+       }
+      }
+     ],
+     "label": "+1/+0",
+     "text": "{R}: This token gets +1/+0 until end of turn."
+    }
+   ],
+   "name": "Nesting Dragon Hatchling Token",
+   "notes": "The 2/2 flying Dragon made by a Nesting Dragon's Egg. A pile of them is pumped together.",
+   "status": "hand"
+  }
+ }
+}

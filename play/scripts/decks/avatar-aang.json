@@ -1,0 +1,6022 @@
+{
+ "Aang and Katara": {
+  "name": "Aang and Katara",
+  "notes": "X counts tapped artifacts and creatures when the trigger resolves (attackers are already tapped).",
+  "source": "Whenever Aang and Katara enter or attack, create X 1/1 white Ally creature tokens, where X is the number of tapped artifacts and/or creatures you control.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "n": {
+        "count": {
+         "tapped": true,
+         "type": [
+          "Artifact",
+          "Creature"
+         ]
+        }
+       },
+       "name": "Ally",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Ally"
+       ]
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Whenever Aang and Katara enter or attack, create X 1/1 white Ally creature tokens, where X is the number of tapped artifacts and/or creatures you control."
+   },
+   {
+    "do": [
+     {
+      "token": {
+       "n": {
+        "count": {
+         "tapped": true,
+         "type": [
+          "Artifact",
+          "Creature"
+         ]
+        }
+       },
+       "name": "Ally",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Ally"
+       ]
+      }
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever Aang and Katara enter or attack, create X 1/1 white Ally creature tokens, where X is the number of tapped artifacts and/or creatures you control."
+   }
+  ]
+ },
+ "Aang and La, Ocean's Fury": {
+  "name": "Aang and La, Ocean's Fury",
+  "source": "Reach, trample\nWhenever Aang and La attack, put a +1/+1 counter on each tapped creature you control.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": {
+        "each": {
+         "creature": true,
+         "tapped": true
+        }
+       }
+      }
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever Aang and La attack, put a +1/+1 counter on each tapped creature you control."
+   }
+  ]
+ },
+ "Aang, Master of Elements": {
+  "name": "Aang, Master of Elements",
+  "notes": "Back face (the engine runs Avatar Aang's script, which carries these abilities). Only up to 5 generic mana is reduced; coloured pips are not.",
+  "source": "Flying\nSpells you cast cost {W}{U}{B}{R}{G} less to cast. (This can reduce generic costs.)\nAt the beginning of each upkeep, you may transform Aang, Master of Elements. If you do, you gain 4 life, draw four cards, put four +1/+1 counters on him, and he deals 4 damage to each opponent.",
+  "statics": [
+   {
+    "costLess": 5,
+    "scope": "spells-you-cast",
+    "text": "Spells you cast cost {W}{U}{B}{R}{G} less to cast. (This can reduce generic costs.)"
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "transform": {
+       "target": "this"
+      }
+     },
+     {
+      "gainLife": 4
+     },
+     {
+      "draw": 4
+     },
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 4,
+       "target": "self"
+      }
+     },
+     {
+      "damageOpp": 4
+     }
+    ],
+    "on": "upkeep",
+    "optional": true,
+    "text": "At the beginning of each upkeep, you may transform Aang, Master of Elements. If you do, you gain 4 life, draw four cards, put four +1/+1 counters on him, and he deals 4 damage to each opponent."
+   }
+  ]
+ },
+ "Aang, Swift Savior // Aang and La, Ocean's Fury": {
+  "activated": [
+   {
+    "cost": {
+     "waterbend": "{8}"
+    },
+    "do": [
+     {
+      "transform": {
+       "target": "this"
+      }
+     }
+    ],
+    "label": "Transform",
+    "text": "Waterbend {8}: Transform Aang."
+   }
+  ],
+  "back": {
+   "statics": [
+    {
+     "kw": [
+      "Reach",
+      "Trample"
+     ],
+     "scope": "self",
+     "text": "Reach, trample"
+    }
+   ],
+   "triggers": [
+    {
+     "do": [
+      {
+       "counters": {
+        "kind": "p1p1",
+        "n": 1,
+        "target": {
+         "each": {
+          "creature": true,
+          "tapped": true
+         }
+        }
+       }
+      }
+     ],
+     "on": "attacks",
+     "self": true,
+     "text": "Whenever Aang and La attack, put a +1/+1 counter on each tapped creature you control."
+    }
+   ]
+  },
+  "name": "Aang, Swift Savior // Aang and La, Ocean's Fury",
+  "notes": "Spells on the stack are not modelled (only an opponent's would be airbended).",
+  "source": "Flash\nFlying\nWhen Aang enters, airbend up to one other target creature or spell. (Exile it. While it's exiled, its owner may cast it for {2} rather than its mana cost.)\nWaterbend {8}: Transform Aang.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "airbend": {
+       "target": {
+        "optional": true,
+        "pick": {
+         "creature": true,
+         "other": true
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Aang enters, airbend up to one other target creature or spell."
+   }
+  ]
+ },
+ "Airbender Ascension": {
+  "name": "Airbender Ascension",
+  "source": "When this enchantment enters, airbend up to one target creature.\nWhenever a creature you control enters, put a quest counter on this enchantment.\nAt the beginning of your end step, if this enchantment has four or more quest counters on it, exile up to one target creature you control, then return it to the battlefield under its owner's control.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "airbend": {
+       "target": {
+        "n": 1,
+        "optional": true,
+        "pick": {
+         "creature": true
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this enchantment enters, airbend up to one target creature."
+   },
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "quest",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true
+    },
+    "on": "enters",
+    "text": "Whenever a creature you control enters, put a quest counter on this enchantment."
+   },
+   {
+    "do": [
+     {
+      "prompt": "Exile up to one target creature you control, then return it to the battlefield under its owner's control."
+     }
+    ],
+    "if": {
+     "counters": {
+      "ge": 4,
+      "kind": "quest"
+     }
+    },
+    "on": "endStep",
+    "text": "At the beginning of your end step, if this enchantment has four or more quest counters on it, exile up to one target creature you control, then return it to the battlefield under its owner's control."
+   }
+  ]
+ },
+ "Airbender's Reversal": {
+  "name": "Airbender's Reversal",
+  "notes": "Only the dummy's attackers could be destroyed; the dummy never attacks.",
+  "source": "Choose one —\n• Destroy target attacking creature.\n• Airbend target creature you control. (Exile it. While it's exiled, its owner may cast it for {2} rather than its mana cost.)",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "Destroy target attacking creature."
+      },
+      {
+       "do": [
+        {
+         "airbend": {
+          "target": "creature-you-control"
+         }
+        }
+       ],
+       "label": "Airbend target creature you control."
+      }
+     ],
+     "text": "Choose one —"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Airbending Lesson": {
+  "name": "Airbending Lesson",
+  "source": "Airbend target nonland permanent. (Exile it. While it's exiled, its owner may cast it for {2} rather than its mana cost.)\nDraw a card.",
+  "spell": [
+   {
+    "airbend": {
+     "target": {
+      "n": 1,
+      "pick": {
+       "nonland": true
+      }
+     }
+    }
+   },
+   {
+    "draw": 1
+   }
+  ],
+  "status": "auto"
+ },
+ "Airship Engine Room": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{4}",
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "{4}, {T}, Sacrifice this land: Draw a card."
+   }
+  ],
+  "name": "Airship Engine Room",
+  "source": "This land enters tapped.\n{T}: Add {U} or {R}.\n{4}, {T}, Sacrifice this land: Draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "Appa, Loyal Sky Bison": {
+  "name": "Appa, Loyal Sky Bison",
+  "source": "Flying\nWhenever Appa enters or attacks, choose one —\n• Target creature you control gains flying until end of turn.\n• Airbend another target nonland permanent you control. (Exile it. While it's exiled, its owner may cast it for {2} rather than its mana cost.)",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "grant": {
+            "kw": [
+             "Flying"
+            ],
+            "target": "creature-you-control"
+           }
+          }
+         ],
+         "label": "Target creature you control gains flying until end of turn."
+        },
+        {
+         "do": [
+          {
+           "airbend": {
+            "target": {
+             "n": 1,
+             "pick": {
+              "nonland": true,
+              "other": true
+             }
+            }
+           }
+          }
+         ],
+         "label": "Airbend another target nonland permanent you control."
+        }
+       ],
+       "text": "Choose one —"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Whenever Appa enters or attacks, choose one —\n• Target creature you control gains flying until end of turn.\n• Airbend another target nonland permanent you control."
+   },
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "grant": {
+            "kw": [
+             "Flying"
+            ],
+            "target": "creature-you-control"
+           }
+          }
+         ],
+         "label": "Target creature you control gains flying until end of turn."
+        },
+        {
+         "do": [
+          {
+           "airbend": {
+            "target": {
+             "n": 1,
+             "pick": {
+              "nonland": true,
+              "other": true
+             }
+            }
+           }
+          }
+         ],
+         "label": "Airbend another target nonland permanent you control."
+        }
+       ],
+       "text": "Choose one —"
+      }
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever Appa enters or attacks, choose one —\n• Target creature you control gains flying until end of turn.\n• Airbend another target nonland permanent you control."
+   }
+  ]
+ },
+ "Appa, Steadfast Guardian": {
+  "name": "Appa, Steadfast Guardian",
+  "source": "Flash\nFlying\nWhen Appa enters, airbend any number of other target nonland permanents you control. (Exile them. While each one is exiled, its owner may cast it for {2} rather than its mana cost.)\nWhenever you cast a spell from exile, create a 1/1 white Ally creature token.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "airbend": {
+       "target": {
+        "n": 20,
+        "optional": true,
+        "pick": {
+         "nonland": true,
+         "other": true
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Appa enters, airbend any number of other target nonland permanents you control."
+   },
+   {
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "W"
+       ],
+       "n": 1,
+       "name": "Ally",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Ally"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "castFrom": "exile"
+    },
+    "on": "cast",
+    "text": "Whenever you cast a spell from exile, create a 1/1 white Ally creature token."
+   }
+  ]
+ },
+ "Appa, the Vigilant": {
+  "name": "Appa, the Vigilant",
+  "source": "Flying, vigilance\nWhenever Appa or another Ally you control enters, creatures you control get +1/+1 and gain flying and vigilance until end of turn.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "pump": {
+       "kw": [
+        "Flying",
+        "Vigilance"
+       ],
+       "p": 1,
+       "t": 1,
+       "target": "each-creature-you-control"
+      }
+     }
+    ],
+    "on": "enters",
+    "selfOr": {
+     "other": true,
+     "subtype": "Ally"
+    },
+    "text": "Whenever Appa or another Ally you control enters, creatures you control get +1/+1 and gain flying and vigilance until end of turn."
+   }
+  ]
+ },
+ "Arcane Signet": {
+  "name": "Arcane Signet",
+  "source": "{T}: Add one mana of any color in your commander's color identity.",
+  "status": "auto"
+ },
+ "Avatar Aang // Aang, Master of Elements": {
+  "back": {
+   "statics": [
+    {
+     "costLess": 5,
+     "scope": "spells-you-cast",
+     "text": "Spells you cast cost {W}{U}{B}{R}{G} less to cast. (This can reduce generic costs.)"
+    }
+   ],
+   "triggers": [
+    {
+     "do": [
+      {
+       "removeCounters": {
+        "kind": "waterbend",
+        "n": "all",
+        "target": "self"
+       }
+      },
+      {
+       "removeCounters": {
+        "kind": "earthbend",
+        "n": "all",
+        "target": "self"
+       }
+      },
+      {
+       "removeCounters": {
+        "kind": "firebend",
+        "n": "all",
+        "target": "self"
+       }
+      },
+      {
+       "removeCounters": {
+        "kind": "airbend",
+        "n": "all",
+        "target": "self"
+       }
+      }
+     ],
+     "if": {
+      "any": [
+       {
+        "counters": {
+         "ge": 1,
+         "kind": "waterbend"
+        }
+       },
+       {
+        "counters": {
+         "ge": 1,
+         "kind": "earthbend"
+        }
+       },
+       {
+        "counters": {
+         "ge": 1,
+         "kind": "firebend"
+        }
+       },
+       {
+        "counters": {
+         "ge": 1,
+         "kind": "airbend"
+        }
+       }
+      ]
+     },
+     "on": "turnStart",
+     "text": "Whenever you waterbend, earthbend, firebend, or airbend, draw a card. Then if you've done all four this turn, transform Avatar Aang."
+    },
+    {
+     "do": [
+      {
+       "transform": {
+        "target": "this"
+       }
+      },
+      {
+       "gainLife": 4
+      },
+      {
+       "draw": 4
+      },
+      {
+       "counters": {
+        "kind": "p1p1",
+        "n": 4,
+        "target": "self"
+       }
+      },
+      {
+       "damageOpp": 4
+      }
+     ],
+     "on": "upkeep",
+     "optional": true,
+     "text": "At the beginning of each upkeep, you may transform Aang, Master of Elements. If you do, you gain 4 life, draw four cards, put four +1/+1 counters on him, and he deals 4 damage to each opponent."
+    }
+   ]
+  },
+  "name": "Avatar Aang // Aang, Master of Elements",
+  "notes": "Each bend puts a waterbend/earthbend/firebend/airbend counter on Aang (removed at your untap step); all four = transform. Not modelled: bends made this turn before Aang entered, and the coloured part of {W}{U}{B}{R}{G} (only up to 5 generic is reduced).",
+  "source": "Flying, firebending 2\nWhenever you waterbend, earthbend, firebend, or airbend, draw a card. Then if you've done all four this turn, transform Avatar Aang.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "firebend": 2
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Flying, firebending 2"
+   },
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "counters": {
+          "kind": "waterbend",
+          "n": 1,
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "noCounters": {
+         "kind": "waterbend"
+        }
+       }
+      }
+     },
+     {
+      "draw": 1
+     },
+     {
+      "check": {
+       "do": [
+        {
+         "transform": {
+          "target": "this"
+         }
+        }
+       ],
+       "if": {
+        "all": [
+         {
+          "counters": {
+           "ge": 1,
+           "kind": "waterbend"
+          }
+         },
+         {
+          "counters": {
+           "ge": 1,
+           "kind": "earthbend"
+          }
+         },
+         {
+          "counters": {
+           "ge": 1,
+           "kind": "firebend"
+          }
+         },
+         {
+          "counters": {
+           "ge": 1,
+           "kind": "airbend"
+          }
+         }
+        ]
+       }
+      }
+     }
+    ],
+    "filter": {
+     "kind": "water"
+    },
+    "on": "bent",
+    "text": "Whenever you waterbend, earthbend, firebend, or airbend, draw a card. Then if you've done all four this turn, transform Avatar Aang."
+   },
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "counters": {
+          "kind": "earthbend",
+          "n": 1,
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "noCounters": {
+         "kind": "earthbend"
+        }
+       }
+      }
+     },
+     {
+      "draw": 1
+     },
+     {
+      "check": {
+       "do": [
+        {
+         "transform": {
+          "target": "this"
+         }
+        }
+       ],
+       "if": {
+        "all": [
+         {
+          "counters": {
+           "ge": 1,
+           "kind": "waterbend"
+          }
+         },
+         {
+          "counters": {
+           "ge": 1,
+           "kind": "earthbend"
+          }
+         },
+         {
+          "counters": {
+           "ge": 1,
+           "kind": "firebend"
+          }
+         },
+         {
+          "counters": {
+           "ge": 1,
+           "kind": "airbend"
+          }
+         }
+        ]
+       }
+      }
+     }
+    ],
+    "filter": {
+     "kind": "earth"
+    },
+    "on": "bent",
+    "text": "Whenever you waterbend, earthbend, firebend, or airbend, draw a card. Then if you've done all four this turn, transform Avatar Aang."
+   },
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "counters": {
+          "kind": "firebend",
+          "n": 1,
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "noCounters": {
+         "kind": "firebend"
+        }
+       }
+      }
+     },
+     {
+      "draw": 1
+     },
+     {
+      "check": {
+       "do": [
+        {
+         "transform": {
+          "target": "this"
+         }
+        }
+       ],
+       "if": {
+        "all": [
+         {
+          "counters": {
+           "ge": 1,
+           "kind": "waterbend"
+          }
+         },
+         {
+          "counters": {
+           "ge": 1,
+           "kind": "earthbend"
+          }
+         },
+         {
+          "counters": {
+           "ge": 1,
+           "kind": "firebend"
+          }
+         },
+         {
+          "counters": {
+           "ge": 1,
+           "kind": "airbend"
+          }
+         }
+        ]
+       }
+      }
+     }
+    ],
+    "filter": {
+     "kind": "fire"
+    },
+    "on": "bent",
+    "text": "Whenever you waterbend, earthbend, firebend, or airbend, draw a card. Then if you've done all four this turn, transform Avatar Aang."
+   },
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "counters": {
+          "kind": "airbend",
+          "n": 1,
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "noCounters": {
+         "kind": "airbend"
+        }
+       }
+      }
+     },
+     {
+      "draw": 1
+     },
+     {
+      "check": {
+       "do": [
+        {
+         "transform": {
+          "target": "this"
+         }
+        }
+       ],
+       "if": {
+        "all": [
+         {
+          "counters": {
+           "ge": 1,
+           "kind": "waterbend"
+          }
+         },
+         {
+          "counters": {
+           "ge": 1,
+           "kind": "earthbend"
+          }
+         },
+         {
+          "counters": {
+           "ge": 1,
+           "kind": "firebend"
+          }
+         },
+         {
+          "counters": {
+           "ge": 1,
+           "kind": "airbend"
+          }
+         }
+        ]
+       }
+      }
+     }
+    ],
+    "filter": {
+     "kind": "air"
+    },
+    "on": "bent",
+    "text": "Whenever you waterbend, earthbend, firebend, or airbend, draw a card. Then if you've done all four this turn, transform Avatar Aang."
+   },
+   {
+    "do": [
+     {
+      "removeCounters": {
+       "kind": "waterbend",
+       "n": "all",
+       "target": "self"
+      }
+     },
+     {
+      "removeCounters": {
+       "kind": "earthbend",
+       "n": "all",
+       "target": "self"
+      }
+     },
+     {
+      "removeCounters": {
+       "kind": "firebend",
+       "n": "all",
+       "target": "self"
+      }
+     },
+     {
+      "removeCounters": {
+       "kind": "airbend",
+       "n": "all",
+       "target": "self"
+      }
+     }
+    ],
+    "if": {
+     "any": [
+      {
+       "counters": {
+        "ge": 1,
+        "kind": "waterbend"
+       }
+      },
+      {
+       "counters": {
+        "ge": 1,
+        "kind": "earthbend"
+       }
+      },
+      {
+       "counters": {
+        "ge": 1,
+        "kind": "firebend"
+       }
+      },
+      {
+       "counters": {
+        "ge": 1,
+        "kind": "airbend"
+       }
+      }
+     ]
+    },
+    "on": "turnStart",
+    "text": "Whenever you waterbend, earthbend, firebend, or airbend, draw a card. Then if you've done all four this turn, transform Avatar Aang."
+   }
+  ]
+ },
+ "Avatar Kyoshi": {
+  "activated": [
+   {
+    "cost": {
+     "tap": true
+    },
+    "do": [
+     {
+      "addMana": {
+       "mana": "{any}",
+       "n": "greatest:power-you-control"
+      }
+     }
+    ],
+    "label": "{T}: X mana",
+    "text": "{T}: Add X mana of any one color, where X is the greatest power among creatures you control."
+   }
+  ],
+  "name": "Avatar Kyoshi",
+  "notes": "Back face; at runtime The Legend of Kyoshi carries these abilities.",
+  "source": "Lands you control have trample and hexproof.\n{T}: Add X mana of any one color, where X is the greatest power among creatures you control.",
+  "statics": [
+   {
+    "kw": [
+     "Trample",
+     "Hexproof"
+    ],
+    "scope": "lands-you-control",
+    "text": "Lands you control have trample and hexproof."
+   }
+  ],
+  "status": "hand"
+ },
+ "Avatar Roku": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{8}"
+    },
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "R"
+       ],
+       "kw": [
+        "Flying",
+        "Firebending"
+       ],
+       "n": 1,
+       "name": "Dragon",
+       "power": 4,
+       "toughness": 4,
+       "types": [
+        "Creature",
+        "Dragon"
+       ]
+      }
+     }
+    ],
+    "label": "Dragon",
+    "text": "{8}: Create a 4/4 red Dragon creature token with flying and firebending 4."
+   }
+  ],
+  "name": "Avatar Roku",
+  "notes": "Back face; at runtime The Legend of Roku carries these abilities. The Dragon tokens' firebending 4 is run from this script (tokens have none).",
+  "source": "Firebending 4 (Whenever this creature attacks, add {R}{R}{R}{R}. This mana lasts until end of combat.)\n{8}: Create a 4/4 red Dragon creature token with flying and firebending 4.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "firebend": 4
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Firebending 4 (Whenever this creature attacks, add {R}{R}{R}{R}. This mana lasts until end of combat.)"
+   },
+   {
+    "do": [
+     {
+      "firebend": 4
+     }
+    ],
+    "filter": {
+     "keyword": "Firebending",
+     "subtype": "Dragon",
+     "token": true
+    },
+    "on": "attacks",
+    "text": "{8}: Create a 4/4 red Dragon creature token with flying and firebending 4."
+   }
+  ]
+ },
+ "Avatar Yangchen": {
+  "name": "Avatar Yangchen",
+  "notes": "Back face; at runtime The Legend of Yangchen carries these abilities.",
+  "source": "Flying\nWhenever you cast your second spell each turn, airbend up to one other target nonland permanent. (Exile it. While it's exiled, its owner may cast it for {2} rather than its mana cost.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "airbend": {
+       "target": {
+        "optional": true,
+        "pick": {
+         "nonland": true,
+         "other": true
+        }
+       }
+      }
+     }
+    ],
+    "if": {
+     "thisTurn": {
+      "eq": 2,
+      "fact": "spellsCast"
+     }
+    },
+    "on": "cast",
+    "text": "Whenever you cast your second spell each turn, airbend up to one other target nonland permanent. (Exile it. While it's exiled, its owner may cast it for {2} rather than its mana cost.)"
+   }
+  ]
+ },
+ "Avatar's Wrath": {
+  "name": "Avatar's Wrath",
+  "notes": "The dummy has no creatures and casts nothing, so only your creatures are airbended and the casting restriction is silent.",
+  "source": "Choose up to one target creature, then airbend all other creatures. (Exile them. While each one is exiled, its owner may cast it for {2} rather than its mana cost.)\nUntil your next turn, your opponents can't cast spells from anywhere other than their hands.\nExile Avatar's Wrath.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "airbend": {
+          "target": {
+           "each": {
+            "creature": true
+           }
+          }
+         }
+        }
+       ],
+       "label": "No creature chosen: airbend all my creatures"
+      },
+      {
+       "do": [
+        {
+         "airbend": {
+          "target": {
+           "n": 50,
+           "optional": true,
+           "pick": {
+            "creature": true
+           }
+          }
+         }
+        }
+       ],
+       "label": "Keep one: pick every creature to airbend (all but the chosen one)"
+      }
+     ],
+     "text": "Choose up to one target creature, then airbend all other creatures."
+    }
+   },
+   {
+    "exileFromGy": {
+     "filter": {
+      "name": "Avatar's Wrath"
+     },
+     "n": 1
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Bender's Waterskin": {
+  "name": "Bender's Waterskin",
+  "notes": "Untapping during other players' untap steps never happens in goldfish (every turn is yours); the mana ability is the engine's. Silent on purpose.",
+  "source": "Untap this artifact during each other player's untap step.\n{T}: Add one mana of any color.",
+  "status": "hand"
+ },
+ "Bitter Work": {
+  "activated": [
+   {
+    "cost": {},
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "pay": {
+          "mana": "{4}"
+         }
+        },
+        {
+         "earthbend": {
+          "n": 4
+         }
+        },
+        {
+         "counters": {
+          "kind": "exhausted",
+          "n": 1,
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "noCounters": {
+         "kind": "exhausted"
+        }
+       }
+      }
+     }
+    ],
+    "label": "Exhaust: earthbend 4",
+    "text": "Exhaust — {4}: Earthbend 4. Activate only during your turn."
+   }
+  ],
+  "name": "Bitter Work",
+  "notes": "Exhaust is tracked by an \"exhausted\" counter: once used, the ability does nothing.",
+  "source": "Whenever you attack a player with one or more creatures with power 4 or greater, draw a card.\nExhaust — {4}: Earthbend 4. Activate only during your turn. (Target land you control becomes a 0/0 creature with haste that's still a land. Put four +1/+1 counters on it. When it dies or is exiled, return it to the battlefield tapped. Activate each exhaust ability only once.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "if": {
+     "youControl": {
+      "attacking": true,
+      "creature": true,
+      "powerGe": 4
+     }
+    },
+    "on": "attacks",
+    "text": "Whenever you attack a player with one or more creatures with power 4 or greater, draw a card."
+   }
+  ]
+ },
+ "Captain Sisay": {
+  "activated": [
+   {
+    "cost": {
+     "tap": true
+    },
+    "do": [
+     {
+      "tutor": {
+       "filter": {
+        "legendary": true
+       },
+       "to": "hand"
+      }
+     }
+    ],
+    "label": "Tutor legendary",
+    "text": "{T}: Search your library for a legendary card, reveal that card, put it into your hand, then shuffle."
+   }
+  ],
+  "name": "Captain Sisay",
+  "source": "{T}: Search your library for a legendary card, reveal that card, put it into your hand, then shuffle.",
+  "status": "hand"
+ },
+ "Deflecting Swat": {
+  "altCost": {
+   "free": true,
+   "if": {
+    "commanderOnBf": true
+   }
+  },
+  "name": "Deflecting Swat",
+  "notes": "Silent: redirecting a spell or ability only matters against an opponent's (the dummy casts nothing). Free with your commander out.",
+  "source": "If you control a commander, you may cast this spell without paying its mana cost.\nYou may choose new targets for target spell or ability.",
+  "status": "hand"
+ },
+ "Earth King's Lieutenant": {
+  "name": "Earth King's Lieutenant",
+  "source": "Trample\nWhen this creature enters, put a +1/+1 counter on each other Ally creature you control.\nWhenever another Ally you control enters, put a +1/+1 counter on this creature.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": {
+        "each": {
+         "creature": true,
+         "other": true,
+         "subtype": "Ally"
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, put a +1/+1 counter on each other Ally creature you control."
+   },
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "other": true,
+     "subtype": "Ally"
+    },
+    "on": "enters",
+    "text": "Whenever another Ally you control enters, put a +1/+1 counter on this creature."
+   }
+  ]
+ },
+ "Earth Kingdom Jailer": {
+  "name": "Earth Kingdom Jailer",
+  "notes": "Only an opponent's permanent can be exiled; the dummy has none.",
+  "source": "When this creature enters, exile up to one target artifact, creature, or enchantment an opponent controls with mana value 3 or greater until this creature leaves the battlefield.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "exile": {
+       "target": "opponent"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, exile up to one target artifact, creature, or enchantment an opponent controls with mana value 3 or greater until this creature leaves the battlefield."
+   }
+  ]
+ },
+ "Earthbender Ascension": {
+  "name": "Earthbender Ascension",
+  "notes": "The counter and the trample are two picks: choose the same creature for both.",
+  "source": "When this enchantment enters, earthbend 2. Then search your library for a basic land card, put it onto the battlefield tapped, then shuffle.\nLandfall — Whenever a land you control enters, put a quest counter on this enchantment. When you do, if it has four or more quest counters on it, put a +1/+1 counter on target creature you control. It gains trample until end of turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "earthbend": {
+       "n": 2
+      }
+     },
+     {
+      "ramp": {
+       "filter": "basic",
+       "tapped": true
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this enchantment enters, earthbend 2. Then search your library for a basic land card, put it onto the battlefield tapped, then shuffle."
+   },
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "quest",
+       "n": 1,
+       "target": "self"
+      }
+     },
+     {
+      "check": {
+       "do": [
+        {
+         "counters": {
+          "kind": "p1p1",
+          "n": 1,
+          "target": "creature-you-control"
+         }
+        },
+        {
+         "grant": {
+          "kw": [
+           "Trample"
+          ],
+          "target": "creature-you-control"
+         }
+        }
+       ],
+       "if": {
+        "counters": {
+         "ge": 4,
+         "kind": "quest"
+        }
+       }
+      }
+     }
+    ],
+    "filter": {
+     "land": true
+    },
+    "on": "enters",
+    "text": "Landfall — Whenever a land you control enters, put a quest counter on this enchantment. When you do, if it has four or more quest counters on it, put a +1/+1 counter on target creature you control. It gains trample until end of turn."
+   }
+  ]
+ },
+ "Earthbending Lesson": {
+  "name": "Earthbending Lesson",
+  "source": "Earthbend 4. (Target land you control becomes a 0/0 creature with haste that's still a land. Put four +1/+1 counters on it. When it dies or is exiled, return it to the battlefield tapped.)",
+  "spell": [
+   {
+    "earthbend": {
+     "n": 4
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Eladamri's Call": {
+  "name": "Eladamri's Call",
+  "source": "Search your library for a creature card, reveal that card, put it into your hand, then shuffle.",
+  "spell": [
+   {
+    "tutor": {
+     "filter": {
+      "creature": true
+     },
+     "to": "hand"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Elemental Bond": {
+  "name": "Elemental Bond",
+  "source": "Whenever a creature you control with power 3 or greater enters, draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "powerGe": 3
+    },
+    "on": "enters",
+    "text": "Whenever a creature you control with power 3 or greater enters, draw a card."
+   }
+  ]
+ },
+ "Fabled Passage": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "ramp": {
+          "filter": "basic",
+          "tapped": false
+         }
+        }
+       ],
+       "else": [
+        {
+         "ramp": {
+          "filter": "basic",
+          "tapped": true
+         }
+        }
+       ],
+       "if": {
+        "landsGe": 3
+       }
+      }
+     }
+    ],
+    "label": "Fetch",
+    "text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle. Then if you control four or more lands, untap that land."
+   }
+  ],
+  "name": "Fabled Passage",
+  "notes": "Three lands before the search = four after it, so the land simply enters untapped.",
+  "source": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle. Then if you control four or more lands, untap that land.",
+  "status": "hand"
+ },
+ "Fierce Guardianship": {
+  "altCost": {
+   "free": true,
+   "if": {
+    "commanderOnBf": true
+   }
+  },
+  "name": "Fierce Guardianship",
+  "notes": "Silent: countering only matters against an opponent's spell (the dummy casts nothing). Free with your commander out.",
+  "source": "If you control a commander, you may cast this spell without paying its mana cost.\nCounter target noncreature spell.",
+  "status": "hand"
+ },
+ "Firebending Lesson": {
+  "name": "Firebending Lesson",
+  "notes": "Kicker {4} is paid when you choose the kicked option.",
+  "source": "Kicker {4} (You may pay an additional {4} as you cast this spell.)\nFirebending Lesson deals 2 damage to target creature. If this spell was kicked, it deals 5 damage to that creature instead.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [],
+       "label": "An opponent's creature (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "damage": {
+          "n": 2,
+          "target": "creature-you-control"
+         }
+        }
+       ],
+       "label": "One of my creatures, not kicked: 2 damage"
+      },
+      {
+       "do": [
+        {
+         "pay": {
+          "mana": "{4}"
+         }
+        },
+        {
+         "damage": {
+          "n": 5,
+          "target": "creature-you-control"
+         }
+        }
+       ],
+       "label": "One of my creatures, kicked (pay {4} now): 5 damage"
+      }
+     ],
+     "text": "Firebending Lesson deals 2 damage to target creature. If this spell was kicked, it deals 5 damage to that creature instead."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Flawless Maneuver": {
+  "altCost": {
+   "free": true,
+   "if": {
+    "commanderOnBf": true
+   }
+  },
+  "name": "Flawless Maneuver",
+  "source": "If you control a commander, you may cast this spell without paying its mana cost.\nCreatures you control gain indestructible until end of turn.",
+  "spell": [
+   {
+    "grant": {
+     "kw": [
+      "Indestructible"
+     ],
+     "target": "each-creature-you-control"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Force of Negation": {
+  "name": "Force of Negation",
+  "notes": "Silent: countering only matters against an opponent's spell (the dummy casts nothing).",
+  "source": "If it's not your turn, you may exile a blue card from your hand rather than pay this spell's mana cost.\nCounter target noncreature spell. If that spell is countered this way, exile it instead of putting it into its owner's graveyard.",
+  "status": "hand"
+ },
+ "Forest": {
+  "name": "Forest",
+  "source": "({T}: Add {G}.)",
+  "status": "auto"
+ },
+ "Gather the White Lotus": {
+  "name": "Gather the White Lotus",
+  "source": "Create a 1/1 white Ally creature token for each Plains you control. Scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+  "spell": [
+   {
+    "token": {
+     "n": {
+      "count": {
+       "subtype": "Plains"
+      }
+     },
+     "name": "Ally",
+     "power": 1,
+     "toughness": 1,
+     "types": [
+      "Creature",
+      "Ally"
+     ]
+    }
+   },
+   {
+    "scry": 2
+   }
+  ],
+  "status": "hand"
+ },
+ "Gran-Gran": {
+  "name": "Gran-Gran",
+  "notes": "Lesson cards in the graveyard are mirrored as 'lesson' counters, refreshed on casts, resolutions, discards, surveils and each main phase (a mill waits for the next one).",
+  "source": "Whenever Gran-Gran becomes tapped, draw a card, then discard a card.\nNoncreature spells you cast cost {1} less to cast as long as there are three or more Lesson cards in your graveyard.",
+  "statics": [
+   {
+    "costLess": 1,
+    "filter": {
+     "noncreature": true
+    },
+    "if": {
+     "counters": {
+      "ge": 3,
+      "kind": "lesson"
+     }
+    },
+    "scope": "spells-you-cast",
+    "text": "Noncreature spells you cast cost {1} less to cast as long as there are three or more Lesson cards in your graveyard."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     },
+     {
+      "discard": 1
+     }
+    ],
+    "on": "tapped",
+    "self": true,
+    "text": "Whenever Gran-Gran becomes tapped, draw a card, then discard a card."
+   },
+   {
+    "do": [
+     {
+      "removeCounters": {
+       "kind": "lesson",
+       "n": "all",
+       "target": "self"
+      }
+     },
+     {
+      "counters": {
+       "kind": "lesson",
+       "n": "count:gy:Lesson",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Noncreature spells you cast cost {1} less to cast as long as there are three or more Lesson cards in your graveyard."
+   },
+   {
+    "do": [
+     {
+      "removeCounters": {
+       "kind": "lesson",
+       "n": "all",
+       "target": "self"
+      }
+     },
+     {
+      "counters": {
+       "kind": "lesson",
+       "n": "count:gy:Lesson",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "upkeep",
+    "text": "Noncreature spells you cast cost {1} less to cast as long as there are three or more Lesson cards in your graveyard."
+   },
+   {
+    "do": [
+     {
+      "removeCounters": {
+       "kind": "lesson",
+       "n": "all",
+       "target": "self"
+      }
+     },
+     {
+      "counters": {
+       "kind": "lesson",
+       "n": "count:gy:Lesson",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "beginMain",
+    "text": "Noncreature spells you cast cost {1} less to cast as long as there are three or more Lesson cards in your graveyard."
+   },
+   {
+    "do": [
+     {
+      "removeCounters": {
+       "kind": "lesson",
+       "n": "all",
+       "target": "self"
+      }
+     },
+     {
+      "counters": {
+       "kind": "lesson",
+       "n": "count:gy:Lesson",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "cast",
+    "text": "Noncreature spells you cast cost {1} less to cast as long as there are three or more Lesson cards in your graveyard."
+   },
+   {
+    "do": [
+     {
+      "removeCounters": {
+       "kind": "lesson",
+       "n": "all",
+       "target": "self"
+      }
+     },
+     {
+      "counters": {
+       "kind": "lesson",
+       "n": "count:gy:Lesson",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "resolved",
+    "text": "Noncreature spells you cast cost {1} less to cast as long as there are three or more Lesson cards in your graveyard."
+   },
+   {
+    "do": [
+     {
+      "removeCounters": {
+       "kind": "lesson",
+       "n": "all",
+       "target": "self"
+      }
+     },
+     {
+      "counters": {
+       "kind": "lesson",
+       "n": "count:gy:Lesson",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "discarded",
+    "text": "Noncreature spells you cast cost {1} less to cast as long as there are three or more Lesson cards in your graveyard."
+   },
+   {
+    "do": [
+     {
+      "removeCounters": {
+       "kind": "lesson",
+       "n": "all",
+       "target": "self"
+      }
+     },
+     {
+      "counters": {
+       "kind": "lesson",
+       "n": "count:gy:Lesson",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "surveiled",
+    "text": "Noncreature spells you cast cost {1} less to cast as long as there are three or more Lesson cards in your graveyard."
+   }
+  ]
+ },
+ "Great Divide Guide": {
+  "activated": [
+   {
+    "cost": {
+     "tapUntapped": {
+      "filter": {
+       "creature": true,
+       "subtype": "Ally"
+      }
+     }
+    },
+    "do": [
+     {
+      "addMana": "{any}"
+     }
+    ],
+    "label": "Tap an Ally: any colour",
+    "text": "Each land and Ally you control has \"{T}: Add one mana of any color.\""
+   },
+   {
+    "cost": {
+     "tap": true
+    },
+    "do": [
+     {
+      "addMana": "{any}"
+     }
+    ],
+    "label": "{T}: any colour",
+    "text": "Each land and Ally you control has \"{T}: Add one mana of any color.\""
+   }
+  ],
+  "name": "Great Divide Guide",
+  "notes": "The Allies' granted mana ability is offered on the Guide (tap another Ally — summoning sickness isn't checked — or the Guide itself).",
+  "source": "Each land and Ally you control has \"{T}: Add one mana of any color.\"",
+  "statics": [
+   {
+    "landsProduceAny": true,
+    "text": "Each land and Ally you control has \"{T}: Add one mana of any color.\""
+   }
+  ],
+  "status": "hand"
+ },
+ "Hakoda, Selfless Commander": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true
+    },
+    "do": [
+     {
+      "pump": {
+       "kw": [
+        "Indestructible"
+       ],
+       "p": 0,
+       "t": 5,
+       "target": "each-creature-you-control"
+      }
+     }
+    ],
+    "label": "Sacrifice: +0/+5, indestructible",
+    "text": "Sacrifice Hakoda: Creatures you control get +0/+5 and gain indestructible until end of turn."
+   }
+  ],
+  "name": "Hakoda, Selfless Commander",
+  "source": "Vigilance\nYou may look at the top card of your library any time.\nYou may cast Ally spells from the top of your library.\nSacrifice Hakoda: Creatures you control get +0/+5 and gain indestructible until end of turn.",
+  "statics": [
+   {
+    "playFromTop": {
+     "filter": {
+      "subtype": "Ally"
+     }
+    },
+    "text": "You may look at the top card of your library any time. You may cast Ally spells from the top of your library."
+   }
+  ],
+  "status": "hand"
+ },
+ "Haru, Hidden Talent": {
+  "name": "Haru, Hidden Talent",
+  "source": "Whenever another Ally you control enters, earthbend 1. (Target land you control becomes a 0/0 creature with haste that's still a land. Put a +1/+1 counter on it. When it dies or is exiled, return it to the battlefield tapped.)",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "earthbend": {
+       "n": 1
+      }
+     }
+    ],
+    "filter": {
+     "other": true,
+     "subtype": "Ally"
+    },
+    "on": "enters",
+    "text": "Whenever another Ally you control enters, earthbend 1."
+   }
+  ]
+ },
+ "Hermitic Herbalist": {
+  "name": "Hermitic Herbalist",
+  "source": "{T}: Add one mana of any color.\n{T}: Add two mana in any combination of colors. Spend this mana only to cast Lesson spells.",
+  "status": "auto"
+ },
+ "Heroic Intervention": {
+  "name": "Heroic Intervention",
+  "source": "Permanents you control gain hexproof and indestructible until end of turn.",
+  "spell": [
+   {
+    "grant": {
+     "kw": [
+      "Hexproof",
+      "Indestructible"
+     ],
+     "target": {
+      "each": {}
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Iroh, Grand Lotus": {
+  "name": "Iroh, Grand Lotus",
+  "notes": "Flashback is granted (cast from the graveyard, then exiled) to every instant and sorcery in your graveyard whenever one may have arrived; a milled card waits for the next main phase. Not modelled: Lessons' cheaper flashback {1} (they cost their mana cost), and grants made this turn outlast Iroh leaving.",
+  "source": "Firebending 2\nDuring your turn, each non-Lesson instant and sorcery card in your graveyard has flashback. The flashback cost is equal to that card's mana cost. (You may cast a card from your graveyard for its flashback cost. Then exile it.)\nDuring your turn, each Lesson card in your graveyard has flashback {1}.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "firebend": 2
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Firebending 2"
+   },
+   {
+    "do": [
+     {
+      "castFromGy": {
+       "all": true,
+       "exileAfter": true,
+       "filter": {
+        "type": [
+         "Instant",
+         "Sorcery"
+        ]
+       },
+       "until": "thisTurn"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "During your turn, each non-Lesson instant and sorcery card in your graveyard has flashback. The flashback cost is equal to that card's mana cost. (You may cast a card from your graveyard for its flashback cost. Then exile it.)"
+   },
+   {
+    "do": [
+     {
+      "castFromGy": {
+       "all": true,
+       "exileAfter": true,
+       "filter": {
+        "type": [
+         "Instant",
+         "Sorcery"
+        ]
+       },
+       "until": "thisTurn"
+      }
+     }
+    ],
+    "on": "upkeep",
+    "text": "During your turn, each non-Lesson instant and sorcery card in your graveyard has flashback. The flashback cost is equal to that card's mana cost. (You may cast a card from your graveyard for its flashback cost. Then exile it.)"
+   },
+   {
+    "do": [
+     {
+      "castFromGy": {
+       "all": true,
+       "exileAfter": true,
+       "filter": {
+        "type": [
+         "Instant",
+         "Sorcery"
+        ]
+       },
+       "until": "thisTurn"
+      }
+     }
+    ],
+    "on": "beginMain",
+    "text": "During your turn, each non-Lesson instant and sorcery card in your graveyard has flashback. The flashback cost is equal to that card's mana cost. (You may cast a card from your graveyard for its flashback cost. Then exile it.)"
+   },
+   {
+    "do": [
+     {
+      "castFromGy": {
+       "all": true,
+       "exileAfter": true,
+       "filter": {
+        "type": [
+         "Instant",
+         "Sorcery"
+        ]
+       },
+       "until": "thisTurn"
+      }
+     }
+    ],
+    "filter": {
+     "type": [
+      "Instant",
+      "Sorcery"
+     ]
+    },
+    "on": "resolved",
+    "text": "During your turn, each non-Lesson instant and sorcery card in your graveyard has flashback. The flashback cost is equal to that card's mana cost. (You may cast a card from your graveyard for its flashback cost. Then exile it.)"
+   },
+   {
+    "do": [
+     {
+      "castFromGy": {
+       "all": true,
+       "exileAfter": true,
+       "filter": {
+        "type": [
+         "Instant",
+         "Sorcery"
+        ]
+       },
+       "until": "thisTurn"
+      }
+     }
+    ],
+    "on": "discarded",
+    "text": "During your turn, each non-Lesson instant and sorcery card in your graveyard has flashback. The flashback cost is equal to that card's mana cost. (You may cast a card from your graveyard for its flashback cost. Then exile it.)"
+   },
+   {
+    "do": [
+     {
+      "castFromGy": {
+       "all": true,
+       "exileAfter": true,
+       "filter": {
+        "type": [
+         "Instant",
+         "Sorcery"
+        ]
+       },
+       "until": "thisTurn"
+      }
+     }
+    ],
+    "on": "surveiled",
+    "text": "During your turn, each non-Lesson instant and sorcery card in your graveyard has flashback. The flashback cost is equal to that card's mana cost. (You may cast a card from your graveyard for its flashback cost. Then exile it.)"
+   }
+  ]
+ },
+ "Island": {
+  "name": "Island",
+  "source": "({T}: Add {U}.)",
+  "status": "auto"
+ },
+ "Jasmine Dragon Tea Shop": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{5}",
+     "tap": true
+    },
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Ally",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Ally"
+       ]
+      }
+     }
+    ],
+    "text": "{5}, {T}: Create a 1/1 white Ally creature token."
+   }
+  ],
+  "name": "Jasmine Dragon Tea Shop",
+  "source": "{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast an Ally spell or activate an ability of an Ally source.\n{5}, {T}: Create a 1/1 white Ally creature token.",
+  "status": "auto"
+ },
+ "Katara, Bending Prodigy": {
+  "activated": [
+   {
+    "cost": {
+     "waterbend": "{6}"
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "label": "Draw",
+    "text": "Waterbend {6}: Draw a card."
+   }
+  ],
+  "name": "Katara, Bending Prodigy",
+  "source": "At the beginning of your end step, if Katara is tapped, put a +1/+1 counter on her.\nWaterbend {6}: Draw a card. (While paying a waterbend cost, you can tap your artifacts and creatures to help. Each one pays for {1}.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "if": {
+     "youControl": {
+      "name": "Katara, Bending Prodigy",
+      "tapped": true
+     }
+    },
+    "on": "endStep",
+    "text": "At the beginning of your end step, if Katara is tapped, put a +1/+1 counter on her."
+   }
+  ]
+ },
+ "Katara, Water Tribe's Hope": {
+  "activated": [
+   {
+    "cost": {},
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "pay": {
+            "waterbend": "{1}"
+           }
+          },
+          {
+           "setBase": {
+            "p": 1,
+            "t": 1,
+            "target": "each-creature-you-control",
+            "until": "eot"
+           }
+          }
+         ],
+         "label": "X = 1",
+         "value": 1
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "waterbend": "{2}"
+           }
+          },
+          {
+           "setBase": {
+            "p": 2,
+            "t": 2,
+            "target": "each-creature-you-control",
+            "until": "eot"
+           }
+          }
+         ],
+         "label": "X = 2",
+         "value": 2
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "waterbend": "{3}"
+           }
+          },
+          {
+           "setBase": {
+            "p": 3,
+            "t": 3,
+            "target": "each-creature-you-control",
+            "until": "eot"
+           }
+          }
+         ],
+         "label": "X = 3",
+         "value": 3
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "waterbend": "{4}"
+           }
+          },
+          {
+           "setBase": {
+            "p": 4,
+            "t": 4,
+            "target": "each-creature-you-control",
+            "until": "eot"
+           }
+          }
+         ],
+         "label": "X = 4",
+         "value": 4
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "waterbend": "{5}"
+           }
+          },
+          {
+           "setBase": {
+            "p": 5,
+            "t": 5,
+            "target": "each-creature-you-control",
+            "until": "eot"
+           }
+          }
+         ],
+         "label": "X = 5",
+         "value": 5
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "waterbend": "{6}"
+           }
+          },
+          {
+           "setBase": {
+            "p": 6,
+            "t": 6,
+            "target": "each-creature-you-control",
+            "until": "eot"
+           }
+          }
+         ],
+         "label": "X = 6",
+         "value": 6
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "waterbend": "{7}"
+           }
+          },
+          {
+           "setBase": {
+            "p": 7,
+            "t": 7,
+            "target": "each-creature-you-control",
+            "until": "eot"
+           }
+          }
+         ],
+         "label": "X = 7",
+         "value": 7
+        },
+        {
+         "do": [
+          {
+           "pay": {
+            "waterbend": "{8}"
+           }
+          },
+          {
+           "setBase": {
+            "p": 8,
+            "t": 8,
+            "target": "each-creature-you-control",
+            "until": "eot"
+           }
+          }
+         ],
+         "label": "X = 8",
+         "value": 8
+        }
+       ],
+       "text": "Waterbend {X}: choose X (1–8)"
+      }
+     }
+    ],
+    "label": "Waterbend X",
+    "text": "Waterbend {X}: Creatures you control have base power and toughness X/X until end of turn. X can't be 0. Activate only during your turn."
+   }
+  ],
+  "name": "Katara, Water Tribe's Hope",
+  "notes": "X is chosen from 1–8; the waterbend {X} is paid (mana, then tapping artifacts/creatures) after choosing. Every turn is yours in goldfish.",
+  "source": "Vigilance\nWhen Katara enters, create a 1/1 white Ally creature token.\nWaterbend {X}: Creatures you control have base power and toughness X/X until end of turn. X can't be 0. Activate only during your turn. (While paying a waterbend cost, you can tap your artifacts and creatures to help. Each one pays for {1}.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "W"
+       ],
+       "n": 1,
+       "name": "Ally",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Ally"
+       ]
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Katara enters, create a 1/1 white Ally creature token."
+   }
+  ]
+ },
+ "Katara, the Fearless": {
+  "name": "Katara, the Fearless",
+  "notes": "Not modelled: trigger doubling (\"triggers an additional time\") has no script form; resolve Ally triggers twice yourself.",
+  "source": "If a triggered ability of an Ally you control triggers, that ability triggers an additional time.",
+  "status": "hand"
+ },
+ "Kyoshi Island Plaza": {
+  "name": "Kyoshi Island Plaza",
+  "source": "When Kyoshi Island Plaza enters, search your library for up to X basic land cards, where X is the number of Shrines you control. Put those cards onto the battlefield tapped, then shuffle.\nWhenever another Shrine you control enters, search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "ramp": {
+       "filter": "basic",
+       "n": {
+        "count": {
+         "subtype": "Shrine"
+        }
+       },
+       "tapped": true
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Kyoshi Island Plaza enters, search your library for up to X basic land cards, where X is the number of Shrines you control. Put those cards onto the battlefield tapped, then shuffle."
+   },
+   {
+    "do": [
+     {
+      "ramp": {
+       "filter": "basic",
+       "tapped": true
+      }
+     }
+    ],
+    "filter": {
+     "other": true,
+     "subtype": "Shrine"
+    },
+    "on": "enters",
+    "text": "Whenever another Shrine you control enters, search your library for a basic land card, put it onto the battlefield tapped, then shuffle."
+   }
+  ]
+ },
+ "Kyoshi Village": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{4}",
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "{4}, {T}, Sacrifice this land: Draw a card."
+   }
+  ],
+  "name": "Kyoshi Village",
+  "source": "This land enters tapped.\n{T}: Add {G} or {W}.\n{4}, {T}, Sacrifice this land: Draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "Meditation Pools": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{4}",
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "{4}, {T}, Sacrifice this land: Draw a card."
+   }
+  ],
+  "name": "Meditation Pools",
+  "source": "This land enters tapped.\n{T}: Add {G} or {U}.\n{4}, {T}, Sacrifice this land: Draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "Monk Gyatso": {
+  "name": "Monk Gyatso",
+  "source": "Whenever another creature you control becomes the target of a spell or ability, you may airbend that creature. (Exile it. While it's exiled, its owner may cast it for {2} rather than its mana cost.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "airbend": {
+       "target": "triggering"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "other": true
+    },
+    "on": "targeted",
+    "optional": true,
+    "text": "Whenever another creature you control becomes the target of a spell or ability, you may airbend that creature."
+   }
+  ]
+ },
+ "Mountain": {
+  "name": "Mountain",
+  "source": "({T}: Add {R}.)",
+  "status": "auto"
+ },
+ "Mystic Remora": {
+  "name": "Mystic Remora",
+  "notes": "The dummy never casts spells, so the draw trigger never fires.",
+  "source": "Cumulative upkeep {1} (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)\nWhenever an opponent casts a noncreature spell, you may draw a card unless that player pays {4}.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "age",
+       "n": 1,
+       "target": "self"
+      }
+     },
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [],
+         "label": "Pay {1} per age counter (tap the mana yourself)"
+        },
+        {
+         "do": [
+          {
+           "sacrifice": {
+            "target": "self"
+           }
+          }
+         ],
+         "label": "Sacrifice it"
+        }
+       ],
+       "text": "Cumulative upkeep {1}: pay {1} for each age counter or sacrifice it."
+      }
+     }
+    ],
+    "on": "upkeep",
+    "text": "Cumulative upkeep {1} (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)"
+   }
+  ]
+ },
+ "North Pole Gates": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{4}",
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "{4}, {T}, Sacrifice this land: Draw a card."
+   }
+  ],
+  "name": "North Pole Gates",
+  "source": "This land enters tapped.\n{T}: Add {W} or {U}.\n{4}, {T}, Sacrifice this land: Draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "North Pole Patrol": {
+  "activated": [
+   {
+    "cost": {
+     "tap": true
+    },
+    "do": [
+     {
+      "untap": {
+       "target": {
+        "pick": {
+         "other": true
+        }
+       }
+      }
+     }
+    ],
+    "label": "Untap",
+    "text": "{T}: Untap another target permanent you control."
+   },
+   {
+    "cost": {
+     "tap": true,
+     "waterbend": "{3}"
+    },
+    "do": [
+     {
+      "tap": {
+       "target": "opponent"
+      }
+     }
+    ],
+    "label": "Tap opponent's creature",
+    "text": "Waterbend {3}, {T}: Tap target creature an opponent controls."
+   }
+  ],
+  "name": "North Pole Patrol",
+  "source": "{T}: Untap another target permanent you control.\nWaterbend {3}, {T}: Tap target creature an opponent controls. (While paying a waterbend cost, you can tap your artifacts and creatures to help. Each one pays for {1}.)",
+  "status": "hand"
+ },
+ "Omashu City": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{4}",
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "{4}, {T}, Sacrifice this land: Draw a card."
+   }
+  ],
+  "name": "Omashu City",
+  "source": "This land enters tapped.\n{T}: Add {R} or {G}.\n{4}, {T}, Sacrifice this land: Draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "Origin of Metalbending": {
+  "name": "Origin of Metalbending",
+  "notes": "The dummy has no artifacts or enchantments, so the destroy mode can only hit yours. The second mode asks twice: pick the same creature.",
+  "source": "Choose one —\n• Destroy target artifact or enchantment.\n• Put a +1/+1 counter on target creature you control. It gains indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy it.)",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "pick": {
+            "type": [
+             "Artifact",
+             "Enchantment"
+            ]
+           }
+          }
+         }
+        }
+       ],
+       "label": "Destroy target artifact or enchantment."
+      },
+      {
+       "do": [
+        {
+         "counters": {
+          "kind": "p1p1",
+          "n": 1,
+          "target": "creature-you-control"
+         }
+        },
+        {
+         "grant": {
+          "kw": [
+           "Indestructible"
+          ],
+          "target": "creature-you-control"
+         }
+        }
+       ],
+       "label": "Put a +1/+1 counter on target creature you control. It gains indestructible until end of turn."
+      }
+     ],
+     "text": "Choose one —"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Plains": {
+  "name": "Plains",
+  "source": "({T}: Add {W}.)",
+  "status": "auto"
+ },
+ "Return of the Wildspeaker": {
+  "name": "Return of the Wildspeaker",
+  "notes": "The greatest non-Human power is found by a search over \"you control a non-Human with power ≥ k\" (exact up to 63).",
+  "source": "Choose one —\n• Draw cards equal to the greatest power among non-Human creatures you control.\n• Non-Human creatures you control get +3/+3 until end of turn.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "check": {
+          "do": [
+           {
+            "check": {
+             "do": [
+              {
+               "check": {
+                "do": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 63
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 62
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 63
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "else": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 61
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 60
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 61
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "if": {
+                       "youControl": {
+                        "creature": true,
+                        "not": {
+                         "subtype": "Human"
+                        },
+                        "powerGe": 62
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 59
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 58
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 59
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "else": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 57
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 56
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 57
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "if": {
+                       "youControl": {
+                        "creature": true,
+                        "not": {
+                         "subtype": "Human"
+                        },
+                        "powerGe": 58
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "youControl": {
+                     "creature": true,
+                     "not": {
+                      "subtype": "Human"
+                     },
+                     "powerGe": 60
+                    }
+                   }
+                  }
+                 }
+                ],
+                "else": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 55
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 54
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 55
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "else": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 53
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 52
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 53
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "if": {
+                       "youControl": {
+                        "creature": true,
+                        "not": {
+                         "subtype": "Human"
+                        },
+                        "powerGe": 54
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 51
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 50
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 51
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "else": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 49
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 48
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 49
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "if": {
+                       "youControl": {
+                        "creature": true,
+                        "not": {
+                         "subtype": "Human"
+                        },
+                        "powerGe": 50
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "youControl": {
+                     "creature": true,
+                     "not": {
+                      "subtype": "Human"
+                     },
+                     "powerGe": 52
+                    }
+                   }
+                  }
+                 }
+                ],
+                "if": {
+                 "youControl": {
+                  "creature": true,
+                  "not": {
+                   "subtype": "Human"
+                  },
+                  "powerGe": 56
+                 }
+                }
+               }
+              }
+             ],
+             "else": [
+              {
+               "check": {
+                "do": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 47
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 46
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 47
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "else": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 45
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 44
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 45
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "if": {
+                       "youControl": {
+                        "creature": true,
+                        "not": {
+                         "subtype": "Human"
+                        },
+                        "powerGe": 46
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 43
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 42
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 43
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "else": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 41
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 40
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 41
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "if": {
+                       "youControl": {
+                        "creature": true,
+                        "not": {
+                         "subtype": "Human"
+                        },
+                        "powerGe": 42
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "youControl": {
+                     "creature": true,
+                     "not": {
+                      "subtype": "Human"
+                     },
+                     "powerGe": 44
+                    }
+                   }
+                  }
+                 }
+                ],
+                "else": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 39
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 38
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 39
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "else": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 37
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 36
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 37
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "if": {
+                       "youControl": {
+                        "creature": true,
+                        "not": {
+                         "subtype": "Human"
+                        },
+                        "powerGe": 38
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 35
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 34
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 35
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "else": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 33
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 32
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 33
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "if": {
+                       "youControl": {
+                        "creature": true,
+                        "not": {
+                         "subtype": "Human"
+                        },
+                        "powerGe": 34
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "youControl": {
+                     "creature": true,
+                     "not": {
+                      "subtype": "Human"
+                     },
+                     "powerGe": 36
+                    }
+                   }
+                  }
+                 }
+                ],
+                "if": {
+                 "youControl": {
+                  "creature": true,
+                  "not": {
+                   "subtype": "Human"
+                  },
+                  "powerGe": 40
+                 }
+                }
+               }
+              }
+             ],
+             "if": {
+              "youControl": {
+               "creature": true,
+               "not": {
+                "subtype": "Human"
+               },
+               "powerGe": 48
+              }
+             }
+            }
+           }
+          ],
+          "else": [
+           {
+            "check": {
+             "do": [
+              {
+               "check": {
+                "do": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 31
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 30
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 31
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "else": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 29
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 28
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 29
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "if": {
+                       "youControl": {
+                        "creature": true,
+                        "not": {
+                         "subtype": "Human"
+                        },
+                        "powerGe": 30
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 27
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 26
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 27
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "else": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 25
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 24
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 25
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "if": {
+                       "youControl": {
+                        "creature": true,
+                        "not": {
+                         "subtype": "Human"
+                        },
+                        "powerGe": 26
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "youControl": {
+                     "creature": true,
+                     "not": {
+                      "subtype": "Human"
+                     },
+                     "powerGe": 28
+                    }
+                   }
+                  }
+                 }
+                ],
+                "else": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 23
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 22
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 23
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "else": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 21
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 20
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 21
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "if": {
+                       "youControl": {
+                        "creature": true,
+                        "not": {
+                         "subtype": "Human"
+                        },
+                        "powerGe": 22
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 19
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 18
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 19
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "else": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 17
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 16
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 17
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "if": {
+                       "youControl": {
+                        "creature": true,
+                        "not": {
+                         "subtype": "Human"
+                        },
+                        "powerGe": 18
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "youControl": {
+                     "creature": true,
+                     "not": {
+                      "subtype": "Human"
+                     },
+                     "powerGe": 20
+                    }
+                   }
+                  }
+                 }
+                ],
+                "if": {
+                 "youControl": {
+                  "creature": true,
+                  "not": {
+                   "subtype": "Human"
+                  },
+                  "powerGe": 24
+                 }
+                }
+               }
+              }
+             ],
+             "else": [
+              {
+               "check": {
+                "do": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 15
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 14
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 15
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "else": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 13
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 12
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 13
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "if": {
+                       "youControl": {
+                        "creature": true,
+                        "not": {
+                         "subtype": "Human"
+                        },
+                        "powerGe": 14
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 11
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 10
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 11
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "else": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 9
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 8
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 9
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "if": {
+                       "youControl": {
+                        "creature": true,
+                        "not": {
+                         "subtype": "Human"
+                        },
+                        "powerGe": 10
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "youControl": {
+                     "creature": true,
+                     "not": {
+                      "subtype": "Human"
+                     },
+                     "powerGe": 12
+                    }
+                   }
+                  }
+                 }
+                ],
+                "else": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 7
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 6
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 7
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "else": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 5
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 4
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 5
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "if": {
+                       "youControl": {
+                        "creature": true,
+                        "not": {
+                         "subtype": "Human"
+                        },
+                        "powerGe": 6
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 3
+                          }
+                         ],
+                         "else": [
+                          {
+                           "draw": 2
+                          }
+                         ],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 3
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "else": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "draw": 1
+                          }
+                         ],
+                         "else": [],
+                         "if": {
+                          "youControl": {
+                           "creature": true,
+                           "not": {
+                            "subtype": "Human"
+                           },
+                           "powerGe": 1
+                          }
+                         }
+                        }
+                       }
+                      ],
+                      "if": {
+                       "youControl": {
+                        "creature": true,
+                        "not": {
+                         "subtype": "Human"
+                        },
+                        "powerGe": 2
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "youControl": {
+                     "creature": true,
+                     "not": {
+                      "subtype": "Human"
+                     },
+                     "powerGe": 4
+                    }
+                   }
+                  }
+                 }
+                ],
+                "if": {
+                 "youControl": {
+                  "creature": true,
+                  "not": {
+                   "subtype": "Human"
+                  },
+                  "powerGe": 8
+                 }
+                }
+               }
+              }
+             ],
+             "if": {
+              "youControl": {
+               "creature": true,
+               "not": {
+                "subtype": "Human"
+               },
+               "powerGe": 16
+              }
+             }
+            }
+           }
+          ],
+          "if": {
+           "youControl": {
+            "creature": true,
+            "not": {
+             "subtype": "Human"
+            },
+            "powerGe": 32
+           }
+          }
+         }
+        }
+       ],
+       "label": "Draw cards equal to the greatest power among non-Human creatures you control."
+      },
+      {
+       "do": [
+        {
+         "pump": {
+          "p": 3,
+          "t": 3,
+          "target": {
+           "each": {
+            "creature": true,
+            "not": {
+             "subtype": "Human"
+            }
+           }
+          }
+         }
+        }
+       ],
+       "label": "Non-Human creatures you control get +3/+3 until end of turn."
+      }
+     ],
+     "text": "Choose one —"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Rumble Arena": {
+  "name": "Rumble Arena",
+  "source": "Vigilance\nWhen this land enters, scry 1. (Look at the top card of your library. You may put it on the bottom.)\n{T}: Add {C}.\n{1}, {T}: Add one mana of any color.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "scry": 1
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this land enters, scry 1."
+   }
+  ]
+ },
+ "Sandbenders' Storm": {
+  "name": "Sandbenders' Storm",
+  "notes": "The dummy has no creatures, so the destroy mode can only hit yours.",
+  "source": "Choose one —\n• Destroy target creature with power 4 or greater.\n• Earthbend 3. (Target land you control becomes a 0/0 creature with haste that's still a land. Put three +1/+1 counters on it. When it dies or is exiled, return it to the battlefield tapped.)",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "pick": {
+            "creature": true,
+            "powerGe": 4
+           }
+          }
+         }
+        }
+       ],
+       "label": "Destroy target creature with power 4 or greater."
+      },
+      {
+       "do": [
+        {
+         "earthbend": {
+          "n": 3
+         }
+        }
+       ],
+       "label": "Earthbend 3."
+      }
+     ],
+     "text": "Choose one —"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Sokka, Lateral Strategist": {
+  "name": "Sokka, Lateral Strategist",
+  "source": "Vigilance\nWhenever Sokka and at least one other creature attack, draw a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "if": {
+     "youControl": {
+      "attacking": true,
+      "creature": true,
+      "other": true
+     }
+    },
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever Sokka and at least one other creature attack, draw a card."
+   }
+  ]
+ },
+ "Sol Ring": {
+  "name": "Sol Ring",
+  "source": "{T}: Add {C}{C}.",
+  "status": "auto"
+ },
+ "Southern Air Temple": {
+  "name": "Southern Air Temple",
+  "source": "When Southern Air Temple enters, put X +1/+1 counters on each creature you control, where X is the number of Shrines you control.\nWhenever another Shrine you control enters, put a +1/+1 counter on each creature you control.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": {
+        "count": {
+         "subtype": "Shrine"
+        }
+       },
+       "target": "each-creature-you-control"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Southern Air Temple enters, put X +1/+1 counters on each creature you control, where X is the number of Shrines you control."
+   },
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "each-creature-you-control"
+      }
+     }
+    ],
+    "filter": {
+     "other": true,
+     "subtype": "Shrine"
+    },
+    "on": "enters",
+    "text": "Whenever another Shrine you control enters, put a +1/+1 counter on each creature you control."
+   }
+  ]
+ },
+ "Suki, Courageous Rescuer": {
+  "name": "Suki, Courageous Rescuer",
+  "source": "Other creatures you control get +1/+0.\nWhenever another permanent you control leaves the battlefield during your turn, create a 1/1 white Ally creature token. This ability triggers only once each turn.",
+  "statics": [
+   {
+    "p": 1,
+    "scope": "other-creatures-you-control",
+    "t": 0,
+    "text": "Other creatures you control get +1/+0."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Ally",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Ally"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "other": true
+    },
+    "limit": "once-per-turn",
+    "on": "leaves",
+    "text": "Whenever another permanent you control leaves the battlefield during your turn, create a 1/1 white Ally creature token. This ability triggers only once each turn."
+   }
+  ]
+ },
+ "Suki, Kyoshi Warrior": {
+  "name": "Suki, Kyoshi Warrior",
+  "notes": "The engine can't add an attacker after attacks are declared: the token is created tapped and its 1 damage is dealt to the dummy as the trigger resolves.",
+  "source": "Suki's power is equal to the number of creatures you control.\nWhenever Suki attacks, create a 1/1 white Ally creature token that's tapped and attacking.",
+  "statics": [
+   {
+    "p": "count:creatures-you-control",
+    "scope": "self",
+    "text": "Suki's power is equal to the number of creatures you control."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "W"
+       ],
+       "n": 1,
+       "name": "Ally",
+       "power": 1,
+       "tapped": true,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Ally"
+       ]
+      }
+     },
+     {
+      "damageOpp": 1
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever Suki attacks, create a 1/1 white Ally creature token that's tapped and attacking."
+   }
+  ]
+ },
+ "Sun Warriors": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{5}"
+    },
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Ally",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Ally"
+       ]
+      }
+     }
+    ],
+    "label": "Ally",
+    "text": "{5}: Create a 1/1 white Ally creature token."
+   }
+  ],
+  "name": "Sun Warriors",
+  "source": "Firebending X, where X is the number of creatures you control. (Whenever this creature attacks, add X {R}. This mana lasts until end of combat.)\n{5}: Create a 1/1 white Ally creature token.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "firebend": "count:creatures-you-control"
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Firebending X, where X is the number of creatures you control. (Whenever this creature attacks, add X {R}. This mana lasts until end of combat.)"
+   }
+  ]
+ },
+ "Sun-Blessed Peak": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{4}",
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "{4}, {T}, Sacrifice this land: Draw a card."
+   }
+  ],
+  "name": "Sun-Blessed Peak",
+  "source": "This land enters tapped.\n{T}: Add {R} or {W}.\n{4}, {T}, Sacrifice this land: Draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "Sunbaked Canyon": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}",
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "{1}, {T}, Sacrifice this land: Draw a card."
+   }
+  ],
+  "name": "Sunbaked Canyon",
+  "source": "{T}, Pay 1 life: Add {R} or {W}.\n{1}, {T}, Sacrifice this land: Draw a card.",
+  "status": "auto"
+ },
+ "Swiftfoot Boots": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}"
+    },
+    "do": [
+     {
+      "attach": {}
+     }
+    ],
+    "label": "Equip",
+    "limit": "sorcery-speed",
+    "text": "Equip {1}"
+   }
+  ],
+  "name": "Swiftfoot Boots",
+  "notes": "Equip attaches it; the attached creature has hexproof and haste.",
+  "source": "Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T} no matter when it came under your control.)\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+  "statics": [
+   {
+    "kw": [
+     "Hexproof",
+     "Haste"
+    ],
+    "scope": "attached",
+    "text": "Equipped creature has hexproof and haste."
+   }
+  ],
+  "status": "hand"
+ },
+ "Tarnished Citadel": {
+  "name": "Tarnished Citadel",
+  "source": "{T}: Add {C}.\n{T}: Add one mana of any color. This land deals 3 damage to you.",
+  "status": "auto"
+ },
+ "Teferi's Protection": {
+  "name": "Teferi's Protection",
+  "notes": "Silent apart from exiling itself: life lock, protection and phasing only matter against an opponent.",
+  "source": "Until your next turn, your life total can't change and you gain protection from everything. All permanents you control phase out. (While they're phased out, they're treated as though they don't exist. They phase in before you untap during your untap step.)\nExile Teferi's Protection.",
+  "spell": [
+   {
+    "exileFromGy": {
+     "filter": {
+      "name": "Teferi's Protection"
+     },
+     "n": 1
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "The Legend of Kyoshi // Avatar Kyoshi": {
+  "back": {
+   "activated": [
+    {
+     "cost": {
+      "tap": true
+     },
+     "do": [
+      {
+       "addMana": {
+        "mana": "{any}",
+        "n": "greatest:power-you-control"
+       }
+      }
+     ],
+     "label": "{T}: X mana",
+     "text": "{T}: Add X mana of any one color, where X is the greatest power among creatures you control."
+    }
+   ],
+   "statics": [
+    {
+     "kw": [
+      "Trample",
+      "Hexproof"
+     ],
+     "scope": "lands-you-control",
+     "text": "Lands you control have trample and hexproof."
+    }
+   ]
+  },
+  "name": "The Legend of Kyoshi // Avatar Kyoshi",
+  "notes": "Chapter III transforms the Saga in place (listed as III/IV so the engine's final-chapter sacrifice never fires); the creature is not summoning sick afterwards (a returned permanent would be). Chapter II: pick the earthbent land for the Island type (it gets the subtype; tapping for {U} is not modelled).",
+  "source": "(As this Saga enters and after your draw step, add a lore counter.)\nI — Draw cards equal to the greatest power among creatures you control.\nII — Earthbend X, where X is the number of cards in your hand. That land becomes an Island in addition to its other types.\nIII — Exile this Saga, then return it to the battlefield transformed under your control.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": "greatest:power-you-control"
+     }
+    ],
+    "n": 1,
+    "on": "chapter",
+    "text": "I — Draw cards equal to the greatest power among creatures you control."
+   },
+   {
+    "do": [
+     {
+      "earthbend": {
+       "n": "count:cards-in-hand"
+      }
+     },
+     {
+      "addSubtype": {
+       "subtype": "Island",
+       "target": {
+        "pick": {
+         "creature": true,
+         "land": true
+        }
+       }
+      }
+     }
+    ],
+    "n": 2,
+    "on": "chapter",
+    "text": "II — Earthbend X, where X is the number of cards in your hand. That land becomes an Island in addition to its other types."
+   },
+   {
+    "do": [
+     {
+      "transform": {
+       "target": "this"
+      }
+     }
+    ],
+    "n": [
+     3,
+     4
+    ],
+    "on": "chapter",
+    "text": "III — Exile this Saga, then return it to the battlefield transformed under your control."
+   }
+  ]
+ },
+ "The Legend of Roku // Avatar Roku": {
+  "back": {
+   "activated": [
+    {
+     "cost": {
+      "mana": "{8}"
+     },
+     "do": [
+      {
+       "token": {
+        "colors": [
+         "R"
+        ],
+        "kw": [
+         "Flying",
+         "Firebending"
+        ],
+        "n": 1,
+        "name": "Dragon",
+        "power": 4,
+        "toughness": 4,
+        "types": [
+         "Creature",
+         "Dragon"
+        ]
+       }
+      }
+     ],
+     "label": "Dragon",
+     "text": "{8}: Create a 4/4 red Dragon creature token with flying and firebending 4."
+    }
+   ],
+   "triggers": [
+    {
+     "do": [
+      {
+       "firebend": 4
+      }
+     ],
+     "on": "attacks",
+     "self": true,
+     "text": "Firebending 4 (Whenever this creature attacks, add {R}{R}{R}{R}. This mana lasts until end of combat.)"
+    },
+    {
+     "do": [
+      {
+       "firebend": 4
+      }
+     ],
+     "filter": {
+      "keyword": "Firebending",
+      "subtype": "Dragon",
+      "token": true
+     },
+     "on": "attacks",
+     "text": "{8}: Create a 4/4 red Dragon creature token with flying and firebending 4."
+    }
+   ]
+  },
+  "name": "The Legend of Roku // Avatar Roku",
+  "notes": "Chapter III transforms the Saga in place (listed as III/IV so the engine's final-chapter sacrifice never fires); the creature is not summoning sick afterwards (a returned permanent would be). The Dragon tokens' firebending 4 runs from this card's script.",
+  "source": "(As this Saga enters and after your draw step, add a lore counter.)\nI — Exile the top three cards of your library. Until the end of your next turn, you may play those cards.\nII — Add one mana of any color.\nIII — Exile this Saga, then return it to the battlefield transformed under your control.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "exileTop": {
+       "n": 3,
+       "play": "nextTurn"
+      }
+     }
+    ],
+    "n": 1,
+    "on": "chapter",
+    "text": "I — Exile the top three cards of your library. Until the end of your next turn, you may play those cards."
+   },
+   {
+    "do": [
+     {
+      "addMana": "{any}"
+     }
+    ],
+    "n": 2,
+    "on": "chapter",
+    "text": "II — Add one mana of any color."
+   },
+   {
+    "do": [
+     {
+      "transform": {
+       "target": "this"
+      }
+     }
+    ],
+    "n": [
+     3,
+     4
+    ],
+    "on": "chapter",
+    "text": "III — Exile this Saga, then return it to the battlefield transformed under your control."
+   }
+  ]
+ },
+ "The Legend of Yangchen // Avatar Yangchen": {
+  "back": {
+   "statics": [
+    {
+     "kw": [
+      "Flying"
+     ],
+     "scope": "self",
+     "text": "Flying"
+    }
+   ],
+   "triggers": [
+    {
+     "do": [
+      {
+       "airbend": {
+        "target": {
+         "optional": true,
+         "pick": {
+          "nonland": true,
+          "other": true
+         }
+        }
+       }
+      }
+     ],
+     "if": {
+      "thisTurn": {
+       "eq": 2,
+       "fact": "spellsCast"
+      }
+     },
+     "on": "cast",
+     "text": "Whenever you cast your second spell each turn, airbend up to one other target nonland permanent. (Exile it. While it's exiled, its owner may cast it for {2} rather than its mana cost.)"
+    }
+   ]
+  },
+  "name": "The Legend of Yangchen // Avatar Yangchen",
+  "notes": "Chapter III transforms the Saga in place (listed as III/IV so the engine's final-chapter sacrifice never fires); the creature is not summoning sick afterwards (a returned permanent would be). Chapter I and the opponent's three cards only concern the dummy.",
+  "source": "(As this Saga enters and after your draw step, add a lore counter.)\nI — Starting with you, each player chooses up to one permanent with mana value 3 or greater from among permanents your opponents control. Exile those permanents.\nII — You may have target opponent draw three cards. If you do, draw three cards.\nIII — Exile this Saga, then return it to the battlefield transformed under your control.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "exile": {
+       "target": "opponent"
+      }
+     }
+    ],
+    "n": 1,
+    "on": "chapter",
+    "text": "I — Starting with you, each player chooses up to one permanent with mana value 3 or greater from among permanents your opponents control. Exile those permanents."
+   },
+   {
+    "do": [
+     {
+      "draw": 3
+     }
+    ],
+    "n": 2,
+    "on": "chapter",
+    "optional": true,
+    "text": "II — You may have target opponent draw three cards. If you do, draw three cards."
+   },
+   {
+    "do": [
+     {
+      "transform": {
+       "target": "this"
+      }
+     }
+    ],
+    "n": [
+     3,
+     4
+    ],
+    "on": "chapter",
+    "text": "III — Exile this Saga, then return it to the battlefield transformed under your control."
+   }
+  ]
+ },
+ "The Spirit Oasis": {
+  "name": "The Spirit Oasis",
+  "source": "When The Spirit Oasis enters, draw a card for each Shrine you control.\nWhenever another Shrine you control enters, draw a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": {
+       "count": {
+        "subtype": "Shrine"
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When The Spirit Oasis enters, draw a card for each Shrine you control."
+   },
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "other": true,
+     "subtype": "Shrine"
+    },
+    "on": "enters",
+    "text": "Whenever another Shrine you control enters, draw a card."
+   }
+  ]
+ },
+ "Toph, Earthbending Master": {
+  "name": "Toph, Earthbending Master",
+  "notes": "Experience counters are player counters (shared with Zuko). Earthbend 0 makes a 0/0 land that dies at once (destroyed here, then it returns tapped).",
+  "source": "Landfall — Whenever a land you control enters, you get an experience counter.\nWhenever you attack, earthbend X, where X is the number of experience counters you have. (Target land you control becomes a 0/0 creature with haste that's still a land. Put X +1/+1 counters on it. When it dies or is exiled, return it to the battlefield tapped.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "experience",
+       "n": 1,
+       "target": "you"
+      }
+     }
+    ],
+    "filter": {
+     "land": true
+    },
+    "on": "enters",
+    "text": "Landfall — Whenever a land you control enters, you get an experience counter."
+   },
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "earthbend": {
+          "n": {
+           "of": "you",
+           "stat": "counters.experience"
+          }
+         }
+        }
+       ],
+       "else": [
+        {
+         "earthbend": {
+          "n": 0
+         }
+        },
+        {
+         "destroy": {
+          "target": {
+           "each": {
+            "creature": true,
+            "land": true,
+            "not": {
+             "toughnessGe": 1
+            }
+           }
+          }
+         }
+        }
+       ],
+       "if": {
+        "youHaveCounters": {
+         "ge": 1,
+         "kind": "experience"
+        }
+       }
+      }
+     }
+    ],
+    "on": "attacks",
+    "text": "Whenever you attack, earthbend X, where X is the number of experience counters you have."
+   }
+  ]
+ },
+ "Toph, the First Metalbender": {
+  "name": "Toph, the First Metalbender",
+  "notes": "Artifact creatures are left out (the type change would reset their power and toughness); this deck has none.",
+  "source": "Nontoken artifacts you control are lands in addition to their other types. (They don't gain the ability to {T} for mana.)\nAt the beginning of your end step, earthbend 2. (Target land you control becomes a 0/0 creature with haste that's still a land. Put two +1/+1 counters on it. When it dies or is exiled, return it to the battlefield tapped.)",
+  "statics": [
+   {
+    "animate": {
+     "p": 0,
+     "t": 0,
+     "types": [
+      "Land"
+     ]
+    },
+    "filter": {
+     "noncreature": true,
+     "nontoken": true
+    },
+    "scope": "artifacts-you-control",
+    "text": "Nontoken artifacts you control are lands in addition to their other types. (They don't gain the ability to {T} for mana.)"
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "earthbend": {
+       "n": 2
+      }
+     }
+    ],
+    "on": "endStep",
+    "text": "At the beginning of your end step, earthbend 2."
+   }
+  ]
+ },
+ "Wan Shi Tong, Librarian": {
+  "name": "Wan Shi Tong, Librarian",
+  "notes": "Half X is read from his +1/+1 counters right after they are put on him. The dummy never searches its library.",
+  "source": "Flash\nFlying, vigilance\nWhen Wan Shi Tong enters, put X +1/+1 counters on him. Then draw half X cards, rounded down.\nWhenever an opponent searches their library, put a +1/+1 counter on Wan Shi Tong and draw a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": "X",
+       "target": "self"
+      }
+     },
+     {
+      "check": {
+       "do": [
+        {
+         "check": {
+          "do": [
+           {
+            "check": {
+             "do": [
+              {
+               "check": {
+                "do": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 31
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 31
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 63,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 30
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 30
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 61,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "counters": {
+                     "ge": 62,
+                     "kind": "p1p1"
+                    }
+                   }
+                  }
+                 }
+                ],
+                "else": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 29
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 29
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 59,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 28
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 28
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 57,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "counters": {
+                     "ge": 58,
+                     "kind": "p1p1"
+                    }
+                   }
+                  }
+                 }
+                ],
+                "if": {
+                 "counters": {
+                  "ge": 60,
+                  "kind": "p1p1"
+                 }
+                }
+               }
+              }
+             ],
+             "else": [
+              {
+               "check": {
+                "do": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 27
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 27
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 55,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 26
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 26
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 53,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "counters": {
+                     "ge": 54,
+                     "kind": "p1p1"
+                    }
+                   }
+                  }
+                 }
+                ],
+                "else": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 25
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 25
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 51,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 24
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 24
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 49,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "counters": {
+                     "ge": 50,
+                     "kind": "p1p1"
+                    }
+                   }
+                  }
+                 }
+                ],
+                "if": {
+                 "counters": {
+                  "ge": 52,
+                  "kind": "p1p1"
+                 }
+                }
+               }
+              }
+             ],
+             "if": {
+              "counters": {
+               "ge": 56,
+               "kind": "p1p1"
+              }
+             }
+            }
+           }
+          ],
+          "else": [
+           {
+            "check": {
+             "do": [
+              {
+               "check": {
+                "do": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 23
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 23
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 47,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 22
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 22
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 45,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "counters": {
+                     "ge": 46,
+                     "kind": "p1p1"
+                    }
+                   }
+                  }
+                 }
+                ],
+                "else": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 21
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 21
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 43,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 20
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 20
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 41,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "counters": {
+                     "ge": 42,
+                     "kind": "p1p1"
+                    }
+                   }
+                  }
+                 }
+                ],
+                "if": {
+                 "counters": {
+                  "ge": 44,
+                  "kind": "p1p1"
+                 }
+                }
+               }
+              }
+             ],
+             "else": [
+              {
+               "check": {
+                "do": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 19
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 19
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 39,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 18
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 18
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 37,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "counters": {
+                     "ge": 38,
+                     "kind": "p1p1"
+                    }
+                   }
+                  }
+                 }
+                ],
+                "else": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 17
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 17
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 35,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 16
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 16
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 33,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "counters": {
+                     "ge": 34,
+                     "kind": "p1p1"
+                    }
+                   }
+                  }
+                 }
+                ],
+                "if": {
+                 "counters": {
+                  "ge": 36,
+                  "kind": "p1p1"
+                 }
+                }
+               }
+              }
+             ],
+             "if": {
+              "counters": {
+               "ge": 40,
+               "kind": "p1p1"
+              }
+             }
+            }
+           }
+          ],
+          "if": {
+           "counters": {
+            "ge": 48,
+            "kind": "p1p1"
+           }
+          }
+         }
+        }
+       ],
+       "else": [
+        {
+         "check": {
+          "do": [
+           {
+            "check": {
+             "do": [
+              {
+               "check": {
+                "do": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 15
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 15
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 31,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 14
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 14
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 29,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "counters": {
+                     "ge": 30,
+                     "kind": "p1p1"
+                    }
+                   }
+                  }
+                 }
+                ],
+                "else": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 13
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 13
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 27,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 12
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 12
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 25,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "counters": {
+                     "ge": 26,
+                     "kind": "p1p1"
+                    }
+                   }
+                  }
+                 }
+                ],
+                "if": {
+                 "counters": {
+                  "ge": 28,
+                  "kind": "p1p1"
+                 }
+                }
+               }
+              }
+             ],
+             "else": [
+              {
+               "check": {
+                "do": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 11
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 11
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 23,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 10
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 10
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 21,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "counters": {
+                     "ge": 22,
+                     "kind": "p1p1"
+                    }
+                   }
+                  }
+                 }
+                ],
+                "else": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 9
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 9
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 19,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 8
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 8
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 17,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "counters": {
+                     "ge": 18,
+                     "kind": "p1p1"
+                    }
+                   }
+                  }
+                 }
+                ],
+                "if": {
+                 "counters": {
+                  "ge": 20,
+                  "kind": "p1p1"
+                 }
+                }
+               }
+              }
+             ],
+             "if": {
+              "counters": {
+               "ge": 24,
+               "kind": "p1p1"
+              }
+             }
+            }
+           }
+          ],
+          "else": [
+           {
+            "check": {
+             "do": [
+              {
+               "check": {
+                "do": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 7
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 7
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 15,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 6
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 6
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 13,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "counters": {
+                     "ge": 14,
+                     "kind": "p1p1"
+                    }
+                   }
+                  }
+                 }
+                ],
+                "else": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 5
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 5
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 11,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 4
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 4
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 9,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "counters": {
+                     "ge": 10,
+                     "kind": "p1p1"
+                    }
+                   }
+                  }
+                 }
+                ],
+                "if": {
+                 "counters": {
+                  "ge": 12,
+                  "kind": "p1p1"
+                 }
+                }
+               }
+              }
+             ],
+             "else": [
+              {
+               "check": {
+                "do": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 3
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 3
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 7,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 2
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 2
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 5,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "counters": {
+                     "ge": 6,
+                     "kind": "p1p1"
+                    }
+                   }
+                  }
+                 }
+                ],
+                "else": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "draw": 1
+                       }
+                      ],
+                      "else": [
+                       {
+                        "draw": 1
+                       }
+                      ],
+                      "if": {
+                       "counters": {
+                        "ge": 3,
+                        "kind": "p1p1"
+                       }
+                      }
+                     }
+                    }
+                   ],
+                   "else": [],
+                   "if": {
+                    "counters": {
+                     "ge": 2,
+                     "kind": "p1p1"
+                    }
+                   }
+                  }
+                 }
+                ],
+                "if": {
+                 "counters": {
+                  "ge": 4,
+                  "kind": "p1p1"
+                 }
+                }
+               }
+              }
+             ],
+             "if": {
+              "counters": {
+               "ge": 8,
+               "kind": "p1p1"
+              }
+             }
+            }
+           }
+          ],
+          "if": {
+           "counters": {
+            "ge": 16,
+            "kind": "p1p1"
+           }
+          }
+         }
+        }
+       ],
+       "if": {
+        "counters": {
+         "ge": 32,
+         "kind": "p1p1"
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Wan Shi Tong enters, put X +1/+1 counters on him. Then draw half X cards, rounded down."
+   }
+  ]
+ },
+ "Wartime Protestors": {
+  "name": "Wartime Protestors",
+  "source": "Haste\nWhenever another Ally you control enters, put a +1/+1 counter on that creature and it gains haste until end of turn.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "triggering"
+      }
+     },
+     {
+      "grant": {
+       "kw": [
+        "Haste"
+       ],
+       "target": "triggering"
+      }
+     }
+    ],
+    "filter": {
+     "other": true,
+     "subtype": "Ally"
+    },
+    "on": "enters",
+    "text": "Whenever another Ally you control enters, put a +1/+1 counter on that creature and it gains haste until end of turn."
+   }
+  ]
+ },
+ "Waterbender Ascension": {
+  "activated": [
+   {
+    "cost": {
+     "waterbend": "{4}"
+    },
+    "do": [
+     {
+      "grant": {
+       "kw": [
+        "Can't be blocked"
+       ],
+       "target": "creature-you-control"
+      }
+     }
+    ],
+    "label": "Unblockable",
+    "text": "Waterbend {4}: Target creature can't be blocked this turn."
+   }
+  ],
+  "name": "Waterbender Ascension",
+  "notes": "The dummy never blocks, so the unblockable grant is cosmetic.",
+  "source": "Whenever a creature you control deals combat damage to a player, put a quest counter on this enchantment. Then if it has four or more quest counters on it, draw a card.\nWaterbend {4}: Target creature can't be blocked this turn. (While paying a waterbend cost, you can tap your artifacts and creatures to help. Each one pays for {1}.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "quest",
+       "n": 1,
+       "target": "self"
+      }
+     },
+     {
+      "check": {
+       "do": [
+        {
+         "draw": 1
+        }
+       ],
+       "if": {
+        "counters": {
+         "ge": 4,
+         "kind": "quest"
+        }
+       }
+      }
+     }
+    ],
+    "filter": {
+     "creature": true
+    },
+    "on": "combatDamage",
+    "text": "Whenever a creature you control deals combat damage to a player, put a quest counter on this enchantment. Then if it has four or more quest counters on it, draw a card."
+   }
+  ]
+ },
+ "Waterbending Lesson": {
+  "name": "Waterbending Lesson",
+  "source": "Draw three cards. Then discard a card unless you waterbend {2}. (While paying a waterbend cost, you can tap your artifacts and creatures to help. Each one pays for {1}.)",
+  "spell": [
+   {
+    "draw": 3
+   },
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "pay": {
+          "waterbend": "{2}"
+         }
+        }
+       ],
+       "label": "Waterbend {2}"
+      },
+      {
+       "do": [
+        {
+         "discard": 1
+        }
+       ],
+       "label": "Discard a card"
+      }
+     ],
+     "text": "Then discard a card unless you waterbend {2}."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "White Lotus Hideout": {
+  "name": "White Lotus Hideout",
+  "source": "{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a Lesson or Shrine spell.\n{1}, {T}: Add one mana of any color.",
+  "status": "auto"
+ },
+ "White Lotus Reinforcements": {
+  "name": "White Lotus Reinforcements",
+  "source": "Vigilance\nOther Allies you control get +1/+1.",
+  "statics": [
+   {
+    "filter": {
+     "subtype": "Ally"
+    },
+    "p": 1,
+    "scope": "other-creatures-you-control",
+    "t": 1,
+    "text": "Other Allies you control get +1/+1."
+   }
+  ],
+  "status": "hand"
+ },
+ "Zuko, Exiled Prince": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{3}"
+    },
+    "do": [
+     {
+      "exileTop": {
+       "n": 1,
+       "play": "thisTurn"
+      }
+     }
+    ],
+    "label": "Exile top",
+    "text": "{3}: Exile the top card of your library. You may play that card this turn."
+   }
+  ],
+  "name": "Zuko, Exiled Prince",
+  "source": "Firebending 3 (Whenever this creature attacks, add {R}{R}{R}. This mana lasts until end of combat.)\n{3}: Exile the top card of your library. You may play that card this turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "firebend": 3
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Firebending 3 (Whenever this creature attacks, add {R}{R}{R}. This mana lasts until end of combat.)"
+   }
+  ]
+ },
+ "Zuko, Firebending Master": {
+  "name": "Zuko, Firebending Master",
+  "notes": "\"During combat\" = while you control an attacking creature (after attackers are declared). Experience counters are shared with Toph.",
+  "source": "First strike\nFirebending X, where X is the number of experience counters you have. (Whenever this creature attacks, add X {R}. This mana lasts until end of combat.)\nWhenever you cast a spell during combat, you get an experience counter.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "firebend": {
+       "of": "you",
+       "stat": "counters.experience"
+      }
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Firebending X, where X is the number of experience counters you have."
+   },
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "experience",
+       "n": 1,
+       "target": "you"
+      }
+     }
+    ],
+    "if": {
+     "youControl": {
+      "attacking": true
+     }
+    },
+    "on": "cast",
+    "text": "Whenever you cast a spell during combat, you get an experience counter."
+   }
+  ]
+ }
+}

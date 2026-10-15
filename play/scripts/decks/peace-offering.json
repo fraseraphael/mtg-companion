@@ -1,0 +1,2931 @@
+{
+ "Adarkar Wastes": {
+  "name": "Adarkar Wastes",
+  "source": "{T}: Add {C}.\n{T}: Add {W} or {U}. This land deals 1 damage to you.",
+  "status": "auto"
+ },
+ "An Offer You Can't Refuse": {
+  "name": "An Offer You Can't Refuse",
+  "notes": "Silent: countering only matters against an opponent's spell (the dummy casts nothing).",
+  "source": "Counter target noncreature spell. Its controller creates two Treasure tokens. (They're artifacts with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "status": "hand"
+ },
+ "Arcane Signet": {
+  "name": "Arcane Signet",
+  "source": "{T}: Add one mana of any color in your commander's color identity.",
+  "status": "auto"
+ },
+ "Baird, Steward of Argive": {
+  "name": "Baird, Steward of Argive",
+  "notes": "Silent: the attack tax only matters against an opponent (the dummy never attacks).",
+  "source": "Vigilance\nCreatures can't attack you or planeswalkers you control unless their controller pays {1} for each of those creatures.",
+  "status": "hand"
+ },
+ "Bloodroot Apothecary": {
+  "name": "Bloodroot Apothecary",
+  "notes": "Silent parts: toxic poison, the dummy's Treasure and its sacrifices only concern the opponent.",
+  "source": "Toxic 2 (Players dealt combat damage by this creature also get two poison counters. A player with ten or more poison counters loses the game.)\nWhen this creature enters, you and target opponent each create a Treasure token.\nWhenever an opponent sacrifices a noncreature token, that player gets two poison counters.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Treasure",
+       "types": [
+        "Artifact",
+        "Treasure"
+       ]
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, you and target opponent each create a Treasure token."
+   }
+  ]
+ },
+ "Body of Knowledge": {
+  "name": "Body of Knowledge",
+  "source": "Body of Knowledge's power and toughness are each equal to the number of cards in your hand.\nYou have no maximum hand size.\nWhenever this creature is dealt damage, draw that many cards.",
+  "statics": [
+   {
+    "p": "count:cards-in-hand",
+    "scope": "self",
+    "t": "count:cards-in-hand",
+    "text": "Body of Knowledge's power and toughness are each equal to the number of cards in your hand."
+   },
+   {
+    "noMaxHand": true,
+    "text": "You have no maximum hand size."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": "count:event-amount"
+     }
+    ],
+    "on": "damaged",
+    "self": true,
+    "text": "Whenever this creature is dealt damage, draw that many cards."
+   }
+  ]
+ },
+ "Broken Wings": {
+  "name": "Broken Wings",
+  "source": "Destroy target artifact, enchantment, or creature with flying.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "pick": {
+            "type": [
+             "Artifact",
+             "Enchantment"
+            ]
+           }
+          }
+         }
+        }
+       ],
+       "label": "One of my artifacts or enchantments"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "pick": {
+            "creature": true,
+            "keyword": "Flying"
+           }
+          }
+         }
+        }
+       ],
+       "label": "One of my creatures with flying"
+      }
+     ],
+     "text": "Destroy target artifact, enchantment, or creature with flying."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Brushland": {
+  "name": "Brushland",
+  "source": "{T}: Add {C}.\n{T}: Add {G} or {W}. This land deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Canopy Vista": {
+  "name": "Canopy Vista",
+  "source": "({T}: Add {G} or {W}.)\nThis land enters tapped unless you control two or more basic lands.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "basic": true,
+          "countGe": 2,
+          "land": true
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control two or more basic lands."
+   }
+  ]
+ },
+ "Cast Off": {
+  "name": "Cast Off",
+  "source": "Destroy all non-Giant creatures. (Then exile this card. You may cast the creature later from exile.)",
+  "spell": [
+   {
+    "destroy": {
+     "target": {
+      "each": {
+       "creature": true,
+       "not": {
+        "subtype": "Giant"
+       }
+      }
+     }
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Chasm Skulker": {
+  "name": "Chasm Skulker",
+  "source": "Whenever you draw a card, put a +1/+1 counter on this creature.\nWhen this creature dies, create X 1/1 blue Squid creature tokens with islandwalk, where X is the number of +1/+1 counters on this creature. (They can't be blocked as long as defending player controls an Island.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": "count:event-amount",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "drew",
+    "text": "Whenever you draw a card, put a +1/+1 counter on this creature."
+   },
+   {
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "U"
+       ],
+       "kw": [
+        "Islandwalk"
+       ],
+       "n": {
+        "of": "triggering",
+        "stat": "counters.p1p1"
+       },
+       "name": "Squid",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Squid"
+       ]
+      }
+     }
+    ],
+    "on": "dies",
+    "self": true,
+    "text": "When this creature dies, create X 1/1 blue Squid creature tokens with islandwalk, where X is the number of +1/+1 counters on this creature."
+   }
+  ]
+ },
+ "Coiling Oracle": {
+  "name": "Coiling Oracle",
+  "source": "When this creature enters, reveal the top card of your library. If it's a land card, put it onto the battlefield. Otherwise, put that card into your hand.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "revealTop": {
+       "filter": {
+        "land": true
+       },
+       "n": 1,
+       "rest": "hand",
+       "to": "bf"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, reveal the top card of your library. If it's a land card, put it onto the battlefield. Otherwise, put that card into your hand."
+   }
+  ]
+ },
+ "Command Tower": {
+  "name": "Command Tower",
+  "source": "{T}: Add one mana of any color in your commander's color identity.",
+  "status": "auto"
+ },
+ "Communal Brewing": {
+  "name": "Communal Brewing",
+  "notes": "Applied when the creature enters (it is asked so you can skip creatures that were not cast).",
+  "source": "When this enchantment enters, any number of target opponents each draw a card. Put an ingredient counter on this enchantment, then put an ingredient counter on it for each card drawn this way.\nWhenever you cast a creature spell, that creature enters with X additional +1/+1 counters on it, where X is the number of ingredient counters on this enchantment.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "counters": {
+            "kind": "ingredient",
+            "n": 2,
+            "target": "self"
+           }
+          }
+         ],
+         "label": "Target the opponent (it draws; 2 ingredient counters)"
+        },
+        {
+         "do": [
+          {
+           "counters": {
+            "kind": "ingredient",
+            "n": 1,
+            "target": "self"
+           }
+          }
+         ],
+         "label": "No targets (1 ingredient counter)"
+        }
+       ],
+       "text": "Any number of target opponents each draw a card."
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this enchantment enters, any number of target opponents each draw a card. Put an ingredient counter on this enchantment, then put an ingredient counter on it for each card drawn this way."
+   },
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": {
+        "of": "this",
+        "stat": "counters.ingredient"
+       },
+       "target": "triggering"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "nontoken": true
+    },
+    "on": "enters",
+    "optional": true,
+    "text": "Whenever you cast a creature spell, that creature enters with X additional +1/+1 counters on it, where X is the number of ingredient counters on this enchantment."
+   }
+  ]
+ },
+ "Coveted Jewel": {
+  "name": "Coveted Jewel",
+  "notes": "Silent: the steal trigger needs an opponent to attack (the dummy never does). The mana ability is the engine's.",
+  "source": "When this artifact enters, draw three cards.\n{T}: Add three mana of any one color.\nWhenever one or more creatures an opponent controls attack you and aren't blocked, that player draws three cards and gains control of this artifact. Untap it.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 3
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this artifact enters, draw three cards."
+   }
+  ]
+ },
+ "Cultivate": {
+  "name": "Cultivate",
+  "source": "Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle.",
+  "spell": [
+   {
+    "ramp": {
+     "filter": "basic",
+     "tapped": true
+    }
+   },
+   {
+    "ramp": {
+     "filter": "basic",
+     "to": "hand"
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Evolving Wilds": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": "basic",
+       "tapped": true
+      }
+     }
+    ],
+    "text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle."
+   }
+  ],
+  "name": "Evolving Wilds",
+  "source": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+  "status": "auto"
+ },
+ "Exotic Orchard": {
+  "name": "Exotic Orchard",
+  "source": "{T}: Add one mana of any color that a land an opponent controls could produce.",
+  "status": "auto"
+ },
+ "Faeburrow Elder": {
+  "activated": [
+   {
+    "cost": {
+     "tap": true
+    },
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "addMana": "{W}"
+        }
+       ],
+       "if": {
+        "youControl": {
+         "colors": [
+          "W"
+         ]
+        }
+       }
+      }
+     },
+     {
+      "check": {
+       "do": [
+        {
+         "addMana": "{U}"
+        }
+       ],
+       "if": {
+        "youControl": {
+         "colors": [
+          "U"
+         ]
+        }
+       }
+      }
+     },
+     {
+      "check": {
+       "do": [
+        {
+         "addMana": "{B}"
+        }
+       ],
+       "if": {
+        "youControl": {
+         "colors": [
+          "B"
+         ]
+        }
+       }
+      }
+     },
+     {
+      "check": {
+       "do": [
+        {
+         "addMana": "{R}"
+        }
+       ],
+       "if": {
+        "youControl": {
+         "colors": [
+          "R"
+         ]
+        }
+       }
+      }
+     },
+     {
+      "check": {
+       "do": [
+        {
+         "addMana": "{G}"
+        }
+       ],
+       "if": {
+        "youControl": {
+         "colors": [
+          "G"
+         ]
+        }
+       }
+      }
+     }
+    ],
+    "label": "Mana",
+    "text": "{T}: For each color among permanents you control, add one mana of that color."
+   }
+  ],
+  "name": "Faeburrow Elder",
+  "source": "Vigilance\nThis creature gets +1/+1 for each color among permanents you control.\n{T}: For each color among permanents you control, add one mana of that color.",
+  "statics": [
+   {
+    "p": "count:colors-among-permanents-you-control",
+    "scope": "self",
+    "t": "count:colors-among-permanents-you-control",
+    "text": "This creature gets +1/+1 for each color among permanents you control."
+   }
+  ],
+  "status": "hand"
+ },
+ "Farseek": {
+  "name": "Farseek",
+  "notes": "Any land with one of those types (shocks, duals) qualifies; Forest does not.",
+  "source": "Search your library for a Plains, Island, Swamp, or Mountain card, put it onto the battlefield tapped, then shuffle.",
+  "spell": [
+   {
+    "ramp": {
+     "filter": {
+      "land": true,
+      "subtype": [
+       "Plains",
+       "Island",
+       "Swamp",
+       "Mountain"
+      ]
+     },
+     "tapped": true
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Fellwar Stone": {
+  "name": "Fellwar Stone",
+  "source": "{T}: Add one mana of any color that a land an opponent controls could produce.",
+  "status": "auto"
+ },
+ "Fisher's Talent": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{G}{U}"
+    },
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "counters": {
+          "kind": "level",
+          "n": 1,
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "noCounters": {
+         "kind": "level"
+        }
+       }
+      }
+     }
+    ],
+    "label": "Level 2",
+    "limit": "sorcery-speed",
+    "text": "{G}{U}: Level 2"
+   },
+   {
+    "cost": {
+     "mana": "{2}{G}{U}"
+    },
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "counters": {
+          "kind": "level",
+          "n": 1,
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "all": [
+         {
+          "counters": {
+           "ge": 1,
+           "kind": "level"
+          }
+         },
+         {
+          "not": {
+           "counters": {
+            "ge": 2,
+            "kind": "level"
+           }
+          }
+         }
+        ]
+       }
+      }
+     }
+    ],
+    "label": "Level 3",
+    "limit": "sorcery-speed",
+    "text": "{2}{G}{U}: Level 3"
+   }
+  ],
+  "name": "Fisher's Talent",
+  "notes": "Level counters: level 2 = 1, level 3 = 2; the Fish → Shark → Octopus replacement follows them. Picking the land is revealing it.",
+  "source": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, look at the top card of your library. You may reveal it if it's a land card. Create a 1/1 blue Fish creature token if you revealed it this way. Then draw a card.\n{G}{U}: Level 2\nIf you would create a Fish token, create a 3/3 blue Shark creature token instead.\n{2}{G}{U}: Level 3\nIf you would create a Shark token, create an 8/8 blue Octopus creature token instead.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "lookTop": {
+       "n": 1,
+       "pick": {
+        "filter": {
+         "land": true
+        },
+        "n": 1,
+        "to": "top"
+       },
+       "rest": "top"
+      }
+     },
+     {
+      "repeat": {
+       "do": [
+        {
+         "check": {
+          "do": [
+           {
+            "token": {
+             "colors": [
+              "U"
+             ],
+             "n": 1,
+             "name": "Octopus",
+             "power": 8,
+             "toughness": 8,
+             "types": [
+              "Creature",
+              "Octopus"
+             ]
+            }
+           }
+          ],
+          "else": [
+           {
+            "check": {
+             "do": [
+              {
+               "token": {
+                "colors": [
+                 "U"
+                ],
+                "n": 1,
+                "name": "Shark",
+                "power": 3,
+                "toughness": 3,
+                "types": [
+                 "Creature",
+                 "Shark"
+                ]
+               }
+              }
+             ],
+             "else": [
+              {
+               "token": {
+                "colors": [
+                 "U"
+                ],
+                "n": 1,
+                "name": "Fish",
+                "power": 1,
+                "toughness": 1,
+                "types": [
+                 "Creature",
+                 "Fish"
+                ]
+               }
+              }
+             ],
+             "if": {
+              "counters": {
+               "ge": 1,
+               "kind": "level"
+              }
+             }
+            }
+           }
+          ],
+          "if": {
+           "counters": {
+            "ge": 2,
+            "kind": "level"
+           }
+          }
+         }
+        }
+       ],
+       "times": {
+        "of": "lastCount"
+       }
+      }
+     },
+     {
+      "draw": 1
+     }
+    ],
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, look at the top card of your library. You may reveal it if it's a land card. Create a 1/1 blue Fish creature token if you revealed it this way. Then draw a card."
+   }
+  ]
+ },
+ "Flooded Grove": {
+  "name": "Flooded Grove",
+  "source": "{T}: Add {C}.\n{G/U}, {T}: Add {G}{G}, {G}{U}, or {U}{U}.",
+  "status": "auto"
+ },
+ "Forest": {
+  "name": "Forest",
+  "source": "({T}: Add {G}.)",
+  "status": "auto"
+ },
+ "Forgotten Ancient": {
+  "name": "Forgotten Ancient",
+  "notes": "Only your spells exist in goldfish. Counters move one at a time, so you can spread them.",
+  "source": "Whenever a player casts a spell, you may put a +1/+1 counter on this creature.\nAt the beginning of your upkeep, you may move any number of +1/+1 counters from this creature onto other creatures.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "on": "cast",
+    "optional": true,
+    "text": "Whenever a player casts a spell, you may put a +1/+1 counter on this creature."
+   },
+   {
+    "do": [
+     {
+      "chooseNumber": {
+       "max": 30,
+       "min": 0,
+       "text": "How many +1/+1 counters to move?"
+      }
+     },
+     {
+      "repeat": {
+       "do": [
+        {
+         "moveCounters": {
+          "from": "self",
+          "kind": "p1p1",
+          "n": 1,
+          "to": {
+           "pick": {
+            "creature": true,
+            "other": true
+           }
+          }
+         }
+        }
+       ],
+       "times": {
+        "of": "chosen"
+       }
+      }
+     }
+    ],
+    "on": "upkeep",
+    "optional": true,
+    "text": "At the beginning of your upkeep, you may move any number of +1/+1 counters from this creature onto other creatures."
+   }
+  ]
+ },
+ "Generous Gift": {
+  "name": "Generous Gift",
+  "notes": "Goldfish: the dummy controls no permanents, so the useful mode is your own permanent.",
+  "source": "Destroy target permanent. Its controller creates a 3/3 green Elephant creature token.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "any-you-control"
+         }
+        },
+        {
+         "token": {
+          "n": 1,
+          "name": "Elephant",
+          "power": 3,
+          "toughness": 3,
+          "types": [
+           "Creature",
+           "Elephant"
+          ]
+         }
+        }
+       ],
+       "label": "One of my permanents (I get the 3/3 Elephant)"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's permanent (the dummy has none; it would get the Elephant)"
+      }
+     ],
+     "text": "Destroy target permanent. Its controller creates a 3/3 green Elephant creature token."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Ghirapur Orrery": {
+  "name": "Ghirapur Orrery",
+  "notes": "Your side of the symmetric effects; the dummy has no turns.",
+  "source": "Each player may play an additional land on each of their turns.\nAt the beginning of each player's upkeep, if that player has no cards in hand, that player draws three cards.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "extraLand": 1
+     }
+    ],
+    "on": "turnStart",
+    "text": "Each player may play an additional land on each of their turns."
+   },
+   {
+    "do": [
+     {
+      "draw": 3
+     }
+    ],
+    "if": {
+     "handLe": 0
+    },
+    "on": "upkeep",
+    "text": "At the beginning of each player's upkeep, if that player has no cards in hand, that player draws three cards."
+   }
+  ]
+ },
+ "Glacial Fortress": {
+  "name": "Glacial Fortress",
+  "source": "This land enters tapped unless you control a Plains or an Island.\n{T}: Add {W} or {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Plains",
+           "Island"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control a Plains or an Island."
+   }
+  ]
+ },
+ "Hinterland Harbor": {
+  "name": "Hinterland Harbor",
+  "source": "This land enters tapped unless you control a Forest or an Island.\n{T}: Add {G} or {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Forest",
+           "Island"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control a Forest or an Island."
+   }
+  ]
+ },
+ "Hoofprints of the Stag": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}{W}",
+     "removeCounters": {
+      "kind": "hoofprint",
+      "n": 4
+     }
+    },
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "W"
+       ],
+       "kw": [
+        "Flying"
+       ],
+       "n": 1,
+       "name": "Elemental",
+       "power": 4,
+       "toughness": 4,
+       "types": [
+        "Creature",
+        "Elemental"
+       ]
+      }
+     }
+    ],
+    "label": "4/4 Elemental",
+    "text": "{2}{W}, Remove four hoofprint counters from this enchantment: Create a 4/4 white Elemental creature token with flying. Activate only during your turn."
+   }
+  ],
+  "name": "Hoofprints of the Stag",
+  "notes": "Every turn is yours in goldfish.",
+  "source": "Whenever you draw a card, you may put a hoofprint counter on this enchantment.\n{2}{W}, Remove four hoofprint counters from this enchantment: Create a 4/4 white Elemental creature token with flying. Activate only during your turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "hoofprint",
+       "n": "count:event-amount",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "drew",
+    "optional": true,
+    "text": "Whenever you draw a card, you may put a hoofprint counter on this enchantment."
+   }
+  ]
+ },
+ "Illusionist's Gambit": {
+  "name": "Illusionist's Gambit",
+  "notes": "Silent: it can only be cast on an opponent's turn (the dummy takes none).",
+  "source": "Cast this spell only during the declare blockers step on an opponent's turn.\nRemove all attacking creatures from combat and untap them. After this phase, there is an additional combat phase. Each of those creatures attacks that combat if able. They can't attack you or planeswalkers you control that combat.",
+  "status": "hand"
+ },
+ "Intellectual Offering": {
+  "name": "Intellectual Offering",
+  "notes": "Your side of both sentences; the dummy draws and untaps nothing that matters.",
+  "source": "Choose an opponent. You and that player each draw three cards.\nChoose an opponent. Untap all nonland permanents you control and all nonland permanents that player controls.",
+  "spell": [
+   {
+    "draw": 3
+   },
+   {
+    "untap": {
+     "target": {
+      "each": {
+       "nonland": true
+      }
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Island": {
+  "name": "Island",
+  "source": "({T}: Add {U}.)",
+  "status": "auto"
+ },
+ "Jolly Gerbils": {
+  "name": "Jolly Gerbils",
+  "notes": "Watches this deck's gift cards (Long River's Pull, Octomancer, Peerless Recycling, Perch Protection, Wear Down); the gift is promised when the spell is cast.",
+  "source": "Whenever you give a gift, draw a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "draw": 1
+          }
+         ],
+         "label": "Yes: draw a card"
+        },
+        {
+         "do": [],
+         "label": "No"
+        }
+       ],
+       "text": "Did you promise the gift?"
+      }
+     }
+    ],
+    "filter": {
+     "name": [
+      "Long River's Pull",
+      "Octomancer",
+      "Peerless Recycling",
+      "Perch Protection",
+      "Wear Down"
+     ]
+    },
+    "on": "cast",
+    "text": "Whenever you give a gift, draw a card."
+   }
+  ]
+ },
+ "Jolrael, Mwonvuli Recluse": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{4}{G}{G}"
+    },
+    "do": [
+     {
+      "setBase": {
+       "p": "count:cards-in-hand",
+       "t": "count:cards-in-hand",
+       "target": "each-creature-you-control"
+      }
+     }
+    ],
+    "text": "{4}{G}{G}: Until end of turn, creatures you control have base power and toughness X/X, where X is the number of cards in your hand."
+   }
+  ],
+  "name": "Jolrael, Mwonvuli Recluse",
+  "source": "Whenever you draw your second card each turn, create a 2/2 green Cat creature token.\n{4}{G}{G}: Until end of turn, creatures you control have base power and toughness X/X, where X is the number of cards in your hand.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Cat",
+       "power": 2,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Cat"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "index": 2
+    },
+    "on": "nthDraw",
+    "text": "Whenever you draw your second card each turn, create a 2/2 green Cat creature token."
+   }
+  ]
+ },
+ "Kalonian Hydra": {
+  "name": "Kalonian Hydra",
+  "source": "Trample\nThis creature enters with four +1/+1 counters on it.\nWhenever this creature attacks, double the number of +1/+1 counters on each creature you control.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 4,
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This creature enters with four +1/+1 counters on it."
+   },
+   {
+    "do": [
+     {
+      "doubleCounters": {
+       "kind": "p1p1",
+       "target": "each-creature-you-control"
+      }
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever this creature attacks, double the number of +1/+1 counters on each creature you control."
+   }
+  ]
+ },
+ "Kwain, Itinerant Meddler": {
+  "activated": [
+   {
+    "cost": {
+     "tap": true
+    },
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "draw": 1
+          },
+          {
+           "gainLife": 1
+          }
+         ],
+         "label": "Draw and gain 1 life"
+        },
+        {
+         "do": [],
+         "label": "Don't draw"
+        }
+       ],
+       "text": "You may draw a card (then gain 1 life)."
+      }
+     }
+    ],
+    "label": "Draw & gain 1",
+    "text": "{T}: Each player may draw a card, then each player who drew a card this way gains 1 life."
+   }
+  ],
+  "name": "Kwain, Itinerant Meddler",
+  "notes": "Your side of the symmetric effect.",
+  "source": "{T}: Each player may draw a card, then each player who drew a card this way gains 1 life.",
+  "status": "hand"
+ },
+ "Long River's Pull": {
+  "name": "Long River's Pull",
+  "notes": "Silent: countering only matters against an opponent's spell; the gift only makes the dummy draw.",
+  "source": "Gift a card (You may promise an opponent a gift as you cast this spell. If you do, they draw a card before its other effects.)\nCounter target creature spell. If the gift was promised, instead counter target spell.",
+  "status": "hand"
+ },
+ "Loran of the Third Path": {
+  "activated": [
+   {
+    "cost": {
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "label": "Draw",
+    "text": "{T}: You and target opponent each draw a card."
+   }
+  ],
+  "name": "Loran of the Third Path",
+  "notes": "The dummy has no artifacts or enchantments (skip, or pick your own); its card is not modelled.",
+  "source": "Vigilance\nWhen Loran enters, destroy up to one target artifact or enchantment.\n{T}: You and target opponent each draw a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "destroy": {
+       "target": {
+        "optional": true,
+        "pick": {
+         "type": [
+          "Artifact",
+          "Enchantment"
+         ]
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Loran enters, destroy up to one target artifact or enchantment."
+   }
+  ]
+ },
+ "Managorger Hydra": {
+  "name": "Managorger Hydra",
+  "notes": "Only you cast spells in goldfish.",
+  "source": "Trample\nWhenever a player casts a spell, put a +1/+1 counter on this creature.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "on": "cast",
+    "text": "Whenever a player casts a spell, put a +1/+1 counter on this creature."
+   }
+  ]
+ },
+ "Mangara, the Diplomat": {
+  "name": "Mangara, the Diplomat",
+  "notes": "Both triggers watch an opponent attacking or casting; the dummy does neither.",
+  "source": "Lifelink\nWhenever an opponent attacks with creatures, if two or more of those creatures are attacking you and/or planeswalkers you control, draw a card.\nWhenever an opponent casts their second spell each turn, draw a card.",
+  "status": "hand"
+ },
+ "Martial Impetus": {
+  "name": "Martial Impetus",
+  "notes": "Goad never matters on your own creature against the dummy (it attacks the dummy anyway).",
+  "source": "Enchant creature\nEnchanted creature gets +1/+1 and is goaded. (It attacks each combat if able and attacks a player other than you if able.)\nWhenever enchanted creature attacks, each other creature that's attacking one of your opponents gets +1/+1 until end of turn.",
+  "statics": [
+   {
+    "p": 1,
+    "scope": "attached",
+    "t": 1,
+    "text": "Enchanted creature gets +1/+1 and is goaded."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "attach": {
+       "target": "creature-you-control"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Enchant creature"
+   },
+   {
+    "do": [
+     {
+      "pump": {
+       "p": 1,
+       "t": 1,
+       "target": {
+        "each": {
+         "attacking": true,
+         "creature": true,
+         "not": {
+          "attachedToThis": true
+         }
+        }
+       }
+      }
+     }
+    ],
+    "filter": {
+     "attachedToThis": true
+    },
+    "on": "attacks",
+    "text": "Whenever enchanted creature attacks, each other creature that's attacking one of your opponents gets +1/+1 until end of turn."
+   }
+  ]
+ },
+ "Mind Stone": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}",
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "{1}, {T}, Sacrifice this artifact: Draw a card."
+   }
+  ],
+  "name": "Mind Stone",
+  "source": "{T}: Add {C}.\n{1}, {T}, Sacrifice this artifact: Draw a card.",
+  "status": "auto"
+ },
+ "Mr. Foxglove": {
+  "name": "Mr. Foxglove",
+  "notes": "The dummy has no hand, so you never draw this way and always get the free creature drop.",
+  "source": "Lifelink\nWhenever Mr. Foxglove attacks, draw cards equal to the number of cards in defending player's hand minus the number of cards in your hand. If you didn't draw cards this way, you may put a creature card from your hand onto the battlefield.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "putFromHand": {
+       "filter": {
+        "creature": true
+       },
+       "n": 1,
+       "optional": true,
+       "to": "bf"
+      }
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever Mr. Foxglove attacks, draw cards equal to the number of cards in defending player's hand minus the number of cards in your hand. If you didn't draw cards this way, you may put a creature card from your hand onto the battlefield."
+   }
+  ]
+ },
+ "Ms. Bumbleflower": {
+  "name": "Ms. Bumbleflower",
+  "notes": "Resolutions are counted with 'resolution' counters (cleared at your untap step). The counter and flying are two picks: choose the same creature. The dummy's card is silent.",
+  "source": "Vigilance\nWhenever you cast a spell, target opponent draws a card. Put a +1/+1 counter on target creature. It gains flying until end of turn. If this is the second time this ability has resolved this turn, you draw two cards.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "creature-you-control"
+      }
+     },
+     {
+      "grant": {
+       "kw": [
+        "Flying"
+       ],
+       "target": "creature-you-control"
+      }
+     },
+     {
+      "counters": {
+       "kind": "resolution",
+       "n": 1,
+       "target": "self"
+      }
+     },
+     {
+      "check": {
+       "do": [
+        {
+         "draw": 2
+        }
+       ],
+       "if": {
+        "all": [
+         {
+          "counters": {
+           "ge": 2,
+           "kind": "resolution"
+          }
+         },
+         {
+          "not": {
+           "counters": {
+            "ge": 3,
+            "kind": "resolution"
+           }
+          }
+         }
+        ]
+       }
+      }
+     }
+    ],
+    "on": "cast",
+    "text": "Whenever you cast a spell, target opponent draws a card. Put a +1/+1 counter on target creature. It gains flying until end of turn. If this is the second time this ability has resolved this turn, you draw two cards."
+   },
+   {
+    "do": [
+     {
+      "removeCounters": {
+       "kind": "resolution",
+       "n": "all",
+       "target": "self"
+      }
+     }
+    ],
+    "if": {
+     "counters": {
+      "ge": 1,
+      "kind": "resolution"
+     }
+    },
+    "on": "turnStart",
+    "text": "If this is the second time this ability has resolved this turn, you draw two cards."
+   }
+  ]
+ },
+ "Octomancer": {
+  "name": "Octomancer",
+  "notes": "Pick a creature token that entered this turn (the target filter can't say \"this turn\"). The gifted Octopus is the dummy's (silent).",
+  "source": "Gift an Octopus (You may promise an opponent a gift as you cast this spell. If you do, when it enters, they create an 8/8 blue Octopus creature token.)\nAt the beginning of each end step, create a token that's a copy of target creature token that entered the battlefield this turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "createCopy": {
+       "target": {
+        "optional": true,
+        "pick": {
+         "creature": true,
+         "token": true
+        }
+       }
+      }
+     }
+    ],
+    "on": "endStep",
+    "text": "At the beginning of each end step, create a token that's a copy of target creature token that entered the battlefield this turn."
+   }
+  ]
+ },
+ "Overflowing Basin": {
+  "name": "Overflowing Basin",
+  "source": "{1}, {T}: Add {G}{U}.",
+  "status": "auto"
+ },
+ "Peerless Recycling": {
+  "name": "Peerless Recycling",
+  "source": "Gift a card (You may promise an opponent a gift as you cast this spell. If you do, they draw a card before its other effects.)\nReturn target permanent card from your graveyard to your hand. If the gift was promised, instead return two target permanent cards from your graveyard to your hand.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "return": {
+          "filter": {
+           "type": [
+            "Artifact",
+            "Creature",
+            "Enchantment",
+            "Land",
+            "Planeswalker",
+            "Battle"
+           ]
+          },
+          "from": "gy",
+          "n": 1,
+          "to": "hand"
+         }
+        }
+       ],
+       "label": "No gift: return one permanent card"
+      },
+      {
+       "do": [
+        {
+         "return": {
+          "filter": {
+           "type": [
+            "Artifact",
+            "Creature",
+            "Enchantment",
+            "Land",
+            "Planeswalker",
+            "Battle"
+           ]
+          },
+          "from": "gy",
+          "n": 2,
+          "to": "hand"
+         }
+        }
+       ],
+       "label": "Gift promised (the opponent drew a card): return two permanent cards"
+      }
+     ],
+     "text": "Gift a card: was the gift promised?"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Perch Protection": {
+  "name": "Perch Protection",
+  "notes": "Silent: the gift (the dummy's extra turn) and the phasing/protection it buys only matter against an opponent.",
+  "source": "Gift an extra turn (You may promise an opponent a gift as you cast this spell. If you do, they take an extra turn after this one.)\nCreate four 2/2 blue Bird creature tokens with flying. If the gift was promised, all permanents you control phase out, and until your next turn, your life total can't change and you gain protection from everything.\nExile Perch Protection.",
+  "spell": [
+   {
+    "token": {
+     "colors": [
+      "U"
+     ],
+     "kw": [
+      "Flying"
+     ],
+     "n": 4,
+     "name": "Bird",
+     "power": 2,
+     "toughness": 2,
+     "types": [
+      "Creature",
+      "Bird"
+     ]
+    }
+   },
+   {
+    "exileFromGy": {
+     "filter": {
+      "name": "Perch Protection"
+     },
+     "n": 1
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Perplexing Test": {
+  "name": "Perplexing Test",
+  "source": "Choose one —\n• Return all creature tokens to their owners' hands.\n• Return all nontoken creatures to their owners' hands.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "bounce": {
+          "target": {
+           "each": {
+            "creature": true,
+            "token": true
+           }
+          }
+         }
+        }
+       ],
+       "label": "Return all creature tokens to their owners' hands."
+      },
+      {
+       "do": [
+        {
+         "bounce": {
+          "target": {
+           "each": {
+            "creature": true,
+            "nontoken": true
+           }
+          }
+         }
+        }
+       ],
+       "label": "Return all nontoken creatures to their owners' hands."
+      }
+     ],
+     "text": "Choose one —"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Plains": {
+  "name": "Plains",
+  "source": "({T}: Add {W}.)",
+  "status": "auto"
+ },
+ "Prairie Stream": {
+  "name": "Prairie Stream",
+  "source": "({T}: Add {W} or {U}.)\nThis land enters tapped unless you control two or more basic lands.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "basic": true,
+          "countGe": 2,
+          "land": true
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control two or more basic lands."
+   }
+  ]
+ },
+ "Promise of Loyalty": {
+  "name": "Promise of Loyalty",
+  "notes": "The dummy has no creatures; the attack restriction never matters.",
+  "source": "Each player puts a vow counter on a creature they control and sacrifices the rest. Each of those creatures can't attack you or planeswalkers you control for as long as it has a vow counter on it.",
+  "spell": [
+   {
+    "counters": {
+     "kind": "vow",
+     "n": 1,
+     "target": "creature-you-control"
+    }
+   },
+   {
+    "sacrifice": {
+     "target": {
+      "each": {
+       "creature": true,
+       "noCounters": {
+        "kind": "vow"
+       }
+      }
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Psychosis Crawler": {
+  "name": "Psychosis Crawler",
+  "source": "Psychosis Crawler's power and toughness are each equal to the number of cards in your hand.\nWhenever you draw a card, each opponent loses 1 life.",
+  "statics": [
+   {
+    "p": "count:cards-in-hand",
+    "scope": "self",
+    "t": "count:cards-in-hand",
+    "text": "Psychosis Crawler's power and toughness are each equal to the number of cards in your hand."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "oppLoseLife": "count:event-amount"
+     }
+    ],
+    "on": "drew",
+    "text": "Whenever you draw a card, each opponent loses 1 life."
+   }
+  ]
+ },
+ "Razorverge Thicket": {
+  "name": "Razorverge Thicket",
+  "source": "This land enters tapped unless you control two or fewer other lands.\n{T}: Add {G} or {W}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "landsGe": 4
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control two or fewer other lands."
+   }
+  ]
+ },
+ "Realm-Cloaked Giant // Cast Off": {
+  "name": "Realm-Cloaked Giant // Cast Off",
+  "source": "Vigilance",
+  "status": "auto"
+ },
+ "Reliquary Tower": {
+  "name": "Reliquary Tower",
+  "source": "You have no maximum hand size.\n{T}: Add {C}.",
+  "statics": [
+   {
+    "noMaxHand": true,
+    "text": "You have no maximum hand size."
+   }
+  ],
+  "status": "hand"
+ },
+ "Riot Control": {
+  "name": "Riot Control",
+  "notes": "The dummy controls no creatures (gain 0) and never deals damage, so the prevention is moot.",
+  "source": "You gain 1 life for each creature your opponents control. Prevent all damage that would be dealt to you this turn.",
+  "spell": [
+   {
+    "gainLife": {
+     "count": {
+      "controller": "opp",
+      "creature": true
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Rishkar, Peema Renegade": {
+  "name": "Rishkar, Peema Renegade",
+  "notes": "\"Each creature you control with a counter on it has '{T}: Add {G}.'\" is a granted mana ability the engine can't give: tap them for {G} by hand.",
+  "source": "When Rishkar enters, put a +1/+1 counter on each of up to two target creatures.\nEach creature you control with a counter on it has \"{T}: Add {G}.\"",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": {
+        "n": 2,
+        "optional": true,
+        "pick": {
+         "creature": true
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Rishkar enters, put a +1/+1 counter on each of up to two target creatures."
+   }
+  ]
+ },
+ "Rites of Flourishing": {
+  "name": "Rites of Flourishing",
+  "notes": "Your side of the symmetric effects.",
+  "source": "At the beginning of each player's draw step, that player draws an additional card.\nEach player may play an additional land on each of their turns.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "on": "drawStep",
+    "text": "At the beginning of each player's draw step, that player draws an additional card."
+   },
+   {
+    "do": [
+     {
+      "extraLand": 1
+     }
+    ],
+    "on": "turnStart",
+    "text": "Each player may play an additional land on each of their turns."
+   }
+  ]
+ },
+ "Seachrome Coast": {
+  "name": "Seachrome Coast",
+  "source": "This land enters tapped unless you control two or fewer other lands.\n{T}: Add {W} or {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "landsGe": 4
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control two or fewer other lands."
+   }
+  ]
+ },
+ "Seaside Citadel": {
+  "name": "Seaside Citadel",
+  "source": "This land enters tapped.\n{T}: Add {G}, {W}, or {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "Secret Rendezvous": {
+  "name": "Secret Rendezvous",
+  "notes": "The dummy's three cards are irrelevant.",
+  "source": "You and target opponent each draw three cards.",
+  "spell": [
+   {
+    "draw": 3
+   }
+  ],
+  "status": "hand"
+ },
+ "Selvala, Explorer Returned": {
+  "activated": [
+   {
+    "cost": {
+     "tap": true
+    },
+    "do": [
+     {
+      "lookTop": {
+       "n": 1,
+       "pick": {
+        "n": 0,
+        "to": "top"
+       },
+       "rest": "top"
+      }
+     },
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "addMana": "{G}"
+          },
+          {
+           "gainLife": 1
+          }
+         ],
+         "label": "Nonland: add {G} and gain 1 life"
+        },
+        {
+         "do": [],
+         "label": "Land"
+        }
+       ],
+       "text": "Is your revealed card a nonland card?"
+      }
+     },
+     {
+      "draw": 1
+     }
+    ],
+    "label": "Parley",
+    "text": "Parley — {T}: Each player reveals the top card of their library. For each nonland card revealed this way, add {G} and you gain 1 life. Then each player draws a card. (Activate only as an instant.)"
+   }
+  ],
+  "name": "Selvala, Explorer Returned",
+  "notes": "The dummy has no library; only your card counts. The top card is shown in the log.",
+  "source": "Parley — {T}: Each player reveals the top card of their library. For each nonland card revealed this way, add {G} and you gain 1 life. Then each player draws a card. (Activate only as an instant.)",
+  "status": "hand"
+ },
+ "Simic Ascendancy": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}{G}{U}"
+    },
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "creature-you-control"
+      }
+     }
+    ],
+    "label": "+1/+1 counter",
+    "text": "{1}{G}{U}: Put a +1/+1 counter on target creature you control."
+   }
+  ],
+  "name": "Simic Ascendancy",
+  "source": "{1}{G}{U}: Put a +1/+1 counter on target creature you control.\nWhenever one or more +1/+1 counters are put on a creature you control, put that many growth counters on this enchantment.\nAt the beginning of your upkeep, if this enchantment has twenty or more growth counters on it, you win the game.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "growth",
+       "n": "count:event-amount",
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "kind": "p1p1"
+    },
+    "on": "counters",
+    "text": "Whenever one or more +1/+1 counters are put on a creature you control, put that many growth counters on this enchantment."
+   },
+   {
+    "do": [
+     {
+      "win": "Simic Ascendancy has twenty or more growth counters"
+     }
+    ],
+    "if": {
+     "counters": {
+      "ge": 20,
+      "kind": "growth"
+     }
+    },
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, if this enchantment has twenty or more growth counters on it, you win the game."
+   }
+  ]
+ },
+ "Skycloud Expanse": {
+  "name": "Skycloud Expanse",
+  "source": "{1}, {T}: Add {W}{U}.",
+  "status": "auto"
+ },
+ "Sol Ring": {
+  "name": "Sol Ring",
+  "source": "{T}: Add {C}{C}.",
+  "status": "auto"
+ },
+ "Sphinx of Enlightenment": {
+  "name": "Sphinx of Enlightenment",
+  "notes": "The dummy's card is not modelled.",
+  "source": "Flying\nWhen this creature enters, target opponent draws a card and you draw three cards.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 3
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, target opponent draws a card and you draw three cards."
+   }
+  ]
+ },
+ "Spore Frog": {
+  "name": "Spore Frog",
+  "notes": "Silent: preventing combat damage only matters against an opponent (the dummy never attacks).",
+  "source": "Sacrifice this creature: Prevent all combat damage that would be dealt this turn.",
+  "status": "hand"
+ },
+ "Steelburr Champion": {
+  "name": "Steelburr Champion",
+  "notes": "Offspring is declared on enters (it was paid at cast). The copy is made as a real 1/1 token (tok:true) with Vigilance: tokens never run this enters trigger, so it can't loop. The dummy casts no spells, so the counter trigger never fires.",
+  "source": "Offspring {1}{W} (You may pay an additional {1}{W} as you cast this spell. If you do, when this creature enters, create a 1/1 token copy of it.)\nVigilance\nWhenever an opponent casts a noncreature spell, put a +1/+1 counter on this creature.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "token": {
+            "colors": [
+             "W"
+            ],
+            "kw": [
+             "Vigilance"
+            ],
+            "n": 1,
+            "name": "Steelburr Champion",
+            "power": 1,
+            "toughness": 1,
+            "types": [
+             "Creature",
+             "Mouse",
+             "Soldier"
+            ]
+           }
+          }
+         ],
+         "label": "Yes: create a 1/1 token copy"
+        },
+        {
+         "do": [],
+         "label": "No"
+        }
+       ],
+       "text": "Did you pay offspring {1}{W} when casting Steelburr Champion?"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Offspring {1}{W} (You may pay an additional {1}{W} as you cast this spell. If you do, when this creature enters, create a 1/1 token copy of it.)"
+   },
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "controller": "opp"
+    },
+    "on": "cast",
+    "text": "Whenever an opponent casts a noncreature spell, put a +1/+1 counter on this creature."
+   }
+  ]
+ },
+ "Sungrass Prairie": {
+  "name": "Sungrass Prairie",
+  "source": "{1}, {T}: Add {G}{W}.",
+  "status": "auto"
+ },
+ "Sunpetal Grove": {
+  "name": "Sunpetal Grove",
+  "source": "This land enters tapped unless you control a Forest or a Plains.\n{T}: Add {G} or {W}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Forest",
+           "Plains"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control a Forest or a Plains."
+   }
+  ]
+ },
+ "Sunscorch Regent": {
+  "name": "Sunscorch Regent",
+  "notes": "The dummy casts no spells.",
+  "source": "Flying\nWhenever an opponent casts a spell, put a +1/+1 counter on this creature and you gain 1 life.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "self"
+      }
+     },
+     {
+      "gainLife": 1
+     }
+    ],
+    "filter": {
+     "controller": "opp"
+    },
+    "on": "cast",
+    "text": "Whenever an opponent casts a spell, put a +1/+1 counter on this creature and you gain 1 life."
+   }
+  ]
+ },
+ "Swiftfoot Boots": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}"
+    },
+    "do": [
+     {
+      "attach": {}
+     }
+    ],
+    "label": "Equip",
+    "limit": "sorcery-speed",
+    "text": "Equip {1}"
+   }
+  ],
+  "name": "Swiftfoot Boots",
+  "notes": "Equip attaches it; the attached creature has hexproof and haste.",
+  "source": "Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T} no matter when it came under your control.)\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+  "statics": [
+   {
+    "kw": [
+     "Hexproof",
+     "Haste"
+    ],
+    "scope": "attached",
+    "text": "Equipped creature has hexproof and haste."
+   }
+  ],
+  "status": "hand"
+ },
+ "Swords to Plowshares": {
+  "name": "Swords to Plowshares",
+  "source": "Exile target creature. Its controller gains life equal to its power.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "exile": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's creature (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "exile": {
+          "target": "creature-you-control"
+         }
+        },
+        {
+         "gainLife": {
+          "of": "target",
+          "stat": "power"
+         }
+        }
+       ],
+       "label": "One of my creatures"
+      }
+     ],
+     "text": "Exile target creature. Its controller gains life equal to its power."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Tamiyo, Field Researcher": {
+  "activated": [
+   {
+    "cost": {},
+    "do": [
+     {
+      "counters": {
+       "kind": "loyalty",
+       "n": 1,
+       "target": "self"
+      }
+     },
+     {
+      "counters": {
+       "kind": "tamiyo",
+       "n": 1,
+       "target": {
+        "n": 2,
+        "optional": true,
+        "pick": {
+         "creature": true
+        }
+       }
+      }
+     }
+    ],
+    "label": "+1: mark creatures",
+    "limit": "sorcery-speed",
+    "text": "+1: Choose up to two target creatures. Until your next turn, whenever either of those creatures deals combat damage, you draw a card."
+   },
+   {
+    "cost": {
+     "removeCounters": {
+      "kind": "loyalty",
+      "n": 2
+     }
+    },
+    "do": [
+     {
+      "tap": {
+       "target": "opponent"
+      }
+     }
+    ],
+    "label": "−2: tap two",
+    "limit": "sorcery-speed",
+    "text": "−2: Tap up to two target nonland permanents. They don't untap during their controller's next untap step."
+   },
+   {
+    "cost": {
+     "removeCounters": {
+      "kind": "loyalty",
+      "n": 7
+     }
+    },
+    "do": [
+     {
+      "draw": 3
+     }
+    ],
+    "label": "−7: draw three + emblem",
+    "limit": "sorcery-speed",
+    "text": "−7: Draw three cards. You get an emblem with \"You may cast spells from your hand without paying their mana costs.\""
+   }
+  ],
+  "name": "Tamiyo, Field Researcher",
+  "notes": "The +1 marks its creatures with a 'tamiyo' counter (removed at your untap step); the draws stop if Tamiyo leaves. The −2 only concerns the dummy's permanents. Not modelled: the −7 emblem (free spells from hand) — no persistent emblem or free-cast permission exists.",
+  "source": "+1: Choose up to two target creatures. Until your next turn, whenever either of those creatures deals combat damage, you draw a card.\n−2: Tap up to two target nonland permanents. They don't untap during their controller's next untap step.\n−7: Draw three cards. You get an emblem with \"You may cast spells from your hand without paying their mana costs.\"",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "counters": {
+      "kind": "tamiyo"
+     }
+    },
+    "on": "combatDamage",
+    "text": "+1: Choose up to two target creatures. Until your next turn, whenever either of those creatures deals combat damage, you draw a card."
+   },
+   {
+    "do": [
+     {
+      "removeCounters": {
+       "kind": "tamiyo",
+       "n": "all",
+       "target": {
+        "each": {
+         "counters": {
+          "kind": "tamiyo"
+         }
+        }
+       }
+      }
+     }
+    ],
+    "if": {
+     "youControl": {
+      "counters": {
+       "kind": "tamiyo"
+      }
+     }
+    },
+    "on": "turnStart",
+    "text": "+1: Choose up to two target creatures. Until your next turn, whenever either of those creatures deals combat damage, you draw a card."
+   }
+  ]
+ },
+ "Temple of Enlightenment": {
+  "name": "Temple of Enlightenment",
+  "source": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {W} or {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   },
+   {
+    "do": [
+     {
+      "scry": 1
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this land enters, scry 1."
+   }
+  ]
+ },
+ "Temple of Mystery": {
+  "name": "Temple of Mystery",
+  "source": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {G} or {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   },
+   {
+    "do": [
+     {
+      "scry": 1
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this land enters, scry 1."
+   }
+  ]
+ },
+ "Temple of Plenty": {
+  "name": "Temple of Plenty",
+  "source": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {G} or {W}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   },
+   {
+    "do": [
+     {
+      "scry": 1
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this land enters, scry 1."
+   }
+  ]
+ },
+ "Tempt with Bunnies": {
+  "name": "Tempt with Bunnies",
+  "source": "Tempting Offer — Draw a card and create a 1/1 white Rabbit creature token. Then each opponent may draw a card and create a 1/1 white Rabbit creature token. For each opponent who does, you draw a card and you create a 1/1 white Rabbit creature token.",
+  "spell": [
+   {
+    "draw": 1
+   },
+   {
+    "token": {
+     "n": 1,
+     "name": "Rabbit",
+     "power": 1,
+     "toughness": 1,
+     "types": [
+      "Creature",
+      "Rabbit"
+     ]
+    }
+   },
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "draw": 1
+        },
+        {
+         "token": {
+          "n": 1,
+          "name": "Rabbit",
+          "power": 1,
+          "toughness": 1,
+          "types": [
+           "Creature",
+           "Rabbit"
+          ]
+         }
+        }
+       ],
+       "label": "The opponent accepts: I draw and get another Rabbit"
+      },
+      {
+       "do": [],
+       "label": "The opponent declines"
+      }
+     ],
+     "text": "Then each opponent may draw a card and create a 1/1 white Rabbit creature token. For each opponent who does, you draw a card and you create a 1/1 white Rabbit creature token."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Tempt with Discovery": {
+  "name": "Tempt with Discovery",
+  "source": "Tempting offer — Search your library for a land card and put it onto the battlefield. Each opponent may search their library for a land card and put it onto the battlefield. For each opponent who searches a library this way, search your library for a land card and put it onto the battlefield. Then each player who searched a library this way shuffles.",
+  "spell": [
+   {
+    "ramp": {
+     "filter": "land",
+     "tapped": false
+    }
+   },
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "ramp": {
+          "filter": "land",
+          "tapped": false
+         }
+        }
+       ],
+       "label": "The opponent accepts: I search again"
+      },
+      {
+       "do": [],
+       "label": "The opponent declines"
+      }
+     ],
+     "text": "Each opponent may search their library for a land card and put it onto the battlefield. For each opponent who searches a library this way, search your library for a land card and put it onto the battlefield."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Tenuous Truce": {
+  "name": "Tenuous Truce",
+  "notes": "The dummy takes no turns, so its end-step draw never happens (parked on an opponent event). Attacking (always the enchanted dummy) sacrifices it.",
+  "source": "Enchant opponent\nAt the beginning of enchanted opponent's end step, you and that player each draw a card.\nWhen you attack enchanted opponent or a planeswalker they control or when they attack you or a planeswalker you control, sacrifice this Aura.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "controller": "opp"
+    },
+    "on": "cast",
+    "text": "At the beginning of enchanted opponent's end step, you and that player each draw a card."
+   },
+   {
+    "do": [
+     {
+      "sacrifice": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "attacks",
+    "text": "When you attack enchanted opponent or a planeswalker they control or when they attack you or a planeswalker you control, sacrifice this Aura."
+   }
+  ]
+ },
+ "Terramorphic Expanse": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": "basic",
+       "tapped": true
+      }
+     }
+    ],
+    "text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle."
+   }
+  ],
+  "name": "Terramorphic Expanse",
+  "source": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+  "status": "auto"
+ },
+ "Thought Vessel": {
+  "name": "Thought Vessel",
+  "source": "You have no maximum hand size.\n{T}: Add {C}.",
+  "statics": [
+   {
+    "noMaxHand": true,
+    "text": "You have no maximum hand size."
+   }
+  ],
+  "status": "hand"
+ },
+ "Thriving Grove": {
+  "chooseOn": {
+   "enters": {
+    "kind": "color"
+   }
+  },
+  "name": "Thriving Grove",
+  "notes": "Choose a colour other than green; tapping for mana is the engine's.",
+  "source": "This land enters tapped. As it enters, choose a color other than green.\n{T}: Add {G} or one mana of the chosen color.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped. As it enters, choose a color other than green."
+   }
+  ]
+ },
+ "Thriving Heath": {
+  "chooseOn": {
+   "enters": {
+    "kind": "color"
+   }
+  },
+  "name": "Thriving Heath",
+  "notes": "Choose a colour other than white; tapping for mana is the engine's.",
+  "source": "This land enters tapped. As it enters, choose a color other than white.\n{T}: Add {W} or one mana of the chosen color.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped. As it enters, choose a color other than white."
+   }
+  ]
+ },
+ "Thriving Isle": {
+  "chooseOn": {
+   "enters": {
+    "kind": "color"
+   }
+  },
+  "name": "Thriving Isle",
+  "notes": "Choose a colour other than blue; tapping for mana is the engine's.",
+  "source": "This land enters tapped. As it enters, choose a color other than blue.\n{T}: Add {U} or one mana of the chosen color.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped. As it enters, choose a color other than blue."
+   }
+  ]
+ },
+ "Triskaidekaphile": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{3}{U}"
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "label": "Draw",
+    "text": "{3}{U}: Draw a card."
+   }
+  ],
+  "name": "Triskaidekaphile",
+  "source": "You have no maximum hand size.\nAt the beginning of your upkeep, if you have exactly thirteen cards in your hand, you win the game.\n{3}{U}: Draw a card.",
+  "statics": [
+   {
+    "noMaxHand": true,
+    "text": "You have no maximum hand size."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "win": "Triskaidekaphile: exactly thirteen cards in hand"
+     }
+    ],
+    "if": {
+     "handGe": 13,
+     "handLe": 13
+    },
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, if you have exactly thirteen cards in your hand, you win the game."
+   }
+  ]
+ },
+ "Twenty-Toed Toad": {
+  "name": "Twenty-Toed Toad",
+  "notes": "Hand size twenty: the cleanup limit is lifted and you discard down to twenty at your end step instead.",
+  "source": "Your maximum hand size is twenty.\nWhenever you attack with two or more creatures, put a +1/+1 counter on this creature and draw a card.\nWhenever this creature attacks, you win the game if there are twenty or more counters on it or you have twenty or more cards in hand.",
+  "statics": [
+   {
+    "noMaxHand": true,
+    "text": "Your maximum hand size is twenty."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "repeat": {
+       "do": [
+        {
+         "check": {
+          "do": [
+           {
+            "discard": 1
+           }
+          ],
+          "if": {
+           "handGe": 21
+          }
+         }
+        }
+       ],
+       "times": 50
+      }
+     }
+    ],
+    "if": {
+     "handGe": 21
+    },
+    "on": "endStep",
+    "text": "Your maximum hand size is twenty."
+   },
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "self"
+      }
+     },
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "countGe": 2
+    },
+    "on": "attackedWith",
+    "text": "Whenever you attack with two or more creatures, put a +1/+1 counter on this creature and draw a card."
+   },
+   {
+    "do": [
+     {
+      "win": "Twenty-Toed Toad"
+     }
+    ],
+    "if": {
+     "any": [
+      {
+       "counters": {
+        "ge": 20,
+        "kind": "p1p1"
+       }
+      },
+      {
+       "handGe": 20
+      }
+     ]
+    },
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever this creature attacks, you win the game if there are twenty or more counters on it or you have twenty or more cards in hand."
+   }
+  ]
+ },
+ "Wear Down": {
+  "name": "Wear Down",
+  "source": "Gift a card (You may promise an opponent a gift as you cast this spell. If you do, they draw a card before its other effects.)\nDestroy target artifact or enchantment. If the gift was promised, instead destroy two target artifacts and/or enchantments.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "pick": {
+            "type": [
+             "Artifact",
+             "Enchantment"
+            ]
+           }
+          }
+         }
+        }
+       ],
+       "label": "Mine, no gift: destroy one"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "n": 2,
+           "pick": {
+            "type": [
+             "Artifact",
+             "Enchantment"
+            ]
+           }
+          }
+         }
+        }
+       ],
+       "label": "Mine, gift promised: destroy two"
+      }
+     ],
+     "text": "Destroy target artifact or enchantment. If the gift was promised, instead destroy two target artifacts and/or enchantments."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Wizard Class": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}{U}"
+    },
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "counters": {
+          "kind": "level",
+          "n": 1,
+          "target": "self"
+         }
+        },
+        {
+         "draw": 2
+        }
+       ],
+       "if": {
+        "noCounters": {
+         "kind": "level"
+        }
+       }
+      }
+     }
+    ],
+    "label": "Level 2",
+    "limit": "sorcery-speed",
+    "text": "{2}{U}: Level 2"
+   },
+   {
+    "cost": {
+     "mana": "{4}{U}"
+    },
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "counters": {
+          "kind": "level",
+          "n": 1,
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "all": [
+         {
+          "counters": {
+           "ge": 1,
+           "kind": "level"
+          }
+         },
+         {
+          "not": {
+           "counters": {
+            "ge": 2,
+            "kind": "level"
+           }
+          }
+         }
+        ]
+       }
+      }
+     }
+    ],
+    "label": "Level 3",
+    "limit": "sorcery-speed",
+    "text": "{4}{U}: Level 3"
+   }
+  ],
+  "name": "Wizard Class",
+  "notes": "Level counters: level 2 = 1 counter, level 3 = 2. \"When this Class becomes level 2, draw two cards\" is part of the level-2 activation.",
+  "source": "(Gain the next level as a sorcery to add its ability.)\nYou have no maximum hand size.\n{2}{U}: Level 2\nWhen this Class becomes level 2, draw two cards.\n{4}{U}: Level 3\nWhenever you draw a card, put a +1/+1 counter on target creature you control.",
+  "statics": [
+   {
+    "noMaxHand": true,
+    "text": "You have no maximum hand size."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "repeat": {
+       "do": [
+        {
+         "counters": {
+          "kind": "p1p1",
+          "n": 1,
+          "target": "creature-you-control"
+         }
+        }
+       ],
+       "times": "count:event-amount"
+      }
+     }
+    ],
+    "if": {
+     "counters": {
+      "ge": 2,
+      "kind": "level"
+     }
+    },
+    "on": "drew",
+    "text": "Whenever you draw a card, put a +1/+1 counter on target creature you control."
+   }
+  ]
+ },
+ "Yavimaya Coast": {
+  "name": "Yavimaya Coast",
+  "source": "{T}: Add {C}.\n{T}: Add {G} or {U}. This land deals 1 damage to you.",
+  "status": "auto"
+ }
+}

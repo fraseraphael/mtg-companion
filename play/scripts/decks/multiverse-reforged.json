@@ -1,0 +1,3574 @@
+{
+ "Ajani Unrelenting": {
+  "activated": [
+   {
+    "cost": {},
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Cadet",
+       "power": 2,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Wizard",
+        "Soldier"
+       ]
+      }
+     },
+     {
+      "counters": {
+       "kind": "loyalty",
+       "n": 1,
+       "target": "self"
+      }
+     },
+     {
+      "pump": {
+       "kw": [
+        "Haste"
+       ],
+       "p": 1,
+       "t": 0,
+       "target": "each-creature-you-control"
+      }
+     }
+    ],
+    "label": "+1: pump & haste",
+    "limit": "sorcery-speed",
+    "text": "+1: Creatures you control get +1/+0 and gain haste until end of turn."
+   },
+   {
+    "cost": {
+     "removeCounters": {
+      "kind": "loyalty",
+      "n": 2
+     }
+    },
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Cadet",
+       "power": 2,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Wizard",
+        "Soldier"
+       ]
+      }
+     },
+     {
+      "discard": "count:cards-in-hand"
+     },
+     {
+      "draw": "count:creatures-you-control"
+     }
+    ],
+    "label": "−2: wheel",
+    "limit": "sorcery-speed",
+    "text": "−2: Discard your hand, then draw a card for each creature you control."
+   },
+   {
+    "cost": {
+     "removeCounters": {
+      "kind": "loyalty",
+      "n": 3
+     }
+    },
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Cadet",
+       "power": 2,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Wizard",
+        "Soldier"
+       ]
+      }
+     },
+     {
+      "damage": {
+       "n": 4,
+       "target": {
+        "each": {
+         "creature": true,
+         "nontoken": true
+        }
+       }
+      }
+     }
+    ],
+    "label": "−3: 4 damage",
+    "limit": "sorcery-speed",
+    "text": "−3: Ajani deals 4 damage to each creature except for tokens you control."
+   },
+   {
+    "cost": {},
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "token": {
+          "n": 1,
+          "name": "Cadet",
+          "power": 2,
+          "toughness": 2,
+          "types": [
+           "Creature",
+           "Wizard",
+           "Soldier"
+          ]
+         }
+        },
+        {
+         "counters": {
+          "kind": "loyalty",
+          "n": 1,
+          "target": "self"
+         }
+        },
+        {
+         "addMana": "{R}"
+        }
+       ],
+       "if": {
+        "youControl": {
+         "name": "Way of the Pyromancer"
+        }
+       }
+      }
+     }
+    ],
+    "label": "+1: Add {R} (Way of the Pyromancer)",
+    "limit": "sorcery-speed",
+    "text": "Planeswalkers you control have \"[+1]: Add {R}.\" (Way of the Pyromancer)"
+   },
+   {
+    "cost": {},
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "pay": {
+          "removeCounters": {
+           "kind": "loyalty",
+           "n": 2
+          }
+         }
+        },
+        {
+         "token": {
+          "n": 1,
+          "name": "Cadet",
+          "power": 2,
+          "toughness": 2,
+          "types": [
+           "Creature",
+           "Wizard",
+           "Soldier"
+          ]
+         }
+        },
+        {
+         "token": {
+          "n": 1,
+          "name": "Cadet",
+          "power": 2,
+          "toughness": 2,
+          "types": [
+           "Creature",
+           "Wizard",
+           "Soldier"
+          ]
+         }
+        },
+        {
+         "surveil": 1
+        }
+       ],
+       "if": {
+        "youControl": {
+         "name": "Way of the Healer"
+        }
+       }
+      }
+     }
+    ],
+    "label": "−2: Cadet, surveil 1 (Way of the Healer)",
+    "limit": "sorcery-speed",
+    "text": "Planeswalkers you control have \"[−2]: Create a 2/2 colorless Wizard Soldier creature token named Cadet. Surveil 1.\" (Way of the Healer)"
+   },
+   {
+    "cost": {},
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "pay": {
+          "removeCounters": {
+           "kind": "loyalty",
+           "n": 4
+          }
+         }
+        },
+        {
+         "token": {
+          "n": 1,
+          "name": "Cadet",
+          "power": 2,
+          "toughness": 2,
+          "types": [
+           "Creature",
+           "Wizard",
+           "Soldier"
+          ]
+         }
+        },
+        {
+         "damage": {
+          "n": 2,
+          "target": "opponent"
+         }
+        }
+       ],
+       "if": {
+        "youControl": {
+         "name": "Way of the Warlord"
+        }
+       }
+      }
+     }
+    ],
+    "label": "−4: 2 damage (Way of the Warlord)",
+    "limit": "sorcery-speed",
+    "text": "Planeswalkers you control have \"[−4]: This planeswalker deals 2 damage to up to one target creature or planeswalker and 2 damage to target player.\" (Way of the Warlord)"
+   }
+  ],
+  "name": "Ajani Unrelenting",
+  "notes": "Each loyalty ability first creates the Cadet (\"Whenever you activate a loyalty ability…\" resolves before the ability). Minus abilities remove their loyalty as the cost; plus abilities add it. The Way of the Pyromancer/Healer/Warlord loyalty abilities are listed on each planeswalker and only work while that Way is on the battlefield (the creature/planeswalker damage of the Warlord's is aimed at the dummy, which has none).",
+  "source": "Whenever you activate a loyalty ability, create a 2/2 colorless Wizard Soldier creature token named Cadet.\n+1: Creatures you control get +1/+0 and gain haste until end of turn.\n−2: Discard your hand, then draw a card for each creature you control.\n−3: Ajani deals 4 damage to each creature except for tokens you control.",
+  "status": "hand"
+ },
+ "Akroma, Angel of Fury": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{R}"
+    },
+    "do": [
+     {
+      "pump": {
+       "p": 1,
+       "t": 0,
+       "target": "self"
+      }
+     }
+    ],
+    "label": "+1/+0",
+    "text": "{R}: Akroma gets +1/+0 until end of turn."
+   }
+  ],
+  "name": "Akroma, Angel of Fury",
+  "notes": "\"Can't be countered\" and protection never matter against the dummy; morph is by hand.",
+  "source": "This spell can't be countered.\nFlying, trample, protection from white and from blue\n{R}: Akroma gets +1/+0 until end of turn.\nMorph {3}{R}{R}{R} (You may cast this card face down as a 2/2 creature for {3}. Turn her face up any time for her morph cost.)",
+  "status": "hand"
+ },
+ "Arcane Signet": {
+  "name": "Arcane Signet",
+  "source": "{T}: Add one mana of any color in your commander's color identity.",
+  "status": "auto"
+ },
+ "Archfiend of Despair": {
+  "name": "Archfiend of Despair",
+  "notes": "\"Your opponents can't gain life\" is silent on purpose: the dummy never gains life.",
+  "source": "Flying\nYour opponents can't gain life.\nAt the beginning of each end step, each opponent loses life equal to the life that player lost this turn. (Damage causes loss of life.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "oppLoseLife": {
+       "thisTurn": "damageToOpp"
+      }
+     }
+    ],
+    "on": "endStep",
+    "text": "At the beginning of each end step, each opponent loses life equal to the life that player lost this turn. (Damage causes loss of life.)"
+   }
+  ]
+ },
+ "Archive Arbiter": {
+  "name": "Archive Arbiter",
+  "notes": "The dummy has no permanents, so the destroy mode can only hit yours.",
+  "source": "Flying\nWhen this creature enters, choose one —\n• Destroy target noncreature, nonland permanent.\n• You gain 4 life.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "destroy": {
+            "target": {
+             "pick": {
+              "noncreature": true,
+              "nonland": true
+             }
+            }
+           }
+          }
+         ],
+         "label": "Destroy target noncreature, nonland permanent."
+        },
+        {
+         "do": [
+          {
+           "gainLife": 4
+          }
+         ],
+         "label": "You gain 4 life."
+        }
+       ],
+       "text": "Choose one —"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, choose one —\n• Destroy target noncreature, nonland permanent.\n• You gain 4 life."
+   }
+  ]
+ },
+ "Archon of Cruelty": {
+  "name": "Archon of Cruelty",
+  "notes": "The dummy has no permanents or hand: only its life loss applies.",
+  "source": "Flying\nWhenever this creature enters or attacks, target opponent sacrifices a creature or planeswalker of their choice, discards a card, and loses 3 life. You draw a card and gain 3 life.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "oppLoseLife": 3
+     },
+     {
+      "draw": 1
+     },
+     {
+      "gainLife": 3
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Whenever this creature enters or attacks, target opponent sacrifices a creature or planeswalker of their choice, discards a card, and loses 3 life. You draw a card and gain 3 life."
+   },
+   {
+    "do": [
+     {
+      "oppLoseLife": 3
+     },
+     {
+      "draw": 1
+     },
+     {
+      "gainLife": 3
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever this creature enters or attacks, target opponent sacrifices a creature or planeswalker of their choice, discards a card, and loses 3 life. You draw a card and gain 3 life."
+   }
+  ]
+ },
+ "Avacyn, Angel of Horror": {
+  "name": "Avacyn, Angel of Horror",
+  "notes": "At the next end step you return the card from the graveyard (pick the creature that died; skip if it already left the graveyard).",
+  "source": "Flying, deathtouch\nWhenever Avacyn or another nontoken creature you control dies, return that card to the battlefield under your control at the beginning of the next end step.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "delay": {
+       "at": "endStep",
+       "do": [
+        {
+         "return": {
+          "filter": {
+           "creature": true,
+           "nontoken": true
+          },
+          "from": "gy",
+          "optional": true,
+          "to": "bf"
+         }
+        }
+       ]
+      }
+     }
+    ],
+    "on": "dies",
+    "selfOr": {
+     "creature": true,
+     "nontoken": true
+    },
+    "text": "Whenever Avacyn or another nontoken creature you control dies, return that card to the battlefield under your control at the beginning of the next end step."
+   }
+  ]
+ },
+ "Azorius Signet": {
+  "name": "Azorius Signet",
+  "source": "{1}, {T}: Add {W}{U}.",
+  "status": "auto"
+ },
+ "Battlefield Forge": {
+  "name": "Battlefield Forge",
+  "source": "{T}: Add {C}.\n{T}: Add {R} or {W}. This land deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Brainstorm": {
+  "name": "Brainstorm",
+  "source": "Draw three cards, then put two cards from your hand on top of your library in any order.",
+  "spell": [
+   {
+    "draw": 3
+   },
+   {
+    "putFromHand": {
+     "n": 2,
+     "to": "libtop"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Brainsurge": {
+  "name": "Brainsurge",
+  "source": "Draw four cards, then put two cards from your hand on top of your library in any order.",
+  "spell": [
+   {
+    "draw": 4
+   },
+   {
+    "putFromHand": {
+     "n": 2,
+     "to": "libtop"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Caves of Koilos": {
+  "name": "Caves of Koilos",
+  "source": "{T}: Add {C}.\n{T}: Add {W} or {B}. This land deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Chromatic Lantern": {
+  "name": "Chromatic Lantern",
+  "source": "Lands you control have \"{T}: Add one mana of any color.\"\n{T}: Add one mana of any color.",
+  "statics": [
+   {
+    "landsProduceAny": true,
+    "text": "Lands you control have \"{T}: Add one mana of any color.\""
+   }
+  ],
+  "status": "hand"
+ },
+ "Clifftop Retreat": {
+  "name": "Clifftop Retreat",
+  "source": "This land enters tapped unless you control a Mountain or a Plains.\n{T}: Add {R} or {W}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Mountain",
+           "Plains"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control a Mountain or a Plains."
+   }
+  ]
+ },
+ "Command Tower": {
+  "name": "Command Tower",
+  "source": "{T}: Add one mana of any color in your commander's color identity.",
+  "status": "auto"
+ },
+ "Contaminated Landscape": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": {
+        "basic": true,
+        "subtype": [
+         "Plains",
+         "Island",
+         "Swamp"
+        ]
+       },
+       "tapped": true
+      }
+     }
+    ],
+    "label": "Fetch basic",
+    "text": "{T}, Sacrifice this land: Search your library for a basic Plains, Island, or Swamp card, put it onto the battlefield tapped, then shuffle."
+   }
+  ],
+  "cycling": "{W}{U}{B}",
+  "name": "Contaminated Landscape",
+  "source": "{T}: Add {C}.\n{T}, Sacrifice this land: Search your library for a basic Plains, Island, or Swamp card, put it onto the battlefield tapped, then shuffle.\nCycling {W}{U}{B} ({W}{U}{B}, Discard this card: Draw a card.)",
+  "status": "hand"
+ },
+ "Countersculpt": {
+  "name": "Countersculpt",
+  "notes": "Silent on purpose: \"Counter target spell\" needs a spell to target and the dummy casts none, so it can't be cast in goldfish (its Empower Jace rides on that).",
+  "source": "As an additional cost to cast this spell, behold a Jace or pay {1}. (To behold a Jace, choose a Jace you control or reveal a Jace card from your hand.)\nCounter target spell. Empower Jace 1. (Put a loyalty counter on a Jace token you control. If you don't control one, first create a blue Jace planeswalker token with \"[−1]: Surveil 1\" and \"[−3]: Draw a card.\")",
+  "status": "hand"
+ },
+ "Cursed Mirror": {
+  "name": "Cursed Mirror",
+  "notes": "Modelled as a hasty token copy that is exiled at cleanup, while the Mirror itself sits tapped this turn (as the copy it has no {R} ability). Like every copy here, it doesn't run the copied creature's enters abilities.",
+  "source": "{T}: Add {R}.\nAs this artifact enters, you may have it become a copy of any creature on the battlefield until end of turn, except it has haste.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "mirror",
+       "n": 1,
+       "target": "self"
+      }
+     },
+     {
+      "token": {
+       "copyOf": {
+        "pick": {
+         "creature": true
+        }
+       }
+      }
+     },
+     {
+      "removeCounters": {
+       "kind": "mirror",
+       "n": "all",
+       "target": "self"
+      }
+     },
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "optional": true,
+    "self": true,
+    "text": "As this artifact enters, you may have it become a copy of any creature on the battlefield until end of turn, except it has haste."
+   },
+   {
+    "do": [
+     {
+      "grant": {
+       "kw": [
+        "Haste"
+       ],
+       "target": "triggering"
+      }
+     },
+     {
+      "delay": {
+       "at": "cleanup",
+       "do": [
+        {
+         "exile": {
+          "target": "triggering"
+         }
+        }
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "token": true
+    },
+    "if": {
+     "counters": {
+      "ge": 1,
+      "kind": "mirror"
+     }
+    },
+    "on": "enters",
+    "text": "As this artifact enters, you may have it become a copy of any creature on the battlefield until end of turn, except it has haste."
+   }
+  ]
+ },
+ "Darksteel Angel": {
+  "name": "Darksteel Angel",
+  "notes": "Silent on purpose: the engine never makes you lose the game, and only an opponent's effects would put -1/-1 counters on your creatures in this deck.",
+  "source": "Flying, indestructible\nYou can't lose the game and your opponents can't win the game.\nCreatures you control can't have -1/-1 counters put on them.",
+  "status": "hand"
+ },
+ "Despark": {
+  "name": "Despark",
+  "source": "Exile target permanent with mana value 4 or greater.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "exile": {
+          "target": {
+           "pick": {
+            "mvGe": 4
+           }
+          }
+         }
+        }
+       ],
+       "label": "One of my permanents"
+      },
+      {
+       "do": [
+        {
+         "exile": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's permanent (the dummy has none)"
+      }
+     ],
+     "text": "Exile target permanent with mana value 4 or greater."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Dimir Signet": {
+  "name": "Dimir Signet",
+  "source": "{1}, {T}: Add {U}{B}.",
+  "status": "auto"
+ },
+ "Drowned Catacomb": {
+  "name": "Drowned Catacomb",
+  "source": "This land enters tapped unless you control an Island or a Swamp.\n{T}: Add {U} or {B}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Island",
+           "Swamp"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control an Island or a Swamp."
+   }
+  ]
+ },
+ "Elspeth, Sun's Champion": {
+  "activated": [
+   {
+    "cost": {},
+    "do": [
+     {
+      "counters": {
+       "kind": "loyalty",
+       "n": 1,
+       "target": "self"
+      }
+     },
+     {
+      "token": {
+       "n": 3,
+       "name": "Soldier",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Soldier"
+       ]
+      }
+     }
+    ],
+    "label": "+1: three Soldiers",
+    "limit": "sorcery-speed",
+    "text": "+1: Create three 1/1 white Soldier creature tokens."
+   },
+   {
+    "cost": {
+     "removeCounters": {
+      "kind": "loyalty",
+      "n": 3
+     }
+    },
+    "do": [
+     {
+      "destroy": {
+       "target": {
+        "each": {
+         "creature": true,
+         "powerGe": 4
+        }
+       }
+      }
+     }
+    ],
+    "label": "−3: wrath power 4+",
+    "limit": "sorcery-speed",
+    "text": "−3: Destroy all creatures with power 4 or greater."
+   },
+   {
+    "cost": {
+     "removeCounters": {
+      "kind": "loyalty",
+      "n": 7
+     }
+    },
+    "do": [
+     {
+      "emblem": {
+       "name": "Elspeth emblem",
+       "statics": [
+        {
+         "kw": [
+          "Flying"
+         ],
+         "p": 2,
+         "scope": "creatures-you-control",
+         "t": 2,
+         "text": "Creatures you control get +2/+2 and have flying."
+        }
+       ]
+      }
+     }
+    ],
+    "label": "−7: emblem",
+    "limit": "sorcery-speed",
+    "text": "−7: You get an emblem with \"Creatures you control get +2/+2 and have flying.\""
+   },
+   {
+    "cost": {},
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "counters": {
+          "kind": "loyalty",
+          "n": 1,
+          "target": "self"
+         }
+        },
+        {
+         "addMana": "{R}"
+        }
+       ],
+       "if": {
+        "youControl": {
+         "name": "Way of the Pyromancer"
+        }
+       }
+      }
+     }
+    ],
+    "label": "+1: Add {R} (Way of the Pyromancer)",
+    "limit": "sorcery-speed",
+    "text": "Planeswalkers you control have \"[+1]: Add {R}.\" (Way of the Pyromancer)"
+   },
+   {
+    "cost": {},
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "pay": {
+          "removeCounters": {
+           "kind": "loyalty",
+           "n": 2
+          }
+         }
+        },
+        {
+         "token": {
+          "n": 1,
+          "name": "Cadet",
+          "power": 2,
+          "toughness": 2,
+          "types": [
+           "Creature",
+           "Wizard",
+           "Soldier"
+          ]
+         }
+        },
+        {
+         "surveil": 1
+        }
+       ],
+       "if": {
+        "youControl": {
+         "name": "Way of the Healer"
+        }
+       }
+      }
+     }
+    ],
+    "label": "−2: Cadet, surveil 1 (Way of the Healer)",
+    "limit": "sorcery-speed",
+    "text": "Planeswalkers you control have \"[−2]: Create a 2/2 colorless Wizard Soldier creature token named Cadet. Surveil 1.\" (Way of the Healer)"
+   },
+   {
+    "cost": {},
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "pay": {
+          "removeCounters": {
+           "kind": "loyalty",
+           "n": 4
+          }
+         }
+        },
+        {
+         "damage": {
+          "n": 2,
+          "target": "opponent"
+         }
+        }
+       ],
+       "if": {
+        "youControl": {
+         "name": "Way of the Warlord"
+        }
+       }
+      }
+     }
+    ],
+    "label": "−4: 2 damage (Way of the Warlord)",
+    "limit": "sorcery-speed",
+    "text": "Planeswalkers you control have \"[−4]: This planeswalker deals 2 damage to up to one target creature or planeswalker and 2 damage to target player.\" (Way of the Warlord)"
+   }
+  ],
+  "name": "Elspeth, Sun's Champion",
+  "notes": "Minus abilities remove their loyalty as the cost; plus abilities add it. The Way of the Pyromancer/Healer/Warlord loyalty abilities are listed on each planeswalker and only work while that Way is on the battlefield (the creature/planeswalker damage of the Warlord's is aimed at the dummy, which has none).",
+  "source": "+1: Create three 1/1 white Soldier creature tokens.\n−3: Destroy all creatures with power 4 or greater.\n−7: You get an emblem with \"Creatures you control get +2/+2 and have flying.\"",
+  "status": "hand"
+ },
+ "Exotic Orchard": {
+  "name": "Exotic Orchard",
+  "source": "{T}: Add one mana of any color that a land an opponent controls could produce.",
+  "status": "auto"
+ },
+ "Fabled Passage": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "ramp": {
+          "filter": "basic",
+          "tapped": false
+         }
+        }
+       ],
+       "else": [
+        {
+         "ramp": {
+          "filter": "basic",
+          "tapped": true
+         }
+        }
+       ],
+       "if": {
+        "landsGe": 3
+       }
+      }
+     }
+    ],
+    "label": "Fetch",
+    "text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle. Then if you control four or more lands, untap that land."
+   }
+  ],
+  "name": "Fabled Passage",
+  "notes": "Three lands before the search = four after it, so the land simply enters untapped.",
+  "source": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle. Then if you control four or more lands, untap that land.",
+  "status": "hand"
+ },
+ "Fact or Fiction": {
+  "name": "Fact or Fiction",
+  "notes": "The dummy can't split piles: take the cards of the pile you want; the rest go to the graveyard.",
+  "source": "Reveal the top five cards of your library. An opponent separates those cards into two piles. Put one pile into your hand and the other into your graveyard.",
+  "spell": [
+   {
+    "lookTop": {
+     "n": 5,
+     "pick": {
+      "n": 5,
+      "to": "hand"
+     },
+     "rest": "gy"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Fatehold Charm": {
+  "name": "Fatehold Charm",
+  "notes": "Empower Jace: a blue Jace planeswalker token (scripted: [−1]: Surveil 1, [−3]: Draw a card) is created if you have none, then gets the loyalty counters. The bounce mode can only hit your creatures (spells on the stack are the dummy's).",
+  "source": "Choose one —\n• Draw a card. Empower Jace 2.\n• Return target spell or creature to its owner's hand.\n• Creatures you control get +1/+2 until end of turn.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "draw": 1
+        },
+        {
+         "check": {
+          "do": [
+           {
+            "counters": {
+             "kind": "loyalty",
+             "n": 2,
+             "target": {
+              "pick": {
+               "subtype": "Jace",
+               "token": true
+              }
+             }
+            }
+           }
+          ],
+          "else": [
+           {
+            "token": {
+             "colors": [
+              "U"
+             ],
+             "n": 1,
+             "name": "Jace",
+             "script": "Jace Token",
+             "types": [
+              "Planeswalker",
+              "Jace"
+             ]
+            }
+           },
+           {
+            "counters": {
+             "kind": "loyalty",
+             "n": 2,
+             "target": {
+              "pick": {
+               "subtype": "Jace",
+               "token": true
+              }
+             }
+            }
+           }
+          ],
+          "if": {
+           "youControl": {
+            "subtype": "Jace",
+            "token": true
+           }
+          }
+         }
+        }
+       ],
+       "label": "Draw a card. Empower Jace 2."
+      },
+      {
+       "do": [
+        {
+         "bounce": {
+          "target": "creature-you-control"
+         }
+        }
+       ],
+       "label": "Return target spell or creature to its owner's hand."
+      },
+      {
+       "do": [
+        {
+         "pump": {
+          "p": 1,
+          "t": 2,
+          "target": "each-creature-you-control"
+         }
+        }
+       ],
+       "label": "Creatures you control get +1/+2 until end of turn."
+      }
+     ],
+     "text": "Choose one —"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Fellwar Stone": {
+  "name": "Fellwar Stone",
+  "source": "{T}: Add one mana of any color that a land an opponent controls could produce.",
+  "status": "auto"
+ },
+ "Fetid Heath": {
+  "name": "Fetid Heath",
+  "source": "{T}: Add {C}.\n{W/B}, {T}: Add {W}{W}, {W}{B}, or {B}{B}.",
+  "status": "auto"
+ },
+ "Flawless Maneuver": {
+  "altCost": {
+   "free": true,
+   "if": {
+    "commanderOnBf": true
+   }
+  },
+  "name": "Flawless Maneuver",
+  "source": "If you control a commander, you may cast this spell without paying its mana cost.\nCreatures you control gain indestructible until end of turn.",
+  "spell": [
+   {
+    "grant": {
+     "kw": [
+      "Indestructible"
+     ],
+     "target": "each-creature-you-control"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Glacial Fortress": {
+  "name": "Glacial Fortress",
+  "source": "This land enters tapped unless you control a Plains or an Island.\n{T}: Add {W} or {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Plains",
+           "Island"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control a Plains or an Island."
+   }
+  ]
+ },
+ "Grand Crescendo": {
+  "name": "Grand Crescendo",
+  "source": "Create X 1/1 green and white Citizen creature tokens. Creatures you control gain indestructible until end of turn.",
+  "spell": [
+   {
+    "token": {
+     "n": "X",
+     "name": "Citizen",
+     "power": 1,
+     "toughness": 1,
+     "types": [
+      "Creature",
+      "Citizen"
+     ]
+    }
+   },
+   {
+    "grant": {
+     "kw": [
+      "Indestructible"
+     ],
+     "target": "each-creature-you-control"
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Haunted Ridge": {
+  "name": "Haunted Ridge",
+  "source": "This land enters tapped unless you control two or more other lands.\n{T}: Add {B} or {R}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "landsGe": 3
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control two or more other lands."
+   }
+  ]
+ },
+ "Hexhaven Battalion": {
+  "name": "Hexhaven Battalion",
+  "notes": "Empower Jace: a blue Jace planeswalker token (scripted: [−1]: Surveil 1, [−3]: Draw a card) is created if you have none, then gets the loyalty counters.",
+  "source": "Create three 2/2 colorless Wizard Soldier creature tokens named Cadet. Empower Jace 2. (Put two loyalty counters on a Jace token you control. If you don't control one, first create a blue Jace planeswalker token with \"[−1]: Surveil 1\" and \"[−3]: Draw a card.\")\nBasic landcycling {2} ({2}, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)",
+  "spell": [
+   {
+    "token": {
+     "n": 3,
+     "name": "Cadet",
+     "power": 2,
+     "toughness": 2,
+     "types": [
+      "Creature",
+      "Wizard",
+      "Soldier"
+     ]
+    }
+   },
+   {
+    "check": {
+     "do": [
+      {
+       "counters": {
+        "kind": "loyalty",
+        "n": 2,
+        "target": {
+         "pick": {
+          "subtype": "Jace",
+          "token": true
+         }
+        }
+       }
+      }
+     ],
+     "else": [
+      {
+       "token": {
+        "colors": [
+         "U"
+        ],
+        "n": 1,
+        "name": "Jace",
+        "script": "Jace Token",
+        "types": [
+         "Planeswalker",
+         "Jace"
+        ]
+       }
+      },
+      {
+       "counters": {
+        "kind": "loyalty",
+        "n": 2,
+        "target": {
+         "pick": {
+          "subtype": "Jace",
+          "token": true
+         }
+        }
+       }
+      }
+     ],
+     "if": {
+      "youControl": {
+       "subtype": "Jace",
+       "token": true
+      }
+     }
+    }
+   }
+  ],
+  "status": "hand",
+  "typecycling": {
+   "cost": "{2}",
+   "filter": {
+    "basic": true,
+    "land": true
+   }
+  }
+ },
+ "Island": {
+  "name": "Island",
+  "source": "({T}: Add {U}.)",
+  "status": "auto"
+ },
+ "Isolated Chapel": {
+  "name": "Isolated Chapel",
+  "source": "This land enters tapped unless you control a Plains or a Swamp.\n{T}: Add {W} or {B}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Plains",
+           "Swamp"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control a Plains or a Swamp."
+   }
+  ]
+ },
+ "Izzet Signet": {
+  "name": "Izzet Signet",
+  "source": "{1}, {T}: Add {U}{R}.",
+  "status": "auto"
+ },
+ "Jace's Machinations": {
+  "name": "Jace's Machinations",
+  "notes": "Empower Jace: a blue Jace planeswalker token (scripted: [−1]: Surveil 1, [−3]: Draw a card) is created if you have none, then gets the loyalty counters. Instant-speed loyalty abilities only matter on the opponent's turn: silent.",
+  "source": "Until end of turn, you may activate loyalty abilities of Jace planeswalkers you control on any player's turn any time you could cast an instant.\nEmpower Jace 8. (Put eight loyalty counters on a Jace token you control. If you don't control one, first create a blue Jace planeswalker token with \"[−1]: Surveil 1\" and \"[−3]: Draw a card.\")",
+  "spell": [
+   {
+    "check": {
+     "do": [
+      {
+       "counters": {
+        "kind": "loyalty",
+        "n": 8,
+        "target": {
+         "pick": {
+          "subtype": "Jace",
+          "token": true
+         }
+        }
+       }
+      }
+     ],
+     "else": [
+      {
+       "token": {
+        "colors": [
+         "U"
+        ],
+        "n": 1,
+        "name": "Jace",
+        "script": "Jace Token",
+        "types": [
+         "Planeswalker",
+         "Jace"
+        ]
+       }
+      },
+      {
+       "counters": {
+        "kind": "loyalty",
+        "n": 8,
+        "target": {
+         "pick": {
+          "subtype": "Jace",
+          "token": true
+         }
+        }
+       }
+      }
+     ],
+     "if": {
+      "youControl": {
+       "subtype": "Jace",
+       "token": true
+      }
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Jace, Multiverse Architect": {
+  "activated": [
+   {
+    "cost": {},
+    "do": [
+     {
+      "counters": {
+       "kind": "loyalty",
+       "n": 1,
+       "target": "self"
+      }
+     },
+     {
+      "draw": 2
+     },
+     {
+      "putFromHand": {
+       "n": 1,
+       "to": "libbottom"
+      }
+     }
+    ],
+    "label": "+1: draw two",
+    "limit": "sorcery-speed",
+    "text": "+1: Draw two cards, then put a card from your hand on the bottom of your library."
+   },
+   {
+    "cost": {
+     "removeCounters": {
+      "kind": "loyalty",
+      "n": 3
+     }
+    },
+    "do": [
+     {
+      "exile": {
+       "target": {
+        "pick": {
+         "other": true,
+         "type": [
+          "Creature",
+          "Planeswalker"
+         ]
+        }
+       }
+      }
+     },
+     {
+      "revealUntil": {
+       "filter": {
+        "type": [
+         "Creature",
+         "Planeswalker"
+        ]
+       },
+       "rest": "bottom",
+       "to": "bf"
+      }
+     }
+    ],
+    "label": "−3: polymorph",
+    "limit": "sorcery-speed",
+    "text": "−3: Exile another target planeswalker or creature you control. Reveal cards from the top of your library until you reveal a creature or planeswalker card. Put that card onto the battlefield and the rest on the bottom of your library in a random order."
+   },
+   {
+    "cost": {},
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "counters": {
+          "kind": "loyalty",
+          "n": 1,
+          "target": "self"
+         }
+        },
+        {
+         "addMana": "{R}"
+        }
+       ],
+       "if": {
+        "youControl": {
+         "name": "Way of the Pyromancer"
+        }
+       }
+      }
+     }
+    ],
+    "label": "+1: Add {R} (Way of the Pyromancer)",
+    "limit": "sorcery-speed",
+    "text": "Planeswalkers you control have \"[+1]: Add {R}.\" (Way of the Pyromancer)"
+   },
+   {
+    "cost": {},
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "pay": {
+          "removeCounters": {
+           "kind": "loyalty",
+           "n": 2
+          }
+         }
+        },
+        {
+         "token": {
+          "n": 1,
+          "name": "Cadet",
+          "power": 2,
+          "toughness": 2,
+          "types": [
+           "Creature",
+           "Wizard",
+           "Soldier"
+          ]
+         }
+        },
+        {
+         "surveil": 1
+        }
+       ],
+       "if": {
+        "youControl": {
+         "name": "Way of the Healer"
+        }
+       }
+      }
+     }
+    ],
+    "label": "−2: Cadet, surveil 1 (Way of the Healer)",
+    "limit": "sorcery-speed",
+    "text": "Planeswalkers you control have \"[−2]: Create a 2/2 colorless Wizard Soldier creature token named Cadet. Surveil 1.\" (Way of the Healer)"
+   },
+   {
+    "cost": {},
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "pay": {
+          "removeCounters": {
+           "kind": "loyalty",
+           "n": 4
+          }
+         }
+        },
+        {
+         "damage": {
+          "n": 2,
+          "target": "opponent"
+         }
+        }
+       ],
+       "if": {
+        "youControl": {
+         "name": "Way of the Warlord"
+        }
+       }
+      }
+     }
+    ],
+    "label": "−4: 2 damage (Way of the Warlord)",
+    "limit": "sorcery-speed",
+    "text": "Planeswalkers you control have \"[−4]: This planeswalker deals 2 damage to up to one target creature or planeswalker and 2 damage to target player.\" (Way of the Warlord)"
+   }
+  ],
+  "name": "Jace, Multiverse Architect",
+  "notes": "Silent on purpose: the opponent's-combat tax (the dummy takes no turns) and \"can be your commander\" (deck-building). The revealed rest go to the bottom in revealed order. The Way of the Pyromancer/Healer/Warlord loyalty abilities are listed on each planeswalker and only work while that Way is on the battlefield (the creature/planeswalker damage of the Warlord's is aimed at the dummy, which has none).",
+  "source": "At the beginning of combat on each opponent's turn, they may pay {2}. If they don't, creatures they control can't attack Jaces you control this turn.\n+1: Draw two cards, then put a card from your hand on the bottom of your library.\n−3: Exile another target planeswalker or creature you control. Reveal cards from the top of your library until you reveal a creature or planeswalker card. Put that card onto the battlefield and the rest on the bottom of your library in a random order.\nJace, Multiverse Architect can be your commander.",
+  "status": "hand"
+ },
+ "Jhoira, Weatherlight Corsair": {
+  "name": "Jhoira, Weatherlight Corsair",
+  "notes": "Silent on purpose: it reveals from the opponent's library, which the dummy doesn't have.",
+  "source": "Whenever Jhoira enters or attacks, target opponent reveals cards from the top of their library until they reveal a historic permanent card. You put that card onto the battlefield under your control and lose life equal to that permanent's mana value. That player puts the rest of the revealed cards on the bottom of their library in a random order. (Artifacts, legendaries, and Sagas are historic.)",
+  "status": "hand"
+ },
+ "Kher Keep": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}{R}",
+     "tap": true
+    },
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Kobolds of Kher Keep",
+       "power": 0,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Kobold"
+       ]
+      }
+     }
+    ],
+    "label": "Kobold",
+    "text": "{1}{R}, {T}: Create a 0/1 red Kobold creature token named Kobolds of Kher Keep."
+   }
+  ],
+  "name": "Kher Keep",
+  "source": "{T}: Add {C}.\n{1}{R}, {T}: Create a 0/1 red Kobold creature token named Kobolds of Kher Keep.",
+  "status": "hand"
+ },
+ "Koh, the Face Stealer": {
+  "activated": [
+   {
+    "cost": {
+     "life": 1
+    },
+    "do": [
+     {
+      "prompt": "Choose a creature card exiled with Koh."
+     }
+    ],
+    "label": "Choose exiled card",
+    "text": "Pay 1 life: Choose a creature card exiled with Koh."
+   }
+  ],
+  "name": "Koh, the Face Stealer",
+  "notes": "The dying creature is exiled from the graveyard (pick that card). Choosing an exiled card and Koh's borrowed abilities are by hand.",
+  "source": "When Koh enters, exile up to one other target creature.\nWhenever another nontoken creature dies, you may exile it.\nPay 1 life: Choose a creature card exiled with Koh.\nKoh has all activated and triggered abilities of the last chosen card.",
+  "statics": [
+   {
+    "prompt": "Koh has all activated and triggered abilities of the last chosen card."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "exile": {
+       "target": {
+        "optional": true,
+        "pick": {
+         "creature": true,
+         "other": true
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Koh enters, exile up to one other target creature."
+   },
+   {
+    "do": [
+     {
+      "exileFromGy": {
+       "filter": {
+        "creature": true
+       },
+       "n": 1,
+       "optional": true
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "nontoken": true,
+     "other": true
+    },
+    "on": "dies",
+    "optional": true,
+    "text": "Whenever another nontoken creature dies, you may exile it."
+   }
+  ]
+ },
+ "Lingering Souls": {
+  "name": "Lingering Souls",
+  "source": "Create two 1/1 white Spirit creature tokens with flying.\nFlashback {1}{B} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "spell": [
+   {
+    "token": {
+     "kw": [
+      "Flying"
+     ],
+     "n": 2,
+     "name": "Spirit",
+     "power": 1,
+     "toughness": 1,
+     "types": [
+      "Creature",
+      "Spirit"
+     ]
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Martial Coup": {
+  "name": "Martial Coup",
+  "notes": "The wrath is done before the Soldiers are created so they survive (same end result).",
+  "source": "Create X 1/1 white Soldier creature tokens. If X is 5 or more, destroy all other creatures.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "each": {
+            "creature": true
+           }
+          }
+         }
+        }
+       ],
+       "label": "X is 5 or more: destroy all other creatures"
+      },
+      {
+       "do": [],
+       "label": "X is less than 5"
+      }
+     ],
+     "text": "If X is 5 or more, destroy all other creatures."
+    }
+   },
+   {
+    "token": {
+     "n": "X",
+     "name": "Soldier",
+     "power": 1,
+     "toughness": 1,
+     "types": [
+      "Creature",
+      "Soldier"
+     ]
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Mass Polymorph": {
+  "name": "Mass Polymorph",
+  "source": "Exile all creatures you control, then reveal cards from the top of your library until you reveal that many creature cards. Put all creature cards revealed this way onto the battlefield, then shuffle the rest of the revealed cards into your library.",
+  "spell": [
+   {
+    "exile": {
+     "target": {
+      "each": {
+       "creature": true
+      }
+     }
+    }
+   },
+   {
+    "repeat": {
+     "do": [
+      {
+       "revealUntil": {
+        "filter": {
+         "creature": true
+        },
+        "rest": "bottom",
+        "to": "bf"
+       }
+      }
+     ],
+     "times": {
+      "of": "lastCount"
+     }
+    }
+   },
+   {
+    "tutor": {
+     "filter": {
+      "name": "(shuffle only)"
+     },
+     "to": "hand"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Memnarch, the Warden": {
+  "name": "Memnarch, the Warden",
+  "source": "Indestructible\nWhen Memnarch enters, create two 1/1 colorless Myr artifact creature tokens.\nWhenever Memnarch attacks, draw a card for each artifact you control.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "n": 2,
+       "name": "Myr",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Artifact",
+        "Creature",
+        "Myr"
+       ]
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Memnarch enters, create two 1/1 colorless Myr artifact creature tokens."
+   },
+   {
+    "do": [
+     {
+      "draw": "count:artifacts-you-control"
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever Memnarch attacks, draw a card for each artifact you control."
+   }
+  ]
+ },
+ "Mountain": {
+  "name": "Mountain",
+  "source": "({T}: Add {R}.)",
+  "status": "auto"
+ },
+ "Mystic Gate": {
+  "name": "Mystic Gate",
+  "source": "{T}: Add {C}.\n{W/U}, {T}: Add {W}{W}, {W}{U}, or {U}{U}.",
+  "status": "auto"
+ },
+ "Nissa, Leyline Tamer": {
+  "name": "Nissa, Leyline Tamer",
+  "notes": "The first resolution each turn marks Nissa until end of turn; the revealed rest go to the bottom in revealed order.",
+  "source": "Deathtouch, vigilance\nLandfall — Whenever a land you control enters, draw a card. Then if this is the first time this ability has resolved this turn, reveal cards from the top of your library until you reveal a creature card. Put that card onto the battlefield and the rest on the bottom of your library in a random order.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     },
+     {
+      "check": {
+       "do": [
+        {
+         "grant": {
+          "kw": [
+           "Landfall: first resolution done"
+          ],
+          "target": "self"
+         }
+        },
+        {
+         "revealUntil": {
+          "filter": {
+           "creature": true
+          },
+          "rest": "bottom",
+          "to": "bf"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "keyword": "Landfall: first resolution done",
+          "name": "Nissa, Leyline Tamer"
+         }
+        }
+       }
+      }
+     }
+    ],
+    "filter": {
+     "land": true
+    },
+    "on": "enters",
+    "text": "Landfall — Whenever a land you control enters, draw a card. Then if this is the first time this ability has resolved this turn, reveal cards from the top of your library until you reveal a creature card. Put that card onto the battlefield and the rest on the bottom of your library in a random order."
+   }
+  ]
+ },
+ "Niv-Mizzet, Ghost Counsel": {
+  "activated": [
+   {
+    "cost": {
+     "tap": true
+    },
+    "do": [
+     {
+      "oppLoseLife": 1
+     },
+     {
+      "gainLife": 1
+     }
+    ],
+    "label": "Drain 1",
+    "text": "{T}: Each opponent loses 1 life and you gain 1 life."
+   }
+  ],
+  "name": "Niv-Mizzet, Ghost Counsel",
+  "source": "Flying\nWhenever you gain life, you may pay that much life. If you do, draw that many cards.\n{T}: Each opponent loses 1 life and you gain 1 life.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "loseLife": "count:event-amount"
+     },
+     {
+      "draw": "count:event-amount"
+     }
+    ],
+    "filter": {
+     "gain": true,
+     "who": "you"
+    },
+    "on": "life",
+    "optional": true,
+    "text": "Whenever you gain life, you may pay that much life. If you do, draw that many cards."
+   }
+  ]
+ },
+ "Ob Nixilis, the Ascended": {
+  "name": "Ob Nixilis, the Ascended",
+  "notes": "The dummy has no creatures, so the enters trigger destroys nothing and gains nothing.",
+  "source": "Flying\nWhen Ob Nixilis enters, destroy all tapped creatures your opponents control. You gain 1 life for each creature destroyed this way.\nAt the beginning of each end step, if you gained life this turn, create a 4/4 white Angel creature token with flying.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "destroy": {
+       "target": "opponent"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Ob Nixilis enters, destroy all tapped creatures your opponents control. You gain 1 life for each creature destroyed this way."
+   },
+   {
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "W"
+       ],
+       "kw": [
+        "Flying"
+       ],
+       "n": 1,
+       "name": "Angel",
+       "power": 4,
+       "toughness": 4,
+       "types": [
+        "Creature",
+        "Angel"
+       ]
+      }
+     }
+    ],
+    "if": {
+     "thisTurn": {
+      "fact": "lifeGained",
+      "ge": 1
+     }
+    },
+    "on": "endStep",
+    "text": "At the beginning of each end step, if you gained life this turn, create a 4/4 white Angel creature token with flying."
+   }
+  ]
+ },
+ "Occult Epiphany": {
+  "name": "Occult Epiphany",
+  "notes": "The engine can't count card types among the discarded cards, so it asks for the number.",
+  "source": "Draw X cards, then discard X cards. Create a 1/1 white Spirit creature token with flying for each card type among cards discarded this way.",
+  "spell": [
+   {
+    "draw": "X"
+   },
+   {
+    "discard": "X"
+   },
+   {
+    "chooseNumber": {
+     "max": 6,
+     "min": 0,
+     "text": "How many card types are among the discarded cards? (one 1/1 flying Spirit each)"
+    }
+   },
+   {
+    "token": {
+     "colors": [
+      "W"
+     ],
+     "kw": [
+      "Flying"
+     ],
+     "n": {
+      "of": "chosen"
+     },
+     "name": "Spirit",
+     "power": 1,
+     "toughness": 1,
+     "types": [
+      "Creature",
+      "Spirit"
+     ]
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Overlord of the Mistmoors": {
+  "name": "Overlord of the Mistmoors",
+  "source": "Impending 4—{2}{W}{W} (If you cast this spell for its impending cost, it enters with four time counters and isn't a creature until the last is removed. At the beginning of your end step, remove a time counter from it.)\nWhenever this permanent enters or attacks, create two 2/1 white Insect creature tokens with flying.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "kw": [
+        "Flying"
+       ],
+       "n": 2,
+       "name": "Insect",
+       "power": 2,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Insect"
+       ]
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Whenever this permanent enters or attacks, create two 2/1 white Insect creature tokens with flying."
+   },
+   {
+    "do": [
+     {
+      "token": {
+       "kw": [
+        "Flying"
+       ],
+       "n": 2,
+       "name": "Insect",
+       "power": 2,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Insect"
+       ]
+      }
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever this permanent enters or attacks, create two 2/1 white Insect creature tokens with flying."
+   }
+  ]
+ },
+ "Path to Exile": {
+  "name": "Path to Exile",
+  "notes": "Goldfish: the dummy has no creatures; the useful mode is your own creature for a land. The search may find nothing.",
+  "source": "Exile target creature. Its controller may search their library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "exile": {
+          "target": "creature-you-control"
+         }
+        },
+        {
+         "ramp": {
+          "filter": "basic",
+          "n": 1,
+          "tapped": true
+         }
+        }
+       ],
+       "label": "One of my creatures (I may search for a basic land)"
+      },
+      {
+       "do": [
+        {
+         "exile": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's creature (the dummy has none)"
+      }
+     ],
+     "text": "Exile target creature. Its controller may search their library for a basic land card, put that card onto the battlefield tapped, then shuffle."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Perilous Landscape": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": {
+        "basic": true,
+        "subtype": [
+         "Island",
+         "Mountain",
+         "Plains"
+        ]
+       },
+       "tapped": true
+      }
+     }
+    ],
+    "label": "Fetch basic",
+    "text": "{T}, Sacrifice this land: Search your library for a basic Island, Mountain, or Plains card, put it onto the battlefield tapped, then shuffle."
+   }
+  ],
+  "cycling": "{U}{R}{W}",
+  "name": "Perilous Landscape",
+  "source": "{T}: Add {C}.\n{T}, Sacrifice this land: Search your library for a basic Island, Mountain, or Plains card, put it onto the battlefield tapped, then shuffle.\nCycling {U}{R}{W} ({U}{R}{W}, Discard this card: Draw a card.)",
+  "status": "hand"
+ },
+ "Plains": {
+  "name": "Plains",
+  "source": "({T}: Add {W}.)",
+  "status": "auto"
+ },
+ "Plan for All Outcomes": {
+  "name": "Plan for All Outcomes",
+  "notes": "Empower Jace: a blue Jace planeswalker token (scripted: [−1]: Surveil 1, [−3]: Draw a card) is created if you have none, then gets the loyalty counters. The enters trigger is silent on purpose: it tucks an opponent's permanent (none here).",
+  "source": "When this enchantment enters, the owner of up to one other target nonland permanent puts it on their choice of the top or bottom of their library.\nWhenever you cast your first noncreature spell each turn, empower Jace 1. (Put a loyalty counter on a Jace token you control. If you don't control one, first create a blue Jace planeswalker token with \"[−1]: Surveil 1\" and \"[−3]: Draw a card.\")",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "counters": {
+          "kind": "loyalty",
+          "n": 1,
+          "target": {
+           "pick": {
+            "subtype": "Jace",
+            "token": true
+           }
+          }
+         }
+        }
+       ],
+       "else": [
+        {
+         "token": {
+          "colors": [
+           "U"
+          ],
+          "n": 1,
+          "name": "Jace",
+          "script": "Jace Token",
+          "types": [
+           "Planeswalker",
+           "Jace"
+          ]
+         }
+        },
+        {
+         "counters": {
+          "kind": "loyalty",
+          "n": 1,
+          "target": {
+           "pick": {
+            "subtype": "Jace",
+            "token": true
+           }
+          }
+         }
+        }
+       ],
+       "if": {
+        "youControl": {
+         "subtype": "Jace",
+         "token": true
+        }
+       }
+      }
+     }
+    ],
+    "filter": {
+     "noncreature": true
+    },
+    "if": {
+     "thisTurn": {
+      "eq": 1,
+      "fact": "spellsCast",
+      "filter": {
+       "noncreature": true
+      }
+     }
+    },
+    "on": "cast",
+    "text": "Whenever you cast your first noncreature spell each turn, empower Jace 1. (Put a loyalty counter on a Jace token you control. If you don't control one, first create a blue Jace planeswalker token with \"[−1]: Surveil 1\" and \"[−3]: Draw a card.\")"
+   }
+  ]
+ },
+ "Prairie Stream": {
+  "name": "Prairie Stream",
+  "source": "({T}: Add {W} or {U}.)\nThis land enters tapped unless you control two or more basic lands.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "basic": true,
+          "countGe": 2,
+          "land": true
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control two or more basic lands."
+   }
+  ]
+ },
+ "Protege's Awakening": {
+  "name": "Protege's Awakening",
+  "notes": "Empower Jace: a blue Jace planeswalker token (scripted: [−1]: Surveil 1, [−3]: Draw a card) is created if you have none, then gets the loyalty counters.",
+  "source": "Empower Jace 6. (Put six loyalty counters on a Jace token you control. If you don't control one, first create a blue Jace planeswalker token with \"[−1]: Surveil 1\" and \"[−3]: Draw a card.\")\nDraw a card.",
+  "spell": [
+   {
+    "check": {
+     "do": [
+      {
+       "counters": {
+        "kind": "loyalty",
+        "n": 6,
+        "target": {
+         "pick": {
+          "subtype": "Jace",
+          "token": true
+         }
+        }
+       }
+      }
+     ],
+     "else": [
+      {
+       "token": {
+        "colors": [
+         "U"
+        ],
+        "n": 1,
+        "name": "Jace",
+        "script": "Jace Token",
+        "types": [
+         "Planeswalker",
+         "Jace"
+        ]
+       }
+      },
+      {
+       "counters": {
+        "kind": "loyalty",
+        "n": 6,
+        "target": {
+         "pick": {
+          "subtype": "Jace",
+          "token": true
+         }
+        }
+       }
+      }
+     ],
+     "if": {
+      "youControl": {
+       "subtype": "Jace",
+       "token": true
+      }
+     }
+    }
+   },
+   {
+    "draw": 1
+   }
+  ],
+  "status": "hand"
+ },
+ "Proteus Staff": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}{U}",
+     "tap": true
+    },
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "bounce": {
+            "target": {
+             "pick": {
+              "creature": true,
+              "token": true
+             }
+            }
+           }
+          }
+         ],
+         "label": "A token (it ceases to exist)"
+        },
+        {
+         "do": [
+          {
+           "bounce": {
+            "target": {
+             "pick": {
+              "creature": true,
+              "nontoken": true
+             }
+            }
+           }
+          },
+          {
+           "repeat": {
+            "do": [
+             {
+              "putFromHand": {
+               "filter": {
+                "creature": true
+               },
+               "to": "libbottom"
+              }
+             }
+            ],
+            "times": {
+             "of": "lastCount"
+            }
+           }
+          }
+         ],
+         "label": "A nontoken creature"
+        }
+       ],
+       "text": "Put target creature on the bottom of its owner's library — which kind of creature of yours?"
+      }
+     },
+     {
+      "revealUntil": {
+       "filter": {
+        "creature": true
+       },
+       "rest": "bottom",
+       "to": "bf"
+      }
+     }
+    ],
+    "label": "Polymorph",
+    "limit": "sorcery-speed",
+    "text": "{2}{U}, {T}: Put target creature on the bottom of its owner's library. That creature's controller reveals cards from the top of their library until they reveal a creature card. The player puts that card onto the battlefield and the rest on the bottom of their library in any order. Activate only as a sorcery."
+   }
+  ],
+  "name": "Proteus Staff",
+  "notes": "The creature goes to the bottom by way of your hand: if you hold other creature cards, pick the one you just returned. The dummy has no creatures, so the target is always yours.",
+  "source": "{2}{U}, {T}: Put target creature on the bottom of its owner's library. That creature's controller reveals cards from the top of their library until they reveal a creature card. The player puts that card onto the battlefield and the rest on the bottom of their library in any order. Activate only as a sorcery.",
+  "status": "hand"
+ },
+ "Radiant Summit": {
+  "name": "Radiant Summit",
+  "source": "({T}: Add {R} or {W}.)\nThis land enters tapped unless you control two or more basic lands.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "basic": true,
+          "countGe": 2,
+          "land": true
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control two or more basic lands."
+   }
+  ]
+ },
+ "Rakdos Signet": {
+  "name": "Rakdos Signet",
+  "source": "{1}, {T}: Add {B}{R}.",
+  "status": "auto"
+ },
+ "Reflecting Pool": {
+  "name": "Reflecting Pool",
+  "source": "{T}: Add one mana of any type that a land you control could produce.",
+  "status": "auto"
+ },
+ "Restless Anchorage": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}{W}{U}"
+    },
+    "do": [
+     {
+      "animate": {
+       "kw": [
+        "Flying"
+       ],
+       "p": 2,
+       "subtypes": [
+        "Bird"
+       ],
+       "t": 3,
+       "target": "self"
+      }
+     }
+    ],
+    "label": "Animate",
+    "text": "{1}{W}{U}: Until end of turn, this land becomes a 2/3 white and blue Bird creature with flying. It's still a land."
+   }
+  ],
+  "name": "Restless Anchorage",
+  "source": "This land enters tapped.\n{T}: Add {W} or {U}.\n{1}{W}{U}: Until end of turn, this land becomes a 2/3 white and blue Bird creature with flying. It's still a land.\nWhenever this land attacks, create a Map token.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   },
+   {
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Map",
+       "script": "Map Token",
+       "types": [
+        "Artifact",
+        "Map"
+       ]
+      }
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever this land attacks, create a Map token."
+   }
+  ]
+ },
+ "Restless Spire": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{U}{R}"
+    },
+    "do": [
+     {
+      "animate": {
+       "kw": [
+        "First strike"
+       ],
+       "p": 2,
+       "subtypes": [
+        "Elemental"
+       ],
+       "t": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "label": "Animate",
+    "text": "{U}{R}: Until end of turn, this land becomes a 2/1 blue and red Elemental creature with \"During your turn, this creature has first strike.\" It's still a land."
+   }
+  ],
+  "name": "Restless Spire",
+  "notes": "\"During your turn, this creature has first strike\": every goldfish turn is yours.",
+  "source": "This land enters tapped.\n{T}: Add {U} or {R}.\n{U}{R}: Until end of turn, this land becomes a 2/1 blue and red Elemental creature with \"During your turn, this creature has first strike.\" It's still a land.\nWhenever this land attacks, scry 1.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   },
+   {
+    "do": [
+     {
+      "scry": 1
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever this land attacks, scry 1."
+   }
+  ]
+ },
+ "Secure the Wastes": {
+  "name": "Secure the Wastes",
+  "source": "Create X 1/1 white Warrior creature tokens.",
+  "spell": [
+   {
+    "token": {
+     "n": "X",
+     "name": "Warrior",
+     "power": 1,
+     "toughness": 1,
+     "types": [
+      "Creature",
+      "Warrior"
+     ]
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Serra's Emissary": {
+  "name": "Serra's Emissary",
+  "notes": "Silent on purpose: protection from a card type only matters against the dummy, which has no spells or creatures.",
+  "source": "Flying\nAs this creature enters, choose a card type.\nYou and creatures you control have protection from the chosen card type.",
+  "status": "hand"
+ },
+ "Shark Typhoon": {
+  "cycling": "{X}{1}{U}",
+  "name": "Shark Typhoon",
+  "notes": "An X spell's mana value is read from its printed cost (X counts as 0). Cycling's X is asked when the Shark is made.",
+  "source": "Whenever you cast a noncreature spell, create an X/X blue Shark creature token with flying, where X is that spell's mana value.\nCycling {X}{1}{U} ({X}{1}{U}, Discard this card: Draw a card.)\nWhen you cycle this card, create an X/X blue Shark creature token with flying.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "U"
+       ],
+       "kw": [
+        "Flying"
+       ],
+       "n": 1,
+       "name": "Shark",
+       "power": {
+        "of": "triggering",
+        "stat": "mv"
+       },
+       "toughness": {
+        "of": "triggering",
+        "stat": "mv"
+       },
+       "types": [
+        "Creature",
+        "Shark"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "noncreature": true
+    },
+    "on": "cast",
+    "text": "Whenever you cast a noncreature spell, create an X/X blue Shark creature token with flying, where X is that spell's mana value."
+   },
+   {
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "U"
+       ],
+       "kw": [
+        "Flying"
+       ],
+       "n": 1,
+       "name": "Shark",
+       "power": "X",
+       "toughness": "X",
+       "types": [
+        "Creature",
+        "Shark"
+       ]
+      }
+     }
+    ],
+    "on": "cycled",
+    "self": true,
+    "text": "When you cycle this card, create an X/X blue Shark creature token with flying.",
+    "zone": "gy"
+   }
+  ]
+ },
+ "Shivan Reef": {
+  "name": "Shivan Reef",
+  "source": "{T}: Add {C}.\n{T}: Add {U} or {R}. This land deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Sol Ring": {
+  "name": "Sol Ring",
+  "source": "{T}: Add {C}{C}.",
+  "status": "auto"
+ },
+ "Staff of the Storyteller": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{W}",
+     "removeCounters": {
+      "kind": "story",
+      "n": 1
+     },
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "label": "Draw",
+    "text": "{W}, {T}, Remove a story counter from this artifact: Draw a card."
+   }
+  ],
+  "name": "Staff of the Storyteller",
+  "source": "When this artifact enters, create a 1/1 white Spirit creature token with flying.\nWhenever you create one or more creature tokens, put a story counter on this artifact.\n{W}, {T}, Remove a story counter from this artifact: Draw a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "kw": [
+        "Flying"
+       ],
+       "n": 1,
+       "name": "Spirit",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Spirit"
+       ]
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this artifact enters, create a 1/1 white Spirit creature token with flying."
+   },
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "story",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true
+    },
+    "on": "tokenCreated",
+    "text": "Whenever you create one or more creature tokens, put a story counter on this artifact."
+   }
+  ]
+ },
+ "Stroke of Midnight": {
+  "name": "Stroke of Midnight",
+  "source": "Destroy target nonland permanent. Its controller creates a 1/1 white Human creature token.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "pick": {
+            "nonland": true
+           }
+          }
+         }
+        },
+        {
+         "token": {
+          "n": 1,
+          "name": "Human",
+          "power": 1,
+          "toughness": 1,
+          "types": [
+           "Creature",
+           "Human"
+          ]
+         }
+        }
+       ],
+       "label": "One of my permanents (I get the 1/1 Human)"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's permanent (the dummy has none; it would get the Human)"
+      }
+     ],
+     "text": "Destroy target nonland permanent. Its controller creates a 1/1 white Human creature token."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Sulfur Falls": {
+  "name": "Sulfur Falls",
+  "source": "This land enters tapped unless you control an Island or a Mountain.\n{T}: Add {U} or {R}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Island",
+           "Mountain"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control an Island or a Mountain."
+   }
+  ]
+ },
+ "Sulfurous Springs": {
+  "name": "Sulfurous Springs",
+  "source": "{T}: Add {C}.\n{T}: Add {B} or {R}. This land deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Sunfall": {
+  "name": "Sunfall",
+  "notes": "Incubate X is done just before the exile (X = your creatures, the only ones in goldfish); the Incubator is not a creature, so it survives.",
+  "source": "Exile all creatures. Incubate X, where X is the number of creatures exiled this way. (Create an Incubator token with X +1/+1 counters on it and \"{2}: Transform this token.\" It transforms into a 0/0 Phyrexian artifact creature.)",
+  "spell": [
+   {
+    "token": {
+     "n": 1,
+     "name": "Incubator",
+     "script": "Incubator Token",
+     "types": [
+      "Artifact",
+      "Incubator"
+     ]
+    }
+   },
+   {
+    "counters": {
+     "kind": "p1p1",
+     "n": "count:creatures-you-control",
+     "target": {
+      "each": {
+       "name": "Incubator",
+       "noCounters": {},
+       "token": true
+      }
+     }
+    }
+   },
+   {
+    "exile": {
+     "target": {
+      "each": {
+       "creature": true
+      }
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Sunken Ruins": {
+  "name": "Sunken Ruins",
+  "source": "{T}: Add {C}.\n{U/B}, {T}: Add {U}{U}, {U}{B}, or {B}{B}.",
+  "status": "auto"
+ },
+ "Swamp": {
+  "name": "Swamp",
+  "source": "({T}: Add {B}.)",
+  "status": "auto"
+ },
+ "Swords to Plowshares": {
+  "name": "Swords to Plowshares",
+  "source": "Exile target creature. Its controller gains life equal to its power.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "exile": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's creature (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "exile": {
+          "target": "creature-you-control"
+         }
+        },
+        {
+         "gainLife": {
+          "of": "target",
+          "stat": "power"
+         }
+        }
+       ],
+       "label": "One of my creatures"
+      }
+     ],
+     "text": "Exile target creature. Its controller gains life equal to its power."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Synthetic Destiny": {
+  "name": "Synthetic Destiny",
+  "source": "Exile all creatures you control. At the beginning of the next end step, reveal cards from the top of your library until you reveal that many creature cards, put all creature cards revealed this way onto the battlefield, then shuffle the rest of the revealed cards into your library.",
+  "spell": [
+   {
+    "exile": {
+     "target": {
+      "each": {
+       "creature": true
+      }
+     }
+    }
+   },
+   {
+    "delay": {
+     "at": "endStep",
+     "do": [
+      {
+       "repeat": {
+        "do": [
+         {
+          "revealUntil": {
+           "filter": {
+            "creature": true
+           },
+           "rest": "bottom",
+           "to": "bf"
+          }
+         }
+        ],
+        "times": {
+         "of": "lastCount"
+        }
+       }
+      },
+      {
+       "tutor": {
+        "filter": {
+         "name": "(shuffle only)"
+        },
+        "to": "hand"
+       }
+      }
+     ]
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Talisman of Creativity": {
+  "name": "Talisman of Creativity",
+  "source": "{T}: Add {C}.\n{T}: Add {U} or {R}. This artifact deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Talisman of Dominance": {
+  "name": "Talisman of Dominance",
+  "source": "{T}: Add {C}.\n{T}: Add {U} or {B}. This artifact deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Talisman of Indulgence": {
+  "name": "Talisman of Indulgence",
+  "source": "{T}: Add {C}.\n{T}: Add {B} or {R}. This artifact deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Talisman of Progress": {
+  "name": "Talisman of Progress",
+  "source": "{T}: Add {C}.\n{T}: Add {W} or {U}. This artifact deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Tamiyo, Upriser Crowned": {
+  "name": "Tamiyo, Upriser Crowned",
+  "notes": "The stun trigger is silent on purpose: it needs creatures dealing combat damage to you, and the dummy never attacks.",
+  "source": "Flying, double strike, haste\nWhen Tamiyo enters, you become the monarch.\nWhenever one or more creatures deal combat damage to you while you're the monarch, tap those creatures and put a stun counter on each of them.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "monarch": true
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Tamiyo enters, you become the monarch."
+   }
+  ]
+ },
+ "Turbulent Crater": {
+  "name": "Turbulent Crater",
+  "source": "({T}: Add {B} or {R}.)\nThis land enters tapped unless your opponents control eight or more lands.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless your opponents control eight or more lands."
+   }
+  ]
+ },
+ "Turbulent Shore": {
+  "name": "Turbulent Shore",
+  "source": "({T}: Add {W} or {U}.)\nThis land enters tapped unless your opponents control eight or more lands.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless your opponents control eight or more lands."
+   }
+  ]
+ },
+ "Turbulent Wetlands": {
+  "name": "Turbulent Wetlands",
+  "source": "({T}: Add {U} or {B}.)\nThis land enters tapped unless your opponents control eight or more lands.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless your opponents control eight or more lands."
+   }
+  ]
+ },
+ "Underground River": {
+  "name": "Underground River",
+  "source": "{T}: Add {C}.\n{T}: Add {U} or {B}. This land deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Way of the Healer": {
+  "name": "Way of the Healer",
+  "notes": "Empower Jace: a blue Jace planeswalker token (scripted: [−1]: Surveil 1, [−3]: Draw a card) is created if you have none, then gets the loyalty counters. The granted loyalty ability appears on each of your planeswalkers (and the Jace token).",
+  "source": "When Way of the Healer enters, empower Jace 5. (Put five loyalty counters on a Jace token you control. If you don't control one, first create a blue Jace planeswalker token with \"[−1]: Surveil 1\" and \"[−3]: Draw a card.\")\nPlaneswalkers you control have \"[−2]: Create a 2/2 colorless Wizard Soldier creature token named Cadet. Surveil 1.\"",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "counters": {
+          "kind": "loyalty",
+          "n": 5,
+          "target": {
+           "pick": {
+            "subtype": "Jace",
+            "token": true
+           }
+          }
+         }
+        }
+       ],
+       "else": [
+        {
+         "token": {
+          "colors": [
+           "U"
+          ],
+          "n": 1,
+          "name": "Jace",
+          "script": "Jace Token",
+          "types": [
+           "Planeswalker",
+           "Jace"
+          ]
+         }
+        },
+        {
+         "counters": {
+          "kind": "loyalty",
+          "n": 5,
+          "target": {
+           "pick": {
+            "subtype": "Jace",
+            "token": true
+           }
+          }
+         }
+        }
+       ],
+       "if": {
+        "youControl": {
+         "subtype": "Jace",
+         "token": true
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Way of the Healer enters, empower Jace 5."
+   }
+  ]
+ },
+ "Way of the Pyromancer": {
+  "name": "Way of the Pyromancer",
+  "notes": "Empower Jace: a blue Jace planeswalker token (scripted: [−1]: Surveil 1, [−3]: Draw a card) is created if you have none, then gets the loyalty counters. The granted loyalty ability appears on each of your planeswalkers (and the Jace token).",
+  "source": "When Way of the Pyromancer enters, empower Jace 2. (Put two loyalty counters on a Jace token you control. If you don't control one, first create a blue Jace planeswalker token with \"[−1]: Surveil 1\" and \"[−3]: Draw a card.\")\nPlaneswalkers you control have \"[+1]: Add {R}.\"",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "counters": {
+          "kind": "loyalty",
+          "n": 2,
+          "target": {
+           "pick": {
+            "subtype": "Jace",
+            "token": true
+           }
+          }
+         }
+        }
+       ],
+       "else": [
+        {
+         "token": {
+          "colors": [
+           "U"
+          ],
+          "n": 1,
+          "name": "Jace",
+          "script": "Jace Token",
+          "types": [
+           "Planeswalker",
+           "Jace"
+          ]
+         }
+        },
+        {
+         "counters": {
+          "kind": "loyalty",
+          "n": 2,
+          "target": {
+           "pick": {
+            "subtype": "Jace",
+            "token": true
+           }
+          }
+         }
+        }
+       ],
+       "if": {
+        "youControl": {
+         "subtype": "Jace",
+         "token": true
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Way of the Pyromancer enters, empower Jace 2."
+   }
+  ]
+ },
+ "Way of the Warlord": {
+  "name": "Way of the Warlord",
+  "notes": "Empower Jace: a blue Jace planeswalker token (scripted: [−1]: Surveil 1, [−3]: Draw a card) is created if you have none, then gets the loyalty counters. The granted loyalty ability appears on each of your planeswalkers (and the Jace token).",
+  "source": "When Way of the Warlord enters, empower Jace 5. (Put five loyalty counters on a Jace token you control. If you don't control one, first create a blue Jace planeswalker token with \"[−1]: Surveil 1\" and \"[−3]: Draw a card.\")\nPlaneswalkers you control have \"[−4]: This planeswalker deals 2 damage to up to one target creature or planeswalker and 2 damage to target player.\"",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "counters": {
+          "kind": "loyalty",
+          "n": 5,
+          "target": {
+           "pick": {
+            "subtype": "Jace",
+            "token": true
+           }
+          }
+         }
+        }
+       ],
+       "else": [
+        {
+         "token": {
+          "colors": [
+           "U"
+          ],
+          "n": 1,
+          "name": "Jace",
+          "script": "Jace Token",
+          "types": [
+           "Planeswalker",
+           "Jace"
+          ]
+         }
+        },
+        {
+         "counters": {
+          "kind": "loyalty",
+          "n": 5,
+          "target": {
+           "pick": {
+            "subtype": "Jace",
+            "token": true
+           }
+          }
+         }
+        }
+       ],
+       "if": {
+        "youControl": {
+         "subtype": "Jace",
+         "token": true
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Way of the Warlord enters, empower Jace 5."
+   }
+  ]
+ },
+ "Whirlwind of Thought": {
+  "name": "Whirlwind of Thought",
+  "source": "Whenever you cast a noncreature spell, draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "noncreature": true
+    },
+    "on": "cast",
+    "text": "Whenever you cast a noncreature spell, draw a card."
+   }
+  ]
+ },
+ "Windcrag Siege": {
+  "name": "Windcrag Siege",
+  "notes": "The mode is stored as a mardu/jeskai counter on the Siege. If you control older Goblins, pick the new one for lifelink and haste. Not automated: the Mardu mode (\"that ability triggers an additional time\").",
+  "source": "As this enchantment enters, choose Mardu or Jeskai.\n• Mardu — If a creature attacking causes a triggered ability of a permanent you control to trigger, that ability triggers an additional time.\n• Jeskai — At the beginning of your upkeep, create a 1/1 red Goblin creature token. It gains lifelink and haste until end of turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "counters": {
+            "kind": "mardu",
+            "n": 1,
+            "target": "self"
+           }
+          }
+         ],
+         "label": "Mardu"
+        },
+        {
+         "do": [
+          {
+           "counters": {
+            "kind": "jeskai",
+            "n": 1,
+            "target": "self"
+           }
+          }
+         ],
+         "label": "Jeskai"
+        }
+       ],
+       "text": "Windcrag Siege: choose Mardu or Jeskai."
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "As this enchantment enters, choose Mardu or Jeskai."
+   },
+   {
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "R"
+       ],
+       "n": 1,
+       "name": "Goblin",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Goblin"
+       ]
+      }
+     },
+     {
+      "grant": {
+       "kw": [
+        "Lifelink",
+        "Haste"
+       ],
+       "target": {
+        "pick": {
+         "name": "Goblin",
+         "token": true,
+         "withoutKw": "Haste"
+        }
+       }
+      }
+     }
+    ],
+    "if": {
+     "counters": {
+      "ge": 1,
+      "kind": "jeskai"
+     }
+    },
+    "on": "upkeep",
+    "text": "• Jeskai — At the beginning of your upkeep, create a 1/1 red Goblin creature token. It gains lifelink and haste until end of turn."
+   }
+  ]
+ },
+ "_tokens": {
+  "Incubator Token": {
+   "activated": [
+    {
+     "cost": {
+      "mana": "{2}"
+     },
+     "do": [
+      {
+       "animate": {
+        "p": 0,
+        "subtypes": [
+         "Phyrexian"
+        ],
+        "t": 0,
+        "target": "self",
+        "types": [
+         "Artifact",
+         "Creature"
+        ],
+        "until": "permanent"
+       }
+      }
+     ],
+     "label": "Transform",
+     "text": "{2}: Transform this token."
+    }
+   ],
+   "name": "Incubator Token",
+   "notes": "Transformed, it is a 0/0 Phyrexian artifact creature that keeps its +1/+1 counters.",
+   "source": "",
+   "status": "hand"
+  },
+  "Jace Token": {
+   "activated": [
+    {
+     "cost": {
+      "removeCounters": {
+       "kind": "loyalty",
+       "n": 1
+      }
+     },
+     "do": [
+      {
+       "surveil": 1
+      }
+     ],
+     "label": "−1: Surveil 1",
+     "limit": "sorcery-speed",
+     "text": "[−1]: Surveil 1"
+    },
+    {
+     "cost": {
+      "removeCounters": {
+       "kind": "loyalty",
+       "n": 3
+      }
+     },
+     "do": [
+      {
+       "draw": 1
+      }
+     ],
+     "label": "−3: Draw",
+     "limit": "sorcery-speed",
+     "text": "[−3]: Draw a card."
+    },
+    {
+     "cost": {},
+     "do": [
+      {
+       "check": {
+        "do": [
+         {
+          "counters": {
+           "kind": "loyalty",
+           "n": 1,
+           "target": "self"
+          }
+         },
+         {
+          "addMana": "{R}"
+         }
+        ],
+        "if": {
+         "youControl": {
+          "name": "Way of the Pyromancer"
+         }
+        }
+       }
+      }
+     ],
+     "label": "+1: Add {R} (Way of the Pyromancer)",
+     "limit": "sorcery-speed",
+     "text": "Planeswalkers you control have \"[+1]: Add {R}.\" (Way of the Pyromancer)"
+    },
+    {
+     "cost": {},
+     "do": [
+      {
+       "check": {
+        "do": [
+         {
+          "pay": {
+           "removeCounters": {
+            "kind": "loyalty",
+            "n": 2
+           }
+          }
+         },
+         {
+          "token": {
+           "n": 1,
+           "name": "Cadet",
+           "power": 2,
+           "toughness": 2,
+           "types": [
+            "Creature",
+            "Wizard",
+            "Soldier"
+           ]
+          }
+         },
+         {
+          "surveil": 1
+         }
+        ],
+        "if": {
+         "youControl": {
+          "name": "Way of the Healer"
+         }
+        }
+       }
+      }
+     ],
+     "label": "−2: Cadet, surveil 1 (Way of the Healer)",
+     "limit": "sorcery-speed",
+     "text": "Planeswalkers you control have \"[−2]: Create a 2/2 colorless Wizard Soldier creature token named Cadet. Surveil 1.\" (Way of the Healer)"
+    },
+    {
+     "cost": {},
+     "do": [
+      {
+       "check": {
+        "do": [
+         {
+          "pay": {
+           "removeCounters": {
+            "kind": "loyalty",
+            "n": 4
+           }
+          }
+         },
+         {
+          "damage": {
+           "n": 2,
+           "target": "opponent"
+          }
+         }
+        ],
+        "if": {
+         "youControl": {
+          "name": "Way of the Warlord"
+         }
+        }
+       }
+      }
+     ],
+     "label": "−4: 2 damage (Way of the Warlord)",
+     "limit": "sorcery-speed",
+     "text": "Planeswalkers you control have \"[−4]: This planeswalker deals 2 damage to up to one target creature or planeswalker and 2 damage to target player.\" (Way of the Warlord)"
+    }
+   ],
+   "name": "Jace Token",
+   "notes": "The blue Jace planeswalker token made by Empower Jace. The Way of the Pyromancer/Healer/Warlord loyalty abilities are listed on each planeswalker and only work while that Way is on the battlefield (the creature/planeswalker damage of the Warlord's is aimed at the dummy, which has none).",
+   "source": "",
+   "status": "hand"
+  },
+  "Map Token": {
+   "activated": [
+    {
+     "cost": {
+      "mana": "{1}",
+      "sacSelf": true,
+      "tap": true
+     },
+     "do": [
+      {
+       "explore": {
+        "target": "creature-you-control"
+       }
+      },
+      {
+       "check": {
+        "do": [
+         {
+          "explore": {
+           "target": "creature-you-control"
+          }
+         }
+        ],
+        "if": {
+         "youControl": {
+          "name": "Topography Tracker"
+         }
+        }
+       }
+      }
+     ],
+     "label": "Explore",
+     "limit": "sorcery-speed",
+     "text": "{1}, {T}, Sacrifice this token: Target creature you control explores. Activate only as a sorcery."
+    }
+   ],
+   "name": "Map Token",
+   "notes": "With Topography Tracker out the creature explores again: pick the same creature for the second explore.",
+   "source": "",
+   "status": "hand"
+  }
+ }
+}

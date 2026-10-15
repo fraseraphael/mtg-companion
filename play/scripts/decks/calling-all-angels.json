@@ -1,0 +1,2668 @@
+{
+ "Always Watching": {
+  "name": "Always Watching",
+  "source": "Nontoken creatures you control get +1/+1 and have vigilance.",
+  "statics": [
+   {
+    "filter": {
+     "nontoken": true
+    },
+    "kw": [
+     "Vigilance"
+    ],
+    "p": 1,
+    "scope": "creatures-you-control",
+    "t": 1,
+    "text": "Nontoken creatures you control get +1/+1 and have vigilance."
+   }
+  ],
+  "status": "auto"
+ },
+ "Angel of Finality": {
+  "name": "Angel of Finality",
+  "source": "Flying\nWhen this creature enters, exile target player's graveyard.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [],
+         "label": "Opponent's graveyard (goldfish: empty)"
+        },
+        {
+         "do": [
+          {
+           "exileFromGy": {
+            "n": "count:cards-in-graveyard"
+           }
+          }
+         ],
+         "label": "My graveyard"
+        }
+       ],
+       "text": "Exile target player's graveyard."
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, exile target player's graveyard."
+   }
+  ]
+ },
+ "Angel of Vitality": {
+  "name": "Angel of Vitality",
+  "replace": [
+   {
+    "add": 1,
+    "event": "lifeGained"
+   }
+  ],
+  "source": "Flying\nIf you would gain life, you gain that much life plus 1 instead.\nThis creature gets +2/+2 as long as you have 25 or more life.",
+  "statics": [
+   {
+    "if": {
+     "lifeGe": 25
+    },
+    "p": 2,
+    "scope": "self",
+    "t": 2,
+    "text": "This creature gets +2/+2 as long as you have 25 or more life."
+   }
+  ],
+  "status": "hand"
+ },
+ "Angel of the Ruins": {
+  "name": "Angel of the Ruins",
+  "notes": "The dummy controls no artifacts or enchantments: the pick offers your own (pick none to skip).",
+  "source": "Flying\nWhen this creature enters, exile up to two target artifacts and/or enchantments.\nPlainscycling {2} ({2}, Discard this card: Search your library for a Plains card, reveal it, put it into your hand, then shuffle.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "exile": {
+       "target": {
+        "n": 2,
+        "optional": true,
+        "pick": {
+         "type": [
+          "Artifact",
+          "Enchantment"
+         ]
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, exile up to two target artifacts and/or enchantments."
+   }
+  ],
+  "typecycling": {
+   "cost": "{2}",
+   "filter": {
+    "subtype": "Plains"
+   }
+  }
+ },
+ "Angelic Destiny": {
+  "name": "Angelic Destiny",
+  "notes": "The Angel type is not added. The return rides on this Aura going to the graveyard while its creature is gone (it fell off), so the card is already in the graveyard; it doesn't fire if the Aura is destroyed on its own. A creature that was exiled or bounced instead of dying also counts here.",
+  "source": "Enchant creature\nEnchanted creature gets +4/+4, has flying and first strike, and is an Angel in addition to its other types.\nWhen enchanted creature dies, return this card to its owner's hand.",
+  "statics": [
+   {
+    "kw": [
+     "Flying",
+     "First strike"
+    ],
+    "p": 4,
+    "scope": "attached",
+    "t": 4,
+    "text": "Enchanted creature gets +4/+4, has flying and first strike, and is an Angel in addition to its other types."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "attach": {
+       "target": "creature-you-control"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Enchant creature"
+   },
+   {
+    "do": [
+     {
+      "return": {
+       "filter": {
+        "name": "Angelic Destiny"
+       },
+       "from": "gy",
+       "to": "hand"
+      }
+     }
+    ],
+    "if": {
+     "not": {
+      "youControl": {
+       "attachedToThis": true
+      }
+     }
+    },
+    "on": "dies",
+    "self": true,
+    "text": "When enchanted creature dies, return this card to its owner's hand."
+   }
+  ]
+ },
+ "Angelic Field Marshal": {
+  "name": "Angelic Field Marshal",
+  "notes": "\"Your commander\" is hard-wired to Giada, Font of Hope (the only deck running this card is Calling All Angels).",
+  "source": "Flying\nLieutenant — As long as you control your commander, this creature gets +2/+2 and creatures you control have vigilance.",
+  "statics": [
+   {
+    "if": {
+     "youControl": {
+      "name": "Giada, Font of Hope"
+     }
+    },
+    "p": 2,
+    "scope": "self",
+    "t": 2,
+    "text": "Lieutenant — As long as you control your commander, this creature gets +2/+2 and creatures you control have vigilance."
+   },
+   {
+    "if": {
+     "youControl": {
+      "name": "Giada, Font of Hope"
+     }
+    },
+    "kw": [
+     "Vigilance"
+    ],
+    "scope": "creatures-you-control",
+    "text": "Lieutenant — As long as you control your commander, this creature gets +2/+2 and creatures you control have vigilance."
+   }
+  ],
+  "status": "hand"
+ },
+ "Angelic Sleuth": {
+  "name": "Angelic Sleuth",
+  "source": "Flying\nWhenever another permanent you control leaves the battlefield, if it had counters on it, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "investigate": 1
+     }
+    ],
+    "filter": {
+     "not": {
+      "noCounters": {}
+     },
+     "other": true
+    },
+    "on": "leaves",
+    "text": "Whenever another permanent you control leaves the battlefield, if it had counters on it, investigate."
+   }
+  ]
+ },
+ "Arcane Signet": {
+  "name": "Arcane Signet",
+  "source": "{T}: Add one mana of any color in your commander's color identity.",
+  "status": "auto"
+ },
+ "Archangel of Tithes": {
+  "name": "Archangel of Tithes",
+  "notes": "Both taxes apply only to the opponent's attackers and blockers; the goldfish has none. Silent on purpose.",
+  "source": "Flying\nAs long as this creature is untapped, creatures can't attack you or planeswalkers you control unless their controller pays {1} for each of those creatures.\nAs long as this creature is attacking, creatures can't block unless their controller pays {1} for each of those creatures.",
+  "status": "hand"
+ },
+ "Austere Command": {
+  "name": "Austere Command",
+  "notes": "Goldfish: the dummy has no permanents, so each mode destroys only your own matching permanents.",
+  "source": "Choose two —\n• Destroy all artifacts.\n• Destroy all enchantments.\n• Destroy all creatures with mana value 3 or less.\n• Destroy all creatures with mana value 4 or greater.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "each": {
+            "type": "Artifact"
+           }
+          }
+         }
+        },
+        {
+         "destroy": {
+          "target": {
+           "each": {
+            "type": "Enchantment"
+           }
+          }
+         }
+        }
+       ],
+       "label": "Artifacts + enchantments"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "each": {
+            "type": "Artifact"
+           }
+          }
+         }
+        },
+        {
+         "destroy": {
+          "target": {
+           "each": {
+            "creature": true,
+            "mvLe": 3
+           }
+          }
+         }
+        }
+       ],
+       "label": "Artifacts + creatures MV 3 or less"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "each": {
+            "type": "Artifact"
+           }
+          }
+         }
+        },
+        {
+         "destroy": {
+          "target": {
+           "each": {
+            "creature": true,
+            "mvGe": 4
+           }
+          }
+         }
+        }
+       ],
+       "label": "Artifacts + creatures MV 4 or greater"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "each": {
+            "type": "Enchantment"
+           }
+          }
+         }
+        },
+        {
+         "destroy": {
+          "target": {
+           "each": {
+            "creature": true,
+            "mvLe": 3
+           }
+          }
+         }
+        }
+       ],
+       "label": "Enchantments + creatures MV 3 or less"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "each": {
+            "type": "Enchantment"
+           }
+          }
+         }
+        },
+        {
+         "destroy": {
+          "target": {
+           "each": {
+            "creature": true,
+            "mvGe": 4
+           }
+          }
+         }
+        }
+       ],
+       "label": "Enchantments + creatures MV 4 or greater"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "each": {
+            "creature": true
+           }
+          }
+         }
+        }
+       ],
+       "label": "All creatures (MV 3 or less + MV 4 or greater)"
+      }
+     ],
+     "text": "Choose two —"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Bishop of Wings": {
+  "name": "Bishop of Wings",
+  "source": "Whenever an Angel you control enters, you gain 4 life.\nWhenever an Angel you control dies, create a 1/1 white Spirit creature token with flying.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "gainLife": 4
+     }
+    ],
+    "filter": {
+     "subtype": "Angel"
+    },
+    "on": "enters",
+    "text": "Whenever an Angel you control enters, you gain 4 life."
+   },
+   {
+    "do": [
+     {
+      "token": {
+       "kw": [
+        "Flying"
+       ],
+       "n": 1,
+       "name": "Spirit",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Spirit"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "subtype": "Angel"
+    },
+    "on": "dies",
+    "text": "Whenever an Angel you control dies, create a 1/1 white Spirit creature token with flying."
+   }
+  ]
+ },
+ "Bonders' Enclave": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{3}",
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "{3}, {T}: Draw a card. Activate only if you control a creature with power 4 or greater."
+   }
+  ],
+  "name": "Bonders' Enclave",
+  "notes": "{3}, {T}: Activate only if you control a creature with power 4 or greater.",
+  "source": "{T}: Add {C}.\n{3}, {T}: Draw a card. Activate only if you control a creature with power 4 or greater.",
+  "status": "auto"
+ },
+ "Cleansing Nova": {
+  "name": "Cleansing Nova",
+  "notes": "Only your permanents exist; indestructible ones survive.",
+  "source": "Choose one —\n• Destroy all creatures.\n• Destroy all artifacts and enchantments.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "each": {
+            "creature": true
+           }
+          }
+         }
+        }
+       ],
+       "label": "Destroy all creatures"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "each": {
+            "type": [
+             "Artifact",
+             "Enchantment"
+            ]
+           }
+          }
+         }
+        }
+       ],
+       "label": "Destroy all artifacts and enchantments"
+      }
+     ],
+     "text": "Choose one —"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Commander's Sphere": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "Sacrifice this artifact: Draw a card."
+   }
+  ],
+  "name": "Commander's Sphere",
+  "source": "{T}: Add one mana of any color in your commander's color identity.\nSacrifice this artifact: Draw a card.",
+  "status": "auto"
+ },
+ "Court of Grace": {
+  "name": "Court of Grace",
+  "source": "When this enchantment enters, you become the monarch.\nAt the beginning of your upkeep, create a 1/1 white Spirit creature token with flying. If you're the monarch, create a 4/4 white Angel creature token with flying instead.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "monarch": true
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this enchantment enters, you become the monarch."
+   },
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "token": {
+          "kw": [
+           "Flying"
+          ],
+          "n": 1,
+          "name": "Angel",
+          "power": 4,
+          "toughness": 4,
+          "types": [
+           "Creature",
+           "Angel"
+          ]
+         }
+        }
+       ],
+       "else": [
+        {
+         "token": {
+          "kw": [
+           "Flying"
+          ],
+          "n": 1,
+          "name": "Spirit",
+          "power": 1,
+          "toughness": 1,
+          "types": [
+           "Creature",
+           "Spirit"
+          ]
+         }
+        }
+       ],
+       "if": {
+        "isMonarch": true
+       }
+      }
+     }
+    ],
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, create a 1/1 white Spirit creature token with flying. If you're the monarch, create a 4/4 white Angel creature token with flying instead."
+   }
+  ]
+ },
+ "Cut a Deal": {
+  "name": "Cut a Deal",
+  "notes": "The dummy draws (irrelevant); one opponent drew, so you draw one.",
+  "source": "Each opponent draws a card, then you draw a card for each opponent who drew a card this way.",
+  "spell": [
+   {
+    "draw": 1
+   }
+  ],
+  "status": "hand"
+ },
+ "Day of Judgment": {
+  "name": "Day of Judgment",
+  "source": "Destroy all creatures.",
+  "spell": [
+   {
+    "destroy": {
+     "target": {
+      "each": {
+       "creature": true
+      }
+     }
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Dazzling Angel": {
+  "name": "Dazzling Angel",
+  "source": "Flying\nWhenever another creature you control enters, you gain 1 life.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "gainLife": 1
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "other": true
+    },
+    "on": "enters",
+    "text": "Whenever another creature you control enters, you gain 1 life."
+   }
+  ]
+ },
+ "Defy Death": {
+  "name": "Defy Death",
+  "notes": "Choose first whether you are returning an Angel; the counters then go on an Angel you pick (pick the one that just returned).",
+  "source": "Return target creature card from your graveyard to the battlefield. If it's an Angel, put two +1/+1 counters on it.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "return": {
+          "filter": {
+           "creature": true,
+           "subtype": "Angel"
+          },
+          "from": "gy",
+          "to": "bf"
+         }
+        },
+        {
+         "counters": {
+          "kind": "p1p1",
+          "n": 2,
+          "target": {
+           "pick": {
+            "creature": true,
+            "subtype": "Angel"
+           }
+          }
+         }
+        }
+       ],
+       "label": "Return an Angel (two +1/+1 counters)"
+      },
+      {
+       "do": [
+        {
+         "return": {
+          "filter": {
+           "creature": true
+          },
+          "from": "gy",
+          "to": "bf"
+         }
+        }
+       ],
+       "label": "Return a non-Angel creature"
+      }
+     ],
+     "text": "Return target creature card from your graveyard to the battlefield. If it's an Angel, put two +1/+1 counters on it."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Destroy Evil": {
+  "name": "Destroy Evil",
+  "source": "Choose one —\n• Destroy target creature with toughness 4 or greater.\n• Destroy target enchantment.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [],
+       "label": "An opponent's creature with toughness 4 or greater (the dummy has none: nothing happens)"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "pick": {
+            "creature": true,
+            "toughnessGe": 4
+           }
+          }
+         }
+        }
+       ],
+       "label": "My creature with toughness 4 or greater"
+      },
+      {
+       "do": [],
+       "label": "An opponent's enchantment (the dummy has none: nothing happens)"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "pick": {
+            "type": "Enchantment"
+           }
+          }
+         }
+        }
+       ],
+       "label": "My enchantment"
+      }
+     ],
+     "text": "Choose one —"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Emeria Shepherd": {
+  "name": "Emeria Shepherd",
+  "source": "Flying\nLandfall — Whenever a land you control enters, you may return target nonland permanent card from your graveyard to your hand. If that land is a Plains, you may return that nonland permanent card to the battlefield instead.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "return": {
+       "filter": {
+        "nonland": true,
+        "type": [
+         "Artifact",
+         "Creature",
+         "Enchantment",
+         "Planeswalker",
+         "Battle"
+        ]
+       },
+       "from": "gy",
+       "to": "hand"
+      }
+     }
+    ],
+    "filter": {
+     "land": true,
+     "not": {
+      "subtype": "Plains"
+     }
+    },
+    "on": "enters",
+    "optional": true,
+    "text": "Landfall — Whenever a land you control enters, you may return target nonland permanent card from your graveyard to your hand. If that land is a Plains, you may return that nonland permanent card to the battlefield instead."
+   },
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "return": {
+            "filter": {
+             "nonland": true,
+             "type": [
+              "Artifact",
+              "Creature",
+              "Enchantment",
+              "Planeswalker",
+              "Battle"
+             ]
+            },
+            "from": "gy",
+            "to": "bf"
+           }
+          }
+         ],
+         "label": "Return it to the battlefield"
+        },
+        {
+         "do": [
+          {
+           "return": {
+            "filter": {
+             "nonland": true,
+             "type": [
+              "Artifact",
+              "Creature",
+              "Enchantment",
+              "Planeswalker",
+              "Battle"
+             ]
+            },
+            "from": "gy",
+            "to": "hand"
+           }
+          }
+         ],
+         "label": "Return it to my hand"
+        }
+       ],
+       "text": "That land is a Plains: return the card to your hand or to the battlefield?"
+      }
+     }
+    ],
+    "filter": {
+     "land": true,
+     "subtype": "Plains"
+    },
+    "on": "enters",
+    "optional": true,
+    "text": "Landfall — Whenever a land you control enters, you may return target nonland permanent card from your graveyard to your hand. If that land is a Plains, you may return that nonland permanent card to the battlefield instead."
+   }
+  ]
+ },
+ "Endless Atlas": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}",
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "{2}, {T}: Draw a card. Activate only if you control three or more lands with the same name."
+   }
+  ],
+  "name": "Endless Atlas",
+  "notes": "{2}, {T}: Activate only if you control three or more lands with the same name.",
+  "source": "{2}, {T}: Draw a card. Activate only if you control three or more lands with the same name.",
+  "status": "auto"
+ },
+ "Exemplar of Light": {
+  "name": "Exemplar of Light",
+  "notes": "The counters trigger matches by name (self cannot be combined with a counter-kind filter).",
+  "source": "Flying\nWhenever you gain life, put a +1/+1 counter on this creature.\nWhenever you put one or more +1/+1 counters on this creature, draw a card. This ability triggers only once each turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "gain": true,
+     "who": "you"
+    },
+    "on": "life",
+    "text": "Whenever you gain life, put a +1/+1 counter on this creature."
+   },
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "kind": "p1p1",
+     "name": "Exemplar of Light"
+    },
+    "limit": "once-per-turn",
+    "on": "counters",
+    "text": "Whenever you put one or more +1/+1 counters on this creature, draw a card. This ability triggers only once each turn."
+   }
+  ]
+ },
+ "Exorcise": {
+  "name": "Exorcise",
+  "source": "Exile target artifact, enchantment, or creature with power 4 or greater.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [],
+       "label": "An opponent's permanent (the dummy has none: nothing happens)"
+      },
+      {
+       "do": [
+        {
+         "exile": {
+          "target": {
+           "pick": {
+            "type": [
+             "Artifact",
+             "Enchantment"
+            ]
+           }
+          }
+         }
+        }
+       ],
+       "label": "My artifact or enchantment"
+      },
+      {
+       "do": [
+        {
+         "exile": {
+          "target": {
+           "pick": {
+            "creature": true,
+            "powerGe": 4
+           }
+          }
+         }
+        }
+       ],
+       "label": "My creature with power 4 or greater"
+      }
+     ],
+     "text": "Exile target artifact, enchantment, or creature with power 4 or greater."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Fateful Absence": {
+  "name": "Fateful Absence",
+  "source": "Destroy target creature or planeswalker. Its controller investigates. (They create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [],
+       "label": "An opponent's creature or planeswalker (the dummy has none: nothing happens)"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "pick": {
+            "type": [
+             "Creature",
+             "Planeswalker"
+            ]
+           }
+          }
+         }
+        },
+        {
+         "investigate": 1
+        }
+       ],
+       "label": "My creature or planeswalker (I investigate)"
+      }
+     ],
+     "text": "Destroy target creature or planeswalker. Its controller investigates."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Firemane Commando": {
+  "name": "Firemane Commando",
+  "notes": "The other-player clause never fires: the dummy never attacks.",
+  "source": "Flying\nWhenever you attack with two or more creatures, draw a card.\nWhenever another player attacks with two or more creatures, they draw a card if none of those creatures attacked you.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "countGe": 2
+    },
+    "on": "attackedWith",
+    "text": "Whenever you attack with two or more creatures, draw a card."
+   }
+  ]
+ },
+ "Giada, Font of Hope": {
+  "name": "Giada, Font of Hope",
+  "notes": "Modelled as a trigger: counting other Angels except Giada includes the entering one, which equals \"Angels you already control\" (Giada counts). Token stacks entering together may need a fix by hand. The restricted {W} is the engine's mana ability.",
+  "source": "Flying, vigilance\nEach other Angel you control enters with an additional +1/+1 counter on it for each Angel you already control.\n{T}: Add {W}. Spend this mana only to cast an Angel spell.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": {
+        "count": {
+         "other": true,
+         "subtype": "Angel"
+        }
+       },
+       "target": "triggering"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "other": true,
+     "subtype": "Angel"
+    },
+    "on": "enters",
+    "text": "Each other Angel you control enters with an additional +1/+1 counter on it for each Angel you already control."
+   }
+  ]
+ },
+ "Grasp of Fate": {
+  "name": "Grasp of Fate",
+  "notes": "Exiles only permanents opponents control; the dummy has none. Silent on purpose.",
+  "source": "When this enchantment enters, for each opponent, exile up to one target nonland permanent that player controls until this enchantment leaves the battlefield. (Those permanents return under their owners' control.)",
+  "status": "hand"
+ },
+ "Herald of Eternal Dawn": {
+  "name": "Herald of Eternal Dawn",
+  "notes": "The goldfish engine never makes you lose and the dummy never wins, so the static is silent on purpose. Flash and flying are keywords.",
+  "source": "Flash (You may cast this spell any time you could cast an instant.)\nFlying\nYou can't lose the game and your opponents can't win the game.",
+  "status": "hand"
+ },
+ "Herald of War": {
+  "name": "Herald of War",
+  "source": "Flying\nWhenever this creature attacks, put a +1/+1 counter on it.\nAngel spells and Human spells you cast cost {1} less to cast for each +1/+1 counter on this creature.",
+  "statics": [
+   {
+    "costLess": "count:counters-on-self",
+    "filter": {
+     "subtype": [
+      "Angel",
+      "Human"
+     ]
+    },
+    "scope": "spells-you-cast",
+    "text": "Angel spells and Human spells you cast cost {1} less to cast for each +1/+1 counter on this creature."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever this creature attacks, put a +1/+1 counter on it."
+   }
+  ]
+ },
+ "Heraldic Banner": {
+  "chooseOn": {
+   "enters": {
+    "kind": "color"
+   }
+  },
+  "name": "Heraldic Banner",
+  "source": "As this artifact enters, choose a color.\nCreatures you control of the chosen color get +1/+0.\n{T}: Add one mana of the chosen color.",
+  "statics": [
+   {
+    "filter": {
+     "colors": [
+      "$chosen"
+     ]
+    },
+    "p": 1,
+    "scope": "creatures-you-control",
+    "t": 0,
+    "text": "Creatures you control of the chosen color get +1/+0."
+   }
+  ],
+  "status": "auto"
+ },
+ "Inspiring Overseer": {
+  "name": "Inspiring Overseer",
+  "source": "Flying\nWhen this creature enters, you gain 1 life and draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "gainLife": 1
+     },
+     {
+      "draw": 1
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, you gain 1 life and draw a card."
+   }
+  ]
+ },
+ "Invoke the Divine": {
+  "name": "Invoke the Divine",
+  "source": "Destroy target artifact or enchantment. You gain 4 life.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [],
+       "label": "An opponent's artifact or enchantment (the dummy has none: nothing happens)"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "pick": {
+            "type": [
+             "Artifact",
+             "Enchantment"
+            ]
+           }
+          }
+         }
+        }
+       ],
+       "label": "My artifact or enchantment"
+      }
+     ],
+     "text": "Destroy target artifact or enchantment."
+    }
+   },
+   {
+    "gainLife": 4
+   }
+  ],
+  "status": "hand"
+ },
+ "Linvala, the Preserver": {
+  "name": "Linvala, the Preserver",
+  "notes": "'An opponent has more life than you' is a ladder over the dummy's life (it starts at 40 and never gains). The dummy controls no creatures, so the second trigger never fires: silent on purpose.",
+  "source": "Flying\nWhen Linvala enters, if an opponent has more life than you, you gain 5 life.\nWhen Linvala enters, if an opponent controls more creatures than you, create a 3/3 white Angel creature token with flying.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "gainLife": 5
+     }
+    ],
+    "if": {
+     "any": [
+      {
+       "all": [
+        {
+         "oppLifeLe": 1
+        },
+        {
+         "not": {
+          "oppLifeLe": 0
+         }
+        },
+        {
+         "lifeLe": 0
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 2
+        },
+        {
+         "not": {
+          "oppLifeLe": 1
+         }
+        },
+        {
+         "lifeLe": 1
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 3
+        },
+        {
+         "not": {
+          "oppLifeLe": 2
+         }
+        },
+        {
+         "lifeLe": 2
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 4
+        },
+        {
+         "not": {
+          "oppLifeLe": 3
+         }
+        },
+        {
+         "lifeLe": 3
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 5
+        },
+        {
+         "not": {
+          "oppLifeLe": 4
+         }
+        },
+        {
+         "lifeLe": 4
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 6
+        },
+        {
+         "not": {
+          "oppLifeLe": 5
+         }
+        },
+        {
+         "lifeLe": 5
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 7
+        },
+        {
+         "not": {
+          "oppLifeLe": 6
+         }
+        },
+        {
+         "lifeLe": 6
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 8
+        },
+        {
+         "not": {
+          "oppLifeLe": 7
+         }
+        },
+        {
+         "lifeLe": 7
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 9
+        },
+        {
+         "not": {
+          "oppLifeLe": 8
+         }
+        },
+        {
+         "lifeLe": 8
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 10
+        },
+        {
+         "not": {
+          "oppLifeLe": 9
+         }
+        },
+        {
+         "lifeLe": 9
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 11
+        },
+        {
+         "not": {
+          "oppLifeLe": 10
+         }
+        },
+        {
+         "lifeLe": 10
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 12
+        },
+        {
+         "not": {
+          "oppLifeLe": 11
+         }
+        },
+        {
+         "lifeLe": 11
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 13
+        },
+        {
+         "not": {
+          "oppLifeLe": 12
+         }
+        },
+        {
+         "lifeLe": 12
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 14
+        },
+        {
+         "not": {
+          "oppLifeLe": 13
+         }
+        },
+        {
+         "lifeLe": 13
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 15
+        },
+        {
+         "not": {
+          "oppLifeLe": 14
+         }
+        },
+        {
+         "lifeLe": 14
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 16
+        },
+        {
+         "not": {
+          "oppLifeLe": 15
+         }
+        },
+        {
+         "lifeLe": 15
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 17
+        },
+        {
+         "not": {
+          "oppLifeLe": 16
+         }
+        },
+        {
+         "lifeLe": 16
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 18
+        },
+        {
+         "not": {
+          "oppLifeLe": 17
+         }
+        },
+        {
+         "lifeLe": 17
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 19
+        },
+        {
+         "not": {
+          "oppLifeLe": 18
+         }
+        },
+        {
+         "lifeLe": 18
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 20
+        },
+        {
+         "not": {
+          "oppLifeLe": 19
+         }
+        },
+        {
+         "lifeLe": 19
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 21
+        },
+        {
+         "not": {
+          "oppLifeLe": 20
+         }
+        },
+        {
+         "lifeLe": 20
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 22
+        },
+        {
+         "not": {
+          "oppLifeLe": 21
+         }
+        },
+        {
+         "lifeLe": 21
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 23
+        },
+        {
+         "not": {
+          "oppLifeLe": 22
+         }
+        },
+        {
+         "lifeLe": 22
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 24
+        },
+        {
+         "not": {
+          "oppLifeLe": 23
+         }
+        },
+        {
+         "lifeLe": 23
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 25
+        },
+        {
+         "not": {
+          "oppLifeLe": 24
+         }
+        },
+        {
+         "lifeLe": 24
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 26
+        },
+        {
+         "not": {
+          "oppLifeLe": 25
+         }
+        },
+        {
+         "lifeLe": 25
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 27
+        },
+        {
+         "not": {
+          "oppLifeLe": 26
+         }
+        },
+        {
+         "lifeLe": 26
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 28
+        },
+        {
+         "not": {
+          "oppLifeLe": 27
+         }
+        },
+        {
+         "lifeLe": 27
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 29
+        },
+        {
+         "not": {
+          "oppLifeLe": 28
+         }
+        },
+        {
+         "lifeLe": 28
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 30
+        },
+        {
+         "not": {
+          "oppLifeLe": 29
+         }
+        },
+        {
+         "lifeLe": 29
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 31
+        },
+        {
+         "not": {
+          "oppLifeLe": 30
+         }
+        },
+        {
+         "lifeLe": 30
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 32
+        },
+        {
+         "not": {
+          "oppLifeLe": 31
+         }
+        },
+        {
+         "lifeLe": 31
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 33
+        },
+        {
+         "not": {
+          "oppLifeLe": 32
+         }
+        },
+        {
+         "lifeLe": 32
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 34
+        },
+        {
+         "not": {
+          "oppLifeLe": 33
+         }
+        },
+        {
+         "lifeLe": 33
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 35
+        },
+        {
+         "not": {
+          "oppLifeLe": 34
+         }
+        },
+        {
+         "lifeLe": 34
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 36
+        },
+        {
+         "not": {
+          "oppLifeLe": 35
+         }
+        },
+        {
+         "lifeLe": 35
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 37
+        },
+        {
+         "not": {
+          "oppLifeLe": 36
+         }
+        },
+        {
+         "lifeLe": 36
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 38
+        },
+        {
+         "not": {
+          "oppLifeLe": 37
+         }
+        },
+        {
+         "lifeLe": 37
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 39
+        },
+        {
+         "not": {
+          "oppLifeLe": 38
+         }
+        },
+        {
+         "lifeLe": 38
+        }
+       ]
+      },
+      {
+       "all": [
+        {
+         "oppLifeLe": 40
+        },
+        {
+         "not": {
+          "oppLifeLe": 39
+         }
+        },
+        {
+         "lifeLe": 39
+        }
+       ]
+      }
+     ]
+    },
+    "on": "enters",
+    "self": true,
+    "text": "When Linvala enters, if an opponent has more life than you, you gain 5 life."
+   }
+  ]
+ },
+ "Lyra Dawnbringer": {
+  "name": "Lyra Dawnbringer",
+  "source": "Flying\nFirst strike (This creature deals combat damage before creatures without first strike.)\nLifelink (Damage dealt by this creature also causes you to gain that much life.)\nOther Angels you control get +1/+1 and have lifelink.",
+  "statics": [
+   {
+    "filter": {
+     "other": true,
+     "subtype": "Angel"
+    },
+    "kw": [
+     "Lifelink"
+    ],
+    "p": 1,
+    "scope": "creatures-you-control",
+    "t": 1,
+    "text": "Other Angels you control get +1/+1 and have lifelink."
+   }
+  ],
+  "status": "auto"
+ },
+ "Marble Diamond": {
+  "name": "Marble Diamond",
+  "source": "This artifact enters tapped.\n{T}: Add {W}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This artifact enters tapped."
+   }
+  ]
+ },
+ "Merchant of Truth": {
+  "name": "Merchant of Truth",
+  "notes": "Exalted is modelled directly: when exactly one creature attacks, it gets +1/+1 per Clue you control.",
+  "source": "Flying\nWhenever a nontoken creature you control dies, investigate.\nClues you control have exalted. (Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn for each instance of exalted among permanents you control.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "investigate": 1
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "nontoken": true
+    },
+    "on": "dies",
+    "text": "Whenever a nontoken creature you control dies, investigate."
+   },
+   {
+    "do": [
+     {
+      "pump": {
+       "p": "count:Clue",
+       "t": "count:Clue",
+       "target": {
+        "each": {
+         "attacking": true,
+         "creature": true
+        }
+       }
+      }
+     }
+    ],
+    "if": {
+     "not": {
+      "countGe": 2,
+      "youControl": {
+       "attacking": true,
+       "creature": true
+      }
+     }
+    },
+    "on": "attacks",
+    "text": "Clues you control have exalted."
+   }
+  ]
+ },
+ "Metallic Mimic": {
+  "chooseOn": {
+   "enters": {
+    "kind": "creatureType"
+   }
+  },
+  "name": "Metallic Mimic",
+  "source": "As this creature enters, choose a creature type.\nThis creature is the chosen type in addition to its other types.\nEach other creature you control of the chosen type enters with an additional +1/+1 counter on it.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "addSubtype": {
+       "subtype": "$chosen",
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This creature is the chosen type in addition to its other types."
+   },
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "triggering"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "other": true,
+     "subtype": "$chosen"
+    },
+    "on": "enters",
+    "text": "Each other creature you control of the chosen type enters with an additional +1/+1 counter on it."
+   }
+  ]
+ },
+ "Metropolis Reformer": {
+  "name": "Metropolis Reformer",
+  "notes": "\"You have hexproof\" is irrelevant in goldfish.",
+  "source": "Flying, vigilance\nYou have hexproof.\nWhenever this creature is dealt damage, you gain that much life.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "gainLife": "count:event-amount"
+     }
+    ],
+    "on": "damaged",
+    "self": true,
+    "text": "Whenever this creature is dealt damage, you gain that much life."
+   }
+  ]
+ },
+ "Mind Stone": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}",
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "{1}, {T}, Sacrifice this artifact: Draw a card."
+   }
+  ],
+  "name": "Mind Stone",
+  "source": "{T}: Add {C}.\n{1}, {T}, Sacrifice this artifact: Draw a card.",
+  "status": "auto"
+ },
+ "Norn's Choirmaster": {
+  "name": "Norn's Choirmaster",
+  "notes": "\"A commander you control\" is hard-wired to Giada, Font of Hope (only Calling All Angels runs this card).",
+  "source": "Flying, first strike\nWhenever a commander you control enters or attacks, proliferate. (Choose any number of permanents and/or players, then give each another counter of each kind already there.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "proliferate": true
+     }
+    ],
+    "filter": {
+     "name": "Giada, Font of Hope"
+    },
+    "on": "enters",
+    "text": "Whenever a commander you control enters or attacks, proliferate."
+   },
+   {
+    "do": [
+     {
+      "proliferate": true
+     }
+    ],
+    "filter": {
+     "name": "Giada, Font of Hope"
+    },
+    "on": "attacks",
+    "text": "Whenever a commander you control enters or attacks, proliferate."
+   }
+  ]
+ },
+ "Patchwork Banner": {
+  "chooseOn": {
+   "enters": {
+    "kind": "creatureType"
+   }
+  },
+  "name": "Patchwork Banner",
+  "source": "As this artifact enters, choose a creature type.\nCreatures you control of the chosen type get +1/+1.\n{T}: Add one mana of any color.",
+  "statics": [
+   {
+    "filter": {
+     "subtype": "$chosen"
+    },
+    "p": 1,
+    "scope": "creatures-you-control",
+    "t": 1,
+    "text": "Creatures you control of the chosen type get +1/+1."
+   }
+  ],
+  "status": "auto"
+ },
+ "Plains": {
+  "name": "Plains",
+  "source": "({T}: Add {W}.)",
+  "status": "auto"
+ },
+ "Radiant Fountain": {
+  "name": "Radiant Fountain",
+  "source": "When this land enters, you gain 2 life.\n{T}: Add {C}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "gainLife": 2
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this land enters, you gain 2 life."
+   }
+  ]
+ },
+ "Reya Dawnbringer": {
+  "name": "Reya Dawnbringer",
+  "source": "Flying\nAt the beginning of your upkeep, you may return target creature card from your graveyard to the battlefield.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "return": {
+       "filter": {
+        "creature": true
+       },
+       "from": "gy",
+       "optional": true,
+       "to": "bf"
+      }
+     }
+    ],
+    "on": "upkeep",
+    "optional": true,
+    "text": "At the beginning of your upkeep, you may return target creature card from your graveyard to the battlefield."
+   }
+  ]
+ },
+ "Righteous Valkyrie": {
+  "name": "Righteous Valkyrie",
+  "notes": "Starting life is 40, so the bonus needs 47 or more.",
+  "source": "Flying\nWhenever another Angel or Cleric you control enters, you gain life equal to that creature's toughness.\nAs long as you have at least 7 life more than your starting life total, creatures you control get +2/+2.",
+  "statics": [
+   {
+    "if": {
+     "lifeGe": 47
+    },
+    "p": 2,
+    "scope": "creatures-you-control",
+    "t": 2,
+    "text": "As long as you have at least 7 life more than your starting life total, creatures you control get +2/+2."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "gainLife": {
+       "of": "triggering",
+       "stat": "toughness"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "other": true,
+     "subtype": [
+      "Angel",
+      "Cleric"
+     ]
+    },
+    "on": "enters",
+    "text": "Whenever another Angel or Cleric you control enters, you gain life equal to that creature's toughness."
+   }
+  ]
+ },
+ "Search the Premises": {
+  "name": "Search the Premises",
+  "notes": "Opponent-only: the goldfish never attacks.",
+  "source": "Whenever a creature attacks you or a planeswalker you control, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "investigate": 1
+     }
+    ],
+    "filter": {
+     "controller": "opp"
+    },
+    "on": "attacks",
+    "text": "Whenever a creature attacks you or a planeswalker you control, investigate."
+   }
+  ]
+ },
+ "Secluded Steppe": {
+  "name": "Secluded Steppe",
+  "source": "This land enters tapped.\n{T}: Add {W}.\nCycling {W} ({W}, Discard this card: Draw a card.)",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "Secret Rendezvous": {
+  "name": "Secret Rendezvous",
+  "notes": "The dummy's three cards are irrelevant.",
+  "source": "You and target opponent each draw three cards.",
+  "spell": [
+   {
+    "draw": 3
+   }
+  ],
+  "status": "hand"
+ },
+ "Segovian Angel": {
+  "name": "Segovian Angel",
+  "source": "Flying, vigilance",
+  "status": "auto"
+ },
+ "Sephara, Sky's Blade": {
+  "altCost": {
+   "cost": "{W}",
+   "if": {
+    "countGe": 4,
+    "youControl": {
+     "creature": true,
+     "keyword": "Flying",
+     "untapped": true
+    }
+   }
+  },
+  "name": "Sephara, Sky's Blade",
+  "notes": "The engine uses the alternative cost automatically whenever you control four untapped flyers as you cast her; the four flyers are then tapped (you pick).",
+  "source": "You may pay {W} and tap four untapped creatures you control with flying rather than pay this spell's mana cost.\nFlying, lifelink\nOther creatures you control with flying have indestructible. (Damage and effects that say \"destroy\" don't destroy them.)",
+  "statics": [
+   {
+    "filter": {
+     "keyword": "Flying"
+    },
+    "kw": [
+     "Indestructible"
+    ],
+    "scope": "other-creatures-you-control",
+    "text": "Other creatures you control with flying have indestructible."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": {
+        "n": 4,
+        "pick": {
+         "creature": true,
+         "keyword": "Flying",
+         "untapped": true
+        }
+       }
+      }
+     }
+    ],
+    "if": {
+     "countGe": 4,
+     "youControl": {
+      "creature": true,
+      "keyword": "Flying",
+      "untapped": true
+     }
+    },
+    "on": "cast",
+    "self": true,
+    "text": "You may pay {W} and tap four untapped creatures you control with flying rather than pay this spell's mana cost."
+   }
+  ]
+ },
+ "Seraph Sanctuary": {
+  "name": "Seraph Sanctuary",
+  "source": "When this land enters, you gain 1 life.\nWhenever an Angel you control enters, you gain 1 life.\n{T}: Add {C}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "gainLife": 1
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this land enters, you gain 1 life."
+   },
+   {
+    "do": [
+     {
+      "gainLife": 1
+     }
+    ],
+    "filter": {
+     "subtype": "Angel"
+    },
+    "on": "enters",
+    "text": "Whenever an Angel you control enters, you gain 1 life."
+   }
+  ]
+ },
+ "Seraph of the Sword": {
+  "name": "Seraph of the Sword",
+  "notes": "The goldfish never blocks, so no combat damage is dealt to it. Silent on purpose.",
+  "source": "Flying\nPrevent all combat damage that would be dealt to this creature.",
+  "status": "hand"
+ },
+ "Serra Avenger": {
+  "name": "Serra Avenger",
+  "notes": "Casting restriction, not an effect: don't cast it during your first three turns (the engine doesn't stop you). Flying and vigilance are keywords.",
+  "source": "You can't cast Serra Avenger during your first, second, or third turns of the game.\nFlying, vigilance",
+  "status": "hand"
+ },
+ "Sol Ring": {
+  "name": "Sol Ring",
+  "source": "{T}: Add {C}{C}.",
+  "status": "auto"
+ },
+ "Speaker of the Heavens": {
+  "activated": [
+   {
+    "cost": {
+     "tap": true
+    },
+    "do": [
+     {
+      "token": {
+       "kw": [
+        "Flying"
+       ],
+       "n": 1,
+       "name": "Angel",
+       "power": 4,
+       "toughness": 4,
+       "types": [
+        "Creature",
+        "Angel"
+       ]
+      }
+     }
+    ],
+    "text": "{T}: Create a 4/4 white Angel creature token with flying. Activate only if you have at least 7 life more than your starting life total and only as a sorcery."
+   }
+  ],
+  "name": "Speaker of the Heavens",
+  "notes": "{T}: Activate only if you have at least 7 life more than your starting life total and only as a sorcery.",
+  "source": "Vigilance, lifelink (Attacking doesn't cause this creature to tap. Damage dealt by this creature also causes you to gain that much life.)\n{T}: Create a 4/4 white Angel creature token with flying. Activate only if you have at least 7 life more than your starting life total and only as a sorcery.",
+  "status": "auto"
+ },
+ "Starnheim Aspirant": {
+  "name": "Starnheim Aspirant",
+  "source": "Angel spells you cast cost {2} less to cast.",
+  "statics": [
+   {
+    "costLess": 2,
+    "filter": {
+     "subtype": "Angel"
+    },
+    "scope": "spells-you-cast",
+    "text": "Angel spells you cast cost {2} less to cast."
+   }
+  ],
+  "status": "auto"
+ },
+ "Sunblast Angel": {
+  "name": "Sunblast Angel",
+  "notes": "Destroys your own tapped creatures (e.g. after attacking); indestructible ones survive.",
+  "source": "Flying\nWhen this creature enters, destroy all tapped creatures.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "destroy": {
+       "target": {
+        "each": {
+         "creature": true,
+         "tapped": true
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, destroy all tapped creatures."
+   }
+  ]
+ },
+ "Swiftfoot Boots": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}"
+    },
+    "do": [
+     {
+      "attach": {}
+     }
+    ],
+    "label": "Equip",
+    "limit": "sorcery-speed",
+    "text": "Equip {1}"
+   }
+  ],
+  "name": "Swiftfoot Boots",
+  "notes": "Equip attaches it; the attached creature has hexproof and haste.",
+  "source": "Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T} no matter when it came under your control.)\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+  "statics": [
+   {
+    "kw": [
+     "Hexproof",
+     "Haste"
+    ],
+    "scope": "attached",
+    "text": "Equipped creature has hexproof and haste."
+   }
+  ],
+  "status": "hand"
+ },
+ "Swords to Plowshares": {
+  "name": "Swords to Plowshares",
+  "source": "Exile target creature. Its controller gains life equal to its power.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "exile": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's creature (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "exile": {
+          "target": "creature-you-control"
+         }
+        },
+        {
+         "gainLife": {
+          "of": "target",
+          "stat": "power"
+         }
+        }
+       ],
+       "label": "One of my creatures"
+      }
+     ],
+     "text": "Exile target creature. Its controller gains life equal to its power."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Temple of the False God": {
+  "name": "Temple of the False God",
+  "source": "{T}: Add {C}{C}. Activate only if you control five or more lands.",
+  "status": "auto"
+ },
+ "Thraben Watcher": {
+  "name": "Thraben Watcher",
+  "source": "Flying, vigilance\nOther nontoken creatures you control get +1/+1 and have vigilance.",
+  "statics": [
+   {
+    "filter": {
+     "nontoken": true
+    },
+    "kw": [
+     "Vigilance"
+    ],
+    "p": 1,
+    "scope": "other-creatures-you-control",
+    "t": 1,
+    "text": "Other nontoken creatures you control get +1/+1 and have vigilance."
+   }
+  ],
+  "status": "hand"
+ },
+ "Tome of Legends": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}",
+     "removeCounters": {
+      "kind": "page",
+      "n": 1
+     },
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "label": "Draw",
+    "text": "{1}, {T}, Remove a page counter from this artifact: Draw a card."
+   }
+  ],
+  "name": "Tome of Legends",
+  "notes": "\"Your commander\" is hard-wired to Giada, Font of Hope (only Calling All Angels runs this card).",
+  "source": "This artifact enters with a page counter on it.\nWhenever your commander enters or attacks, put a page counter on this artifact.\n{1}, {T}, Remove a page counter from this artifact: Draw a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "page",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This artifact enters with a page counter on it."
+   },
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "page",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "name": "Giada, Font of Hope"
+    },
+    "on": "enters",
+    "text": "Whenever your commander enters or attacks, put a page counter on this artifact."
+   },
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "page",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "name": "Giada, Font of Hope"
+    },
+    "on": "attacks",
+    "text": "Whenever your commander enters or attacks, put a page counter on this artifact."
+   }
+  ]
+ },
+ "Valorous Stance": {
+  "name": "Valorous Stance",
+  "source": "Choose one —\n• Target creature gains indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy it.)\n• Destroy target creature with toughness 4 or greater.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "grant": {
+          "kw": [
+           "Indestructible"
+          ],
+          "target": {
+           "n": 1,
+           "pick": {
+            "creature": true
+           }
+          }
+         }
+        }
+       ],
+       "label": "Target creature gains indestructible until end of turn."
+      },
+      {
+       "do": [],
+       "label": "An opponent's creature with toughness 4 or greater (the dummy has none: nothing happens)"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "pick": {
+            "creature": true,
+            "toughnessGe": 4
+           }
+          }
+         }
+        }
+       ],
+       "label": "Destroy my creature with toughness 4 or greater"
+      }
+     ],
+     "text": "Choose one —"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Vanguard Seraph": {
+  "name": "Vanguard Seraph",
+  "source": "Flying\nWhenever you gain life for the first time each turn, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "surveil": 1
+     }
+    ],
+    "filter": {
+     "gain": true,
+     "who": "you"
+    },
+    "limit": "once-per-turn",
+    "on": "life",
+    "text": "Whenever you gain life for the first time each turn, surveil 1."
+   }
+  ]
+ },
+ "Vanquisher's Banner": {
+  "chooseOn": {
+   "enters": {
+    "kind": "creatureType"
+   }
+  },
+  "name": "Vanquisher's Banner",
+  "source": "As this artifact enters, choose a creature type.\nCreatures you control of the chosen type get +1/+1.\nWhenever you cast a creature spell of the chosen type, draw a card.",
+  "statics": [
+   {
+    "filter": {
+     "subtype": "$chosen"
+    },
+    "p": 1,
+    "scope": "creatures-you-control",
+    "t": 1,
+    "text": "Creatures you control of the chosen type get +1/+1."
+   }
+  ],
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "subtype": "$chosen"
+    },
+    "on": "cast",
+    "text": "Whenever you cast a creature spell of the chosen type, draw a card."
+   }
+  ]
+ },
+ "War Room": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{3}",
+     "tap": true
+    },
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "loseLife": 1
+          },
+          {
+           "draw": 1
+          }
+         ],
+         "label": "1 colour (e.g. Ghalta, Giada): pay 1 life"
+        },
+        {
+         "do": [
+          {
+           "loseLife": 2
+          },
+          {
+           "draw": 1
+          }
+         ],
+         "label": "2 colours (e.g. Killian): pay 2 life"
+        },
+        {
+         "do": [
+          {
+           "loseLife": 3
+          },
+          {
+           "draw": 1
+          }
+         ],
+         "label": "3 colours: pay 3 life"
+        }
+       ],
+       "text": "Pay life equal to the number of colors in your commanders' color identity:"
+      }
+     }
+    ],
+    "label": "Draw",
+    "text": "{3}, {T}, Pay life equal to the number of colors in your commanders' color identity: Draw a card."
+   }
+  ],
+  "name": "War Room",
+  "notes": "The life payment depends on the deck's commander (War Room is shared by mono- and two-colour decks), so the colour count is picked on activation.",
+  "source": "{T}: Add {C}.\n{3}, {T}, Pay life equal to the number of colors in your commanders' color identity: Draw a card.",
+  "status": "hand"
+ },
+ "Wojek Investigator": {
+  "name": "Wojek Investigator",
+  "notes": "The dummy holds no cards, so it never has more cards in hand than you. Silent on purpose.",
+  "source": "Flying, vigilance\nAt the beginning of your upkeep, investigate once for each opponent who has more cards in hand than you. (To investigate, create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+  "status": "hand"
+ },
+ "Youthful Valkyrie": {
+  "name": "Youthful Valkyrie",
+  "source": "Flying\nWhenever another Angel you control enters, put a +1/+1 counter on this creature.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "other": true,
+     "subtype": "Angel"
+    },
+    "on": "enters",
+    "text": "Whenever another Angel you control enters, put a +1/+1 counter on this creature."
+   }
+  ]
+ }
+}

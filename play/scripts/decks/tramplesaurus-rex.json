@@ -1,0 +1,2161 @@
+{
+ "Arachnogenesis": {
+  "name": "Arachnogenesis",
+  "notes": "X counts creatures attacking you and the damage prevention only helps on an opponent's turn: the dummy never attacks. Silent on purpose.",
+  "source": "Create X 1/2 green Spider creature tokens with reach, where X is the number of creatures attacking you. Prevent all combat damage that would be dealt this turn by non-Spider creatures.",
+  "status": "hand"
+ },
+ "Arasta of the Endless Web": {
+  "name": "Arasta of the Endless Web",
+  "notes": "Opponent-only trigger: the dummy casts no spells, so it never fires.",
+  "source": "Reach\nWhenever an opponent casts an instant or sorcery spell, create a 1/2 green Spider creature token with reach.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "kw": [
+        "Reach"
+       ],
+       "n": 1,
+       "name": "Spider",
+       "power": 1,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Spider"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "controller": "opp",
+     "type": [
+      "Instant",
+      "Sorcery"
+     ]
+    },
+    "on": "cast",
+    "text": "Whenever an opponent casts an instant or sorcery spell, create a 1/2 green Spider creature token with reach."
+   }
+  ]
+ },
+ "Beast Whisperer": {
+  "name": "Beast Whisperer",
+  "source": "Whenever you cast a creature spell, draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "creature": true
+    },
+    "on": "cast",
+    "text": "Whenever you cast a creature spell, draw a card."
+   }
+  ]
+ },
+ "Beast Within": {
+  "name": "Beast Within",
+  "notes": "Goldfish: the dummy controls no permanents, so the useful mode is your own permanent (e.g. a Beast at instant speed).",
+  "source": "Destroy target permanent. Its controller creates a 3/3 green Beast creature token.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "any-you-control"
+         }
+        },
+        {
+         "token": {
+          "n": 1,
+          "name": "Beast",
+          "power": 3,
+          "toughness": 3,
+          "types": [
+           "Creature",
+           "Beast"
+          ]
+         }
+        }
+       ],
+       "label": "One of my permanents (I get the 3/3 Beast)"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's permanent (the dummy has none; it would get the Beast)"
+      }
+     ],
+     "text": "Destroy target permanent. Its controller creates a 3/3 green Beast creature token."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Birds of Paradise": {
+  "name": "Birds of Paradise",
+  "source": "Flying\n{T}: Add one mana of any color.",
+  "status": "auto"
+ },
+ "Bite Down": {
+  "name": "Bite Down",
+  "notes": "Needs a creature or planeswalker you don't control: the dummy has none. Silent on purpose.",
+  "source": "Target creature you control deals damage equal to its power to target creature or planeswalker you don't control.",
+  "status": "hand"
+ },
+ "Bonders' Enclave": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{3}",
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "{3}, {T}: Draw a card. Activate only if you control a creature with power 4 or greater."
+   }
+  ],
+  "name": "Bonders' Enclave",
+  "notes": "{3}, {T}: Activate only if you control a creature with power 4 or greater.",
+  "source": "{T}: Add {C}.\n{3}, {T}: Draw a card. Activate only if you control a creature with power 4 or greater.",
+  "status": "auto"
+ },
+ "Carnage Tyrant": {
+  "name": "Carnage Tyrant",
+  "notes": "Keywords only; \"can't be countered\" is irrelevant against the goldfish. Silent on purpose.",
+  "source": "This spell can't be countered.\nTrample, hexproof",
+  "status": "hand"
+ },
+ "Challenger Troll": {
+  "name": "Challenger Troll",
+  "notes": "Blocking restriction only; the goldfish never blocks. Silent on purpose.",
+  "source": "Each creature you control with power 4 or greater can't be blocked by more than one creature.",
+  "status": "hand"
+ },
+ "Clifftop Lookout": {
+  "name": "Clifftop Lookout",
+  "source": "Reach\nWhen this creature enters, reveal cards from the top of your library until you reveal a land card. Put that card onto the battlefield tapped and the rest on the bottom of your library in a random order.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "revealUntil": {
+       "filter": {
+        "land": true
+       },
+       "rest": "bottom",
+       "tapped": true,
+       "to": "bf"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, reveal cards from the top of your library until you reveal a land card. Put that card onto the battlefield tapped and the rest on the bottom of your library in a random order."
+   }
+  ]
+ },
+ "Collective Resistance": {
+  "name": "Collective Resistance",
+  "notes": "Escalate is paid on resolution for multi-mode picks. Destroy modes pick among your own permanents (optional) — the dummy controls none.",
+  "source": "Escalate {G} (Pay this cost for each mode chosen beyond the first.)\nChoose one or more —\n• Destroy target artifact.\n• Destroy target enchantment.\n• Target creature gains hexproof and indestructible until end of turn.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "optional": true,
+           "pick": {
+            "type": "Artifact"
+           }
+          }
+         }
+        }
+       ],
+       "label": "Destroy target artifact"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "optional": true,
+           "pick": {
+            "type": "Enchantment"
+           }
+          }
+         }
+        }
+       ],
+       "label": "Destroy target enchantment"
+      },
+      {
+       "do": [
+        {
+         "grant": {
+          "kw": [
+           "Hexproof",
+           "Indestructible"
+          ],
+          "target": "creature-you-control"
+         }
+        }
+       ],
+       "label": "Target creature gains hexproof and indestructible until end of turn"
+      },
+      {
+       "do": [
+        {
+         "pay": {
+          "mana": "{G}"
+         }
+        },
+        {
+         "destroy": {
+          "target": {
+           "optional": true,
+           "pick": {
+            "type": "Artifact"
+           }
+          }
+         }
+        },
+        {
+         "destroy": {
+          "target": {
+           "optional": true,
+           "pick": {
+            "type": "Enchantment"
+           }
+          }
+         }
+        }
+       ],
+       "label": "Artifact + enchantment (escalate {G})"
+      },
+      {
+       "do": [
+        {
+         "pay": {
+          "mana": "{G}"
+         }
+        },
+        {
+         "destroy": {
+          "target": {
+           "optional": true,
+           "pick": {
+            "type": "Artifact"
+           }
+          }
+         }
+        },
+        {
+         "grant": {
+          "kw": [
+           "Hexproof",
+           "Indestructible"
+          ],
+          "target": "creature-you-control"
+         }
+        }
+       ],
+       "label": "Artifact + hexproof/indestructible (escalate {G})"
+      },
+      {
+       "do": [
+        {
+         "pay": {
+          "mana": "{G}"
+         }
+        },
+        {
+         "destroy": {
+          "target": {
+           "optional": true,
+           "pick": {
+            "type": "Enchantment"
+           }
+          }
+         }
+        },
+        {
+         "grant": {
+          "kw": [
+           "Hexproof",
+           "Indestructible"
+          ],
+          "target": "creature-you-control"
+         }
+        }
+       ],
+       "label": "Enchantment + hexproof/indestructible (escalate {G})"
+      },
+      {
+       "do": [
+        {
+         "pay": {
+          "mana": "{G}{G}"
+         }
+        },
+        {
+         "destroy": {
+          "target": {
+           "optional": true,
+           "pick": {
+            "type": "Artifact"
+           }
+          }
+         }
+        },
+        {
+         "destroy": {
+          "target": {
+           "optional": true,
+           "pick": {
+            "type": "Enchantment"
+           }
+          }
+         }
+        },
+        {
+         "grant": {
+          "kw": [
+           "Hexproof",
+           "Indestructible"
+          ],
+          "target": "creature-you-control"
+         }
+        }
+       ],
+       "label": "All three modes (escalate {G}{G})"
+      }
+     ],
+     "text": "Choose one or more —"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Colossal Majesty": {
+  "name": "Colossal Majesty",
+  "source": "At the beginning of your upkeep, if you control a creature with power 4 or greater, draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "if": {
+     "youControl": {
+      "creature": true,
+      "powerGe": 4
+     }
+    },
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, if you control a creature with power 4 or greater, draw a card."
+   }
+  ]
+ },
+ "Commander's Sphere": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "Sacrifice this artifact: Draw a card."
+   }
+  ],
+  "name": "Commander's Sphere",
+  "source": "{T}: Add one mana of any color in your commander's color identity.\nSacrifice this artifact: Draw a card.",
+  "status": "auto"
+ },
+ "Curious Altisaur": {
+  "name": "Curious Altisaur",
+  "source": "Reach, vigilance\nWhenever a Dinosaur you control deals combat damage to a player, draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "subtype": "Dinosaur"
+    },
+    "on": "combatDamage",
+    "text": "Whenever a Dinosaur you control deals combat damage to a player, draw a card."
+   }
+  ]
+ },
+ "Dungrove Elder": {
+  "name": "Dungrove Elder",
+  "source": "Hexproof (This creature can't be the target of spells or abilities your opponents control.)\nDungrove Elder's power and toughness are each equal to the number of Forests you control.",
+  "statics": [
+   {
+    "p": {
+     "count": {
+      "subtype": "Forest"
+     }
+    },
+    "scope": "self",
+    "t": {
+     "count": {
+      "subtype": "Forest"
+     }
+    },
+    "text": "Dungrove Elder's power and toughness are each equal to the number of Forests you control."
+   }
+  ],
+  "status": "hand"
+ },
+ "Elder Gargaroth": {
+  "name": "Elder Gargaroth",
+  "source": "Reach, vigilance, trample\nWhenever this creature attacks or blocks, choose one —\n• Create a 3/3 green Beast creature token.\n• You gain 3 life.\n• Draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "token": {
+            "n": 1,
+            "name": "Beast",
+            "power": 3,
+            "toughness": 3,
+            "types": [
+             "Creature",
+             "Beast"
+            ]
+           }
+          }
+         ],
+         "label": "Create a 3/3 green Beast creature token."
+        },
+        {
+         "do": [
+          {
+           "gainLife": 3
+          }
+         ],
+         "label": "You gain 3 life."
+        },
+        {
+         "do": [
+          {
+           "draw": 1
+          }
+         ],
+         "label": "Draw a card."
+        }
+       ],
+       "text": "Choose one —"
+      }
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever this creature attacks or blocks, choose one —\n• Create a 3/3 green Beast creature token.\n• You gain 3 life.\n• Draw a card."
+   }
+  ]
+ },
+ "Elemental Bond": {
+  "name": "Elemental Bond",
+  "source": "Whenever a creature you control with power 3 or greater enters, draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "powerGe": 3
+    },
+    "on": "enters",
+    "text": "Whenever a creature you control with power 3 or greater enters, draw a card."
+   }
+  ]
+ },
+ "Elvish Mystic": {
+  "name": "Elvish Mystic",
+  "source": "{T}: Add {G}.",
+  "status": "auto"
+ },
+ "Ezuri's Predation": {
+  "name": "Ezuri's Predation",
+  "notes": "Goldfish: the dummy controls no creatures, so no Beasts are created and nothing fights.",
+  "source": "For each creature your opponents control, create a 4/4 green Phyrexian Beast creature token. Each of those tokens fights a different one of those creatures.",
+  "spell": [
+   {
+    "token": {
+     "n": {
+      "count": {
+       "controller": "opp",
+       "creature": true
+      }
+     },
+     "name": "Phyrexian Beast",
+     "power": 4,
+     "toughness": 4,
+     "types": [
+      "Creature",
+      "Phyrexian",
+      "Beast"
+     ]
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Forest": {
+  "name": "Forest",
+  "source": "({T}: Add {G}.)",
+  "status": "auto"
+ },
+ "Fyndhorn Elves": {
+  "name": "Fyndhorn Elves",
+  "source": "{T}: Add {G}.",
+  "status": "auto"
+ },
+ "Garruk's Packleader": {
+  "name": "Garruk's Packleader",
+  "source": "Whenever another creature you control with power 3 or greater enters, you may draw a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "other": true,
+     "powerGe": 3
+    },
+    "on": "enters",
+    "optional": true,
+    "text": "Whenever another creature you control with power 3 or greater enters, you may draw a card."
+   }
+  ]
+ },
+ "Garruk's Uprising": {
+  "name": "Garruk's Uprising",
+  "source": "When this enchantment enters, if you control a creature with power 4 or greater, draw a card.\nCreatures you control have trample. (Each of those creatures can deal excess combat damage to the player or planeswalker it's attacking.)\nWhenever a creature you control with power 4 or greater enters, draw a card.",
+  "statics": [
+   {
+    "kw": [
+     "Trample"
+    ],
+    "scope": "creatures-you-control",
+    "text": "Creatures you control have trample."
+   }
+  ],
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "if": {
+     "youControl": {
+      "creature": true,
+      "powerGe": 4
+     }
+    },
+    "on": "enters",
+    "self": true,
+    "text": "When this enchantment enters, if you control a creature with power 4 or greater, draw a card."
+   },
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "powerGe": 4
+    },
+    "on": "enters",
+    "text": "Whenever a creature you control with power 4 or greater enters, draw a card."
+   }
+  ]
+ },
+ "Ghalta, Primal Hunger": {
+  "name": "Ghalta, Primal Hunger",
+  "source": "This spell costs {X} less to cast, where X is the total power of creatures you control.\nTrample (This creature can deal excess combat damage to the player or planeswalker it's attacking.)",
+  "statics": [
+   {
+    "costLess": "count:total-power",
+    "scope": "this-spell",
+    "text": "This spell costs {X} less to cast, where X is the total power of creatures you control."
+   }
+  ],
+  "status": "hand"
+ },
+ "Gigantosaurus": {
+  "name": "Gigantosaurus",
+  "notes": "no oracle text in deck data",
+  "source": "",
+  "status": "auto"
+ },
+ "Goreclaw, Terror of Qal Sisma": {
+  "name": "Goreclaw, Terror of Qal Sisma",
+  "source": "Creature spells you cast with power 4 or greater cost {2} less to cast.\nWhenever Goreclaw attacks, each creature you control with power 4 or greater gets +1/+1 and gains trample until end of turn.",
+  "statics": [
+   {
+    "costLess": 2,
+    "filter": {
+     "creature": true,
+     "powerGe": 4
+    },
+    "scope": "spells-you-cast",
+    "text": "Creature spells you cast with power 4 or greater cost {2} less to cast."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "pump": {
+       "kw": [
+        "Trample"
+       ],
+       "p": 1,
+       "t": 1,
+       "target": {
+        "each": {
+         "creature": true,
+         "powerGe": 4
+        }
+       }
+      }
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever Goreclaw attacks, each creature you control with power 4 or greater gets +1/+1 and gains trample until end of turn."
+   }
+  ]
+ },
+ "Harmonize": {
+  "name": "Harmonize",
+  "source": "Draw three cards.",
+  "spell": [
+   {
+    "draw": 3
+   }
+  ],
+  "status": "auto"
+ },
+ "Hulking Raptor": {
+  "name": "Hulking Raptor",
+  "source": "Ward {2}\nAt the beginning of your first main phase, add {G}{G}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "addMana": "{G}{G}"
+     }
+    ],
+    "limit": "once-per-turn",
+    "on": "beginMain",
+    "text": "At the beginning of your first main phase, add {G}{G}."
+   }
+  ]
+ },
+ "Ilysian Caryatid": {
+  "name": "Ilysian Caryatid",
+  "source": "{T}: Add one mana of any color. If you control a creature with power 4 or greater, add two mana of any one color instead.",
+  "status": "auto"
+ },
+ "Kenrith's Transformation": {
+  "name": "Kenrith's Transformation",
+  "notes": "On your creature: it loses all abilities and is a base 3/3 Elk (other creature types are kept; the ability loss outlasts the Aura).",
+  "source": "Enchant creature\nWhen this Aura enters, draw a card.\nEnchanted creature loses all abilities and is a green Elk creature with base power and toughness 3/3. (It loses all other card types and creature types.)",
+  "statics": [
+   {
+    "animate": {
+     "p": 3,
+     "subtypes": [
+      "Elk"
+     ],
+     "t": 3
+    },
+    "scope": "attached",
+    "text": "Enchanted creature loses all abilities and is a green Elk creature with base power and toughness 3/3."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [],
+         "label": "An opponent's creature (the dummy has none)"
+        },
+        {
+         "do": [
+          {
+           "attach": {
+            "to": "creature-you-control"
+           }
+          },
+          {
+           "stripAbilities": {
+            "target": {
+             "each": {
+              "attachedToThis": true
+             }
+            },
+            "until": "permanent"
+           }
+          }
+         ],
+         "label": "One of my creatures"
+        }
+       ],
+       "text": "Enchant creature"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Enchant creature"
+   },
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this Aura enters, draw a card."
+   }
+  ]
+ },
+ "Llanowar Elves": {
+  "name": "Llanowar Elves",
+  "source": "{T}: Add {G}.",
+  "status": "auto"
+ },
+ "Llanowar Tribe": {
+  "name": "Llanowar Tribe",
+  "source": "{T}: Add {G}{G}{G}.",
+  "status": "auto"
+ },
+ "Loot, Exuberant Explorer": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{4}{G}{G}",
+     "tap": true
+    },
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "lookTop": {
+          "n": 6,
+          "pick": {
+           "filter": {
+            "creature": true,
+            "mvLe": 13
+           },
+           "n": 1,
+           "to": "bf"
+          },
+          "rest": "bottom"
+         }
+        }
+       ],
+       "else": [
+        {
+         "check": {
+          "do": [
+           {
+            "lookTop": {
+             "n": 6,
+             "pick": {
+              "filter": {
+               "creature": true,
+               "mvLe": 12
+              },
+              "n": 1,
+              "to": "bf"
+             },
+             "rest": "bottom"
+            }
+           }
+          ],
+          "else": [
+           {
+            "check": {
+             "do": [
+              {
+               "lookTop": {
+                "n": 6,
+                "pick": {
+                 "filter": {
+                  "creature": true,
+                  "mvLe": 11
+                 },
+                 "n": 1,
+                 "to": "bf"
+                },
+                "rest": "bottom"
+               }
+              }
+             ],
+             "else": [
+              {
+               "check": {
+                "do": [
+                 {
+                  "lookTop": {
+                   "n": 6,
+                   "pick": {
+                    "filter": {
+                     "creature": true,
+                     "mvLe": 10
+                    },
+                    "n": 1,
+                    "to": "bf"
+                   },
+                   "rest": "bottom"
+                  }
+                 }
+                ],
+                "else": [
+                 {
+                  "check": {
+                   "do": [
+                    {
+                     "lookTop": {
+                      "n": 6,
+                      "pick": {
+                       "filter": {
+                        "creature": true,
+                        "mvLe": 9
+                       },
+                       "n": 1,
+                       "to": "bf"
+                      },
+                      "rest": "bottom"
+                     }
+                    }
+                   ],
+                   "else": [
+                    {
+                     "check": {
+                      "do": [
+                       {
+                        "lookTop": {
+                         "n": 6,
+                         "pick": {
+                          "filter": {
+                           "creature": true,
+                           "mvLe": 8
+                          },
+                          "n": 1,
+                          "to": "bf"
+                         },
+                         "rest": "bottom"
+                        }
+                       }
+                      ],
+                      "else": [
+                       {
+                        "check": {
+                         "do": [
+                          {
+                           "lookTop": {
+                            "n": 6,
+                            "pick": {
+                             "filter": {
+                              "creature": true,
+                              "mvLe": 7
+                             },
+                             "n": 1,
+                             "to": "bf"
+                            },
+                            "rest": "bottom"
+                           }
+                          }
+                         ],
+                         "else": [
+                          {
+                           "check": {
+                            "do": [
+                             {
+                              "lookTop": {
+                               "n": 6,
+                               "pick": {
+                                "filter": {
+                                 "creature": true,
+                                 "mvLe": 6
+                                },
+                                "n": 1,
+                                "to": "bf"
+                               },
+                               "rest": "bottom"
+                              }
+                             }
+                            ],
+                            "else": [
+                             {
+                              "check": {
+                               "do": [
+                                {
+                                 "lookTop": {
+                                  "n": 6,
+                                  "pick": {
+                                   "filter": {
+                                    "creature": true,
+                                    "mvLe": 5
+                                   },
+                                   "n": 1,
+                                   "to": "bf"
+                                  },
+                                  "rest": "bottom"
+                                 }
+                                }
+                               ],
+                               "else": [
+                                {
+                                 "check": {
+                                  "do": [
+                                   {
+                                    "lookTop": {
+                                     "n": 6,
+                                     "pick": {
+                                      "filter": {
+                                       "creature": true,
+                                       "mvLe": 4
+                                      },
+                                      "n": 1,
+                                      "to": "bf"
+                                     },
+                                     "rest": "bottom"
+                                    }
+                                   }
+                                  ],
+                                  "else": [
+                                   {
+                                    "check": {
+                                     "do": [
+                                      {
+                                       "lookTop": {
+                                        "n": 6,
+                                        "pick": {
+                                         "filter": {
+                                          "creature": true,
+                                          "mvLe": 3
+                                         },
+                                         "n": 1,
+                                         "to": "bf"
+                                        },
+                                        "rest": "bottom"
+                                       }
+                                      }
+                                     ],
+                                     "else": [
+                                      {
+                                       "check": {
+                                        "do": [
+                                         {
+                                          "lookTop": {
+                                           "n": 6,
+                                           "pick": {
+                                            "filter": {
+                                             "creature": true,
+                                             "mvLe": 2
+                                            },
+                                            "n": 1,
+                                            "to": "bf"
+                                           },
+                                           "rest": "bottom"
+                                          }
+                                         }
+                                        ],
+                                        "else": [
+                                         {
+                                          "check": {
+                                           "do": [
+                                            {
+                                             "lookTop": {
+                                              "n": 6,
+                                              "pick": {
+                                               "filter": {
+                                                "creature": true,
+                                                "mvLe": 1
+                                               },
+                                               "n": 1,
+                                               "to": "bf"
+                                              },
+                                              "rest": "bottom"
+                                             }
+                                            }
+                                           ],
+                                           "else": [
+                                            {
+                                             "lookTop": {
+                                              "n": 6,
+                                              "pick": {
+                                               "filter": {
+                                                "creature": true,
+                                                "mvLe": 0
+                                               },
+                                               "n": 1,
+                                               "to": "bf"
+                                              },
+                                              "rest": "bottom"
+                                             }
+                                            }
+                                           ],
+                                           "if": {
+                                            "landsGe": 1
+                                           }
+                                          }
+                                         }
+                                        ],
+                                        "if": {
+                                         "landsGe": 2
+                                        }
+                                       }
+                                      }
+                                     ],
+                                     "if": {
+                                      "landsGe": 3
+                                     }
+                                    }
+                                   }
+                                  ],
+                                  "if": {
+                                   "landsGe": 4
+                                  }
+                                 }
+                                }
+                               ],
+                               "if": {
+                                "landsGe": 5
+                               }
+                              }
+                             }
+                            ],
+                            "if": {
+                             "landsGe": 6
+                            }
+                           }
+                          }
+                         ],
+                         "if": {
+                          "landsGe": 7
+                         }
+                        }
+                       }
+                      ],
+                      "if": {
+                       "landsGe": 8
+                      }
+                     }
+                    }
+                   ],
+                   "if": {
+                    "landsGe": 9
+                   }
+                  }
+                 }
+                ],
+                "if": {
+                 "landsGe": 10
+                }
+               }
+              }
+             ],
+             "if": {
+              "landsGe": 11
+             }
+            }
+           }
+          ],
+          "if": {
+           "landsGe": 12
+          }
+         }
+        }
+       ],
+       "if": {
+        "landsGe": 13
+       }
+      }
+     }
+    ],
+    "label": "Dig",
+    "text": "{4}{G}{G}, {T}: Look at the top six cards of your library. You may reveal a creature card with mana value less than or equal to the number of lands you control from among them and put it onto the battlefield. Put the rest on the bottom in a random order."
+   }
+  ],
+  "name": "Loot, Exuberant Explorer",
+  "notes": "\"Mana value ≤ lands you control\" is a ladder on landsGe up to 13 (the deck tops out at Ghalta, MV 12).",
+  "source": "You may play an additional land on each of your turns.\n{4}{G}{G}, {T}: Look at the top six cards of your library. You may reveal a creature card with mana value less than or equal to the number of lands you control from among them and put it onto the battlefield. Put the rest on the bottom in a random order.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "extraLand": 1
+     }
+    ],
+    "on": "turnStart",
+    "text": "You may play an additional land on each of your turns."
+   }
+  ]
+ },
+ "Managorger Hydra": {
+  "name": "Managorger Hydra",
+  "notes": "Only you cast spells in goldfish.",
+  "source": "Trample\nWhenever a player casts a spell, put a +1/+1 counter on this creature.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "on": "cast",
+    "text": "Whenever a player casts a spell, put a +1/+1 counter on this creature."
+   }
+  ]
+ },
+ "Monstrous Onslaught": {
+  "name": "Monstrous Onslaught",
+  "notes": "Splitting the damage among several of your own creatures is not offered.",
+  "source": "Monstrous Onslaught deals X damage divided as you choose among any number of target creatures, where X is the greatest power among creatures you control as you cast this spell.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [],
+       "label": "Opponent's creatures (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "damage": {
+          "n": "greatest:power-you-control",
+          "target": "creature-you-control"
+         }
+        }
+       ],
+       "label": "All of it to one creature I control"
+      }
+     ],
+     "text": "Monstrous Onslaught deals X damage divided as you choose among any number of target creatures, where X is the greatest power among creatures you control as you cast this spell."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Mosswort Bridge": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{G}",
+     "tap": true
+    },
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "castHidden": {
+          "target": "this"
+         }
+        }
+       ],
+       "if": {
+        "totalPowerGe": 10
+       }
+      }
+     }
+    ],
+    "label": "Hideaway",
+    "text": "{G}, {T}: You may play the exiled card without paying its mana cost if creatures you control have total power 10 or greater."
+   }
+  ],
+  "name": "Mosswort Bridge",
+  "source": "Hideaway 4 (When this land enters, look at the top four cards of your library, exile one face down, then put the rest on the bottom in a random order.)\nThis land enters tapped.\n{T}: Add {G}.\n{G}, {T}: You may play the exiled card without paying its mana cost if creatures you control have total power 10 or greater.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   },
+   {
+    "do": [
+     {
+      "exileTop": {
+       "hideaway": true,
+       "n": 4
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Hideaway 4"
+   }
+  ]
+ },
+ "Overwhelming Stampede": {
+  "name": "Overwhelming Stampede",
+  "source": "Until end of turn, creatures you control gain trample and get +X/+X, where X is the greatest power among creatures you control.",
+  "spell": [
+   {
+    "pump": {
+     "kw": [
+      "Trample"
+     ],
+     "p": "greatest:power-you-control",
+     "t": "greatest:power-you-control",
+     "target": "each-creature-you-control"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Paradise Druid": {
+  "name": "Paradise Druid",
+  "source": "This creature has hexproof as long as it's untapped. (It can't be the target of spells or abilities your opponents control.)\n{T}: Add one mana of any color.",
+  "statics": [
+   {
+    "if": {
+     "youControl": {
+      "name": "Paradise Druid",
+      "untapped": true
+     }
+    },
+    "kw": [
+     "Hexproof"
+    ],
+    "scope": "self",
+    "text": "This creature has hexproof as long as it's untapped."
+   }
+  ],
+  "status": "hand"
+ },
+ "Pugnacious Hammerskull": {
+  "name": "Pugnacious Hammerskull",
+  "notes": "Stun: while it has a stun counter it doesn't untap; each untap step removes one instead.",
+  "source": "Whenever this creature attacks while you don't control another Dinosaur, put a stun counter on it. (If a permanent with a stun counter would become untapped, remove one from it instead.)",
+  "statics": [
+   {
+    "if": {
+     "counters": {
+      "kind": "stun"
+     }
+    },
+    "noUntap": true,
+    "scope": "self",
+    "text": "(If a permanent with a stun counter would become untapped, remove one from it instead.)"
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "stun",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "if": {
+     "not": {
+      "youControl": {
+       "other": true,
+       "subtype": "Dinosaur"
+      }
+     }
+    },
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever this creature attacks while you don't control another Dinosaur, put a stun counter on it."
+   },
+   {
+    "do": [
+     {
+      "removeCounters": {
+       "kind": "stun",
+       "n": 1,
+       "target": "self"
+      }
+     }
+    ],
+    "if": {
+     "counters": {
+      "kind": "stun"
+     }
+    },
+    "on": "turnStart",
+    "text": "(If a permanent with a stun counter would become untapped, remove one from it instead.)"
+   }
+  ]
+ },
+ "Ram Through": {
+  "name": "Ram Through",
+  "notes": "Needs a creature you don't control: the dummy has none. Silent on purpose.",
+  "source": "Target creature you control deals damage equal to its power to target creature you don't control. If the creature you control has trample, excess damage is dealt to that creature's controller instead.",
+  "status": "hand"
+ },
+ "Regal Imperiosaur": {
+  "name": "Regal Imperiosaur",
+  "source": "Other Dinosaurs you control get +1/+1.",
+  "statics": [
+   {
+    "filter": {
+     "other": true,
+     "subtype": "Dinosaur"
+    },
+    "p": 1,
+    "scope": "creatures-you-control",
+    "t": 1,
+    "text": "Other Dinosaurs you control get +1/+1."
+   }
+  ],
+  "status": "auto"
+ },
+ "Rhonas the Indomitable": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}{G}"
+    },
+    "do": [
+     {
+      "pump": {
+       "kw": [
+        "Trample"
+       ],
+       "p": 2,
+       "t": 0,
+       "target": {
+        "pick": {
+         "creature": true,
+         "other": true
+        }
+       }
+      }
+     }
+    ],
+    "label": "Pump",
+    "text": "{2}{G}: Another target creature gets +2/+0 and gains trample until end of turn."
+   }
+  ],
+  "name": "Rhonas the Indomitable",
+  "source": "Deathtouch, indestructible\nRhonas can't attack or block unless you control another creature with power 4 or greater.\n{2}{G}: Another target creature gets +2/+0 and gains trample until end of turn.",
+  "statics": [
+   {
+    "cantAttack": true,
+    "if": {
+     "not": {
+      "youControl": {
+       "creature": true,
+       "other": true,
+       "powerGe": 4
+      }
+     }
+    },
+    "text": "Rhonas can't attack or block unless you control another creature with power 4 or greater."
+   }
+  ],
+  "status": "hand"
+ },
+ "Rhonas's Monument": {
+  "name": "Rhonas's Monument",
+  "source": "Green creature spells you cast cost {1} less to cast.\nWhenever you cast a creature spell, target creature you control gets +2/+2 and gains trample until end of turn.",
+  "statics": [
+   {
+    "costLess": 1,
+    "filter": {
+     "colors": [
+      "G"
+     ],
+     "creature": true
+    },
+    "scope": "spells-you-cast",
+    "text": "Green creature spells you cast cost {1} less to cast."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "pump": {
+       "kw": [
+        "Trample"
+       ],
+       "p": 2,
+       "t": 2,
+       "target": "creature-you-control"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true
+    },
+    "on": "cast",
+    "text": "Whenever you cast a creature spell, target creature you control gets +2/+2 and gains trample until end of turn."
+   }
+  ]
+ },
+ "Ripjaw Raptor": {
+  "name": "Ripjaw Raptor",
+  "source": "Enrage — Whenever this creature is dealt damage, draw a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "on": "damaged",
+    "self": true,
+    "text": "Enrage — Whenever this creature is dealt damage, draw a card."
+   }
+  ]
+ },
+ "Rishkar's Expertise": {
+  "name": "Rishkar's Expertise",
+  "source": "Draw cards equal to the greatest power among creatures you control.\nYou may cast a spell with mana value 5 or less from your hand without paying its mana cost.",
+  "spell": [
+   {
+    "draw": "greatest:power-you-control"
+   },
+   {
+    "castFree": {
+     "filter": {
+      "mvLe": 5
+     },
+     "target": "hand"
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Rishkar, Peema Renegade": {
+  "name": "Rishkar, Peema Renegade",
+  "notes": "\"Each creature you control with a counter on it has '{T}: Add {G}.'\" is a granted mana ability the engine can't give: tap them for {G} by hand.",
+  "source": "When Rishkar enters, put a +1/+1 counter on each of up to two target creatures.\nEach creature you control with a counter on it has \"{T}: Add {G}.\"",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": {
+        "n": 2,
+        "optional": true,
+        "pick": {
+         "creature": true
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Rishkar enters, put a +1/+1 counter on each of up to two target creatures."
+   }
+  ]
+ },
+ "Rogue's Passage": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{4}",
+     "tap": true
+    },
+    "do": [
+     {
+      "grant": {
+       "kw": [
+        "Unblockable"
+       ],
+       "target": "creature-you-control"
+      }
+     }
+    ],
+    "label": "Unblockable",
+    "text": "{4}, {T}: Target creature can't be blocked this turn."
+   }
+  ],
+  "name": "Rogue's Passage",
+  "notes": "Goldfish: the dummy never blocks; the \"Unblockable\" tag is a reminder only.",
+  "source": "{T}: Add {C}.\n{4}, {T}: Target creature can't be blocked this turn.",
+  "status": "hand"
+ },
+ "Scavenger Grounds": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}",
+     "sac": {
+      "filter": {
+       "subtype": "Desert"
+      }
+     },
+     "tap": true
+    },
+    "do": [
+     {
+      "exileFromGy": {
+       "n": "count:cards-in-graveyard"
+      }
+     }
+    ],
+    "label": "Exile graveyards",
+    "text": "{2}, {T}, Sacrifice a Desert: Exile all graveyards."
+   }
+  ],
+  "name": "Scavenger Grounds",
+  "notes": "Exile all graveyards: the dummy's is empty, so this exiles yours.",
+  "source": "{T}: Add {C}.\n{2}, {T}, Sacrifice a Desert: Exile all graveyards.",
+  "status": "hand"
+ },
+ "Scavenging Ooze": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{G}"
+    },
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "exileFromGy": {
+            "filter": {
+             "creature": true
+            },
+            "n": 1
+           }
+          },
+          {
+           "repeat": {
+            "do": [
+             {
+              "counters": {
+               "kind": "p1p1",
+               "n": 1,
+               "target": "self"
+              }
+             },
+             {
+              "gainLife": 1
+             }
+            ],
+            "times": {
+             "of": "lastCount"
+            }
+           }
+          }
+         ],
+         "label": "Exile a creature card (+1/+1 counter, gain 1 life)"
+        },
+        {
+         "do": [
+          {
+           "exileFromGy": {
+            "filter": {
+             "creature": false
+            },
+            "n": 1
+           }
+          }
+         ],
+         "label": "Exile a noncreature card"
+        }
+       ],
+       "text": "Exile target card from a graveyard."
+      }
+     }
+    ],
+    "label": "Eat",
+    "text": "{G}: Exile target card from a graveyard. If it was a creature card, put a +1/+1 counter on this creature and you gain 1 life."
+   }
+  ],
+  "name": "Scavenging Ooze",
+  "notes": "The dummy's graveyard is empty: the card comes from yours.",
+  "source": "{G}: Exile target card from a graveyard. If it was a creature card, put a +1/+1 counter on this creature and you gain 1 life.",
+  "status": "hand"
+ },
+ "Scrapshooter": {
+  "name": "Scrapshooter",
+  "notes": "Gift only benefits / targets the opponent (they draw; destroy an artifact or enchantment an opponent controls) — the dummy has none. Silent on purpose.",
+  "source": "Gift a card (You may promise an opponent a gift as you cast this spell. If you do, when it enters, they draw a card.)\nReach\nWhen this creature enters, if the gift was promised, destroy target artifact or enchantment an opponent controls.",
+  "status": "hand"
+ },
+ "Shamanic Revelation": {
+  "name": "Shamanic Revelation",
+  "source": "Draw a card for each creature you control.\nFerocious — You gain 4 life for each creature you control with power 4 or greater.",
+  "spell": [
+   {
+    "draw": "count:creatures-you-control"
+   },
+   {
+    "repeat": {
+     "do": [
+      {
+       "gainLife": 4
+      }
+     ],
+     "times": "count:creature,powerGe=4"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Sol Ring": {
+  "name": "Sol Ring",
+  "source": "{T}: Add {C}{C}.",
+  "status": "auto"
+ },
+ "Steel Leaf Champion": {
+  "name": "Steel Leaf Champion",
+  "notes": "Evasion only; the goldfish never blocks. Silent on purpose.",
+  "source": "This creature can't be blocked by creatures with power 2 or less.",
+  "status": "hand"
+ },
+ "Surrak and Goreclaw": {
+  "name": "Surrak and Goreclaw",
+  "source": "Trample\nOther creatures you control have trample.\nWhenever another nontoken creature you control enters, put a +1/+1 counter on it. It gains haste until end of turn.",
+  "statics": [
+   {
+    "kw": [
+     "Trample"
+    ],
+    "scope": "other-creatures-you-control",
+    "text": "Other creatures you control have trample."
+   }
+  ],
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": "triggering"
+      }
+     },
+     {
+      "grant": {
+       "kw": [
+        "Haste"
+       ],
+       "target": "triggering"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "nontoken": true,
+     "other": true
+    },
+    "on": "enters",
+    "text": "Whenever another nontoken creature you control enters, put a +1/+1 counter on it. It gains haste until end of turn."
+   }
+  ]
+ },
+ "Surrak, the Hunt Caller": {
+  "name": "Surrak, the Hunt Caller",
+  "source": "Formidable — At the beginning of combat on your turn, if creatures you control have total power 8 or greater, target creature you control gains haste until end of turn. (It can attack and {T} no matter when it came under your control.)",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "grant": {
+       "kw": [
+        "Haste"
+       ],
+       "target": "creature-you-control"
+      }
+     }
+    ],
+    "if": {
+     "totalPowerGe": 8
+    },
+    "on": "beginCombat",
+    "text": "Formidable — At the beginning of combat on your turn, if creatures you control have total power 8 or greater, target creature you control gains haste until end of turn."
+   }
+  ]
+ },
+ "Swiftfoot Boots": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}"
+    },
+    "do": [
+     {
+      "attach": {}
+     }
+    ],
+    "label": "Equip",
+    "limit": "sorcery-speed",
+    "text": "Equip {1}"
+   }
+  ],
+  "name": "Swiftfoot Boots",
+  "notes": "Equip attaches it; the attached creature has hexproof and haste.",
+  "source": "Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T} no matter when it came under your control.)\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+  "statics": [
+   {
+    "kw": [
+     "Hexproof",
+     "Haste"
+    ],
+    "scope": "attached",
+    "text": "Equipped creature has hexproof and haste."
+   }
+  ],
+  "status": "hand"
+ },
+ "Tamiyo's Safekeeping": {
+  "name": "Tamiyo's Safekeeping",
+  "source": "Target permanent you control gains hexproof and indestructible until end of turn. You gain 2 life. (A permanent with hexproof and indestructible can't be the target of spells or abilities your opponents control. Damage and effects that say \"destroy\" don't destroy it.)",
+  "spell": [
+   {
+    "grant": {
+     "kw": [
+      "Hexproof",
+      "Indestructible"
+     ],
+     "target": "any-you-control"
+    }
+   },
+   {
+    "gainLife": 2
+   }
+  ],
+  "status": "hand"
+ },
+ "Tangleweave Armor": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{4}"
+    },
+    "do": [
+     {
+      "attach": {}
+     }
+    ],
+    "label": "Equip",
+    "limit": "sorcery-speed",
+    "text": "Equip {4}"
+   }
+  ],
+  "name": "Tangleweave Armor",
+  "notes": "X is hard-wired to 12: the only deck running it is Tramplesaurus Rex, whose commander is Ghalta, Primal Hunger (MV 12).",
+  "source": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this to it.)\nEquipped creature gets +X/+X, where X is the greatest mana value among your commanders.\nEquip {4}",
+  "statics": [
+   {
+    "p": 12,
+    "scope": "attached",
+    "t": 12,
+    "text": "Equipped creature gets +X/+X, where X is the greatest mana value among your commanders."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Phyrexian Germ",
+       "power": 0,
+       "toughness": 0,
+       "types": [
+        "Creature",
+        "Phyrexian",
+        "Germ"
+       ]
+      }
+     },
+     {
+      "attach": {
+       "target": {
+        "pick": {
+         "creature": true,
+         "subtype": "Germ",
+         "token": true
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this to it.)"
+   }
+  ]
+ },
+ "Terrian, World Tyrant": {
+  "name": "Terrian, World Tyrant",
+  "notes": "no oracle text in deck data",
+  "source": "",
+  "status": "auto"
+ },
+ "Thickest in the Thicket": {
+  "name": "Thickest in the Thicket",
+  "notes": "The dummy has no creatures, so you always control the greatest-power creature when you control any.",
+  "source": "When this enchantment enters, put X +1/+1 counters on target creature, where X is that creature's power.\nAt the beginning of your end step, draw two cards if you control the creature with the greatest power or tied for the greatest power.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": {
+        "of": "target",
+        "stat": "power"
+       },
+       "target": "creature-you-control"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this enchantment enters, put X +1/+1 counters on target creature, where X is that creature's power."
+   },
+   {
+    "do": [
+     {
+      "draw": 2
+     }
+    ],
+    "if": {
+     "youControl": {
+      "creature": true
+     }
+    },
+    "on": "endStep",
+    "text": "At the beginning of your end step, draw two cards if you control the creature with the greatest power or tied for the greatest power."
+   }
+  ]
+ },
+ "Thrashing Brontodon": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}",
+     "sacSelf": true
+    },
+    "do": [
+     {
+      "destroy": {
+       "target": {
+        "optional": true,
+        "pick": {
+         "type": [
+          "Artifact",
+          "Enchantment"
+         ]
+        }
+       }
+      }
+     }
+    ],
+    "label": "Sac: destroy",
+    "text": "{1}, Sacrifice this creature: Destroy target artifact or enchantment."
+   }
+  ],
+  "name": "Thrashing Brontodon",
+  "notes": "The dummy controls none: the pick offers your own (pick none to skip).",
+  "source": "{1}, Sacrifice this creature: Destroy target artifact or enchantment.",
+  "status": "hand"
+ },
+ "Tranquil Thicket": {
+  "name": "Tranquil Thicket",
+  "source": "This land enters tapped.\n{T}: Add {G}.\nCycling {G} ({G}, Discard this card: Draw a card.)",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "Unnatural Growth": {
+  "name": "Unnatural Growth",
+  "notes": "Doubling = +X/+X where X is each creature's current power/toughness. Only your combats exist in goldfish.",
+  "source": "At the beginning of each combat, double the power and toughness of each creature you control until end of turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "pump": {
+       "p": {
+        "of": "target",
+        "stat": "power"
+       },
+       "t": {
+        "of": "target",
+        "stat": "toughness"
+       },
+       "target": "each-creature-you-control"
+      }
+     }
+    ],
+    "on": "beginCombat",
+    "text": "At the beginning of each combat, double the power and toughness of each creature you control until end of turn."
+   }
+  ]
+ },
+ "Verdant Sun's Avatar": {
+  "name": "Verdant Sun's Avatar",
+  "source": "Whenever this creature or another creature you control enters, you gain life equal to that creature's toughness.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "gainLife": {
+       "of": "triggering",
+       "stat": "toughness"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true
+    },
+    "on": "enters",
+    "text": "Whenever this creature or another creature you control enters, you gain life equal to that creature's toughness."
+   }
+  ]
+ },
+ "War Room": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{3}",
+     "tap": true
+    },
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "loseLife": 1
+          },
+          {
+           "draw": 1
+          }
+         ],
+         "label": "1 colour (e.g. Ghalta, Giada): pay 1 life"
+        },
+        {
+         "do": [
+          {
+           "loseLife": 2
+          },
+          {
+           "draw": 1
+          }
+         ],
+         "label": "2 colours (e.g. Killian): pay 2 life"
+        },
+        {
+         "do": [
+          {
+           "loseLife": 3
+          },
+          {
+           "draw": 1
+          }
+         ],
+         "label": "3 colours: pay 3 life"
+        }
+       ],
+       "text": "Pay life equal to the number of colors in your commanders' color identity:"
+      }
+     }
+    ],
+    "label": "Draw",
+    "text": "{3}, {T}, Pay life equal to the number of colors in your commanders' color identity: Draw a card."
+   }
+  ],
+  "name": "War Room",
+  "notes": "The life payment depends on the deck's commander (War Room is shared by mono- and two-colour decks), so the colour count is picked on activation.",
+  "source": "{T}: Add {C}.\n{3}, {T}, Pay life equal to the number of colors in your commanders' color identity: Draw a card.",
+  "status": "hand"
+ },
+ "Whiptongue Hydra": {
+  "name": "Whiptongue Hydra",
+  "source": "Reach\nWhen this creature enters, destroy all creatures with flying. Put a +1/+1 counter on this creature for each creature destroyed this way.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "destroy": {
+       "target": {
+        "each": {
+         "creature": true,
+         "keyword": "Flying",
+         "withoutKw": "Indestructible"
+        }
+       }
+      }
+     },
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": {
+        "of": "lastCount"
+       },
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, destroy all creatures with flying. Put a +1/+1 counter on this creature for each creature destroyed this way."
+   }
+  ]
+ },
+ "Whisperer of the Wilds": {
+  "name": "Whisperer of the Wilds",
+  "source": "{T}: Add {G}.\nFerocious — {T}: Add {G}{G}. Activate only if you control a creature with power 4 or greater.",
+  "status": "auto"
+ },
+ "Witch's Clinic": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}",
+     "tap": true
+    },
+    "do": [
+     {
+      "grant": {
+       "kw": [
+        "Lifelink"
+       ],
+       "target": "commander"
+      }
+     }
+    ],
+    "label": "Lifelink",
+    "text": "{2}, {T}: Target commander gains lifelink until end of turn."
+   }
+  ],
+  "name": "Witch's Clinic",
+  "source": "{T}: Add {C}.\n{2}, {T}: Target commander gains lifelink until end of turn.",
+  "status": "hand"
+ },
+ "Yeva, Nature's Herald": {
+  "name": "Yeva, Nature's Herald",
+  "source": "Flash (You may cast this spell any time you could cast an instant.)\nYou may cast green creature spells as though they had flash.",
+  "statics": [
+   {
+    "flash": {
+     "filter": {
+      "colors": [
+       "G"
+      ],
+      "creature": true
+     }
+    },
+    "text": "You may cast green creature spells as though they had flash."
+   }
+  ],
+  "status": "hand"
+ }
+}

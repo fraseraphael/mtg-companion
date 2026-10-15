@@ -1,0 +1,2716 @@
+{
+ "slug": "avatar-aang",
+ "name": "Avatar Aang",
+ "commander": "Avatar Aang // Aang, Master of Elements",
+ "colors": "Four-Color",
+ "arch": "Master All Four Bends",
+ "accent": "#d9b45c",
+ "pips": [
+  "W",
+  "U",
+  "R",
+  "G"
+ ],
+ "bracket": "3",
+ "art": "",
+ "list": [
+  {
+   "section": "Commander",
+   "n": 1,
+   "name": "Avatar Aang // Aang, Master of Elements"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Great Divide Guide"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Hermitic Herbalist"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Zuko, Firebending Master"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Katara, Bending Prodigy"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Katara, the Fearless"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Earth King's Lieutenant"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Wartime Protestors"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Katara, Water Tribe's Hope"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Suki, Kyoshi Warrior"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Sun Warriors"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Toph, the First Metalbender"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Captain Sisay"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Monk Gyatso"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Aang, Swift Savior // Aang and La, Ocean's Fury"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Appa, Loyal Sky Bison"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Appa, Steadfast Guardian"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Aang and Katara"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Appa, the Vigilant"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Toph, Earthbending Master"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Iroh, Grand Lotus"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Zuko, Exiled Prince"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Hakoda, Selfless Commander"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Haru, Hidden Talent"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Wan Shi Tong, Librarian"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Gran-Gran"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Sokka, Lateral Strategist"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Earth Kingdom Jailer"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "North Pole Patrol"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "White Lotus Reinforcements"
+  },
+  {
+   "section": "Creatures",
+   "n": 1,
+   "name": "Suki, Courageous Rescuer"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Airbending Lesson"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Airbender's Reversal"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Firebending Lesson"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Sandbenders' Storm"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Origin of Metalbending"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Teferi's Protection"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Fierce Guardianship"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Force of Negation"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Heroic Intervention"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Deflecting Swat"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Flawless Maneuver"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Eladamri's Call"
+  },
+  {
+   "section": "Instants",
+   "n": 1,
+   "name": "Return of the Wildspeaker"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Gather the White Lotus"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Waterbending Lesson"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Earthbending Lesson"
+  },
+  {
+   "section": "Sorceries",
+   "n": 1,
+   "name": "Avatar's Wrath"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "The Legend of Yangchen // Avatar Yangchen"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "The Legend of Kyoshi // Avatar Kyoshi"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "The Legend of Roku // Avatar Roku"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Waterbender Ascension"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Earthbender Ascension"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Airbender Ascension"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Bitter Work"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Elemental Bond"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Mystic Remora"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "The Spirit Oasis"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Kyoshi Island Plaza"
+  },
+  {
+   "section": "Enchantments",
+   "n": 1,
+   "name": "Southern Air Temple"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Bender's Waterskin"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Sol Ring"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Arcane Signet"
+  },
+  {
+   "section": "Artifacts",
+   "n": 1,
+   "name": "Swiftfoot Boots"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Fabled Passage"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Tarnished Citadel"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Sunbaked Canyon"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Jasmine Dragon Tea Shop"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Rumble Arena"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "White Lotus Hideout"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Airship Engine Room"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Kyoshi Village"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Meditation Pools"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "North Pole Gates"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Omashu City"
+  },
+  {
+   "section": "Lands",
+   "n": 1,
+   "name": "Sun-Blessed Peak"
+  },
+  {
+   "section": "Lands",
+   "n": 7,
+   "name": "Forest"
+  },
+  {
+   "section": "Lands",
+   "n": 8,
+   "name": "Plains"
+  },
+  {
+   "section": "Lands",
+   "n": 5,
+   "name": "Island"
+  },
+  {
+   "section": "Lands",
+   "n": 4,
+   "name": "Mountain"
+  }
+ ],
+ "cards": {
+  "Aang and Katara": {
+   "name": "Aang and Katara",
+   "id": "f333ea01-124f-4125-87ab-609be40e774c",
+   "set": "tle",
+   "cn": "69",
+   "mana_cost": "{3}{G}{W}{U}",
+   "cmc": 6.0,
+   "type_line": "Legendary Creature — Human Avatar Ally",
+   "oracle_text": "Whenever Aang and Katara enter or attack, create X 1/1 white Ally creature tokens, where X is the number of tapped artifacts and/or creatures you control.",
+   "colors": [
+    "G",
+    "U",
+    "W"
+   ],
+   "color_identity": [
+    "G",
+    "U",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/3/f333ea01-124f-4125-87ab-609be40e774c.jpg?1783904838",
+    "normal": "https://cards.scryfall.io/normal/front/f/3/f333ea01-124f-4125-87ab-609be40e774c.jpg?1783904838",
+    "art": "https://cards.scryfall.io/art_crop/front/f/3/f333ea01-124f-4125-87ab-609be40e774c.jpg?1783904838"
+   },
+   "power": "5",
+   "toughness": "5"
+  },
+  "Airbender Ascension": {
+   "name": "Airbender Ascension",
+   "id": "99a90d13-891c-45cc-b1d5-6080ebae5862",
+   "set": "tla",
+   "cn": "6",
+   "mana_cost": "{1}{W}",
+   "cmc": 2.0,
+   "type_line": "Enchantment",
+   "oracle_text": "When this enchantment enters, airbend up to one target creature.\nWhenever a creature you control enters, put a quest counter on this enchantment.\nAt the beginning of your end step, if this enchantment has four or more quest counters on it, exile up to one target creature you control, then return it to the battlefield under its owner's control.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Airbend"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/9/99a90d13-891c-45cc-b1d5-6080ebae5862.jpg?1783905006",
+    "normal": "https://cards.scryfall.io/normal/front/9/9/99a90d13-891c-45cc-b1d5-6080ebae5862.jpg?1783905006",
+    "art": "https://cards.scryfall.io/art_crop/front/9/9/99a90d13-891c-45cc-b1d5-6080ebae5862.jpg?1783905006"
+   },
+   "printing": "tla/6"
+  },
+  "Airbender's Reversal": {
+   "name": "Airbender's Reversal",
+   "id": "6b7078e4-2892-4b5f-83ab-90369e0d6dba",
+   "set": "tla",
+   "cn": "7",
+   "mana_cost": "{1}{W}",
+   "cmc": 2.0,
+   "type_line": "Instant — Lesson",
+   "oracle_text": "Choose one —\n• Destroy target attacking creature.\n• Airbend target creature you control. (Exile it. While it's exiled, its owner may cast it for {2} rather than its mana cost.)",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Airbend"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/b/6b7078e4-2892-4b5f-83ab-90369e0d6dba.jpg?1783905006",
+    "normal": "https://cards.scryfall.io/normal/front/6/b/6b7078e4-2892-4b5f-83ab-90369e0d6dba.jpg?1783905006",
+    "art": "https://cards.scryfall.io/art_crop/front/6/b/6b7078e4-2892-4b5f-83ab-90369e0d6dba.jpg?1783905006"
+   },
+   "printing": "tla/7"
+  },
+  "Airbending Lesson": {
+   "name": "Airbending Lesson",
+   "id": "e2bcd0a6-e94d-4a21-a334-a57459c1b8cc",
+   "set": "tla",
+   "cn": "8",
+   "mana_cost": "{2}{W}",
+   "cmc": 3.0,
+   "type_line": "Instant — Lesson",
+   "oracle_text": "Airbend target nonland permanent. (Exile it. While it's exiled, its owner may cast it for {2} rather than its mana cost.)\nDraw a card.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Airbend"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/2/e2bcd0a6-e94d-4a21-a334-a57459c1b8cc.jpg?1783905007",
+    "normal": "https://cards.scryfall.io/normal/front/e/2/e2bcd0a6-e94d-4a21-a334-a57459c1b8cc.jpg?1783905007",
+    "art": "https://cards.scryfall.io/art_crop/front/e/2/e2bcd0a6-e94d-4a21-a334-a57459c1b8cc.jpg?1783905007"
+   },
+   "printing": "tla/8"
+  },
+  "Airship Engine Room": {
+   "name": "Airship Engine Room",
+   "id": "0b98ba34-f251-4bd0-9d75-1d4445be5cfd",
+   "set": "tla",
+   "cn": "265",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped.\n{T}: Add {U} or {R}.\n{4}, {T}, Sacrifice this land: Draw a card.",
+   "colors": [],
+   "color_identity": [
+    "R",
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "R",
+    "U"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/0/b/0b98ba34-f251-4bd0-9d75-1d4445be5cfd.jpg?1783904913",
+    "normal": "https://cards.scryfall.io/normal/front/0/b/0b98ba34-f251-4bd0-9d75-1d4445be5cfd.jpg?1783904913",
+    "art": "https://cards.scryfall.io/art_crop/front/0/b/0b98ba34-f251-4bd0-9d75-1d4445be5cfd.jpg?1783904913"
+   },
+   "printing": "tla/265"
+  },
+  "Appa, Loyal Sky Bison": {
+   "name": "Appa, Loyal Sky Bison",
+   "id": "a9b2a843-c6fe-4d19-801e-1538e4381ab0",
+   "set": "tla",
+   "cn": "9",
+   "mana_cost": "{4}{W}{W}",
+   "cmc": 6.0,
+   "type_line": "Legendary Creature — Bison Ally",
+   "oracle_text": "Flying\nWhenever Appa enters or attacks, choose one —\n• Target creature you control gains flying until end of turn.\n• Airbend another target nonland permanent you control. (Exile it. While it's exiled, its owner may cast it for {2} rather than its mana cost.)",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Flying",
+    "Airbend"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/9/a9b2a843-c6fe-4d19-801e-1538e4381ab0.jpg?1783905006",
+    "normal": "https://cards.scryfall.io/normal/front/a/9/a9b2a843-c6fe-4d19-801e-1538e4381ab0.jpg?1783905006",
+    "art": "https://cards.scryfall.io/art_crop/front/a/9/a9b2a843-c6fe-4d19-801e-1538e4381ab0.jpg?1783905006"
+   },
+   "power": "4",
+   "toughness": "4",
+   "printing": "tla/9"
+  },
+  "Appa, Steadfast Guardian": {
+   "name": "Appa, Steadfast Guardian",
+   "id": "829d91e9-4878-4e55-a262-ac0d55b65d4e",
+   "set": "tla",
+   "cn": "10",
+   "mana_cost": "{2}{W}{W}",
+   "cmc": 4.0,
+   "type_line": "Legendary Creature — Bison Ally",
+   "oracle_text": "Flash\nFlying\nWhen Appa enters, airbend any number of other target nonland permanents you control. (Exile them. While each one is exiled, its owner may cast it for {2} rather than its mana cost.)\nWhenever you cast a spell from exile, create a 1/1 white Ally creature token.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Flying",
+    "Airbend",
+    "Flash"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/2/829d91e9-4878-4e55-a262-ac0d55b65d4e.jpg?1783905005",
+    "normal": "https://cards.scryfall.io/normal/front/8/2/829d91e9-4878-4e55-a262-ac0d55b65d4e.jpg?1783905005",
+    "art": "https://cards.scryfall.io/art_crop/front/8/2/829d91e9-4878-4e55-a262-ac0d55b65d4e.jpg?1783905005"
+   },
+   "power": "3",
+   "toughness": "4"
+  },
+  "Appa, the Vigilant": {
+   "name": "Appa, the Vigilant",
+   "id": "e5ead59f-4c09-4b56-913e-4ff5d6d48ac2",
+   "set": "tle",
+   "cn": "62",
+   "mana_cost": "{5}{W}{W}",
+   "cmc": 7.0,
+   "type_line": "Legendary Creature — Bison Ally",
+   "oracle_text": "Flying, vigilance\nWhenever Appa or another Ally you control enters, creatures you control get +1/+1 and gain flying and vigilance until end of turn.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Flying",
+    "Vigilance"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/5/e5ead59f-4c09-4b56-913e-4ff5d6d48ac2.jpg?1783904840",
+    "normal": "https://cards.scryfall.io/normal/front/e/5/e5ead59f-4c09-4b56-913e-4ff5d6d48ac2.jpg?1783904840",
+    "art": "https://cards.scryfall.io/art_crop/front/e/5/e5ead59f-4c09-4b56-913e-4ff5d6d48ac2.jpg?1783904840"
+   },
+   "power": "6",
+   "toughness": "6"
+  },
+  "Arcane Signet": {
+   "name": "Arcane Signet",
+   "id": "c6b6117c-faab-4bbb-b851-07bd8061ef03",
+   "set": "frc",
+   "cn": "20",
+   "mana_cost": "{2}",
+   "cmc": 2.0,
+   "type_line": "Artifact",
+   "oracle_text": "{T}: Add one mana of any color in your commander's color identity.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.jpg?1789644435",
+    "normal": "https://cards.scryfall.io/normal/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.jpg?1789644435",
+    "art": "https://cards.scryfall.io/art_crop/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.jpg?1789644435"
+   }
+  },
+  "Avatar's Wrath": {
+   "name": "Avatar's Wrath",
+   "id": "4811072d-fac0-40dd-a5cf-9694d51b12cf",
+   "set": "tla",
+   "cn": "12",
+   "mana_cost": "{2}{W}{W}",
+   "cmc": 4.0,
+   "type_line": "Sorcery",
+   "oracle_text": "Choose up to one target creature, then airbend all other creatures. (Exile them. While each one is exiled, its owner may cast it for {2} rather than its mana cost.)\nUntil your next turn, your opponents can't cast spells from anywhere other than their hands.\nExile Avatar's Wrath.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Airbend"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/2/a24b3b8a-7742-4aa1-8da9-162dd1d49441.jpg?1783904873",
+    "normal": "https://cards.scryfall.io/normal/front/a/2/a24b3b8a-7742-4aa1-8da9-162dd1d49441.jpg?1783904873",
+    "art": "https://cards.scryfall.io/art_crop/front/a/2/a24b3b8a-7742-4aa1-8da9-162dd1d49441.jpg?1783904873"
+   },
+   "printing": "tla/365"
+  },
+  "Bender's Waterskin": {
+   "name": "Bender's Waterskin",
+   "id": "6d4a1712-d19e-4475-9614-a0b1af4da610",
+   "set": "tla",
+   "cn": "255",
+   "mana_cost": "{3}",
+   "cmc": 3.0,
+   "type_line": "Artifact",
+   "oracle_text": "Untap this artifact during each other player's untap step.\n{T}: Add one mana of any color.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/d/6d4a1712-d19e-4475-9614-a0b1af4da610.jpg?1783904915",
+    "normal": "https://cards.scryfall.io/normal/front/6/d/6d4a1712-d19e-4475-9614-a0b1af4da610.jpg?1783904915",
+    "art": "https://cards.scryfall.io/art_crop/front/6/d/6d4a1712-d19e-4475-9614-a0b1af4da610.jpg?1783904915"
+   },
+   "printing": "tla/255"
+  },
+  "Bitter Work": {
+   "name": "Bitter Work",
+   "id": "3e8de6a9-9859-4ed2-8ece-ef80a7209be9",
+   "set": "tla",
+   "cn": "210",
+   "mana_cost": "{1}{R}{G}",
+   "cmc": 3.0,
+   "type_line": "Enchantment",
+   "oracle_text": "Whenever you attack a player with one or more creatures with power 4 or greater, draw a card.\nExhaust — {4}: Earthbend 4. Activate only during your turn. (Target land you control becomes a 0/0 creature with haste that's still a land. Put four +1/+1 counters on it. When it dies or is exiled, return it to the battlefield tapped. Activate each exhaust ability only once.)",
+   "colors": [
+    "G",
+    "R"
+   ],
+   "color_identity": [
+    "G",
+    "R"
+   ],
+   "keywords": [
+    "Exhaust",
+    "Earthbend"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/e/3e8de6a9-9859-4ed2-8ece-ef80a7209be9.jpg?1783904931",
+    "normal": "https://cards.scryfall.io/normal/front/3/e/3e8de6a9-9859-4ed2-8ece-ef80a7209be9.jpg?1783904931",
+    "art": "https://cards.scryfall.io/art_crop/front/3/e/3e8de6a9-9859-4ed2-8ece-ef80a7209be9.jpg?1783904931"
+   },
+   "printing": "tla/210"
+  },
+  "Captain Sisay": {
+   "name": "Captain Sisay",
+   "id": "d24d441c-f37f-44fe-8a93-f5c89df807e4",
+   "set": "inv",
+   "cn": "237",
+   "mana_cost": "{2}{G}{W}",
+   "cmc": 4.0,
+   "type_line": "Legendary Creature — Human Soldier",
+   "oracle_text": "{T}: Search your library for a legendary card, reveal that card, put it into your hand, then shuffle.",
+   "colors": [
+    "G",
+    "W"
+   ],
+   "color_identity": [
+    "G",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/d/2/d24d441c-f37f-44fe-8a93-f5c89df807e4.jpg?1783945664",
+    "normal": "https://cards.scryfall.io/normal/front/d/2/d24d441c-f37f-44fe-8a93-f5c89df807e4.jpg?1783945664",
+    "art": "https://cards.scryfall.io/art_crop/front/d/2/d24d441c-f37f-44fe-8a93-f5c89df807e4.jpg?1783945664"
+   },
+   "power": "2",
+   "toughness": "2"
+  },
+  "Deflecting Swat": {
+   "name": "Deflecting Swat",
+   "id": "b4b36435-55b3-4615-8812-af41d4fc64d9",
+   "set": "cmm",
+   "cn": "214",
+   "mana_cost": "{2}{R}",
+   "cmc": 3.0,
+   "type_line": "Instant",
+   "oracle_text": "If you control a commander, you may cast this spell without paying its mana cost.\nYou may choose new targets for target spell or ability.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/b/4/b4b36435-55b3-4615-8812-af41d4fc64d9.jpg?1783915656",
+    "normal": "https://cards.scryfall.io/normal/front/b/4/b4b36435-55b3-4615-8812-af41d4fc64d9.jpg?1783915656",
+    "art": "https://cards.scryfall.io/art_crop/front/b/4/b4b36435-55b3-4615-8812-af41d4fc64d9.jpg?1783915656"
+   }
+  },
+  "Earth King's Lieutenant": {
+   "name": "Earth King's Lieutenant",
+   "id": "4533d155-5c56-41a5-9d76-2d1414ac47c9",
+   "set": "tla",
+   "cn": "217",
+   "mana_cost": "{G}{W}",
+   "cmc": 2.0,
+   "type_line": "Creature — Human Soldier Ally",
+   "oracle_text": "Trample\nWhen this creature enters, put a +1/+1 counter on each other Ally creature you control.\nWhenever another Ally you control enters, put a +1/+1 counter on this creature.",
+   "colors": [
+    "G",
+    "W"
+   ],
+   "color_identity": [
+    "G",
+    "W"
+   ],
+   "keywords": [
+    "Trample"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/4/5/4533d155-5c56-41a5-9d76-2d1414ac47c9.jpg?1783904929",
+    "normal": "https://cards.scryfall.io/normal/front/4/5/4533d155-5c56-41a5-9d76-2d1414ac47c9.jpg?1783904929",
+    "art": "https://cards.scryfall.io/art_crop/front/4/5/4533d155-5c56-41a5-9d76-2d1414ac47c9.jpg?1783904929"
+   },
+   "power": "1",
+   "toughness": "1",
+   "printing": "tla/217"
+  },
+  "Earth Kingdom Jailer": {
+   "name": "Earth Kingdom Jailer",
+   "id": "9207362c-3605-4794-803f-ad1d0175fcca",
+   "set": "tla",
+   "cn": "16",
+   "mana_cost": "{2}{W}",
+   "cmc": 3.0,
+   "type_line": "Creature — Human Soldier Ally",
+   "oracle_text": "When this creature enters, exile up to one target artifact, creature, or enchantment an opponent controls with mana value 3 or greater until this creature leaves the battlefield.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/2/9207362c-3605-4794-803f-ad1d0175fcca.jpg?1783905001",
+    "normal": "https://cards.scryfall.io/normal/front/9/2/9207362c-3605-4794-803f-ad1d0175fcca.jpg?1783905001",
+    "art": "https://cards.scryfall.io/art_crop/front/9/2/9207362c-3605-4794-803f-ad1d0175fcca.jpg?1783905001"
+   },
+   "power": "3",
+   "toughness": "3",
+   "printing": "tla/16"
+  },
+  "Earthbender Ascension": {
+   "name": "Earthbender Ascension",
+   "id": "590a58ab-5e98-4031-8aa6-ce396dc1429f",
+   "set": "tla",
+   "cn": "175",
+   "mana_cost": "{2}{G}",
+   "cmc": 3.0,
+   "type_line": "Enchantment",
+   "oracle_text": "When this enchantment enters, earthbend 2. Then search your library for a basic land card, put it onto the battlefield tapped, then shuffle.\nLandfall — Whenever a land you control enters, put a quest counter on this enchantment. When you do, if it has four or more quest counters on it, put a +1/+1 counter on target creature you control. It gains trample until end of turn.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [
+    "Earthbend",
+    "Landfall"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/2/826b4f26-419a-4d74-8c70-275555092095.jpg?1783904897",
+    "normal": "https://cards.scryfall.io/normal/front/8/2/826b4f26-419a-4d74-8c70-275555092095.jpg?1783904897",
+    "art": "https://cards.scryfall.io/art_crop/front/8/2/826b4f26-419a-4d74-8c70-275555092095.jpg?1783904897"
+   },
+   "printing": "tla/307"
+  },
+  "Earthbending Lesson": {
+   "name": "Earthbending Lesson",
+   "id": "eccd63b3-3a3a-4661-9d6e-fb8152429bdb",
+   "set": "tla",
+   "cn": "176",
+   "mana_cost": "{3}{G}",
+   "cmc": 4.0,
+   "type_line": "Sorcery — Lesson",
+   "oracle_text": "Earthbend 4. (Target land you control becomes a 0/0 creature with haste that's still a land. Put four +1/+1 counters on it. When it dies or is exiled, return it to the battlefield tapped.)",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [
+    "Earthbend"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/c/eccd63b3-3a3a-4661-9d6e-fb8152429bdb.jpg?1783904944",
+    "normal": "https://cards.scryfall.io/normal/front/e/c/eccd63b3-3a3a-4661-9d6e-fb8152429bdb.jpg?1783904944",
+    "art": "https://cards.scryfall.io/art_crop/front/e/c/eccd63b3-3a3a-4661-9d6e-fb8152429bdb.jpg?1783904944"
+   },
+   "printing": "tla/176"
+  },
+  "Eladamri's Call": {
+   "name": "Eladamri's Call",
+   "id": "ea751fe2-b64a-4265-8885-a9016b29b5b3",
+   "set": "mh1",
+   "cn": "197",
+   "mana_cost": "{G}{W}",
+   "cmc": 2.0,
+   "type_line": "Instant",
+   "oracle_text": "Search your library for a creature card, reveal that card, put it into your hand, then shuffle.",
+   "colors": [
+    "G",
+    "W"
+   ],
+   "color_identity": [
+    "G",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/a/ea751fe2-b64a-4265-8885-a9016b29b5b3.jpg?1783933086",
+    "normal": "https://cards.scryfall.io/normal/front/e/a/ea751fe2-b64a-4265-8885-a9016b29b5b3.jpg?1783933086",
+    "art": "https://cards.scryfall.io/art_crop/front/e/a/ea751fe2-b64a-4265-8885-a9016b29b5b3.jpg?1783933086"
+   }
+  },
+  "Elemental Bond": {
+   "name": "Elemental Bond",
+   "id": "8efbc925-54ac-4dda-82af-9091b1cf2fda",
+   "set": "tdc",
+   "cn": "254",
+   "mana_cost": "{2}{G}",
+   "cmc": 3.0,
+   "type_line": "Enchantment",
+   "oracle_text": "Whenever a creature you control with power 3 or greater enters, draw a card.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/e/8efbc925-54ac-4dda-82af-9091b1cf2fda.jpg?1783907049",
+    "normal": "https://cards.scryfall.io/normal/front/8/e/8efbc925-54ac-4dda-82af-9091b1cf2fda.jpg?1783907049",
+    "art": "https://cards.scryfall.io/art_crop/front/8/e/8efbc925-54ac-4dda-82af-9091b1cf2fda.jpg?1783907049"
+   }
+  },
+  "Fabled Passage": {
+   "name": "Fabled Passage",
+   "id": "76edd22f-808e-4a7c-b941-13c0f5e30418",
+   "set": "frc",
+   "cn": "71",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle. Then if you control four or more lands, untap that land.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.jpg?1789599905",
+    "normal": "https://cards.scryfall.io/normal/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.jpg?1789599905",
+    "art": "https://cards.scryfall.io/art_crop/front/7/6/76edd22f-808e-4a7c-b941-13c0f5e30418.jpg?1789599905"
+   }
+  },
+  "Fierce Guardianship": {
+   "name": "Fierce Guardianship",
+   "id": "f7f3dd95-bd14-4e0f-a388-444f9cf1b0dc",
+   "set": "cmm",
+   "cn": "94",
+   "mana_cost": "{2}{U}",
+   "cmc": 3.0,
+   "type_line": "Instant",
+   "oracle_text": "If you control a commander, you may cast this spell without paying its mana cost.\nCounter target noncreature spell.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/7/f7f3dd95-bd14-4e0f-a388-444f9cf1b0dc.jpg?1783915698",
+    "normal": "https://cards.scryfall.io/normal/front/f/7/f7f3dd95-bd14-4e0f-a388-444f9cf1b0dc.jpg?1783915698",
+    "art": "https://cards.scryfall.io/art_crop/front/f/7/f7f3dd95-bd14-4e0f-a388-444f9cf1b0dc.jpg?1783915698"
+   }
+  },
+  "Firebending Lesson": {
+   "name": "Firebending Lesson",
+   "id": "fa940e68-010e-4b68-be8a-555d7068f7b4",
+   "set": "tla",
+   "cn": "138",
+   "mana_cost": "{R}",
+   "cmc": 1.0,
+   "type_line": "Instant — Lesson",
+   "oracle_text": "Kicker {4} (You may pay an additional {4} as you cast this spell.)\nFirebending Lesson deals 2 damage to target creature. If this spell was kicked, it deals 5 damage to that creature instead.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [
+    "Kicker"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/a/fa940e68-010e-4b68-be8a-555d7068f7b4.jpg?1783904958",
+    "normal": "https://cards.scryfall.io/normal/front/f/a/fa940e68-010e-4b68-be8a-555d7068f7b4.jpg?1783904958",
+    "art": "https://cards.scryfall.io/art_crop/front/f/a/fa940e68-010e-4b68-be8a-555d7068f7b4.jpg?1783904958"
+   },
+   "printing": "tla/138"
+  },
+  "Flawless Maneuver": {
+   "name": "Flawless Maneuver",
+   "id": "3ffe82a4-584e-4ebd-9551-a745bed01e26",
+   "set": "frc",
+   "cn": "25",
+   "mana_cost": "{2}{W}",
+   "cmc": 3.0,
+   "type_line": "Instant",
+   "oracle_text": "If you control a commander, you may cast this spell without paying its mana cost.\nCreatures you control gain indestructible until end of turn.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/f/3ffe82a4-584e-4ebd-9551-a745bed01e26.jpg?1789599786",
+    "normal": "https://cards.scryfall.io/normal/front/3/f/3ffe82a4-584e-4ebd-9551-a745bed01e26.jpg?1789599786",
+    "art": "https://cards.scryfall.io/art_crop/front/3/f/3ffe82a4-584e-4ebd-9551-a745bed01e26.jpg?1789599786"
+   }
+  },
+  "Force of Negation": {
+   "name": "Force of Negation",
+   "id": "1825a719-1b2a-4af9-9cd2-7cb497cd0317",
+   "set": "2x2",
+   "cn": "50",
+   "mana_cost": "{1}{U}{U}",
+   "cmc": 3.0,
+   "type_line": "Instant",
+   "oracle_text": "If it's not your turn, you may exile a blue card from your hand rather than pay this spell's mana cost.\nCounter target noncreature spell. If that spell is countered this way, exile it instead of putting it into its owner's graveyard.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/1/8/1825a719-1b2a-4af9-9cd2-7cb497cd0317.jpg?1783921916",
+    "normal": "https://cards.scryfall.io/normal/front/1/8/1825a719-1b2a-4af9-9cd2-7cb497cd0317.jpg?1783921916",
+    "art": "https://cards.scryfall.io/art_crop/front/1/8/1825a719-1b2a-4af9-9cd2-7cb497cd0317.jpg?1783921916"
+   }
+  },
+  "Forest": {
+   "name": "Forest",
+   "id": "2e781bfd-f8cb-4d20-b977-4359f3a21311",
+   "set": "mdd",
+   "cn": "301",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Basic Land — Forest",
+   "oracle_text": "({T}: Add {G}.)",
+   "colors": [],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "G"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/2/e/2e781bfd-f8cb-4d20-b977-4359f3a21311.jpg?1791578317",
+    "normal": "https://cards.scryfall.io/normal/front/2/e/2e781bfd-f8cb-4d20-b977-4359f3a21311.jpg?1791578317",
+    "art": "https://cards.scryfall.io/art_crop/front/2/e/2e781bfd-f8cb-4d20-b977-4359f3a21311.jpg?1791578317"
+   }
+  },
+  "Gather the White Lotus": {
+   "name": "Gather the White Lotus",
+   "id": "96e2b3d0-f060-4f3c-9d12-a0444b202008",
+   "set": "tla",
+   "cn": "20",
+   "mana_cost": "{4}{W}",
+   "cmc": 5.0,
+   "type_line": "Sorcery",
+   "oracle_text": "Create a 1/1 white Ally creature token for each Plains you control. Scry 2. (Look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Scry"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/6/96e2b3d0-f060-4f3c-9d12-a0444b202008.jpg?1783905000",
+    "normal": "https://cards.scryfall.io/normal/front/9/6/96e2b3d0-f060-4f3c-9d12-a0444b202008.jpg?1783905000",
+    "art": "https://cards.scryfall.io/art_crop/front/9/6/96e2b3d0-f060-4f3c-9d12-a0444b202008.jpg?1783905000"
+   },
+   "printing": "tla/20"
+  },
+  "Gran-Gran": {
+   "name": "Gran-Gran",
+   "id": "fa434b41-e5f7-4989-865a-95db67b05cb1",
+   "set": "tla",
+   "cn": "54",
+   "mana_cost": "{U}",
+   "cmc": 1.0,
+   "type_line": "Legendary Creature — Human Peasant Ally",
+   "oracle_text": "Whenever Gran-Gran becomes tapped, draw a card, then discard a card.\nNoncreature spells you cast cost {1} less to cast as long as there are three or more Lesson cards in your graveyard.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/f/a/fa434b41-e5f7-4989-865a-95db67b05cb1.jpg?1786399175",
+    "normal": "https://cards.scryfall.io/normal/front/f/a/fa434b41-e5f7-4989-865a-95db67b05cb1.jpg?1786399175",
+    "art": "https://cards.scryfall.io/art_crop/front/f/a/fa434b41-e5f7-4989-865a-95db67b05cb1.jpg?1786399175"
+   },
+   "power": "1",
+   "toughness": "2",
+   "printing": "tla/54"
+  },
+  "Great Divide Guide": {
+   "name": "Great Divide Guide",
+   "id": "cc3063ec-5ea6-46c1-8331-c740cbaf6c76",
+   "set": "tla",
+   "cn": "181",
+   "mana_cost": "{1}{G}",
+   "cmc": 2.0,
+   "type_line": "Creature — Human Scout Ally",
+   "oracle_text": "Each land and Ally you control has \"{T}: Add one mana of any color.\"",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/c/c/cc3063ec-5ea6-46c1-8331-c740cbaf6c76.jpg?1783904942",
+    "normal": "https://cards.scryfall.io/normal/front/c/c/cc3063ec-5ea6-46c1-8331-c740cbaf6c76.jpg?1783904942",
+    "art": "https://cards.scryfall.io/art_crop/front/c/c/cc3063ec-5ea6-46c1-8331-c740cbaf6c76.jpg?1783904942"
+   },
+   "power": "2",
+   "toughness": "3",
+   "printing": "tla/181"
+  },
+  "Hakoda, Selfless Commander": {
+   "name": "Hakoda, Selfless Commander",
+   "id": "9aef3ddb-9bb7-42c8-975b-b1917955a416",
+   "set": "tla",
+   "cn": "23",
+   "mana_cost": "{3}{W}",
+   "cmc": 4.0,
+   "type_line": "Legendary Creature — Human Warrior Ally",
+   "oracle_text": "Vigilance\nYou may look at the top card of your library any time.\nYou may cast Ally spells from the top of your library.\nSacrifice Hakoda: Creatures you control get +0/+5 and gain indestructible until end of turn.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Vigilance"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/a/9aef3ddb-9bb7-42c8-975b-b1917955a416.jpg?1783905000",
+    "normal": "https://cards.scryfall.io/normal/front/9/a/9aef3ddb-9bb7-42c8-975b-b1917955a416.jpg?1783905000",
+    "art": "https://cards.scryfall.io/art_crop/front/9/a/9aef3ddb-9bb7-42c8-975b-b1917955a416.jpg?1783905000"
+   },
+   "power": "3",
+   "toughness": "5",
+   "printing": "tla/23"
+  },
+  "Haru, Hidden Talent": {
+   "name": "Haru, Hidden Talent",
+   "id": "9657a0c0-2c26-4331-8e62-f032265a01af",
+   "set": "tla",
+   "cn": "182",
+   "mana_cost": "{1}{G}",
+   "cmc": 2.0,
+   "type_line": "Legendary Creature — Human Peasant Ally",
+   "oracle_text": "Whenever another Ally you control enters, earthbend 1. (Target land you control becomes a 0/0 creature with haste that's still a land. Put a +1/+1 counter on it. When it dies or is exiled, return it to the battlefield tapped.)",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [
+    "Earthbend"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/6/9657a0c0-2c26-4331-8e62-f032265a01af.jpg?1783904942",
+    "normal": "https://cards.scryfall.io/normal/front/9/6/9657a0c0-2c26-4331-8e62-f032265a01af.jpg?1783904942",
+    "art": "https://cards.scryfall.io/art_crop/front/9/6/9657a0c0-2c26-4331-8e62-f032265a01af.jpg?1783904942"
+   },
+   "power": "1",
+   "toughness": "1",
+   "printing": "tla/182"
+  },
+  "Hermitic Herbalist": {
+   "name": "Hermitic Herbalist",
+   "id": "5d0ee441-a057-41b5-abb8-dc86864ac248",
+   "set": "tla",
+   "cn": "226",
+   "mana_cost": "{G}{U}",
+   "cmc": 2.0,
+   "type_line": "Creature — Human Druid Ally",
+   "oracle_text": "{T}: Add one mana of any color.\n{T}: Add two mana in any combination of colors. Spend this mana only to cast Lesson spells.",
+   "colors": [
+    "G",
+    "U"
+   ],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/5/d/5d0ee441-a057-41b5-abb8-dc86864ac248.jpg?1783904925",
+    "normal": "https://cards.scryfall.io/normal/front/5/d/5d0ee441-a057-41b5-abb8-dc86864ac248.jpg?1783904925",
+    "art": "https://cards.scryfall.io/art_crop/front/5/d/5d0ee441-a057-41b5-abb8-dc86864ac248.jpg?1783904925"
+   },
+   "power": "2",
+   "toughness": "3",
+   "printing": "tla/226"
+  },
+  "Heroic Intervention": {
+   "name": "Heroic Intervention",
+   "id": "e32c67d1-187f-40df-b3b3-6036f5c92834",
+   "set": "cmm",
+   "cn": "295",
+   "mana_cost": "{1}{G}",
+   "cmc": 2.0,
+   "type_line": "Instant",
+   "oracle_text": "Permanents you control gain hexproof and indestructible until end of turn.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/3/e32c67d1-187f-40df-b3b3-6036f5c92834.jpg?1783915629",
+    "normal": "https://cards.scryfall.io/normal/front/e/3/e32c67d1-187f-40df-b3b3-6036f5c92834.jpg?1783915629",
+    "art": "https://cards.scryfall.io/art_crop/front/e/3/e32c67d1-187f-40df-b3b3-6036f5c92834.jpg?1783915629"
+   }
+  },
+  "Iroh, Grand Lotus": {
+   "name": "Iroh, Grand Lotus",
+   "id": "879b73d3-4552-4fdc-baee-c4d097ae9a4f",
+   "set": "tla",
+   "cn": "227",
+   "mana_cost": "{3}{G}{U}{R}",
+   "cmc": 6.0,
+   "type_line": "Legendary Creature — Human Noble Ally",
+   "oracle_text": "Firebending 2\nDuring your turn, each non-Lesson instant and sorcery card in your graveyard has flashback. The flashback cost is equal to that card's mana cost. (You may cast a card from your graveyard for its flashback cost. Then exile it.)\nDuring your turn, each Lesson card in your graveyard has flashback {1}.",
+   "colors": [
+    "G",
+    "R",
+    "U"
+   ],
+   "color_identity": [
+    "G",
+    "R",
+    "U"
+   ],
+   "keywords": [
+    "Firebending"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/7/879b73d3-4552-4fdc-baee-c4d097ae9a4f.jpg?1783904926",
+    "normal": "https://cards.scryfall.io/normal/front/8/7/879b73d3-4552-4fdc-baee-c4d097ae9a4f.jpg?1783904926",
+    "art": "https://cards.scryfall.io/art_crop/front/8/7/879b73d3-4552-4fdc-baee-c4d097ae9a4f.jpg?1783904926"
+   },
+   "power": "5",
+   "toughness": "5",
+   "printing": "tla/227"
+  },
+  "Island": {
+   "name": "Island",
+   "id": "1335d293-3dd2-4f13-bd2c-22181f4528ee",
+   "set": "mdd",
+   "cn": "294",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Basic Land — Island",
+   "oracle_text": "({T}: Add {U}.)",
+   "colors": [],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "U"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/1/3/1335d293-3dd2-4f13-bd2c-22181f4528ee.jpg?1791578424",
+    "normal": "https://cards.scryfall.io/normal/front/1/3/1335d293-3dd2-4f13-bd2c-22181f4528ee.jpg?1791578424",
+    "art": "https://cards.scryfall.io/art_crop/front/1/3/1335d293-3dd2-4f13-bd2c-22181f4528ee.jpg?1791578424"
+   }
+  },
+  "Jasmine Dragon Tea Shop": {
+   "name": "Jasmine Dragon Tea Shop",
+   "id": "da2c83d4-a95f-47ff-a08f-694eb78d6b9b",
+   "set": "tla",
+   "cn": "270",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast an Ally spell or activate an ability of an Ally source.\n{5}, {T}: Create a 1/1 white Ally creature token.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "C",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/d/a/da2c83d4-a95f-47ff-a08f-694eb78d6b9b.jpg?1783904911",
+    "normal": "https://cards.scryfall.io/normal/front/d/a/da2c83d4-a95f-47ff-a08f-694eb78d6b9b.jpg?1783904911",
+    "art": "https://cards.scryfall.io/art_crop/front/d/a/da2c83d4-a95f-47ff-a08f-694eb78d6b9b.jpg?1783904911"
+   }
+  },
+  "Katara, Bending Prodigy": {
+   "name": "Katara, Bending Prodigy",
+   "id": "e8372167-383f-4302-a8ea-b6bf495c870c",
+   "set": "tla",
+   "cn": "59",
+   "mana_cost": "{2}{U}",
+   "cmc": 3.0,
+   "type_line": "Legendary Creature — Human Warrior Ally",
+   "oracle_text": "At the beginning of your end step, if Katara is tapped, put a +1/+1 counter on her.\nWaterbend {6}: Draw a card. (While paying a waterbend cost, you can tap your artifacts and creatures to help. Each one pays for {1}.)",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [
+    "Waterbend"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/8/e8372167-383f-4302-a8ea-b6bf495c870c.jpg?1783904986",
+    "normal": "https://cards.scryfall.io/normal/front/e/8/e8372167-383f-4302-a8ea-b6bf495c870c.jpg?1783904986",
+    "art": "https://cards.scryfall.io/art_crop/front/e/8/e8372167-383f-4302-a8ea-b6bf495c870c.jpg?1783904986"
+   },
+   "power": "2",
+   "toughness": "3",
+   "printing": "tla/59"
+  },
+  "Katara, Water Tribe's Hope": {
+   "name": "Katara, Water Tribe's Hope",
+   "id": "9ec03308-59a2-417a-938f-bdda75080e43",
+   "set": "tla",
+   "cn": "231",
+   "mana_cost": "{2}{W}{U}{U}",
+   "cmc": 5.0,
+   "type_line": "Legendary Creature — Human Warrior Ally",
+   "oracle_text": "Vigilance\nWhen Katara enters, create a 1/1 white Ally creature token.\nWaterbend {X}: Creatures you control have base power and toughness X/X until end of turn. X can't be 0. Activate only during your turn. (While paying a waterbend cost, you can tap your artifacts and creatures to help. Each one pays for {1}.)",
+   "colors": [
+    "U",
+    "W"
+   ],
+   "color_identity": [
+    "U",
+    "W"
+   ],
+   "keywords": [
+    "Vigilance",
+    "Waterbend"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/e/9ec03308-59a2-417a-938f-bdda75080e43.jpg?1783904925",
+    "normal": "https://cards.scryfall.io/normal/front/9/e/9ec03308-59a2-417a-938f-bdda75080e43.jpg?1783904925",
+    "art": "https://cards.scryfall.io/art_crop/front/9/e/9ec03308-59a2-417a-938f-bdda75080e43.jpg?1783904925"
+   },
+   "power": "3",
+   "toughness": "3",
+   "printing": "tla/231"
+  },
+  "Katara, the Fearless": {
+   "name": "Katara, the Fearless",
+   "id": "b0a18f8b-7364-4375-b2e1-e2f15978517f",
+   "set": "tla",
+   "cn": "230",
+   "mana_cost": "{G}{W}{U}",
+   "cmc": 3.0,
+   "type_line": "Legendary Creature — Human Warrior Ally",
+   "oracle_text": "If a triggered ability of an Ally you control triggers, that ability triggers an additional time.",
+   "colors": [
+    "G",
+    "U",
+    "W"
+   ],
+   "color_identity": [
+    "G",
+    "U",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/b/0/b0a18f8b-7364-4375-b2e1-e2f15978517f.jpg?1783904926",
+    "normal": "https://cards.scryfall.io/normal/front/b/0/b0a18f8b-7364-4375-b2e1-e2f15978517f.jpg?1783904926",
+    "art": "https://cards.scryfall.io/art_crop/front/b/0/b0a18f8b-7364-4375-b2e1-e2f15978517f.jpg?1783904926"
+   },
+   "power": "3",
+   "toughness": "3",
+   "printing": "tla/230"
+  },
+  "Kyoshi Island Plaza": {
+   "name": "Kyoshi Island Plaza",
+   "id": "9c25ea98-9823-4487-bf6b-ee29ce5a4ed8",
+   "set": "tla",
+   "cn": "184",
+   "mana_cost": "{3}{G}",
+   "cmc": 4.0,
+   "type_line": "Legendary Enchantment — Shrine",
+   "oracle_text": "When Kyoshi Island Plaza enters, search your library for up to X basic land cards, where X is the number of Shrines you control. Put those cards onto the battlefield tapped, then shuffle.\nWhenever another Shrine you control enters, search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/c/9c25ea98-9823-4487-bf6b-ee29ce5a4ed8.jpg?1783904942",
+    "normal": "https://cards.scryfall.io/normal/front/9/c/9c25ea98-9823-4487-bf6b-ee29ce5a4ed8.jpg?1783904942",
+    "art": "https://cards.scryfall.io/art_crop/front/9/c/9c25ea98-9823-4487-bf6b-ee29ce5a4ed8.jpg?1783904942"
+   },
+   "printing": "tla/184"
+  },
+  "Kyoshi Village": {
+   "name": "Kyoshi Village",
+   "id": "8d5f3008-2af8-4e81-8847-1c91f524e747",
+   "set": "tla",
+   "cn": "271",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped.\n{T}: Add {G} or {W}.\n{4}, {T}, Sacrifice this land: Draw a card.",
+   "colors": [],
+   "color_identity": [
+    "G",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "G",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/d/8d5f3008-2af8-4e81-8847-1c91f524e747.jpg?1783904910",
+    "normal": "https://cards.scryfall.io/normal/front/8/d/8d5f3008-2af8-4e81-8847-1c91f524e747.jpg?1783904910",
+    "art": "https://cards.scryfall.io/art_crop/front/8/d/8d5f3008-2af8-4e81-8847-1c91f524e747.jpg?1783904910"
+   },
+   "printing": "tla/271"
+  },
+  "Meditation Pools": {
+   "name": "Meditation Pools",
+   "id": "cc078fc6-4470-473f-9e24-d2c470e09141",
+   "set": "tla",
+   "cn": "272",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped.\n{T}: Add {G} or {U}.\n{4}, {T}, Sacrifice this land: Draw a card.",
+   "colors": [],
+   "color_identity": [
+    "G",
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "G",
+    "U"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/c/c/cc078fc6-4470-473f-9e24-d2c470e09141.jpg?1783904909",
+    "normal": "https://cards.scryfall.io/normal/front/c/c/cc078fc6-4470-473f-9e24-d2c470e09141.jpg?1783904909",
+    "art": "https://cards.scryfall.io/art_crop/front/c/c/cc078fc6-4470-473f-9e24-d2c470e09141.jpg?1783904909"
+   },
+   "printing": "tla/272"
+  },
+  "Monk Gyatso": {
+   "name": "Monk Gyatso",
+   "id": "e27ed185-eb2b-42dd-b48e-3c8d4456268b",
+   "set": "tle",
+   "cn": "81",
+   "mana_cost": "{3}{W}",
+   "cmc": 4.0,
+   "type_line": "Legendary Creature — Human Monk",
+   "oracle_text": "Whenever another creature you control becomes the target of a spell or ability, you may airbend that creature. (Exile it. While it's exiled, its owner may cast it for {2} rather than its mana cost.)",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Airbend"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/2/e27ed185-eb2b-42dd-b48e-3c8d4456268b.jpg?1783904834",
+    "normal": "https://cards.scryfall.io/normal/front/e/2/e27ed185-eb2b-42dd-b48e-3c8d4456268b.jpg?1783904834",
+    "art": "https://cards.scryfall.io/art_crop/front/e/2/e27ed185-eb2b-42dd-b48e-3c8d4456268b.jpg?1783904834"
+   },
+   "power": "3",
+   "toughness": "3"
+  },
+  "Mountain": {
+   "name": "Mountain",
+   "id": "85177bd7-6c50-48da-b692-ae5fe7bd357c",
+   "set": "mdd",
+   "cn": "298",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Basic Land — Mountain",
+   "oracle_text": "({T}: Add {R}.)",
+   "colors": [],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "R"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/5/85177bd7-6c50-48da-b692-ae5fe7bd357c.jpg?1791578439",
+    "normal": "https://cards.scryfall.io/normal/front/8/5/85177bd7-6c50-48da-b692-ae5fe7bd357c.jpg?1791578439",
+    "art": "https://cards.scryfall.io/art_crop/front/8/5/85177bd7-6c50-48da-b692-ae5fe7bd357c.jpg?1791578439"
+   }
+  },
+  "Mystic Remora": {
+   "name": "Mystic Remora",
+   "id": "40140991-cffa-4b52-9a25-37e9a8aa9ddd",
+   "set": "dmr",
+   "cn": "59",
+   "mana_cost": "{U}",
+   "cmc": 1.0,
+   "type_line": "Enchantment",
+   "oracle_text": "Cumulative upkeep {1} (At the beginning of your upkeep, put an age counter on this permanent, then sacrifice it unless you pay its upkeep cost for each age counter on it.)\nWhenever an opponent casts a noncreature spell, you may draw a card unless that player pays {4}.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [
+    "Cumulative upkeep"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/4/0/40140991-cffa-4b52-9a25-37e9a8aa9ddd.jpg?1783918491",
+    "normal": "https://cards.scryfall.io/normal/front/4/0/40140991-cffa-4b52-9a25-37e9a8aa9ddd.jpg?1783918491",
+    "art": "https://cards.scryfall.io/art_crop/front/4/0/40140991-cffa-4b52-9a25-37e9a8aa9ddd.jpg?1783918491"
+   }
+  },
+  "North Pole Gates": {
+   "name": "North Pole Gates",
+   "id": "bcf7b9da-d35d-4338-b4d9-83e47dc058ee",
+   "set": "tla",
+   "cn": "274",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped.\n{T}: Add {W} or {U}.\n{4}, {T}, Sacrifice this land: Draw a card.",
+   "colors": [],
+   "color_identity": [
+    "U",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/b/c/bcf7b9da-d35d-4338-b4d9-83e47dc058ee.jpg?1783904910",
+    "normal": "https://cards.scryfall.io/normal/front/b/c/bcf7b9da-d35d-4338-b4d9-83e47dc058ee.jpg?1783904910",
+    "art": "https://cards.scryfall.io/art_crop/front/b/c/bcf7b9da-d35d-4338-b4d9-83e47dc058ee.jpg?1783904910"
+   },
+   "printing": "tla/274"
+  },
+  "North Pole Patrol": {
+   "name": "North Pole Patrol",
+   "id": "c2c0c138-5b61-4949-8431-4a6d458ead6a",
+   "set": "tla",
+   "cn": "65",
+   "mana_cost": "{2}{U}",
+   "cmc": 3.0,
+   "type_line": "Creature — Human Soldier Ally",
+   "oracle_text": "{T}: Untap another target permanent you control.\nWaterbend {3}, {T}: Tap target creature an opponent controls. (While paying a waterbend cost, you can tap your artifacts and creatures to help. Each one pays for {1}.)",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [
+    "Waterbend"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/c/2/c2c0c138-5b61-4949-8431-4a6d458ead6a.jpg?1783904984",
+    "normal": "https://cards.scryfall.io/normal/front/c/2/c2c0c138-5b61-4949-8431-4a6d458ead6a.jpg?1783904984",
+    "art": "https://cards.scryfall.io/art_crop/front/c/2/c2c0c138-5b61-4949-8431-4a6d458ead6a.jpg?1783904984"
+   },
+   "power": "2",
+   "toughness": "3",
+   "printing": "tla/65"
+  },
+  "Omashu City": {
+   "name": "Omashu City",
+   "id": "c21e413b-96ed-4ded-b567-f1647074ce5f",
+   "set": "tla",
+   "cn": "275",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped.\n{T}: Add {R} or {G}.\n{4}, {T}, Sacrifice this land: Draw a card.",
+   "colors": [],
+   "color_identity": [
+    "G",
+    "R"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "G",
+    "R"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/c/2/c21e413b-96ed-4ded-b567-f1647074ce5f.jpg?1783904909",
+    "normal": "https://cards.scryfall.io/normal/front/c/2/c21e413b-96ed-4ded-b567-f1647074ce5f.jpg?1783904909",
+    "art": "https://cards.scryfall.io/art_crop/front/c/2/c21e413b-96ed-4ded-b567-f1647074ce5f.jpg?1783904909"
+   },
+   "printing": "tla/275"
+  },
+  "Origin of Metalbending": {
+   "name": "Origin of Metalbending",
+   "id": "25749f9a-260d-4bdc-bd28-429c12faa4a5",
+   "set": "tla",
+   "cn": "187",
+   "mana_cost": "{1}{G}",
+   "cmc": 2.0,
+   "type_line": "Instant — Lesson",
+   "oracle_text": "Choose one —\n• Destroy target artifact or enchantment.\n• Put a +1/+1 counter on target creature you control. It gains indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy it.)",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/2/5/25749f9a-260d-4bdc-bd28-429c12faa4a5.jpg?1783904940",
+    "normal": "https://cards.scryfall.io/normal/front/2/5/25749f9a-260d-4bdc-bd28-429c12faa4a5.jpg?1783904940",
+    "art": "https://cards.scryfall.io/art_crop/front/2/5/25749f9a-260d-4bdc-bd28-429c12faa4a5.jpg?1783904940"
+   },
+   "printing": "tla/187"
+  },
+  "Plains": {
+   "name": "Plains",
+   "id": "09ac862f-0a51-44dd-b86f-9412b8218b13",
+   "set": "mdd",
+   "cn": "292",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Basic Land — Plains",
+   "oracle_text": "({T}: Add {W}.)",
+   "colors": [],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/0/9/09ac862f-0a51-44dd-b86f-9412b8218b13.jpg?1791578423",
+    "normal": "https://cards.scryfall.io/normal/front/0/9/09ac862f-0a51-44dd-b86f-9412b8218b13.jpg?1791578423",
+    "art": "https://cards.scryfall.io/art_crop/front/0/9/09ac862f-0a51-44dd-b86f-9412b8218b13.jpg?1791578423"
+   }
+  },
+  "Return of the Wildspeaker": {
+   "name": "Return of the Wildspeaker",
+   "id": "2fa1dac5-51ba-403e-b48b-d2c0d23a8146",
+   "set": "ecc",
+   "cn": "115",
+   "mana_cost": "{4}{G}",
+   "cmc": 5.0,
+   "type_line": "Instant",
+   "oracle_text": "Choose one —\n• Draw cards equal to the greatest power among non-Human creatures you control.\n• Non-Human creatures you control get +3/+3 until end of turn.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/2/f/2fa1dac5-51ba-403e-b48b-d2c0d23a8146.jpg?1783904544",
+    "normal": "https://cards.scryfall.io/normal/front/2/f/2fa1dac5-51ba-403e-b48b-d2c0d23a8146.jpg?1783904544",
+    "art": "https://cards.scryfall.io/art_crop/front/2/f/2fa1dac5-51ba-403e-b48b-d2c0d23a8146.jpg?1783904544"
+   }
+  },
+  "Rumble Arena": {
+   "name": "Rumble Arena",
+   "id": "3f5d2c38-663c-4f64-8cfc-c102462e82ef",
+   "set": "tla",
+   "cn": "277",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "Vigilance\nWhen this land enters, scry 1. (Look at the top card of your library. You may put it on the bottom.)\n{T}: Add {C}.\n{1}, {T}: Add one mana of any color.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [
+    "Vigilance",
+    "Scry"
+   ],
+   "produced_mana": [
+    "B",
+    "C",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/f/3f5d2c38-663c-4f64-8cfc-c102462e82ef.jpg?1783904908",
+    "normal": "https://cards.scryfall.io/normal/front/3/f/3f5d2c38-663c-4f64-8cfc-c102462e82ef.jpg?1783904908",
+    "art": "https://cards.scryfall.io/art_crop/front/3/f/3f5d2c38-663c-4f64-8cfc-c102462e82ef.jpg?1783904908"
+   },
+   "printing": "tla/277"
+  },
+  "Sandbenders' Storm": {
+   "name": "Sandbenders' Storm",
+   "id": "b3bf4a25-4329-4318-870a-2b06aa620dc4",
+   "set": "tla",
+   "cn": "34",
+   "mana_cost": "{3}{W}",
+   "cmc": 4.0,
+   "type_line": "Instant",
+   "oracle_text": "Choose one —\n• Destroy target creature with power 4 or greater.\n• Earthbend 3. (Target land you control becomes a 0/0 creature with haste that's still a land. Put three +1/+1 counters on it. When it dies or is exiled, return it to the battlefield tapped.)",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Earthbend"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/b/3/b3bf4a25-4329-4318-870a-2b06aa620dc4.jpg?1783904995",
+    "normal": "https://cards.scryfall.io/normal/front/b/3/b3bf4a25-4329-4318-870a-2b06aa620dc4.jpg?1783904995",
+    "art": "https://cards.scryfall.io/art_crop/front/b/3/b3bf4a25-4329-4318-870a-2b06aa620dc4.jpg?1783904995"
+   },
+   "printing": "tla/34"
+  },
+  "Sokka, Lateral Strategist": {
+   "name": "Sokka, Lateral Strategist",
+   "id": "1326c5db-4615-495f-8e30-376243d91352",
+   "set": "tla",
+   "cn": "241",
+   "mana_cost": "{1}{W/U}{W/U}",
+   "cmc": 3.0,
+   "type_line": "Legendary Creature — Human Warrior Ally",
+   "oracle_text": "Vigilance\nWhenever Sokka and at least one other creature attack, draw a card.",
+   "colors": [
+    "U",
+    "W"
+   ],
+   "color_identity": [
+    "U",
+    "W"
+   ],
+   "keywords": [
+    "Vigilance"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/1/3/1326c5db-4615-495f-8e30-376243d91352.jpg?1783904920",
+    "normal": "https://cards.scryfall.io/normal/front/1/3/1326c5db-4615-495f-8e30-376243d91352.jpg?1783904920",
+    "art": "https://cards.scryfall.io/art_crop/front/1/3/1326c5db-4615-495f-8e30-376243d91352.jpg?1783904920"
+   },
+   "power": "2",
+   "toughness": "4",
+   "printing": "tla/241"
+  },
+  "Sol Ring": {
+   "name": "Sol Ring",
+   "id": "8ee443cc-e17a-493b-9c93-1f9e141a30e4",
+   "set": "frc",
+   "cn": "21",
+   "mana_cost": "{1}",
+   "cmc": 1.0,
+   "type_line": "Artifact",
+   "oracle_text": "{T}: Add {C}{C}.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "C"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/e/8ee443cc-e17a-493b-9c93-1f9e141a30e4.jpg?1789644446",
+    "normal": "https://cards.scryfall.io/normal/front/8/e/8ee443cc-e17a-493b-9c93-1f9e141a30e4.jpg?1789644446",
+    "art": "https://cards.scryfall.io/art_crop/front/8/e/8ee443cc-e17a-493b-9c93-1f9e141a30e4.jpg?1789644446"
+   }
+  },
+  "Southern Air Temple": {
+   "name": "Southern Air Temple",
+   "id": "5c172f9b-2184-4736-9f90-74ce08596292",
+   "set": "tla",
+   "cn": "36",
+   "mana_cost": "{3}{W}",
+   "cmc": 4.0,
+   "type_line": "Legendary Enchantment — Shrine",
+   "oracle_text": "When Southern Air Temple enters, put X +1/+1 counters on each creature you control, where X is the number of Shrines you control.\nWhenever another Shrine you control enters, put a +1/+1 counter on each creature you control.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/5/c/5c172f9b-2184-4736-9f90-74ce08596292.jpg?1783904994",
+    "normal": "https://cards.scryfall.io/normal/front/5/c/5c172f9b-2184-4736-9f90-74ce08596292.jpg?1783904994",
+    "art": "https://cards.scryfall.io/art_crop/front/5/c/5c172f9b-2184-4736-9f90-74ce08596292.jpg?1783904994"
+   },
+   "printing": "tla/36"
+  },
+  "Suki, Courageous Rescuer": {
+   "name": "Suki, Courageous Rescuer",
+   "id": "33b97433-e16c-422e-a0ca-f6b1e98d8681",
+   "set": "tla",
+   "cn": "37",
+   "mana_cost": "{1}{W}{W}",
+   "cmc": 3.0,
+   "type_line": "Legendary Creature — Human Warrior Ally",
+   "oracle_text": "Other creatures you control get +1/+0.\nWhenever another permanent you control leaves the battlefield during your turn, create a 1/1 white Ally creature token. This ability triggers only once each turn.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/3/33b97433-e16c-422e-a0ca-f6b1e98d8681.jpg?1783904995",
+    "normal": "https://cards.scryfall.io/normal/front/3/3/33b97433-e16c-422e-a0ca-f6b1e98d8681.jpg?1783904995",
+    "art": "https://cards.scryfall.io/art_crop/front/3/3/33b97433-e16c-422e-a0ca-f6b1e98d8681.jpg?1783904995"
+   },
+   "power": "2",
+   "toughness": "4",
+   "printing": "tla/37"
+  },
+  "Suki, Kyoshi Warrior": {
+   "name": "Suki, Kyoshi Warrior",
+   "id": "3e311480-04f8-4b8f-938e-1cc6d06b9902",
+   "set": "tla",
+   "cn": "243",
+   "mana_cost": "{2}{G/W}{G/W}",
+   "cmc": 4.0,
+   "type_line": "Legendary Creature — Human Warrior Ally",
+   "oracle_text": "Suki's power is equal to the number of creatures you control.\nWhenever Suki attacks, create a 1/1 white Ally creature token that's tapped and attacking.",
+   "colors": [
+    "G",
+    "W"
+   ],
+   "color_identity": [
+    "G",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/e/3e311480-04f8-4b8f-938e-1cc6d06b9902.jpg?1783904920",
+    "normal": "https://cards.scryfall.io/normal/front/3/e/3e311480-04f8-4b8f-938e-1cc6d06b9902.jpg?1783904920",
+    "art": "https://cards.scryfall.io/art_crop/front/3/e/3e311480-04f8-4b8f-938e-1cc6d06b9902.jpg?1783904920"
+   },
+   "power": "*",
+   "toughness": "4",
+   "printing": "tla/243"
+  },
+  "Sun Warriors": {
+   "name": "Sun Warriors",
+   "id": "e477d750-42d2-48c8-bc1f-8148d15d5f53",
+   "set": "tla",
+   "cn": "244",
+   "mana_cost": "{2}{R}{W}",
+   "cmc": 4.0,
+   "type_line": "Creature — Human Warrior Ally",
+   "oracle_text": "Firebending X, where X is the number of creatures you control. (Whenever this creature attacks, add X {R}. This mana lasts until end of combat.)\n{5}: Create a 1/1 white Ally creature token.",
+   "colors": [
+    "R",
+    "W"
+   ],
+   "color_identity": [
+    "R",
+    "W"
+   ],
+   "keywords": [
+    "Firebending"
+   ],
+   "produced_mana": [
+    "R"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/4/e477d750-42d2-48c8-bc1f-8148d15d5f53.jpg?1783904920",
+    "normal": "https://cards.scryfall.io/normal/front/e/4/e477d750-42d2-48c8-bc1f-8148d15d5f53.jpg?1783904920",
+    "art": "https://cards.scryfall.io/art_crop/front/e/4/e477d750-42d2-48c8-bc1f-8148d15d5f53.jpg?1783904920"
+   },
+   "power": "3",
+   "toughness": "5",
+   "printing": "tla/244"
+  },
+  "Sun-Blessed Peak": {
+   "name": "Sun-Blessed Peak",
+   "id": "ae04c862-095f-41d2-8aef-21036d5a0cdc",
+   "set": "tla",
+   "cn": "280",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped.\n{T}: Add {R} or {W}.\n{4}, {T}, Sacrifice this land: Draw a card.",
+   "colors": [],
+   "color_identity": [
+    "R",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "R",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/e/ae04c862-095f-41d2-8aef-21036d5a0cdc.jpg?1783904908",
+    "normal": "https://cards.scryfall.io/normal/front/a/e/ae04c862-095f-41d2-8aef-21036d5a0cdc.jpg?1783904908",
+    "art": "https://cards.scryfall.io/art_crop/front/a/e/ae04c862-095f-41d2-8aef-21036d5a0cdc.jpg?1783904908"
+   },
+   "printing": "tla/280"
+  },
+  "Sunbaked Canyon": {
+   "name": "Sunbaked Canyon",
+   "id": "c36820fa-ee86-4206-9a0d-737a67cf5208",
+   "set": "mh1",
+   "cn": "247",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}, Pay 1 life: Add {R} or {W}.\n{1}, {T}, Sacrifice this land: Draw a card.",
+   "colors": [],
+   "color_identity": [
+    "R",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "R",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/c/3/c36820fa-ee86-4206-9a0d-737a67cf5208.jpg?1783933065",
+    "normal": "https://cards.scryfall.io/normal/front/c/3/c36820fa-ee86-4206-9a0d-737a67cf5208.jpg?1783933065",
+    "art": "https://cards.scryfall.io/art_crop/front/c/3/c36820fa-ee86-4206-9a0d-737a67cf5208.jpg?1783933065"
+   }
+  },
+  "Swiftfoot Boots": {
+   "name": "Swiftfoot Boots",
+   "id": "03f7e9fc-8e59-45c1-90fc-1d04d929b292",
+   "set": "mbc",
+   "cn": "77",
+   "mana_cost": "{2}",
+   "cmc": 2.0,
+   "type_line": "Artifact — Equipment",
+   "oracle_text": "Equipped creature has hexproof and haste. (It can't be the target of spells or abilities your opponents control. It can attack and {T} no matter when it came under your control.)\nEquip {1} ({1}: Attach to target creature you control. Equip only as a sorcery.)",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [
+    "Equip"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/0/3/03f7e9fc-8e59-45c1-90fc-1d04d929b292.jpg?1785759388",
+    "normal": "https://cards.scryfall.io/normal/front/0/3/03f7e9fc-8e59-45c1-90fc-1d04d929b292.jpg?1785759388",
+    "art": "https://cards.scryfall.io/art_crop/front/0/3/03f7e9fc-8e59-45c1-90fc-1d04d929b292.jpg?1785759388"
+   }
+  },
+  "Tarnished Citadel": {
+   "name": "Tarnished Citadel",
+   "id": "30375d24-ccfe-47a2-babd-1bda0a6298fe",
+   "set": "ody",
+   "cn": "329",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}: Add {C}.\n{T}: Add one mana of any color. This land deals 3 damage to you.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "C",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/0/30375d24-ccfe-47a2-babd-1bda0a6298fe.jpg?1783945196",
+    "normal": "https://cards.scryfall.io/normal/front/3/0/30375d24-ccfe-47a2-babd-1bda0a6298fe.jpg?1783945196",
+    "art": "https://cards.scryfall.io/art_crop/front/3/0/30375d24-ccfe-47a2-babd-1bda0a6298fe.jpg?1783945196"
+   }
+  },
+  "Teferi's Protection": {
+   "name": "Teferi's Protection",
+   "id": "483fa1cb-1e35-44f2-a143-98c0f107f5ca",
+   "set": "2x2",
+   "cn": "32",
+   "mana_cost": "{2}{W}",
+   "cmc": 3.0,
+   "type_line": "Instant",
+   "oracle_text": "Until your next turn, your life total can't change and you gain protection from everything. All permanents you control phase out. (While they're phased out, they're treated as though they don't exist. They phase in before you untap during your untap step.)\nExile Teferi's Protection.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/4/8/483fa1cb-1e35-44f2-a143-98c0f107f5ca.jpg?1783921926",
+    "normal": "https://cards.scryfall.io/normal/front/4/8/483fa1cb-1e35-44f2-a143-98c0f107f5ca.jpg?1783921926",
+    "art": "https://cards.scryfall.io/art_crop/front/4/8/483fa1cb-1e35-44f2-a143-98c0f107f5ca.jpg?1783921926"
+   }
+  },
+  "The Spirit Oasis": {
+   "name": "The Spirit Oasis",
+   "id": "3a1b1329-531c-47ed-9802-c505501f8fd9",
+   "set": "tla",
+   "cn": "72",
+   "mana_cost": "{2}{U}",
+   "cmc": 3.0,
+   "type_line": "Legendary Enchantment — Shrine",
+   "oracle_text": "When The Spirit Oasis enters, draw a card for each Shrine you control.\nWhenever another Shrine you control enters, draw a card.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/a/3a1b1329-531c-47ed-9802-c505501f8fd9.jpg?1783904981",
+    "normal": "https://cards.scryfall.io/normal/front/3/a/3a1b1329-531c-47ed-9802-c505501f8fd9.jpg?1783904981",
+    "art": "https://cards.scryfall.io/art_crop/front/3/a/3a1b1329-531c-47ed-9802-c505501f8fd9.jpg?1783904981"
+   },
+   "printing": "tla/72"
+  },
+  "Toph, Earthbending Master": {
+   "name": "Toph, Earthbending Master",
+   "id": "22d1b078-9175-45ab-8fbe-ed4af2abde1f",
+   "set": "tle",
+   "cn": "145",
+   "mana_cost": "{3}{G}",
+   "cmc": 4.0,
+   "type_line": "Legendary Creature — Human Warrior Ally",
+   "oracle_text": "Landfall — Whenever a land you control enters, you get an experience counter.\nWhenever you attack, earthbend X, where X is the number of experience counters you have. (Target land you control becomes a 0/0 creature with haste that's still a land. Put X +1/+1 counters on it. When it dies or is exiled, return it to the battlefield tapped.)",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [
+    "Earthbend",
+    "Landfall"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/2/2/22d1b078-9175-45ab-8fbe-ed4af2abde1f.jpg?1783904811",
+    "normal": "https://cards.scryfall.io/normal/front/2/2/22d1b078-9175-45ab-8fbe-ed4af2abde1f.jpg?1783904811",
+    "art": "https://cards.scryfall.io/art_crop/front/2/2/22d1b078-9175-45ab-8fbe-ed4af2abde1f.jpg?1783904811"
+   },
+   "power": "2",
+   "toughness": "4"
+  },
+  "Toph, the First Metalbender": {
+   "name": "Toph, the First Metalbender",
+   "id": "70b6670f-a9fa-4d75-b0a7-c01b5071a514",
+   "set": "tla",
+   "cn": "247",
+   "mana_cost": "{1}{R}{G}{W}",
+   "cmc": 4.0,
+   "type_line": "Legendary Creature — Human Warrior Ally",
+   "oracle_text": "Nontoken artifacts you control are lands in addition to their other types. (They don't gain the ability to {T} for mana.)\nAt the beginning of your end step, earthbend 2. (Target land you control becomes a 0/0 creature with haste that's still a land. Put two +1/+1 counters on it. When it dies or is exiled, return it to the battlefield tapped.)",
+   "colors": [
+    "G",
+    "R",
+    "W"
+   ],
+   "color_identity": [
+    "G",
+    "R",
+    "W"
+   ],
+   "keywords": [
+    "Earthbend"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/7/0/70b6670f-a9fa-4d75-b0a7-c01b5071a514.jpg?1783904920",
+    "normal": "https://cards.scryfall.io/normal/front/7/0/70b6670f-a9fa-4d75-b0a7-c01b5071a514.jpg?1783904920",
+    "art": "https://cards.scryfall.io/art_crop/front/7/0/70b6670f-a9fa-4d75-b0a7-c01b5071a514.jpg?1783904920"
+   },
+   "power": "3",
+   "toughness": "3",
+   "printing": "tla/247"
+  },
+  "Wan Shi Tong, Librarian": {
+   "name": "Wan Shi Tong, Librarian",
+   "id": "e20da6b5-1057-4a28-9e85-07de714e262f",
+   "set": "tla",
+   "cn": "78",
+   "mana_cost": "{X}{U}{U}",
+   "cmc": 2.0,
+   "type_line": "Legendary Creature — Bird Spirit",
+   "oracle_text": "Flash\nFlying, vigilance\nWhen Wan Shi Tong enters, put X +1/+1 counters on him. Then draw half X cards, rounded down.\nWhenever an opponent searches their library, put a +1/+1 counter on Wan Shi Tong and draw a card.",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [
+    "Flying",
+    "Vigilance",
+    "Flash"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/e/2/e20da6b5-1057-4a28-9e85-07de714e262f.jpg?1783904979",
+    "normal": "https://cards.scryfall.io/normal/front/e/2/e20da6b5-1057-4a28-9e85-07de714e262f.jpg?1783904979",
+    "art": "https://cards.scryfall.io/art_crop/front/e/2/e20da6b5-1057-4a28-9e85-07de714e262f.jpg?1783904979"
+   },
+   "power": "1",
+   "toughness": "1",
+   "printing": "tla/78"
+  },
+  "Wartime Protestors": {
+   "name": "Wartime Protestors",
+   "id": "bac81940-d717-49ff-83b2-16a22bb2c988",
+   "set": "tla",
+   "cn": "160",
+   "mana_cost": "{3}{R}",
+   "cmc": 4.0,
+   "type_line": "Creature — Human Rebel Ally",
+   "oracle_text": "Haste\nWhenever another Ally you control enters, put a +1/+1 counter on that creature and it gains haste until end of turn.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [
+    "Haste"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/b/a/bac81940-d717-49ff-83b2-16a22bb2c988.jpg?1783904950",
+    "normal": "https://cards.scryfall.io/normal/front/b/a/bac81940-d717-49ff-83b2-16a22bb2c988.jpg?1783904950",
+    "art": "https://cards.scryfall.io/art_crop/front/b/a/bac81940-d717-49ff-83b2-16a22bb2c988.jpg?1783904950"
+   },
+   "power": "4",
+   "toughness": "4",
+   "printing": "tla/160"
+  },
+  "Waterbender Ascension": {
+   "name": "Waterbender Ascension",
+   "id": "3f57e0f9-e232-489c-b991-d0d23f75d8dd",
+   "set": "tla",
+   "cn": "79",
+   "mana_cost": "{1}{U}",
+   "cmc": 2.0,
+   "type_line": "Enchantment",
+   "oracle_text": "Whenever a creature you control deals combat damage to a player, put a quest counter on this enchantment. Then if it has four or more quest counters on it, draw a card.\nWaterbend {4}: Target creature can't be blocked this turn. (While paying a waterbend cost, you can tap your artifacts and creatures to help. Each one pays for {1}.)",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [
+    "Waterbend"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/f/3f57e0f9-e232-489c-b991-d0d23f75d8dd.jpg?1783904979",
+    "normal": "https://cards.scryfall.io/normal/front/3/f/3f57e0f9-e232-489c-b991-d0d23f75d8dd.jpg?1783904979",
+    "art": "https://cards.scryfall.io/art_crop/front/3/f/3f57e0f9-e232-489c-b991-d0d23f75d8dd.jpg?1783904979"
+   },
+   "printing": "tla/79"
+  },
+  "Aang, Swift Savior // Aang and La, Ocean's Fury": {
+   "name": "Aang, Swift Savior // Aang and La, Ocean's Fury",
+   "id": "82866a0e-485a-4f7e-8c49-f7d9ff3f4ad4",
+   "set": "tla",
+   "cn": "204",
+   "mana_cost": "{1}{W}{U}",
+   "cmc": 3.0,
+   "type_line": "Legendary Creature — Human Avatar Ally // Legendary Creature — Avatar Spirit Ally",
+   "oracle_text": "Flash\nFlying\nWhen Aang enters, airbend up to one other target creature or spell. (Exile it. While it's exiled, its owner may cast it for {2} rather than its mana cost.)\nWaterbend {8}: Transform Aang.",
+   "colors": [
+    "U",
+    "W"
+   ],
+   "color_identity": [
+    "U",
+    "W"
+   ],
+   "keywords": [
+    "Flying",
+    "Reach",
+    "Airbend",
+    "Transform",
+    "Trample",
+    "Flash",
+    "Waterbend"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/8/2/82866a0e-485a-4f7e-8c49-f7d9ff3f4ad4.jpg?1783904937",
+    "normal": "https://cards.scryfall.io/normal/front/8/2/82866a0e-485a-4f7e-8c49-f7d9ff3f4ad4.jpg?1783904937",
+    "art": "https://cards.scryfall.io/art_crop/front/8/2/82866a0e-485a-4f7e-8c49-f7d9ff3f4ad4.jpg?1783904937"
+   },
+   "power": "2",
+   "toughness": "3",
+   "back": {
+    "name": "Aang and La, Ocean's Fury",
+    "type_line": "Legendary Creature — Avatar Spirit Ally",
+    "oracle_text": "Reach, trample\nWhenever Aang and La attack, put a +1/+1 counter on each tapped creature you control.",
+    "mana_cost": "",
+    "power": "5",
+    "toughness": "5",
+    "img": {
+     "small": "https://cards.scryfall.io/small/back/8/2/82866a0e-485a-4f7e-8c49-f7d9ff3f4ad4.jpg?1783904937",
+     "normal": "https://cards.scryfall.io/normal/back/8/2/82866a0e-485a-4f7e-8c49-f7d9ff3f4ad4.jpg?1783904937",
+     "art": "https://cards.scryfall.io/art_crop/back/8/2/82866a0e-485a-4f7e-8c49-f7d9ff3f4ad4.jpg?1783904937"
+    }
+   },
+   "printing": "tla/204"
+  },
+  "Avatar Aang // Aang, Master of Elements": {
+   "name": "Avatar Aang // Aang, Master of Elements",
+   "id": "fe29e909-50e9-4f04-b1a3-2cc5d7e3efe8",
+   "set": "tla",
+   "cn": "207",
+   "mana_cost": "{R}{G}{W}{U}",
+   "cmc": 4.0,
+   "type_line": "Legendary Creature — Human Avatar Ally // Legendary Creature — Avatar Ally",
+   "oracle_text": "Flying, firebending 2\nWhenever you waterbend, earthbend, firebend, or airbend, draw a card. Then if you've done all four this turn, transform Avatar Aang.",
+   "colors": [
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "color_identity": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "keywords": [
+    "Flying",
+    "Transform",
+    "Firebending"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/2/5/257928ba-27ae-4a11-ae41-76dfcd626ed4.jpg?1783904902",
+    "normal": "https://cards.scryfall.io/normal/front/2/5/257928ba-27ae-4a11-ae41-76dfcd626ed4.jpg?1783904902",
+    "art": "https://cards.scryfall.io/art_crop/front/2/5/257928ba-27ae-4a11-ae41-76dfcd626ed4.jpg?1783904902"
+   },
+   "power": "4",
+   "toughness": "4",
+   "back": {
+    "name": "Aang, Master of Elements",
+    "type_line": "Legendary Creature — Avatar Ally",
+    "oracle_text": "Flying\nSpells you cast cost {W}{U}{B}{R}{G} less to cast. (This can reduce generic costs.)\nAt the beginning of each upkeep, you may transform Aang, Master of Elements. If you do, you gain 4 life, draw four cards, put four +1/+1 counters on him, and he deals 4 damage to each opponent.",
+    "mana_cost": "",
+    "power": "6",
+    "toughness": "6",
+    "img": {
+     "small": "https://cards.scryfall.io/small/back/f/e/fe29e909-50e9-4f04-b1a3-2cc5d7e3efe8.jpg?1783904938",
+     "normal": "https://cards.scryfall.io/normal/back/f/e/fe29e909-50e9-4f04-b1a3-2cc5d7e3efe8.jpg?1783904938",
+     "art": "https://cards.scryfall.io/art_crop/back/f/e/fe29e909-50e9-4f04-b1a3-2cc5d7e3efe8.jpg?1783904938"
+    }
+   },
+   "printing": "tla/308"
+  },
+  "The Legend of Kyoshi // Avatar Kyoshi": {
+   "name": "The Legend of Kyoshi // Avatar Kyoshi",
+   "id": "4887ce64-7c98-4bd7-95db-0c43ab71cc6e",
+   "set": "tla",
+   "cn": "186",
+   "mana_cost": "{4}{G}{G}",
+   "cmc": 6.0,
+   "type_line": "Enchantment — Saga // Legendary Creature — Avatar",
+   "oracle_text": "(As this Saga enters and after your draw step, add a lore counter.)\nI — Draw cards equal to the greatest power among creatures you control.\nII — Earthbend X, where X is the number of cards in your hand. That land becomes an Island in addition to its other types.\nIII — Exile this Saga, then return it to the battlefield transformed under your control.",
+   "colors": [
+    "G"
+   ],
+   "color_identity": [
+    "G"
+   ],
+   "keywords": [
+    "Transform",
+    "Earthbend"
+   ],
+   "produced_mana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/4/8/4887ce64-7c98-4bd7-95db-0c43ab71cc6e.jpg?1783904946",
+    "normal": "https://cards.scryfall.io/normal/front/4/8/4887ce64-7c98-4bd7-95db-0c43ab71cc6e.jpg?1783904946",
+    "art": "https://cards.scryfall.io/art_crop/front/4/8/4887ce64-7c98-4bd7-95db-0c43ab71cc6e.jpg?1783904946"
+   },
+   "back": {
+    "name": "Avatar Kyoshi",
+    "type_line": "Legendary Creature — Avatar",
+    "oracle_text": "Lands you control have trample and hexproof.\n{T}: Add X mana of any one color, where X is the greatest power among creatures you control.",
+    "mana_cost": "",
+    "power": "5",
+    "toughness": "4",
+    "img": {
+     "small": "https://cards.scryfall.io/small/back/4/8/4887ce64-7c98-4bd7-95db-0c43ab71cc6e.jpg?1783904946",
+     "normal": "https://cards.scryfall.io/normal/back/4/8/4887ce64-7c98-4bd7-95db-0c43ab71cc6e.jpg?1783904946",
+     "art": "https://cards.scryfall.io/art_crop/back/4/8/4887ce64-7c98-4bd7-95db-0c43ab71cc6e.jpg?1783904946"
+    }
+   }
+  },
+  "The Legend of Roku // Avatar Roku": {
+   "name": "The Legend of Roku // Avatar Roku",
+   "id": "95f2f5af-d405-4534-8683-5a9001f997b4",
+   "set": "tla",
+   "cn": "145",
+   "mana_cost": "{2}{R}{R}",
+   "cmc": 4.0,
+   "type_line": "Enchantment — Saga // Legendary Creature — Avatar",
+   "oracle_text": "(As this Saga enters and after your draw step, add a lore counter.)\nI — Exile the top three cards of your library. Until the end of your next turn, you may play those cards.\nII — Add one mana of any color.\nIII — Exile this Saga, then return it to the battlefield transformed under your control.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [
+    "Transform",
+    "Firebending"
+   ],
+   "produced_mana": [
+    "B",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/9/5/95f2f5af-d405-4534-8683-5a9001f997b4.jpg?1783904959",
+    "normal": "https://cards.scryfall.io/normal/front/9/5/95f2f5af-d405-4534-8683-5a9001f997b4.jpg?1783904959",
+    "art": "https://cards.scryfall.io/art_crop/front/9/5/95f2f5af-d405-4534-8683-5a9001f997b4.jpg?1783904959"
+   },
+   "back": {
+    "name": "Avatar Roku",
+    "type_line": "Legendary Creature — Avatar",
+    "oracle_text": "Firebending 4 (Whenever this creature attacks, add {R}{R}{R}{R}. This mana lasts until end of combat.)\n{8}: Create a 4/4 red Dragon creature token with flying and firebending 4.",
+    "mana_cost": "",
+    "power": "4",
+    "toughness": "4",
+    "img": {
+     "small": "https://cards.scryfall.io/small/back/9/5/95f2f5af-d405-4534-8683-5a9001f997b4.jpg?1783904959",
+     "normal": "https://cards.scryfall.io/normal/back/9/5/95f2f5af-d405-4534-8683-5a9001f997b4.jpg?1783904959",
+     "art": "https://cards.scryfall.io/art_crop/back/9/5/95f2f5af-d405-4534-8683-5a9001f997b4.jpg?1783904959"
+    }
+   }
+  },
+  "The Legend of Yangchen // Avatar Yangchen": {
+   "name": "The Legend of Yangchen // Avatar Yangchen",
+   "id": "a60e8f23-90b2-4bc6-bd54-a95055556389",
+   "set": "tla",
+   "cn": "27",
+   "mana_cost": "{3}{W}{W}",
+   "cmc": 5.0,
+   "type_line": "Enchantment — Saga // Legendary Creature — Avatar",
+   "oracle_text": "(As this Saga enters and after your draw step, add a lore counter.)\nI — Starting with you, each player chooses up to one permanent with mana value 3 or greater from among permanents your opponents control. Exile those permanents.\nII — You may have target opponent draw three cards. If you do, draw three cards.\nIII — Exile this Saga, then return it to the battlefield transformed under your control.",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [
+    "Flying",
+    "Airbend",
+    "Transform"
+   ],
+   "produced_mana": [],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/6/a60e8f23-90b2-4bc6-bd54-a95055556389.jpg?1783905002",
+    "normal": "https://cards.scryfall.io/normal/front/a/6/a60e8f23-90b2-4bc6-bd54-a95055556389.jpg?1783905002",
+    "art": "https://cards.scryfall.io/art_crop/front/a/6/a60e8f23-90b2-4bc6-bd54-a95055556389.jpg?1783905002"
+   },
+   "back": {
+    "name": "Avatar Yangchen",
+    "type_line": "Legendary Creature — Avatar",
+    "oracle_text": "Flying\nWhenever you cast your second spell each turn, airbend up to one other target nonland permanent. (Exile it. While it's exiled, its owner may cast it for {2} rather than its mana cost.)",
+    "mana_cost": "",
+    "power": "4",
+    "toughness": "5",
+    "img": {
+     "small": "https://cards.scryfall.io/small/back/a/6/a60e8f23-90b2-4bc6-bd54-a95055556389.jpg?1783905002",
+     "normal": "https://cards.scryfall.io/normal/back/a/6/a60e8f23-90b2-4bc6-bd54-a95055556389.jpg?1783905002",
+     "art": "https://cards.scryfall.io/art_crop/back/a/6/a60e8f23-90b2-4bc6-bd54-a95055556389.jpg?1783905002"
+    }
+   },
+   "printing": "tla/27"
+  },
+  "Waterbending Lesson": {
+   "name": "Waterbending Lesson",
+   "id": "4f81e3b5-a0a9-4764-8c2d-b499ce1740b4",
+   "set": "tla",
+   "cn": "80",
+   "mana_cost": "{3}{U}",
+   "cmc": 4.0,
+   "type_line": "Sorcery — Lesson",
+   "oracle_text": "Draw three cards. Then discard a card unless you waterbend {2}. (While paying a waterbend cost, you can tap your artifacts and creatures to help. Each one pays for {1}.)",
+   "colors": [
+    "U"
+   ],
+   "color_identity": [
+    "U"
+   ],
+   "keywords": [
+    "Waterbend"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/4/f/4f81e3b5-a0a9-4764-8c2d-b499ce1740b4.jpg?1783904978",
+    "normal": "https://cards.scryfall.io/normal/front/4/f/4f81e3b5-a0a9-4764-8c2d-b499ce1740b4.jpg?1783904978",
+    "art": "https://cards.scryfall.io/art_crop/front/4/f/4f81e3b5-a0a9-4764-8c2d-b499ce1740b4.jpg?1783904978"
+   },
+   "printing": "tla/80"
+  },
+  "White Lotus Hideout": {
+   "name": "White Lotus Hideout",
+   "id": "24d1e22c-0d99-4ed5-94f0-fd055fd8e2be",
+   "set": "tla",
+   "cn": "281",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a Lesson or Shrine spell.\n{1}, {T}: Add one mana of any color.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [
+    "B",
+    "C",
+    "G",
+    "R",
+    "U",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/2/4/24d1e22c-0d99-4ed5-94f0-fd055fd8e2be.jpg?1783904909",
+    "normal": "https://cards.scryfall.io/normal/front/2/4/24d1e22c-0d99-4ed5-94f0-fd055fd8e2be.jpg?1783904909",
+    "art": "https://cards.scryfall.io/art_crop/front/2/4/24d1e22c-0d99-4ed5-94f0-fd055fd8e2be.jpg?1783904909"
+   },
+   "printing": "tla/281"
+  },
+  "White Lotus Reinforcements": {
+   "name": "White Lotus Reinforcements",
+   "id": "4c7e3e2f-d7ac-4d40-ab84-cb7efe06a316",
+   "set": "tla",
+   "cn": "251",
+   "mana_cost": "{1}{G}{W}",
+   "cmc": 3.0,
+   "type_line": "Creature — Human Soldier Ally",
+   "oracle_text": "Vigilance\nOther Allies you control get +1/+1.",
+   "colors": [
+    "G",
+    "W"
+   ],
+   "color_identity": [
+    "G",
+    "W"
+   ],
+   "keywords": [
+    "Vigilance"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/4/c/4c7e3e2f-d7ac-4d40-ab84-cb7efe06a316.jpg?1783904916",
+    "normal": "https://cards.scryfall.io/normal/front/4/c/4c7e3e2f-d7ac-4d40-ab84-cb7efe06a316.jpg?1783904916",
+    "art": "https://cards.scryfall.io/art_crop/front/4/c/4c7e3e2f-d7ac-4d40-ab84-cb7efe06a316.jpg?1783904916"
+   },
+   "power": "2",
+   "toughness": "3",
+   "printing": "tla/251"
+  },
+  "Zuko, Exiled Prince": {
+   "name": "Zuko, Exiled Prince",
+   "id": "6a73b372-9c0e-4a85-89d2-440163330687",
+   "set": "tla",
+   "cn": "163",
+   "mana_cost": "{3}{R}",
+   "cmc": 4.0,
+   "type_line": "Legendary Creature — Human Noble",
+   "oracle_text": "Firebending 3 (Whenever this creature attacks, add {R}{R}{R}. This mana lasts until end of combat.)\n{3}: Exile the top card of your library. You may play that card this turn.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [
+    "Firebending"
+   ],
+   "produced_mana": [
+    "R"
+   ],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/a/6a73b372-9c0e-4a85-89d2-440163330687.jpg?1783904949",
+    "normal": "https://cards.scryfall.io/normal/front/6/a/6a73b372-9c0e-4a85-89d2-440163330687.jpg?1783904949",
+    "art": "https://cards.scryfall.io/art_crop/front/6/a/6a73b372-9c0e-4a85-89d2-440163330687.jpg?1783904949"
+   },
+   "power": "4",
+   "toughness": "3",
+   "printing": "tla/163"
+  },
+  "Zuko, Firebending Master": {
+   "name": "Zuko, Firebending Master",
+   "id": "496a4fa5-b3e5-4020-b432-6d353095aa33",
+   "set": "tle",
+   "cn": "127",
+   "mana_cost": "{1}{R}",
+   "cmc": 2.0,
+   "type_line": "Legendary Creature — Human Noble Ally",
+   "oracle_text": "First strike\nFirebending X, where X is the number of experience counters you have. (Whenever this creature attacks, add X {R}. This mana lasts until end of combat.)\nWhenever you cast a spell during combat, you get an experience counter.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [
+    "First strike",
+    "Firebending"
+   ],
+   "produced_mana": [
+    "R"
+   ],
+   "legendary": true,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/4/9/496a4fa5-b3e5-4020-b432-6d353095aa33.jpg?1783904817",
+    "normal": "https://cards.scryfall.io/normal/front/4/9/496a4fa5-b3e5-4020-b432-6d353095aa33.jpg?1783904817",
+    "art": "https://cards.scryfall.io/art_crop/front/4/9/496a4fa5-b3e5-4020-b432-6d353095aa33.jpg?1783904817"
+   },
+   "power": "2",
+   "toughness": "2"
+  }
+ }
+}

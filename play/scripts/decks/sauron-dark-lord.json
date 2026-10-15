@@ -1,0 +1,2975 @@
+{
+ "Ancient Tomb": {
+  "name": "Ancient Tomb",
+  "source": "{T}: Add {C}{C}. This land deals 2 damage to you.",
+  "status": "auto"
+ },
+ "Anger": {
+  "name": "Anger",
+  "source": "Haste\nAs long as this card is in your graveyard and you control a Mountain, creatures you control have haste.",
+  "statics": [
+   {
+    "if": {
+     "youControl": {
+      "subtype": "Mountain"
+     }
+    },
+    "kw": [
+     "Haste"
+    ],
+    "scope": "creatures-you-control",
+    "text": "As long as this card is in your graveyard and you control a Mountain, creatures you control have haste.",
+    "zone": "gy"
+   }
+  ],
+  "status": "hand"
+ },
+ "Arcane Denial": {
+  "name": "Arcane Denial",
+  "notes": "Silent: countering only matters against an opponent's spell (the dummy casts nothing).",
+  "source": "Counter target spell. Its controller may draw up to two cards at the beginning of the next turn's upkeep.\nYou draw a card at the beginning of the next turn's upkeep.",
+  "status": "hand"
+ },
+ "Arcane Signet": {
+  "name": "Arcane Signet",
+  "source": "{T}: Add one mana of any color in your commander's color identity.",
+  "status": "auto"
+ },
+ "Badlands": {
+  "name": "Badlands",
+  "source": "({T}: Add {B} or {R}.)",
+  "status": "auto"
+ },
+ "Barad-dûr": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{X}{X}{B}",
+     "tap": true
+    },
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "amass": {
+          "n": "X",
+          "type": "Orc"
+         }
+        }
+       ],
+       "if": {
+        "thisTurn": {
+         "fact": "died",
+         "filter": {
+          "creature": true
+         }
+        }
+       }
+      }
+     }
+    ],
+    "label": "Amass",
+    "text": "{X}{X}{B}, {T}: Amass Orcs X. Activate only if a creature died this turn."
+   }
+  ],
+  "name": "Barad-dûr",
+  "notes": "If no creature died this turn the ability does nothing. You are asked for X; pay the {X}{X} part with it.",
+  "source": "Barad-dûr enters tapped unless you control a legendary creature.\n{T}: Add {B}.\n{X}{X}{B}, {T}: Amass Orcs X. Activate only if a creature died this turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "creature": true,
+          "legendary": true
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Barad-dûr enters tapped unless you control a legendary creature."
+   }
+  ]
+ },
+ "Blasphemous Act": {
+  "name": "Blasphemous Act",
+  "notes": "Goldfish: only your creatures are on the battlefield (cost reduction and damage).",
+  "source": "This spell costs {1} less to cast for each creature on the battlefield.\nBlasphemous Act deals 13 damage to each creature.",
+  "spell": [
+   {
+    "damage": {
+     "n": 13,
+     "target": "each-creature-you-control"
+    }
+   }
+  ],
+  "statics": [
+   {
+    "costLess": "count:creatures-you-control",
+    "scope": "this-spell",
+    "text": "This spell costs {1} less to cast for each creature on the battlefield."
+   }
+  ],
+  "status": "hand"
+ },
+ "Blood Crypt": {
+  "name": "Blood Crypt",
+  "source": "({T}: Add {B} or {R}.)\nAs this land enters, you may pay 2 life. If you don't, it enters tapped.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "loseLife": 2
+          }
+         ],
+         "label": "Pay 2 life (untapped)"
+        },
+        {
+         "do": [
+          {
+           "tap": {
+            "target": "self"
+           }
+          }
+         ],
+         "label": "Don't pay (enters tapped)"
+        }
+       ],
+       "text": "As this land enters, you may pay 2 life. If you don't, it enters tapped."
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "As this land enters, you may pay 2 life. If you don't, it enters tapped."
+   }
+  ]
+ },
+ "Bloodstained Mire": {
+  "activated": [
+   {
+    "cost": {
+     "life": 1,
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": {
+        "land": true,
+        "subtype": [
+         "Swamp",
+         "Mountain"
+        ]
+       },
+       "tapped": false
+      }
+     }
+    ],
+    "label": "Fetch",
+    "text": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Swamp or Mountain card, put it onto the battlefield, then shuffle."
+   }
+  ],
+  "name": "Bloodstained Mire",
+  "notes": "Finds any land with the Swamp or Mountain type (basics and duals); it enters untapped.",
+  "source": "{T}, Pay 1 life, Sacrifice this land: Search your library for a Swamp or Mountain card, put it onto the battlefield, then shuffle.",
+  "status": "hand"
+ },
+ "Bojuka Bog": {
+  "name": "Bojuka Bog",
+  "source": "This land enters tapped.\nWhen this land enters, exile target player's graveyard.\n{T}: Add {B}.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   },
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [],
+         "label": "Opponent's graveyard (goldfish: empty)"
+        },
+        {
+         "do": [
+          {
+           "exileFromGy": {
+            "n": "count:cards-in-graveyard"
+           }
+          }
+         ],
+         "label": "My graveyard"
+        }
+       ],
+       "text": "Exile target player's graveyard."
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this land enters, exile target player's graveyard."
+   }
+  ]
+ },
+ "Boseiju, Who Shelters All": {
+  "name": "Boseiju, Who Shelters All",
+  "source": "Boseiju enters tapped.\n{T}, Pay 2 life: Add {C}. If that mana is spent on an instant or sorcery spell, that spell can't be countered.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Boseiju enters tapped."
+   }
+  ]
+ },
+ "Call of the Ring": {
+  "name": "Call of the Ring",
+  "notes": "Choosing a Ring-bearer happens each time the Ring tempts you while you control a creature.",
+  "source": "At the beginning of your upkeep, the Ring tempts you.\nWhenever you choose a creature as your Ring-bearer, you may pay 2 life. If you do, draw a card.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "ringTempt": true
+     }
+    ],
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, the Ring tempts you."
+   },
+   {
+    "cost": {
+     "life": 2
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "if": {
+     "youControl": {
+      "creature": true
+     }
+    },
+    "on": "tempted",
+    "text": "Whenever you choose a creature as your Ring-bearer, you may pay 2 life. If you do, draw a card."
+   }
+  ]
+ },
+ "Cavern of Souls": {
+  "chooseOn": {
+   "enters": {
+    "kind": "creatureType"
+   }
+  },
+  "name": "Cavern of Souls",
+  "source": "As this land enters, choose a creature type.\n{T}: Add {C}.\n{T}: Add one mana of any color. Spend this mana only to cast a creature spell of the chosen type, and that spell can't be countered.",
+  "status": "auto"
+ },
+ "Cavern-Hoard Dragon": {
+  "name": "Cavern-Hoard Dragon",
+  "notes": "Goldfish: the dummy controls no artifacts, so the cost reduction and the Treasure trigger are both 0. Keywords only.",
+  "source": "This spell costs {X} less to cast, where X is the greatest number of artifacts an opponent controls.\nFlying, trample, haste\nWhenever this creature deals combat damage to a player, you create a Treasure token for each artifact that player controls.",
+  "status": "hand"
+ },
+ "Changeling Outcast": {
+  "name": "Changeling Outcast",
+  "notes": "Goldfish: the dummy never blocks, so 'can't block and can't be blocked' changes nothing.",
+  "source": "Changeling (This card is every creature type.)\nThis creature can't block and can't be blocked.",
+  "status": "hand"
+ },
+ "Chromatic Lantern": {
+  "name": "Chromatic Lantern",
+  "source": "Lands you control have \"{T}: Add one mana of any color.\"\n{T}: Add one mana of any color.",
+  "statics": [
+   {
+    "landsProduceAny": true,
+    "text": "Lands you control have \"{T}: Add one mana of any color.\""
+   }
+  ],
+  "status": "hand"
+ },
+ "Commander's Sphere": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "Sacrifice this artifact: Draw a card."
+   }
+  ],
+  "name": "Commander's Sphere",
+  "source": "{T}: Add one mana of any color in your commander's color identity.\nSacrifice this artifact: Draw a card.",
+  "status": "auto"
+ },
+ "Corsairs of Umbar": {
+  "name": "Corsairs of Umbar",
+  "notes": "The {2}{U} unblockable ability is omitted: the dummy never blocks.",
+  "source": "{2}{U}: Target Goblin, Orc, or Pirate can't be blocked this turn.\nWhenever this creature deals combat damage to a player, amass Orcs 3. (Put three +1/+1 counters on an Army you control. It's also an Orc. If you don't control an Army, create a 0/0 black Orc Army creature token first.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "amass": {
+       "n": 3,
+       "type": "Orc"
+      }
+     }
+    ],
+    "on": "combatDamage",
+    "self": true,
+    "text": "Whenever this creature deals combat damage to a player, amass Orcs 3."
+   }
+  ]
+ },
+ "Counterspell": {
+  "name": "Counterspell",
+  "notes": "Silent: countering only matters against an opponent's spell (the dummy casts nothing).",
+  "source": "Counter target spell.",
+  "status": "hand"
+ },
+ "Crumbling Necropolis": {
+  "name": "Crumbling Necropolis",
+  "source": "This land enters tapped.\n{T}: Add {U}, {B}, or {R}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "Cyclonic Rift": {
+  "name": "Cyclonic Rift",
+  "notes": "Only hits permanents you don't control; the dummy has none (overload likewise).",
+  "source": "Return target nonland permanent you don't control to its owner's hand.\nOverload {6}{U} (You may cast this spell for its overload cost. If you do, change \"target\" in its text to \"each.\")",
+  "spell": [
+   {
+    "bounce": {
+     "target": "opponent"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Dark Ritual": {
+  "name": "Dark Ritual",
+  "source": "Add {B}{B}{B}.",
+  "spell": [
+   {
+    "addMana": "{B}{B}{B}"
+   }
+  ],
+  "status": "auto"
+ },
+ "Dragonskull Summit": {
+  "name": "Dragonskull Summit",
+  "source": "This land enters tapped unless you control a Swamp or a Mountain.\n{T}: Add {B} or {R}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Swamp",
+           "Mountain"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control a Swamp or a Mountain."
+   }
+  ]
+ },
+ "Drowned Catacomb": {
+  "name": "Drowned Catacomb",
+  "source": "This land enters tapped unless you control an Island or a Swamp.\n{T}: Add {U} or {B}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Island",
+           "Swamp"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control an Island or a Swamp."
+   }
+  ]
+ },
+ "Exotic Orchard": {
+  "name": "Exotic Orchard",
+  "source": "{T}: Add one mana of any color that a land an opponent controls could produce.",
+  "status": "auto"
+ },
+ "Fact or Fiction": {
+  "name": "Fact or Fiction",
+  "notes": "The dummy can't split piles: take the cards of the pile you want; the rest go to the graveyard.",
+  "source": "Reveal the top five cards of your library. An opponent separates those cards into two piles. Put one pile into your hand and the other into your graveyard.",
+  "spell": [
+   {
+    "lookTop": {
+     "n": 5,
+     "pick": {
+      "n": 5,
+      "to": "hand"
+     },
+     "rest": "gy"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Feed the Swarm": {
+  "name": "Feed the Swarm",
+  "notes": "Only targets an opponent's creature or enchantment; the dummy has none.",
+  "source": "Destroy target creature or enchantment an opponent controls. You lose life equal to that permanent's mana value.",
+  "spell": [
+   {
+    "destroy": {
+     "target": "opponent"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Go for the Throat": {
+  "name": "Go for the Throat",
+  "source": "Destroy target nonartifact creature.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's creature (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "pick": {
+            "creature": true,
+            "not": {
+             "type": "Artifact"
+            }
+           }
+          }
+         }
+        }
+       ],
+       "label": "One of my creatures"
+      }
+     ],
+     "text": "Destroy target nonartifact creature."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Goblin Bombardment": {
+  "activated": [
+   {
+    "cost": {
+     "sac": {
+      "filter": {
+       "creature": true
+      },
+      "n": 1
+     }
+    },
+    "do": [
+     {
+      "damage": {
+       "n": 1,
+       "target": "any"
+      }
+     }
+    ],
+    "label": "Fling 1",
+    "text": "Sacrifice a creature: This enchantment deals 1 damage to any target."
+   }
+  ],
+  "name": "Goblin Bombardment",
+  "source": "Sacrifice a creature: This enchantment deals 1 damage to any target.",
+  "status": "hand"
+ },
+ "Gothmog, Morgul Lieutenant": {
+  "name": "Gothmog, Morgul Lieutenant",
+  "source": "When Gothmog enters, amass Orcs 1. (Put a +1/+1 counter on an Army you control. It's also an Orc. If you don't control an Army, create a 0/0 black Orc Army creature token first.)\nCreature tokens you control have deathtouch.",
+  "statics": [
+   {
+    "filter": {
+     "creature": true
+    },
+    "kw": [
+     "Deathtouch"
+    ],
+    "scope": "tokens-you-control",
+    "text": "Creature tokens you control have deathtouch."
+   }
+  ],
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "amass": {
+       "n": 1,
+       "type": "Orc"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Gothmog enters, amass Orcs 1."
+   }
+  ]
+ },
+ "Grishnákh, Brash Instigator": {
+  "name": "Grishnákh, Brash Instigator",
+  "notes": "The reflexive steal targets an opponent's creature; the dummy has none.",
+  "source": "When Grishnákh enters, amass Orcs 2. When you do, until end of turn, gain control of target nonlegendary creature an opponent controls with power less than or equal to the amassed Army's power. Untap that creature. It gains haste until end of turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "amass": {
+       "n": 2,
+       "type": "Orc"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Grishnákh enters, amass Orcs 2. When you do, until end of turn, gain control of target nonlegendary creature an opponent controls with power less than or equal to the amassed Army's power. Untap that creature. It gains haste until end of turn."
+   }
+  ]
+ },
+ "Inherited Envelope": {
+  "name": "Inherited Envelope",
+  "source": "When this artifact enters, the Ring tempts you.\n{T}: Add one mana of any color.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "ringTempt": true
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this artifact enters, the Ring tempts you."
+   }
+  ]
+ },
+ "Island": {
+  "name": "Island",
+  "source": "({T}: Add {U}.)",
+  "status": "auto"
+ },
+ "Lightning Greaves": {
+  "activated": [
+   {
+    "cost": {},
+    "do": [
+     {
+      "attach": {}
+     }
+    ],
+    "label": "Equip",
+    "limit": "sorcery-speed",
+    "text": "Equip {0}"
+   }
+  ],
+  "name": "Lightning Greaves",
+  "notes": "Equip attaches it; the attached creature has haste and shroud.",
+  "source": "Equipped creature has haste and shroud. (It can't be the target of spells or abilities.)\nEquip {0}",
+  "statics": [
+   {
+    "kw": [
+     "Haste",
+     "Shroud"
+    ],
+    "scope": "attached",
+    "text": "Equipped creature has haste and shroud."
+   },
+   {
+    "p": {
+     "of": "this",
+     "stat": "counters.hone"
+    },
+    "scope": "attached",
+    "text": "Each hone counter on an Equipment grants +1/+0 to equipped creature."
+   }
+  ],
+  "status": "hand"
+ },
+ "Living Death": {
+  "name": "Living Death",
+  "notes": "Your side only (the dummy has no creatures). The graveyard's creature cards are set aside on top of the library above Living Death as a marker, your creatures are sacrificed, then the set-aside cards enter and Living Death goes back to the graveyard.",
+  "source": "Each player exiles all creature cards from their graveyard, then sacrifices all creatures they control, then puts all cards they exiled this way onto the battlefield.",
+  "spell": [
+   {
+    "return": {
+     "filter": {
+      "name": "Living Death"
+     },
+     "from": "gy",
+     "n": 1,
+     "to": "top"
+    }
+   },
+   {
+    "return": {
+     "filter": {
+      "creature": true
+     },
+     "from": "gy",
+     "n": 50,
+     "to": "top"
+    }
+   },
+   {
+    "sacrifice": {
+     "target": {
+      "each": {
+       "creature": true
+      }
+     }
+    }
+   },
+   {
+    "repeat": {
+     "do": [
+      {
+       "revealTop": {
+        "filter": {
+         "creature": true
+        },
+        "n": 1,
+        "rest": "top",
+        "to": "bf"
+       }
+      }
+     ],
+     "times": 50
+    }
+   },
+   {
+    "revealTop": {
+     "filter": {
+      "name": "Living Death"
+     },
+     "n": 1,
+     "rest": "top",
+     "to": "gy"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Lord of the Nazgûl": {
+  "name": "Lord of the Nazgûl",
+  "notes": "Protection from Ring-bearers only matters against opponents' Ring-bearers.",
+  "source": "Flying\nWraiths you control have protection from Ring-bearers.\nWhenever you cast an instant or sorcery spell, create a 3/3 black Wraith creature token with menace. Then if you control nine or more Wraiths, Wraiths you control have base power and toughness 9/9 until end of turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "kw": [
+        "Menace"
+       ],
+       "n": 1,
+       "name": "Wraith",
+       "power": 3,
+       "toughness": 3,
+       "types": [
+        "Creature",
+        "Wraith"
+       ]
+      }
+     },
+     {
+      "check": {
+       "do": [
+        {
+         "setBase": {
+          "p": 9,
+          "t": 9,
+          "target": {
+           "each": {
+            "subtype": "Wraith"
+           }
+          },
+          "until": "eot"
+         }
+        }
+       ],
+       "if": {
+        "countGe": 9,
+        "youControl": {
+         "subtype": "Wraith"
+        }
+       }
+      }
+     }
+    ],
+    "filter": {
+     "type": [
+      "Instant",
+      "Sorcery"
+     ]
+    },
+    "on": "cast",
+    "text": "Whenever you cast an instant or sorcery spell, create a 3/3 black Wraith creature token with menace. Then if you control nine or more Wraiths, Wraiths you control have base power and toughness 9/9 until end of turn."
+   }
+  ]
+ },
+ "Mana Drain": {
+  "name": "Mana Drain",
+  "notes": "Silent: countering only matters against an opponent's spell (the dummy casts nothing).",
+  "source": "Counter target spell. At the beginning of your next main phase, add an amount of {C} equal to that spell's mana value.",
+  "status": "hand"
+ },
+ "Maskwood Nexus": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{3}",
+     "tap": true
+    },
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "U"
+       ],
+       "kw": [
+        "Changeling"
+       ],
+       "n": 1,
+       "name": "Shapeshifter",
+       "power": 2,
+       "toughness": 2,
+       "types": [
+        "Creature",
+        "Shapeshifter"
+       ]
+      }
+     }
+    ],
+    "label": "Shapeshifter",
+    "text": "{3}, {T}: Create a 2/2 blue Shapeshifter creature token with changeling."
+   }
+  ],
+  "name": "Maskwood Nexus",
+  "notes": "Changeling counts for shared-type checks only: subtype filters (\"Wraiths you control\") don't see it, nor do cards off the battlefield.",
+  "source": "Creatures you control are every creature type. The same is true for creature spells you control and creature cards you own that aren't on the battlefield.\n{3}, {T}: Create a 2/2 blue Shapeshifter creature token with changeling. (It is every creature type.)",
+  "statics": [
+   {
+    "kw": [
+     "Changeling"
+    ],
+    "scope": "creatures-you-control",
+    "text": "Creatures you control are every creature type."
+   }
+  ],
+  "status": "hand"
+ },
+ "Mauhúr, Uruk-hai Captain": {
+  "name": "Mauhúr, Uruk-hai Captain",
+  "replace": [
+   {
+    "add": 1,
+    "event": "countersPlaced",
+    "filter": {
+     "subtype": [
+      "Army",
+      "Goblin",
+      "Orc"
+     ]
+    },
+    "kind": "p1p1",
+    "text": "If one or more +1/+1 counters would be put on an Army, Goblin, or Orc you control, that many plus one +1/+1 counters are put on it instead."
+   }
+  ],
+  "source": "Menace\nIf one or more +1/+1 counters would be put on an Army, Goblin, or Orc you control, that many plus one +1/+1 counters are put on it instead.",
+  "status": "hand"
+ },
+ "Mines of Moria": {
+  "activated": [
+   {
+    "cost": {
+     "exileFromGy": {
+      "n": 3
+     },
+     "mana": "{3}{R}",
+     "tap": true
+    },
+    "do": [
+     {
+      "token": {
+       "n": 2,
+       "name": "Treasure",
+       "types": [
+        "Artifact",
+        "Treasure"
+       ]
+      }
+     }
+    ],
+    "label": "Treasures",
+    "text": "{3}{R}, {T}, Exile three cards from your graveyard: Create two Treasure tokens."
+   }
+  ],
+  "name": "Mines of Moria",
+  "source": "Mines of Moria enters tapped unless you control a legendary creature.\n{T}: Add {R}.\n{3}{R}, {T}, Exile three cards from your graveyard: Create two Treasure tokens.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "creature": true,
+          "legendary": true
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Mines of Moria enters tapped unless you control a legendary creature."
+   }
+  ]
+ },
+ "Mirkwood Bats": {
+  "name": "Mirkwood Bats",
+  "notes": "Tapping a Treasure for mana from the board does not emit a sacrifice event: drain 1 by hand then.",
+  "source": "Flying\nWhenever you create or sacrifice a token, each opponent loses 1 life.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "oppLoseLife": "count:event-amount"
+     }
+    ],
+    "on": "tokenCreated",
+    "text": "Whenever you create or sacrifice a token, each opponent loses 1 life."
+   },
+   {
+    "do": [
+     {
+      "oppLoseLife": 1
+     }
+    ],
+    "filter": {
+     "token": true
+    },
+    "on": "sacrificed",
+    "text": "Whenever you create or sacrifice a token, each opponent loses 1 life."
+   }
+  ]
+ },
+ "Mithril Coat": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{3}"
+    },
+    "do": [
+     {
+      "attach": {}
+     }
+    ],
+    "label": "Equip",
+    "limit": "sorcery-speed",
+    "text": "Equip {3}"
+   }
+  ],
+  "name": "Mithril Coat",
+  "source": "Flash\nIndestructible\nWhen Mithril Coat enters, attach it to target legendary creature you control.\nEquipped creature has indestructible.\nEquip {3}",
+  "statics": [
+   {
+    "kw": [
+     "Indestructible"
+    ],
+    "scope": "attached",
+    "text": "Equipped creature has indestructible."
+   }
+  ],
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "attach": {
+       "target": {
+        "n": 1,
+        "pick": {
+         "creature": true,
+         "legendary": true
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When Mithril Coat enters, attach it to target legendary creature you control."
+   }
+  ]
+ },
+ "Moria Scavenger": {
+  "activated": [
+   {
+    "cost": {
+     "discard": {
+      "filter": {
+       "creature": true
+      },
+      "n": 1
+     },
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     },
+     {
+      "amass": {
+       "n": 1,
+       "type": "Orc"
+      }
+     }
+    ],
+    "label": "Loot (discard a creature)",
+    "text": "{T}, Discard a card: Draw a card. If the discarded card was a creature card, amass Orcs 1. (Put a +1/+1 counter on an Army you control. It's also an Orc. If you don't control an Army, create a 0/0 black Orc Army creature token first.)"
+   },
+   {
+    "cost": {
+     "discard": {
+      "filter": {
+       "creature": false
+      },
+      "n": 1
+     },
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "label": "Loot (discard a noncreature)",
+    "text": "{T}, Discard a card: Draw a card. If the discarded card was a creature card, amass Orcs 1. (Put a +1/+1 counter on an Army you control. It's also an Orc. If you don't control an Army, create a 0/0 black Orc Army creature token first.)"
+   }
+  ],
+  "name": "Moria Scavenger",
+  "notes": "One ability, split in two by what you discard: the creature-card version also amasses.",
+  "source": "Deathtouch, haste\n{T}, Discard a card: Draw a card. If the discarded card was a creature card, amass Orcs 1. (Put a +1/+1 counter on an Army you control. It's also an Orc. If you don't control an Army, create a 0/0 black Orc Army creature token first.)",
+  "status": "hand"
+ },
+ "Morphic Pool": {
+  "name": "Morphic Pool",
+  "source": "This land enters tapped unless you have two or more opponents.\n{T}: Add {U} or {B}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you have two or more opponents."
+   }
+  ]
+ },
+ "Mountain": {
+  "name": "Mountain",
+  "source": "({T}: Add {R}.)",
+  "status": "auto"
+ },
+ "Nazgûl": {
+  "name": "Nazgûl",
+  "notes": "Each Nazgûl triggers separately, as on the real table.",
+  "source": "Deathtouch\nWhen this creature enters, the Ring tempts you.\nWhenever the Ring tempts you, put a +1/+1 counter on each Wraith you control.\nA deck can have up to nine cards named Nazgûl.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "ringTempt": true
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, the Ring tempts you."
+   },
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": 1,
+       "target": {
+        "each": {
+         "subtype": "Wraith"
+        }
+       }
+      }
+     }
+    ],
+    "on": "tempted",
+    "text": "Whenever the Ring tempts you, put a +1/+1 counter on each Wraith you control."
+   }
+  ]
+ },
+ "Night's Whisper": {
+  "name": "Night's Whisper",
+  "source": "You draw two cards and lose 2 life.",
+  "spell": [
+   {
+    "draw": 2
+   },
+   {
+    "loseLife": 2
+   }
+  ],
+  "status": "auto"
+ },
+ "Orcish Bowmasters": {
+  "name": "Orcish Bowmasters",
+  "notes": "The dummy never draws extra cards, so only the enters half fires.",
+  "source": "Flash\nWhen this creature enters and whenever an opponent draws a card except the first one they draw in each of their draw steps, this creature deals 1 damage to any target. Then amass Orcs 1.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "damage": {
+       "n": 1,
+       "target": "any"
+      }
+     },
+     {
+      "amass": {
+       "n": 1,
+       "type": "Orc"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "Flash\nWhen this creature enters and whenever an opponent draws a card except the first one they draw in each of their draw steps, this creature deals 1 damage to any target. Then amass Orcs 1."
+   }
+  ]
+ },
+ "Orcish Siegemaster": {
+  "name": "Orcish Siegemaster",
+  "source": "Trample\nOther Orcs and Goblins you control have trample.\nWhenever this creature attacks, it gets +X/+0 until end of turn, where X is the greatest power among creatures you control.",
+  "statics": [
+   {
+    "filter": {
+     "subtype": [
+      "Orc",
+      "Goblin"
+     ]
+    },
+    "kw": [
+     "Trample"
+    ],
+    "scope": "other-creatures-you-control",
+    "text": "Other Orcs and Goblins you control have trample."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "pump": {
+       "p": "greatest:power-you-control",
+       "t": 0,
+       "target": "self"
+      }
+     }
+    ],
+    "on": "attacks",
+    "self": true,
+    "text": "Whenever this creature attacks, it gets +X/+0 until end of turn, where X is the greatest power among creatures you control."
+   }
+  ]
+ },
+ "Phyrexian Tower": {
+  "name": "Phyrexian Tower",
+  "source": "{T}: Add {C}.\n{T}, Sacrifice a creature: Add {B}{B}.",
+  "status": "auto"
+ },
+ "Polluted Delta": {
+  "activated": [
+   {
+    "cost": {
+     "life": 1,
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": {
+        "land": true,
+        "subtype": [
+         "Island",
+         "Swamp"
+        ]
+       },
+       "tapped": false
+      }
+     }
+    ],
+    "label": "Fetch",
+    "text": "{T}, Pay 1 life, Sacrifice this land: Search your library for an Island or Swamp card, put it onto the battlefield, then shuffle."
+   }
+  ],
+  "name": "Polluted Delta",
+  "notes": "Finds any land with the Island or Swamp type (basics and duals); it enters untapped.",
+  "source": "{T}, Pay 1 life, Sacrifice this land: Search your library for an Island or Swamp card, put it onto the battlefield, then shuffle.",
+  "status": "hand"
+ },
+ "Reanimate": {
+  "name": "Reanimate",
+  "notes": "The dummy's graveyard is empty, so it is always your own creature card.",
+  "source": "Put target creature card from a graveyard onto the battlefield under your control. You lose life equal to that card's mana value.",
+  "spell": [
+   {
+    "return": {
+     "filter": {
+      "creature": true
+     },
+     "from": "gy",
+     "to": "bf"
+    }
+   },
+   {
+    "loseLife": {
+     "of": "target",
+     "stat": "mv"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Reflecting Pool": {
+  "name": "Reflecting Pool",
+  "source": "{T}: Add one mana of any type that a land you control could produce.",
+  "status": "auto"
+ },
+ "Relic of Sauron": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{3}",
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 2
+     },
+     {
+      "discard": 1
+     }
+    ],
+    "text": "{3}, {T}: Draw two cards, then discard a card."
+   }
+  ],
+  "name": "Relic of Sauron",
+  "source": "{T}: Add two mana in any combination of {U}, {B}, and/or {R}.\n{3}, {T}: Draw two cards, then discard a card.",
+  "status": "auto"
+ },
+ "Ringsight": {
+  "name": "Ringsight",
+  "notes": "The search filter is the union of the colours of your legendary creatures (nothing can be found without one).",
+  "source": "The Ring tempts you. Search your library for a card that shares a color with a legendary creature you control, reveal it, put it into your hand, then shuffle.",
+  "spell": [
+   {
+    "ringTempt": true
+   },
+   {
+    "check": {
+     "do": [
+      {
+       "check": {
+        "do": [
+         {
+          "check": {
+           "do": [
+            {
+             "check": {
+              "do": [
+               {
+                "check": {
+                 "do": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "W",
+                      "U",
+                      "B",
+                      "R",
+                      "G"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "else": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "W",
+                      "U",
+                      "B",
+                      "R"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "if": {
+                  "youControl": {
+                   "colors": [
+                    "G"
+                   ],
+                   "creature": true,
+                   "legendary": true
+                  }
+                 }
+                }
+               }
+              ],
+              "else": [
+               {
+                "check": {
+                 "do": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "W",
+                      "U",
+                      "B",
+                      "G"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "else": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "W",
+                      "U",
+                      "B"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "if": {
+                  "youControl": {
+                   "colors": [
+                    "G"
+                   ],
+                   "creature": true,
+                   "legendary": true
+                  }
+                 }
+                }
+               }
+              ],
+              "if": {
+               "youControl": {
+                "colors": [
+                 "R"
+                ],
+                "creature": true,
+                "legendary": true
+               }
+              }
+             }
+            }
+           ],
+           "else": [
+            {
+             "check": {
+              "do": [
+               {
+                "check": {
+                 "do": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "W",
+                      "U",
+                      "R",
+                      "G"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "else": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "W",
+                      "U",
+                      "R"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "if": {
+                  "youControl": {
+                   "colors": [
+                    "G"
+                   ],
+                   "creature": true,
+                   "legendary": true
+                  }
+                 }
+                }
+               }
+              ],
+              "else": [
+               {
+                "check": {
+                 "do": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "W",
+                      "U",
+                      "G"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "else": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "W",
+                      "U"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "if": {
+                  "youControl": {
+                   "colors": [
+                    "G"
+                   ],
+                   "creature": true,
+                   "legendary": true
+                  }
+                 }
+                }
+               }
+              ],
+              "if": {
+               "youControl": {
+                "colors": [
+                 "R"
+                ],
+                "creature": true,
+                "legendary": true
+               }
+              }
+             }
+            }
+           ],
+           "if": {
+            "youControl": {
+             "colors": [
+              "B"
+             ],
+             "creature": true,
+             "legendary": true
+            }
+           }
+          }
+         }
+        ],
+        "else": [
+         {
+          "check": {
+           "do": [
+            {
+             "check": {
+              "do": [
+               {
+                "check": {
+                 "do": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "W",
+                      "B",
+                      "R",
+                      "G"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "else": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "W",
+                      "B",
+                      "R"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "if": {
+                  "youControl": {
+                   "colors": [
+                    "G"
+                   ],
+                   "creature": true,
+                   "legendary": true
+                  }
+                 }
+                }
+               }
+              ],
+              "else": [
+               {
+                "check": {
+                 "do": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "W",
+                      "B",
+                      "G"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "else": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "W",
+                      "B"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "if": {
+                  "youControl": {
+                   "colors": [
+                    "G"
+                   ],
+                   "creature": true,
+                   "legendary": true
+                  }
+                 }
+                }
+               }
+              ],
+              "if": {
+               "youControl": {
+                "colors": [
+                 "R"
+                ],
+                "creature": true,
+                "legendary": true
+               }
+              }
+             }
+            }
+           ],
+           "else": [
+            {
+             "check": {
+              "do": [
+               {
+                "check": {
+                 "do": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "W",
+                      "R",
+                      "G"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "else": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "W",
+                      "R"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "if": {
+                  "youControl": {
+                   "colors": [
+                    "G"
+                   ],
+                   "creature": true,
+                   "legendary": true
+                  }
+                 }
+                }
+               }
+              ],
+              "else": [
+               {
+                "check": {
+                 "do": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "W",
+                      "G"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "else": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "W"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "if": {
+                  "youControl": {
+                   "colors": [
+                    "G"
+                   ],
+                   "creature": true,
+                   "legendary": true
+                  }
+                 }
+                }
+               }
+              ],
+              "if": {
+               "youControl": {
+                "colors": [
+                 "R"
+                ],
+                "creature": true,
+                "legendary": true
+               }
+              }
+             }
+            }
+           ],
+           "if": {
+            "youControl": {
+             "colors": [
+              "B"
+             ],
+             "creature": true,
+             "legendary": true
+            }
+           }
+          }
+         }
+        ],
+        "if": {
+         "youControl": {
+          "colors": [
+           "U"
+          ],
+          "creature": true,
+          "legendary": true
+         }
+        }
+       }
+      }
+     ],
+     "else": [
+      {
+       "check": {
+        "do": [
+         {
+          "check": {
+           "do": [
+            {
+             "check": {
+              "do": [
+               {
+                "check": {
+                 "do": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "U",
+                      "B",
+                      "R",
+                      "G"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "else": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "U",
+                      "B",
+                      "R"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "if": {
+                  "youControl": {
+                   "colors": [
+                    "G"
+                   ],
+                   "creature": true,
+                   "legendary": true
+                  }
+                 }
+                }
+               }
+              ],
+              "else": [
+               {
+                "check": {
+                 "do": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "U",
+                      "B",
+                      "G"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "else": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "U",
+                      "B"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "if": {
+                  "youControl": {
+                   "colors": [
+                    "G"
+                   ],
+                   "creature": true,
+                   "legendary": true
+                  }
+                 }
+                }
+               }
+              ],
+              "if": {
+               "youControl": {
+                "colors": [
+                 "R"
+                ],
+                "creature": true,
+                "legendary": true
+               }
+              }
+             }
+            }
+           ],
+           "else": [
+            {
+             "check": {
+              "do": [
+               {
+                "check": {
+                 "do": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "U",
+                      "R",
+                      "G"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "else": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "U",
+                      "R"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "if": {
+                  "youControl": {
+                   "colors": [
+                    "G"
+                   ],
+                   "creature": true,
+                   "legendary": true
+                  }
+                 }
+                }
+               }
+              ],
+              "else": [
+               {
+                "check": {
+                 "do": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "U",
+                      "G"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "else": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "U"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "if": {
+                  "youControl": {
+                   "colors": [
+                    "G"
+                   ],
+                   "creature": true,
+                   "legendary": true
+                  }
+                 }
+                }
+               }
+              ],
+              "if": {
+               "youControl": {
+                "colors": [
+                 "R"
+                ],
+                "creature": true,
+                "legendary": true
+               }
+              }
+             }
+            }
+           ],
+           "if": {
+            "youControl": {
+             "colors": [
+              "B"
+             ],
+             "creature": true,
+             "legendary": true
+            }
+           }
+          }
+         }
+        ],
+        "else": [
+         {
+          "check": {
+           "do": [
+            {
+             "check": {
+              "do": [
+               {
+                "check": {
+                 "do": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "B",
+                      "R",
+                      "G"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "else": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "B",
+                      "R"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "if": {
+                  "youControl": {
+                   "colors": [
+                    "G"
+                   ],
+                   "creature": true,
+                   "legendary": true
+                  }
+                 }
+                }
+               }
+              ],
+              "else": [
+               {
+                "check": {
+                 "do": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "B",
+                      "G"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "else": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "B"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "if": {
+                  "youControl": {
+                   "colors": [
+                    "G"
+                   ],
+                   "creature": true,
+                   "legendary": true
+                  }
+                 }
+                }
+               }
+              ],
+              "if": {
+               "youControl": {
+                "colors": [
+                 "R"
+                ],
+                "creature": true,
+                "legendary": true
+               }
+              }
+             }
+            }
+           ],
+           "else": [
+            {
+             "check": {
+              "do": [
+               {
+                "check": {
+                 "do": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "R",
+                      "G"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "else": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "R"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "if": {
+                  "youControl": {
+                   "colors": [
+                    "G"
+                   ],
+                   "creature": true,
+                   "legendary": true
+                  }
+                 }
+                }
+               }
+              ],
+              "else": [
+               {
+                "check": {
+                 "do": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "colors": [
+                      "G"
+                     ]
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "else": [
+                  {
+                   "tutor": {
+                    "filter": {
+                     "land": true,
+                     "nonland": true
+                    },
+                    "to": "hand"
+                   }
+                  }
+                 ],
+                 "if": {
+                  "youControl": {
+                   "colors": [
+                    "G"
+                   ],
+                   "creature": true,
+                   "legendary": true
+                  }
+                 }
+                }
+               }
+              ],
+              "if": {
+               "youControl": {
+                "colors": [
+                 "R"
+                ],
+                "creature": true,
+                "legendary": true
+               }
+              }
+             }
+            }
+           ],
+           "if": {
+            "youControl": {
+             "colors": [
+              "B"
+             ],
+             "creature": true,
+             "legendary": true
+            }
+           }
+          }
+         }
+        ],
+        "if": {
+         "youControl": {
+          "colors": [
+           "U"
+          ],
+          "creature": true,
+          "legendary": true
+         }
+        }
+       }
+      }
+     ],
+     "if": {
+      "youControl": {
+       "colors": [
+        "W"
+       ],
+       "creature": true,
+       "legendary": true
+      }
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Saruman, the White Hand": {
+  "name": "Saruman, the White Hand",
+  "notes": "Ward {2} only matters against opponents.",
+  "source": "Whenever you cast a noncreature spell, amass Orcs X, where X is that spell's mana value. (Put X +1/+1 counters on an Army you control. It's also an Orc. If you don't control an Army, create a 0/0 black Orc Army creature token first.)\nGoblins and Orcs you control have ward {2}.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "amass": {
+       "n": {
+        "of": "triggering",
+        "stat": "mv"
+       },
+       "type": "Orc"
+      }
+     }
+    ],
+    "filter": {
+     "noncreature": true
+    },
+    "on": "cast",
+    "text": "Whenever you cast a noncreature spell, amass Orcs X, where X is that spell's mana value."
+   }
+  ]
+ },
+ "Sauron's Ransom": {
+  "name": "Sauron's Ransom",
+  "notes": "The dummy can't split piles: take the cards of the pile you want; the rest go to the graveyard.",
+  "source": "Choose an opponent. They look at the top four cards of your library and separate them into a face-down pile and a face-up pile. Put one pile into your hand and the other into your graveyard. The Ring tempts you.",
+  "spell": [
+   {
+    "lookTop": {
+     "n": 4,
+     "pick": {
+      "n": 4,
+      "to": "hand"
+     },
+     "rest": "gy"
+    }
+   },
+   {
+    "ringTempt": true
+   }
+  ],
+  "status": "hand"
+ },
+ "Sauron, Lord of the Rings": {
+  "name": "Sauron, Lord of the Rings",
+  "notes": "An opponent's commander never dies in goldfish, so the Ring trigger never fires.",
+  "source": "When you cast this spell, amass Orcs 5, mill five cards, then return a creature card from your graveyard to the battlefield.\nTrample\nWhenever a commander an opponent controls dies, the Ring tempts you.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "amass": {
+       "n": 5,
+       "type": "Orc"
+      }
+     },
+     {
+      "mill": 5
+     },
+     {
+      "return": {
+       "filter": {
+        "creature": true
+       },
+       "from": "gy",
+       "to": "bf"
+      }
+     }
+    ],
+    "on": "cast",
+    "self": true,
+    "text": "When you cast this spell, amass Orcs 5, mill five cards, then return a creature card from your graveyard to the battlefield."
+   }
+  ]
+ },
+ "Sauron, the Dark Lord": {
+  "name": "Sauron, the Dark Lord",
+  "notes": "The dummy never casts spells (no amass on opponents' spells); ward only matters against opponents.",
+  "source": "Ward—Sacrifice a legendary artifact or legendary creature.\nWhenever an opponent casts a spell, amass Orcs 1.\nWhenever an Army you control deals combat damage to a player, the Ring tempts you.\nWhenever the Ring tempts you, you may discard your hand. If you do, draw four cards.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "ringTempt": true
+     }
+    ],
+    "filter": {
+     "subtype": "Army"
+    },
+    "on": "combatDamage",
+    "text": "Whenever an Army you control deals combat damage to a player, the Ring tempts you."
+   },
+   {
+    "do": [
+     {
+      "discard": "count:cards-in-hand"
+     },
+     {
+      "draw": 4
+     }
+    ],
+    "on": "tempted",
+    "optional": true,
+    "text": "Whenever the Ring tempts you, you may discard your hand. If you do, draw four cards."
+   }
+  ]
+ },
+ "Sauron, the Lidless Eye": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}{B}{R}"
+    },
+    "do": [
+     {
+      "pump": {
+       "p": 2,
+       "t": 0,
+       "target": "each-creature-you-control"
+      }
+     },
+     {
+      "oppLoseLife": 2
+     }
+    ],
+    "label": "Pump + drain",
+    "text": "{1}{B}{R}: Creatures you control get +2/+0 until end of turn. Each opponent loses 2 life."
+   }
+  ],
+  "name": "Sauron, the Lidless Eye",
+  "notes": "The enters trigger steals an opponent's creature; the dummy has none.",
+  "source": "When Sauron enters, gain control of target creature an opponent controls until end of turn. Untap it. It gains haste until end of turn.\n{1}{B}{R}: Creatures you control get +2/+0 until end of turn. Each opponent loses 2 life.",
+  "status": "hand"
+ },
+ "Scalding Tarn": {
+  "activated": [
+   {
+    "cost": {
+     "life": 1,
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": {
+        "land": true,
+        "subtype": [
+         "Island",
+         "Mountain"
+        ]
+       },
+       "tapped": false
+      }
+     }
+    ],
+    "label": "Fetch",
+    "text": "{T}, Pay 1 life, Sacrifice this land: Search your library for an Island or Mountain card, put it onto the battlefield, then shuffle."
+   }
+  ],
+  "name": "Scalding Tarn",
+  "notes": "Finds any land with the Island or Mountain type (basics and duals); it enters untapped.",
+  "source": "{T}, Pay 1 life, Sacrifice this land: Search your library for an Island or Mountain card, put it onto the battlefield, then shuffle.",
+  "status": "hand"
+ },
+ "Shadowspear": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}"
+    },
+    "do": [
+     {
+      "attach": {}
+     }
+    ],
+    "label": "Equip",
+    "limit": "sorcery-speed",
+    "text": "Equip {2}"
+   }
+  ],
+  "name": "Shadowspear",
+  "notes": "The {1} ability only affects opponents' permanents; omitted.",
+  "source": "Equipped creature gets +1/+1 and has trample and lifelink.\n{1}: Permanents your opponents control lose hexproof and indestructible until end of turn.\nEquip {2}",
+  "statics": [
+   {
+    "kw": [
+     "Trample",
+     "Lifelink"
+    ],
+    "p": 1,
+    "scope": "attached",
+    "t": 1,
+    "text": "Equipped creature gets +1/+1 and has trample and lifelink."
+   }
+  ],
+  "status": "hand"
+ },
+ "Sol Ring": {
+  "name": "Sol Ring",
+  "source": "{T}: Add {C}{C}.",
+  "status": "auto"
+ },
+ "Sulfur Falls": {
+  "name": "Sulfur Falls",
+  "source": "This land enters tapped unless you control an Island or a Mountain.\n{T}: Add {U} or {R}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Island",
+           "Mountain"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control an Island or a Mountain."
+   }
+  ]
+ },
+ "Summons of Saruman": {
+  "name": "Summons of Saruman",
+  "source": "Amass Orcs X. Mill X cards. You may cast an instant or sorcery spell with mana value X or less from among them without paying its mana cost. (To amass Orcs X, put X +1/+1 counters on an Army you control. It's also an Orc. If you don't control an Army, create a 0/0 black Orc Army creature token first.)\nFlashback—{3}{U}{R}, Exile X cards from your graveyard.",
+  "spell": [
+   {
+    "amass": {
+     "n": "X",
+     "type": "Orc"
+    }
+   },
+   {
+    "mill": "X"
+   },
+   {
+    "prompt": "You may cast an instant or sorcery spell with mana value X or less from among them without paying its mana cost."
+   }
+  ],
+  "status": "auto"
+ },
+ "Swamp": {
+  "name": "Swamp",
+  "source": "({T}: Add {B}.)",
+  "status": "auto"
+ },
+ "Terramorphic Expanse": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": "basic",
+       "tapped": true
+      }
+     }
+    ],
+    "text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle."
+   }
+  ],
+  "name": "Terramorphic Expanse",
+  "source": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+  "status": "auto"
+ },
+ "The Balrog of Moria": {
+  "cycling": "{3}{R}",
+  "name": "The Balrog of Moria",
+  "notes": "Silent part: the dies trigger only exiles opponents' creatures (the dummy has none).",
+  "source": "Trample, haste\nWhen The Balrog of Moria dies, you may exile it. When you do, for each opponent, exile up to one target creature that player controls.\nCycling {3}{R} ({3}{R}, Discard this card: Draw a card.)\nWhen you cycle this card, create two Treasure tokens.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "n": 2,
+       "name": "Treasure",
+       "types": [
+        "Artifact",
+        "Treasure"
+       ]
+      }
+     }
+    ],
+    "on": "cycled",
+    "self": true,
+    "text": "When you cycle this card, create two Treasure tokens.",
+    "zone": "gy"
+   }
+  ]
+ },
+ "The Balrog, Durin's Bane": {
+  "name": "The Balrog, Durin's Bane",
+  "notes": "Evasion and the dies trigger only matter against an opponent's permanents.",
+  "source": "This spell costs {1} less to cast for each permanent sacrificed this turn.\nHaste\nThe Balrog can't be blocked except by legendary creatures.\nWhen The Balrog dies, destroy target artifact or creature an opponent controls.",
+  "statics": [
+   {
+    "prompt": "This spell costs {1} less to cast for each permanent sacrificed this turn."
+   }
+  ],
+  "status": "hand"
+ },
+ "The Black Gate": {
+  "name": "The Black Gate",
+  "notes": "The {1}{B} evasion ability is omitted: the dummy never blocks.",
+  "source": "As The Black Gate enters, you may pay 3 life. If you don't, it enters tapped.\n{T}: Add {B}.\n{1}{B}, {T}: Choose a player with the most life or tied for most life. Target creature can't be blocked by creatures that player controls this turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "loseLife": 3
+          }
+         ],
+         "label": "Pay 3 life (untapped)"
+        },
+        {
+         "do": [
+          {
+           "tap": {
+            "target": "self"
+           }
+          }
+         ],
+         "label": "Don't pay (enters tapped)"
+        }
+       ],
+       "text": "As The Black Gate enters, you may pay 3 life. If you don't, it enters tapped."
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "As The Black Gate enters, you may pay 3 life. If you don't, it enters tapped."
+   }
+  ]
+ },
+ "The One Ring": {
+  "activated": [
+   {
+    "cost": {
+     "tap": true
+    },
+    "do": [
+     {
+      "counters": {
+       "kind": "burden",
+       "n": 1,
+       "target": "self"
+      }
+     },
+     {
+      "draw": {
+       "of": "this",
+       "stat": "counters.burden"
+      }
+     }
+    ],
+    "label": "Burden",
+    "text": "{T}: Put a burden counter on The One Ring, then draw a card for each burden counter on The One Ring."
+   }
+  ],
+  "name": "The One Ring",
+  "notes": "Protection from everything only matters against an opponent.",
+  "source": "Indestructible\nWhen The One Ring enters, if you cast it, you gain protection from everything until your next turn.\nAt the beginning of your upkeep, you lose 1 life for each burden counter on The One Ring.\n{T}: Put a burden counter on The One Ring, then draw a card for each burden counter on The One Ring.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "loseLife": {
+       "of": "this",
+       "stat": "counters.burden"
+      }
+     }
+    ],
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, you lose 1 life for each burden counter on The One Ring."
+   }
+  ]
+ },
+ "The Ozolith": {
+  "name": "The Ozolith",
+  "notes": "Only +1/+1 counters are collected and moved (other kinds are not).",
+  "source": "Whenever a creature you control leaves the battlefield, if it had counters on it, put those counters on The Ozolith.\nAt the beginning of combat on your turn, if The Ozolith has counters on it, you may move all counters from The Ozolith onto target creature.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "p1p1",
+       "n": {
+        "of": "triggering",
+        "stat": "counters.p1p1"
+       },
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "creature": true,
+     "not": {
+      "noCounters": {}
+     }
+    },
+    "on": "leaves",
+    "text": "Whenever a creature you control leaves the battlefield, if it had counters on it, put those counters on The Ozolith."
+   },
+   {
+    "do": [
+     {
+      "moveCounters": {
+       "from": "self",
+       "kind": "p1p1",
+       "n": "all",
+       "to": "creature-you-control"
+      }
+     }
+    ],
+    "if": {
+     "counters": {
+      "ge": 1,
+      "kind": "p1p1"
+     }
+    },
+    "on": "beginCombat",
+    "optional": true,
+    "text": "At the beginning of combat on your turn, if The Ozolith has counters on it, you may move all counters from The Ozolith onto target creature."
+   }
+  ]
+ },
+ "The Reaver Cleaver": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{3}"
+    },
+    "do": [
+     {
+      "attach": {}
+     }
+    ],
+    "label": "Equip",
+    "limit": "sorcery-speed",
+    "text": "Equip {3}"
+   }
+  ],
+  "name": "The Reaver Cleaver",
+  "source": "Equipped creature gets +1/+1 and has trample and \"Whenever this creature deals combat damage to a player or planeswalker, create that many Treasure tokens.\"\nEquip {3}",
+  "statics": [
+   {
+    "kw": [
+     "Trample"
+    ],
+    "p": 1,
+    "scope": "attached",
+    "t": 1,
+    "text": "Equipped creature gets +1/+1 and has trample and \"Whenever this creature deals combat damage to a player or planeswalker, create that many Treasure tokens.\""
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "token": {
+       "n": "count:event-amount",
+       "name": "Treasure",
+       "types": [
+        "Artifact",
+        "Treasure"
+       ]
+      }
+     }
+    ],
+    "filter": {
+     "attachedToThis": true
+    },
+    "on": "combatDamage",
+    "text": "Whenever this creature deals combat damage to a player or planeswalker, create that many Treasure tokens."
+   }
+  ]
+ },
+ "Thrill of Possibility": {
+  "name": "Thrill of Possibility",
+  "notes": "The discard is an additional cost; it is taken on resolution.",
+  "source": "As an additional cost to cast this spell, discard a card.\nDraw two cards.",
+  "spell": [
+   {
+    "discard": 1
+   },
+   {
+    "draw": 2
+   }
+  ],
+  "status": "hand"
+ },
+ "Toxic Deluge": {
+  "name": "Toxic Deluge",
+  "source": "As an additional cost to cast this spell, pay X life.\nAll creatures get -X/-X until end of turn.",
+  "spell": [
+   {
+    "loseLife": "X"
+   },
+   {
+    "pump": {
+     "p": "-X",
+     "t": "-X",
+     "target": {
+      "each": {
+       "creature": true
+      }
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Underground River": {
+  "name": "Underground River",
+  "source": "{T}: Add {C}.\n{T}: Add {U} or {B}. This land deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Underground Sea": {
+  "name": "Underground Sea",
+  "source": "({T}: Add {U} or {B}.)",
+  "status": "auto"
+ },
+ "Urborg, Tomb of Yawgmoth": {
+  "name": "Urborg, Tomb of Yawgmoth",
+  "notes": "Lands also tap for {B}; they do not get the Swamp subtype for filters.",
+  "source": "Each land is a Swamp in addition to its other land types.",
+  "statics": [
+   {
+    "landsAreSwamps": true,
+    "text": "Each land is a Swamp in addition to its other land types."
+   }
+  ],
+  "status": "hand"
+ },
+ "Vampiric Tutor": {
+  "name": "Vampiric Tutor",
+  "source": "Search your library for a card, then shuffle and put that card on top. You lose 2 life.",
+  "spell": [
+   {
+    "tutor": {
+     "to": "top"
+    }
+   },
+   {
+    "loseLife": 2
+   }
+  ],
+  "status": "hand"
+ },
+ "Volcanic Island": {
+  "name": "Volcanic Island",
+  "source": "({T}: Add {U} or {R}.)",
+  "status": "auto"
+ },
+ "Warren Soultrader": {
+  "activated": [
+   {
+    "cost": {
+     "life": 1,
+     "sac": {
+      "filter": {
+       "creature": true,
+       "other": true
+      },
+      "n": 1
+     }
+    },
+    "do": [
+     {
+      "token": {
+       "n": 1,
+       "name": "Treasure",
+       "types": [
+        "Artifact",
+        "Treasure"
+       ]
+      }
+     }
+    ],
+    "label": "Treasure",
+    "text": "Pay 1 life, Sacrifice another creature: Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")"
+   }
+  ],
+  "name": "Warren Soultrader",
+  "source": "Pay 1 life, Sacrifice another creature: Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+  "status": "hand"
+ },
+ "Watery Grave": {
+  "name": "Watery Grave",
+  "source": "({T}: Add {U} or {B}.)\nAs this land enters, you may pay 2 life. If you don't, it enters tapped.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "loseLife": 2
+          }
+         ],
+         "label": "Pay 2 life (untapped)"
+        },
+        {
+         "do": [
+          {
+           "tap": {
+            "target": "self"
+           }
+          }
+         ],
+         "label": "Don't pay (enters tapped)"
+        }
+       ],
+       "text": "As this land enters, you may pay 2 life. If you don't, it enters tapped."
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "As this land enters, you may pay 2 life. If you don't, it enters tapped."
+   }
+  ]
+ },
+ "Wayfarer's Bauble": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}",
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": "basic",
+       "tapped": true
+      }
+     }
+    ],
+    "text": "{2}, {T}, Sacrifice this artifact: Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle."
+   }
+  ],
+  "name": "Wayfarer's Bauble",
+  "source": "{2}, {T}, Sacrifice this artifact: Search your library for a basic land card, put that card onto the battlefield tapped, then shuffle.",
+  "status": "auto"
+ },
+ "Witch-king of Angmar": {
+  "activated": [
+   {
+    "cost": {},
+    "do": [
+     {
+      "discard": 1
+     },
+     {
+      "grant": {
+       "kw": [
+        "Indestructible"
+       ],
+       "target": "self"
+      }
+     },
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "label": "Indestructible",
+    "text": "Discard a card: Witch-king of Angmar gains indestructible until end of turn. Tap him."
+   }
+  ],
+  "name": "Witch-king of Angmar",
+  "notes": "The dummy's creatures never deal combat damage to you, so the sacrifice/Ring trigger never fires.",
+  "source": "Flying\nWhenever one or more creatures deal combat damage to you, each opponent sacrifices a creature of their choice that dealt combat damage to you this turn. The Ring tempts you.\nDiscard a card: Witch-king of Angmar gains indestructible until end of turn. Tap him.",
+  "status": "hand"
+ },
+ "Withering Torment": {
+  "name": "Withering Torment",
+  "source": "Destroy target creature or enchantment. You lose 2 life.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's permanent (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "pick": {
+            "type": [
+             "Creature",
+             "Enchantment"
+            ]
+           }
+          }
+         }
+        }
+       ],
+       "label": "One of my permanents"
+      }
+     ],
+     "text": "Destroy target creature or enchantment."
+    }
+   },
+   {
+    "loseLife": 2
+   }
+  ],
+  "status": "hand"
+ }
+}
