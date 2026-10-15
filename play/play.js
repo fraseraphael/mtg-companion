@@ -159,6 +159,8 @@ export function boot(deck) {
   KEY = 'mf-play:' + (deck.slug || 'deck');
   BEST_KEY = 'mf-play-best:' + (deck.slug || 'deck');
   if (deck.name) document.title = `${deck.name} · Play — Manaforge`;
+  const backBtn = document.getElementById('backBtn');
+  if (backBtn && deck.slug) backBtn.href = '../app.html#/deck/' + encodeURIComponent(deck.slug);
   const handed = handFromUrl(deck);
   G = E.createGame(deck, handed || {});
   if (!handed) restore(); // a hand from the URL (Practice → "Play it out") always starts a fresh game

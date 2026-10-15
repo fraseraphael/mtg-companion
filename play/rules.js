@@ -1056,8 +1056,8 @@ export function attachRules(game, bundle = {}) {
   function removePerm(u, zone, whole) {
     const p = onBf(u);
     if (!p) return;
-    if (p.tok && (p.n || 1) > 1 && !whole) { const r = game.splitToken(u); if (r.ok) u = r.uid; }
-    game.move(u, zone);
+    // the engine's move() now takes ONE token off a stack by default; "each"/all:true takes the stack
+    game.move(u, zone, { all: !!whole });
   }
   function sacrificePerm(u, whole) {
     const p = onBf(u);

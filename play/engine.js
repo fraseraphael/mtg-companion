@@ -849,7 +849,7 @@ class Game {
 
   // to: 'hand'|'bf'|'gy'|'ex'|'cz'|'lib' ('libtop' = lib with top:true). Tokens and copy markers
   // cease to exist when they leave the battlefield (copies of permanents are tokens in real rules).
-  move(uid, to, { top = false, flip = false } = {}) {
+  move(uid, to, { top = false, flip = false, all = false } = {}) {
     if (to === 'libtop') { to = 'lib'; top = true; }
     if (to === 'libbottom') to = 'lib';
     if (!ZONES.includes(to)) return { ok: false, reason: 'bad zone' };
@@ -862,6 +862,16 @@ class Game {
     s.zones[f.zone].splice(f.index, 1);
     s.attackers = s.attackers.filter(u => u !== uid);
     if (f.zone === 'bf' && (e.tok || e.copy)) {
+      // A stack of identical tokens is one entry with a count: moving "the token" takes ONE off the
+      // stack unless the caller says all:true. (Sacrificing one Zombie out of six used to wipe all six.)
+      if (e.tok && (e.n || 1) > 1 && !all) {
+        s.zones.bf.splice(f.index, 0, e); // put the stack back
+        e.n -= 1;
+        const gone = { ...JSON.parse(JSON.stringify(e)), n: 1 };
+        this._log(`One ${e.name} token left the battlefield and ceased to exist (${e.n} remain).`);
+        this._emitLeaves(gone, to);
+        return { ok: true, vanished: true, remaining: e.n };
+      }
       this._log(`${e.name} ${e.tok ? 'token' : 'copy'} left the battlefield and ceased to exist.`);
       this._emitLeaves(e, to);
       return { ok: true, vanished: true };
