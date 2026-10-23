@@ -1311,12 +1311,13 @@
    ],
    "legendary": false,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/8/4/848c1951-90fa-4f01-9aed-76f1afcd9995.jpg?1783903774",
-    "normal": "https://cards.scryfall.io/normal/front/8/4/848c1951-90fa-4f01-9aed-76f1afcd9995.jpg?1783903774",
-    "art": "https://cards.scryfall.io/art_crop/front/8/4/848c1951-90fa-4f01-9aed-76f1afcd9995.jpg?1783903774"
+    "small": "https://cards.scryfall.io/small/front/1/1/1183d4d7-094b-4024-ab1d-23c458cb7e71.jpg?1783909715",
+    "normal": "https://cards.scryfall.io/normal/front/1/1/1183d4d7-094b-4024-ab1d-23c458cb7e71.jpg?1783909715",
+    "art": "https://cards.scryfall.io/art_crop/front/1/1/1183d4d7-094b-4024-ab1d-23c458cb7e71.jpg?1783909715"
    },
    "power": "4",
-   "toughness": "4"
+   "toughness": "4",
+   "printing": "sld/1780"
   },
   "Greater Good": {
    "name": "Greater Good",

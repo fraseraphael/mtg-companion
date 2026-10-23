@@ -664,10 +664,11 @@
    ],
    "legendary": false,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.jpg?1789644435",
-    "normal": "https://cards.scryfall.io/normal/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.jpg?1789644435",
-    "art": "https://cards.scryfall.io/art_crop/front/c/6/c6b6117c-faab-4bbb-b851-07bd8061ef03.jpg?1789644435"
-   }
+    "small": "https://cards.scryfall.io/small/front/e/2/e209610d-bd1f-4f81-9a88-a6d8a43fe1c7.jpg?1783902773",
+    "normal": "https://cards.scryfall.io/normal/front/e/2/e209610d-bd1f-4f81-9a88-a6d8a43fe1c7.jpg?1783902773",
+    "art": "https://cards.scryfall.io/art_crop/front/e/2/e209610d-bd1f-4f81-9a88-a6d8a43fe1c7.jpg?1783902773"
+   },
+   "printing": "hoc/95"
   },
   "Avatar's Wrath": {
    "name": "Avatar's Wrath",
@@ -1910,10 +1911,11 @@
    ],
    "legendary": false,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/8/e/8ee443cc-e17a-493b-9c93-1f9e141a30e4.jpg?1789644446",
-    "normal": "https://cards.scryfall.io/normal/front/8/e/8ee443cc-e17a-493b-9c93-1f9e141a30e4.jpg?1789644446",
-    "art": "https://cards.scryfall.io/art_crop/front/8/e/8ee443cc-e17a-493b-9c93-1f9e141a30e4.jpg?1789644446"
-   }
+    "small": "https://cards.scryfall.io/small/front/2/4/2418af21-7be9-4dec-8be6-4d0bcf84a7ca.jpg?1783903427",
+    "normal": "https://cards.scryfall.io/normal/front/2/4/2418af21-7be9-4dec-8be6-4d0bcf84a7ca.jpg?1783903427",
+    "art": "https://cards.scryfall.io/art_crop/front/2/4/2418af21-7be9-4dec-8be6-4d0bcf84a7ca.jpg?1783903427"
+   },
+   "printing": "sld/2417"
   },
   "Southern Air Temple": {
    "name": "Southern Air Temple",
@@ -2150,10 +2152,11 @@
    "produced_mana": [],
    "legendary": false,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/4/8/483fa1cb-1e35-44f2-a143-98c0f107f5ca.jpg?1783921926",
-    "normal": "https://cards.scryfall.io/normal/front/4/8/483fa1cb-1e35-44f2-a143-98c0f107f5ca.jpg?1783921926",
-    "art": "https://cards.scryfall.io/art_crop/front/4/8/483fa1cb-1e35-44f2-a143-98c0f107f5ca.jpg?1783921926"
-   }
+    "small": "https://cards.scryfall.io/small/front/b/7/b7210c3a-bbd3-4f3a-933b-a5618a4f7a52.jpg?1783912449",
+    "normal": "https://cards.scryfall.io/normal/front/b/7/b7210c3a-bbd3-4f3a-933b-a5618a4f7a52.jpg?1783912449",
+    "art": "https://cards.scryfall.io/art_crop/front/b/7/b7210c3a-bbd3-4f3a-933b-a5618a4f7a52.jpg?1783912449"
+   },
+   "printing": "sld/1691"
   },
   "The Spirit Oasis": {
    "name": "The Spirit Oasis",

@@ -2549,13 +2549,13 @@
    "produced_mana": [],
    "legendary": true,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.jpg?1783932614",
-    "normal": "https://cards.scryfall.io/normal/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.jpg?1783932614",
-    "art": "https://cards.scryfall.io/art_crop/front/7/9/79f591cd-d277-4ba5-b1bf-1c09cac9cb8a.jpg?1783932614"
+    "small": "https://cards.scryfall.io/small/front/2/4/24b63513-5e53-4357-8b28-cb91790e9a72.jpg?1783932531",
+    "normal": "https://cards.scryfall.io/normal/front/2/4/24b63513-5e53-4357-8b28-cb91790e9a72.jpg?1783932531",
+    "art": "https://cards.scryfall.io/art_crop/front/2/4/24b63513-5e53-4357-8b28-cb91790e9a72.jpg?1783932531"
    },
    "power": "2",
    "toughness": "4",
-   "printing": "eld/147"
+   "printing": "eld/367"
   },
   "Welcoming Vampire": {
    "name": "Welcoming Vampire",
