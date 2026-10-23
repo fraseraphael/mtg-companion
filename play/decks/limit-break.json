@@ -226,7 +226,7 @@
   {
    "section": "Artifacts",
    "n": 1,
-   "name": "Mox Amber"
+   "name": "Inspiring Statuary"
   },
   {
    "section": "Artifacts",
@@ -371,7 +371,7 @@
   {
    "section": "Lands",
    "n": 1,
-   "name": "Plateau"
+   "name": "Evolving Wilds"
   },
   {
    "section": "Lands",
@@ -1416,6 +1416,27 @@
    },
    "printing": "fic/241"
   },
+  "Evolving Wilds": {
+   "name": "Evolving Wilds",
+   "id": "c0318a48-30e4-4ef7-be3d-5e561c5ce428",
+   "set": "msc",
+   "cn": "240",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/5/351f791c-4bee-4fce-aee4-d0214ca0c945.jpg?1783906223",
+    "normal": "https://cards.scryfall.io/normal/front/3/5/351f791c-4bee-4fce-aee4-d0214ca0c945.jpg?1783906223",
+    "art": "https://cards.scryfall.io/art_crop/front/3/5/351f791c-4bee-4fce-aee4-d0214ca0c945.jpg?1783906223"
+   },
+   "printing": "fic/389"
+  },
   "Exotic Orchard": {
    "name": "Exotic Orchard",
    "id": "d11c5fe0-1528-4c94-a8cc-42bcab9d7487",
@@ -1703,6 +1724,27 @@
    },
    "printing": "fic/346"
   },
+  "Inspiring Statuary": {
+   "name": "Inspiring Statuary",
+   "id": "4f7e4c0a-683b-4b22-9ea5-ed6470b8b1d7",
+   "set": "mkc",
+   "cn": "230",
+   "mana_cost": "{3}",
+   "cmc": 3.0,
+   "type_line": "Artifact",
+   "oracle_text": "Nonartifact spells you cast have improvise. (Your artifacts can help cast those spells. Each artifact you tap after you're done activating mana abilities pays for {1}.)",
+   "colors": [],
+   "color_identity": [],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/6/c/6c28687d-b96a-4d3c-a6cb-99fbae6a384b.jpg?1783906244",
+    "normal": "https://cards.scryfall.io/normal/front/6/c/6c28687d-b96a-4d3c-a6cb-99fbae6a384b.jpg?1783906244",
+    "art": "https://cards.scryfall.io/art_crop/front/6/c/6c28687d-b96a-4d3c-a6cb-99fbae6a384b.jpg?1783906244"
+   },
+   "printing": "fic/347"
+  },
   "Jungle Shrine": {
    "name": "Jungle Shrine",
    "id": "0b1a84b6-4202-4413-80ed-4142c51e619a",
@@ -1859,33 +1901,6 @@
    },
    "printing": "fin/303"
   },
-  "Mox Amber": {
-   "name": "Mox Amber",
-   "id": "66024e69-ad60-4c9a-a0ca-da138d33ad80",
-   "set": "dom",
-   "cn": "224",
-   "mana_cost": "{0}",
-   "cmc": 0.0,
-   "type_line": "Legendary Artifact",
-   "oracle_text": "{T}: Add one mana of any color among legendary creatures and planeswalkers you control.",
-   "colors": [],
-   "color_identity": [],
-   "keywords": [],
-   "produced_mana": [
-    "B",
-    "G",
-    "R",
-    "U",
-    "W"
-   ],
-   "legendary": true,
-   "img": {
-    "small": "https://cards.scryfall.io/small/front/b/8/b89bcdd8-189e-41bb-bb3d-a53e6e6758e1.jpg?1784387335",
-    "normal": "https://cards.scryfall.io/normal/front/b/8/b89bcdd8-189e-41bb-bb3d-a53e6e6758e1.jpg?1784387335",
-    "art": "https://cards.scryfall.io/art_crop/front/b/8/b89bcdd8-189e-41bb-bb3d-a53e6e6758e1.jpg?1784387335"
-   },
-   "printing": "hoc/96"
-  },
   "Nature's Lore": {
    "name": "Nature's Lore",
    "id": "7afc4a15-5ff8-457a-aa62-803b2d78d912",
@@ -1964,33 +1979,6 @@
     "art": "https://cards.scryfall.io/art_crop/front/9/d/9dd2d666-7c6b-48ce-93dc-c004ebdd1fe9.jpg?1783906546"
    },
    "printing": "fin/294"
-  },
-  "Plateau": {
-   "name": "Plateau",
-   "id": "bb979a96-a57d-4fb5-8ebe-0bd398272abe",
-   "set": "vma",
-   "cn": "308",
-   "mana_cost": "",
-   "cmc": 0.0,
-   "type_line": "Land — Mountain Plains",
-   "oracle_text": "({T}: Add {R} or {W}.)",
-   "colors": [],
-   "color_identity": [
-    "R",
-    "W"
-   ],
-   "keywords": [],
-   "produced_mana": [
-    "R",
-    "W"
-   ],
-   "legendary": false,
-   "img": {
-    "small": "https://cards.scryfall.io/small/front/2/f/2ff721e2-b12a-4cd1-b846-fccd61c6b69b.jpg?1783947955",
-    "normal": "https://cards.scryfall.io/normal/front/2/f/2ff721e2-b12a-4cd1-b846-fccd61c6b69b.jpg?1783947955",
-    "art": "https://cards.scryfall.io/art_crop/front/2/f/2ff721e2-b12a-4cd1-b846-fccd61c6b69b.jpg?1783947955"
-   },
-   "printing": "sum/284"
   },
   "Professional Face-Breaker": {
    "name": "Professional Face-Breaker",

@@ -1227,6 +1227,28 @@
   ],
   "status": "hand"
  },
+ "Evolving Wilds": {
+  "activated": [
+   {
+    "cost": {
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "ramp": {
+       "filter": "basic",
+       "tapped": true
+      }
+     }
+    ],
+    "text": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle."
+   }
+  ],
+  "name": "Evolving Wilds",
+  "source": "{T}, Sacrifice this land: Search your library for a basic land card, put it onto the battlefield tapped, then shuffle.",
+  "status": "auto"
+ },
  "Exotic Orchard": {
   "name": "Exotic Orchard",
   "source": "{T}: Add one mana of any color that a land an opponent controls could produce.",
@@ -1494,6 +1516,16 @@
   ],
   "status": "hand"
  },
+ "Inspiring Statuary": {
+  "name": "Inspiring Statuary",
+  "source": "Nonartifact spells you cast have improvise. (Your artifacts can help cast those spells. Each artifact you tap after you're done activating mana abilities pays for {1}.)",
+  "statics": [
+   {
+    "prompt": "Nonartifact spells you cast have improvise."
+   }
+  ],
+  "status": "prompt"
+ },
  "Jungle Shrine": {
   "name": "Jungle Shrine",
   "source": "This land enters tapped.\n{T}: Add {R}, {G}, or {W}.",
@@ -1629,11 +1661,6 @@
   "source": "({T}: Add {R}.)",
   "status": "auto"
  },
- "Mox Amber": {
-  "name": "Mox Amber",
-  "source": "{T}: Add one mana of any color among legendary creatures and planeswalkers you control.",
-  "status": "auto"
- },
  "Nature's Lore": {
   "name": "Nature's Lore",
   "source": "Search your library for a Forest card, put that card onto the battlefield, then shuffle.",
@@ -1672,11 +1699,6 @@
  "Plains": {
   "name": "Plains",
   "source": "({T}: Add {W}.)",
-  "status": "auto"
- },
- "Plateau": {
-  "name": "Plateau",
-  "source": "({T}: Add {R} or {W}.)",
   "status": "auto"
  },
  "Professional Face-Breaker": {
