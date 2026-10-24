@@ -3027,15 +3027,25 @@
  },
  "Iron Hills Stalwart": {
   "name": "Iron Hills Stalwart",
+  "notes": "Reach and trample come from the card's keywords. 'Up to one' creature: skip the pick to leave the Equipment where it is.",
   "source": "Reach, trample\nWhen this creature enters, attach target Equipment you control to up to one target creature you control.",
-  "status": "prompt",
+  "status": "hand",
   "triggers": [
    {
     "do": [
      {
-      "prompt": "Attach target Equipment you control to up to one target creature you control."
+      "attach": {
+       "to": "creature-you-control",
+       "what": "target-equipment-you-control"
+      }
      }
     ],
+    "if": {
+     "countGe": 1,
+     "youControl": {
+      "subtype": "Equipment"
+     }
+    },
     "on": "enters",
     "self": true,
     "text": "When this creature enters, attach target Equipment you control to up to one target creature you control."
