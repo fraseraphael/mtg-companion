@@ -1649,23 +1649,6 @@
   ],
   "status": "prompt"
  },
- "Dedicated Commons": {
-  "name": "Dedicated Commons",
-  "source": "This land enters tapped unless you control a planeswalker.\n{T}: Add {R} or {W}.",
-  "status": "prompt",
-  "triggers": [
-   {
-    "do": [
-     {
-      "prompt": "Dedicated Commons enters tapped unless you control a planeswalker."
-     }
-    ],
-    "on": "enters",
-    "self": true,
-    "text": "This land enters tapped unless you control a planeswalker."
-   }
-  ]
- },
  "Depala, Pilot Exemplar": {
   "name": "Depala, Pilot Exemplar",
   "notes": "Choose X (0 = don't pay), then confirm {1} X times; declining a payment ends the ability. The reveal is automatic.",
@@ -4040,6 +4023,11 @@
  "Plains": {
   "name": "Plains",
   "source": "({T}: Add {W}.)",
+  "status": "auto"
+ },
+ "Plateau": {
+  "name": "Plateau",
+  "source": "({T}: Add {R} or {W}.)",
   "status": "auto"
  },
  "Rugged Prairie": {

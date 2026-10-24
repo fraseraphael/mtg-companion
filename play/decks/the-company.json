@@ -350,7 +350,7 @@
   {
    "section": "Lands",
    "n": 1,
-   "name": "Dedicated Commons"
+   "name": "Plateau"
   },
   {
    "section": "Lands",
@@ -930,33 +930,6 @@
     "art": "https://cards.scryfall.io/art_crop/front/0/c/0caa7e29-b8c5-41d3-bc0f-7f1ad1d6e674.jpg?1783925316"
    },
    "printing": "mic/170"
-  },
-  "Dedicated Commons": {
-   "name": "Dedicated Commons",
-   "id": "3223e5db-5cc4-42f9-ae9e-ff58abc7c390",
-   "set": "fra",
-   "cn": "175",
-   "mana_cost": "",
-   "cmc": 0.0,
-   "type_line": "Land",
-   "oracle_text": "This land enters tapped unless you control a planeswalker.\n{T}: Add {R} or {W}.",
-   "colors": [],
-   "color_identity": [
-    "R",
-    "W"
-   ],
-   "keywords": [],
-   "produced_mana": [
-    "R",
-    "W"
-   ],
-   "legendary": false,
-   "img": {
-    "small": "https://cards.scryfall.io/small/front/3/2/3223e5db-5cc4-42f9-ae9e-ff58abc7c390.jpg?1789556950",
-    "normal": "https://cards.scryfall.io/normal/front/3/2/3223e5db-5cc4-42f9-ae9e-ff58abc7c390.jpg?1789556950",
-    "art": "https://cards.scryfall.io/art_crop/front/3/2/3223e5db-5cc4-42f9-ae9e-ff58abc7c390.jpg?1789556950"
-   },
-   "printing": "fra/175"
   },
   "Depala, Pilot Exemplar": {
    "name": "Depala, Pilot Exemplar",
@@ -1976,6 +1949,33 @@
     "normal": "https://cards.scryfall.io/normal/front/0/9/09ac862f-0a51-44dd-b86f-9412b8218b13.jpg?1791578423",
     "art": "https://cards.scryfall.io/art_crop/front/0/9/09ac862f-0a51-44dd-b86f-9412b8218b13.jpg?1791578423"
    }
+  },
+  "Plateau": {
+   "name": "Plateau",
+   "id": "bb979a96-a57d-4fb5-8ebe-0bd398272abe",
+   "set": "vma",
+   "cn": "308",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land — Mountain Plains",
+   "oracle_text": "({T}: Add {R} or {W}.)",
+   "colors": [],
+   "color_identity": [
+    "R",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "R",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/2/f/2ff721e2-b12a-4cd1-b846-fccd61c6b69b.jpg?1783947955",
+    "normal": "https://cards.scryfall.io/normal/front/2/f/2ff721e2-b12a-4cd1-b846-fccd61c6b69b.jpg?1783947955",
+    "art": "https://cards.scryfall.io/art_crop/front/2/f/2ff721e2-b12a-4cd1-b846-fccd61c6b69b.jpg?1783947955"
+   },
+   "printing": "sum/284"
   },
   "Rugged Prairie": {
    "name": "Rugged Prairie",
