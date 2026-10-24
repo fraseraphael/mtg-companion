@@ -1619,41 +1619,6 @@
   "source": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.)\nAny number of target nonland permanents you control phase out. (Treat them and anything attached to them as though they don't exist until your next turn.)",
   "status": "hand"
  },
- "Clifftop Retreat": {
-  "name": "Clifftop Retreat",
-  "source": "This land enters tapped unless you control a Mountain or a Plains.\n{T}: Add {R} or {W}.",
-  "status": "auto",
-  "triggers": [
-   {
-    "do": [
-     {
-      "check": {
-       "do": [
-        {
-         "tap": {
-          "target": "self"
-         }
-        }
-       ],
-       "if": {
-        "not": {
-         "youControl": {
-          "subtype": [
-           "Mountain",
-           "Plains"
-          ]
-         }
-        }
-       }
-      }
-     }
-    ],
-    "on": "enters",
-    "self": true,
-    "text": "This land enters tapped unless you control a Mountain or a Plains."
-   }
-  ]
- },
  "Coat of Arms": {
   "name": "Coat of Arms",
   "source": "Each creature gets +1/+1 for each other creature on the battlefield that shares at least one creature type with it. (For example, if two Goblin Warriors and a Goblin Shaman are on the battlefield, each gets +2/+2.)",
@@ -1683,6 +1648,23 @@
    }
   ],
   "status": "prompt"
+ },
+ "Dedicated Commons": {
+  "name": "Dedicated Commons",
+  "source": "This land enters tapped unless you control a planeswalker.\n{T}: Add {R} or {W}.",
+  "status": "prompt",
+  "triggers": [
+   {
+    "do": [
+     {
+      "prompt": "Dedicated Commons enters tapped unless you control a planeswalker."
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control a planeswalker."
+   }
+  ]
  },
  "Depala, Pilot Exemplar": {
   "name": "Depala, Pilot Exemplar",
@@ -3101,6 +3083,23 @@
    }
   ]
  },
+ "Iron Hills Stalwart": {
+  "name": "Iron Hills Stalwart",
+  "source": "Reach, trample\nWhen this creature enters, attach target Equipment you control to up to one target creature you control.",
+  "status": "prompt",
+  "triggers": [
+   {
+    "do": [
+     {
+      "prompt": "Attach target Equipment you control to up to one target creature you control."
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this creature enters, attach target Equipment you control to up to one target creature you control."
+   }
+  ]
+ },
  "Jeska's Will": {
   "name": "Jeska's Will",
   "notes": "The dummy has no hand, so the mana mode adds nothing.",
@@ -4042,50 +4041,6 @@
   "name": "Plains",
   "source": "({T}: Add {W}.)",
   "status": "auto"
- },
- "Professional Face-Breaker": {
-  "activated": [
-   {
-    "cost": {
-     "sac": {
-      "filter": {
-       "subtype": "Treasure"
-      }
-     }
-    },
-    "do": [
-     {
-      "exileTop": {
-       "n": 1,
-       "play": "thisTurn"
-      }
-     }
-    ],
-    "label": "Exile top",
-    "text": "Sacrifice a Treasure: Exile the top card of your library. You may play that card this turn."
-   }
-  ],
-  "name": "Professional Face-Breaker",
-  "source": "Menace\nWhenever one or more creatures you control deal combat damage to a player, create a Treasure token.\nSacrifice a Treasure: Exile the top card of your library. You may play that card this turn.",
-  "status": "hand",
-  "triggers": [
-   {
-    "do": [
-     {
-      "token": {
-       "n": 1,
-       "name": "Treasure",
-       "types": [
-        "Artifact",
-        "Treasure"
-       ]
-      }
-     }
-    ],
-    "on": "combatDamage",
-    "text": "Whenever one or more creatures you control deal combat damage to a player, create a Treasure token."
-   }
-  ]
  },
  "Rugged Prairie": {
   "name": "Rugged Prairie",

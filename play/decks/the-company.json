@@ -180,7 +180,7 @@
   {
    "section": "Creatures",
    "n": 1,
-   "name": "Professional Face-Breaker"
+   "name": "Iron Hills Stalwart"
   },
   {
    "section": "Creatures",
@@ -350,7 +350,7 @@
   {
    "section": "Lands",
    "n": 1,
-   "name": "Clifftop Retreat"
+   "name": "Dedicated Commons"
   },
   {
    "section": "Lands",
@@ -883,32 +883,6 @@
    },
    "printing": "onc/43"
   },
-  "Clifftop Retreat": {
-   "name": "Clifftop Retreat",
-   "id": "cd112d5c-102f-45a6-b26c-f80cc97d4df2",
-   "set": "frc",
-   "cn": "67",
-   "mana_cost": "",
-   "cmc": 0.0,
-   "type_line": "Land",
-   "oracle_text": "This land enters tapped unless you control a Mountain or a Plains.\n{T}: Add {R} or {W}.",
-   "colors": [],
-   "color_identity": [
-    "R",
-    "W"
-   ],
-   "keywords": [],
-   "produced_mana": [
-    "R",
-    "W"
-   ],
-   "legendary": false,
-   "img": {
-    "small": "https://cards.scryfall.io/small/front/c/d/cd112d5c-102f-45a6-b26c-f80cc97d4df2.jpg?1789599889",
-    "normal": "https://cards.scryfall.io/normal/front/c/d/cd112d5c-102f-45a6-b26c-f80cc97d4df2.jpg?1789599889",
-    "art": "https://cards.scryfall.io/art_crop/front/c/d/cd112d5c-102f-45a6-b26c-f80cc97d4df2.jpg?1789599889"
-   }
-  },
   "Coat of Arms": {
    "name": "Coat of Arms",
    "id": "513d4c36-6ad4-4ee9-b161-3136eb59504f",
@@ -956,6 +930,33 @@
     "art": "https://cards.scryfall.io/art_crop/front/0/c/0caa7e29-b8c5-41d3-bc0f-7f1ad1d6e674.jpg?1783925316"
    },
    "printing": "mic/170"
+  },
+  "Dedicated Commons": {
+   "name": "Dedicated Commons",
+   "id": "3223e5db-5cc4-42f9-ae9e-ff58abc7c390",
+   "set": "fra",
+   "cn": "175",
+   "mana_cost": "",
+   "cmc": 0.0,
+   "type_line": "Land",
+   "oracle_text": "This land enters tapped unless you control a planeswalker.\n{T}: Add {R} or {W}.",
+   "colors": [],
+   "color_identity": [
+    "R",
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [
+    "R",
+    "W"
+   ],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/3/2/3223e5db-5cc4-42f9-ae9e-ff58abc7c390.jpg?1789556950",
+    "normal": "https://cards.scryfall.io/normal/front/3/2/3223e5db-5cc4-42f9-ae9e-ff58abc7c390.jpg?1789556950",
+    "art": "https://cards.scryfall.io/art_crop/front/3/2/3223e5db-5cc4-42f9-ae9e-ff58abc7c390.jpg?1789556950"
+   },
+   "printing": "fra/175"
   },
   "Depala, Pilot Exemplar": {
    "name": "Depala, Pilot Exemplar",
@@ -1601,6 +1602,36 @@
    "power": "1",
    "toughness": "1"
   },
+  "Iron Hills Stalwart": {
+   "name": "Iron Hills Stalwart",
+   "id": "46daa9ac-0ac7-4df9-b9d2-e03ab5b56c72",
+   "set": "hob",
+   "cn": "102",
+   "mana_cost": "{4}{R}",
+   "cmc": 5.0,
+   "type_line": "Creature — Dwarf Warrior",
+   "oracle_text": "Reach, trample\nWhen this creature enters, attach target Equipment you control to up to one target creature you control.",
+   "colors": [
+    "R"
+   ],
+   "color_identity": [
+    "R"
+   ],
+   "keywords": [
+    "Reach",
+    "Trample"
+   ],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/4/6/46daa9ac-0ac7-4df9-b9d2-e03ab5b56c72.jpg?1785497126",
+    "normal": "https://cards.scryfall.io/normal/front/4/6/46daa9ac-0ac7-4df9-b9d2-e03ab5b56c72.jpg?1785497126",
+    "art": "https://cards.scryfall.io/art_crop/front/4/6/46daa9ac-0ac7-4df9-b9d2-e03ab5b56c72.jpg?1785497126"
+   },
+   "power": "4",
+   "toughness": "5",
+   "printing": "hob/102"
+  },
   "Jeska's Will": {
    "name": "Jeska's Will",
    "id": "99e0c371-1024-4432-9fd9-3bc29c8d38e4",
@@ -1945,35 +1976,6 @@
     "normal": "https://cards.scryfall.io/normal/front/0/9/09ac862f-0a51-44dd-b86f-9412b8218b13.jpg?1791578423",
     "art": "https://cards.scryfall.io/art_crop/front/0/9/09ac862f-0a51-44dd-b86f-9412b8218b13.jpg?1791578423"
    }
-  },
-  "Professional Face-Breaker": {
-   "name": "Professional Face-Breaker",
-   "id": "42acbf52-b137-44f0-a815-2817fe8d2da2",
-   "set": "snc",
-   "cn": "116",
-   "mana_cost": "{2}{R}",
-   "cmc": 3.0,
-   "type_line": "Creature — Human Warrior",
-   "oracle_text": "Menace\nWhenever one or more creatures you control deal combat damage to a player, create a Treasure token.\nSacrifice a Treasure: Exile the top card of your library. You may play that card this turn.",
-   "colors": [
-    "R"
-   ],
-   "color_identity": [
-    "R"
-   ],
-   "keywords": [
-    "Treasure",
-    "Menace"
-   ],
-   "produced_mana": [],
-   "legendary": false,
-   "img": {
-    "small": "https://cards.scryfall.io/small/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.jpg?1783923119",
-    "normal": "https://cards.scryfall.io/normal/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.jpg?1783923119",
-    "art": "https://cards.scryfall.io/art_crop/front/4/2/42acbf52-b137-44f0-a815-2817fe8d2da2.jpg?1783923119"
-   },
-   "power": "2",
-   "toughness": "3"
   },
   "Rugged Prairie": {
    "name": "Rugged Prairie",
