@@ -432,12 +432,13 @@
    "produced_mana": [],
    "legendary": false,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/7/6/76480f4d-ad6d-4ed6-82c6-fa12abc22557.jpg?1783911891",
-    "normal": "https://cards.scryfall.io/normal/front/7/6/76480f4d-ad6d-4ed6-82c6-fa12abc22557.jpg?1783911891",
-    "art": "https://cards.scryfall.io/art_crop/front/7/6/76480f4d-ad6d-4ed6-82c6-fa12abc22557.jpg?1783911891"
+    "small": "https://cards.scryfall.io/small/front/6/0/60709d98-c98d-48c0-ac4a-4ff73e7a0c4b.jpg?1783912976",
+    "normal": "https://cards.scryfall.io/normal/front/6/0/60709d98-c98d-48c0-ac4a-4ff73e7a0c4b.jpg?1783912976",
+    "art": "https://cards.scryfall.io/art_crop/front/6/0/60709d98-c98d-48c0-ac4a-4ff73e7a0c4b.jpg?1783912976"
    },
    "power": "1",
-   "toughness": "3"
+   "toughness": "3",
+   "printing": "mkc/221"
   },
   "Akroma's Will": {
    "name": "Akroma's Will",
@@ -535,10 +536,11 @@
    "produced_mana": [],
    "legendary": false,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/a/8/a8bc7912-e201-468a-b251-140205cb741c.jpg?1783903253",
-    "normal": "https://cards.scryfall.io/normal/front/a/8/a8bc7912-e201-468a-b251-140205cb741c.jpg?1783903253",
-    "art": "https://cards.scryfall.io/art_crop/front/a/8/a8bc7912-e201-468a-b251-140205cb741c.jpg?1783903253"
-   }
+    "small": "https://cards.scryfall.io/small/front/c/f/cf1f630e-8b55-4f5a-a7f2-3161801de767.jpg?1783913897",
+    "normal": "https://cards.scryfall.io/normal/front/c/f/cf1f630e-8b55-4f5a-a7f2-3161801de767.jpg?1783913897",
+    "art": "https://cards.scryfall.io/art_crop/front/c/f/cf1f630e-8b55-4f5a-a7f2-3161801de767.jpg?1783913897"
+   },
+   "printing": "lcc/126"
   },
   "Balin, Loremaster": {
    "name": "Balin, Loremaster",
@@ -561,12 +563,13 @@
    "produced_mana": [],
    "legendary": true,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/4/2/42d7ca7b-c983-40fd-ad57-59f6972bb375.jpg?1785496498",
-    "normal": "https://cards.scryfall.io/normal/front/4/2/42d7ca7b-c983-40fd-ad57-59f6972bb375.jpg?1785496498",
-    "art": "https://cards.scryfall.io/art_crop/front/4/2/42d7ca7b-c983-40fd-ad57-59f6972bb375.jpg?1785496498"
+    "small": "https://cards.scryfall.io/small/front/f/3/f3a8e4e3-58c5-4380-94b6-6252f8ccb285.jpg?1787203005",
+    "normal": "https://cards.scryfall.io/normal/front/f/3/f3a8e4e3-58c5-4380-94b6-6252f8ccb285.jpg?1787203005",
+    "art": "https://cards.scryfall.io/art_crop/front/f/3/f3a8e4e3-58c5-4380-94b6-6252f8ccb285.jpg?1787203005"
    },
    "power": "4",
-   "toughness": "4"
+   "toughness": "4",
+   "printing": "hob/301"
   },
   "Battlefield Forge": {
    "name": "Battlefield Forge",
@@ -590,10 +593,11 @@
    ],
    "legendary": false,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/e/f/ef7d3676-b1db-4329-9201-18f8a6c54ea6.jpg?1789599856",
-    "normal": "https://cards.scryfall.io/normal/front/e/f/ef7d3676-b1db-4329-9201-18f8a6c54ea6.jpg?1789599856",
-    "art": "https://cards.scryfall.io/art_crop/front/e/f/ef7d3676-b1db-4329-9201-18f8a6c54ea6.jpg?1789599856"
-   }
+    "small": "https://cards.scryfall.io/small/front/e/b/eb139e09-4e88-498a-908e-d16b5ddf1320.jpg?1783931131",
+    "normal": "https://cards.scryfall.io/normal/front/e/b/eb139e09-4e88-498a-908e-d16b5ddf1320.jpg?1783931131",
+    "art": "https://cards.scryfall.io/art_crop/front/e/b/eb139e09-4e88-498a-908e-d16b5ddf1320.jpg?1783931131"
+   },
+   "printing": "c20/257"
   },
   "Bennie Bracks, Zoologist": {
    "name": "Bennie Bracks, Zoologist",
@@ -682,10 +686,11 @@
    ],
    "legendary": false,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/3/3/3383a939-4ab3-4546-9995-6c65cd3f4441.jpg?1783903010",
-    "normal": "https://cards.scryfall.io/normal/front/3/3/3383a939-4ab3-4546-9995-6c65cd3f4441.jpg?1783903010",
-    "art": "https://cards.scryfall.io/art_crop/front/3/3/3383a939-4ab3-4546-9995-6c65cd3f4441.jpg?1783903010"
-   }
+    "small": "https://cards.scryfall.io/small/front/3/9/39d1578f-e2cf-4b93-8204-ed5434feb183.jpg?1783923123",
+    "normal": "https://cards.scryfall.io/normal/front/3/9/39d1578f-e2cf-4b93-8204-ed5434feb183.jpg?1783923123",
+    "art": "https://cards.scryfall.io/art_crop/front/3/9/39d1578f-e2cf-4b93-8204-ed5434feb183.jpg?1783923123"
+   },
+   "printing": "snc/102"
   },
   "Bombur, Gentle Dreamer": {
    "name": "Bombur, Gentle Dreamer",
@@ -764,10 +769,11 @@
    ],
    "legendary": false,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/4/9/49c37c0e-d363-4033-a069-710241cd9923.jpg?1783907016",
-    "normal": "https://cards.scryfall.io/normal/front/4/9/49c37c0e-d363-4033-a069-710241cd9923.jpg?1783907016",
-    "art": "https://cards.scryfall.io/art_crop/front/4/9/49c37c0e-d363-4033-a069-710241cd9923.jpg?1783907016"
-   }
+    "small": "https://cards.scryfall.io/small/front/c/6/c6b1edb0-47ee-4679-93e8-0a06138f9c5e.jpg?1783931138",
+    "normal": "https://cards.scryfall.io/normal/front/c/6/c6b1edb0-47ee-4679-93e8-0a06138f9c5e.jpg?1783931138",
+    "art": "https://cards.scryfall.io/art_crop/front/c/6/c6b1edb0-47ee-4679-93e8-0a06138f9c5e.jpg?1783931138"
+   },
+   "printing": "c20/239"
   },
   "Cadric, Soul Kindler": {
    "name": "Cadric, Soul Kindler",
@@ -795,7 +801,8 @@
     "art": "https://cards.scryfall.io/art_crop/front/f/8/f82f8cab-5039-4e3a-a2ba-cbf829db80ed.jpg?1783921474"
    },
    "power": "4",
-   "toughness": "3"
+   "toughness": "3",
+   "printing": "dmc/10"
   },
   "Celebrate the Mountain-king": {
    "name": "Celebrate the Mountain-king",
@@ -843,10 +850,11 @@
    "produced_mana": [],
    "legendary": false,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/f/b/fb8d8106-b9bd-405c-886e-72fc301c65e1.jpg?1787743253",
-    "normal": "https://cards.scryfall.io/normal/front/f/b/fb8d8106-b9bd-405c-886e-72fc301c65e1.jpg?1787743253",
-    "art": "https://cards.scryfall.io/art_crop/front/f/b/fb8d8106-b9bd-405c-886e-72fc301c65e1.jpg?1787743253"
-   }
+    "small": "https://cards.scryfall.io/small/front/8/d/8d8ee7b0-ea23-4657-a171-ac8a1308cc4d.jpg?1783922432",
+    "normal": "https://cards.scryfall.io/normal/front/8/d/8d8ee7b0-ea23-4657-a171-ac8a1308cc4d.jpg?1783922432",
+    "art": "https://cards.scryfall.io/art_crop/front/8/d/8d8ee7b0-ea23-4657-a171-ac8a1308cc4d.jpg?1783922432"
+   },
+   "printing": "clb/785"
   },
   "Clever Concealment": {
    "name": "Clever Concealment",
@@ -943,10 +951,11 @@
    ],
    "legendary": false,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.jpg?1789644465",
-    "normal": "https://cards.scryfall.io/normal/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.jpg?1789644465",
-    "art": "https://cards.scryfall.io/art_crop/front/1/a/1ac6cb62-45da-4e9a-84c6-09e6eacf0664.jpg?1789644465"
-   }
+    "small": "https://cards.scryfall.io/small/front/0/c/0caa7e29-b8c5-41d3-bc0f-7f1ad1d6e674.jpg?1783925316",
+    "normal": "https://cards.scryfall.io/normal/front/0/c/0caa7e29-b8c5-41d3-bc0f-7f1ad1d6e674.jpg?1783925316",
+    "art": "https://cards.scryfall.io/art_crop/front/0/c/0caa7e29-b8c5-41d3-bc0f-7f1ad1d6e674.jpg?1783925316"
+   },
+   "printing": "mic/170"
   },
   "Depala, Pilot Exemplar": {
    "name": "Depala, Pilot Exemplar",
@@ -974,7 +983,8 @@
     "art": "https://cards.scryfall.io/art_crop/front/5/9/592f3a92-787e-4180-9d0b-06c973ce8975.jpg?1783937169"
    },
    "power": "3",
-   "toughness": "3"
+   "toughness": "3",
+   "printing": "kld/178"
   },
   "Dori, Bearer of Friends": {
    "name": "Dori, Bearer of Friends",
@@ -1090,7 +1100,8 @@
     "art": "https://cards.scryfall.io/art_crop/front/6/a/6a15d274-85b4-4f3c-b502-f6dfe7db4d37.jpg?1783945232"
    },
    "power": "2",
-   "toughness": "2"
+   "toughness": "2",
+   "printing": "ody/186"
   },
   "Dáin Ironfoot": {
    "name": "Dáin Ironfoot",
@@ -1224,10 +1235,11 @@
    ],
    "legendary": false,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/a/f/afc12892-4978-4442-ace5-c4dea5c0ee00.jpg?1783903200",
-    "normal": "https://cards.scryfall.io/normal/front/a/f/afc12892-4978-4442-ace5-c4dea5c0ee00.jpg?1783903200",
-    "art": "https://cards.scryfall.io/art_crop/front/a/f/afc12892-4978-4442-ace5-c4dea5c0ee00.jpg?1783903200"
-   }
+    "small": "https://cards.scryfall.io/small/front/2/1/21ddcd8b-a9b1-479f-85c6-5bd8b9ac4f2d.jpg?1783914579",
+    "normal": "https://cards.scryfall.io/normal/front/2/1/21ddcd8b-a9b1-479f-85c6-5bd8b9ac4f2d.jpg?1783914579",
+    "art": "https://cards.scryfall.io/art_crop/front/2/1/21ddcd8b-a9b1-479f-85c6-5bd8b9ac4f2d.jpg?1783914579"
+   },
+   "printing": "who/283"
   },
   "Fíli and Kíli, Joyous": {
    "name": "Fíli and Kíli, Joyous",
@@ -1257,7 +1269,8 @@
     "art": "https://cards.scryfall.io/art_crop/front/e/1/e1d12200-ae0b-4155-9853-3ffaf490c84c.jpg?1784377185"
    },
    "power": "3",
-   "toughness": "3"
+   "toughness": "3",
+   "printing": "hoc/1"
   },
   "Fíli the Pathfinder": {
    "name": "Fíli the Pathfinder",
@@ -1307,10 +1320,11 @@
    "produced_mana": [],
    "legendary": false,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/c/3/c3f9b454-97e9-4c77-b37a-e974221ae385.jpg?1783903247",
-    "normal": "https://cards.scryfall.io/normal/front/c/3/c3f9b454-97e9-4c77-b37a-e974221ae385.jpg?1783903247",
-    "art": "https://cards.scryfall.io/art_crop/front/c/3/c3f9b454-97e9-4c77-b37a-e974221ae385.jpg?1783903247"
-   }
+    "small": "https://cards.scryfall.io/small/front/9/8/983f4711-20a8-4023-8201-9a74deab10be.jpg?1783933163",
+    "normal": "https://cards.scryfall.io/normal/front/9/8/983f4711-20a8-4023-8201-9a74deab10be.jpg?1783933163",
+    "art": "https://cards.scryfall.io/art_crop/front/9/8/983f4711-20a8-4023-8201-9a74deab10be.jpg?1783933163"
+   },
+   "printing": "mh1/11"
   },
   "Giott, King of the Dwarves": {
    "name": "Giott, King of the Dwarves",
@@ -1340,7 +1354,8 @@
     "art": "https://cards.scryfall.io/art_crop/front/6/a/6a7784de-a10d-4ce6-98a5-aaf3e85773b6.jpg?1783906571"
    },
    "power": "1",
-   "toughness": "1"
+   "toughness": "1",
+   "printing": "fin/223"
   },
   "Glóin, Dwarf Emissary": {
    "name": "Glóin, Dwarf Emissary",
@@ -1435,7 +1450,8 @@
     "art": "https://cards.scryfall.io/art_crop/front/e/7/e7429a5b-5579-4c4e-89ff-ee7f43db37e4.jpg?1783922811"
    },
    "power": "3",
-   "toughness": "3"
+   "toughness": "3",
+   "printing": "clb/25"
   },
   "Herald's Horn": {
    "name": "Herald's Horn",
@@ -1497,10 +1513,11 @@
    "produced_mana": [],
    "legendary": false,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/c/b/cbc25725-1485-4d98-abe1-906520f868d8.jpg?1783907011",
-    "normal": "https://cards.scryfall.io/normal/front/c/b/cbc25725-1485-4d98-abe1-906520f868d8.jpg?1783907011",
-    "art": "https://cards.scryfall.io/art_crop/front/c/b/cbc25725-1485-4d98-abe1-906520f868d8.jpg?1783907011"
-   }
+    "small": "https://cards.scryfall.io/small/front/6/b/6b87b385-0ad9-4aa7-8a7e-c42b9c002a99.jpg?1783910649",
+    "normal": "https://cards.scryfall.io/normal/front/6/b/6b87b385-0ad9-4aa7-8a7e-c42b9c002a99.jpg?1783910649",
+    "art": "https://cards.scryfall.io/art_crop/front/6/b/6b87b385-0ad9-4aa7-8a7e-c42b9c002a99.jpg?1783910649"
+   },
+   "printing": "blc/277"
   },
   "Inspiring Vantage": {
    "name": "Inspiring Vantage",
@@ -1526,7 +1543,8 @@
     "small": "https://cards.scryfall.io/small/front/8/5/85df6b6a-2dcf-4828-a4a8-e07d52e1fddd.jpg?1783911772",
     "normal": "https://cards.scryfall.io/normal/front/8/5/85df6b6a-2dcf-4828-a4a8-e07d52e1fddd.jpg?1783911772",
     "art": "https://cards.scryfall.io/art_crop/front/8/5/85df6b6a-2dcf-4828-a4a8-e07d52e1fddd.jpg?1783911772"
-   }
+   },
+   "printing": "otj/269"
   },
   "Iron Hills": {
    "name": "Iron Hills",
@@ -1713,7 +1731,8 @@
     "art": "https://cards.scryfall.io/art_crop/front/0/7/079e6263-e54c-4899-a336-5315909b9322.jpg?1783928229"
    },
    "power": "2",
-   "toughness": "1"
+   "toughness": "1",
+   "printing": "khm/142"
   },
   "Minas Tirith": {
    "name": "Minas Tirith",
@@ -1872,10 +1891,11 @@
    ],
    "legendary": false,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/b/1/b1aaa7b0-1cac-4a92-b880-7ef1ac00618f.jpg?1785759407",
-    "normal": "https://cards.scryfall.io/normal/front/b/1/b1aaa7b0-1cac-4a92-b880-7ef1ac00618f.jpg?1785759407",
-    "art": "https://cards.scryfall.io/art_crop/front/b/1/b1aaa7b0-1cac-4a92-b880-7ef1ac00618f.jpg?1785759407"
-   }
+    "small": "https://cards.scryfall.io/small/front/1/b/1b0431c1-4310-46f8-8d1e-b6e56de7453d.jpg?1783911871",
+    "normal": "https://cards.scryfall.io/normal/front/1/b/1b0431c1-4310-46f8-8d1e-b6e56de7453d.jpg?1783911871",
+    "art": "https://cards.scryfall.io/art_crop/front/1/b/1b0431c1-4310-46f8-8d1e-b6e56de7453d.jpg?1783911871"
+   },
+   "printing": "otc/310"
   },
   "Path to Exile": {
    "name": "Path to Exile",
@@ -1977,10 +1997,11 @@
    ],
    "legendary": false,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/6/b/6bd21c9e-de16-4ee9-ae16-6e82b490109d.jpg?1783903721",
-    "normal": "https://cards.scryfall.io/normal/front/6/b/6bd21c9e-de16-4ee9-ae16-6e82b490109d.jpg?1783903721",
-    "art": "https://cards.scryfall.io/art_crop/front/6/b/6bd21c9e-de16-4ee9-ae16-6e82b490109d.jpg?1783903721"
-   }
+    "small": "https://cards.scryfall.io/small/front/3/5/3504736d-5f88-40dc-9e3e-6018422eff54.jpg?1783910631",
+    "normal": "https://cards.scryfall.io/normal/front/3/5/3504736d-5f88-40dc-9e3e-6018422eff54.jpg?1783910631",
+    "art": "https://cards.scryfall.io/art_crop/front/3/5/3504736d-5f88-40dc-9e3e-6018422eff54.jpg?1783910631"
+   },
+   "printing": "blc/327"
   },
   "Secret Tunnel": {
    "name": "Secret Tunnel",
@@ -2049,10 +2070,11 @@
    "produced_mana": [],
    "legendary": false,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/1/b/1bd77ae9-c5ba-44af-80e9-7c852722ef6c.jpg?1783913862",
-    "normal": "https://cards.scryfall.io/normal/front/1/b/1bd77ae9-c5ba-44af-80e9-7c852722ef6c.jpg?1783913862",
-    "art": "https://cards.scryfall.io/art_crop/front/1/b/1bd77ae9-c5ba-44af-80e9-7c852722ef6c.jpg?1783913862"
-   }
+    "small": "https://cards.scryfall.io/small/front/b/b/bb7a56c4-5f20-4fd0-8f95-44061dec1df8.jpg?1783931170",
+    "normal": "https://cards.scryfall.io/normal/front/b/b/bb7a56c4-5f20-4fd0-8f95-44061dec1df8.jpg?1783931170",
+    "art": "https://cards.scryfall.io/art_crop/front/b/b/bb7a56c4-5f20-4fd0-8f95-44061dec1df8.jpg?1783931170"
+   },
+   "printing": "c20/158"
   },
   "Skullclamp": {
    "name": "Skullclamp",
@@ -2185,10 +2207,11 @@
    ],
    "legendary": false,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/c/3/c36820fa-ee86-4206-9a0d-737a67cf5208.jpg?1783933065",
-    "normal": "https://cards.scryfall.io/normal/front/c/3/c36820fa-ee86-4206-9a0d-737a67cf5208.jpg?1783933065",
-    "art": "https://cards.scryfall.io/art_crop/front/c/3/c36820fa-ee86-4206-9a0d-737a67cf5208.jpg?1783933065"
-   }
+    "small": "https://cards.scryfall.io/small/front/0/e/0e1974c2-f125-450f-86d4-d235a382ee2f.jpg?1783914503",
+    "normal": "https://cards.scryfall.io/normal/front/0/e/0e1974c2-f125-450f-86d4-d235a382ee2f.jpg?1783914503",
+    "art": "https://cards.scryfall.io/art_crop/front/0/e/0e1974c2-f125-450f-86d4-d235a382ee2f.jpg?1783914503"
+   },
+   "printing": "who/519"
   },
   "Swords to Plowshares": {
    "name": "Swords to Plowshares",
@@ -2578,12 +2601,13 @@
    "produced_mana": [],
    "legendary": false,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/3/5/35a69bb5-b8e6-4558-9563-10c7a3662f93.jpg?1783907112",
-    "normal": "https://cards.scryfall.io/normal/front/3/5/35a69bb5-b8e6-4558-9563-10c7a3662f93.jpg?1783907112",
-    "art": "https://cards.scryfall.io/art_crop/front/3/5/35a69bb5-b8e6-4558-9563-10c7a3662f93.jpg?1783907112"
+    "small": "https://cards.scryfall.io/small/front/a/6/a6ed954c-17e5-45e4-9fba-8eedcad8f9b9.jpg?1783913022",
+    "normal": "https://cards.scryfall.io/normal/front/a/6/a6ed954c-17e5-45e4-9fba-8eedcad8f9b9.jpg?1783913022",
+    "art": "https://cards.scryfall.io/art_crop/front/a/6/a6ed954c-17e5-45e4-9fba-8eedcad8f9b9.jpg?1783913022"
    },
    "power": "2",
-   "toughness": "3"
+   "toughness": "3",
+   "printing": "mkc/91"
   },
   "Óin the Brave": {
    "name": "Óin the Brave",
