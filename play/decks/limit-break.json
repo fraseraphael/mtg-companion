@@ -11,7 +11,7 @@
   "G"
  ],
  "bracket": "2",
- "art": "https://cards.scryfall.io/art_crop/front/0/7/07b4e4f8-6a31-4533-be51-668ce3ddc84f.jpg?1783906375",
+ "art": "https://cards.scryfall.io/art_crop/front/c/2/c22ebe7c-dcfe-4cb2-b6c4-2b4eaa1e635d.jpg?1783906302",
  "list": [
   {
    "section": "Commander",
@@ -1209,13 +1209,13 @@
    "produced_mana": [],
    "legendary": true,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/0/7/07b4e4f8-6a31-4533-be51-668ce3ddc84f.jpg?1783906375",
-    "normal": "https://cards.scryfall.io/normal/front/0/7/07b4e4f8-6a31-4533-be51-668ce3ddc84f.jpg?1783906375",
-    "art": "https://cards.scryfall.io/art_crop/front/0/7/07b4e4f8-6a31-4533-be51-668ce3ddc84f.jpg?1783906375"
+    "small": "https://cards.scryfall.io/small/front/c/2/c22ebe7c-dcfe-4cb2-b6c4-2b4eaa1e635d.jpg?1783906302",
+    "normal": "https://cards.scryfall.io/normal/front/c/2/c22ebe7c-dcfe-4cb2-b6c4-2b4eaa1e635d.jpg?1783906302",
+    "art": "https://cards.scryfall.io/art_crop/front/c/2/c22ebe7c-dcfe-4cb2-b6c4-2b4eaa1e635d.jpg?1783906302"
    },
    "power": "4",
    "toughness": "4",
-   "printing": "fic/2"
+   "printing": "fic/210"
   },
   "Colossus Hammer": {
    "name": "Colossus Hammer",
