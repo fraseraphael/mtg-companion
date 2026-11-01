@@ -2149,8 +2149,21 @@
  },
  "Pristine Talisman": {
   "name": "Pristine Talisman",
+  "notes": "The mana is the engine's; the life rides on the tap (auto-payment taps count).",
   "source": "{T}: Add {C}. You gain 1 life.",
-  "status": "auto"
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "gainLife": 1
+     }
+    ],
+    "on": "tapped",
+    "self": true,
+    "text": "{T}: Add {C}. You gain 1 life."
+   }
+  ]
  },
  "Prize Pig": {
   "name": "Prize Pig",

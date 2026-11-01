@@ -48,6 +48,24 @@ body.play #sheet { z-index: 8250; }
 .opp-pile img { width: 100%; display: block; border-radius: 3px; box-shadow: 1px 1px 0 #000, 2px 2px 0 #1b120b, 3px 3px 0 #000, 0 4px 10px #000a; }
 .opp-pile .opp-drawcard { position: absolute; left: 0; top: 0; opacity: 0; box-shadow: 0 4px 12px #000c; }
 .opp-pile.drawing .opp-drawcard { animation: oppDraw 0.75s cubic-bezier(.3,.6,.3,1) forwards; }
+/* the opponents' libraries (state.opp.lib): a count badge on the pile; tap opens the sheet */
+button.opp-pile { background: none; border: 0; padding: 0; cursor: pointer; color: inherit; font: inherit; }
+.opp-pile .opp-libn {
+  position: absolute; left: 50%; bottom: -7px; transform: translateX(-50%); z-index: 1; white-space: nowrap;
+  font-family: var(--font-display); font-weight: 700; font-size: 0.66rem; line-height: 1; padding: 2px 4px; border-radius: 99px;
+  background: #0b0a10e6; color: var(--opp-text); border: 1px solid color-mix(in srgb, var(--opp-text) 35%, transparent);
+}
+.opp-pile .opp-libn small { font-size: 0.8em; font-weight: 600; color: var(--muted); margin-left: 1px; }
+.opp-pile.low .opp-libn { color: var(--warn); border-color: var(--warn); }
+.opp-pile.out .opp-libn { color: var(--bad); border-color: var(--bad); }
+.opp-pile.out img:first-child { filter: grayscale(1) brightness(0.6); }
+@media (max-width: 640px) { .opp-pile .opp-libn { left: -3px; transform: none; font-size: 0.62rem; padding: 1px 3px; } }
+.opplib, .opplib-set { display: flex; flex-direction: column; gap: 6px; }
+.opplib-set { margin-top: 12px; padding-top: 10px; border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent); }
+.opplib-row { display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; }
+.opplib-l { min-width: 6.5em; color: var(--muted); font-size: 0.8rem; text-align: right; }
+.opplib-row b { font-family: var(--font-display); font-size: 1.2rem; min-width: 3ch; text-align: center; color: var(--opp-text); }
+.opplib-row b.opplib-out { color: var(--bad); font-size: 0.9rem; min-width: 10ch; }
 @keyframes oppDraw {
   0% { opacity: 1; transform: translate(0, 0) rotate(0); }
   60% { opacity: 1; transform: translate(-22px, 12px) rotate(-14deg) scale(1.15); }
@@ -309,6 +327,8 @@ body.busy .btn.primary.big { opacity: 0.7; }
 .wbv { font-size: 0.6rem; color: var(--text); }
 .wbt { font-size: 0.58rem; color: var(--muted); }
 .win-best { font-size: 0.82rem; color: var(--muted); font-style: italic; }
+.win-why { font-size: 0.92rem; color: var(--text); font-style: italic; }
+.win-mill { font-size: 0.8rem; color: var(--muted); }
 .win-btns { display: flex; gap: 8px; width: 100%; }
 .win-btns .btn { flex: 1; padding: 10px 8px; }
 

@@ -166,6 +166,7 @@ export function boot(deck) {
   if (!handed) restore(); // a hand from the URL (Practice → "Play it out") always starts a fresh game
   ui.prevWon = !!S().won;
   if (typeof G.on === 'function') G.on('turnStart', pl => { ui.extraTurn = !!(pl && pl.extra); });
+  if (typeof G.on === 'function') G.on('oppMilled', onOppMilled);
   initRadial();
   initSheet();
   initPanels({ game: () => G, deck: DECK, act, toast: (m, k) => hint(m, { kind: k === 'bad' ? 'warn' : 'info' }), power: pow, toughness: tou });
@@ -216,7 +217,7 @@ function buildStatic() {
   const av = $('oppAvatar');
   if (av) av.innerHTML = DUMMY_SVG;
   const ob = $('oppLib');
-  if (ob) ob.innerHTML = `<img src="${CARD_BACK}" alt=""><img class="opp-drawcard" src="${CARD_BACK}" alt="">`;
+  if (ob) ob.innerHTML = `<img src="${CARD_BACK}" alt=""><img class="opp-drawcard" src="${CARD_BACK}" alt=""><b class="opp-libn" id="oppLibN"></b>`;
   const dn = $('deckName');
   if (dn) dn.textContent = DECK.name || DECK.slug || 'Goldfish';
   const classic = $('classicLink');
@@ -308,7 +309,8 @@ function renderOpp(s) {
   const opp = $('opp');
   if (opp) opp.classList.toggle('dead', !!s.won);
   const sub = $('oppSub');
-  if (sub && !ui.inter) sub.textContent = s.won ? `Defeated on turn ${s.wonOn ?? s.turn}` : 'never attacks · never blocks';
+  if (sub && !ui.inter) sub.textContent = s.won ? `Defeated on turn ${s.wonOn ?? s.turn}${s.wonReason === 'milled out' ? ' · milled out' : ''}` : 'never attacks · never blocks';
+  renderOppLib(o.lib);
   const box = $('oppCmd');
   if (!box) return;
   const names = commanderNames(s);
@@ -325,6 +327,30 @@ function renderOpp(s) {
     bar.querySelector('i').style.width = Math.min(100, (v / 21) * 100).toFixed(1) + '%';
     bar.querySelector('b').textContent = `${v} / 21`;
   });
+}
+
+/** A mill hits the dummy's pile: "−14" rises from it, it shakes, and its count drops to what the mill left
+    (the end-of-turn flow renders only after the opponents' turn, which then shows their draw). */
+function onOppMilled(e) {
+  if (!e || !(e.total > 0)) return;
+  const n = Math.max(0, ...(e.each || [e.n || 0]));
+  const L = (S().opp || {}).lib;
+  const at = L && Array.isArray(e.libs) ? { ...L, n: e.libs.slice(), out: Array.isArray(e.out) ? e.out.slice() : L.out } : null;
+  requestAnimationFrame(() => { const pile = $('oppLib'); if (at) renderOppLib(at); fx.damage(pile, n); fx.shake(pile, 0.6); });
+}
+/** The opponents' libraries on the dummy's pile: "91" (×3 when several are still in), "54–91" when they differ. */
+function renderOppLib(L) {
+  const pile = $('oppLib'), n = $('oppLibN');
+  if (!pile || !n || !L || !Array.isArray(L.n)) return;
+  const alive = L.n.map((v, i) => ({ v, i })).filter(x => L.out[x.i] == null);
+  const vals = alive.map(x => x.v);
+  const lo = vals.length ? Math.min(...vals) : 0, hi = vals.length ? Math.max(...vals) : 0;
+  n.innerHTML = !alive.length ? 'out' : `${lo === hi ? lo : `${lo}–${hi}`}${alive.length > 1 ? `<small>×${alive.length}</small>` : ''}`;
+  pile.classList.toggle('low', alive.length > 0 && lo <= 10);
+  pile.classList.toggle('out', !alive.length);
+  const each = L.n.map((v, i) => (L.out[i] != null ? 'out' : v)).join(' · ');
+  pile.title = `${L.n.length === 1 ? "Opponent's library" : `${L.n.length} opponents' libraries`}: ${each}${L.draws ? '' : ' (no draws)'} — tap to adjust`;
+  pile.setAttribute('aria-label', pile.title);
 }
 
 /* ---------- battlefield ---------- */
@@ -630,6 +656,8 @@ function showWin() {
     <div class="win-avatar">${DUMMY_SVG}</div>
     <h2>Training Dummy defeated</h2>
     <div class="win-turn">turn ${esc(turn)}</div>
+    ${s.wonReason ? `<p class="win-why">${esc(s.wonReason)}</p>` : ''}
+    ${millLine(s, turn)}
     <div class="win-bars" aria-label="Damage per turn">${turns.map(t => {
       const v = Math.max(0, dmg[t] || 0);
       return `<div class="wb" title="Turn ${t}: ${v} damage"><span class="wbv">${v || ''}</span><i style="height:${((v / max) * 100).toFixed(0)}%"></i><span class="wbt">${t}</span></div>`;
@@ -640,6 +668,14 @@ function showWin() {
   el.classList.add('open');
   ui.winOpen = true;
   fx.dimBoard(true);
+}
+/** "Milled 297 this game · 126 on turn 7" — only when something was milled from the opponents. */
+function millLine(s, turn) {
+  const L = s.opp && s.opp.lib;
+  if (!L || !(L.milled > 0)) return '';
+  const by = L.byTurn || {};
+  const per = Object.keys(by).map(Number).sort((a, b) => a - b).map(t => `T${t}: ${by[t]}`).join(', ');
+  return `<div class="win-mill" title="Cards milled from the opponents, per turn — ${esc(per)}">Milled ${esc(L.milled)} this game · ${esc(by[turn] || 0)} on turn ${esc(turn)}</div>`;
 }
 function showLost() {
   const s = S(), el = $('win');
@@ -1045,7 +1081,9 @@ async function opponentTurn() {
   fx.dimBoard(true);
   pile?.classList.remove('drawing'); void pile?.offsetWidth; pile?.classList.add('drawing');
   await beat(700);
-  if (sub) sub.textContent = 'passes';
+  renderOppLib((S().opp || {}).lib); // their draw (or their loss) lands on the pile now
+  const L = (S().opp || {}).lib, outNow = L && Array.isArray(L.out) ? L.out.filter(t => t === S().turn - 1).length : 0;
+  if (sub) sub.textContent = outNow ? (outNow === L.n.length || L.n.length === 1 ? 'draws from an empty library' : `${outNow} draw${outNow === 1 ? 's' : ''} from an empty library`) : 'passes';
   await beat(550);
   opp?.classList.remove('their-turn');
   pile?.classList.remove('drawing');
@@ -1259,6 +1297,46 @@ function openOppSheet() {
         const d = before - S().opp.life;
         if (d > 0) { fx.damage($('oppAvatar'), d); fx.shake($('opp'), 0.6); }
         if (S().won) { closeSheet(); return true; }
+        draw();
+        return true;
+      },
+    });
+  };
+  draw();
+}
+/** The opponents' libraries: per-opponent +/-, the opponent count, the starting size, the per-round draw. */
+function openOppLibSheet() {
+  const draw = () => {
+    const L = (S().opp || {}).lib;
+    if (!L || typeof G.setOppLibrary !== 'function') return;
+    const k = L.n.length;
+    const row = (label, idx, val, dead) => `<div class="opplib-row"><span class="opplib-l">${label}</span>
+      ${dead ? `<b class="opplib-out">${esc(val)}</b>` : `<button class="btn sm" data-ol="${idx}:-5">&minus;5</button><button class="btn sm" data-ol="${idx}:-1">&minus;</button>
+      <b>${esc(val)}</b><button class="btn sm" data-ol="${idx}:1">+</button><button class="btn sm" data-ol="${idx}:5">+5</button>`}</div>`;
+    const rows = L.n.map((v, i) => row(k === 1 ? 'Library' : `Opponent ${i + 1}`, i, L.out[i] != null ? `out (turn ${L.out[i]})` : v, L.out[i] != null)).join('');
+    const eachRow = k > 1 && L.out.filter(t => t == null).length > 1 ? row('Each', 'each', 'all', false) : '';
+    const counts = [1, 2, 3, 4, 5].map(n => `<button class="btn sm${n === k ? ' primary' : ''}" data-oc="${n}" aria-pressed="${n === k}">${n}</button>`).join('');
+    openSheet({
+      title: k === 1 ? "Opponent's library" : "Opponents' libraries",
+      body: `<div class="opplib">${rows}${eachRow}</div>
+        <div class="opplib-set">
+          <div class="opplib-row"><span class="opplib-l">Opponents</span>${counts}</div>
+          <div class="opplib-row"><span class="opplib-l">Start at</span><button class="btn sm" data-os="-10">&minus;10</button><button class="btn sm" data-os="-1">&minus;</button>
+            <b>${esc(L.start)}</b><button class="btn sm" data-os="1">+</button><button class="btn sm" data-os="10">+10</button></div>
+          <div class="opplib-row"><span class="opplib-l">Each turn</span><button class="btn sm${L.draws ? ' primary' : ''}" data-odraw="1" aria-pressed="${L.draws}">${L.draws ? 'Each opponent draws 1' : 'No draws'}</button></div>
+        </div>
+        <p class="sheet-note">Hope and other mill cards lower these. An opponent who has to draw from an empty library loses; when every opponent is out, you win. Changing the opponents or the starting size resets every library.</p>`,
+      buttons: [{ label: 'Done', primary: true }],
+      onClick: ev => {
+        const b = ev.target.closest('[data-ol], [data-oc], [data-os], [data-odraw]');
+        if (!b) return false;
+        const L0 = S().opp.lib;
+        if (b.dataset.ol) {
+          const [i, d] = b.dataset.ol.split(':');
+          act(() => G.oppLibAdjust(+d, i === 'each' ? null : +i), { silent: true });
+        } else if (b.dataset.oc) act(() => G.setOppLibrary({ opponents: +b.dataset.oc }), { silent: true });
+        else if (b.dataset.os) act(() => G.setOppLibrary({ start: Math.max(0, L0.start + +b.dataset.os) }), { silent: true });
+        else if (b.dataset.odraw) act(() => G.setOppLibrary({ draws: !L0.draws }), { silent: true });
         draw();
         return true;
       },
@@ -1828,6 +1906,7 @@ const ACTS = {
   keep: () => { closeWin(); render(); },
   life: a => act(() => G.life(+a)),
   opplife: openOppSheet,
+  opplib: openOppLibSheet,
   menu: a => openCardMenu(a),
   playtop: a => playCard(+a),
   emblem: a => { const e = (S().emblems || [])[+a]; if (e) openSheet({ title: esc(e.name || 'Emblem'), body: `<p class="sheet-text">${esc(emblemText(e))}</p>`, buttons: [{ label: 'Close' }] }); },

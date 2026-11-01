@@ -281,11 +281,27 @@ function payFrom(pool, cost) {
 }
 
 // "Drew 1 card." -> "drew 1 card." inside a batch line ("Garruk's Uprising: drew 1 card.")
-const LC_VERBS = /^(Drew|Created|Moved|Tapped|Untapped|Scried|Surveilled|Milled|Sacrificed|Searched|Put|Added|Removed|Exiled|Returned|Shuffled|Discarded|Gained|Lost|Paid|Your|Dummy)\b/;
+const LC_VERBS = /^(Drew|Created|Moved|Tapped|Untapped|Scried|Surveilled|Milled|Sacrificed|Searched|Put|Added|Removed|Exiled|Returned|Shuffled|Discarded|Gained|Lost|Paid|Your|Dummy|Each|Opponent|The opponent)\b/;
 const lcVerb = m => (LC_VERBS.test(m) ? m[0].toLowerCase() + m.slice(1) : m);
 
 /* ---------------- the game ---------------- */
 const blankPool = () => ({ W: 0, U: 0, B: 0, R: 0, G: 0, C: 0 });
+// The opponents' libraries (state.opp.lib). Life and commander damage stay one dummy; the libraries model
+// `n.length` opponents (default 3, a four-player pod) so "each opponent mills X" and "target player mills X"
+// can be tested. n[i] = cards left, out[i] = turn opponent i drew from an empty library (null = still in),
+// draws = each opponent draws 1 per round, milled = cards milled from opponents this game, byTurn = per turn.
+export const OPP_LIB_START = 99, OPP_COUNT = 3, OPP_MAX = 8, OPP_LIB_MAX = 250;
+const blankOppLib = (start = OPP_LIB_START, opponents = OPP_COUNT, draws = true) => {
+  start = Math.max(0, Math.min(OPP_LIB_MAX, Number.isFinite(+start) ? Math.floor(+start) : OPP_LIB_START));
+  opponents = Math.max(1, Math.min(OPP_MAX, Number.isFinite(+opponents) ? Math.floor(+opponents) : OPP_COUNT));
+  return { start, n: Array(opponents).fill(start), out: Array(opponents).fill(null), draws: draws !== false, milled: 0, byTurn: {} };
+};
+/** "85 · 85 · 85" (an opponent who is out shows "out"). */
+export function oppLibText(lib) {
+  if (!lib || !Array.isArray(lib.n)) return '';
+  return lib.n.map((v, i) => (lib.out && lib.out[i] != null ? 'out' : String(v))).join(' · ');
+}
+const oppWho = (lib, i) => (lib.n.length === 1 ? 'The opponent' : `Opponent ${i + 1}`);
 const blankTurnStats = () => ({ lifeGained: 0, lifeLost: 0, tokensCreated: 0, entered: [], died: [], spellsCast: [], damageToOpp: 0, manaSpent: 0, treasureManaSpent: 0, sacrificed: [] });
 
 export function createGame(deck, opts = {}) {
@@ -459,13 +475,14 @@ class Game {
     const seed = opts.seed;
     const cmd = commanderNames(this);
     const prevRng = this.state ? this.state.rng : null;
+    const prevLib = (opts.oppLibrary) || (this.state && this.state.opp && this.state.opp.lib) || null;
     this.state = {
       deck: deck.slug, deckName: deck.name,
       turn: 1,
       // Turn 1 starts in main1: nothing to untap, no upkeep triggers, and no draw on the play.
       phase: 'main1',
       life: 40,
-      opp: { life: 40, cmdDamage: {} },
+      opp: { life: 40, cmdDamage: {}, lib: prevLib ? blankOppLib(prevLib.start, prevLib.opponents ?? (Array.isArray(prevLib.n) ? prevLib.n.length : undefined), prevLib.draws) : blankOppLib() },
       pool: blankPool(),
       landPlayed: false,
       cmdTax: Object.fromEntries(cmd.map(n => [n, 0])),
@@ -529,6 +546,8 @@ class Game {
       if (!st.counters) st.counters = {};
       if (!st.emblems) st.emblems = [];
       if (!st.foretold) st.foretold = {};
+      if (!st.opp) st.opp = { life: 40, cmdDamage: {} };
+      if (!st.opp.lib || !Array.isArray(st.opp.lib.n)) st.opp.lib = blankOppLib();
       this.state = st;
       this.undoStack = [];
       return { ok: true };
@@ -648,6 +667,7 @@ class Game {
     const ph = s.phase;
     if (ph === 'cleanup') {
       if (s.zones.hand.length > this._maxHand()) return { ok: false, reason: 'discard', count: s.zones.hand.length - 7 };
+      if (!(s.extraTurns > 0)) this._opponentsTurn(); // an extra turn: the opponents don't get one in between
       s.turn++;
       this._setPhase('untap');
       s.landPlayed = false;
@@ -1024,6 +1044,91 @@ class Game {
     this._checkWin();
     if (delta | 0) this._emit('life', { who: 'opp', delta: delta | 0, now: this.state.opp.life });
     return { ok: true, life: this.state.opp.life, won: this.state.won };
+  }
+
+  /* ---- the opponents' libraries (state.opp.lib) ---- */
+  _oppLib() {
+    const o = this.state.opp || (this.state.opp = { life: 40, cmdDamage: {} });
+    if (!o.lib || !Array.isArray(o.lib.n)) o.lib = blankOppLib();
+    return o.lib;
+  }
+  // The opponents' turns between two of yours: each opponent still in draws a card (when `draws` is on);
+  // one who has to draw from an empty library loses (Commander: the draw itself is the loss, so a library
+  // milled to 0 kills at that opponent's next draw step, toggle or not). All of them out -> you win, "milled out".
+  _opponentsTurn() {
+    const s = this.state, L = this._oppLib();
+    const k = L.n.length;
+    if (!k) return;
+    let drew = 0;
+    const lost = [];
+    for (let i = 0; i < k; i++) {
+      if (L.out[i] != null) continue;
+      if (L.n[i] <= 0) { L.out[i] = s.turn; lost.push(i); continue; }
+      if (L.draws) { L.n[i]--; drew++; }
+    }
+    if (drew) this._log(`${k === 1 ? 'The opponent draws' : 'Opponents draw'} (${k === 1 ? 'library' : 'libraries'} ${oppLibText(L)}).`);
+    for (const i of lost) this._log(`${oppWho(L, i)} draws from an empty library and loses.`);
+    if (lost.length) this._emit('oppOut', { who: lost.slice(), turn: s.turn });
+    if (!s.won && L.out.every(t => t != null)) {
+      s.won = true; s.wonOn = s.turn; s.wonReason = 'milled out';
+      this._log(`${k === 1 ? 'The opponent is' : 'Every opponent is'} milled out on turn ${s.turn}.`);
+    }
+  }
+  // "Each opponent mills n" (who: 'each') or "target opponent mills n" (who: 'target', index = which one;
+  // default the first still in). Opponents who are out are skipped. Counts toward milled / byTurn.
+  oppMill(n, { who = 'each', index = null } = {}) {
+    const s = this.state, L = this._oppLib();
+    n = Math.max(0, Math.floor(+n) || 0);
+    const alive = L.n.map((_, i) => i).filter(i => L.out[i] == null);
+    let targets;
+    if (who === 'each') targets = alive;
+    else {
+      const i = index == null ? alive[0] : +index;
+      targets = Number.isInteger(i) && alive.includes(i) ? [i] : [];
+    }
+    if (!targets.length) return { ok: false, reason: 'no opponent left' };
+    this._snap();
+    const each = targets.map(i => { const m = Math.min(n, L.n[i]); L.n[i] -= m; return m; });
+    const total = each.reduce((a, b) => a + b, 0);
+    L.milled = (L.milled || 0) + total;
+    L.byTurn = L.byTurn || {};
+    if (total) L.byTurn[s.turn] = (L.byTurn[s.turn] || 0) + total;
+    const k = L.n.length;
+    if (who === 'each') this._log(`${k === 1 ? 'The opponent mills' : 'Each opponent mills'} ${n} (${k === 1 ? 'library' : 'libraries'} ${oppLibText(L)}).`);
+    else this._log(`${oppWho(L, targets[0])} mills ${n} (library ${L.n[targets[0]]}).`);
+    this._emit('oppMilled', { n, total, who, targets: targets.slice(), each, libs: L.n.slice(), out: L.out.slice() });
+    return { ok: true, milled: total, each, libs: L.n.slice() };
+  }
+  // Manual +/- on one opponent's library (index) or on every opponent still in (index null). Not counted as milled.
+  oppLibAdjust(delta, index = null) {
+    const L = this._oppLib();
+    delta = Math.floor(+delta) || 0;
+    const idx = index == null ? L.n.map((_, i) => i).filter(i => L.out[i] == null) : [+index].filter(i => Number.isInteger(i) && i >= 0 && i < L.n.length);
+    if (!idx.length || !delta) return { ok: false, reason: idx.length ? 'nothing to change' : 'no opponent' };
+    this._snap();
+    for (const i of idx) L.n[i] = Math.max(0, Math.min(OPP_LIB_MAX, L.n[i] + delta));
+    this._log(`${index == null ? (L.n.length === 1 ? 'The opponent\'s library' : 'Opponents\' libraries') : `${oppWho(L, idx[0])}'s library`} ${delta > 0 ? '+' : ''}${delta} (manual) -> ${oppLibText(L)}.`);
+    return { ok: true, libs: L.n.slice() };
+  }
+  // Settings: { opponents, start, draws }. A new opponent count or starting size resets every library to the
+  // starting size (and brings everyone back in); `draws` only switches the per-round draw. Kept by restart().
+  setOppLibrary({ opponents, start, draws } = {}) {
+    const L = this._oppLib();
+    const nOpp = opponents == null ? L.n.length : Math.max(1, Math.min(OPP_MAX, Math.floor(+opponents) || 1));
+    const nStart = start == null ? L.start : Math.max(0, Math.min(OPP_LIB_MAX, Math.floor(+start) || 0));
+    const reset = nOpp !== L.n.length || nStart !== L.start;
+    const nDraws = draws == null ? L.draws : !!draws;
+    if (!reset && nDraws === L.draws) return { ok: false, reason: 'nothing to change' };
+    this._snap();
+    if (reset) {
+      const fresh = blankOppLib(nStart, nOpp, nDraws);
+      this.state.opp.lib = fresh;
+      this._log(`Opponents' libraries: ${nOpp} opponent${nOpp === 1 ? '' : 's'} at ${nStart} cards.`);
+    } else {
+      L.draws = nDraws;
+      this._log(`Opponents ${nDraws ? 'draw a card each turn again' : 'no longer draw each turn'}.`);
+    }
+    return { ok: true };
   }
 
   /* ---- library ---- */

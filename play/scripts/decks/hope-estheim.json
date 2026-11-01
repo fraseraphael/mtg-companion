@@ -1,0 +1,1724 @@
+{
+ "Adarkar Wastes": {
+  "name": "Adarkar Wastes",
+  "source": "{T}: Add {C}.\n{T}: Add {W} or {U}. This land deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Aetherize": {
+  "name": "Aetherize",
+  "notes": "Goldfish: only the dummy's attackers are meant (it never attacks), so nothing happens. Never bounces your own attackers.",
+  "source": "Return all attacking creatures to their owner's hand.",
+  "spell": [
+   {
+    "bounce": {
+     "target": "opponent"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Alabaster Potion": {
+  "name": "Alabaster Potion",
+  "notes": "'Target player' is you: the goldfish's opponents never gain life.",
+  "source": "Choose one —\n• Target player gains X life.\n• Prevent the next X damage that would be dealt to any target this turn.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "gainLife": "X"
+        }
+       ],
+       "label": "You gain X life"
+      },
+      {
+       "do": [],
+       "label": "Prevent the next X damage (nothing to prevent against the goldfish)"
+      }
+     ],
+     "text": "Choose one —"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Angel of Vitality": {
+  "name": "Angel of Vitality",
+  "replace": [
+   {
+    "add": 1,
+    "event": "lifeGained"
+   }
+  ],
+  "source": "Flying\nIf you would gain life, you gain that much life plus 1 instead.\nThis creature gets +2/+2 as long as you have 25 or more life.",
+  "statics": [
+   {
+    "if": {
+     "lifeGe": 25
+    },
+    "p": 2,
+    "scope": "self",
+    "t": 2,
+    "text": "This creature gets +2/+2 as long as you have 25 or more life."
+   }
+  ],
+  "status": "hand"
+ },
+ "Arcane Signet": {
+  "name": "Arcane Signet",
+  "source": "{T}: Add one mana of any color in your commander's color identity.",
+  "status": "auto"
+ },
+ "Archangel of Tithes": {
+  "name": "Archangel of Tithes",
+  "notes": "Both taxes apply only to the opponent's attackers and blockers; the goldfish has none. Silent on purpose.",
+  "source": "Flying\nAs long as this creature is untapped, creatures can't attack you or planeswalkers you control unless their controller pays {1} for each of those creatures.\nAs long as this creature is attacking, creatures can't block unless their controller pays {1} for each of those creatures.",
+  "status": "hand"
+ },
+ "Archon of Absolution": {
+  "name": "Archon of Absolution",
+  "notes": "Flying and protection from white are keywords. Opponent-only: it only matters against an opponent's creatures, spells or attacks, and the goldfish has none. Silent on purpose.",
+  "source": "Flying\nProtection from white (This creature can't be blocked, targeted, dealt damage, enchanted, or equipped by anything white.)\nCreatures can't attack you or planeswalkers you control unless their controller pays {1} for each of those creatures.",
+  "status": "hand"
+ },
+ "Ashes of the Abhorrent": {
+  "name": "Ashes of the Abhorrent",
+  "notes": "Only your creatures die in the goldfish. The graveyard lock also stops YOUR flashback (Faithful Mending, Memories Returning): not enforced, keep it in mind.",
+  "source": "Players can't cast spells from graveyards or activate abilities of cards in graveyards.\nWhenever a creature dies, you gain 1 life.",
+  "statics": [
+   {
+    "prompt": "Players can't cast spells from graveyards or activate abilities of cards in graveyards."
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "gainLife": 1
+     }
+    ],
+    "filter": {
+     "creature": true
+    },
+    "on": "dies",
+    "text": "Whenever a creature dies, you gain 1 life."
+   }
+  ]
+ },
+ "Azorius Charm": {
+  "name": "Azorius Charm",
+  "source": "Choose one —\n• Creatures you control gain lifelink until end of turn.\n• Draw a card.\n• Put target attacking or blocking creature on top of its owner's library.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "grant": {
+          "kw": [
+           "Lifelink"
+          ],
+          "target": "each-creature-you-control"
+         }
+        }
+       ],
+       "label": "Creatures you control gain lifelink until end of turn"
+      },
+      {
+       "do": [
+        {
+         "draw": 1
+        }
+       ],
+       "label": "Draw a card"
+      },
+      {
+       "do": [],
+       "label": "Put target attacking or blocking creature on top of its owner's library (the dummy never attacks)"
+      }
+     ],
+     "text": "Choose one —"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Azorius Signet": {
+  "name": "Azorius Signet",
+  "source": "{1}, {T}: Add {W}{U}.",
+  "status": "auto"
+ },
+ "Baird, Steward of Argive": {
+  "name": "Baird, Steward of Argive",
+  "notes": "Silent: the attack tax only matters against an opponent (the dummy never attacks).",
+  "source": "Vigilance\nCreatures can't attack you or planeswalkers you control unless their controller pays {1} for each of those creatures.",
+  "status": "hand"
+ },
+ "Battle Menu": {
+  "name": "Battle Menu",
+  "source": "Choose one —\n• Attack — Create a 2/2 white Knight creature token.\n• Ability — Target creature gets +0/+4 until end of turn.\n• Magic — Destroy target creature with power 4 or greater.\n• Item — You gain 4 life.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "token": {
+          "colors": [
+           "W"
+          ],
+          "name": "Knight",
+          "power": 2,
+          "toughness": 2,
+          "types": [
+           "Creature",
+           "Knight"
+          ]
+         }
+        }
+       ],
+       "label": "Attack — Create a 2/2 white Knight token"
+      },
+      {
+       "do": [
+        {
+         "pump": {
+          "p": 0,
+          "t": 4,
+          "target": "creature-you-control"
+         }
+        }
+       ],
+       "label": "Ability — Target creature gets +0/+4"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "Magic — Destroy target creature with power 4 or greater (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "gainLife": 4
+        }
+       ],
+       "label": "Item — You gain 4 life"
+      }
+     ],
+     "text": "Choose one —"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Beyeen Coast": {
+  "name": "Beyeen Coast",
+  "source": "This land enters tapped.\n{T}: Add {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   }
+  ]
+ },
+ "Beyeen Veil // Beyeen Coast": {
+  "name": "Beyeen Veil // Beyeen Coast",
+  "notes": "Only shrinks an opponent's creatures; the goldfish has none. Silent on purpose. The land side (Beyeen Coast) enters tapped automatically.",
+  "source": "Creatures your opponents control get -2/-0 until end of turn.",
+  "status": "hand"
+ },
+ "Blind Obedience": {
+  "name": "Blind Obedience",
+  "notes": "Extort drains every opponent still in: you gain 1 per opponent (count:opponents, the dummy's opponent count). The dummy's single life total loses 1. 'Opponents' artifacts and creatures enter tapped' is opponent-only.",
+  "source": "Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.)\nArtifacts and creatures your opponents control enter tapped.",
+  "status": "hand",
+  "triggers": [
+   {
+    "cost": {
+     "mana": "{W/B}"
+    },
+    "do": [
+     {
+      "oppLoseLife": 1
+     },
+     {
+      "gainLife": "count:opponents"
+     }
+    ],
+    "on": "cast",
+    "text": "Extort (Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.)"
+   }
+  ]
+ },
+ "Castle Ardenvale": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}{W}{W}",
+     "tap": true
+    },
+    "do": [
+     {
+      "token": {
+       "colors": [
+        "W"
+       ],
+       "name": "Human",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Human"
+       ]
+      }
+     }
+    ],
+    "label": "Human token",
+    "text": "{2}{W}{W}, {T}: Create a 1/1 white Human creature token."
+   }
+  ],
+  "name": "Castle Ardenvale",
+  "source": "This land enters tapped unless you control a Plains.\n{T}: Add {W}.\n{2}{W}{W}, {T}: Create a 1/1 white Human creature token.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "other": true,
+          "subtype": "Plains"
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control a Plains."
+   }
+  ]
+ },
+ "Castle Vantress": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}{U}{U}",
+     "tap": true
+    },
+    "do": [
+     {
+      "scry": 2
+     }
+    ],
+    "label": "Scry 2",
+    "text": "{2}{U}{U}, {T}: Scry 2."
+   }
+  ],
+  "name": "Castle Vantress",
+  "source": "This land enters tapped unless you control an Island.\n{T}: Add {U}.\n{2}{U}{U}, {T}: Scry 2.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "other": true,
+          "subtype": "Island"
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control an Island."
+   }
+  ]
+ },
+ "Command Tower": {
+  "name": "Command Tower",
+  "source": "{T}: Add one mana of any color in your commander's color identity.",
+  "status": "auto"
+ },
+ "Cosmos Elixir": {
+  "name": "Cosmos Elixir",
+  "notes": "Starting life 40.",
+  "source": "At the beginning of your end step, draw a card if your life total is greater than your starting life total. Otherwise, you gain 2 life.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "draw": 1
+        }
+       ],
+       "else": [
+        {
+         "gainLife": 2
+        }
+       ],
+       "if": {
+        "lifeGe": 41
+       }
+      }
+     }
+    ],
+    "on": "endStep",
+    "text": "At the beginning of your end step, draw a card if your life total is greater than your starting life total. Otherwise, you gain 2 life."
+   }
+  ]
+ },
+ "Day of Judgment": {
+  "name": "Day of Judgment",
+  "source": "Destroy all creatures.",
+  "spell": [
+   {
+    "destroy": {
+     "target": {
+      "each": {
+       "creature": true
+      }
+     }
+    }
+   }
+  ],
+  "status": "auto"
+ },
+ "Deserted Beach": {
+  "name": "Deserted Beach",
+  "source": "This land enters tapped unless you control two or more other lands.\n{T}: Add {W} or {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "landsGe": 3
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control two or more other lands."
+   }
+  ]
+ },
+ "Dovin's Acuity": {
+  "name": "Dovin's Acuity",
+  "notes": "The 'during your main phase' part is not checked: skip the return when you cast an instant in combat or the end step.",
+  "source": "When this enchantment enters, you gain 2 life and draw a card.\nWhenever you cast an instant spell during your main phase, you may return this enchantment to its owner's hand.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "gainLife": 2
+     },
+     {
+      "draw": 1
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this enchantment enters, you gain 2 life and draw a card."
+   },
+   {
+    "do": [
+     {
+      "bounce": {
+       "target": "self"
+      }
+     }
+    ],
+    "filter": {
+     "type": "Instant"
+    },
+    "on": "cast",
+    "optional": true,
+    "text": "Whenever you cast an instant spell during your main phase, you may return this enchantment to its owner's hand."
+   }
+  ]
+ },
+ "Dovin's Veto": {
+  "name": "Dovin's Veto",
+  "notes": "Counters an opponent's spell; the goldfish casts none. Silent on purpose.",
+  "source": "This spell can't be countered.\nCounter target noncreature spell.",
+  "status": "hand"
+ },
+ "Dust Bowl": {
+  "name": "Dust Bowl",
+  "notes": "{T}: Add {C} is the engine's. Destroying a nonbasic land only targets an opponent's lands; the goldfish has none. Silent on purpose.",
+  "source": "{T}: Add {C}.\n{3}, {T}, Sacrifice a land: Destroy target nonbasic land.",
+  "status": "hand"
+ },
+ "Elixir": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{5}",
+     "tap": true
+    },
+    "do": [
+     {
+      "exile": {
+       "target": "self"
+      }
+     },
+     {
+      "return": {
+       "filter": {
+        "nonland": true
+       },
+       "from": "gy",
+       "n": "count:gy:nonland",
+       "to": "top"
+      }
+     },
+     {
+      "gainLife": {
+       "of": "lastCount"
+      }
+     },
+     {
+      "shuffle": true
+     }
+    ],
+    "label": "Exile: shuffle back, gain",
+    "text": "{5}, {T}, Exile this artifact: Shuffle all nonland cards from your graveyard into your library. You gain life equal to the number of cards shuffled into your library this way."
+   }
+  ],
+  "name": "Elixir",
+  "source": "This artifact enters tapped.\n{5}, {T}, Exile this artifact: Shuffle all nonland cards from your graveyard into your library. You gain life equal to the number of cards shuffled into your library this way.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This artifact enters tapped."
+   }
+  ]
+ },
+ "Elixir of Immortality": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{2}",
+     "tap": true
+    },
+    "do": [
+     {
+      "gainLife": 5
+     },
+     {
+      "return": {
+       "from": "gy",
+       "n": "count:cards-in-gy",
+       "to": "top"
+      }
+     },
+     {
+      "moveSelf": {
+       "to": "top"
+      }
+     },
+     {
+      "shuffle": true
+     }
+    ],
+    "label": "Gain 5, shuffle",
+    "text": "{2}, {T}: You gain 5 life. Shuffle this artifact and your graveyard into their owner's library."
+   }
+  ],
+  "name": "Elixir of Immortality",
+  "source": "{2}, {T}: You gain 5 life. Shuffle this artifact and your graveyard into their owner's library.",
+  "status": "hand"
+ },
+ "Everflowing Chalice": {
+  "name": "Everflowing Chalice",
+  "notes": "Multikicker mana is paid by hand. Auto-payment taps it for a single {C}; with 2+ charge counters add the rest through the mana pool.",
+  "source": "Multikicker {2} (You may pay an additional {2} any number of times as you cast this spell.)\nThis artifact enters with a charge counter on it for each time it was kicked.\n{T}: Add {C} for each charge counter on this artifact.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "chooseNumber": {
+       "max": 6,
+       "min": 0,
+       "text": "Multikicker {2}: how many times did you kick it? (pay the extra {2}s by hand)"
+      }
+     },
+     {
+      "counters": {
+       "kind": "charge",
+       "n": {
+        "of": "chosen"
+       },
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This artifact enters with a charge counter on it for each time it was kicked."
+   }
+  ]
+ },
+ "Exotic Orchard": {
+  "name": "Exotic Orchard",
+  "source": "{T}: Add one mana of any color that a land an opponent controls could produce.",
+  "status": "auto"
+ },
+ "Fact or Fiction": {
+  "name": "Fact or Fiction",
+  "notes": "The dummy can't split piles: take the cards of the pile you want; the rest go to the graveyard.",
+  "source": "Reveal the top five cards of your library. An opponent separates those cards into two piles. Put one pile into your hand and the other into your graveyard.",
+  "spell": [
+   {
+    "lookTop": {
+     "n": 5,
+     "pick": {
+      "n": 5,
+      "to": "hand"
+     },
+     "rest": "gy"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Faith Healer": {
+  "activated": [
+   {
+    "cost": {
+     "sac": {
+      "filter": {
+       "type": "Enchantment"
+      }
+     }
+    },
+    "do": [
+     {
+      "gainLife": {
+       "of": "lastDied",
+       "stat": "mv"
+      }
+     }
+    ],
+    "label": "Sac an enchantment",
+    "text": "Sacrifice an enchantment: You gain life equal to the sacrificed enchantment's mana value."
+   }
+  ],
+  "name": "Faith Healer",
+  "source": "Sacrifice an enchantment: You gain life equal to the sacrificed enchantment's mana value.",
+  "status": "hand"
+ },
+ "Faithful Mending": {
+  "flashback": "{1}{W}{U}",
+  "name": "Faithful Mending",
+  "source": "You gain 2 life, draw two cards, then discard two cards.\nFlashback {1}{W}{U} (You may cast this card from your graveyard for its flashback cost. Then exile it.)",
+  "spell": [
+   {
+    "gainLife": 2
+   },
+   {
+    "draw": 2
+   },
+   {
+    "discard": 2
+   }
+  ],
+  "status": "hand"
+ },
+ "Festival": {
+  "name": "Festival",
+  "notes": "Cast only during an opponent's upkeep to stop their attacks; the goldfish never attacks. Silent on purpose.",
+  "source": "Cast this spell only during an opponent's upkeep.\nCreatures can't attack this turn.",
+  "status": "hand"
+ },
+ "Fumigate": {
+  "name": "Fumigate",
+  "source": "Destroy all creatures. You gain 1 life for each creature destroyed this way.",
+  "spell": [
+   {
+    "destroy": {
+     "target": {
+      "each": {
+       "creature": true,
+       "withoutKw": "Indestructible"
+      }
+     }
+    }
+   },
+   {
+    "gainLife": {
+     "of": "lastCount"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Geist of Saint Thalia": {
+  "name": "Geist of Saint Thalia",
+  "source": "Flying\nNoncreature spells you cast cost {1} less to cast.",
+  "statics": [
+   {
+    "costLess": 1,
+    "filter": {
+     "noncreature": true
+    },
+    "scope": "spells-you-cast",
+    "text": "Noncreature spells you cast cost {1} less to cast."
+   }
+  ],
+  "status": "hand"
+ },
+ "Ghostly Prison": {
+  "name": "Ghostly Prison",
+  "notes": "Only taxes an opponent's attacks; the dummy never attacks.",
+  "source": "Creatures can't attack you unless their controller pays {2} for each creature they control that's attacking you.",
+  "status": "hand"
+ },
+ "Glacial Fortress": {
+  "name": "Glacial Fortress",
+  "source": "This land enters tapped unless you control a Plains or an Island.\n{T}: Add {W} or {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "subtype": [
+           "Plains",
+           "Island"
+          ]
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control a Plains or an Island."
+   }
+  ]
+ },
+ "Go-Shintai of Lost Wisdom": {
+  "name": "Go-Shintai of Lost Wisdom",
+  "notes": "Targets an opponent (you pick which when several are still in).",
+  "source": "Flying\nAt the beginning of your end step, you may pay {1}. When you do, target player mills X cards, where X is the number of Shrines you control. (To mill a card, a player puts the top card of their library into their graveyard.)",
+  "status": "hand",
+  "triggers": [
+   {
+    "cost": {
+     "mana": "{1}"
+    },
+    "do": [
+     {
+      "oppMill": {
+       "n": "count:Shrine",
+       "who": "target"
+      }
+     }
+    ],
+    "on": "endStep",
+    "text": "At the beginning of your end step, you may pay {1}. When you do, target player mills X cards, where X is the number of Shrines you control."
+   }
+  ]
+ },
+ "Go-Shintai of Shared Purpose": {
+  "name": "Go-Shintai of Shared Purpose",
+  "source": "Vigilance\nAt the beginning of your end step, you may pay {1}. If you do, create a 1/1 colorless Spirit creature token for each Shrine you control.",
+  "status": "hand",
+  "triggers": [
+   {
+    "cost": {
+     "mana": "{1}"
+    },
+    "do": [
+     {
+      "token": {
+       "n": "count:Shrine",
+       "name": "Spirit",
+       "power": 1,
+       "toughness": 1,
+       "types": [
+        "Creature",
+        "Spirit"
+       ]
+      }
+     }
+    ],
+    "on": "endStep",
+    "text": "At the beginning of your end step, you may pay {1}. If you do, create a 1/1 colorless Spirit creature token for each Shrine you control."
+   }
+  ]
+ },
+ "Heliod's Intervention": {
+  "name": "Heliod's Intervention",
+  "source": "Choose one —\n• Destroy X target artifacts and/or enchantments.\n• Target player gains twice X life.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "gainLife": {
+          "by": 2,
+          "mul": "X"
+         }
+        }
+       ],
+       "label": "You gain twice X life"
+      },
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "Destroy X target artifacts and/or enchantments (the dummy has none)"
+      }
+     ],
+     "text": "Choose one —"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Holy Day": {
+  "name": "Holy Day",
+  "notes": "Fogs an opponent's attack; the goldfish never attacks. Silent on purpose.",
+  "source": "Prevent all combat damage that would be dealt this turn.",
+  "status": "hand"
+ },
+ "Honden of Cleansing Fire": {
+  "name": "Honden of Cleansing Fire",
+  "source": "At the beginning of your upkeep, you gain 2 life for each Shrine you control.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "gainLife": {
+       "by": 2,
+       "mul": "count:Shrine"
+      }
+     }
+    ],
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, you gain 2 life for each Shrine you control."
+   }
+  ]
+ },
+ "Honden of Seeing Winds": {
+  "name": "Honden of Seeing Winds",
+  "source": "At the beginning of your upkeep, draw a card for each Shrine you control.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "draw": "count:Shrine"
+     }
+    ],
+    "on": "upkeep",
+    "text": "At the beginning of your upkeep, draw a card for each Shrine you control."
+   }
+  ]
+ },
+ "Honor the Fallen": {
+  "name": "Honor the Fallen",
+  "notes": "The goldfish doesn't know what you milled: estimate the opponents' creature cards (roughly a third of what Hope milled).",
+  "source": "Exile all creature cards from all graveyards. You gain 1 life for each card exiled this way.",
+  "spell": [
+   {
+    "exileFromGy": {
+     "filter": {
+      "creature": true
+     },
+     "n": "count:gy:creature"
+    }
+   },
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [],
+       "label": "None",
+       "value": 0
+      },
+      {
+       "do": [],
+       "label": "3",
+       "value": 3
+      },
+      {
+       "do": [],
+       "label": "6",
+       "value": 6
+      },
+      {
+       "do": [],
+       "label": "10",
+       "value": 10
+      },
+      {
+       "do": [],
+       "label": "15",
+       "value": 15
+      },
+      {
+       "do": [],
+       "label": "20",
+       "value": 20
+      },
+      {
+       "do": [],
+       "label": "30",
+       "value": 30
+      }
+     ],
+     "text": "Your opponents' graveyards: how many creature cards do they hold (milled ones included)?"
+    }
+   },
+   {
+    "gainLife": {
+     "sum": [
+      {
+       "of": "lastCount"
+      },
+      {
+       "of": "chosen"
+      }
+     ]
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Hope Estheim": {
+  "name": "Hope Estheim",
+  "notes": "Lifelink is the engine's. The trigger resolves after your other end-step triggers (Cosmos Elixir, Wall of Reverence), as you would stack it. Mills every opponent still in (state.opp.lib).",
+  "source": "Lifelink\nAt the beginning of your end step, each opponent mills X cards, where X is the amount of life you gained this turn.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "oppMill": {
+       "thisTurn": "lifeGained"
+      }
+     }
+    ],
+    "on": "endStep",
+    "order": "last",
+    "text": "At the beginning of your end step, each opponent mills X cards, where X is the amount of life you gained this turn."
+   }
+  ]
+ },
+ "Hydroelectric Laboratory": {
+  "name": "Hydroelectric Laboratory",
+  "source": "As this land enters, you may pay 3 life. If you don't, it enters tapped.\n{T}: Add {U}.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "loseLife": 3
+          }
+         ],
+         "label": "Pay 3 life (enters untapped)"
+        },
+        {
+         "do": [
+          {
+           "tap": {
+            "target": "self"
+           }
+          }
+         ],
+         "label": "Don't pay (enters tapped)"
+        }
+       ],
+       "text": "Pay 3 life, or it enters tapped?"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "As this land enters, you may pay 3 life. If you don't, it enters tapped."
+   }
+  ]
+ },
+ "Hydroelectric Specimen // Hydroelectric Laboratory": {
+  "name": "Hydroelectric Specimen // Hydroelectric Laboratory",
+  "notes": "Flash is a keyword. Redirecting an opponent's spell never comes up against the goldfish. Silent on purpose.",
+  "source": "Flash\nWhen this creature enters, you may change the target of target instant or sorcery spell with a single target to this creature.",
+  "status": "hand"
+ },
+ "Icy Reception": {
+  "name": "Icy Reception",
+  "notes": "Both modes answer an opponent's creature or spell; the goldfish has neither. Silent on purpose.",
+  "source": "Choose one —\n• Counter target creature or legendary spell unless its controller pays {3}.\n• Target creature gets -5/-0 until end of turn.",
+  "status": "hand"
+ },
+ "Island": {
+  "name": "Island",
+  "source": "({T}: Add {U}.)",
+  "status": "auto"
+ },
+ "Isperia, Supreme Judge": {
+  "name": "Isperia, Supreme Judge",
+  "notes": "Flying is a keyword. The draw only triggers when a creature attacks you; the goldfish never attacks. Silent on purpose.",
+  "source": "Flying\nWhenever a creature attacks you or a planeswalker you control, you may draw a card.",
+  "status": "hand"
+ },
+ "Martyr of Sands": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}",
+     "sacSelf": true
+    },
+    "do": [
+     {
+      "chooseNumber": {
+       "max": 15,
+       "min": 0,
+       "text": "Reveal X white cards from your hand: X = ?"
+      }
+     },
+     {
+      "gainLife": {
+       "by": 3,
+       "mul": {
+        "of": "chosen"
+       }
+      }
+     }
+    ],
+    "label": "Reveal & sacrifice",
+    "text": "{1}, Reveal X white cards from your hand, Sacrifice this creature: You gain three times X life."
+   }
+  ],
+  "name": "Martyr of Sands",
+  "source": "{1}, Reveal X white cards from your hand, Sacrifice this creature: You gain three times X life.",
+  "status": "hand"
+ },
+ "Memories Returning": {
+  "flashback": "{7}{U}{U}",
+  "name": "Memories Returning",
+  "notes": "Three of the five go to your hand, two to the bottom. A real opponent picks the two you lose; the goldfish can't, so you pick the three you keep (optimistic).",
+  "source": "Reveal the top five cards of your library. Put one of them into your hand. Then choose an opponent. They put one on the bottom of your library. Then you put one into your hand. Then they put one on the bottom of your library. Put the other into your hand.\nFlashback {7}{U}{U}",
+  "spell": [
+   {
+    "lookTop": {
+     "n": 5,
+     "pick": {
+      "n": 3,
+      "to": "hand"
+     },
+     "rest": "bottom"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Mind Stone": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{1}",
+     "sacSelf": true,
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     }
+    ],
+    "text": "{1}, {T}, Sacrifice this artifact: Draw a card."
+   }
+  ],
+  "name": "Mind Stone",
+  "source": "{T}: Add {C}.\n{1}, {T}, Sacrifice this artifact: Draw a card.",
+  "status": "auto"
+ },
+ "Mystic Gate": {
+  "name": "Mystic Gate",
+  "source": "{T}: Add {C}.\n{W/U}, {T}: Add {W}{W}, {W}{U}, or {U}{U}.",
+  "status": "auto"
+ },
+ "Norn's Annex": {
+  "name": "Norn's Annex",
+  "notes": "Taxes an opponent's attacks; the goldfish never attacks. Silent on purpose. Pay {W/P} with W or 2 life when casting.",
+  "source": "({W/P} can be paid with either {W} or 2 life.)\nCreatures can't attack you or planeswalkers you control unless their controller pays {W/P} for each of those creatures.",
+  "status": "hand"
+ },
+ "Overrule": {
+  "name": "Overrule",
+  "notes": "Countering an opponent's spell never comes up against the goldfish; the X life always happens.",
+  "source": "Counter target spell unless its controller pays {X}. You gain X life.",
+  "spell": [
+   {
+    "gainLife": "X"
+   }
+  ],
+  "status": "hand"
+ },
+ "Peace Talks": {
+  "name": "Peace Talks",
+  "notes": "It binds you too: no attacking with your own creatures this turn and next, and no targeting (Space-Time Anomaly, Go-Shintai of Lost Wisdom). Not enforced.",
+  "source": "This turn and next turn, creatures can't attack, and players and permanents can't be the targets of spells or activated abilities.",
+  "spell": [
+   {
+    "prompt": "This turn and next turn, creatures can't attack, and players and permanents can't be the targets of spells or activated abilities."
+   }
+  ],
+  "status": "hand"
+ },
+ "Plains": {
+  "name": "Plains",
+  "source": "({T}: Add {W}.)",
+  "status": "auto"
+ },
+ "Port Town": {
+  "name": "Port Town",
+  "notes": "The player answers whether they revealed; the land taps itself if not.",
+  "source": "As this land enters, you may reveal a Plains or Island card from your hand. If you don't, this land enters tapped.\n{T}: Add {W} or {U}.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [],
+         "label": "Reveal a Plains or Island (enters untapped)"
+        },
+        {
+         "do": [
+          {
+           "tap": {
+            "target": "self"
+           }
+          }
+         ],
+         "label": "Don't reveal (enters tapped)"
+        }
+       ],
+       "text": "Reveal a Plains or Island card from your hand?"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "As this land enters, you may reveal a Plains or Island card from your hand. If you don't, this land enters tapped."
+   }
+  ]
+ },
+ "Prahv, Spires of Order": {
+  "name": "Prahv, Spires of Order",
+  "notes": "{T}: Add {C} is the engine's. Preventing a source's damage never matters: the goldfish deals none. Silent on purpose.",
+  "source": "{T}: Add {C}.\n{4}{W}{U}, {T}: Prevent all damage a source of your choice would deal this turn.",
+  "status": "hand"
+ },
+ "Prairie Stream": {
+  "name": "Prairie Stream",
+  "source": "({T}: Add {W} or {U}.)\nThis land enters tapped unless you control two or more basic lands.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "check": {
+       "do": [
+        {
+         "tap": {
+          "target": "self"
+         }
+        }
+       ],
+       "if": {
+        "not": {
+         "youControl": {
+          "basic": true,
+          "countGe": 2,
+          "land": true
+         }
+        }
+       }
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped unless you control two or more basic lands."
+   }
+  ]
+ },
+ "Pristine Talisman": {
+  "name": "Pristine Talisman",
+  "notes": "The mana is the engine's; the life rides on the tap (auto-payment taps count).",
+  "source": "{T}: Add {C}. You gain 1 life.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "gainLife": 1
+     }
+    ],
+    "on": "tapped",
+    "self": true,
+    "text": "{T}: Add {C}. You gain 1 life."
+   }
+  ]
+ },
+ "Promise of Loyalty": {
+  "name": "Promise of Loyalty",
+  "notes": "The dummy has no creatures; the attack restriction never matters.",
+  "source": "Each player puts a vow counter on a creature they control and sacrifices the rest. Each of those creatures can't attack you or planeswalkers you control for as long as it has a vow counter on it.",
+  "spell": [
+   {
+    "counters": {
+     "kind": "vow",
+     "n": 1,
+     "target": "creature-you-control"
+    }
+   },
+   {
+    "sacrifice": {
+     "target": {
+      "each": {
+       "creature": true,
+       "noCounters": {
+        "kind": "vow"
+       }
+      }
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Propaganda": {
+  "name": "Propaganda",
+  "notes": "Taxes an opponent's attacks; the goldfish never attacks. Silent on purpose.",
+  "source": "Creatures can't attack you unless their controller pays {2} for each creature they control that's attacking you.",
+  "status": "hand"
+ },
+ "Riot Control": {
+  "name": "Riot Control",
+  "notes": "The dummy controls no creatures (gain 0) and never deals damage, so the prevention is moot.",
+  "source": "You gain 1 life for each creature your opponents control. Prevent all damage that would be dealt to you this turn.",
+  "spell": [
+   {
+    "gainLife": {
+     "count": {
+      "controller": "opp",
+      "creature": true
+     }
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Sanctum of Calm Waters": {
+  "name": "Sanctum of Calm Waters",
+  "source": "At the beginning of your first main phase, you may draw X cards, where X is the number of Shrines you control. If you do, discard a card.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "choice": {
+       "options": [
+        {
+         "do": [
+          {
+           "draw": {
+            "count": {
+             "subtype": "Shrine"
+            }
+           }
+          },
+          {
+           "discard": 1
+          }
+         ],
+         "label": "Yes"
+        },
+        {
+         "do": [],
+         "label": "No"
+        }
+       ],
+       "text": "you may draw X cards, where X is the number of Shrines you control. If you do, discard a card."
+      }
+     }
+    ],
+    "limit": "once-per-turn",
+    "on": "beginMain",
+    "text": "At the beginning of your first main phase, you may draw X cards, where X is the number of Shrines you control. If you do, discard a card."
+   }
+  ]
+ },
+ "Sanctum of Tranquil Light": {
+  "name": "Sanctum of Tranquil Light",
+  "notes": "Tapping an opponent's creature never matters against the goldfish. Silent on purpose; it still counts as a Shrine.",
+  "source": "{5}{W}: Tap target creature. This ability costs {1} less to activate for each Shrine you control.",
+  "status": "hand"
+ },
+ "Sanguine Sacrament": {
+  "name": "Sanguine Sacrament",
+  "source": "You gain twice X life. Put Sanguine Sacrament on the bottom of its owner's library.",
+  "spell": [
+   {
+    "gainLife": {
+     "by": 2,
+     "mul": "X"
+    }
+   }
+  ],
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "moveSelf": {
+       "to": "bottom"
+      }
+     }
+    ],
+    "on": "resolved",
+    "self": true,
+    "text": "Put Sanguine Sacrament on the bottom of its owner's library.",
+    "zone": "gy"
+   }
+  ]
+ },
+ "Search the Premises": {
+  "name": "Search the Premises",
+  "notes": "Opponent-only: the goldfish never attacks.",
+  "source": "Whenever a creature attacks you or a planeswalker you control, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this token: Draw a card.\")",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "investigate": 1
+     }
+    ],
+    "filter": {
+     "controller": "opp"
+    },
+    "on": "attacks",
+    "text": "Whenever a creature attacks you or a planeswalker you control, investigate."
+   }
+  ]
+ },
+ "Senate Guildmage": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{W}",
+     "tap": true
+    },
+    "do": [
+     {
+      "gainLife": 2
+     }
+    ],
+    "text": "{W}, {T}: You gain 2 life."
+   },
+   {
+    "cost": {
+     "mana": "{U}",
+     "tap": true
+    },
+    "do": [
+     {
+      "draw": 1
+     },
+     {
+      "discard": 1
+     }
+    ],
+    "text": "{U}, {T}: Draw a card, then discard a card."
+   }
+  ],
+  "name": "Senate Guildmage",
+  "source": "{W}, {T}: You gain 2 life.\n{U}, {T}: Draw a card, then discard a card.",
+  "status": "auto"
+ },
+ "Skycloud Expanse": {
+  "name": "Skycloud Expanse",
+  "source": "{1}, {T}: Add {W}{U}.",
+  "status": "auto"
+ },
+ "Sokrates, Athenian Teacher": {
+  "name": "Sokrates, Athenian Teacher",
+  "notes": "Defender is a keyword. Hexproof only matters against an opponent's spells, and Sokratic Dialogue is for an opponent's attacker; the goldfish has neither. Silent on purpose.",
+  "source": "Defender\nSokrates has hexproof as long as it's untapped.\nSokratic Dialogue — {T}: Until end of turn, target creature gains \"If this creature would deal combat damage to a player, prevent that damage. This creature's controller and that player each draw half that many cards, rounded down.\"",
+  "status": "hand"
+ },
+ "Sol Ring": {
+  "name": "Sol Ring",
+  "source": "{T}: Add {C}{C}.",
+  "status": "auto"
+ },
+ "Space-Time Anomaly": {
+  "name": "Space-Time Anomaly",
+  "notes": "Targets an opponent (you pick which when several are still in).",
+  "source": "Target player mills cards equal to your life total.",
+  "spell": [
+   {
+    "oppMill": {
+     "n": "count:life",
+     "who": "target"
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Sphere of Safety": {
+  "name": "Sphere of Safety",
+  "notes": "Taxes an opponent's attacks; the goldfish never attacks. Silent on purpose.",
+  "source": "Creatures can't attack you or planeswalkers you control unless their controller pays {X} for each of those creatures, where X is the number of enchantments you control.",
+  "status": "hand"
+ },
+ "Sphinx of the Revelation": {
+  "activated": [
+   {
+    "cost": {
+     "mana": "{W}{U}{U}",
+     "tap": true
+    },
+    "do": [
+     {
+      "chooseNumber": {
+       "max": 40,
+       "min": 0,
+       "text": "Pay X {E}: X = ?"
+      }
+     },
+     {
+      "removeCounters": {
+       "kind": "energy",
+       "n": {
+        "of": "chosen"
+       },
+       "target": "you"
+      }
+     },
+     {
+      "draw": {
+       "of": "lastCount"
+      }
+     }
+    ],
+    "label": "Pay X {E}: draw X",
+    "text": "{W}{U}{U}, {T}, Pay X {E}: Draw X cards."
+   }
+  ],
+  "name": "Sphinx of the Revelation",
+  "notes": "Flying and lifelink are keywords. X is capped by the energy you have.",
+  "source": "Flying, lifelink\nWhenever you gain life, you get that many {E} (energy counters).\n{W}{U}{U}, {T}, Pay X {E}: Draw X cards.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "counters": {
+       "kind": "energy",
+       "n": "count:event-amount",
+       "target": "you"
+      }
+     }
+    ],
+    "filter": {
+     "gain": true,
+     "who": "you"
+    },
+    "on": "life",
+    "text": "Whenever you gain life, you get that many {E} (energy counters)."
+   }
+  ]
+ },
+ "Sphinx's Revelation": {
+  "name": "Sphinx's Revelation",
+  "source": "You gain X life and draw X cards.",
+  "spell": [
+   {
+    "gainLife": "X"
+   },
+   {
+    "draw": "X"
+   }
+  ],
+  "status": "auto"
+ },
+ "Swords to Plowshares": {
+  "name": "Swords to Plowshares",
+  "source": "Exile target creature. Its controller gains life equal to its power.",
+  "spell": [
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "exile": {
+          "target": "opponent"
+         }
+        }
+       ],
+       "label": "An opponent's creature (the dummy has none)"
+      },
+      {
+       "do": [
+        {
+         "exile": {
+          "target": "creature-you-control"
+         }
+        },
+        {
+         "gainLife": {
+          "of": "target",
+          "stat": "power"
+         }
+        }
+       ],
+       "label": "One of my creatures"
+      }
+     ],
+     "text": "Exile target creature. Its controller gains life equal to its power."
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Talisman of Progress": {
+  "name": "Talisman of Progress",
+  "source": "{T}: Add {C}.\n{T}: Add {W} or {U}. This artifact deals 1 damage to you.",
+  "status": "auto"
+ },
+ "Temple of Enlightenment": {
+  "name": "Temple of Enlightenment",
+  "source": "This land enters tapped.\nWhen this land enters, scry 1. (Look at the top card of your library. You may put that card on the bottom.)\n{T}: Add {W} or {U}.",
+  "status": "auto",
+  "triggers": [
+   {
+    "do": [
+     {
+      "tap": {
+       "target": "self"
+      }
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "This land enters tapped."
+   },
+   {
+    "do": [
+     {
+      "scry": 1
+     }
+    ],
+    "on": "enters",
+    "self": true,
+    "text": "When this land enters, scry 1."
+   }
+  ]
+ },
+ "Union of the Third Path": {
+  "name": "Union of the Third Path",
+  "source": "Draw a card, then you gain life equal to the number of cards in your hand.",
+  "spell": [
+   {
+    "draw": 1
+   },
+   {
+    "gainLife": "count:cards-in-hand"
+   }
+  ],
+  "status": "hand"
+ },
+ "Wall of Reverence": {
+  "name": "Wall of Reverence",
+  "notes": "Defender and flying are keywords. Always targets your creature with the greatest power (the best choice).",
+  "source": "Defender, flying\nAt the beginning of your end step, you may gain life equal to the power of target creature you control.",
+  "status": "hand",
+  "triggers": [
+   {
+    "do": [
+     {
+      "gainLife": "greatest:power-you-control"
+     }
+    ],
+    "on": "endStep",
+    "text": "At the beginning of your end step, you may gain life equal to the power of target creature you control."
+   }
+  ]
+ },
+ "War Report": {
+  "name": "War Report",
+  "notes": "Only your permanents are on the battlefield in the goldfish; an artifact creature counts twice, as on the card.",
+  "source": "You gain life equal to the number of creatures on the battlefield plus the number of artifacts on the battlefield.",
+  "spell": [
+   {
+    "gainLife": {
+     "sum": [
+      "count:creatures-you-control",
+      "count:artifacts-you-control"
+     ]
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "White Sun's Twilight": {
+  "name": "White Sun's Twilight",
+  "notes": "The wipe resolves before the Mites are made, so it spares exactly the new Mites. 'This token can't block' never matters in the goldfish.",
+  "source": "You gain X life. Create X 1/1 colorless Phyrexian Mite artifact creature tokens with toxic 1 and \"This token can't block.\" If X is 5 or more, destroy all other creatures. (Players dealt combat damage by a creature with toxic 1 also get a poison counter.)",
+  "spell": [
+   {
+    "gainLife": "X"
+   },
+   {
+    "choice": {
+     "options": [
+      {
+       "do": [
+        {
+         "destroy": {
+          "target": {
+           "each": {
+            "creature": true
+           }
+          }
+         }
+        }
+       ],
+       "label": "X is 5 or more — destroy all other creatures"
+      },
+      {
+       "do": [],
+       "label": "X is 4 or less"
+      }
+     ],
+     "text": "If X is 5 or more, destroy all other creatures."
+    }
+   },
+   {
+    "token": {
+     "kw": [
+      "Toxic 1"
+     ],
+     "n": "X",
+     "name": "Phyrexian Mite",
+     "power": 1,
+     "toughness": 1,
+     "types": [
+      "Artifact",
+      "Creature",
+      "Phyrexian",
+      "Mite"
+     ]
+    }
+   }
+  ],
+  "status": "hand"
+ },
+ "Windborn Muse": {
+  "name": "Windborn Muse",
+  "notes": "Flying is a keyword. Taxes an opponent's attacks; the goldfish never attacks. Silent on purpose.",
+  "source": "Flying\nCreatures can't attack you unless their controller pays {2} for each creature they control that's attacking you.",
+  "status": "hand"
+ }
+}

@@ -287,7 +287,10 @@ export function attachRules(game, bundle = {}) {
       case 'total-power': return creatures.reduce((t, p) => t + Math.max(0, power(game, p)) * stackN(p), 0);
       case 'event-amount': return Math.max(0, (ctx && ctx.amount) || 0);
       case 'life': return s.life;
-      case 'opponents': return 1;
+      case 'opponents': { // the modelled opponents still in (state.opp.lib, default 3)
+        const L = s.opp && s.opp.lib;
+        return L && Array.isArray(L.n) ? L.n.filter((_, i) => L.out[i] == null).length : 1;
+      }
       case 'creatures-sharing-type-with-this': return countPerms(p => creatureP(p) && p.uid !== (ctx && ctx.src) && sharesType(p, ctx));
       case 'colors-among-permanents-you-control': {
         const cs = new Set();
@@ -347,6 +350,8 @@ export function attachRules(game, bundle = {}) {
     if (c == null) return 0;
     if (typeof c === 'string' && c.startsWith('-')) return -evalCount(c.slice(1), ctx, { xDefault });
     if (typeof c === 'object' && c.neg != null) return -evalCount(c.neg, ctx, { xDefault });
+    if (typeof c === 'object' && c.mul != null) return evalCount(c.mul, ctx, { xDefault }) * Math.max(1, c.by | 0);   // "twice X"
+    if (typeof c === 'object' && Array.isArray(c.sum)) return c.sum.reduce((t, x) => t + evalCount(x, ctx, { xDefault }), 0);
     if (typeof c === 'object' && c.thisTurn) return thisTurn(c.thisTurn, c.filter, ctx);
     if (c === 'X') {
       if (ctx && ctx.x != null) return Math.max(0, ctx.x | 0);
@@ -599,6 +604,8 @@ export function attachRules(game, bundle = {}) {
     : c && c.count ? `the number of ${dFilter(c.count, { many: true })} you control`
     : typeof c === 'string' && c.startsWith('-') ? `minus ${dCount(c.slice(1))}`
     : c && c.neg != null ? `minus ${dCount(c.neg)}`
+    : c && c.mul != null ? `${({ 2: 'twice', 3: 'three times' })[c.by] || `${c.by} times`} ${dCount(c.mul)}`
+    : c && Array.isArray(c.sum) ? c.sum.map(x => dCount(x)).join(' plus ')
     : c && c.thisTurn ? `the ${{ lifeGained: 'life you gained', lifeLost: 'life you lost', tokensCreated: 'number of tokens you created', damageToOpp: 'damage dealt to the opponent', landsPlayed: 'number of lands you played', entered: `number of ${c.filter ? dFilter(c.filter, { many: true }) : 'permanents'} that entered`, died: `number of ${c.filter ? dFilter(c.filter, { many: true }) : 'creatures'} that died`, spellsCast: 'number of spells you cast' }[c.thisTurn] || c.thisTurn} this turn`
     : c && c.of === 'lastCount' ? 'the number of cards affected this way'
     : c && c.of === 'chosen' ? 'the chosen number'
@@ -607,6 +614,9 @@ export function attachRules(game, bundle = {}) {
     : c && c.of ? `${OF_TEXT[c.of] || c.of} ${String(c.stat).startsWith('counters.') ? `number of ${c.stat.slice(9) === 'p1p1' ? '+1/+1' : c.stat.slice(9)} counters` : c.stat === 'mv' ? 'mana value' : c.stat}`
     : String(c));
   const isNum = c => typeof c === 'number';
+  // oppMill takes a Count ("each opponent") or { n: Count, who?: "each" | "target" }
+  const oppMillArg = a => (a && typeof a === 'object' && !Array.isArray(a) && !['count', 'of', 'thisTurn', 'neg', 'mul', 'sum'].some(k => k in a)
+    ? { n: a.n ?? 1, who: a.who || 'each' } : { n: a, who: 'each' });
 
   function dTarget(t, name) {
     if (t == null || t === 'self' || t === 'this') return name || 'this permanent';
@@ -700,6 +710,12 @@ export function attachRules(game, bundle = {}) {
       case 'scry': return `scry ${dCount(a)}`;
       case 'surveil': return `surveil ${dCount(a)}`;
       case 'mill': return `mill ${isNum(a) ? amt(a, 'a card', 'cards') : dCount(a)}`;
+      case 'shuffle': return 'shuffle your library';
+      case 'oppMill': {
+        const o = oppMillArg(a);
+        const n = o.n, who = o.who === 'target' ? 'target opponent mills' : 'each opponent mills';
+        return isNum(n) || n === 'X' ? `${who} ${n} ${n === 1 ? 'card' : 'cards'}` : `${who} cards equal to ${dCount(n)}`;
+      }
       case 'discard': {
         if (a && typeof a === 'object' && !a.count && !a.of && !a.thisTurn && !a.neg) return `discard ${dCount(a.n ?? 1) === '1' ? 'a card' : `${dCount(a.n ?? 1)} cards`}${a.random ? ' at random' : ''}`;
         return isNum(a) ? (a === 1 ? 'discard a card' : `discard ${a} cards`) : `discard ${dCount(a)} cards`;
@@ -768,7 +784,7 @@ export function attachRules(game, bundle = {}) {
       case 'extraTurn': return a === true || a === 1 ? 'take an extra turn after this one' : `take ${dCount(a)} extra turns after this one`;
       case 'transform': return `transform ${dTarget(a.target === 'this' || a.target == null ? 'self' : a.target, name)}`;
       case 'win': return `you win the game${typeof a === 'string' ? ` (${a})` : ''}`;
-      case 'removeCounters': return `remove ${a.n === 'all' ? 'all' : dCount(a.n ?? 1)} ${a.kind && a.kind !== 'p1p1' ? a.kind : '+1/+1'} counter${a.n === 1 || a.n == null ? '' : 's'} from ${dTarget(a.target, name)}`;
+      case 'removeCounters': return `remove ${a.n === 'all' ? 'all' : dCount(a.n ?? 1)} ${a.kind && a.kind !== 'p1p1' ? a.kind : '+1/+1'} counter${a.n === 1 || a.n == null ? '' : 's'} from ${a.target === 'you' ? 'you' : dTarget(a.target, name)}`;
       case 'doubleCounters': return `double the number of ${a.kind && a.kind !== 'p1p1' ? a.kind : '+1/+1'} counters on ${a.target === 'you' ? 'you' : dTarget(a.target, name)}`;
       case 'moveCounters': return `move ${a.n == null || a.n === 'all' ? 'all' : dCount(a.n)} ${a.kind && a.kind !== 'p1p1' ? a.kind : '+1/+1'} counters from ${dTarget(a.from ?? 'self', name)} onto ${dTarget(a.to ?? 'creature-you-control', name)}`;
       case 'pay': return `you may pay ${dCostFull(a)}; if you do, continue`;
@@ -1293,6 +1309,33 @@ export function attachRules(game, bundle = {}) {
         });
       }
       case 'mill': { const n = N(a); if (n > 0) { const r = game.mill(n); ctx.lastCount = r.ok ? r.cards.length : 0; } return {}; }
+      case 'shuffle': game.shuffle(); return {};
+      case 'oppMill': {
+        // "each opponent mills n" (default) / "target opponent mills n": with several opponents still in, the player picks one
+        const o = oppMillArg(a), n = N(o.n);
+        ctx.lastCount = 0;
+        if (typeof game.oppMill !== 'function') return {};
+        if (n <= 0) { game.note(`${o.who === 'target' ? 'Target opponent' : 'Each opponent'} mills 0.`); return {}; }
+        const L = (S().opp || {}).lib;
+        if (o.who === 'target') {
+          const alive = L && Array.isArray(L.n) ? L.n.map((_, i) => i).filter(i => L.out[i] == null) : [];
+          if (!alive.length) { game.note('No opponent left to mill.'); return {}; }
+          let idx = alive[0];
+          if (alive.length > 1) {
+            if (!(answer && answer.kind === 'choice')) {
+              return { block: { kind: 'choice', text: `Target opponent mills ${n}: choose the opponent.`, options: alive.map(i => ({ id: String(i), label: `Opponent ${i + 1} (${L.n[i]} left)` })) } };
+            }
+            idx = +answer.option;
+          }
+          const r = game.oppMill(n, { who: 'target', index: idx });
+          ctx.lastCount = r.ok ? r.milled : 0;
+          return {};
+        }
+        const r = game.oppMill(n);
+        if (!r.ok) game.note('No opponent left to mill.');
+        ctx.lastCount = r.ok ? r.milled : 0;
+        return {};
+      }
       case 'tutor': {
         const to = a.to || 'hand';
         if (answer && answer.kind === 'target') {
@@ -1579,6 +1622,13 @@ export function attachRules(game, bundle = {}) {
       }
       case 'removeCounters': {
         const kind = a.kind || 'p1p1';
+        if (a.target === 'you') { // player counters ("Pay X {E}")
+          const have = (S().counters || {})[kind] || 0;
+          const n = a.n === 'all' ? have : Math.min(have, Math.max(0, evalCount(a.n ?? 1, ctx)));
+          ctx.lastCount = n;
+          if (n > 0) game.addPlayerCounter(kind, -n);
+          return {};
+        }
         return onTargets(a.target, frame, answer, op, u => {
           const p = onBf(u); const have = p.counters[kind] || 0;
           const n = a.n === 'all' ? have : Math.min(have, evalCount(a.n ?? 1, ctx));
@@ -1979,7 +2029,7 @@ export function attachRules(game, bundle = {}) {
           const key = limitKey(srcUid ?? srcEntry.name, 't', idx);
           if (tr.limit === 'once-per-turn') { if (!limitOk(key)) return; markLimit(key); }
           const ops = tr.cost ? [{ pay: clone(tr.cost) }, ...clone(tr.do)] : clone(tr.do);
-          out.push({ frame: { card: srcEntry.name, src: srcUid, text: tr.text || dTrigger(tr, srcEntry.name), ctx, ops }, optional: !!tr.optional && !tr.cost });
+          out.push({ frame: { card: srcEntry.name, src: srcUid, text: tr.text || dTrigger(tr, srcEntry.name), ctx, ops }, optional: !!tr.optional && !tr.cost, last: tr.order === 'last' });
         }
       };
       if (on === 'expend') {
@@ -2138,6 +2188,8 @@ export function attachRules(game, bundle = {}) {
     try {
       recomputeStatics();
       const items = collect(ev, payload || {});
+      // "order": "last" — the player stacks it first, so it resolves after the other triggers of this event (Hope Estheim)
+      if (items.some(it => it.last)) items.sort((a, b) => (a.last ? 1 : 0) - (b.last ? 1 : 0));
       for (const it of items) enqueueFrame(it.frame, { optional: it.optional });
       if (items.length) processQueue();
     } catch (e) {

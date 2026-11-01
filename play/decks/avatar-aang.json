@@ -2079,10 +2079,11 @@
    ],
    "legendary": false,
    "img": {
-    "small": "https://cards.scryfall.io/small/front/c/3/c36820fa-ee86-4206-9a0d-737a67cf5208.jpg?1783933065",
-    "normal": "https://cards.scryfall.io/normal/front/c/3/c36820fa-ee86-4206-9a0d-737a67cf5208.jpg?1783933065",
-    "art": "https://cards.scryfall.io/art_crop/front/c/3/c36820fa-ee86-4206-9a0d-737a67cf5208.jpg?1783933065"
-   }
+    "small": "https://cards.scryfall.io/small/front/0/e/0e1974c2-f125-450f-86d4-d235a382ee2f.jpg?1783914503",
+    "normal": "https://cards.scryfall.io/normal/front/0/e/0e1974c2-f125-450f-86d4-d235a382ee2f.jpg?1783914503",
+    "art": "https://cards.scryfall.io/art_crop/front/0/e/0e1974c2-f125-450f-86d4-d235a382ee2f.jpg?1783914503"
+   },
+   "printing": "who/519"
   },
   "Swiftfoot Boots": {
    "name": "Swiftfoot Boots",
