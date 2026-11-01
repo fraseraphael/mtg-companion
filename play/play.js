@@ -814,17 +814,25 @@ async function playCard(uid, { force = false, x = null, src = null } = {}) {
     }
     const proxy = src || makeProxy(el);
     render();
-    if (r.to === 'gy') await resolveToGraveyard(proxy, c);
+    if (r.to === 'gy') {
+      // Some spells leave on their own as they resolve (Sanguine Sacrament -> bottom of library): fly there, not to the graveyard.
+      const z = S().zones || {}, inGy = (z.gy || []).some(x => x.uid === c.uid);
+      const toLib = !inGy && (z.lib || []).some(x => x.uid === c.uid);
+      const toEx = !inGy && !toLib && (z.ex || []).some(x => x.uid === c.uid);
+      await resolveToGraveyard(proxy, c, toLib ? 'pileLib' : toEx ? 'pileEx' : 'pileGy');
+      if (toLib) hint(`${c.name} went to the bottom of your library`, { kind: 'info' });
+    }
     else await flyProxy(proxy, elOf('bf', r.uid != null && elOf('bf', r.uid) ? r.uid : newBfUid(before)));
     if (r.short) hint(`Cast with ${r.short} unpaid (forced)`, { kind: 'info' });
     return true;
   } finally { setBusy(false); render(); }
 }
 /** Instant / sorcery: fly to the centre, hold a beat as "resolved", then to the graveyard pile. */
-async function resolveToGraveyard(proxy, c) {
+async function resolveToGraveyard(proxy, c, pile = 'pileGy') {
   const stage = $('stage');
   if (!proxy) return;
-  if (!stage || reducedMotion()) { await flyProxy(proxy, pileTarget('pileGy')); return; }
+  const dest = () => (pile === 'pileLib' ? ($('pileLib') || pileTarget('pileGy')) : pileTarget(pile));
+  if (!stage || reducedMotion()) { await flyProxy(proxy, dest()); return; }
   stage.innerHTML = `<img src="${esc(imgOf(face(c), 'normal'))}" alt=""><span class="stage-cap">Resolved</span>`;
   const img = stage.querySelector('img');
   img.style.visibility = 'hidden';
@@ -835,13 +843,13 @@ async function resolveToGraveyard(proxy, c) {
   const p2 = makeProxy(img);
   stage.classList.remove('show');
   stage.innerHTML = '';
-  await flyProxy(p2, pileTarget('pileGy'), { duration: 360 });
+  await flyProxy(p2, dest(), { duration: 360 });
 }
 function askX(uid, name, force) {
   openSheet({
     title: `Cast ${esc(name)}: choose X`,
     body: `<div class="row"><input type="number" id="xval" value="1" min="0" max="99" inputmode="numeric"></div>`,
-    buttons: [{ label: 'Cast', primary: true, fn: () => playCard(uid, { force, x: Math.max(0, parseInt($('xval')?.value, 10) || 0) }) }, { label: 'Cancel' }],
+    buttons: [{ label: 'Cast', primary: true, fn: v => playCard(uid, { force, x: Math.max(0, parseInt(v.xval, 10) || 0) }) }, { label: 'Cancel' }],
   });
   setTimeout(() => $('xval')?.select(), 0);
 }
@@ -1438,7 +1446,7 @@ async function loadRules() {
   }
   RULES_MOD = mod; BUNDLE = bundle || {};
   attachRulesLayer();
-  if (safe(() => new URLSearchParams(location.search).has('debug'), false)) window.__mf = { game: () => G, rules: () => RULES, render, bundle: () => BUNDLE, reattach: () => { attachRulesLayer(); render(); } };
+  if (safe(() => new URLSearchParams(location.search).has('debug'), false)) window.__mf = { game: () => G, rules: () => RULES, render, bundle: () => BUNDLE, play: (uid, o) => playCard(uid, o), menu: uid => openCardMenu(uid), reattach: () => { attachRulesLayer(); render(); } };
   render();
 }
 function attachRulesLayer() {

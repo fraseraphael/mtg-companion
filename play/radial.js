@@ -97,8 +97,12 @@ export function initSheet() {
     if (!b || !sheetBtns) return;
     const o = sheetBtns[+b.dataset.sbtn];
     if (!o) return;
+    // Snapshot the sheet's inputs BEFORE closing it: closing empties the sheet, so a handler that
+    // read $('xval') afterwards always got nothing (X spells cast with X = 0, 2026-11-01).
+    const vals = {};
+    el.querySelectorAll('input[id], select[id]').forEach(i => { vals[i.id] = i.value; });
     if (!o.keep) closeSheet();
-    o.fn && o.fn();
+    o.fn && o.fn(vals);
   });
 }
 
