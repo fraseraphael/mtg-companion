@@ -650,24 +650,38 @@ function showWin() {
   if (isBest) { try { localStorage.setItem(BEST_KEY, String(turn)); } catch (_) { /* ok */ } }
   const dmg = damageByTurn(s);
   const turns = Array.from({ length: Math.max(1, turn) }, (_, i) => i + 1);
-  const max = Math.max(1, ...turns.map(t => Math.max(0, dmg[t] || 0)));
-  el.innerHTML = `<div class="win-card" role="dialog" aria-label="Victory">
+  el.innerHTML = `<div class="win-card${MILL_CHART_DECKS.has(DECK && DECK.slug) ? ' mill-deck' : ''}" role="dialog" aria-label="Victory">
     <div class="win-kicker">Victory</div>
     <div class="win-avatar">${DUMMY_SVG}</div>
     <h2>Training Dummy defeated</h2>
     <div class="win-turn">turn ${esc(turn)}</div>
     ${s.wonReason ? `<p class="win-why">${esc(s.wonReason)}</p>` : ''}
     ${millLine(s, turn)}
-    <div class="win-bars" aria-label="Damage per turn">${turns.map(t => {
-      const v = Math.max(0, dmg[t] || 0);
-      return `<div class="wb" title="Turn ${t}: ${v} damage"><span class="wbv">${v || ''}</span><i style="height:${((v / max) * 100).toFixed(0)}%"></i><span class="wbt">${t}</span></div>`;
-    }).join('')}</div>
+    ${winCharts(s, turns, dmg)}
     <div class="win-best">${isBest ? (Number.isFinite(best) ? `New best — was turn ${esc(best)}` : 'First win with this deck') : `Best: turn ${esc(best)}`}</div>
     <div class="win-btns"><button class="btn primary" data-act="again">Play again</button><button class="btn" data-act="keep">Keep playing</button></div>
   </div>`;
   el.classList.add('open');
   ui.winOpen = true;
   fx.dimBoard(true);
+}
+/* Per-turn bars for the win panel. Hope Estheim (the one mill deck) gets a "cards milled per turn" chart;
+   its damage chart only shows when something was actually dealt. Every other deck: damage only, as before. */
+const MILL_CHART_DECKS = new Set(['hope-estheim']);
+function bars(turns, vals, unit, label, cls) {
+  const max = Math.max(1, ...turns.map(t => Math.max(0, vals[t] || 0)));
+  return `<div class="win-bars${cls ? ' ' + cls : ''}" aria-label="${esc(label)}">${turns.map(t => {
+      const v = Math.max(0, vals[t] || 0);
+      return `<div class="wb" title="Turn ${t}: ${v} ${unit}"><span class="wbv">${v || ''}</span><i style="height:${((v / max) * 100).toFixed(0)}%"></i><span class="wbt">${t}</span></div>`;
+    }).join('')}</div>`;
+}
+function winCharts(s, turns, dmg) {
+  const dmgBars = bars(turns, dmg, 'damage', 'Damage per turn');
+  if (!MILL_CHART_DECKS.has(DECK && DECK.slug)) return dmgBars;
+  const by = (s.opp && s.opp.lib && s.opp.lib.byTurn) || {};
+  const anyDmg = turns.some(t => (dmg[t] || 0) > 0);
+  return `<div class="win-chart-label">Cards milled per turn</div>${bars(turns, by, 'cards milled', 'Cards milled per turn', 'mill')}`
+    + (anyDmg ? `<div class="win-chart-label">Damage per turn</div>${dmgBars}` : '');
 }
 /** "Milled 297 this game · 126 on turn 7" — only when something was milled from the opponents. */
 function millLine(s, turn) {
