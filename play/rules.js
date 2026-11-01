@@ -707,6 +707,7 @@ export function attachRules(game, bundle = {}) {
       case 'grant': return `${dTarget(a.target, name)} gains ${(a.kw || []).join(', ').toLowerCase()} until end of turn`;
       case 'untap': return `untap ${dTarget(a.target, name)}`;
       case 'tap': return `tap ${dTarget(a.target, name)}`;
+      case 'chooseTarget': return `choose ${dTarget(a.target, name)}`;
       case 'scry': return `scry ${dCount(a)}`;
       case 'surveil': return `surveil ${dCount(a)}`;
       case 'mill': return `mill ${isNum(a) ? amt(a, 'a card', 'cards') : dCount(a)}`;
@@ -1288,6 +1289,8 @@ export function attachRules(game, bundle = {}) {
       }
       case 'grant': return onTargets(a.target, frame, answer, op, u => game.grantEot(u, { kw: a.kw || [] }));
       case 'untap': return onTargets(a.target, frame, answer, op, u => game.untapPerm(u));
+      // "…equal to the power of target creature you control": only picks; later verbs read { of: "target" }.
+      case 'chooseTarget': return onTargets(a.target, frame, answer, op, () => {});
       case 'tap': return onTargets(a.target, frame, answer, op, u => {
         // "enters tapped" self-trigger vs an entersUntapped static (Horizon Explorer)
         if (ctx.ev === 'enters' && ctx.trig === u && frame.src === u && permission('entersUntapped', onBf(u))) return;

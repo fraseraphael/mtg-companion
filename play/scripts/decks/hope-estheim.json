@@ -1631,17 +1631,26 @@
  },
  "Wall of Reverence": {
   "name": "Wall of Reverence",
-  "notes": "Defender and flying are keywords. Always targets your creature with the greatest power (the best choice).",
+  "notes": "Defender and flying are keywords. You may skip it; otherwise pick which creature you control sets the amount (its power).",
   "source": "Defender, flying\nAt the beginning of your end step, you may gain life equal to the power of target creature you control.",
   "status": "hand",
   "triggers": [
    {
     "do": [
      {
-      "gainLife": "greatest:power-you-control"
+      "chooseTarget": {
+       "target": "creature-you-control"
+      }
+     },
+     {
+      "gainLife": {
+       "of": "target",
+       "stat": "power"
+      }
      }
     ],
     "on": "endStep",
+    "optional": true,
     "text": "At the beginning of your end step, you may gain life equal to the power of target creature you control."
    }
   ]
