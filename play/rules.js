@@ -2287,16 +2287,38 @@ export function attachRules(game, bundle = {}) {
     const out = [];
     ((h.sc && h.sc.activated) || []).forEach((ab, index) => {
       if ((ab.zone || 'bf') !== h.zone) return;
+      const gate = abilityGate(ab);
+      if (gate && !evalIf(gate, { src: h.zone === 'bf' ? h.entry.uid : null, card: h.entry.name })) return; // granted ability without its source: not offered
       const why = cannotActivate(h, ab, index);
       out.push({ index, zone: h.zone, label: ab.label || dCostFull(ab.cost || {}), text: ab.text || `${dCostFull(ab.cost || {})}: ${cap(dEffects(ab.do, h.entry.name))}.`, ok: !why, reason: why || undefined });
     });
     return out;
   }
+  // An ability whose whole effect is one gated `check` (a Way of the Pyromancer "[+1]: Add {R}" granted to every
+  // planeswalker) is only offered, and only runs, while its gate holds — otherwise it would be a button that does nothing.
+  const abilityGate = ab => (Array.isArray(ab.do) && ab.do.length === 1 && ab.do[0] && ab.do[0].check && ab.do[0].check.if) ? ab.do[0].check.if : null;
+  const gateName = g => (g && g.youControl && g.youControl.name) ? String(g.youControl.name) : 'its condition';
+  // A planeswalker's loyalty ability: pays loyalty (minus), puts loyalty on itself first (plus), or is labelled "0: …".
+  // Rule 606.3: one loyalty ability per planeswalker per turn.
+  function isLoyaltyAbility(h, ab) {
+    if (!/Planeswalker/.test(typeLine(cardOf(game, h.entry.name)))) return false;
+    const c = ab.cost || {};
+    if (c.removeCounters && c.removeCounters.kind === 'loyalty') return true;
+    const gate = abilityGate(ab);
+    const first = gate ? (ab.do[0].check.do || [])[0] : (ab.do || [])[0];
+    if (first && first.counters && first.counters.kind === 'loyalty' && (first.counters.target == null || first.counters.target === 'self')) return true;
+    if (first && first.pay && first.pay.removeCounters && first.pay.removeCounters.kind === 'loyalty') return true;
+    return /^[+\u2212\u2013-]?\d+\s*:/.test(String(ab.label || ''));
+  }
+  const loyaltyKey = uid => limitKey(uid, 'loy', 0);
   function cannotActivate(h, ab, index, { force = false } = {}) {
     if (h && h.counters) h = { zone: 'bf', entry: h }; // old call shape: a Perm
     const c = ab.cost || {};
     const uid = h.entry.uid;
     if (ab.limit === 'once-per-turn' && !limitOk(limitKey(uid, 'a', index))) return 'once per turn';
+    if (h.zone === 'bf' && isLoyaltyAbility(h, ab) && !limitOk(loyaltyKey(uid))) return 'one loyalty ability per turn';
+    const gate = abilityGate(ab);
+    if (gate && !evalIf(gate, { src: h.zone === 'bf' ? uid : null, card: h.entry.name })) return `needs ${gateName(gate)}`;
     if (ab._foretold) { const t = (S().foretold || {})[uid]; if (t == null) return 'not foretold'; if (t >= S().turn && !force) return 'foretold this turn'; }
     if (force) return null;
     const mainPhase = ['main1', 'main2'].includes(S().phase);
@@ -2325,6 +2347,7 @@ export function attachRules(game, bundle = {}) {
           const onBattlefield = h.zone === 'bf';
           const picks = payNow(c, onBattlefield ? uid : null);
           if (ab.limit === 'once-per-turn') markLimit(limitKey(uid, 'a', index));
+          if (onBattlefield && isLoyaltyAbility(h, ab)) markLimit(loyaltyKey(uid));
           const frame = { card: name, src: onBattlefield ? uid : null, text: ab.text || `${dCostFull(c)}: ${dEffects(ab.do, name)}.`, ctx: onBattlefield ? {} : { selfCard: uid }, ops: [...picks, ...clone(ab.do)] };
           if (c.sacSelf && onBattlefield) { frame.ctx.lastDied = lki(h.entry); game.sacrifice(uid); }
           if (c.discardSelf && h.zone === 'hand') game.discard(uid);

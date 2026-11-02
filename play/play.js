@@ -7,7 +7,7 @@
 import * as E from './engine.js';
 import {
   PHASES as PHASE_LABELS, COLORS, esc, safe, faceOf, isCreatureFace, isLandFace, isPlaneswalkerFace,
-  isSpellFace, hasKw, imgOf, pipHtml, costHtml, poolTotal,
+  isSpellFace, hasKw, imgOf, pipHtml, costHtml, poolTotal, manaStringHtml,
 } from './util.js';
 import { layoutFan, initHandPeek } from './hand.js';
 import { openRadial, closeRadial, initRadial, radialIsOpen, openSheet, closeSheet, initSheet, sheetIsOpen, confirmSheet } from './radial.js';
@@ -162,8 +162,10 @@ export function boot(deck) {
   const backBtn = document.getElementById('backBtn');
   if (backBtn && deck.slug) backBtn.href = '../app.html#/deck/' + encodeURIComponent(deck.slug);
   const handed = handFromUrl(deck);
-  G = E.createGame(deck, handed || {});
+  const lead = cmdrFromUrl(deck); // the trainer's who-leads pick: the table honours it and does not ask again
+  G = E.createGame(deck, { ...(handed || {}), ...(lead ? { commander: lead } : {}) });
   const resumed = !handed && restore(); // a hand from the URL (Practice → "Play it out") always starts a fresh game
+  if (lead && resumed && String((S().commanders || [])[0]) !== lead) call(() => G.restart({ commander: lead, noUndo: true })); // a saved game led by the other one: the pick wins
   ui.prevWon = !!S().won;
   if (typeof G.on === 'function') G.on('turnStart', pl => { ui.extraTurn = !!(pl && pl.extra); });
   if (typeof G.on === 'function') G.on('oppMilled', onOppMilled);
@@ -183,7 +185,7 @@ export function boot(deck) {
   loadRules();
   // opening the table on a two-commander deck always asks who leads. A saved game in progress can be
   // resumed from the same sheet; picking a commander deals a new game (undoable when one was in progress).
-  if (!handed && cmdrChoice()) {
+  if (!handed && !lead && cmdrChoice()) {
     const s0 = S(), lead = String((s0.commanders || [])[0] || '').split(',')[0];
     chooseCommander(n => {
       if (!n) return;
@@ -209,6 +211,18 @@ function handFromUrl(deck) {
   // drop the handover params so a reload resumes this game instead of dealing the same hand again
   try { q.delete('hand'); q.delete('owed'); history.replaceState(null, '', location.pathname + (q.toString() ? '?' + q : '') + location.hash); } catch (_) { /* ok */ }
   return { hand: names, owedBottom: Math.min(owed, names.length) };
+}
+/** ?cmdr=<name>: who leads, picked in the mulligan trainer. Only a real face/alternate option counts; remembered like the sheet's pick. */
+function cmdrFromUrl(deck) {
+  let q;
+  try { q = new URLSearchParams(location.search); } catch (_) { return null; }
+  if (!q.has('cmdr')) return null;
+  const want = String(q.get('cmdr') || '').trim();
+  try { q.delete('cmdr'); history.replaceState(null, '', location.pathname + (q.toString() ? '?' + q : '') + location.hash); } catch (_) { /* ok */ }
+  const o = safe(() => E.commanderOptions(deck), null);
+  if (!o || o.together || !o.names.includes(want)) return null;
+  try { localStorage.setItem('mf-play-cmdr:' + (deck.slug || 'deck'), want); } catch (_) { /* ok */ }
+  return want;
 }
 function restore() {
   let saved = null;
@@ -1227,11 +1241,19 @@ function openCardMenu(uid) {
     if (!e.tapped && isManaSource(e, f)) add('Tap for mana', () => bfClick(e));
     if (e.attacking) add(e.blocked ? 'Unblock' : 'Blocked (no damage)', () => act(() => G.markBlocked(u, !e.blocked)));
     if (DECK.cards?.[e.name]?.back && !e.tok) add('Transform', () => act(() => G.transform(u)));
-    if (isPlaneswalkerFace(f)) {
+    const abs = abilitiesOf(u);
+    // a scripted planeswalker leads with its real loyalty abilities ("+1: draw two"); the bare counter tweaks move down
+    // and say "counter" so they are not mistaken for the ability itself
+    const walker = isPlaneswalkerFace(f), scripted = walker && abs.some(ab => /^[+\u2212\u2013-]?\d+\s*:/.test(ab.label || ''));
+    if (walker && !scripted) {
       add('+1 loyalty', () => act(() => G.addCounter(u, 'loyalty', 1)));
       add('&minus;1 loyalty', () => act(() => G.addCounter(u, 'loyalty', -1)));
     }
-    for (const ab of abilitiesOf(u)) add(abLabel(ab), () => runAbility(u, ab));
+    for (const ab of abs) add(abLabel(ab), () => runAbility(u, ab));
+    if (scripted) {
+      add('Loyalty counter +1', () => act(() => G.addCounter(u, 'loyalty', 1)));
+      add('Loyalty counter &minus;1', () => act(() => G.addCounter(u, 'loyalty', -1)));
+    }
     add('+1/+1 counter', () => act(() => G.addCounter(u, 'p1p1', 1)));
     if ((e.counters || {}).p1p1 > 0) add('Remove +1/+1', () => act(() => G.addCounter(u, 'p1p1', -1)));
     add('Other counter +1', () => act(() => G.addCounter(u, 'other', 1)));
@@ -1729,6 +1751,31 @@ function markOracle(oracle, text) {
   const br = x => esc(x).replace(/\n/g, '<br>');
   return { found: i >= 0, html: i >= 0 ? br(o.slice(0, i)) + '<mark>' + br(o.slice(i, i + len)) + '</mark>' + br(o.slice(i + len)) : br(o) };
 }
+/** Oracle text for a pick row: mana symbols as pills, one line per paragraph. */
+function oracleInline(text) {
+  return esc(text || '').split('\n').map(l => l.replace(/\{([^}]+)\}/g, (m, t) => `<span class="sym">${t}</span>`)).join('<br>');
+}
+/** One candidate in a zone pick: art, name + cost, type + P/T, oracle text, a tick when chosen, and a full-card button. */
+function pickRowHtml(o, pk) {
+  const e = findEntry(o.id)?.entry || { uid: o.id, name: o.label };
+  const f = face(e), id = String(o.id), on = pk.chosen.has(id);
+  const im = imgOf(f, 'normal');
+  const stat = isCreatureFace(f) && f.power != null ? `${f.power}/${f.toughness}`
+    : isPlaneswalkerFace(f) && f.loyalty != null ? `Loyalty ${f.loyalty}` : '';
+  const kw = f.oracle_text ? '' : (e.tok ? 'Token' : '');
+  return `<div class="pk${on ? ' on' : ''}" data-uid="${esc(id)}">
+      <button type="button" class="pk-main" role="option" aria-selected="${on}" data-pend="zpick" data-arg="${esc(id)}">
+        ${im ? `<img class="pk-img" src="${esc(im)}" alt="" loading="lazy">` : `<span class="pk-img tokface"><span>${esc(f.name)}</span></span>`}
+        <span class="pk-txt">
+          <span class="pk-name">${esc(f.name)}${manaStringHtml(f.mana_cost)}</span>
+          <span class="pk-type">${esc(f.type_line || '')}${stat ? `<b class="pk-pt">${esc(stat)}</b>` : ''}</span>
+          ${f.oracle_text ? `<span class="pk-oracle">${oracleInline(f.oracle_text)}</span>` : kw ? `<span class="pk-oracle"><i>${kw}</i></span>` : ''}
+        </span>
+      </button>
+      <span class="pk-ok" aria-hidden="true">✓</span>
+      <button type="button" class="pk-info" data-pend="zinfo" data-arg="${esc(id)}" title="Full card" aria-label="Full card: ${esc(f.name)}">i</button>
+    </div>`;
+}
 function pendControls(p, pk) {
   const btn = (act, label, { arg = '', cls = 'btn', dis = false } = {}) =>
     `<button type="button" class="${cls}" data-pend="${act}"${arg !== '' ? ` data-arg="${esc(arg)}"` : ''}${dis ? ' disabled' : ''}>${label}</button>`;
@@ -1750,11 +1797,7 @@ function pendControls(p, pk) {
     if (pk.zone !== 'bf') {
       const opts = Array.isArray(p.options) && p.options.length ? p.options
         : ((S().zones || {})[pk.zone] || []).filter(e => pk.eligible.has(String(e.uid))).map(e => ({ id: e.uid, label: e.name }));
-      h += `<div class="pend-grid">${opts.map(o => {
-        const e = findEntry(o.id)?.entry || { uid: o.id, name: o.label };
-        const im = imgOf(face(e), 'small'), id = String(o.id);
-        return `<button type="button" class="pend-gc${pk.chosen.has(id) ? ' on' : ''}" data-pend="zpick" data-arg="${esc(id)}" title="${esc(e.name)}">${im ? `<img src="${esc(im)}" alt="${esc(e.name)}">` : `<span>${esc(e.name)}</span>`}</button>`;
-      }).join('')}</div>`;
+      h += `<div class="pend-picks" role="listbox" aria-multiselectable="${pk.n > 1}">${opts.map(o => pickRowHtml(o, pk)).join('')}</div>`;
     }
     if (!pk.eligible.size) {
       return h + `<p class="pend-note">Nothing on your side can be chosen.</p><div class="pend-row">${btn('confirm', 'Continue', { cls: 'btn primary' })}</div>`;
@@ -1771,6 +1814,35 @@ function pendControls(p, pk) {
     <div class="pend-row">${btn('done', 'Done', { cls: 'btn primary' })}</div>`;
 }
 const KICKER = { prompt: 'Trigger · do it by hand', trigger: 'Trigger', target: 'Choose a target', choice: 'Choose one', x: 'Choose X' };
+/** Update a picking panel without rebuilding its rows: same row set -> toggle selection; anything else is swapped node by node. */
+function patchPicks(card, html) {
+  const tpl = document.createElement('template');
+  tpl.innerHTML = html;
+  const next = tpl.content;
+  const oldList = card.querySelector('.pend-picks'), newList = next.querySelector('.pend-picks');
+  if (!oldList || !newList) return false;
+  const ids = l => [...l.querySelectorAll('.pk')].map(r => r.dataset.uid).join('|');
+  if (ids(oldList) !== ids(newList)) return false;
+  // rows: selection state only
+  const want = new Set([...newList.querySelectorAll('.pk.on')].map(r => r.dataset.uid));
+  oldList.querySelectorAll('.pk').forEach(r => {
+    const on = want.has(r.dataset.uid);
+    r.classList.toggle('on', on);
+    r.querySelector('.pk-main')?.setAttribute('aria-selected', String(on));
+  });
+  // everything else in the panel: replace node by node, keeping the list (and its scroll position) where it is
+  const oldKids = [...card.children], newKids = [...next.children];
+  if (oldKids.length !== newKids.length) return false;
+  oldKids.forEach((o, i) => {
+    const n = newKids[i];
+    if (o.classList.contains('pend-ctl')) {
+      const oc = [...o.children], nc = [...n.children];
+      if (oc.length !== nc.length) { o.replaceWith(n); return; }
+      oc.forEach((x, j) => { if (!x.classList.contains('pend-picks') && x.outerHTML !== nc[j].outerHTML) x.replaceWith(nc[j]); });
+    } else if (o.outerHTML !== n.outerHTML) o.replaceWith(n);
+  });
+  return true;
+}
 function renderPend(s) {
   const wrap = $('pend');
   if (!wrap) return;
@@ -1798,7 +1870,11 @@ function renderPend(s) {
   const say = pk && pk.mode === 'p1p1' ? 'Tap a creature to put a +1/+1 counter on it.'
     : pk && pk.zone === 'bf' && p.kind === 'target' ? (text || 'Tap a permanent to choose it.') : text;
   const mk = markOracle(f.oracle_text, text);
-  const body = docked ? '' : `<div class="pend-body">
+  // picking from a zone list: the candidates need the room, so the source card shrinks to its art + the instruction
+  const picking = !!(pk && pk.mode === 'target' && pk.zone !== 'bf' && p.kind === 'target' && pk.eligible.size);
+  const art = (f.img && f.img.art) || img;
+  const body = picking ? `<div class="pend-brief">${art ? `<img class="pend-art" src="${esc(art)}" alt="">` : ''}<p class="pend-say">${esc(say || 'Choose from the cards below.')}</p></div>`
+    : docked ? '' : `<div class="pend-body">
       ${img ? `<img class="pend-img" src="${esc(img)}" alt="${esc(f.name)}">` : ''}
       <div class="pend-txt">
         ${f.oracle_text && (mk.found || !text) ? `<div class="pend-oracle">${mk.html}</div>` : ''}
@@ -1824,9 +1900,15 @@ function renderPend(s) {
     wrap.appendChild(card);
     card.innerHTML = html; card._h = html;
     fx.rise(card);
-  } else if (card._h !== html) { card.innerHTML = html; card._h = html; }
+  } else if (card._h !== html) {
+    // while picking, patch in place: a full innerHTML swap would reload every card image on each tap
+    if (!(picking && card.classList.contains('picking') && patchPicks(card, html))) card.innerHTML = html;
+    card._h = html;
+  }
   card.classList.toggle('docked', docked);
+  card.classList.toggle('picking', picking);
   card.dataset.kind = p.kind || '';
+  if (!picking) hidePickPeek();
 }
 /** Resolve the top pending item, then play out what it did (draws fly in, the dummy takes hits). */
 async function answer(ans) {
@@ -1885,6 +1967,7 @@ async function pendAction(a, arg) {
     case 'xp': ui.pendX = Math.min(p.max ?? 99, ui.pendX + 1); render(); return;
     case 'x': await answer({ x: ui.pendX }); return;
     case 'zpick': pickToggle(String(arg), null); return;
+    case 'zinfo': { hidePickPeek(); const f = findEntry(arg); showOracle(f?.entry || { name: String(arg) }, f?.zone || null); return; }
     case 'confirm': {
       const pk = ui.pick;
       const uids = pk ? [...pk.chosen].map(u => (/^\d+$/.test(u) ? +u : u)) : [];
@@ -1916,6 +1999,25 @@ async function pendAction(a, arg) {
     default: return;
   }
 }
+/* ---------- pick peek: the full card, floated beside the panel while a row is hovered ---------- */
+let pickPeekEl = null;
+function showPickPeek(row) {
+  const f = findEntry(row.dataset.uid);
+  const im = imgOf(face(f?.entry || { name: '' }), 'normal');
+  if (!im) { hidePickPeek(); return; }
+  if (!pickPeekEl) { pickPeekEl = document.createElement('img'); pickPeekEl.className = 'pk-peek'; pickPeekEl.alt = ''; document.body.appendChild(pickPeekEl); }
+  const el = pickPeekEl;
+  if (el.getAttribute('src') !== im) el.src = im;
+  const card = row.closest('.pend-card');
+  const pr = (card || row).getBoundingClientRect(), rr = row.getBoundingClientRect();
+  const w = Math.min(300, Math.max(160, window.innerWidth * 0.26)), h = w * 680 / 488, gap = 14;
+  const left = pr.left - gap - w >= 4 ? pr.left - gap - w : pr.right + gap + w <= window.innerWidth - 4 ? pr.right + gap : -1;
+  if (left < 0) { hidePickPeek(); return; } // no room beside the panel (phones): the i button opens the card instead
+  const top = Math.max(6, Math.min(window.innerHeight - h - 6, rr.top + rr.height / 2 - h / 2));
+  el.style.width = w + 'px'; el.style.left = left + 'px'; el.style.top = top + 'px';
+  el.classList.add('on');
+}
+function hidePickPeek() { pickPeekEl?.classList.remove('on'); }
 function wireRules() {
   const wrap = $('pend');
   if (wrap) {
@@ -1926,6 +2028,14 @@ function wireRules() {
       pendAction(b.dataset.pend, b.dataset.arg);
       if (b.tagName === 'BUTTON') b.blur();
     });
+    // mouse only: hovering a pick row floats the full-size card beside the panel
+    wrap.addEventListener('pointerover', e => {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      const row = e.target.closest('.pk[data-uid]');
+      if (row) showPickPeek(row); else hidePickPeek();
+    });
+    wrap.addEventListener('pointerleave', hidePickPeek);
+    wrap.addEventListener('scroll', hidePickPeek, true);
   }
   let rz = 0;
   window.addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { if (pendTop()) placePend(); }, 120); });

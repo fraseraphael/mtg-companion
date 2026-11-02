@@ -463,12 +463,45 @@ body.busy .btn.primary.big { opacity: 0.7; }
 .pend-x { display: flex; align-items: center; justify-content: center; gap: 14px; }
 .pend-x b { font-family: var(--font-display); font-size: 1.8rem; min-width: 2ch; text-align: center; color: var(--acc); }
 .pend-x .btn { width: 40px; height: 40px; padding: 0; font-size: 1.2rem; border-radius: 50%; }
-.pend-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(62px, 1fr)); gap: 6px; max-height: 190px; overflow: auto; }
-.pend-gc { background: none; border: 0; padding: 0; cursor: pointer; border-radius: 6px; transition: transform 0.15s; }
-.pend-gc img { width: 100%; display: block; border-radius: 4.5% / 3.5%; }
-.pend-gc span { display: block; font-size: 0.7rem; padding: 6px 2px; background: #0006; border-radius: 6px; }
-.pend-gc.on { transform: translateY(-4px); }
-.pend-gc.on img, .pend-gc.on span { box-shadow: 0 0 0 3px var(--acc), 0 0 16px color-mix(in srgb, var(--acc) 60%, transparent); }
+/* zone picks (library / hand / graveyard): readable rows — art, name + cost, type + P/T, oracle text */
+.pend-card.picking { width: min(760px, 100%); overflow: hidden; } /* the list scrolls; the Confirm row stays in view */
+.pend-card.picking .pend-ctl { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.pend-card.picking .pend-picks { flex: 1; min-height: 96px; }
+.pend-brief { display: flex; gap: 10px; align-items: center; }
+.pend-art { width: 56px; height: 40px; flex: none; object-fit: cover; object-position: 50% 25%; border-radius: 8px; box-shadow: 0 2px 8px #000a; }
+.pend-brief .pend-say { font-size: 0.8rem; line-height: 1.35; color: var(--muted); }
+.pend-picks { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 8px; max-height: min(54vh, 480px); overflow: auto; padding: 3px; scrollbar-gutter: stable; }
+.pk { position: relative; display: flex; min-width: 0; }
+.pk-main {
+  flex: 1; min-width: 0; display: flex; gap: 10px; align-items: flex-start; text-align: left; cursor: pointer; color: var(--text); font: inherit;
+  padding: 8px 30px 8px 8px; border-radius: 10px; border: 1px solid var(--border); background: color-mix(in srgb, var(--panel2) 75%, transparent);
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s, background 0.15s;
+}
+.pk-main:hover { background: var(--hover); border-color: color-mix(in srgb, var(--acc) 55%, var(--border)); }
+.pk-main:focus-visible { outline: 2px solid var(--acc); outline-offset: 1px; }
+.pk.on .pk-main { border-color: var(--acc); background: color-mix(in srgb, var(--acc) 12%, var(--panel2)); box-shadow: 0 0 0 2px var(--acc), 0 0 18px color-mix(in srgb, var(--acc) 50%, transparent); }
+.pk-img { width: 96px; flex: none; aspect-ratio: 488 / 680; object-fit: cover; border-radius: 4.5% / 3.5%; box-shadow: 0 3px 10px #000a; background: #0006; }
+.pk-img.tokface { display: flex; align-items: center; justify-content: center; text-align: center; font-size: 0.7rem; padding: 6px; }
+.pk-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.pk-name { font-family: var(--font-display); font-weight: 700; font-size: 0.94rem; line-height: 1.2; color: var(--text); display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; }
+.pk-name .cost { font-family: var(--font-body); }
+.pk-type { font-size: 0.74rem; color: var(--muted); display: flex; flex-wrap: wrap; align-items: center; gap: 3px 8px; }
+.pk-pt { font-family: var(--font-display); font-weight: 700; font-size: 0.78rem; color: var(--text); background: var(--panel2); border: 1px solid var(--border); border-radius: 6px; padding: 0 6px; }
+.pk-oracle { font-size: 0.77rem; line-height: 1.38; color: var(--text); opacity: 0.92; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+.pk.on .pk-oracle { -webkit-line-clamp: unset; display: block; } /* the chosen card shows its whole text */
+.pk-oracle .sym { display: inline-block; min-width: 1.3em; padding: 0 3px; text-align: center; border-radius: 999px; background: #cbc6bf; color: #111; font-size: 0.74em; font-weight: 700; line-height: 1.4; }
+.pk-ok { position: absolute; top: 6px; right: 6px; width: 22px; height: 22px; border-radius: 50%; display: none; place-items: center; background: var(--acc); color: var(--acc-ink); font-weight: 700; font-size: 0.8rem; box-shadow: 0 2px 8px #000a; pointer-events: none; }
+.pk.on .pk-ok { display: grid; }
+.pk-info {
+  position: absolute; right: 6px; bottom: 6px; width: 24px; height: 24px; border-radius: 50%; cursor: pointer; padding: 0;
+  border: 1px solid var(--border); background: #0b0a10cc; color: var(--muted); font-family: var(--font-display); font-weight: 700; font-size: 0.72rem; font-style: italic; line-height: 1;
+}
+.pk-info:hover { color: var(--acc); border-color: var(--acc); }
+.pk-peek {
+  position: fixed; z-index: 8260; pointer-events: none; display: block; border-radius: 4.5% / 3.5%; opacity: 0; transition: opacity 0.12s;
+  box-shadow: 0 0 0 2px var(--acc), 0 18px 48px #000e;
+}
+.pk-peek.on { opacity: 1; }
 .pend-foot { display: flex; justify-content: space-between; gap: 8px; }
 .linkbtn { background: none; border: 0; color: var(--muted); font: inherit; font-size: 0.72rem; cursor: pointer; padding: 2px 0; text-decoration: underline dotted; }
 .linkbtn:hover { color: var(--text); }
@@ -518,6 +551,12 @@ body.busy .pend-card { pointer-events: none; opacity: 0.85; }
   .pend { padding: 6px; }
   .pend-card { padding: 10px 11px 8px; }
   .pend-img { max-width: 92px; }
+  .pend-picks { grid-template-columns: 1fr; max-height: min(50vh, 420px); gap: 6px; }
+  .pk-main { padding: 6px 28px 6px 6px; gap: 8px; }
+  .pk-img { width: 74px; }
+  .pk-name { font-size: 0.86rem; }
+  .pk-oracle { font-size: 0.72rem; -webkit-line-clamp: 4; }
+  .pend-art { width: 46px; height: 34px; }
   .card .ov .pick-q { font-size: 0.5rem; padding: 1px 5px; }
   .card .ov .kws { bottom: calc(28px + 1.4em); }
   .rib { font-size: 0.72rem; }
@@ -526,6 +565,10 @@ body.busy .pend-card { pointer-events: none; opacity: 0.85; }
   /* landscape phones: the board is too short to hold the card, so the panel centres on the screen instead */
   .pend:not(.docked) { position: fixed; left: 0; top: 0; width: 100vw; height: 100dvh; padding: 8px; z-index: 8300; }
   .pend-card { width: min(560px, 94vw); }
+  .pend-card.picking { width: min(820px, 96vw); }
+  .pend-picks { max-height: 48vh; }
+  .pk-img { width: 70px; }
+  .pk-oracle { -webkit-line-clamp: 3; }
   .pend-card:not(.docked) .pend-img { max-width: 78px; }
   .pend-oracle { font-size: 0.74rem; }
   .card .ov .kws { bottom: calc(24px + 1.3em); }
@@ -533,7 +576,7 @@ body.busy .pend-card { pointer-events: none; opacity: 0.85; }
   .rib { padding: 1px 8px 1px 2px; font-size: 0.68rem; }
   .rib img, .rib .rib-tok { height: 18px; width: 26px; }
 }
-@media (prefers-reduced-motion: reduce) { .pend-gc { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .pk-main, .pk-peek { transition: none; } }
 
 /* ================= rules round 3: player counters, playable piles, lore, no-untap ================= */
 .pctr { display: inline-flex; gap: 4px; flex-wrap: wrap; align-items: center; }
