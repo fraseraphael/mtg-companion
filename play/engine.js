@@ -148,11 +148,33 @@ function spellKind(card) {
 }
 function isPlaneswalker(card) { return !!card && /\bPlaneswalker\b/.test(typeOf(card)); }
 
-function commanderNames(game) {
-  const list = (game.deck && game.deck.list) || [];
+// Partner / Partner with / Friends forever / Background / Doctor's companion: the pair leads together.
+const PAIRS = /\b(Partner|Friends forever|Choose a Background|Doctor's companion)\b/i;
+function pairsUp(deck, name) {
+  const c = (deck.cards || {})[name] || {};
+  return (c.keywords || []).some(k => PAIRS.test(k)) || PAIRS.test(c.oracle_text || '') || /\bBackground\b/.test(c.type_line || '');
+}
+/** The deck's commander-section cards, and whether they all lead together (partners) or the player
+ *  picks one per game (a precon's face + alternate commander: Eshki / Ureni). */
+export function commanderOptions(deck) {
+  const list = (deck && deck.list) || [];
   const names = list.filter(l => /^Commander/i.test(l.section)).map(l => l.name);
-  if (!names.length && game.deck && game.deck.commander) names.push(game.deck.commander);
-  return names;
+  if (!names.length && deck && deck.commander) names.push(deck.commander);
+  const together = names.length < 2 || names.every(n => pairsUp(deck, n));
+  const def = together ? names : [names.includes(deck.commander) ? deck.commander : names[0]];
+  return { names, together, default: def };
+}
+// `want`: a name (or names) picked for this game; anything not a commander option is ignored.
+function pickCommanders(deck, want) {
+  const o = commanderOptions(deck);
+  if (o.together) return o.names;
+  const w = [].concat(want || []).filter(n => o.names.includes(n));
+  return w.length ? [w[0]] : o.default;
+}
+function commanderNames(game) {
+  const s = game.state;
+  if (s && Array.isArray(s.commanders)) return s.commanders;
+  return pickCommanders(game.deck);
 }
 export function isCommander(game, name) { return commanderNames(game).includes(name); }
 
@@ -473,7 +495,8 @@ class Game {
   _init(opts = {}, first = false) {
     const deck = this.deck;
     const seed = opts.seed;
-    const cmd = commanderNames(this);
+    // the alternate commander (not picked this game) shuffles into the 99
+    const cmd = pickCommanders(deck, opts.commander ?? (this.state && this.state.commanders));
     const prevRng = this.state ? this.state.rng : null;
     const prevLib = (opts.oppLibrary) || (this.state && this.state.opp && this.state.opp.lib) || null;
     this.state = {
@@ -485,6 +508,7 @@ class Game {
       opp: { life: 40, cmdDamage: {}, lib: prevLib ? blankOppLib(prevLib.start, prevLib.opponents ?? (Array.isArray(prevLib.n) ? prevLib.n.length : undefined), prevLib.draws) : blankOppLib() },
       pool: blankPool(),
       landPlayed: false,
+      commanders: cmd.slice(),
       cmdTax: Object.fromEntries(cmd.map(n => [n, 0])),
       zones: { lib: [], hand: [], bf: [], gy: [], ex: [], cz: [] },
       mulls: 0, owed: Math.max(0, opts.owedBottom | 0),
@@ -538,6 +562,7 @@ class Game {
       if (!Array.isArray(st.pending)) st.pending = [];
       if (!st.pendSeq) st.pendSeq = 1;
       if (!st.costLess) st.costLess = {};
+      if (!Array.isArray(st.commanders)) st.commanders = Object.keys(st.cmdTax || {}).length ? Object.keys(st.cmdTax) : pickCommanders(this.deck);
       if (st.landLimit == null) { st.landLimit = 1; st.landsPlayed = st.landPlayed ? 1 : 0; }
       if (st.drawsThisTurn == null) st.drawsThisTurn = 0;
       if (st.ringTempted == null) st.ringTempted = 0;
@@ -561,7 +586,7 @@ class Game {
     return { ok: true };
   }
   restart(opts = {}) {
-    this._snap(); // a mis-clicked "New game" can be undone
+    if (opts.noUndo) this.undoStack = []; else this._snap(); // a mis-clicked "New game" can be undone
     this._init({ onThePlay: this.state.onThePlay, ...opts });
     return { ok: true };
   }

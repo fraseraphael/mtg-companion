@@ -163,7 +163,7 @@ export function boot(deck) {
   if (backBtn && deck.slug) backBtn.href = '../app.html#/deck/' + encodeURIComponent(deck.slug);
   const handed = handFromUrl(deck);
   G = E.createGame(deck, handed || {});
-  if (!handed) restore(); // a hand from the URL (Practice → "Play it out") always starts a fresh game
+  const resumed = !handed && restore(); // a hand from the URL (Practice → "Play it out") always starts a fresh game
   ui.prevWon = !!S().won;
   if (typeof G.on === 'function') G.on('turnStart', pl => { ui.extraTurn = !!(pl && pl.extra); });
   if (typeof G.on === 'function') G.on('oppMilled', onOppMilled);
@@ -181,6 +181,14 @@ export function boot(deck) {
     fx.banner(`Turn ${s.turn}`, { sub: s.turn === 1 && s.onThePlay !== false && isMain(s.phase) && s.phase === 'main1' ? 'On the play — no draw' : (LABEL[s.phase] || {}).full || '' });
   });
   loadRules();
+  // a brand-new game of a two-commander deck: ask who leads (the dealt game is replaced, not undoable)
+  if (!resumed && !handed && cmdrChoice()) chooseCommander(n => {
+    if (!n || (S().commanders || [])[0] === n) return;
+    closeWin(); ui.atk.clear(); ui.pendingDraw.clear();
+    const r = call(() => G.restart({ commander: n, noUndo: true }));
+    if (r.ok === false) { hint(reasonText(r)); return; }
+    ui.pick = null; ui.pendId = null; attachRulesLayer(); ui.prevWon = false; render();
+  }, { cancel: false });
 }
 /** ?hand=<name>|<name>|…&owed=<n>: the exact opening hand handed over by the mulligan trainer. */
 function handFromUrl(deck) {
@@ -206,10 +214,12 @@ function restore() {
     if (!parsed || parsed.deck !== DECK.slug || !parsed.zones) return;
     const r = G.load(saved);
     if (r && r.ok === false) throw new Error(r.reason);
+    return true;
   } catch (err) {
     console.warn('Saved game ignored:', err);
     G = E.createGame(DECK, {});
   }
+  return false;
 }
 
 /* ================= static scaffolding ================= */
@@ -1139,19 +1149,37 @@ function undo() {
   ui.prevWon = !!S().won; // undoing out of a win and back in should celebrate again, not on every undo
   render();
 }
-function newGame(ask = true) {
+/* A face + alternate commander deck (Eshki / Ureni): pick who leads this game; the other goes in the 99.
+   Partners (Frodo + Sam) always start together, so they never ask. */
+const CMDR_KEY = () => 'mf-play-cmdr:' + (DECK.slug || 'deck');
+function cmdrChoice() { const o = safe(() => E.commanderOptions(DECK), null); return o && !o.together && o.names.length > 1 ? o : null; }
+function chooseCommander(then, { cancel = true } = {}) {
+  const o = cmdrChoice();
+  if (!o) { then(undefined); return; }
+  let last = null;
+  try { last = localStorage.getItem(CMDR_KEY()); } catch (_) { /* ok */ }
+  const cur = o.names.includes(last) ? last : o.default[0];
+  const pick = n => { try { localStorage.setItem(CMDR_KEY(), n); } catch (_) { /* ok */ } then(n); };
+  openSheet({
+    title: 'Who leads this game?',
+    body: `<p class="sheet-text">${esc(DECK.name)} has two commanders. The one you pick starts in the command zone; the other is shuffled into your library.</p>`,
+    buttons: [...o.names.map(n => ({ label: esc(n), primary: n === cur, fn: () => pick(n) })), ...(cancel ? [{ label: 'Cancel', fn: null }] : [])],
+  });
+}
+function newGame(ask = true, commander) {
+  if (ask && commander === undefined && cmdrChoice()) { chooseCommander(n => newGame(false, n)); return; }
   const go = () => {
     closeWin();
     ui.atk.clear(); ui.pendingDraw.clear();
-    const r = call(() => G.restart({}));
+    const r = call(() => G.restart(commander ? { commander } : {}));
     if (r.ok === false) { hint(reasonText(r)); return; }
     ui.pick = null; ui.pendId = null;
     attachRulesLayer(); // fresh game, fresh listeners
     ui.prevWon = false;
     render();
-    fx.banner('Turn 1', { sub: 'On the play — no draw' });
+    fx.banner('Turn 1', { sub: commander ? `${String(commander).split(',')[0]} leads · on the play` : 'On the play — no draw' });
   };
-  if (!ask) { go(); return; }
+  if (!ask || commander) { go(); return; }
   confirmSheet('New game?', `Shuffle up a fresh game of ${DECK.name}? (Undo can bring this one back.)`, 'New game', go);
 }
 
@@ -1446,7 +1474,7 @@ async function loadRules() {
   }
   RULES_MOD = mod; BUNDLE = bundle || {};
   attachRulesLayer();
-  if (safe(() => new URLSearchParams(location.search).has('debug'), false)) window.__mf = { game: () => G, rules: () => RULES, render, bundle: () => BUNDLE, play: (uid, o) => playCard(uid, o), menu: uid => openCardMenu(uid), reattach: () => { attachRulesLayer(); render(); } };
+  if (safe(() => new URLSearchParams(location.search).has('debug'), false)) window.__mf = { game: () => G, rules: () => RULES, render, bundle: () => BUNDLE, play: (uid, o) => playCard(uid, o), menu: uid => openCardMenu(uid), newGame: () => newGame(true), reattach: () => { attachRulesLayer(); render(); } };
   render();
 }
 function attachRulesLayer() {
