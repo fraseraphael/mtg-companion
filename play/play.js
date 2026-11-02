@@ -181,14 +181,19 @@ export function boot(deck) {
     fx.banner(`Turn ${s.turn}`, { sub: s.turn === 1 && s.onThePlay !== false && isMain(s.phase) && s.phase === 'main1' ? 'On the play — no draw' : (LABEL[s.phase] || {}).full || '' });
   });
   loadRules();
-  // a brand-new game of a two-commander deck: ask who leads (the dealt game is replaced, not undoable)
-  if (!resumed && !handed && cmdrChoice()) chooseCommander(n => {
-    if (!n || (S().commanders || [])[0] === n) return;
-    closeWin(); ui.atk.clear(); ui.pendingDraw.clear();
-    const r = call(() => G.restart({ commander: n, noUndo: true }));
-    if (r.ok === false) { hint(reasonText(r)); return; }
-    ui.pick = null; ui.pendId = null; attachRulesLayer(); ui.prevWon = false; render();
-  }, { cancel: false });
+  // opening the table on a two-commander deck always asks who leads. A saved game in progress can be
+  // resumed from the same sheet; picking a commander deals a new game (undoable when one was in progress).
+  if (!handed && cmdrChoice()) {
+    const s0 = S(), lead = String((s0.commanders || [])[0] || '').split(',')[0];
+    chooseCommander(n => {
+      if (!n) return;
+      closeWin(); ui.atk.clear(); ui.pendingDraw.clear();
+      const r = call(() => G.restart({ commander: n, noUndo: !resumed }));
+      if (r.ok === false) { hint(reasonText(r)); return; }
+      ui.pick = null; ui.pendId = null; attachRulesLayer(); ui.prevWon = false; render();
+      fx.banner('Turn 1', { sub: `${String(n).split(',')[0]} leads · on the play` });
+    }, { cancel: false, resume: resumed ? `Resume game (turn ${s0.turn}${lead ? `, ${lead} leads` : ''})` : null });
+  }
 }
 /** ?hand=<name>|<name>|…&owed=<n>: the exact opening hand handed over by the mulligan trainer. */
 function handFromUrl(deck) {
@@ -1153,7 +1158,7 @@ function undo() {
    Partners (Frodo + Sam) always start together, so they never ask. */
 const CMDR_KEY = () => 'mf-play-cmdr:' + (DECK.slug || 'deck');
 function cmdrChoice() { const o = safe(() => E.commanderOptions(DECK), null); return o && !o.together && o.names.length > 1 ? o : null; }
-function chooseCommander(then, { cancel = true } = {}) {
+function chooseCommander(then, { cancel = true, resume = null } = {}) {
   const o = cmdrChoice();
   if (!o) { then(undefined); return; }
   let last = null;
@@ -1162,8 +1167,8 @@ function chooseCommander(then, { cancel = true } = {}) {
   const pick = n => { try { localStorage.setItem(CMDR_KEY(), n); } catch (_) { /* ok */ } then(n); };
   openSheet({
     title: 'Who leads this game?',
-    body: `<p class="sheet-text">${esc(DECK.name)} has two commanders. The one you pick starts in the command zone; the other is shuffled into your library.</p>`,
-    buttons: [...o.names.map(n => ({ label: esc(n), primary: n === cur, fn: () => pick(n) })), ...(cancel ? [{ label: 'Cancel', fn: null }] : [])],
+    body: `<p class="sheet-text">${esc(DECK.name)} has two commanders. The one you pick starts in the command zone; the other is shuffled into your library.${resume ? ' Picking one starts a new game.' : ''}</p>`,
+    buttons: [...(resume ? [{ label: esc(resume), primary: true, fn: null }] : []), ...o.names.map(n => ({ label: esc(n), primary: !resume && n === cur, fn: () => pick(n) })), ...(cancel ? [{ label: 'Cancel', fn: null }] : [])],
   });
 }
 function newGame(ask = true, commander) {
