@@ -970,6 +970,7 @@ export function attachRules(game, bundle = {}) {
     const p = { id: newId(), kind: spec.kind, card: frame.card };
     if (frame.src != null) p.perm = frame.src;
     p.text = spec.text || frame.text || frame.card;
+    if (frame.again) { p.again = frame.again; if (!/\(again — /.test(p.text)) p.text += ` (again — ${frame.again})`; }
     if (frame.text) p.trigger = frame.text;
     for (const k of ['options', 'filter', 'n', 'optional', 'zone', 'auto', 'store']) if (spec[k] !== undefined) p[k] = spec[k];
     p.resumeWith = { frame: clone(frame) };
@@ -1009,7 +1010,7 @@ export function attachRules(game, bundle = {}) {
           break;
         }
         const frame = clone(top.resumeWith.frame);
-        doBatch(top.card, () => { removePending(top.id); runFrame(frame, undefined, 0); });
+        doBatch(frame.again ? `${top.card} (again — ${frame.again})` : top.card, () => { removePending(top.id); runFrame(frame, undefined, 0); });
         finishBatch(top.card, top.perm);
       }
     } finally { processing = false; }
@@ -2070,7 +2071,9 @@ export function attachRules(game, bundle = {}) {
           for (let j = 0; j <= again; j++) {
             const ops = tr.cost ? [{ pay: clone(tr.cost) }, ...clone(tr.do)] : clone(tr.do);
             const text = tr.text || dTrigger(tr, srcEntry.name);
-            out.push({ frame: { card: srcEntry.name, src: srcUid, text: j ? `${text} (again — ${extraSourceName(srcEntry)})` : text, ctx: { ...ctx }, ops }, optional: !!tr.optional && !tr.cost, last: tr.order === 'last' });
+            const frame = { card: srcEntry.name, src: srcUid, text: j ? `${text} (again — ${extraSourceName(srcEntry)})` : text, ctx: { ...ctx }, ops };
+            if (j) frame.again = extraSourceName(srcEntry);
+            out.push({ frame, optional: !!tr.optional && !tr.cost, last: tr.order === 'last' });
           }
         }
       };
