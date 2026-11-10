@@ -2339,7 +2339,8 @@ export function attachRules(game, bundle = {}) {
   }
   // An ability whose whole effect is one gated `check` (a Way of the Pyromancer "[+1]: Add {R}" granted to every
   // planeswalker) is only offered, and only runs, while its gate holds — otherwise it would be a button that does nothing.
-  const abilityGate = ab => (Array.isArray(ab.do) && ab.do.length === 1 && ab.do[0] && ab.do[0].check && ab.do[0].check.if) ? ab.do[0].check.if : null;
+  // A check WITH an `else` is not a gate: the ability always does something (Fabled Passage: untapped with four lands, else tapped).
+  const abilityGate = ab => (Array.isArray(ab.do) && ab.do.length === 1 && ab.do[0] && ab.do[0].check && ab.do[0].check.if && !(ab.do[0].check.else && ab.do[0].check.else.length)) ? ab.do[0].check.if : null;
   const gateName = g => (g && g.youControl && g.youControl.name) ? String(g.youControl.name) : 'its condition';
   // A planeswalker's loyalty ability: pays loyalty (minus), puts loyalty on itself first (plus), or is labelled "0: …".
   // Rule 606.3: one loyalty ability per planeswalker per turn.

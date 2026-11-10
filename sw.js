@@ -1,5 +1,5 @@
 
-const C = 'mtgc-v3';  // bump when play/ changes in a way a stale cached copy would break (v3: Katara trigger doubling)
+const C = 'mtgc-v4';  // bump when play/ changes in a way a stale cached copy would break (v3: Katara trigger doubling, v4: Fabled Passage gate fix)
 self.addEventListener('install', e => self.skipWaiting());
 self.addEventListener('activate', e => e.waitUntil((async () => {
   for (const k of await caches.keys()) if (k !== C) await caches.delete(k);
