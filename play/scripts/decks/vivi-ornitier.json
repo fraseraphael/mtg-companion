@@ -764,7 +764,20 @@
  },
  "Harmonic Prodigy": {
   "name": "Harmonic Prodigy",
-  "notes": "Not modelled: trigger doubling (\"triggers an additional time\") for Shamans and Wizards; resolve those triggers twice yourself.",
+  "notes": "Trigger doubling via replace 'triggered' (added 2026-11-10): triggers of your other Shamans and Wizards fire twice. (Its own prowess is not doubled — it is a Wizard but not 'another'.)",
+  "replace": [
+   {
+    "add": 1,
+    "event": "triggered",
+    "filter": {
+     "other": true,
+     "subtype": [
+      "Shaman",
+      "Wizard"
+     ]
+    }
+   }
+  ],
   "source": "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)\nIf a triggered ability of a Shaman or another Wizard you control triggers, that ability triggers an additional time.",
   "status": "hand",
   "triggers": [

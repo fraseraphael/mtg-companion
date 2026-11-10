@@ -273,6 +273,12 @@ export function attachRules(game, bundle = {}) {
       case 'creature-cards-in-graveyard': return s.zones.gy.filter(c => isCreature(cardOf(game, c.name))).length;
       case 'land-cards-in-graveyard': return s.zones.gy.filter(c => isLand(cardOf(game, c.name))).length;
       case 'counters-on-self': return src ? (src.counters.p1p1 || 0) : 0;
+      case 'counters-on-lands': return bf().filter(p => isLand(permCard(game, p))).reduce((t, p) => t + (p.counters.p1p1 || 0) * stackN(p), 0);
+      case 'largest-creature-type-group': { // "the greatest number of creatures you control that have a creature type in common"
+        const by = {};
+        for (const p of creatures) { const ts = creatureTypes(p); if (Array.isArray(ts)) for (const t of new Set(ts)) by[t] = (by[t] || 0) + stackN(p); }
+        return Object.values(by).reduce((m, n) => Math.max(m, n), 0);
+      }
       case 'power-of-self': return src ? Math.max(0, power(game, src)) : 0;
       case 'toughness-of-self': return src ? Math.max(0, toughness(game, src)) : 0;
       case 'counters-on-triggering': {
@@ -758,6 +764,7 @@ export function attachRules(game, bundle = {}) {
       case 'ringTempt': return 'the Ring tempts you';
       case 'earthbend': return `earthbend ${dCount(a.n ?? 1)}${a.target && a.target !== 'land-you-control' ? ` (${dTarget(a.target, name)})` : ''}`;
       case 'airbend': return `airbend ${dTarget(a.target, name)}`;
+      case 'flicker': return `exile ${dTarget(a.target, name)}, then return it to the battlefield`;
       case 'firebend': return `add ${isNum(a) ? '{R}'.repeat(Math.max(0, a)) || 'no mana' : `{R} for each of ${dCount(a)}`} (firebending)`;
       case 'waterbend': return `waterbend ${a}`;
       case 'lookTop': {
@@ -928,6 +935,7 @@ export function attachRules(game, bundle = {}) {
     for (const r of sc.replace || []) {
       const what = r.event === 'tokenCreated' ? (r.becomeAll ? `If you would create ${(r.namesIn || []).join(', ')} tokens, create one of each instead` : `If you would create ${r.filter ? article(dFilter({ ...r.filter }, { noun: 'token' })) : 'tokens'}, create ${r.multiply ? (r.multiply === 2 ? 'twice that many' : `${r.multiply} times that many`) : ''}${r.add ? `that many plus ${r.add}` : ''} instead`)
         : r.event === 'countersPlaced' ? `If ${r.kind === 'p1p1' ? '+1/+1' : r.kind || 'any'} counters would be put on ${r.filter ? article(dFilter(r.filter)) : 'a permanent you control'}, ${r.multiply ? (r.multiply === 2 ? 'twice that many' : `${r.multiply} times that many`) : ''}${r.add ? `that many plus ${r.add}` : ''} are put on it instead`
+        : r.event === 'triggered' ? `If a triggered ability of ${r.filter ? article(dFilter(r.filter)) : 'a permanent'} you control triggers, that ability triggers ${r.add === 1 ? 'an additional time' : `${r.add} additional times`}`
         : `If ${r.filter ? article(dFilter(r.filter)) + ' source' : 'a source you control'} would deal damage to the opponent, it deals ${r.add ? `that much plus ${r.add}` : ''}${r.multiply ? `${r.multiply} times that much` : ''} instead`;
       lines.push(what + '.');
     }
@@ -1558,10 +1566,27 @@ export function attachRules(game, bundle = {}) {
         return r;
       }
       case 'airbend': {
-        const r = onTargets(a.target, frame, answer, op, u => { const nm = onBf(u).name; game.move(u, 'ex'); game.note(`${nm} may be cast from exile for {2} (by hand).`); });
+        // the owner may cast it from exile for {2} rather than its mana cost (altCostFor reads S().airbent)
+        const r = onTargets(a.target, frame, answer, op, u => {
+          const p = onBf(u), nm = p.name, tok = !!p.tok;
+          game.move(u, 'ex');
+          if (tok || !S().zones.ex.some(c => c.uid === u)) return;
+          (S().airbent ||= {})[u] = true;
+          game.grantPlayable(u, { until: null });
+          game.note(`${nm} may be cast from exile for {2}.`);
+        });
         if (!r.block) bent('air', 0);
         return r;
       }
+      case 'flicker': // exile, then return under your control: a new object, so its enters triggers fire again
+        return onTargets(a.target, frame, answer, op, u => {
+          const p = onBf(u);
+          if (!p) return;
+          const nm = p.name, tok = !!p.tok;
+          game.move(u, 'ex');
+          if (tok || !S().zones.ex.some(c => c.uid === u)) { game.note(`${nm} was a token and stays gone.`); return; }
+          game.move(u, 'bf');
+        });
       case 'firebend': { const n = N(a); if (n > 0) game.addMana('R', n); bent('fire', n); return {}; }
       case 'waterbend': {
         if (!canWaterbend(a, frame.src)) { game.note(`Could not waterbend ${a}.`); return {}; }
@@ -2008,6 +2033,15 @@ export function attachRules(game, bundle = {}) {
     }
   }
 
+  // replace: [{ event: "triggered", filter, add }] — a matching permanent's triggered abilities trigger `add` more times
+  function triggerReps(entry) {
+    return activeReplacements('triggered').filter(({ src, r }) => r.add && matchFilter(entry, r.filter, { src: src.uid }));
+  }
+  function triggerExtra(entry) {
+    try { return Math.min(MAX_REPEAT, triggerReps(entry).reduce((n, { r }) => n + r.add, 0)); } catch (e) { return 0; }
+  }
+  function extraSourceName(entry) { const r = triggerReps(entry); return r.length ? r[0].src.name : 'triggers again'; }
+
   function limitKey(srcKey, kind, idx) { return `${srcKey}:${kind}${idx}`; }
   function limitOk(key) { const l = S().ruleLimits || {}; return l[key] !== S().turn; }
   function markLimit(key) { (S().ruleLimits ||= {})[key] = S().turn; }
@@ -2028,11 +2062,16 @@ export function attachRules(game, bundle = {}) {
       const fire = (extra, times = 1) => {
         const ctx = { ...baseCtx, ...extra };
         if (tr.if && !evalIf(tr.if, ctx)) return;
+        // Katara, the Fearless: "that ability triggers an additional time" — each instance is its own frame
+        const again = zone === 'bf' && srcUid != null ? triggerExtra(srcEntry) : 0;
         for (let i = 0; i < times; i++) {
           const key = limitKey(srcUid ?? srcEntry.name, 't', idx);
           if (tr.limit === 'once-per-turn') { if (!limitOk(key)) return; markLimit(key); }
-          const ops = tr.cost ? [{ pay: clone(tr.cost) }, ...clone(tr.do)] : clone(tr.do);
-          out.push({ frame: { card: srcEntry.name, src: srcUid, text: tr.text || dTrigger(tr, srcEntry.name), ctx, ops }, optional: !!tr.optional && !tr.cost, last: tr.order === 'last' });
+          for (let j = 0; j <= again; j++) {
+            const ops = tr.cost ? [{ pay: clone(tr.cost) }, ...clone(tr.do)] : clone(tr.do);
+            const text = tr.text || dTrigger(tr, srcEntry.name);
+            out.push({ frame: { card: srcEntry.name, src: srcUid, text: j ? `${text} (again — ${extraSourceName(srcEntry)})` : text, ctx: { ...ctx }, ops }, optional: !!tr.optional && !tr.cost, last: tr.order === 'last' });
+          }
         }
       };
       if (on === 'expend') {
@@ -2184,6 +2223,7 @@ export function attachRules(game, bundle = {}) {
       try { if (permission('entersUntapped', payload.perm)) game.untapPerm(payload.perm.uid); } catch (e) { /* ignore */ }
     }
     if (!processing) cascade = 0; // an engine action the player took, not a rules effect
+    if (ev === 'cast' && payload && payload.card && S().airbent) delete S().airbent[payload.card.uid];
     if ((ev === 'dies') && payload && payload.perm && runningFrame) {
       runningFrame.ctx = runningFrame.ctx || {};
       try { runningFrame.ctx.lastDied = lki(payload.perm); } catch (e) { /* ignore */ }
@@ -2499,6 +2539,7 @@ export function attachRules(game, bundle = {}) {
     return false;
   }
   function altCostFor(entry) {
+    if (S().airbent && S().airbent[entry.uid] && S().zones.ex.some(c => c.uid === entry.uid)) return { cost: '{2}' };
     const sc = scriptFor(entry.name);
     for (const a of list(sc && sc.altCost)) {
       if (!a) continue;

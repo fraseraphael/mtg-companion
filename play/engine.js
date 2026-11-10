@@ -804,6 +804,18 @@ class Game {
   // pay:false casts without touching mana. x: value for {X}.
   // Emits: tapped (payment) -> cast {card, kind, x, from} -> enters (permanent) | resolved (instant/sorcery).
   // `x` is passed through in the payload as given (undefined when the caller did not say).
+  // The cost a spell would be cast for right now: its mana cost, or an alternative cost (airbend's {2}, Fierce
+  // Guardianship's free cast…) when one applies and is no more expensive. The UI uses this to judge affordability.
+  effectiveCost(entry) {
+    const cost = castCost(this, entry.name);
+    if (!cost || !this.hooks.altCost) return cost;
+    const alt = this.hooks.altCost(entry);
+    if (!alt) return cost;
+    const total = c => c.generic + c.pips.length;
+    const altCost = alt.free ? { generic: 0, pips: [], x: 0 } : normCost(alt.cost);
+    return total(altCost) <= total(cost) ? altCost : cost;
+  }
+
   cast(uid, { force = false, pay = true, x } = {}) {
     const s = this.state;
     let f = this._find(uid, 'hand');

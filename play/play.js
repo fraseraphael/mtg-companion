@@ -514,7 +514,7 @@ function affordable(c, s) {
   if (s.owed > 0 || s.phase === 'cleanup') return false;
   if (isLandOnly(f)) return isMain(s.phase) && !s.landPlayed;
   if (!isInstantSpeed(f) && !isMain(s.phase)) return false;
-  const cost = safe(() => E.castCost(G, c.name), null);
+  const cost = safe(() => (G.effectiveCost ? G.effectiveCost(c) : E.castCost(G, c.name)), null);
   return !!cost && safe(() => G.autoPay(cost).ok, false);
 }
 function renderHand(s, wanted) {
@@ -816,7 +816,7 @@ async function playCard(uid, { force = false, x = null, src = null } = {}) {
     } finally { setBusy(false); render(); }
   }
 
-  const cost = safe(() => E.castCost(G, c.name), null);
+  const cost = safe(() => (G.effectiveCost ? G.effectiveCost(c) : E.castCost(G, c.name)), null);
   if (!cost) { hint('No card data for ' + c.name); return false; }
   if (cost.x > 0 && x == null && !force) { askX(c.uid, c.name, force); return false; }
   if (!force && !isInstantSpeed(fc) && !isMain(s.phase)) { fx.shake(el); hint(`${c.name} needs a main phase`); return false; }
@@ -1218,7 +1218,7 @@ function openCardMenu(uid) {
       add('Play land', () => playCard(u));
       if (s.landPlayed || !isMain(s.phase)) add('Play anyway', () => playCard(u, { force: true }));
     } else {
-      const cost = safe(() => E.castCost(G, e.name), null);
+      const cost = safe(() => (G.effectiveCost ? G.effectiveCost(e) : E.castCost(G, e.name)), null);
       const plan = cost ? safe(() => G.autoPay(cost), null) : null;
       add(`Cast ${costHtml(cost)}${plan && !plan.ok ? ` <small class="short">short ${plan.short}</small>` : ''}`, () => playCard(u));
       add('Cast anyway', () => playCard(u, { force: true, x: cost && cost.x ? null : undefined }));

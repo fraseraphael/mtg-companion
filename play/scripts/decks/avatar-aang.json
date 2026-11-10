@@ -207,8 +207,9 @@
  },
  "Airbender Ascension": {
   "name": "Airbender Ascension",
+  "notes": "Airbending a creature targets only yours (the dummy has none). Blinking an Ally with Katara out re-fires its doubled enters triggers.",
   "source": "When this enchantment enters, airbend up to one target creature.\nWhenever a creature you control enters, put a quest counter on this enchantment.\nAt the beginning of your end step, if this enchantment has four or more quest counters on it, exile up to one target creature you control, then return it to the battlefield under its owner's control.",
-  "status": "auto",
+  "status": "hand",
   "triggers": [
    {
     "do": [
@@ -247,7 +248,16 @@
    {
     "do": [
      {
-      "prompt": "Exile up to one target creature you control, then return it to the battlefield under its owner's control."
+      "flicker": {
+       "target": {
+        "n": 1,
+        "optional": true,
+        "pick": {
+         "creature": true,
+         "nontoken": true
+        }
+       }
+      }
      }
     ],
     "if": {
@@ -2316,7 +2326,16 @@
  },
  "Katara, the Fearless": {
   "name": "Katara, the Fearless",
-  "notes": "Not modelled: trigger doubling (\"triggers an additional time\") has no script form; resolve Ally triggers twice yourself.",
+  "notes": "Each extra instance is its own trigger (own targets/choices), per the Scryfall rulings. Two Kataras = three times (add stacks). Replacement effects (enters-with-counters) are not doubled. A once-each-turn trigger (Suki, Courageous Rescuer) triggers once, then Katara adds its extra instance.",
+  "replace": [
+   {
+    "add": 1,
+    "event": "triggered",
+    "filter": {
+     "subtype": "Ally"
+    }
+   }
+  ],
   "source": "If a triggered ability of an Ally you control triggers, that ability triggers an additional time.",
   "status": "hand"
  },
