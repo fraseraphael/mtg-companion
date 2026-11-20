@@ -600,44 +600,6 @@
   ],
   "status": "hand"
  },
- "Barrels of Blasting Jelly": {
-  "activated": [
-   {
-    "cost": {
-     "mana": "{1}"
-    },
-    "do": [
-     {
-      "addMana": "{any}"
-     }
-    ],
-    "label": "{1}: any colour",
-    "limit": "once-per-turn",
-    "text": "{1}: Add one mana of any color. Activate only once each turn."
-   },
-   {
-    "cost": {
-     "mana": "{5}",
-     "sacSelf": true,
-     "tap": true
-    },
-    "do": [
-     {
-      "damage": {
-       "n": 5,
-       "target": "opponent"
-      }
-     }
-    ],
-    "label": "5 damage",
-    "text": "{5}, {T}, Sacrifice this artifact: It deals 5 damage to target creature."
-   }
-  ],
-  "name": "Barrels of Blasting Jelly",
-  "notes": "The damage ability can only hit an opponent's creature; the dummy has none, so it does nothing here.",
-  "source": "{1}: Add one mana of any color. Activate only once each turn.\n{5}, {T}, Sacrifice this artifact: It deals 5 damage to target creature.",
-  "status": "hand"
- },
  "Bender's Waterskin": {
   "name": "Bender's Waterskin",
   "notes": "Untapping during other players' untap steps never happens in goldfish (every turn is yours); the mana ability is the engine's. Silent on purpose.",
@@ -902,6 +864,29 @@
     "text": "Whenever a creature you control with power 3 or greater enters, draw a card."
    }
   ]
+ },
+ "Enter the Avatar State": {
+  "name": "Enter the Avatar State",
+  "notes": "The 'becomes an Avatar' type change is not modelled; nothing in the Katara deck counts Avatars.",
+  "source": "Until end of turn, target creature you control becomes an Avatar in addition to its other types and gains flying, first strike, lifelink, and hexproof. (A creature with hexproof can't be the target of spells or abilities your opponents control.)",
+  "spell": [
+   {
+    "grant": {
+     "kw": [
+      "Flying",
+      "First strike",
+      "Lifelink",
+      "Hexproof"
+     ],
+     "target": {
+      "pick": {
+       "creature": true
+      }
+     }
+    }
+   }
+  ],
+  "status": "hand"
  },
  "Fabled Passage": {
   "activated": [

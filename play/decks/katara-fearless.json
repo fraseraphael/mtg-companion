@@ -239,6 +239,11 @@
    "name": "Zuko's Exile"
   },
   {
+   "section": "Instants",
+   "n": 1,
+   "name": "Enter the Avatar State"
+  },
+  {
    "section": "Sorceries",
    "n": 1,
    "name": "Waterbending Lesson"
@@ -327,11 +332,6 @@
    "section": "Artifacts",
    "n": 1,
    "name": "Swiftfoot Boots"
-  },
-  {
-   "section": "Artifacts",
-   "n": 1,
-   "name": "Barrels of Blasting Jelly"
   },
   {
    "section": "Artifacts",
@@ -671,33 +671,6 @@
    },
    "printing": "tla/365"
   },
-  "Barrels of Blasting Jelly": {
-   "name": "Barrels of Blasting Jelly",
-   "id": "4fd83083-3779-41f0-90a0-a00e3270e4e6",
-   "set": "tla",
-   "cn": "254",
-   "mana_cost": "{1}",
-   "cmc": 1.0,
-   "type_line": "Artifact",
-   "oracle_text": "{1}: Add one mana of any color. Activate only once each turn.\n{5}, {T}, Sacrifice this artifact: It deals 5 damage to target creature.",
-   "colors": [],
-   "color_identity": [],
-   "keywords": [],
-   "produced_mana": [
-    "B",
-    "G",
-    "R",
-    "U",
-    "W"
-   ],
-   "legendary": false,
-   "img": {
-    "small": "https://cards.scryfall.io/small/front/4/f/4fd83083-3779-41f0-90a0-a00e3270e4e6.jpg?1783904915",
-    "normal": "https://cards.scryfall.io/normal/front/4/f/4fd83083-3779-41f0-90a0-a00e3270e4e6.jpg?1783904915",
-    "art": "https://cards.scryfall.io/art_crop/front/4/f/4fd83083-3779-41f0-90a0-a00e3270e4e6.jpg?1783904915"
-   },
-   "printing": "tla/254"
-  },
   "Bender's Waterskin": {
    "name": "Bender's Waterskin",
    "id": "6d4a1712-d19e-4475-9614-a0b1af4da610",
@@ -917,6 +890,31 @@
     "normal": "https://cards.scryfall.io/normal/front/8/e/8efbc925-54ac-4dda-82af-9091b1cf2fda.jpg?1783907049",
     "art": "https://cards.scryfall.io/art_crop/front/8/e/8efbc925-54ac-4dda-82af-9091b1cf2fda.jpg?1783907049"
    }
+  },
+  "Enter the Avatar State": {
+   "name": "Enter the Avatar State",
+   "id": "a8f3d2cb-d073-4df8-8769-49612628a377",
+   "set": "tla",
+   "cn": "18",
+   "mana_cost": "{W}",
+   "cmc": 1.0,
+   "type_line": "Instant — Lesson",
+   "oracle_text": "Until end of turn, target creature you control becomes an Avatar in addition to its other types and gains flying, first strike, lifelink, and hexproof. (A creature with hexproof can't be the target of spells or abilities your opponents control.)",
+   "colors": [
+    "W"
+   ],
+   "color_identity": [
+    "W"
+   ],
+   "keywords": [],
+   "produced_mana": [],
+   "legendary": false,
+   "img": {
+    "small": "https://cards.scryfall.io/small/front/a/8/a8f3d2cb-d073-4df8-8769-49612628a377.jpg?1783905001",
+    "normal": "https://cards.scryfall.io/normal/front/a/8/a8f3d2cb-d073-4df8-8769-49612628a377.jpg?1783905001",
+    "art": "https://cards.scryfall.io/art_crop/front/a/8/a8f3d2cb-d073-4df8-8769-49612628a377.jpg?1783905001"
+   },
+   "printing": "tla/18"
   },
   "Fabled Passage": {
    "name": "Fabled Passage",
